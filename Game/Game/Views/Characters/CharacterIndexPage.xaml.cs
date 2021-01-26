@@ -41,8 +41,16 @@ namespace Game.Views.Characters
 			// await Navigation.PushModalAsync(new NavigationPage(new CharacterCreatePage()));
 		}
 
+		/// <summary>
+		/// Read a Character from list
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		public async void ReadItem_Clicked(object sender, EventArgs e)
 		{
+			//TODO: logic to open Character page depending on character id
+
+			//TODO: used for now to link to Read.
 			await Navigation.PushModalAsync(new NavigationPage(new CharacterReadPage(viewModel)));
 		}
 	}
