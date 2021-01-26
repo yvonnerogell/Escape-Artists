@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+using Game.ViewModels;
+using Game.Models;
+
 namespace Game.Views.Characters
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
@@ -14,7 +17,7 @@ namespace Game.Views.Characters
 	{
 
 		// The view model, used for data binding
-		// readonly GenericViewModel<ItemModel> viewModel;
+		readonly GenericViewModel<ItemModel> viewModel;
 
 		// Empty Constructor for UTs
 		public CharacterIndexPage(bool UnitTest) { }
@@ -24,7 +27,7 @@ namespace Game.Views.Characters
 		{
 			InitializeComponent();
 
-			// BindingContext = viewModel;
+			BindingContext = viewModel;
 
 		}
 
@@ -36,6 +39,11 @@ namespace Game.Views.Characters
 		public async void AddItem_Clicked(object sender, EventArgs e)
 		{
 			// await Navigation.PushModalAsync(new NavigationPage(new CharacterCreatePage()));
+		}
+
+		public async void ReadItem_Clicked(object sender, EventArgs e)
+		{
+			await Navigation.PushModalAsync(new NavigationPage(new CharacterReadPage(viewModel)));
 		}
 	}
 }
