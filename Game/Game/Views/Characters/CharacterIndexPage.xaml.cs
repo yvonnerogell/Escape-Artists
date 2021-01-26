@@ -27,5 +27,15 @@ namespace Game.Views.Characters
 			// BindingContext = viewModel;
 
 		}
+
+		/// <summary>
+		/// Call to Add a new character
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		public async void AddItem_Clicked(object sender, EventArgs e)
+		{
+			// await Navigation.PushModalAsync(new NavigationPage(new CharacterCreatePage()));
+		}
 	}
 }
