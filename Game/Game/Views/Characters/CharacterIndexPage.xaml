@@ -10,13 +10,29 @@
 
     <ContentPage.Content>
 
-        <FlexLayout>
+        <FlexLayout
+            BindableLayout.ItemsSource="{Binding Characters}"
+            Wrap="Wrap"
+            Direction="Row"
+            JustifyContent="Center"
+            AlignItems="Center"
+            AlignContent="Start">
+            <BindableLayout.ItemTemplate>
 
-                <Label Text="Character Name goes here"/>
-
+                <DataTemplate>
+                    <StackLayout>
+                        <ImageButton Source="item.png"/>
+                        <Label Text="{Binding Name}"/>
+                            <Label Text="{Binding Level}"/>
+                    </StackLayout>
+                </DataTemplate>
+                
+            </BindableLayout.ItemTemplate>
+            
+            
         </FlexLayout>
-        
-        
+
+
     </ContentPage.Content>
 
 
