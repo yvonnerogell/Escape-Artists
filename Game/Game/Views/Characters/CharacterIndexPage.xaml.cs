@@ -18,7 +18,7 @@ namespace Game.Views.Characters
 	{
 
 		// The view model, used for data binding
-		readonly BasePlayerModel<CharacterModel> ViewModel;
+		readonly BasePlayerModel<CharacterModel> viewModel;
 
 		// Empty Constructor for UTs
 		public CharacterIndexPage(bool UnitTest) { }
@@ -28,7 +28,7 @@ namespace Game.Views.Characters
 		{
 			InitializeComponent();
 
-			BindingContext = ViewModel;
+			BindingContext = viewModel;
 
 		}
 
@@ -52,7 +52,7 @@ namespace Game.Views.Characters
 			//TODO: logic to open Character page depending on character id
 
 			//TODO: used for now to link to Read.
-			await Navigation.PushModalAsync(new NavigationPage(new CharacterReadPage(viewModel)));
+			// await Navigation.PushModalAsync(new NavigationPage(new CharacterReadPage(viewModel)));
 		}
 	}
 }
