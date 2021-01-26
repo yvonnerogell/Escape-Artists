@@ -9,6 +9,8 @@ namespace Game.Models
     /// </summary>
     public class CharacterModel : BasePlayerModel<CharacterModel>
     {
+        //TODO: Add new Character Varaibles
+
         /// <summary>
         /// Default character
         /// 
