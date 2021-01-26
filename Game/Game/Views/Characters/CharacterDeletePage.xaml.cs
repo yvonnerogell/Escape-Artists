@@ -16,13 +16,13 @@ namespace Game.Views
     public partial class CharaterDeletePage : ContentPage
     {
         // View Model for Item
-        readonly GenericViewModel<ItemModel> viewModel;
+        readonly GenericViewModel<CharacterModel> viewModel;
 
         // Empty Constructor for UTs
         public CharaterDeletePage(bool UnitTest) { }
 
         // Constructor for Delete takes a view model of what to delete
-        public CharaterDeletePage(GenericViewModel<ItemModel> data)
+        public CharaterDeletePage(GenericViewModel<CharacterModel> data)
         {
             InitializeComponent();
 
