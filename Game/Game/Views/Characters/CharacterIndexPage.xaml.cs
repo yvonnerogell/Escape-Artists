@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Game.Models;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -14,7 +15,7 @@ namespace Game.Views.Characters
 	{
 
 		// The view model, used for data binding
-		// readonly GenericViewModel<ItemModel> viewModel;
+		readonly BasePlayerModel<CharacterModel> ViewModel;
 
 		// Empty Constructor for UTs
 		public CharacterIndexPage(bool UnitTest) { }
@@ -24,7 +25,7 @@ namespace Game.Views.Characters
 		{
 			InitializeComponent();
 
-			// BindingContext = viewModel;
+			BindingContext = ViewModel;
 
 		}
 
