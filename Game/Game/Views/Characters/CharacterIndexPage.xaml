@@ -12,7 +12,7 @@
     <ContentPage.Content>
 
         <FlexLayout
-            BindableLayout.ItemsSource="{Binding Characters}"
+            BindableLayout.ItemsSource="{Binding Dataset}"
             Wrap="Wrap"
             Direction="Row"
             JustifyContent="Center"

@@ -18,7 +18,7 @@ namespace Game.Views.Characters
 	{
 
 		// The view model, used for data binding
-		readonly BasePlayerModel<CharacterModel> viewModel;
+		readonly CharacterIndexViewModel ViewModel = CharacterIndexViewModel.Instance;
 
 		// Empty Constructor for UTs
 		public CharacterIndexPage(bool UnitTest) { }
@@ -28,7 +28,7 @@ namespace Game.Views.Characters
 		{
 			InitializeComponent();
 
-			BindingContext = viewModel;
+			BindingContext = ViewModel;
 
 		}
 
@@ -53,6 +53,30 @@ namespace Game.Views.Characters
 
 			//TODO: used for now to link to Read.
 			// await Navigation.PushModalAsync(new NavigationPage(new CharacterReadPage(viewModel)));
+		}
+
+		/// <summary>
+		/// Refresh the list on page appearing
+		/// </summary>
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+
+			BindingContext = null;
+
+			// If no data, then set it for needing refresh
+			if (ViewModel.Dataset.Count == 0)
+			{
+				ViewModel.SetNeedsRefresh(true);
+			}
+
+			// If the needs Refresh flag is set update it
+			if (ViewModel.NeedsRefresh())
+			{
+				ViewModel.LoadDatasetCommand.Execute(null);
+			}
+
+			BindingContext = ViewModel;
 		}
 	}
 }
