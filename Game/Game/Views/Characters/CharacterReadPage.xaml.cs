@@ -41,8 +41,9 @@ namespace Game.Views
         /// <param name="e"></param>
         public async void Update_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new ItemUpdatePage(ViewModel)));
-            await Navigation.PopAsync();
+            //TODO: uncomment when Character Update page is created. 
+            //await Navigation.PushModalAsync(new NavigationPage(new CharaterUpdatePage(ViewModel)));
+            //await Navigation.PopAsync();
         }
 
         /// <summary>
@@ -52,7 +53,7 @@ namespace Game.Views
         /// <param name="e"></param>
         public async void Delete_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new ItemDeletePage(ViewModel)));
+            await Navigation.PushModalAsync(new NavigationPage(new CharaterDeletePage(ViewModel)));
             await Navigation.PopAsync();
         }
     }
