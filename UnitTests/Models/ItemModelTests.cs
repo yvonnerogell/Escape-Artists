@@ -68,7 +68,7 @@ namespace UnitTests.Models
             result.Range = 7;
             result.Damage = 8;
             result.Attribute = AttributeEnum.Attack;
-            result.Location = BodyPartEnum.Feet;
+            result.Location = ItemLocationEnum.Feet;
 
             // Reset
 
@@ -77,7 +77,7 @@ namespace UnitTests.Models
             Assert.AreEqual(7, result.Range);
             Assert.AreEqual(8, result.Damage);
             Assert.AreEqual(AttributeEnum.Attack, result.Attribute);
-            Assert.AreEqual(BodyPartEnum.Feet, result.Location);
+            Assert.AreEqual(ItemLocationEnum.Feet, result.Location);
         }
 
         [Test]

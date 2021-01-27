@@ -576,7 +576,7 @@ namespace UnitTests.ViewModels
             // Arrange
 
             // Act
-            var result = ViewModel.GetDefaultItemId(BodyPartEnum.Unknown);
+            var result = ViewModel.GetDefaultItemId(ItemLocationEnum.Unknown);
 
             // Reset
 
@@ -588,10 +588,10 @@ namespace UnitTests.ViewModels
         public async Task ItemIndexViewModel_GetDefaultItemId_Head_Should_Pass()
         {
             // Arrange
-            await ViewModel.CreateAsync(new ItemModel { Location = BodyPartEnum.PrimaryHand});
+            await ViewModel.CreateAsync(new ItemModel { Location = ItemLocationEnum.PrimaryHand});
 
             // Act
-            var result = ViewModel.GetDefaultItemId(BodyPartEnum.PrimaryHand);
+            var result = ViewModel.GetDefaultItemId(ItemLocationEnum.PrimaryHand);
 
             // Reset
 
@@ -603,10 +603,10 @@ namespace UnitTests.ViewModels
         public async Task ItemIndexViewModel_GetDefaultItem_Unknown_Should_Fail()
         {
             // Arrange
-            await ViewModel.CreateAsync(new ItemModel { Location = BodyPartEnum.PrimaryHand });
+            await ViewModel.CreateAsync(new ItemModel { Location = ItemLocationEnum.PrimaryHand });
 
             // Act
-            var result = ViewModel.GetDefaultItem(BodyPartEnum.Unknown);
+            var result = ViewModel.GetDefaultItem(ItemLocationEnum.Unknown);
 
             // Reset
 
@@ -618,10 +618,10 @@ namespace UnitTests.ViewModels
         public async Task ItemIndexViewModel_GetDefaultItem_Head_Should_Pass()
         {
             // Arrange
-            await ViewModel.CreateAsync(new ItemModel { Location = BodyPartEnum.PrimaryHand });
+            await ViewModel.CreateAsync(new ItemModel { Location = ItemLocationEnum.PrimaryHand });
 
             // Act
-            var result = ViewModel.GetDefaultItem(BodyPartEnum.PrimaryHand);
+            var result = ViewModel.GetDefaultItem(ItemLocationEnum.PrimaryHand);
 
             // Reset
 
@@ -635,7 +635,7 @@ namespace UnitTests.ViewModels
             // Arrange
 
             // Act
-            var result = ViewModel.GetLocationItems(BodyPartEnum.PrimaryHand);
+            var result = ViewModel.GetLocationItems(ItemLocationEnum.PrimaryHand);
 
             // Reset
 
@@ -649,7 +649,7 @@ namespace UnitTests.ViewModels
             // Arrange
 
             // Act
-            var result = ViewModel.GetLocationItems(BodyPartEnum.RightFinger);
+            var result = ViewModel.GetLocationItems(ItemLocationEnum.RightFinger);
 
             // Reset
 
@@ -663,7 +663,7 @@ namespace UnitTests.ViewModels
             // Arrange
 
             // Act
-            var result = ViewModel.GetLocationItems(BodyPartEnum.LeftFinger);
+            var result = ViewModel.GetLocationItems(ItemLocationEnum.LeftFinger);
 
             // Reset
 

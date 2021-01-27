@@ -166,7 +166,7 @@ namespace Game.GameRules
         /// </summary>
         /// <param name="location"></param>
         /// <returns></returns>
-        public static string GetItem(BodyPartEnum location)
+        public static string GetItem(ItemLocationEnum location)
         {
             var ItemList = ItemIndexViewModel.Instance.GetLocationItems(location);
             if (ItemList.Count == 0)
@@ -202,13 +202,13 @@ namespace Game.GameRules
                 Defense = GetAbilityValue(),
 
                 // Randomize an Item for Location
-                Head = GetItem(BodyPartEnum.Head),
-                Necklace = GetItem(BodyPartEnum.Necklace),
-                PrimaryHand = GetItem(BodyPartEnum.PrimaryHand),
-                OffHand = GetItem(BodyPartEnum.OffHand),
-                RightFinger = GetItem(BodyPartEnum.Finger),
-                LeftFinger = GetItem(BodyPartEnum.Finger),
-                Feet = GetItem(BodyPartEnum.Feet),
+                Head = GetItem(ItemLocationEnum.Head),
+                Necklace = GetItem(ItemLocationEnum.Necklace),
+                PrimaryHand = GetItem(ItemLocationEnum.PrimaryHand),
+                OffHand = GetItem(ItemLocationEnum.OffHand),
+                RightFinger = GetItem(ItemLocationEnum.Finger),
+                LeftFinger = GetItem(ItemLocationEnum.Finger),
+                Feet = GetItem(ItemLocationEnum.Feet),
 
                 ImageURI = GetCharacterImage()
             };
@@ -277,13 +277,13 @@ namespace Game.GameRules
             // Monsters can have weapons too....
             if (Items)
             {
-                result.Head = GetItem(BodyPartEnum.Head);
-                result.Necklace = GetItem(BodyPartEnum.Necklace);
-                result.PrimaryHand = GetItem(BodyPartEnum.PrimaryHand);
-                result.OffHand = GetItem(BodyPartEnum.OffHand);
-                result.RightFinger = GetItem(BodyPartEnum.Finger);
-                result.LeftFinger = GetItem(BodyPartEnum.Finger);
-                result.Feet = GetItem(BodyPartEnum.Feet);
+                result.Head = GetItem(ItemLocationEnum.Head);
+                result.Necklace = GetItem(ItemLocationEnum.Necklace);
+                result.PrimaryHand = GetItem(ItemLocationEnum.PrimaryHand);
+                result.OffHand = GetItem(ItemLocationEnum.OffHand);
+                result.RightFinger = GetItem(ItemLocationEnum.Finger);
+                result.LeftFinger = GetItem(ItemLocationEnum.Finger);
+                result.Feet = GetItem(ItemLocationEnum.Feet);
             }
 
             return result;

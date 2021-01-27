@@ -35,10 +35,10 @@ namespace UnitTests.Helpers
             var myDataList = ItemLocationEnumHelper.GetListCharacter;
 
             // Get Expected set
-            var myList = Enum.GetNames(typeof(BodyPartEnum)).ToList();
+            var myList = Enum.GetNames(typeof(ItemLocationEnum)).ToList();
             var myExpectedList = myList.Where(a =>
-                                          a.ToString() != BodyPartEnum.Unknown.ToString() &&
-                                           a.ToString() != BodyPartEnum.Finger.ToString()
+                                          a.ToString() != ItemLocationEnum.Unknown.ToString() &&
+                                           a.ToString() != ItemLocationEnum.Finger.ToString()
                                             )
                                             .OrderBy(a => a)
                                             .ToList();
@@ -91,11 +91,11 @@ namespace UnitTests.Helpers
             var myDataList = ItemLocationEnumHelper.GetListItem;
 
             // Get Expected set
-            var myList = Enum.GetNames(typeof(BodyPartEnum)).ToList();
+            var myList = Enum.GetNames(typeof(ItemLocationEnum)).ToList();
             var myExpectedList = myList.Where(a =>
-                                            a.ToString() != BodyPartEnum.Unknown.ToString() &&
-                                            a.ToString() != BodyPartEnum.LeftFinger.ToString() &&
-                                            a.ToString() != BodyPartEnum.RightFinger.ToString()
+                                            a.ToString() != ItemLocationEnum.Unknown.ToString() &&
+                                            a.ToString() != ItemLocationEnum.LeftFinger.ToString() &&
+                                            a.ToString() != ItemLocationEnum.RightFinger.ToString()
                                             )
                                             .OrderBy(a => a)
                                             .ToList();
@@ -144,17 +144,17 @@ namespace UnitTests.Helpers
         {
             // Arrange
 
-            var myList = Enum.GetNames(typeof(BodyPartEnum)).ToList();
+            var myList = Enum.GetNames(typeof(ItemLocationEnum)).ToList();
 
-            BodyPartEnum myActual;
-            BodyPartEnum myExpected;
+            ItemLocationEnum myActual;
+            ItemLocationEnum myExpected;
 
             // Act
 
             foreach (var item in myList)
             {
                 myActual = ItemLocationEnumHelper.ConvertStringToEnum(item);
-                myExpected = (BodyPartEnum)Enum.Parse(typeof(BodyPartEnum), item);
+                myExpected = (ItemLocationEnum)Enum.Parse(typeof(ItemLocationEnum), item);
 
                 // Assert
                 Assert.AreEqual(myExpected, myActual, "string: " + item + TestContext.CurrentContext.Test.Name);
@@ -170,7 +170,7 @@ namespace UnitTests.Helpers
 
             // Act
             var Actual = ItemLocationEnumHelper.GetLocationByPosition(value);
-            var Expected = BodyPartEnum.PrimaryHand;
+            var Expected = ItemLocationEnum.PrimaryHand;
 
             // Assert
             Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
@@ -185,7 +185,7 @@ namespace UnitTests.Helpers
 
             // Act
             var Actual = ItemLocationEnumHelper.GetLocationByPosition(value);
-            var Expected = BodyPartEnum.Necklace;
+            var Expected = ItemLocationEnum.Necklace;
 
             // Assert
             Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
@@ -200,7 +200,7 @@ namespace UnitTests.Helpers
 
             // Act
             var Actual = ItemLocationEnumHelper.GetLocationByPosition(value);
-            var Expected = BodyPartEnum.PrimaryHand;
+            var Expected = ItemLocationEnum.PrimaryHand;
 
             Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
         }
@@ -214,7 +214,7 @@ namespace UnitTests.Helpers
 
             // Act
             var Actual = ItemLocationEnumHelper.GetLocationByPosition(value);
-            var Expected = BodyPartEnum.OffHand;
+            var Expected = ItemLocationEnum.OffHand;
 
             // Assert
             Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
@@ -229,7 +229,7 @@ namespace UnitTests.Helpers
 
             // Act
             var Actual = ItemLocationEnumHelper.GetLocationByPosition(value);
-            var Expected = BodyPartEnum.RightFinger;
+            var Expected = ItemLocationEnum.RightFinger;
 
             // Assert
             Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
@@ -244,7 +244,7 @@ namespace UnitTests.Helpers
 
             // Act
             var Actual = ItemLocationEnumHelper.GetLocationByPosition(value);
-            var Expected = BodyPartEnum.LeftFinger;
+            var Expected = ItemLocationEnum.LeftFinger;
 
             // Assert
             Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
@@ -259,7 +259,7 @@ namespace UnitTests.Helpers
 
             // Act
             var Actual = ItemLocationEnumHelper.GetLocationByPosition(value);
-            var Expected = BodyPartEnum.Feet;
+            var Expected = ItemLocationEnum.Feet;
 
             // Assert
             Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);

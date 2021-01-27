@@ -190,7 +190,7 @@ namespace UnitTests.Models
             var data = new ItemModel
             {
                 Name = "Item1",
-                Location = BodyPartEnum.Feet,
+                Location = ItemLocationEnum.Feet,
                 Attribute = AttributeEnum.Attack,
                 Value = 1,
                 Range = 2,

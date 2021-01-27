@@ -156,7 +156,7 @@ namespace UnitTests.Services
             int number = 0;
             int level = 0;
             AttributeEnum attribute = AttributeEnum.Attack;
-            BodyPartEnum location = BodyPartEnum.Feet;
+            ItemLocationEnum location = ItemLocationEnum.Feet;
             int category = 0;
             bool random = false;
 
@@ -191,7 +191,7 @@ namespace UnitTests.Services
             int number = 0;
             int level = 0;
             AttributeEnum attribute = AttributeEnum.Attack;
-            BodyPartEnum location = BodyPartEnum.Feet;
+            ItemLocationEnum location = ItemLocationEnum.Feet;
             int category = 0;
             bool random = false;
 
@@ -234,7 +234,7 @@ namespace UnitTests.Services
             int number = 0;
             int level = 0;
             AttributeEnum attribute = AttributeEnum.Attack;
-            BodyPartEnum location = BodyPartEnum.Feet;
+            ItemLocationEnum location = ItemLocationEnum.Feet;
             int category = 0;
             bool random = false;
 
@@ -283,7 +283,7 @@ namespace UnitTests.Services
             int number = 0;
             int level = 0;
             AttributeEnum attribute = AttributeEnum.Attack;
-            BodyPartEnum location = BodyPartEnum.Feet;
+            ItemLocationEnum location = ItemLocationEnum.Feet;
             int category = 0;
             bool random = false;
 
