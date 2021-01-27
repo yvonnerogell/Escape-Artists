@@ -858,6 +858,41 @@ namespace Game.Models
         {
             var myReturn = GetItemByLocation(itemLocation);
 
+            if (itemLocation == ItemLocationEnum.Head && Head == null)
+            {
+                Head = itemID;
+            }
+
+            if (itemLocation == ItemLocationEnum.Feet && Feet == null)
+            {
+                Feet = itemID;
+            }
+
+            if (itemLocation == ItemLocationEnum.Necklace && Necklace == null)
+            {
+                Necklace = itemID;
+            }
+
+            if (itemLocation == ItemLocationEnum.PrimaryHand && PrimaryHand == null)
+            {
+                PrimaryHand = itemID;
+            }
+
+            if (itemLocation == ItemLocationEnum.OffHand && OffHand == null)
+            {
+                OffHand = itemID;
+            }
+
+            if (itemLocation == ItemLocationEnum.RightFinger && RightFinger == null)
+            {
+                RightFinger = itemID;
+            }
+
+            if (itemLocation == ItemLocationEnum.LeftFinger && LeftFinger == null)
+            {
+                LeftFinger = itemID;
+            }
+
 
             /*
             switch (itemLocation)
