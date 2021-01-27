@@ -23,7 +23,7 @@
                         Text="{Binding Data.Name}" 
                         Style="{StaticResource HeaderStyle}"/>
                     <Label 
-                        Text="{Binding Data.Type}" 
+                        Text="{Binding Data.Description}" 
                         Style="{StaticResource LabelStyle}"/>
                     <Label 
                         Text="{Binding Data.Level}" 
@@ -92,6 +92,32 @@
                         Text="Damage" />
 
                     <!-- TODO: Data-->
+                    <Label 
+                        Style="{StaticResource GridLabelStyle}"
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        Text="{Binding Data.Attack}" />
+                    <Label 
+                        Style="{StaticResource GridLabelStyle}"
+                        Grid.Column="1"
+                        Grid.Row="2"
+                        Text="{Binding Data.Defense}" />
+                    <Label 
+                        Style="{StaticResource GridLabelStyle}"
+                        Grid.Column="1"
+                        Grid.Row="3"
+                        Text="{Binding Data.Speed}" />
+                    <Label 
+                        Style="{StaticResource GridLabelStyle}"
+                        Grid.Column="1"
+                        Grid.Row="4"
+                        Text="{Binding Data.MaxHealth}" />
+                    <Label 
+                        Style="{StaticResource GridLabelStyle}"
+                        Grid.Column="1"
+                        Grid.Row="5"
+                        Text="{Binding Data.Damage}" />
+                    
                 </Grid>
             </StackLayout>
 
