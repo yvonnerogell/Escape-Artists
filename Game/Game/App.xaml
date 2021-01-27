@@ -26,7 +26,7 @@
             <Color x:Key="ViewBackgroundColor">Gray</Color>
             <Color x:Key="NavigationBarColor">Black</Color>
 
-            <Color x:Key="PrimaryBackgroundColor">red</Color>
+            <Color x:Key="PrimaryBackgroundColor">White</Color>
             <Color x:Key="SecondaryBackgroundColor">gray</Color>
             <Color x:Key="TriciaryBackgroundColor">lightgray</Color>
             <Color x:Key="LightBackgroundColor">orange</Color>
