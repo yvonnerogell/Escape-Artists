@@ -90,7 +90,7 @@ namespace UnitTests.Models
             Assert.AreEqual("item.png", result.ImageURI);
             Assert.AreEqual(PlayerTypeEnum.Character, result.PlayerType);
 
-            Assert.AreEqual(true, result.Alive);
+            Assert.AreEqual(true, result.NotGraduated);
             Assert.AreEqual(0, result.Order);
             Assert.AreEqual(0, result.ListOrder);
             Assert.AreEqual(1, result.Level);
@@ -174,7 +174,7 @@ namespace UnitTests.Models
             result.Id = "bogus";
             result.ImageURI = "uri";
             result.PlayerType = PlayerTypeEnum.Monster;
-            result.Alive = false;
+            result.NotGraduated = false;
             result.Order = 100;
             result.Guid = "guid";
             result.ListOrder = 200;
@@ -201,7 +201,7 @@ namespace UnitTests.Models
             Assert.AreEqual("bogus", result.Id);
             Assert.AreEqual("uri", result.ImageURI);
             Assert.AreEqual(PlayerTypeEnum.Monster, result.PlayerType);
-            Assert.AreEqual(false, result.Alive);
+            Assert.AreEqual(false, result.NotGraduated);
             Assert.AreEqual(100, result.Order);
             Assert.AreEqual("guid", result.Guid);
             Assert.AreEqual(200, result.ListOrder);

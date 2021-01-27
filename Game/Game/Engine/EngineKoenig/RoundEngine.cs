@@ -213,7 +213,7 @@ namespace Game.Engine.EngineKoenig
         /// <returns></returns>
         public override List<PlayerInfoModel> RemoveDeadPlayersFromList()
         {
-            EngineSettings.PlayerList = EngineSettings.PlayerList.Where(m => m.Alive == true).ToList();
+            EngineSettings.PlayerList = EngineSettings.PlayerList.Where(m => m.NotGraduated == true).ToList();
             return EngineSettings.PlayerList;
         }
 
@@ -254,7 +254,7 @@ namespace Game.Engine.EngineKoenig
 
             foreach (var data in EngineSettings.CharacterList)
             {
-                if (data.Alive)
+                if (data.NotGraduated)
                 {
                     EngineSettings.PlayerList.Add(
                         new PlayerInfoModel(data)
@@ -269,7 +269,7 @@ namespace Game.Engine.EngineKoenig
 
             foreach (var data in EngineSettings.MonsterList)
             {
-                if (data.Alive)
+                if (data.NotGraduated)
                 {
                     EngineSettings.PlayerList.Add(
                         new PlayerInfoModel(data)

@@ -164,7 +164,7 @@ namespace UnitTests.Engine.EngineBase
             Engine.EngineSettings.PlayerList = new List<PlayerInfoModel>();
 
             var data = new PlayerInfoModel(new MonsterModel());
-            data.Alive = false;
+            data.NotGraduated = false;
             Engine.EngineSettings.PlayerList.Add(data);
 
             // Act
@@ -191,7 +191,7 @@ namespace UnitTests.Engine.EngineBase
             Engine.EngineSettings.PlayerList = new List<PlayerInfoModel>();
 
             var data = new PlayerInfoModel(new MonsterModel());
-            data.Alive = false;
+            data.NotGraduated = false;
             data.PlayerType = PlayerTypeEnum.Character;
             Engine.EngineSettings.PlayerList.Add(data);
 
@@ -219,7 +219,7 @@ namespace UnitTests.Engine.EngineBase
             Engine.EngineSettings.PlayerList = new List<PlayerInfoModel>();
 
             var data = new PlayerInfoModel(new MonsterModel());
-            data.Alive = true;
+            data.NotGraduated = true;
             data.PlayerType = PlayerTypeEnum.Character;
             Engine.EngineSettings.PlayerList.Add(data);
 
@@ -321,7 +321,7 @@ namespace UnitTests.Engine.EngineBase
             Engine.EngineSettings.PlayerList = new List<PlayerInfoModel>();
 
             var data = new PlayerInfoModel(new CharacterModel());
-            data.Alive = false;
+            data.NotGraduated = false;
             Engine.EngineSettings.PlayerList.Add(data);
 
             // Act
@@ -348,7 +348,7 @@ namespace UnitTests.Engine.EngineBase
             Engine.EngineSettings.PlayerList = new List<PlayerInfoModel>();
 
             var data = new PlayerInfoModel(new CharacterModel());
-            data.Alive = false;
+            data.NotGraduated = false;
             data.PlayerType = PlayerTypeEnum.Monster;
             Engine.EngineSettings.PlayerList.Add(data);
 
@@ -376,7 +376,7 @@ namespace UnitTests.Engine.EngineBase
             Engine.EngineSettings.PlayerList = new List<PlayerInfoModel>();
 
             var data = new PlayerInfoModel(new CharacterModel());
-            data.Alive = true;
+            data.NotGraduated = true;
             data.PlayerType = PlayerTypeEnum.Monster;
             Engine.EngineSettings.PlayerList.Add(data);
 
@@ -994,7 +994,7 @@ namespace UnitTests.Engine.EngineBase
             var Monster = new MonsterModel
             {
                 CurrentHealth = 1,
-                Alive = true,
+                NotGraduated = true,
                 Guid="me"
             };
 
@@ -1020,7 +1020,7 @@ namespace UnitTests.Engine.EngineBase
             var Monster = new MonsterModel
             {
                 CurrentHealth = 1,
-                Alive = true,
+                NotGraduated = true,
                 Guid = "me"
             };
 

@@ -208,7 +208,7 @@ namespace Game.Engine.EngineKoenig
 
             // TODO: Teams, You need to implement your own Logic can not use mine.
             var Defender = EngineSettings.PlayerList
-                .Where(m => m.Alive && m.PlayerType == PlayerTypeEnum.Character)
+                .Where(m => m.NotGraduated && m.PlayerType == PlayerTypeEnum.Character)
                 .OrderBy(m => m.ListOrder).FirstOrDefault();
 
             return Defender;
@@ -235,7 +235,7 @@ namespace Game.Engine.EngineKoenig
             // TODO: Teams, You need to implement your own Logic can not use mine.
 
             var Defender = EngineSettings.PlayerList
-                .Where(m => m.Alive && m.PlayerType == PlayerTypeEnum.Monster)
+                .Where(m => m.NotGraduated && m.PlayerType == PlayerTypeEnum.Monster)
                 .OrderBy(m => m.CurrentHealth).FirstOrDefault();
 
             return Defender;
