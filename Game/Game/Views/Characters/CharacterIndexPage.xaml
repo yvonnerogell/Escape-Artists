@@ -6,7 +6,6 @@
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="AddItem_Clicked" IconImageSource="icon_add.png"/>
-        <ToolbarItem Text="Read" Clicked="ReadItem_Clicked" IconImageSource="icon_new.png"/>
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
