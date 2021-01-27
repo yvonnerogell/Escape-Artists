@@ -23,7 +23,7 @@
                         
                         <StackLayout Padding="10">
                             
-                            <ImageButton Source="squid.jpg"  Clicked="ReadCharacter_Clicked" CommandParameter="{Binding Id}"/>
+                            <ImageButton Source="{Binding ImageURI}"  Clicked="ReadCharacter_Clicked" CommandParameter="{Binding Id}"/>
 
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                                 
