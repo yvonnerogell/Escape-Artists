@@ -59,7 +59,7 @@ namespace Game.Models
 
             Difficulty = data.Difficulty;
 
-            Job = data.Job;
+            //Job = data.Job;
 
             AbilityTracker = data.AbilityTracker;
         }
@@ -101,14 +101,14 @@ namespace Game.Models
 
             Difficulty = data.Difficulty;
 
-            Job = data.Job;
+            //Job = data.Job;
 
             // Give the copy a differet quid, so it can be used in the battles as a copy
             Guid = System.Guid.NewGuid().ToString();
 
             // Set current experience to be 1 above minimum.
             ExperienceTotal = LevelTableHelper.LevelDetailsList[Level - 1].Experience + 1;
-
+/*
             // TODO: Mike, Refactor this, so it is in a helper, and call it on level up as well.
             switch (Job)
             {
@@ -134,6 +134,7 @@ namespace Game.Models
                     }
                     break;
             }
+*/
         }
 
         /// <summary>
@@ -176,7 +177,7 @@ namespace Game.Models
 
             Difficulty = data.Difficulty;
 
-            Job = data.Job;
+            //Job = data.Job;
 
             // Give the copy a differet quid, so it can be used in the battles as a copy
             Guid = System.Guid.NewGuid().ToString();
@@ -197,7 +198,7 @@ namespace Game.Models
             var myReturn = string.Empty;
             myReturn += Name;
             myReturn += " , " + Description;
-            myReturn += " , a " + Job.ToMessage();
+            //myReturn += " , a " + Job.ToMessage();
             myReturn += " , Level : " + Level.ToString();
 
             if (PlayerType == PlayerTypeEnum.Character)

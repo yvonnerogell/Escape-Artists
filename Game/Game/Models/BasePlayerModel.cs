@@ -131,9 +131,9 @@ namespace Game.Models
         // The Difficulty scale to use when creating examples
         public DifficultyEnum Difficulty { get; set; } = DifficultyEnum.Unknown;
 
-        //TODO: remove for now 
+        
         // The Job for the Player
-        public CharacterJobEnum Job { get; set; } = CharacterJobEnum.Unknown;
+        //public CharacterJobEnum Job { get; set; } = CharacterJobEnum.Unknown;
 
         #endregion PlayerAttributes
 
@@ -185,7 +185,7 @@ namespace Game.Models
             get
             {
                 var result = 0;
-
+                /*
                 switch (Job)
                 {
                     case CharacterJobEnum.Cleric:
@@ -198,6 +198,7 @@ namespace Game.Models
                     default:
                         break;
                 }
+                */
                 return result;
             }
         }
@@ -228,7 +229,7 @@ namespace Game.Models
             get
             {
                 var result = 0;
-
+/*
                 switch (Job)
                 {
                     case CharacterJobEnum.Cleric:
@@ -241,6 +242,7 @@ namespace Game.Models
                     default:
                         break;
                 }
+*/
                 return result;
             }
         }
@@ -268,7 +270,7 @@ namespace Game.Models
             get
             {
                 var result = 0;
-
+/*
                 switch (Job)
                 {
                     case CharacterJobEnum.Cleric:
@@ -281,6 +283,7 @@ namespace Game.Models
                     default:
                         break;
                 }
+*/
                 return result;
             }
         }
