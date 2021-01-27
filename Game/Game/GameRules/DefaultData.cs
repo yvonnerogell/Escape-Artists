@@ -42,7 +42,7 @@ namespace Game.GameRules
                     Range = 10,
                     Damage = 10,
                     Value = 9,
-                    Location = ItemLocationEnum.Necklass,
+                    Location = ItemLocationEnum.Necklace,
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
@@ -128,7 +128,7 @@ namespace Game.GameRules
     public static List<CharacterModel> LoadData(CharacterModel temp)
     {
         var HeadString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.Head);
-        var NecklassString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.Necklass);
+        var NecklassString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.Necklace);
         var PrimaryHandString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.PrimaryHand);
         var OffHandString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.OffHand);
         var FeetString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.Feet);
