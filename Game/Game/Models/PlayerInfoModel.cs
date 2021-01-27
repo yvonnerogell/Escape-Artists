@@ -314,28 +314,30 @@ namespace Game.Models
                 // out of tries
                 return false;
             }
-
+            
             switch (ability)
             {
                 case AbilityEnum.Heal:
                 case AbilityEnum.Bandage:
-                    BuffHealth();
+                    //BuffHealth();
                     break;
 
                 case AbilityEnum.Toughness:
                 case AbilityEnum.Barrier:
-                    BuffDefense();
+                   //BuffDefense();
                     break;
 
                 case AbilityEnum.Curse:
                 case AbilityEnum.Focus:
-                    BuffAttack();
+                    //BuffAttack();
                     break;
+            
 
                 case AbilityEnum.Quick:
                 case AbilityEnum.Nimble:
-                    BuffSpeed();
+                    //BuffSpeed();
                     break;
+            
             }
 
             // Reduce the count

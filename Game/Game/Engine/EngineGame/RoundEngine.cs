@@ -47,7 +47,7 @@ namespace Game.Engine.EngineGame
             EndRound();
 
             // Remove Character Buffs
-            RemoveCharacterBuffs();
+            //RemoveCharacterBuffs();
 
             // Populate New Monsters..
             AddMonstersToRound();
@@ -241,7 +241,7 @@ namespace Game.Engine.EngineGame
         {
             throw new System.NotImplementedException();
         }
-
+/*
         /// <summary>
         /// For all characters in player list, remove their buffs
         /// </summary>
@@ -249,5 +249,6 @@ namespace Game.Engine.EngineGame
         {
             throw new System.NotImplementedException();
         }
+*/
     }
 }

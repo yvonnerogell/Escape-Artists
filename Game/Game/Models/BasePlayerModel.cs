@@ -35,7 +35,7 @@ namespace Game.Models
         public int ListOrder { get; set; } = 0;
 
         #endregion GameEngineAttributes
-
+        /*
         #region Buffs
 
         // Add to Health
@@ -98,7 +98,7 @@ namespace Game.Models
         }
 
         #endregion Buffs
-
+        */
         #region PlayerAttributes
 
         // Level of character or monster
@@ -426,7 +426,7 @@ namespace Game.Models
             myReturn += GetAttackJobBonus;
 
             // Add any Round Buffs
-            myReturn += BuffAttackValue;
+            //myReturn += BuffAttackValue;
 
             return myReturn;
         }
@@ -449,7 +449,7 @@ namespace Game.Models
             myReturn += GetDefenseJobBonus;
 
             // Add any Round Buffs
-            myReturn += BuffDefenseValue;
+            //myReturn += BuffDefenseValue;
 
             return myReturn;
         }
@@ -472,7 +472,7 @@ namespace Game.Models
             myReturn += GetSpeedJobBonus;
 
             // Add any Round Buffs
-            myReturn += BuffSpeedValue;
+            //myReturn += BuffSpeedValue;
 
             return myReturn;
         }
@@ -493,7 +493,7 @@ namespace Game.Models
             myReturn += GetCurrentHealthItemBonus;
 
             // Add any Round Buffs
-            myReturn += BuffHealthValue;
+            //myReturn += BuffHealthValue;
 
             return myReturn;
         }
