@@ -56,6 +56,25 @@ namespace Game.Views.Characters
 		}
 
 		/// <summary>
+		/// Redirect to Read a Character from list of Characters
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		public async void CharacterClicked(object sender, EventArgs args)
+		{
+			var button = sender as ImageButton;
+			String characterId = button.CommandParameter as String;
+			CharacterModel data = ViewModel.Dataset.FirstOrDefault(itm => itm.Id == characterId);
+			if (data == null)
+			{
+				return;
+			}
+
+			// Open the Read Page
+			await Navigation.PushAsync(new CharacterReadPage(new GenericViewModel<CharacterModel>(data)));
+		}
+
+		/// <summary>
 		/// Refresh the list on page appearing
 		/// </summary>
 		protected override void OnAppearing()

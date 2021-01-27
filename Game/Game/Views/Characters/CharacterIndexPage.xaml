@@ -22,7 +22,9 @@
 
                 <DataTemplate>
                     <StackLayout>
-                        <ImageButton Source="squid.jpg"/>
+                        <ImageButton Source="squid.jpg"
+                                     Clicked="CharacterClicked"
+                                     CommandParameter="{Binding Id}"/>
                         <Label Text="{Binding Name}"/>
                             <Label Text="{Binding Level}"/>
                     </StackLayout>
