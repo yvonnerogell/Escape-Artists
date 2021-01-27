@@ -237,7 +237,7 @@ namespace Game.Engine.EngineGame
         /// 
         /// Drop the current item back into the Pool
         /// </summary>
-        public override ItemModel SwapCharacterItem(PlayerInfoModel character, BodyPartEnum setLocation, ItemModel PoolItem)
+        public override BodyPartModel SwapCharacterItem(PlayerInfoModel character, BodyPartEnum setLocation, BodyPartModel PoolItem)
         {
             throw new System.NotImplementedException();
         }

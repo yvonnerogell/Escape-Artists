@@ -34,7 +34,7 @@ namespace UnitTests.Views
             app = new App();
             Application.Current = app;
 
-            page = new ItemDeletePage(new GenericViewModel<ItemModel>(new ItemModel()));
+            page = new ItemDeletePage(new GenericViewModel<BodyPartModel>(new BodyPartModel()));
         }
 
         [TearDown]

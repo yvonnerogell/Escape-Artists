@@ -111,7 +111,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="location"></param>
         /// <returns></returns>
-        public StackLayout GetItemToDisplay(ItemModel item)
+        public StackLayout GetItemToDisplay(BodyPartModel item)
         {
             if (item == null)
             {
@@ -130,7 +130,7 @@ namespace Game.Views
             if (data == null)
             {
                 // Show the Default Icon for the Location
-                data = new ItemModel { Name="Unknown", ImageURI = "icon_cancel.png" };
+                data = new BodyPartModel { Name="Unknown", ImageURI = "icon_cancel.png" };
 
                 // Turn off click action
                 ClickableButton = false;
@@ -246,7 +246,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public bool ShowPopup(ItemModel data)
+        public bool ShowPopup(BodyPartModel data)
         {
             PopupLoadingView.IsVisible = true;
             PopupItemImage.Source = data.ImageURI;

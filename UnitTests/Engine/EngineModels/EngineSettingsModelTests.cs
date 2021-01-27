@@ -33,7 +33,7 @@ namespace UnitTests.Engine.EngineModels
 
             result.BattleScore = new ScoreModel();
             result.BattleMessagesModel = new BattleMessagesModel();
-            result.ItemPool = new List<ItemModel>();
+            result.ItemPool = new List<BodyPartModel>();
             result.MonsterList = new List<PlayerInfoModel>();
             result.CharacterList = new List<PlayerInfoModel>();
             result.CurrentAttacker = new PlayerInfoModel();

@@ -13,14 +13,14 @@ using System.Collections.ObjectModel;
 namespace UnitTests.ViewModels
 {
     [TestFixture]
-    public class BaseViewModelTests : BaseViewModel<ItemModel>
+    public class BaseViewModelTests : BaseViewModel<BodyPartModel>
     {
-        BaseViewModel<ItemModel> ViewModel;
+        BaseViewModel<BodyPartModel> ViewModel;
 
         [SetUp]
         public void Setup()
         {
-            ViewModel = new BaseViewModel<ItemModel>();
+            ViewModel = new BaseViewModel<BodyPartModel>();
         }
 
         [Test]
@@ -29,7 +29,7 @@ namespace UnitTests.ViewModels
             // Arrange
 
             // Act
-            var result = new BaseViewModel<ItemModel>();
+            var result = new BaseViewModel<BodyPartModel>();
 
             // Reset
 
@@ -43,7 +43,7 @@ namespace UnitTests.ViewModels
             // Arrange
 
             // Act
-            var result = new BaseViewModel<ItemModel>().Title;
+            var result = new BaseViewModel<BodyPartModel>().Title;
 
             // Reset
 
@@ -57,7 +57,7 @@ namespace UnitTests.ViewModels
             // Arrange
 
             // Act
-            var result = new BaseViewModel<ItemModel>();
+            var result = new BaseViewModel<BodyPartModel>();
 
             var isBusy = false;
             SetProperty<bool>(ref isBusy, true);
@@ -74,7 +74,7 @@ namespace UnitTests.ViewModels
             // Arrange
 
             // Act
-            var result = new BaseViewModel<ItemModel>();
+            var result = new BaseViewModel<BodyPartModel>();
 
             var isBusy = false;
             SetProperty<bool>(ref isBusy, false);
@@ -173,10 +173,10 @@ namespace UnitTests.ViewModels
         public void BaseViewModel_SortDataset_Default_Should_Pass()
         {
             // Arrange
-            var dataList = new List<ItemModel>();
-            dataList.Add(new ItemModel { Name = "z" });
-            dataList.Add(new ItemModel { Name = "m" });
-            dataList.Add(new ItemModel { Name = "a" });
+            var dataList = new List<BodyPartModel>();
+            dataList.Add(new BodyPartModel { Name = "z" });
+            dataList.Add(new BodyPartModel { Name = "m" });
+            dataList.Add(new BodyPartModel { Name = "a" });
 
             // Act
             var result = ViewModel.SortDataset(dataList);
@@ -268,16 +268,16 @@ namespace UnitTests.ViewModels
             // Arrange
 
             // Add items into the list Z ordered
-            var dataTest = new ItemModel { Name = "test" };
-            ViewModel.Dataset = new ObservableCollection<ItemModel>();
+            var dataTest = new BodyPartModel { Name = "test" };
+            ViewModel.Dataset = new ObservableCollection<BodyPartModel>();
 
             await ViewModel.SetDataSource(0);
 
             await ViewModel.CreateAsync(dataTest);
 
-            await ViewModel.CreateAsync(new ItemModel { Name = "z" });
-            await ViewModel.CreateAsync(new ItemModel { Name = "m" });
-            await ViewModel.CreateAsync(new ItemModel { Name = "a" });
+            await ViewModel.CreateAsync(new BodyPartModel { Name = "z" });
+            await ViewModel.CreateAsync(new BodyPartModel { Name = "m" });
+            await ViewModel.CreateAsync(new BodyPartModel { Name = "a" });
 
             // Act
             var result = ViewModel.CheckIfExists(dataTest);

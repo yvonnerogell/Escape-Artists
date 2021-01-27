@@ -34,7 +34,7 @@ namespace UnitTests.Views
             app = new App();
             Application.Current = app;
 
-            page = new ItemReadPage(new GenericViewModel<ItemModel>(new ItemModel()));
+            page = new ItemReadPage(new GenericViewModel<BodyPartModel>(new BodyPartModel()));
         }
 
         [TearDown]

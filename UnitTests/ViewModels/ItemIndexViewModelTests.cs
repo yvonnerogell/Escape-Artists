@@ -68,11 +68,11 @@ namespace UnitTests.ViewModels
             // Arrange
 
             // Add items into the list Z ordered
-            var dataList = new List<ItemModel>
+            var dataList = new List<BodyPartModel>
             {
-                new ItemModel { Name = "z" },
-                new ItemModel { Name = "m" },
-                new ItemModel { Name = "a" }
+                new BodyPartModel { Name = "z" },
+                new BodyPartModel { Name = "m" },
+                new BodyPartModel { Name = "a" }
             };
 
             // Act
@@ -92,12 +92,12 @@ namespace UnitTests.ViewModels
             // Arrange
 
             // Add items into the list Z ordered
-            var dataTest = new ItemModel { Name = "test" };
+            var dataTest = new BodyPartModel { Name = "test" };
             await ViewModel.CreateAsync(dataTest);
 
-            await ViewModel.CreateAsync(new ItemModel { Name = "z" });
-            await ViewModel.CreateAsync(new ItemModel { Name = "m" });
-            await ViewModel.CreateAsync(new ItemModel { Name = "a" });
+            await ViewModel.CreateAsync(new BodyPartModel { Name = "z" });
+            await ViewModel.CreateAsync(new BodyPartModel { Name = "m" });
+            await ViewModel.CreateAsync(new BodyPartModel { Name = "a" });
 
             // Act
             var result = ViewModel.CheckIfExists(dataTest);
@@ -128,12 +128,12 @@ namespace UnitTests.ViewModels
             // Arrange
 
             // Add items into the list Z ordered
-            var dataTest = new ItemModel { Name = "test" };
+            var dataTest = new BodyPartModel { Name = "test" };
             // Don't add it to the list await ViewModel.CreateAsync(dataTest);
 
-            await ViewModel.CreateAsync(new ItemModel { Name = "z" });
-            await ViewModel.CreateAsync(new ItemModel { Name = "m" });
-            await ViewModel.CreateAsync(new ItemModel { Name = "a" });
+            await ViewModel.CreateAsync(new BodyPartModel { Name = "z" });
+            await ViewModel.CreateAsync(new BodyPartModel { Name = "m" });
+            await ViewModel.CreateAsync(new BodyPartModel { Name = "a" });
 
             // Act
             var result = ViewModel.CheckIfExists(dataTest);
@@ -148,7 +148,7 @@ namespace UnitTests.ViewModels
         public async Task ItemIndexViewModel_Message_Delete_Valid_Should_Pass()
         {
             // Arrange
-            await ViewModel.CreateAsync(new ItemModel());
+            await ViewModel.CreateAsync(new BodyPartModel());
 
             // Get the item to delete
             var first = ViewModel.Dataset.FirstOrDefault();
@@ -171,7 +171,7 @@ namespace UnitTests.ViewModels
         public async Task ItemIndexViewModel_Delete_Valid_Should_Pass()
         {
             // Arrange
-            await ViewModel.CreateAsync(new ItemModel());
+            await ViewModel.CreateAsync(new BodyPartModel());
 
             var first = ViewModel.Dataset.FirstOrDefault();
 
@@ -190,7 +190,7 @@ namespace UnitTests.ViewModels
         public async Task ItemIndexViewModel_Delete_Invalid_Should_Fail()
         {
             // Arrange
-            var data = new ItemModel
+            var data = new BodyPartModel
             {
                 Id = "bogus"
             };
@@ -224,7 +224,7 @@ namespace UnitTests.ViewModels
             // Arrange
 
             // Make a new Item
-            var data = new ItemModel();
+            var data = new BodyPartModel();
 
             // Make a Delete Page
             var myPage = new Game.Views.ItemCreatePage(true);
@@ -245,7 +245,7 @@ namespace UnitTests.ViewModels
         public async Task ItemIndexViewModel_Message_Update_Valid_Should_Pass()
         {
             // Arrange
-            await ViewModel.CreateAsync(new ItemModel());
+            await ViewModel.CreateAsync(new BodyPartModel());
 
             // Get the item to delete
             var first = ViewModel.Dataset.FirstOrDefault();
@@ -294,7 +294,7 @@ namespace UnitTests.ViewModels
             // Make the page Page
             var myPage = new Game.Views.AboutPage(true);
 
-            var data = new ItemModel();
+            var data = new BodyPartModel();
             await ViewModel.CreateAsync(data);
 
             // Act
@@ -311,7 +311,7 @@ namespace UnitTests.ViewModels
         public async Task ItemIndexViewModel_Update_Valid_Should_Pass()
         {
             // Arrange
-            await ViewModel.CreateAsync(new ItemModel());
+            await ViewModel.CreateAsync(new BodyPartModel());
 
             // Find the First ID
             var first = ViewModel.Dataset.FirstOrDefault();
@@ -337,7 +337,7 @@ namespace UnitTests.ViewModels
             // Arrange
 
             // Update only updates what is in the list, so update on something that does not exist will fail
-            var newData = new ItemModel();
+            var newData = new BodyPartModel();
 
             // Act
             var result = await ViewModel.UpdateAsync(newData);
@@ -366,7 +366,7 @@ namespace UnitTests.ViewModels
         public async Task ItemIndexViewModel_Create_Valid_Should_Pass()
         {
             // Arrange
-            var data = new ItemModel
+            var data = new BodyPartModel
             {
                 Name = "New Item"
             };
@@ -415,7 +415,7 @@ namespace UnitTests.ViewModels
         public async Task ItemIndexViewModel_ExecuteLoadDataCommand_InValid_Exception_Should_Fail()
         {
             // Arrange
-            await ViewModel.CreateAsync(new ItemModel());
+            await ViewModel.CreateAsync(new BodyPartModel());
 
             var oldDataset = ViewModel.Dataset;
 
@@ -488,7 +488,7 @@ namespace UnitTests.ViewModels
         public async Task ItemIndexViewModel_CreateUpdateAsync_Valid_Create_Should_Pass()
         {
             // Arrange
-            var data = new ItemModel
+            var data = new BodyPartModel
             {
                 Name = "New Item"
             };
@@ -506,7 +506,7 @@ namespace UnitTests.ViewModels
         public async Task ItemIndexViewModel_CreateUpdateAsync_Valid_Update_Should_Pass()
         {
             // Arrange
-            var data = new ItemModel
+            var data = new BodyPartModel
             {
                 Name = "New Item"
             };
@@ -542,7 +542,7 @@ namespace UnitTests.ViewModels
         public void ItemIndexViewModel_Create_Sync_Valid_Update_Should_Pass()
         {
             // Arrange
-            var data = new ItemModel
+            var data = new BodyPartModel
             {
                 Name = "New Item"
             };
@@ -588,7 +588,7 @@ namespace UnitTests.ViewModels
         public async Task ItemIndexViewModel_GetDefaultItemId_Head_Should_Pass()
         {
             // Arrange
-            await ViewModel.CreateAsync(new ItemModel { Location = BodyPartEnum.PrimaryHand});
+            await ViewModel.CreateAsync(new BodyPartModel { Location = BodyPartEnum.PrimaryHand});
 
             // Act
             var result = ViewModel.GetDefaultItemId(BodyPartEnum.PrimaryHand);
@@ -603,7 +603,7 @@ namespace UnitTests.ViewModels
         public async Task ItemIndexViewModel_GetDefaultItem_Unknown_Should_Fail()
         {
             // Arrange
-            await ViewModel.CreateAsync(new ItemModel { Location = BodyPartEnum.PrimaryHand });
+            await ViewModel.CreateAsync(new BodyPartModel { Location = BodyPartEnum.PrimaryHand });
 
             // Act
             var result = ViewModel.GetDefaultItem(BodyPartEnum.Unknown);
@@ -618,7 +618,7 @@ namespace UnitTests.ViewModels
         public async Task ItemIndexViewModel_GetDefaultItem_Head_Should_Pass()
         {
             // Arrange
-            await ViewModel.CreateAsync(new ItemModel { Location = BodyPartEnum.PrimaryHand });
+            await ViewModel.CreateAsync(new BodyPartModel { Location = BodyPartEnum.PrimaryHand });
 
             // Act
             var result = ViewModel.GetDefaultItem(BodyPartEnum.PrimaryHand);

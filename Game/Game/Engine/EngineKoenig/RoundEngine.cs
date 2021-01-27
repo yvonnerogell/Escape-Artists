@@ -405,7 +405,7 @@ namespace Game.Engine.EngineKoenig
         /// <param name="setLocation"></param>
         /// <param name="PoolItem"></param>
         /// <returns></returns>
-        public override ItemModel SwapCharacterItem(PlayerInfoModel character, BodyPartEnum setLocation, ItemModel PoolItem)
+        public override BodyPartModel SwapCharacterItem(PlayerInfoModel character, BodyPartEnum setLocation, BodyPartModel PoolItem)
         {
             // Put on the new ItemModel, which drops the one back to the pool
             var droppedItem = character.AddItem(setLocation, PoolItem.Id);

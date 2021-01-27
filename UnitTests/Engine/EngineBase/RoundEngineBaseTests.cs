@@ -328,8 +328,8 @@ namespace UnitTests.Engine.EngineBase
             // Add each model here to warm up and load it.
             Game.Helpers.DataSetsHelper.WarmUp();
 
-            var item1 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Location = BodyPartEnum.Feet };
-            var item2 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Location = BodyPartEnum.Feet };
+            var item1 = new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 1, Location = BodyPartEnum.Feet };
+            var item2 = new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 20, Location = BodyPartEnum.Feet };
 
             await ItemIndexViewModel.Instance.CreateAsync(item1);
             await ItemIndexViewModel.Instance.CreateAsync(item2);
@@ -379,8 +379,8 @@ namespace UnitTests.Engine.EngineBase
             // Add each model here to warm up and load it.
             Game.Helpers.DataSetsHelper.WarmUp();
 
-            var item1 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Location = BodyPartEnum.PrimaryHand };
-            var item2 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Location = BodyPartEnum.PrimaryHand };
+            var item1 = new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 1, Location = BodyPartEnum.PrimaryHand };
+            var item2 = new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 20, Location = BodyPartEnum.PrimaryHand };
 
             await ItemIndexViewModel.Instance.CreateAsync(item1);
             await ItemIndexViewModel.Instance.CreateAsync(item2);
@@ -429,8 +429,8 @@ namespace UnitTests.Engine.EngineBase
             // Add each model here to warm up and load it.
             Game.Helpers.DataSetsHelper.WarmUp();
 
-            var item1 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Location = BodyPartEnum.PrimaryHand };
-            var item2 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Location = BodyPartEnum.PrimaryHand };
+            var item1 = new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 1, Location = BodyPartEnum.PrimaryHand };
+            var item2 = new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 20, Location = BodyPartEnum.PrimaryHand };
 
             await ItemIndexViewModel.Instance.CreateAsync(item1);
             await ItemIndexViewModel.Instance.CreateAsync(item2);
@@ -479,8 +479,8 @@ namespace UnitTests.Engine.EngineBase
             // Add each model here to warm up and load it.
             Game.Helpers.DataSetsHelper.WarmUp();
 
-            var item1 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Location = BodyPartEnum.PrimaryHand };
-            var item2 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Location = BodyPartEnum.PrimaryHand };
+            var item1 = new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 1, Location = BodyPartEnum.PrimaryHand };
+            var item2 = new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 20, Location = BodyPartEnum.PrimaryHand };
 
             await ItemIndexViewModel.Instance.CreateAsync(item1);
             await ItemIndexViewModel.Instance.CreateAsync(item2);
@@ -528,8 +528,8 @@ namespace UnitTests.Engine.EngineBase
             // Add each model here to warm up and load it.
             Game.Helpers.DataSetsHelper.WarmUp();
 
-            var item1 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Location = BodyPartEnum.Finger };
-            var item2 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Location = BodyPartEnum.Finger };
+            var item1 = new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 1, Location = BodyPartEnum.Finger };
+            var item2 = new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 20, Location = BodyPartEnum.Finger };
 
             await ItemIndexViewModel.Instance.CreateAsync(item1);
             await ItemIndexViewModel.Instance.CreateAsync(item2);
@@ -578,8 +578,8 @@ namespace UnitTests.Engine.EngineBase
             // Add each model here to warm up and load it.
             Game.Helpers.DataSetsHelper.WarmUp();
 
-            var item1 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Location = BodyPartEnum.Finger };
-            var item2 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Location = BodyPartEnum.Finger };
+            var item1 = new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 1, Location = BodyPartEnum.Finger };
+            var item2 = new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 20, Location = BodyPartEnum.Finger };
 
             await ItemIndexViewModel.Instance.CreateAsync(item1);
             await ItemIndexViewModel.Instance.CreateAsync(item2);

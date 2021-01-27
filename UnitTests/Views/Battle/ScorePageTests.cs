@@ -130,7 +130,7 @@ namespace UnitTests.Views
         public void ScorePage_CreateItemBox_Default_Should_Pass()
         {
             // Arrange
-            var data = new ItemModel();
+            var data = new BodyPartModel();
 
             // Act
             page.CreateItemDisplayBox(data);
@@ -166,7 +166,7 @@ namespace UnitTests.Views
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.MonsterModelDeathList.Add(new PlayerInfoModel(new CharacterModel()));
 
             // Draw the Items
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Add(new ItemModel());
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Add(new BodyPartModel());
     
             // Act
             page.DrawOutput();

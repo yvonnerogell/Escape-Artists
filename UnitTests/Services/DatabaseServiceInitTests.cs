@@ -17,12 +17,12 @@ namespace UnitTests.Services
     [TestFixture]
     public class DatabaseServiceInitTests
     {
-        DatabaseService<ItemModel> DataStore;
+        DatabaseService<BodyPartModel> DataStore;
 
         [SetUp]
         public void Setup()
         {
-            DataStore = DatabaseService<ItemModel>.Instance;
+            DataStore = DatabaseService<BodyPartModel>.Instance;
         }
 
         [TearDown]
@@ -51,7 +51,7 @@ namespace UnitTests.Services
             // Arrange
 
             // Act
-            var result = DatabaseService<ItemModel>.GetDataConnection();
+            var result = DatabaseService<BodyPartModel>.GetDataConnection();
 
             // Reset
 

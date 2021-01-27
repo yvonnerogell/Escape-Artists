@@ -751,19 +751,19 @@ namespace Game.Models
         /// </summary>
         /// <param name="itemString"></param>
         /// <returns></returns>
-        public ItemModel GetItem(string itemString)
+        public BodyPartModel GetItem(string itemString)
         {
             return ItemIndexViewModel.Instance.GetItem(itemString);
         }
 
         // Drop All Items
         // Return a list of items for the pool of items
-        public List<ItemModel> DropAllItems()
+        public List<BodyPartModel> DropAllItems()
         {
-            var myReturn = new List<ItemModel>();
+            var myReturn = new List<BodyPartModel>();
 
             // Drop all Items
-            ItemModel myItem;
+            BodyPartModel myItem;
 
             myItem = RemoveItem(BodyPartEnum.Head);
             if (myItem != null)
@@ -815,7 +815,7 @@ namespace Game.Models
         // This will return the previous ItemModel, and put null in its place
         // Returns the ItemModel that was at the location
         // Nulls out the location
-        public ItemModel RemoveItem(BodyPartEnum itemlocation)
+        public BodyPartModel RemoveItem(BodyPartEnum itemlocation)
         {
             var myReturn = AddItem(itemlocation, null);
 
@@ -824,7 +824,7 @@ namespace Game.Models
         }
 
         // Get the ItemModel at a known string location (head, foot etc.)
-        public ItemModel GetItemByLocation(BodyPartEnum itemLocation)
+        public BodyPartModel GetItemByLocation(BodyPartEnum itemLocation)
         {
             switch (itemLocation)
             {
@@ -858,7 +858,7 @@ namespace Game.Models
         // Puts the ItemModel ID as a string in the location slot
         // If ItemModel is null, then puts null in the slot
         // Returns the ItemModel that was in the location
-        public ItemModel AddItem(BodyPartEnum itemLocation, string itemID)
+        public BodyPartModel AddItem(BodyPartEnum itemLocation, string itemID)
         {
             var myReturn = GetItemByLocation(itemLocation);
 
@@ -906,7 +906,7 @@ namespace Game.Models
         public int GetItemBonus(AttributeEnum attributeEnum)
         {
             var myReturn = 0;
-            ItemModel myItem;
+            BodyPartModel myItem;
 
             myItem = GetItem(Head);
             if (myItem != null)

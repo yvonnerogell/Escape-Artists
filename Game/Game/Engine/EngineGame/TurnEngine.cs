@@ -347,7 +347,7 @@ namespace Game.Engine.EngineGame
         /// <summary>
         /// Will drop between 1 and 4 items from the ItemModel set...
         /// </summary>
-        public override List<ItemModel> GetRandomMonsterItemDrops(int round)
+        public override List<BodyPartModel> GetRandomMonsterItemDrops(int round)
         {
             // TODO: Teams, You need to implement your own modification to the Logic cannot use mine as is.
 
