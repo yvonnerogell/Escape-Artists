@@ -311,6 +311,26 @@
             </Style>
 
             <Style TargetType="StackLayout"
+                x:Key="CharacterInfoBox">
+                <Setter Property="Orientation" Value="Vertical" />
+                <Setter Property="HorizontalOptions" Value="StartAndExpand" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="HeightRequest" Value="150" />
+                <Setter Property="WidthRequest" Value="150" />
+                <Setter Property="Spacing" Value="1" />
+            </Style>
+
+            <Style TargetType="StackLayout"
+                x:Key="CharacterInfoImage">
+                <Setter Property="Orientation" Value="Vertical" />
+                <Setter Property="HorizontalOptions" Value="End" />
+                <Setter Property="VerticalOptions" Value="End" />
+                <Setter Property="HeightRequest" Value="150" />
+                <Setter Property="WidthRequest" Value="150" />
+                <Setter Property="Spacing" Value="1" />
+            </Style>
+
+            <Style TargetType="StackLayout"
                 x:Key="CardImageTextBox">
                 <Setter Property="Orientation" Value="Vertical" />
                 <Setter Property="HorizontalOptions" Value="Center" />
