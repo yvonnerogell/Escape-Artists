@@ -70,14 +70,45 @@ namespace Game.Models
             CurrentHealth = newData.CurrentHealth;
             MaxHealth = newData.MaxHealth;
 
-            Head = newData.Head;
-            Necklace = newData.Necklace;
-            PrimaryHand = newData.PrimaryHand;
-            OffHand = newData.OffHand;
-            RightFinger = newData.RightFinger;
-            LeftFinger = newData.LeftFinger;
-            Feet = newData.Feet;
-            UniqueItem = newData.UniqueItem;
+            if (newData.Head != null)
+            {
+                Head = newData.Head;
+            }
+
+            if (newData.Necklace != null)
+            {
+                Necklace = newData.Necklace;
+            }
+
+            if (newData.PrimaryHand != null)
+            {
+                PrimaryHand = newData.PrimaryHand;
+            }
+
+            if (newData.OffHand != null)
+            {
+                OffHand = newData.OffHand;
+            }
+
+            if (newData.RightFinger != null)
+            {
+                RightFinger = newData.RightFinger;
+            }
+
+            if (newData.LeftFinger != null)
+            {
+                LeftFinger = newData.LeftFinger;
+            }
+
+            if (newData.Feet != null)
+            {
+                Feet = newData.Feet;
+            }
+
+            if (newData.UniqueItem != null)
+            {
+                UniqueItem = newData.UniqueItem;
+            }
 
             // Update the Job
             //Job = newData.Job;
