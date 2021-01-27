@@ -78,7 +78,9 @@ namespace Game.Models
             RightFinger = newData.RightFinger;
             LeftFinger = newData.LeftFinger;
             Feet = newData.Feet;
-            UniqueItem = newData.UniqueItem;
+
+            BodyParts = newData.BodyParts;
+            //UniqueItem = newData.UniqueItem;
 
             // Update the Job
             //Job = newData.Job;
