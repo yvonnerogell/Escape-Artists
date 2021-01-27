@@ -131,7 +131,10 @@ namespace Game.Models
         // The Difficulty scale to use when creating examples
         public DifficultyEnum Difficulty { get; set; } = DifficultyEnum.Unknown;
 
+        // The BodyParts owned by each person - applicable to characters
         public List<BodyPartEnum> BodyParts { get; set; } = null;
+
+
         
         // The Job for the Player
         //public CharacterJobEnum Job { get; set; } = CharacterJobEnum.Unknown;
