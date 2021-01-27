@@ -49,7 +49,7 @@ namespace Game.Models
 
             // Set the strings for the items
             Head = data.Head;
-            Necklass = data.Necklass;
+            Necklace = data.Necklace;
             PrimaryHand = data.PrimaryHand;
             OffHand = data.OffHand;
             RightFinger = data.RightFinger;
@@ -91,7 +91,7 @@ namespace Game.Models
 
             // Set the strings for the items
             Head = data.Head;
-            Necklass = data.Necklass;
+            Necklace = data.Necklace;
             PrimaryHand = data.PrimaryHand;
             OffHand = data.OffHand;
             RightFinger = data.RightFinger;
@@ -166,7 +166,7 @@ namespace Game.Models
 
             // Set the strings for the items
             Head = data.Head;
-            Necklass = data.Necklass;
+            Necklace = data.Necklace;
             PrimaryHand = data.PrimaryHand;
             OffHand = data.OffHand;
             RightFinger = data.RightFinger;

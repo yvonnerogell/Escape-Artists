@@ -203,7 +203,7 @@ namespace Game.GameRules
 
                 // Randomize an Item for Location
                 Head = GetItem(ItemLocationEnum.Head),
-                Necklass = GetItem(ItemLocationEnum.Necklace),
+                Necklace = GetItem(ItemLocationEnum.Necklace),
                 PrimaryHand = GetItem(ItemLocationEnum.PrimaryHand),
                 OffHand = GetItem(ItemLocationEnum.OffHand),
                 RightFinger = GetItem(ItemLocationEnum.Finger),
@@ -278,7 +278,7 @@ namespace Game.GameRules
             if (Items)
             {
                 result.Head = GetItem(ItemLocationEnum.Head);
-                result.Necklass = GetItem(ItemLocationEnum.Necklace);
+                result.Necklace = GetItem(ItemLocationEnum.Necklace);
                 result.PrimaryHand = GetItem(ItemLocationEnum.PrimaryHand);
                 result.OffHand = GetItem(ItemLocationEnum.OffHand);
                 result.RightFinger = GetItem(ItemLocationEnum.Finger);

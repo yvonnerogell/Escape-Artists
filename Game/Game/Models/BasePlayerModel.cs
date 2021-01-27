@@ -147,7 +147,7 @@ namespace Game.Models
         public string Feet { get; set; } = null;
 
         // Necklasss is a string referencing the database table
-        public string Necklass { get; set; } = null;
+        public string Necklace { get; set; } = null;
 
         // PrimaryHand is a string referencing the database table
         public string PrimaryHand { get; set; } = null;
@@ -828,7 +828,7 @@ namespace Game.Models
                     return GetItem(Head);
 
                 case ItemLocationEnum.Necklace:
-                    return GetItem(Necklass);
+                    return GetItem(Necklace);
 
                 case ItemLocationEnum.PrimaryHand:
                     return GetItem(PrimaryHand);
@@ -869,7 +869,7 @@ namespace Game.Models
                     break;
 
                 case ItemLocationEnum.Necklace:
-                    Necklass = itemID;
+                    Necklace = itemID;
                     break;
 
                 case ItemLocationEnum.PrimaryHand:
@@ -913,7 +913,7 @@ namespace Game.Models
                 }
             }
 
-            myItem = GetItem(Necklass);
+            myItem = GetItem(Necklace);
             if (myItem != null)
             {
                 if (myItem.Attribute == attributeEnum)
@@ -990,7 +990,7 @@ namespace Game.Models
                 myReturn += data.FormatOutput();
             }
 
-            data = ItemIndexViewModel.Instance.GetItem(Necklass);
+            data = ItemIndexViewModel.Instance.GetItem(Necklace);
             if (data != null)
             {
                 myReturn += data.FormatOutput();
