@@ -326,8 +326,8 @@ namespace UnitTests.Engine.EngineKoenig
             // Add each model here to warm up and load it.
             Game.Helpers.DataSetsHelper.WarmUp();
 
-            var item1 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Location = ItemLocationEnum.Feet };
-            var item2 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Location = ItemLocationEnum.Feet };
+            var item1 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Location = BodyPartEnum.Feet };
+            var item2 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Location = BodyPartEnum.Feet };
 
             await ItemIndexViewModel.Instance.CreateAsync(item1);
             await ItemIndexViewModel.Instance.CreateAsync(item2);
@@ -347,7 +347,7 @@ namespace UnitTests.Engine.EngineKoenig
 
             // Act
 
-            var result = Engine.Round.GetItemFromPoolIfBetter(CharacterPlayer, ItemLocationEnum.Feet);
+            var result = Engine.Round.GetItemFromPoolIfBetter(CharacterPlayer, BodyPartEnum.Feet);
 
             // Reset
 
@@ -377,8 +377,8 @@ namespace UnitTests.Engine.EngineKoenig
             // Add each model here to warm up and load it.
             Game.Helpers.DataSetsHelper.WarmUp();
 
-            var item1 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Location = ItemLocationEnum.PrimaryHand };
-            var item2 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Location = ItemLocationEnum.PrimaryHand };
+            var item1 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Location = BodyPartEnum.PrimaryHand };
+            var item2 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Location = BodyPartEnum.PrimaryHand };
 
             await ItemIndexViewModel.Instance.CreateAsync(item1);
             await ItemIndexViewModel.Instance.CreateAsync(item2);
@@ -387,7 +387,7 @@ namespace UnitTests.Engine.EngineKoenig
             Engine.EngineSettings.ItemPool.Add(item2);
 
             // Put the Item on the Character
-            Character.AddItem(ItemLocationEnum.PrimaryHand, item1.Id);
+            Character.AddItem(BodyPartEnum.PrimaryHand, item1.Id);
 
             var CharacterPlayer = new PlayerInfoModel(Character);
             Engine.EngineSettings.CharacterList.Clear();
@@ -397,7 +397,7 @@ namespace UnitTests.Engine.EngineKoenig
             Engine.EngineSettings.PlayerList = Engine.Round.MakePlayerList();
 
             // Act
-            var result = Engine.Round.GetItemFromPoolIfBetter(CharacterPlayer, ItemLocationEnum.PrimaryHand);
+            var result = Engine.Round.GetItemFromPoolIfBetter(CharacterPlayer, BodyPartEnum.PrimaryHand);
 
             // Reset
 
@@ -427,8 +427,8 @@ namespace UnitTests.Engine.EngineKoenig
             // Add each model here to warm up and load it.
             Game.Helpers.DataSetsHelper.WarmUp();
 
-            var item1 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Location = ItemLocationEnum.PrimaryHand };
-            var item2 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Location = ItemLocationEnum.PrimaryHand };
+            var item1 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Location = BodyPartEnum.PrimaryHand };
+            var item2 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Location = BodyPartEnum.PrimaryHand };
 
             await ItemIndexViewModel.Instance.CreateAsync(item1);
             await ItemIndexViewModel.Instance.CreateAsync(item2);
@@ -437,7 +437,7 @@ namespace UnitTests.Engine.EngineKoenig
             Engine.EngineSettings.ItemPool.Add(item2);
 
             // Put the Item on the Character
-            Character.AddItem(ItemLocationEnum.PrimaryHand, item2.Id);
+            Character.AddItem(BodyPartEnum.PrimaryHand, item2.Id);
 
             var CharacterPlayer = new PlayerInfoModel(Character);
             Engine.EngineSettings.CharacterList.Clear();
@@ -447,7 +447,7 @@ namespace UnitTests.Engine.EngineKoenig
             Engine.EngineSettings.PlayerList = Engine.Round.MakePlayerList();
 
             // Act
-            var result = Engine.Round.GetItemFromPoolIfBetter(CharacterPlayer, ItemLocationEnum.PrimaryHand);
+            var result = Engine.Round.GetItemFromPoolIfBetter(CharacterPlayer, BodyPartEnum.PrimaryHand);
 
             // Reset
 
@@ -477,8 +477,8 @@ namespace UnitTests.Engine.EngineKoenig
             // Add each model here to warm up and load it.
             Game.Helpers.DataSetsHelper.WarmUp();
 
-            var item1 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Location = ItemLocationEnum.PrimaryHand };
-            var item2 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Location = ItemLocationEnum.PrimaryHand };
+            var item1 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Location = BodyPartEnum.PrimaryHand };
+            var item2 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Location = BodyPartEnum.PrimaryHand };
 
             await ItemIndexViewModel.Instance.CreateAsync(item1);
             await ItemIndexViewModel.Instance.CreateAsync(item2);
@@ -487,7 +487,7 @@ namespace UnitTests.Engine.EngineKoenig
             //Engine.EngineSettings.ItemPool.Add(item2);
 
             // Put the Item on the Character
-            Character.AddItem(ItemLocationEnum.PrimaryHand, item2.Id);
+            Character.AddItem(BodyPartEnum.PrimaryHand, item2.Id);
 
             var CharacterPlayer = new PlayerInfoModel(Character);
             Engine.EngineSettings.CharacterList.Clear();
@@ -497,7 +497,7 @@ namespace UnitTests.Engine.EngineKoenig
             Engine.EngineSettings.PlayerList = Engine.Round.MakePlayerList();
 
             // Act
-            var result = Engine.Round.GetItemFromPoolIfBetter(CharacterPlayer, ItemLocationEnum.PrimaryHand);
+            var result = Engine.Round.GetItemFromPoolIfBetter(CharacterPlayer, BodyPartEnum.PrimaryHand);
 
             // Reset
 
@@ -526,8 +526,8 @@ namespace UnitTests.Engine.EngineKoenig
             // Add each model here to warm up and load it.
             Game.Helpers.DataSetsHelper.WarmUp();
 
-            var item1 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Location = ItemLocationEnum.Finger };
-            var item2 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Location = ItemLocationEnum.Finger };
+            var item1 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Location = BodyPartEnum.Finger };
+            var item2 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Location = BodyPartEnum.Finger };
 
             await ItemIndexViewModel.Instance.CreateAsync(item1);
             await ItemIndexViewModel.Instance.CreateAsync(item2);
@@ -536,7 +536,7 @@ namespace UnitTests.Engine.EngineKoenig
             Engine.EngineSettings.ItemPool.Add(item2);
 
             // Put the Item on the Character
-            Character.AddItem(ItemLocationEnum.RightFinger, item1.Id);
+            Character.AddItem(BodyPartEnum.RightFinger, item1.Id);
 
             var CharacterPlayer = new PlayerInfoModel(Character);
             Engine.EngineSettings.CharacterList.Clear();
@@ -546,7 +546,7 @@ namespace UnitTests.Engine.EngineKoenig
             Engine.EngineSettings.PlayerList = Engine.Round.MakePlayerList();
 
             // Act
-            var result = Engine.Round.GetItemFromPoolIfBetter(CharacterPlayer, ItemLocationEnum.RightFinger);
+            var result = Engine.Round.GetItemFromPoolIfBetter(CharacterPlayer, BodyPartEnum.RightFinger);
 
             // Reset
 
@@ -576,8 +576,8 @@ namespace UnitTests.Engine.EngineKoenig
             // Add each model here to warm up and load it.
             Game.Helpers.DataSetsHelper.WarmUp();
 
-            var item1 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Location = ItemLocationEnum.Finger };
-            var item2 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Location = ItemLocationEnum.Finger };
+            var item1 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Location = BodyPartEnum.Finger };
+            var item2 = new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Location = BodyPartEnum.Finger };
 
             await ItemIndexViewModel.Instance.CreateAsync(item1);
             await ItemIndexViewModel.Instance.CreateAsync(item2);
@@ -586,7 +586,7 @@ namespace UnitTests.Engine.EngineKoenig
             Engine.EngineSettings.ItemPool.Add(item2);
 
             // Put the Item on the Character
-            Character.AddItem(ItemLocationEnum.LeftFinger, item1.Id);
+            Character.AddItem(BodyPartEnum.LeftFinger, item1.Id);
 
             var CharacterPlayer = new PlayerInfoModel(Character);
             Engine.EngineSettings.CharacterList.Clear();
@@ -596,7 +596,7 @@ namespace UnitTests.Engine.EngineKoenig
             Engine.EngineSettings.PlayerList = Engine.Round.MakePlayerList();
 
             // Act
-            var result = Engine.Round.GetItemFromPoolIfBetter(CharacterPlayer, ItemLocationEnum.LeftFinger);
+            var result = Engine.Round.GetItemFromPoolIfBetter(CharacterPlayer, BodyPartEnum.LeftFinger);
 
             // Reset
 

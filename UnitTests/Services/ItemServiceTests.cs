@@ -74,7 +74,7 @@ namespace UnitTests.Services
             
             var level = 6;  // Max Value of 6
             var attribute = AttributeEnum.Unknown;  // Any Attribute
-            var location = ItemLocationEnum.Unknown;    // Any Location
+            var location = BodyPartEnum.Unknown;    // Any Location
             var random = true;  // Random between 1 and Level
             var updateDataBase = true;  // Add them to the DB
             var category = 0;   // What category to filter down to, 0 is all
@@ -98,7 +98,7 @@ namespace UnitTests.Services
 
             var level = 6;  // Max Value of 6
             var attribute = AttributeEnum.Unknown;  // Any Attribute
-            var location = ItemLocationEnum.Unknown;    // Any Location
+            var location = BodyPartEnum.Unknown;    // Any Location
             var random = true;  // Random between 1 and Level
             var updateDataBase = true;  // Add them to the DB
             var category = 0;   // What category to filter down to, 0 is all

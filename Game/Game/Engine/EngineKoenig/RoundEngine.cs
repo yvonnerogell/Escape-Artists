@@ -335,13 +335,13 @@ namespace Game.Engine.EngineKoenig
             {
                 // Have the character, walk the items in the pool, and decide if any are better than current one.
 
-                GetItemFromPoolIfBetter(character, ItemLocationEnum.Head);
-                GetItemFromPoolIfBetter(character, ItemLocationEnum.Necklace);
-                GetItemFromPoolIfBetter(character, ItemLocationEnum.PrimaryHand);
-                GetItemFromPoolIfBetter(character, ItemLocationEnum.OffHand);
-                GetItemFromPoolIfBetter(character, ItemLocationEnum.RightFinger);
-                GetItemFromPoolIfBetter(character, ItemLocationEnum.LeftFinger);
-                GetItemFromPoolIfBetter(character, ItemLocationEnum.Feet);
+                GetItemFromPoolIfBetter(character, BodyPartEnum.Head);
+                GetItemFromPoolIfBetter(character, BodyPartEnum.Necklace);
+                GetItemFromPoolIfBetter(character, BodyPartEnum.PrimaryHand);
+                GetItemFromPoolIfBetter(character, BodyPartEnum.OffHand);
+                GetItemFromPoolIfBetter(character, BodyPartEnum.RightFinger);
+                GetItemFromPoolIfBetter(character, BodyPartEnum.LeftFinger);
+                GetItemFromPoolIfBetter(character, BodyPartEnum.Feet);
             }
             return true;
         }
@@ -353,17 +353,17 @@ namespace Game.Engine.EngineKoenig
         /// </summary>
         /// <param name="character"></param>
         /// <param name="setLocation"></param>
-        public override bool GetItemFromPoolIfBetter(PlayerInfoModel character, ItemLocationEnum setLocation)
+        public override bool GetItemFromPoolIfBetter(PlayerInfoModel character, BodyPartEnum setLocation)
         {
             var thisLocation = setLocation;
-            if (setLocation == ItemLocationEnum.RightFinger)
+            if (setLocation == BodyPartEnum.RightFinger)
             {
-                thisLocation = ItemLocationEnum.Finger;
+                thisLocation = BodyPartEnum.Finger;
             }
 
-            if (setLocation == ItemLocationEnum.LeftFinger)
+            if (setLocation == BodyPartEnum.LeftFinger)
             {
-                thisLocation = ItemLocationEnum.Finger;
+                thisLocation = BodyPartEnum.Finger;
             }
 
             var myList = EngineSettings.ItemPool.Where(a => a.Location == thisLocation)
@@ -405,7 +405,7 @@ namespace Game.Engine.EngineKoenig
         /// <param name="setLocation"></param>
         /// <param name="PoolItem"></param>
         /// <returns></returns>
-        public override ItemModel SwapCharacterItem(PlayerInfoModel character, ItemLocationEnum setLocation, ItemModel PoolItem)
+        public override ItemModel SwapCharacterItem(PlayerInfoModel character, BodyPartEnum setLocation, ItemModel PoolItem)
         {
             // Put on the new ItemModel, which drops the one back to the pool
             var droppedItem = character.AddItem(setLocation, PoolItem.Id);

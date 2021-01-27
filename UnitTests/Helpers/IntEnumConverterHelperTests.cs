@@ -25,7 +25,7 @@ namespace UnitTests.Helpers
         {
             var myConverter = new IntEnumConverter();
 
-            var myObject = ItemLocationEnum.Feet;
+            var myObject = BodyPartEnum.Feet;
             var Result = myConverter.Convert(myObject, null, null, null);
             var Expected = 40;
 
@@ -38,8 +38,8 @@ namespace UnitTests.Helpers
             var myConverter = new StringEnumConverter();
 
             var myObject = "Feet";
-            var Result = myConverter.Convert(myObject, typeof(ItemLocationEnum), null, null);
-            var Expected = ItemLocationEnum.Feet;
+            var Result = myConverter.Convert(myObject, typeof(BodyPartEnum), null, null);
+            var Expected = BodyPartEnum.Feet;
 
             Assert.AreEqual(Expected, Result, TestContext.CurrentContext.Test.Name);
         }
@@ -49,7 +49,7 @@ namespace UnitTests.Helpers
         {
             var myConverter = new StringEnumConverter();
 
-            var myObject = ItemLocationEnum.Feet;
+            var myObject = BodyPartEnum.Feet;
             var Result = myConverter.Convert(myObject, null, null, null);
             var Expected = 40;
 
@@ -88,7 +88,7 @@ namespace UnitTests.Helpers
             var myConverter = new IntEnumConverter();
 
             int myObject = 40;
-            var Result = myConverter.ConvertBack(myObject, typeof(ItemLocationEnum), null, null);
+            var Result = myConverter.ConvertBack(myObject, typeof(BodyPartEnum), null, null);
             var Expected = "Feet";
 
             Assert.AreEqual(Expected, Result, TestContext.CurrentContext.Test.Name);

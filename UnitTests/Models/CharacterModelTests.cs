@@ -469,7 +469,7 @@ namespace UnitTests.Models
             var data = new CharacterModel();
 
             // Act
-            var result = data.GetItemByLocation(ItemLocationEnum.PrimaryHand);
+            var result = data.GetItemByLocation(BodyPartEnum.PrimaryHand);
 
             // Reset
 
@@ -484,7 +484,7 @@ namespace UnitTests.Models
             var data = new CharacterModel();
 
             // Act
-            var result = data.GetItemByLocation(ItemLocationEnum.Feet);
+            var result = data.GetItemByLocation(BodyPartEnum.Feet);
 
             // Reset
 
@@ -499,7 +499,7 @@ namespace UnitTests.Models
             var data = new CharacterModel();
 
             // Act
-            var result = data.GetItemByLocation(ItemLocationEnum.Necklace);
+            var result = data.GetItemByLocation(BodyPartEnum.Necklace);
 
             // Reset
 
@@ -514,7 +514,7 @@ namespace UnitTests.Models
             var data = new CharacterModel();
 
             // Act
-            var result = data.GetItemByLocation(ItemLocationEnum.PrimaryHand);
+            var result = data.GetItemByLocation(BodyPartEnum.PrimaryHand);
 
             // Reset
 
@@ -529,7 +529,7 @@ namespace UnitTests.Models
             var data = new CharacterModel();
 
             // Act
-            var result = data.GetItemByLocation(ItemLocationEnum.OffHand);
+            var result = data.GetItemByLocation(BodyPartEnum.OffHand);
 
             // Reset
 
@@ -544,7 +544,7 @@ namespace UnitTests.Models
             var data = new CharacterModel();
 
             // Act
-            var result = data.GetItemByLocation(ItemLocationEnum.RightFinger);
+            var result = data.GetItemByLocation(BodyPartEnum.RightFinger);
 
             // Reset
 
@@ -559,7 +559,7 @@ namespace UnitTests.Models
             var data = new CharacterModel();
 
             // Act
-            var result = data.GetItemByLocation(ItemLocationEnum.LeftFinger);
+            var result = data.GetItemByLocation(BodyPartEnum.LeftFinger);
 
             // Reset
 
@@ -574,7 +574,7 @@ namespace UnitTests.Models
             var data = new CharacterModel();
 
             // Act
-            var result = data.GetItemByLocation(ItemLocationEnum.Unknown);
+            var result = data.GetItemByLocation(BodyPartEnum.Unknown);
 
             // Reset
 
@@ -618,7 +618,7 @@ namespace UnitTests.Models
             var data = new CharacterModel();
 
             // Act
-            var result = data.AddItem(ItemLocationEnum.Unknown, "bogus");
+            var result = data.AddItem(BodyPartEnum.Unknown, "bogus");
 
             // Reset
 
@@ -640,7 +640,7 @@ namespace UnitTests.Models
             // Act
 
             // Add the second item, this will return the first item as the one replaced which is null
-            var result = data.AddItem(ItemLocationEnum.PrimaryHand, itemOld.Id);
+            var result = data.AddItem(BodyPartEnum.PrimaryHand, itemOld.Id);
 
             // Reset
 
@@ -661,12 +661,12 @@ namespace UnitTests.Models
             var itemNew = ItemIndexViewModel.Instance.Dataset.LastOrDefault();
 
             // Add the first item
-            data.AddItem(ItemLocationEnum.PrimaryHand, itemOld.Id);
+            data.AddItem(BodyPartEnum.PrimaryHand, itemOld.Id);
 
             // Act
 
             // Add the second item, this will return the first item as the one replaced
-            var result = data.AddItem(ItemLocationEnum.PrimaryHand, itemNew.Id);
+            var result = data.AddItem(BodyPartEnum.PrimaryHand, itemNew.Id);
 
             // Reset
 
@@ -693,13 +693,13 @@ namespace UnitTests.Models
             var data = new CharacterModel();
 
             // Add the first item
-            data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("head")).Id);
-            data.AddItem(ItemLocationEnum.Necklace, (await ItemIndexViewModel.Instance.ReadAsync("necklass")).Id);
-            data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
-            data.AddItem(ItemLocationEnum.OffHand, (await ItemIndexViewModel.Instance.ReadAsync("OffHand")).Id);
-            data.AddItem(ItemLocationEnum.RightFinger, (await ItemIndexViewModel.Instance.ReadAsync("RightFinger")).Id);
-            data.AddItem(ItemLocationEnum.LeftFinger, (await ItemIndexViewModel.Instance.ReadAsync("LeftFinger")).Id);
-            data.AddItem(ItemLocationEnum.Feet, (await ItemIndexViewModel.Instance.ReadAsync("feet")).Id);
+            data.AddItem(BodyPartEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("head")).Id);
+            data.AddItem(BodyPartEnum.Necklace, (await ItemIndexViewModel.Instance.ReadAsync("necklass")).Id);
+            data.AddItem(BodyPartEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
+            data.AddItem(BodyPartEnum.OffHand, (await ItemIndexViewModel.Instance.ReadAsync("OffHand")).Id);
+            data.AddItem(BodyPartEnum.RightFinger, (await ItemIndexViewModel.Instance.ReadAsync("RightFinger")).Id);
+            data.AddItem(BodyPartEnum.LeftFinger, (await ItemIndexViewModel.Instance.ReadAsync("LeftFinger")).Id);
+            data.AddItem(BodyPartEnum.Feet, (await ItemIndexViewModel.Instance.ReadAsync("feet")).Id);
 
             // Act
 
@@ -731,13 +731,13 @@ namespace UnitTests.Models
             var data = new CharacterModel();
 
             // Add the first item
-            data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("head")).Id);
-            data.AddItem(ItemLocationEnum.Necklace, (await ItemIndexViewModel.Instance.ReadAsync("necklass")).Id);
-            data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
-            data.AddItem(ItemLocationEnum.OffHand, (await ItemIndexViewModel.Instance.ReadAsync("OffHand")).Id);
-            data.AddItem(ItemLocationEnum.RightFinger, (await ItemIndexViewModel.Instance.ReadAsync("RightFinger")).Id);
-            data.AddItem(ItemLocationEnum.LeftFinger, (await ItemIndexViewModel.Instance.ReadAsync("LeftFinger")).Id);
-            data.AddItem(ItemLocationEnum.Feet, (await ItemIndexViewModel.Instance.ReadAsync("feet")).Id);
+            data.AddItem(BodyPartEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("head")).Id);
+            data.AddItem(BodyPartEnum.Necklace, (await ItemIndexViewModel.Instance.ReadAsync("necklass")).Id);
+            data.AddItem(BodyPartEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
+            data.AddItem(BodyPartEnum.OffHand, (await ItemIndexViewModel.Instance.ReadAsync("OffHand")).Id);
+            data.AddItem(BodyPartEnum.RightFinger, (await ItemIndexViewModel.Instance.ReadAsync("RightFinger")).Id);
+            data.AddItem(BodyPartEnum.LeftFinger, (await ItemIndexViewModel.Instance.ReadAsync("LeftFinger")).Id);
+            data.AddItem(BodyPartEnum.Feet, (await ItemIndexViewModel.Instance.ReadAsync("feet")).Id);
 
             // Act
 
@@ -768,13 +768,13 @@ namespace UnitTests.Models
             var data = new CharacterModel();
 
             // Add the first item
-            data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("head")).Id);
-            data.AddItem(ItemLocationEnum.Necklace, (await ItemIndexViewModel.Instance.ReadAsync("necklass")).Id);
-            data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
-            data.AddItem(ItemLocationEnum.OffHand, (await ItemIndexViewModel.Instance.ReadAsync("OffHand")).Id);
-            data.AddItem(ItemLocationEnum.RightFinger, (await ItemIndexViewModel.Instance.ReadAsync("RightFinger")).Id);
-            data.AddItem(ItemLocationEnum.LeftFinger, (await ItemIndexViewModel.Instance.ReadAsync("LeftFinger")).Id);
-            data.AddItem(ItemLocationEnum.Feet, (await ItemIndexViewModel.Instance.ReadAsync("feet")).Id);
+            data.AddItem(BodyPartEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("head")).Id);
+            data.AddItem(BodyPartEnum.Necklace, (await ItemIndexViewModel.Instance.ReadAsync("necklass")).Id);
+            data.AddItem(BodyPartEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
+            data.AddItem(BodyPartEnum.OffHand, (await ItemIndexViewModel.Instance.ReadAsync("OffHand")).Id);
+            data.AddItem(BodyPartEnum.RightFinger, (await ItemIndexViewModel.Instance.ReadAsync("RightFinger")).Id);
+            data.AddItem(BodyPartEnum.LeftFinger, (await ItemIndexViewModel.Instance.ReadAsync("LeftFinger")).Id);
+            data.AddItem(BodyPartEnum.Feet, (await ItemIndexViewModel.Instance.ReadAsync("feet")).Id);
 
             // Act
 
@@ -805,13 +805,13 @@ namespace UnitTests.Models
             var data = new CharacterModel();
 
             // Add the first item
-            data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("head")).Id);
-            data.AddItem(ItemLocationEnum.Necklace, (await ItemIndexViewModel.Instance.ReadAsync("necklass")).Id);
-            data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
-            data.AddItem(ItemLocationEnum.OffHand, (await ItemIndexViewModel.Instance.ReadAsync("OffHand")).Id);
-            data.AddItem(ItemLocationEnum.RightFinger, (await ItemIndexViewModel.Instance.ReadAsync("RightFinger")).Id);
-            data.AddItem(ItemLocationEnum.LeftFinger, (await ItemIndexViewModel.Instance.ReadAsync("LeftFinger")).Id);
-            data.AddItem(ItemLocationEnum.Feet, (await ItemIndexViewModel.Instance.ReadAsync("feet")).Id);
+            data.AddItem(BodyPartEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("head")).Id);
+            data.AddItem(BodyPartEnum.Necklace, (await ItemIndexViewModel.Instance.ReadAsync("necklass")).Id);
+            data.AddItem(BodyPartEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
+            data.AddItem(BodyPartEnum.OffHand, (await ItemIndexViewModel.Instance.ReadAsync("OffHand")).Id);
+            data.AddItem(BodyPartEnum.RightFinger, (await ItemIndexViewModel.Instance.ReadAsync("RightFinger")).Id);
+            data.AddItem(BodyPartEnum.LeftFinger, (await ItemIndexViewModel.Instance.ReadAsync("LeftFinger")).Id);
+            data.AddItem(BodyPartEnum.Feet, (await ItemIndexViewModel.Instance.ReadAsync("feet")).Id);
 
             // Act
 
@@ -843,13 +843,13 @@ namespace UnitTests.Models
             data.Level = 1;
 
             // Add the first item
-            data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("head")).Id);
-            data.AddItem(ItemLocationEnum.Necklace, (await ItemIndexViewModel.Instance.ReadAsync("necklass")).Id);
-            data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
-            data.AddItem(ItemLocationEnum.OffHand, (await ItemIndexViewModel.Instance.ReadAsync("OffHand")).Id);
-            data.AddItem(ItemLocationEnum.RightFinger, (await ItemIndexViewModel.Instance.ReadAsync("RightFinger")).Id);
-            data.AddItem(ItemLocationEnum.LeftFinger, (await ItemIndexViewModel.Instance.ReadAsync("LeftFinger")).Id);
-            data.AddItem(ItemLocationEnum.Feet, (await ItemIndexViewModel.Instance.ReadAsync("feet")).Id);
+            data.AddItem(BodyPartEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("head")).Id);
+            data.AddItem(BodyPartEnum.Necklace, (await ItemIndexViewModel.Instance.ReadAsync("necklass")).Id);
+            data.AddItem(BodyPartEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
+            data.AddItem(BodyPartEnum.OffHand, (await ItemIndexViewModel.Instance.ReadAsync("OffHand")).Id);
+            data.AddItem(BodyPartEnum.RightFinger, (await ItemIndexViewModel.Instance.ReadAsync("RightFinger")).Id);
+            data.AddItem(BodyPartEnum.LeftFinger, (await ItemIndexViewModel.Instance.ReadAsync("LeftFinger")).Id);
+            data.AddItem(BodyPartEnum.Feet, (await ItemIndexViewModel.Instance.ReadAsync("feet")).Id);
 
             Game.Helpers.DiceHelper.EnableForcedRolls();
             Game.Helpers.DiceHelper.SetForcedRollValue(1);
@@ -879,7 +879,7 @@ namespace UnitTests.Models
             data.Level = 1;
 
             // Add the first item
-            data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
+            data.AddItem(BodyPartEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
 
             Game.Helpers.DiceHelper.EnableForcedRolls();
             Game.Helpers.DiceHelper.SetForcedRollValue(1);
@@ -909,7 +909,7 @@ namespace UnitTests.Models
             data.Level = 1;
 
             // Add the first item
-            data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
+            data.AddItem(BodyPartEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
 
             Game.Helpers.DiceHelper.EnableForcedRolls();
             Game.Helpers.DiceHelper.SetForcedRollValue(1);
@@ -939,7 +939,7 @@ namespace UnitTests.Models
             data.Level = 1;
 
             // Add the first item
-            data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
+            data.AddItem(BodyPartEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
 
             Game.Helpers.DiceHelper.EnableForcedRolls();
             Game.Helpers.DiceHelper.SetForcedRollValue(1);

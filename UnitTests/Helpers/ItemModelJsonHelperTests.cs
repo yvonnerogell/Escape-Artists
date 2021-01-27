@@ -122,7 +122,7 @@ namespace UnitTests.Helpers
             // Assert
             Assert.AreEqual(10, result.Value);
             Assert.AreEqual(AttributeEnum.Attack, result.Attribute);
-            Assert.AreEqual(ItemLocationEnum.OffHand, result.Location);
+            Assert.AreEqual(BodyPartEnum.OffHand, result.Location);
             Assert.AreEqual("Strong Shield", result.Name);
             Assert.AreEqual("3a138793-7411-7c60-6b03-aee9423d3684", result.Guid);
             Assert.AreEqual("Enough to hide behind", result.Description);

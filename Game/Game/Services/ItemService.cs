@@ -65,7 +65,7 @@ namespace Game.Services
         // Random is to have the value random between 1 and the Level
         // Attribute is a filter to return only items for that attribute, else unknown is used for any
         // Location is a filter to return only items for that location, else unknown is used for any
-        public static async Task<List<ItemModel>> GetItemsFromServerPostAsync(int number, int level, AttributeEnum attribute, ItemLocationEnum location, int category, bool random, bool updateDataBase)
+        public static async Task<List<ItemModel>> GetItemsFromServerPostAsync(int number, int level, AttributeEnum attribute, BodyPartEnum location, int category, bool random, bool updateDataBase)
         {
             // Needs to get items from the server
             // Parse them

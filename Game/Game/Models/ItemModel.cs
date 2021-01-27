@@ -28,7 +28,7 @@ namespace Game.Models
         public AttributeEnum Attribute { get; set; } = AttributeEnum.Unknown;
 
         // Where the Item goes on the character.  Head, Foot etc.
-        public ItemLocationEnum Location { get; set; } = ItemLocationEnum.Unknown;
+        public BodyPartEnum Location { get; set; } = BodyPartEnum.Unknown;
 
         // The Value item modifies.  So a ring of Health +3, has a Value of 3
         public int Value { get; set; } = 0;

@@ -22,7 +22,7 @@ namespace Game.GameRules
                     Range = 10,
                     Damage = 10,
                     Value = 9,
-                    Location = ItemLocationEnum.PrimaryHand,
+                    Location = BodyPartEnum.PrimaryHand,
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
@@ -32,7 +32,7 @@ namespace Game.GameRules
                     Range = 10,
                     Damage = 10,
                     Value = 9,
-                    Location = ItemLocationEnum.Head,
+                    Location = BodyPartEnum.Head,
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
@@ -42,7 +42,7 @@ namespace Game.GameRules
                     Range = 10,
                     Damage = 10,
                     Value = 9,
-                    Location = ItemLocationEnum.Necklace,
+                    Location = BodyPartEnum.Necklace,
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
@@ -52,7 +52,7 @@ namespace Game.GameRules
                     Range = 10,
                     Damage = 10,
                     Value = 9,
-                    Location = ItemLocationEnum.OffHand,
+                    Location = BodyPartEnum.OffHand,
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
@@ -62,7 +62,7 @@ namespace Game.GameRules
                     Range = 10,
                     Damage = 10,
                     Value = 9,
-                    Location = ItemLocationEnum.Finger,
+                    Location = BodyPartEnum.Finger,
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
@@ -72,7 +72,7 @@ namespace Game.GameRules
                     Range = 10,
                     Damage = 10,
                     Value = 9,
-                    Location = ItemLocationEnum.Feet,
+                    Location = BodyPartEnum.Feet,
                     Attribute = AttributeEnum.Attack
                 },
             };
@@ -85,7 +85,7 @@ namespace Game.GameRules
                     Range = 2,
                     Damage = 10,
                     Value = 9,
-                    Location = ItemLocationEnum.PrimaryHand,
+                    Location = BodyPartEnum.PrimaryHand,
                     Attribute = AttributeEnum.Attack
                 };
                 item.Name = "I" + (datalist.Count+1).ToString();
@@ -127,13 +127,13 @@ namespace Game.GameRules
     /// <returns></returns>
     public static List<CharacterModel> LoadData(CharacterModel temp)
     {
-        var HeadString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.Head);
-        var NecklassString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.Necklace);
-        var PrimaryHandString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.PrimaryHand);
-        var OffHandString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.OffHand);
-        var FeetString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.Feet);
-        var RightFingerString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.Finger);
-        var LeftFingerString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.Finger);
+        var HeadString = ItemIndexViewModel.Instance.GetDefaultItemId(BodyPartEnum.Head);
+        var NecklassString = ItemIndexViewModel.Instance.GetDefaultItemId(BodyPartEnum.Necklace);
+        var PrimaryHandString = ItemIndexViewModel.Instance.GetDefaultItemId(BodyPartEnum.PrimaryHand);
+        var OffHandString = ItemIndexViewModel.Instance.GetDefaultItemId(BodyPartEnum.OffHand);
+        var FeetString = ItemIndexViewModel.Instance.GetDefaultItemId(BodyPartEnum.Feet);
+        var RightFingerString = ItemIndexViewModel.Instance.GetDefaultItemId(BodyPartEnum.Finger);
+        var LeftFingerString = ItemIndexViewModel.Instance.GetDefaultItemId(BodyPartEnum.Finger);
 
         var datalist = new List<CharacterModel>()
             {

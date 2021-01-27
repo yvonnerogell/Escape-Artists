@@ -24,8 +24,8 @@ namespace Game.Engine.EngineInterfaces
         List<PlayerInfoModel> MakePlayerList();
         PlayerInfoModel GetNextPlayerInList();
         bool PickupItemsFromPool(PlayerInfoModel character);
-        bool GetItemFromPoolIfBetter(PlayerInfoModel character, ItemLocationEnum setLocation);
-        ItemModel SwapCharacterItem(PlayerInfoModel character, ItemLocationEnum setLocation, ItemModel PoolItem);
+        bool GetItemFromPoolIfBetter(PlayerInfoModel character, BodyPartEnum setLocation);
+        ItemModel SwapCharacterItem(PlayerInfoModel character, BodyPartEnum setLocation, ItemModel PoolItem);
         //bool RemoveCharacterBuffs();
         List<PlayerInfoModel> PlayerList();
     }

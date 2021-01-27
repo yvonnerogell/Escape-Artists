@@ -74,7 +74,7 @@ namespace Game.Helpers
 
             //myData.Category = JsonHelper.GetJsonInteger(json, "Category");
 
-            myData.Location = (ItemLocationEnum)JsonHelper.GetJsonInteger(json, "Location");
+            myData.Location = (BodyPartEnum)JsonHelper.GetJsonInteger(json, "Location");
             myData.Attribute = (AttributeEnum)JsonHelper.GetJsonInteger(json, "Attribute");
 
             return myData;

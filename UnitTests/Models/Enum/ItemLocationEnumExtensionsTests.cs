@@ -13,7 +13,7 @@ namespace UnitTests.Models
             // Arrange
 
             // Act
-            var result = ItemLocationEnum.Unknown.ToMessage();
+            var result = BodyPartEnum.Unknown.ToMessage();
 
             // Reset
 
@@ -27,7 +27,7 @@ namespace UnitTests.Models
             // Arrange
 
             // Act
-            var result = ItemLocationEnum.PrimaryHand.ToMessage();
+            var result = BodyPartEnum.PrimaryHand.ToMessage();
 
             // Reset
 
@@ -41,7 +41,7 @@ namespace UnitTests.Models
             // Arrange
 
             // Act
-            var result = ItemLocationEnum.Necklace.ToMessage();
+            var result = BodyPartEnum.Necklace.ToMessage();
 
             // Reset
 
@@ -55,7 +55,7 @@ namespace UnitTests.Models
             // Arrange
 
             // Act
-            var result = ItemLocationEnum.PrimaryHand.ToMessage();
+            var result = BodyPartEnum.PrimaryHand.ToMessage();
 
             // Reset
 
@@ -69,7 +69,7 @@ namespace UnitTests.Models
             // Arrange
 
             // Act
-            var result = ItemLocationEnum.OffHand.ToMessage();
+            var result = BodyPartEnum.OffHand.ToMessage();
 
             // Reset
 
@@ -83,7 +83,7 @@ namespace UnitTests.Models
             // Arrange
 
             // Act
-            var result = ItemLocationEnum.RightFinger.ToMessage();
+            var result = BodyPartEnum.RightFinger.ToMessage();
 
             // Reset
 
@@ -97,7 +97,7 @@ namespace UnitTests.Models
             // Arrange
 
             // Act
-            var result = ItemLocationEnum.LeftFinger.ToMessage();
+            var result = BodyPartEnum.LeftFinger.ToMessage();
 
             // Reset
 
@@ -111,7 +111,7 @@ namespace UnitTests.Models
             // Arrange
 
             // Act
-            var result = ItemLocationEnum.Finger.ToMessage();
+            var result = BodyPartEnum.Finger.ToMessage();
 
             // Reset
 
@@ -125,7 +125,7 @@ namespace UnitTests.Models
             // Arrange
 
             // Act
-            var result = ItemLocationEnum.Feet.ToMessage();
+            var result = BodyPartEnum.Feet.ToMessage();
 
             // Reset
 

@@ -189,7 +189,7 @@ namespace Game.ViewModels
         /// </summary>
         /// <param name="location"></param>
         /// <returns></returns>
-        public string GetDefaultItemId(ItemLocationEnum location)
+        public string GetDefaultItemId(BodyPartEnum location)
         {
             var data = GetDefaultItem(location);
             if (data == null)
@@ -205,7 +205,7 @@ namespace Game.ViewModels
         /// </summary>
         /// <param name="location"></param>
         /// <returns></returns>
-        public ItemModel GetDefaultItem(ItemLocationEnum location)
+        public ItemModel GetDefaultItem(BodyPartEnum location)
         {
             var dataList = GetLocationItems(location);
             if (dataList.Count() == 0)
@@ -223,19 +223,19 @@ namespace Game.ViewModels
         /// </summary>
         /// <param name="location"></param>
         /// <returns></returns>
-        public List<ItemModel> GetLocationItems(ItemLocationEnum location)
+        public List<ItemModel> GetLocationItems(BodyPartEnum location)
         {
             List<ItemModel> data = null;
 
             // Convert Right and Left Finger to Finger
-            if (location == ItemLocationEnum.RightFinger)
+            if (location == BodyPartEnum.RightFinger)
             {
-                location = ItemLocationEnum.Finger;
+                location = BodyPartEnum.Finger;
             }
 
-            if (location == ItemLocationEnum.LeftFinger)
+            if (location == BodyPartEnum.LeftFinger)
             {
-                location = ItemLocationEnum.Finger;
+                location = BodyPartEnum.Finger;
             }
 
             // Find the Items that meet the criteria

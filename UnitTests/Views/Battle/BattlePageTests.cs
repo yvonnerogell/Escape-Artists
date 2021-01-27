@@ -285,7 +285,7 @@ namespace UnitTests.Views
 
             var oldItem = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PrimaryHand;
 
-            var item = ItemIndexViewModel.Instance.GetDefaultItem(ItemLocationEnum.PrimaryHand);
+            var item = ItemIndexViewModel.Instance.GetDefaultItem(BodyPartEnum.PrimaryHand);
             BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PrimaryHand = item.Id;
 
             // Act

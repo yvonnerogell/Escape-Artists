@@ -9,7 +9,7 @@ namespace Game.Models
     /// 
     /// Notice how Finger has Right and Left
     /// </summary>
-    public enum ItemLocationEnum
+    public enum BodyPartEnum
     {
         // Not specified
         Unknown = 0,
@@ -49,46 +49,46 @@ namespace Game.Models
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static string ToMessage(this ItemLocationEnum value)
+        public static string ToMessage(this BodyPartEnum value)
         {
             // Default String
             var Message = "Unknown";
 
             switch (value)
             {
-                case ItemLocationEnum.Head:
+                case BodyPartEnum.Head:
                     Message = "Head";
                     break;
 
-                case ItemLocationEnum.Necklace:
+                case BodyPartEnum.Necklace:
                     Message = "Necklace";
                     break;
 
-                case ItemLocationEnum.PrimaryHand:
+                case BodyPartEnum.PrimaryHand:
                     Message = "Primary Hand";
                     break;
 
-                case ItemLocationEnum.OffHand:
+                case BodyPartEnum.OffHand:
                     Message = "Off Hand";
                     break;
 
-                case ItemLocationEnum.RightFinger:
+                case BodyPartEnum.RightFinger:
                     Message = "Right Finger";
                     break;
 
-                case ItemLocationEnum.LeftFinger:
+                case BodyPartEnum.LeftFinger:
                     Message = "Left Finger";
                     break;
 
-                case ItemLocationEnum.Finger:
+                case BodyPartEnum.Finger:
                     Message = "Any Finger";
                     break;
 
-                case ItemLocationEnum.Feet:
+                case BodyPartEnum.Feet:
                     Message = "Feet";
                     break;
 
-                case ItemLocationEnum.Unknown:
+                case BodyPartEnum.Unknown:
                 default:
                     break;
             }
@@ -109,11 +109,11 @@ namespace Game.Models
         {
             get
             {
-                var myList = Enum.GetNames(typeof(ItemLocationEnum)).ToList();
+                var myList = Enum.GetNames(typeof(BodyPartEnum)).ToList();
                 var myReturn = myList.Where(a =>
-                                            a.ToString() != ItemLocationEnum.Unknown.ToString() &&
-                                            a.ToString() != ItemLocationEnum.LeftFinger.ToString() &&
-                                            a.ToString() != ItemLocationEnum.RightFinger.ToString()
+                                            a.ToString() != BodyPartEnum.Unknown.ToString() &&
+                                            a.ToString() != BodyPartEnum.LeftFinger.ToString() &&
+                                            a.ToString() != BodyPartEnum.RightFinger.ToString()
                                             )
                                             .OrderBy(a => a)
                                             .ToList();
@@ -129,10 +129,10 @@ namespace Game.Models
         {
             get
             {
-                var myList = Enum.GetNames(typeof(ItemLocationEnum)).ToList();
+                var myList = Enum.GetNames(typeof(BodyPartEnum)).ToList();
                 var myReturn = myList.Where(a =>
-                                           a.ToString() != ItemLocationEnum.Unknown.ToString() &&
-                                            a.ToString() != ItemLocationEnum.Finger.ToString()
+                                           a.ToString() != BodyPartEnum.Unknown.ToString() &&
+                                            a.ToString() != BodyPartEnum.Finger.ToString()
                                             )
                                             .OrderBy(a => a)
                                             .ToList();
@@ -146,9 +146,9 @@ namespace Game.Models
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static ItemLocationEnum ConvertStringToEnum(string value)
+        public static BodyPartEnum ConvertStringToEnum(string value)
         {
-            return (ItemLocationEnum)Enum.Parse(typeof(ItemLocationEnum), value);
+            return (BodyPartEnum)Enum.Parse(typeof(BodyPartEnum), value);
         }
 
         /// <summary>
@@ -157,31 +157,31 @@ namespace Game.Models
         /// </summary>
         /// <param name="position"></param>
         /// <returns></returns>
-        public static ItemLocationEnum GetLocationByPosition(int position)
+        public static BodyPartEnum GetLocationByPosition(int position)
         {
             switch (position)
             {
                 case 1:
-                    return ItemLocationEnum.Head;
+                    return BodyPartEnum.Head;
 
                 case 2:
-                    return ItemLocationEnum.Necklace;
+                    return BodyPartEnum.Necklace;
 
                 case 3:
-                    return ItemLocationEnum.PrimaryHand;
+                    return BodyPartEnum.PrimaryHand;
 
                 case 4:
-                    return ItemLocationEnum.OffHand;
+                    return BodyPartEnum.OffHand;
 
                 case 5:
-                    return ItemLocationEnum.RightFinger;
+                    return BodyPartEnum.RightFinger;
 
                 case 6:
-                    return ItemLocationEnum.LeftFinger;
+                    return BodyPartEnum.LeftFinger;
 
                 case 7:
                 default:
-                    return ItemLocationEnum.Feet;
+                    return BodyPartEnum.Feet;
             }
         }
     }

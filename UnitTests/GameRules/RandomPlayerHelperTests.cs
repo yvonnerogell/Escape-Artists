@@ -139,7 +139,7 @@ namespace UnitTests.Helpers
             DiceHelper.SetForcedRollValue(2);
 
             // Act
-            var result = RandomPlayerHelper.GetItem(Game.Models.ItemLocationEnum.Feet);
+            var result = RandomPlayerHelper.GetItem(Game.Models.BodyPartEnum.Feet);
 
             // Reset
             DiceHelper.DisableForcedRolls();

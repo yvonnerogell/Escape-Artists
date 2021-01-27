@@ -227,7 +227,7 @@ namespace Game.Engine.EngineGame
         /// 
         /// Uses Value to determine
         /// </summary>
-        public override bool GetItemFromPoolIfBetter(PlayerInfoModel character, ItemLocationEnum setLocation)
+        public override bool GetItemFromPoolIfBetter(PlayerInfoModel character, BodyPartEnum setLocation)
         {
             throw new System.NotImplementedException();
         }
@@ -237,7 +237,7 @@ namespace Game.Engine.EngineGame
         /// 
         /// Drop the current item back into the Pool
         /// </summary>
-        public override ItemModel SwapCharacterItem(PlayerInfoModel character, ItemLocationEnum setLocation, ItemModel PoolItem)
+        public override ItemModel SwapCharacterItem(PlayerInfoModel character, BodyPartEnum setLocation, ItemModel PoolItem)
         {
             throw new System.NotImplementedException();
         }

@@ -131,7 +131,7 @@ namespace Game.Models
         // The Difficulty scale to use when creating examples
         public DifficultyEnum Difficulty { get; set; } = DifficultyEnum.Unknown;
 
-        public List<ItemLocationEnum> BodyParts { get; set; } = null;
+        public List<BodyPartEnum> BodyParts { get; set; } = null;
         
         // The Job for the Player
         //public CharacterJobEnum Job { get; set; } = CharacterJobEnum.Unknown;
@@ -729,7 +729,7 @@ namespace Game.Models
         /// <returns></returns>
         public int GetItemRange()
         {
-            var weapon = GetItemByLocation(ItemLocationEnum.PrimaryHand);
+            var weapon = GetItemByLocation(BodyPartEnum.PrimaryHand);
             if (weapon == null)
             {
                 return 0;
@@ -762,43 +762,43 @@ namespace Game.Models
             // Drop all Items
             ItemModel myItem;
 
-            myItem = RemoveItem(ItemLocationEnum.Head);
+            myItem = RemoveItem(BodyPartEnum.Head);
             if (myItem != null)
             {
                 myReturn.Add(myItem);
             }
 
-            myItem = RemoveItem(ItemLocationEnum.Necklace);
+            myItem = RemoveItem(BodyPartEnum.Necklace);
             if (myItem != null)
             {
                 myReturn.Add(myItem);
             }
 
-            myItem = RemoveItem(ItemLocationEnum.PrimaryHand);
+            myItem = RemoveItem(BodyPartEnum.PrimaryHand);
             if (myItem != null)
             {
                 myReturn.Add(myItem);
             }
 
-            myItem = RemoveItem(ItemLocationEnum.OffHand);
+            myItem = RemoveItem(BodyPartEnum.OffHand);
             if (myItem != null)
             {
                 myReturn.Add(myItem);
             }
 
-            myItem = RemoveItem(ItemLocationEnum.RightFinger);
+            myItem = RemoveItem(BodyPartEnum.RightFinger);
             if (myItem != null)
             {
                 myReturn.Add(myItem);
             }
 
-            myItem = RemoveItem(ItemLocationEnum.LeftFinger);
+            myItem = RemoveItem(BodyPartEnum.LeftFinger);
             if (myItem != null)
             {
                 myReturn.Add(myItem);
             }
 
-            myItem = RemoveItem(ItemLocationEnum.Feet);
+            myItem = RemoveItem(BodyPartEnum.Feet);
             if (myItem != null)
             {
                 myReturn.Add(myItem);
@@ -812,7 +812,7 @@ namespace Game.Models
         // This will return the previous ItemModel, and put null in its place
         // Returns the ItemModel that was at the location
         // Nulls out the location
-        public ItemModel RemoveItem(ItemLocationEnum itemlocation)
+        public ItemModel RemoveItem(BodyPartEnum itemlocation)
         {
             var myReturn = AddItem(itemlocation, null);
 
@@ -821,29 +821,29 @@ namespace Game.Models
         }
 
         // Get the ItemModel at a known string location (head, foot etc.)
-        public ItemModel GetItemByLocation(ItemLocationEnum itemLocation)
+        public ItemModel GetItemByLocation(BodyPartEnum itemLocation)
         {
             switch (itemLocation)
             {
-                case ItemLocationEnum.Head:
+                case BodyPartEnum.Head:
                     return GetItem(Head);
 
-                case ItemLocationEnum.Necklace:
+                case BodyPartEnum.Necklace:
                     return GetItem(Necklace);
 
-                case ItemLocationEnum.PrimaryHand:
+                case BodyPartEnum.PrimaryHand:
                     return GetItem(PrimaryHand);
 
-                case ItemLocationEnum.OffHand:
+                case BodyPartEnum.OffHand:
                     return GetItem(OffHand);
 
-                case ItemLocationEnum.RightFinger:
+                case BodyPartEnum.RightFinger:
                     return GetItem(RightFinger);
 
-                case ItemLocationEnum.LeftFinger:
+                case BodyPartEnum.LeftFinger:
                     return GetItem(LeftFinger);
 
-                case ItemLocationEnum.Feet:
+                case BodyPartEnum.Feet:
                     return GetItem(Feet);
             }
 
@@ -855,37 +855,37 @@ namespace Game.Models
         // Puts the ItemModel ID as a string in the location slot
         // If ItemModel is null, then puts null in the slot
         // Returns the ItemModel that was in the location
-        public ItemModel AddItem(ItemLocationEnum itemLocation, string itemID)
+        public ItemModel AddItem(BodyPartEnum itemLocation, string itemID)
         {
             var myReturn = GetItemByLocation(itemLocation);
 
             switch (itemLocation)
             {
-                case ItemLocationEnum.Feet:
+                case BodyPartEnum.Feet:
                     Feet = itemID;
                     break;
 
-                case ItemLocationEnum.Head:
+                case BodyPartEnum.Head:
                     Head = itemID;
                     break;
 
-                case ItemLocationEnum.Necklace:
+                case BodyPartEnum.Necklace:
                     Necklace = itemID;
                     break;
 
-                case ItemLocationEnum.PrimaryHand:
+                case BodyPartEnum.PrimaryHand:
                     PrimaryHand = itemID;
                     break;
 
-                case ItemLocationEnum.OffHand:
+                case BodyPartEnum.OffHand:
                     OffHand = itemID;
                     break;
 
-                case ItemLocationEnum.RightFinger:
+                case BodyPartEnum.RightFinger:
                     RightFinger = itemID;
                     break;
 
-                case ItemLocationEnum.LeftFinger:
+                case BodyPartEnum.LeftFinger:
                     LeftFinger = itemID;
                     break;
 
