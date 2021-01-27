@@ -17,23 +17,27 @@
                 Wrap="Wrap"
                 Direction="Row"
                 JustifyContent="SpaceEvenly">
-                <BindableLayout.ItemTemplate>
+                
+                <BindableLayout.ItemTemplate >
 
                     <DataTemplate>
+                        
                         <StackLayout Padding="10">
-                            <ImageButton Source="squid.jpg"/>
+                            
+                            <ImageButton Source="squid.jpg"  Clicked="CharacterClicked" CommandParameter="{Binding Id}"/>
 
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                
                                 <Label Text="{Binding Name}" HorizontalTextAlignment="Center" LineBreakMode="NoWrap"/>
                                 <Label Text="{Binding Level}" HorizontalTextAlignment="Center" LineBreakMode="NoWrap" />
-
+                                
                             </StackLayout>
                             
                         </StackLayout>
+                        
                     </DataTemplate>
 
                 </BindableLayout.ItemTemplate>
-
 
             </FlexLayout>
         </ScrollView>
