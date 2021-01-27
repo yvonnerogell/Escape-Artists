@@ -51,7 +51,6 @@ namespace Game.Views.Characters
 		{
 			var button = sender as ImageButton;
 
-			// var id = button.Id.ToString();
 			String characterId = button.CommandParameter as String;
 			CharacterModel data = ViewModel.Dataset.FirstOrDefault(itm => itm.Id == characterId);
 			if (data == null)
