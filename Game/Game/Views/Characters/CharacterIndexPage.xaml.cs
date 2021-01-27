@@ -47,7 +47,7 @@ namespace Game.Views.Characters
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		public async void CharacterClicked(object sender, EventArgs args)
+		public async void ReadCharacter_Clicked(object sender, EventArgs args)
 		{
 			var button = sender as ImageButton;
 
