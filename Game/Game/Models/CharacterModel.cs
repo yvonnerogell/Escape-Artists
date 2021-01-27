@@ -26,6 +26,13 @@ namespace Game.Models
             ImageURI = "item.png";
             ExperienceTotal = 0;
             ExperienceRemaining = LevelTableHelper.LevelDetailsList[Level + 1].Experience - 1;
+            Feet = null;
+            PrimaryHand = null;
+            OffHand = null;
+            RightFinger = null;
+            LeftFinger = null;
+            Necklace = "None";
+            Head = "None";
 
             // Default to unknown, which is no special job
             //Job = CharacterJobEnum.Unknown; 
