@@ -32,7 +32,8 @@ namespace Game.Models
         }
 
         /// <summary>
-        /// Create a copy
+        /// Create a copy; in this version, the player is initialized with body parts and 
+        /// corresponding items unless the user picks "None" explicitly
         /// </summary>
         /// <param name="data"></param>
         public CharacterModel(CharacterModel data)
@@ -70,42 +71,42 @@ namespace Game.Models
             CurrentHealth = newData.CurrentHealth;
             MaxHealth = newData.MaxHealth;
 
-            if (newData.Head != null)
+            if (newData.Head != "None")
             {
                 Head = newData.Head;
             }
 
-            if (newData.Necklace != null)
+            if (newData.Necklace != "None")
             {
                 Necklace = newData.Necklace;
             }
 
-            if (newData.PrimaryHand != null)
+            if (newData.PrimaryHand != "None")
             {
                 PrimaryHand = newData.PrimaryHand;
             }
 
-            if (newData.OffHand != null)
+            if (newData.OffHand != "None")
             {
                 OffHand = newData.OffHand;
             }
 
-            if (newData.RightFinger != null)
+            if (newData.RightFinger != "None")
             {
                 RightFinger = newData.RightFinger;
             }
 
-            if (newData.LeftFinger != null)
+            if (newData.LeftFinger != "None")
             {
                 LeftFinger = newData.LeftFinger;
             }
 
-            if (newData.Feet != null)
+            if (newData.Feet != "None")
             {
                 Feet = newData.Feet;
             }
 
-            if (newData.UniqueItem != null)
+            if (newData.UniqueItem != "None")
             {
                 UniqueItem = newData.UniqueItem;
             }
