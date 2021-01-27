@@ -858,9 +858,12 @@ namespace Game.Models
         {
             var myReturn = GetItemByLocation(itemLocation);
 
+
+            /*
             switch (itemLocation)
             {
                 case ItemLocationEnum.Feet:
+
                     Feet = itemID;
                     break;
 
@@ -892,7 +895,7 @@ namespace Game.Models
                     myReturn = null;
                     break;
             }
-
+            */
             return myReturn;
         }
 
