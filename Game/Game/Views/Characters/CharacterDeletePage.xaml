@@ -6,7 +6,10 @@
              mc:Ignorable="d"
              x:Class="Game.Views.CharaterDeletePage"
              Title="Delete">
-
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" IconImageSource="icon_cancel.png"/>
+    </ContentPage.ToolbarItems>
+    
     <ScrollView>
         <StackLayout Style="{StaticResource OuterBoxStack}"
                 Spacing="10">
