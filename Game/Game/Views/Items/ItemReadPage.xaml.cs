@@ -16,7 +16,7 @@ namespace Game.Views
     public partial class ItemReadPage : ContentPage
     {
         // View Model for Item
-        public readonly GenericViewModel<BodyPartModel> ViewModel;
+        public readonly GenericViewModel<ItemModel> ViewModel;
 
         // Empty Constructor for UTs
         public ItemReadPage(bool UnitTest) { }
@@ -27,7 +27,7 @@ namespace Game.Views
         /// The viewModel is the data that should be displayed
         /// </summary>
         /// <param name="viewModel"></param>
-        public ItemReadPage(GenericViewModel<BodyPartModel> data)
+        public ItemReadPage(GenericViewModel<ItemModel> data)
         {
             InitializeComponent();
 

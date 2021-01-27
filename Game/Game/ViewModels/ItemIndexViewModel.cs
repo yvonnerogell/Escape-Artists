@@ -14,7 +14,7 @@ namespace Game.ViewModels
     /// Index View Model
     /// Manages the list of data records
     /// </summary>
-    public class ItemIndexViewModel : BaseViewModel<BodyPartModel>
+    public class ItemIndexViewModel : BaseViewModel<ItemModel>
     {
         #region Singleton
 
@@ -58,24 +58,24 @@ namespace Game.ViewModels
             #region Messages
 
             // Register the Create Message
-            MessagingCenter.Subscribe<ItemCreatePage, BodyPartModel>(this, "Create", async (obj, data) =>
+            MessagingCenter.Subscribe<ItemCreatePage, ItemModel>(this, "Create", async (obj, data) =>
             {
-                await CreateAsync(data as BodyPartModel);
+                await CreateAsync(data as ItemModel);
             });
 
             // Register the Update Message
-            MessagingCenter.Subscribe<ItemUpdatePage, BodyPartModel>(this, "Update", async (obj, data) =>
+            MessagingCenter.Subscribe<ItemUpdatePage, ItemModel>(this, "Update", async (obj, data) =>
             {
                 // Have the item update itself
                 data.Update(data);
 
-                await UpdateAsync(data as BodyPartModel);
+                await UpdateAsync(data as ItemModel);
             });
 
             // Register the Delete Message
-            MessagingCenter.Subscribe<ItemDeletePage, BodyPartModel>(this, "Delete", async (obj, data) =>
+            MessagingCenter.Subscribe<ItemDeletePage, ItemModel>(this, "Delete", async (obj, data) =>
             {
-                await DeleteAsync(data as BodyPartModel);
+                await DeleteAsync(data as ItemModel);
             });
 
             // Register the Set Data Source Message
@@ -102,7 +102,7 @@ namespace Game.ViewModels
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public override BodyPartModel CheckIfExists(BodyPartModel data)
+        public override ItemModel CheckIfExists(ItemModel data)
         {
             if (data == null)
             {
@@ -136,9 +136,9 @@ namespace Game.ViewModels
         /// Load the Default Data
         /// </summary>
         /// <returns></returns>
-        public override List<BodyPartModel> GetDefaultData() 
+        public override List<ItemModel> GetDefaultData() 
         {
-            return DefaultData.LoadData(new BodyPartModel());
+            return DefaultData.LoadData(new ItemModel());
         }
 
         #endregion DataOperations_CRUDi
@@ -150,7 +150,7 @@ namespace Game.ViewModels
         /// </summary>
         /// <param name="dataset"></param>
         /// <returns></returns>
-        public override List<BodyPartModel> SortDataset(List<BodyPartModel> dataset)
+        public override List<ItemModel> SortDataset(List<ItemModel> dataset)
         {
             return dataset
                     .OrderBy(a => a.Name)
@@ -166,7 +166,7 @@ namespace Game.ViewModels
         /// </summary>
         /// <param name="ItemID"></param>
         /// <returns></returns>
-        public BodyPartModel GetItem(string id)
+        public ItemModel GetItem(string id)
         {
             if (string.IsNullOrEmpty(id))
             {
@@ -174,7 +174,7 @@ namespace Game.ViewModels
             }
 
             // Item myData = DataStore.GetAsync_Item(ItemID).GetAwaiter().GetResult();
-            BodyPartModel myData = Dataset.Where(a => a.Id.Equals(id)).FirstOrDefault();
+            ItemModel myData = Dataset.Where(a => a.Id.Equals(id)).FirstOrDefault();
             if (myData == null)
             {
                 return null;
@@ -205,7 +205,7 @@ namespace Game.ViewModels
         /// </summary>
         /// <param name="location"></param>
         /// <returns></returns>
-        public BodyPartModel GetDefaultItem(BodyPartEnum location)
+        public ItemModel GetDefaultItem(BodyPartEnum location)
         {
             var dataList = GetLocationItems(location);
             if (dataList.Count() == 0)
@@ -223,9 +223,9 @@ namespace Game.ViewModels
         /// </summary>
         /// <param name="location"></param>
         /// <returns></returns>
-        public List<BodyPartModel> GetLocationItems(BodyPartEnum location)
+        public List<ItemModel> GetLocationItems(BodyPartEnum location)
         {
-            List<BodyPartModel> data = null;
+            List<ItemModel> data = null;
 
             // Convert Right and Left Finger to Finger
             if (location == BodyPartEnum.RightFinger)

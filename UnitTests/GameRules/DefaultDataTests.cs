@@ -16,7 +16,7 @@ namespace UnitTests.GameRules
             // Arrange
 
             // Act
-            var result = DefaultData.LoadData(new BodyPartModel());
+            var result = DefaultData.LoadData(new ItemModel());
 
             // Reset
 

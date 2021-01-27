@@ -11,11 +11,11 @@ namespace Game.GameRules
         /// Load the Default data
         /// </summary>
         /// <returns></returns>
-        public static List<BodyPartModel> LoadData(BodyPartModel temp)
+        public static List<ItemModel> LoadData(ItemModel temp)
         {
-            var datalist = new List<BodyPartModel>()
+            var datalist = new List<ItemModel>()
             {
-                new BodyPartModel {
+                new ItemModel {
                     Name = "I1",
                     Description = "I1",
                     ImageURI = "item.png",
@@ -25,7 +25,7 @@ namespace Game.GameRules
                     Location = BodyPartEnum.PrimaryHand,
                     Attribute = AttributeEnum.Attack
                 },
-                new BodyPartModel {
+                new ItemModel {
                     Name = "I2",
                     Description = "I2",
                     ImageURI = "item.png",
@@ -35,7 +35,7 @@ namespace Game.GameRules
                     Location = BodyPartEnum.Head,
                     Attribute = AttributeEnum.Attack
                 },
-                new BodyPartModel {
+                new ItemModel {
                     Name = "I3",
                     Description = "I3",
                     ImageURI = "item.png",
@@ -45,7 +45,7 @@ namespace Game.GameRules
                     Location = BodyPartEnum.Necklace,
                     Attribute = AttributeEnum.Attack
                 },
-                new BodyPartModel {
+                new ItemModel {
                     Name = "I4",
                     Description = "I4",
                     ImageURI = "item.png",
@@ -55,7 +55,7 @@ namespace Game.GameRules
                     Location = BodyPartEnum.OffHand,
                     Attribute = AttributeEnum.Attack
                 },
-                new BodyPartModel {
+                new ItemModel {
                     Name = "I5",
                     Description = "I5",
                     ImageURI = "item.png",
@@ -65,7 +65,7 @@ namespace Game.GameRules
                     Location = BodyPartEnum.Finger,
                     Attribute = AttributeEnum.Attack
                 },
-                new BodyPartModel {
+                new ItemModel {
                     Name = "I6",
                     Description = "I6",
                     ImageURI = "item.png",
@@ -79,7 +79,7 @@ namespace Game.GameRules
 
             for (int i = 0; i < 20; i++)
             {
-                var item = new BodyPartModel
+                var item = new ItemModel
                 {
                     ImageURI = "item.png",
                     Range = 2,

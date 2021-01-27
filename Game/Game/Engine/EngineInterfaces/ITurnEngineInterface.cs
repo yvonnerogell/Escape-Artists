@@ -25,7 +25,7 @@ namespace Game.Engine.EngineInterfaces
         bool TargetDied(PlayerInfoModel Target);
         int DropItems(PlayerInfoModel Target);
         HitStatusEnum RollToHitTarget(int AttackScore, int DefenseScore);
-        List<BodyPartModel> GetRandomMonsterItemDrops(int round);
+        List<ItemModel> GetRandomMonsterItemDrops(int round);
         bool DetermineCriticalMissProblem(PlayerInfoModel attacker);
     }
 }

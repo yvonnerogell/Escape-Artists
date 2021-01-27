@@ -21,9 +21,9 @@ namespace Game.Helpers
         /// </summary>
         /// <param name="myJsonData"></param>
         /// <returns></returns>
-        public static List<BodyPartModel> ParseJson(string myJsonData)
+        public static List<ItemModel> ParseJson(string myJsonData)
         {
-            var myData = new List<BodyPartModel>();
+            var myData = new List<ItemModel>();
 
             try
             {
@@ -57,9 +57,9 @@ namespace Game.Helpers
         /// </summary>
         /// <param name="json"></param>
         /// <returns></returns>
-        public static BodyPartModel ConvertFromJson(JObject json)
+        public static ItemModel ConvertFromJson(JObject json)
         {
-            var myData = new BodyPartModel();
+            var myData = new ItemModel();
 
             myData.Name = JsonHelper.GetJsonString(json, "Name");
             myData.Guid = JsonHelper.GetJsonString(json, "Guid");

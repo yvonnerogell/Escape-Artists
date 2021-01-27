@@ -16,7 +16,7 @@ namespace Game.Models
     /// When characters or monsters die, they drop items into the Items Pool for the Battle
     /// 
     /// </summary>
-    public class BodyPartModel : BaseModel<BodyPartModel>
+    public class ItemModel : BaseModel<ItemModel>
     {
         // Range of the item, swords are 1, hats/rings are 0, bows are >1
         public int Range { get; set; } = 0;
@@ -48,7 +48,7 @@ namespace Game.Models
         /// Default ItemModel
         /// Establish the Default Image Path
         /// </summary>
-        public BodyPartModel()
+        public ItemModel()
         {
             ImageURI = ItemService.DefaultImageURI;
         }
@@ -57,7 +57,7 @@ namespace Game.Models
         /// Constructor to create an item based on what is passed in
         /// </summary>
         /// <param name="data"></param>
-        public BodyPartModel(BodyPartModel data)
+        public ItemModel(ItemModel data)
         {
             Update(data);
         }
@@ -66,7 +66,7 @@ namespace Game.Models
         /// Update the Record
         /// </summary>
         /// <param name="newData">The new data</param>
-        public override bool Update(BodyPartModel newData)
+        public override bool Update(ItemModel newData)
         {
             if (newData == null)
             {

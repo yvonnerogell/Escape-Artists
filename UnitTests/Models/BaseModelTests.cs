@@ -13,7 +13,7 @@ namespace UnitTests.Models
             // Arrange
 
             // Act
-            var result = new BaseModel<BodyPartModel>();
+            var result = new BaseModel<ItemModel>();
 
             // Reset
 
@@ -25,7 +25,7 @@ namespace UnitTests.Models
         public void BaseModel_Set_Default_Should_Pass()
         {
             // Arrange
-            var result = new BaseModel<BodyPartModel>();
+            var result = new BaseModel<ItemModel>();
 
             // Act
             result.Id = "bogus";
@@ -42,7 +42,7 @@ namespace UnitTests.Models
         public void BaseModel_Update_Default_Should_Pass()
         {
             // Arrange
-            var data = new BaseModel<BodyPartModel>();
+            var data = new BaseModel<ItemModel>();
 
             // Act
             var result = data.Update(null);

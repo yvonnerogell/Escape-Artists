@@ -19,7 +19,7 @@ namespace Game.Services
         public static string DefaultImageURI = "item.png";
 
         #region ServerCalls
-        public static async Task<List<BodyPartModel>> GetItemsFromServerGetAsync(int parameter = 100)
+        public static async Task<List<ItemModel>> GetItemsFromServerGetAsync(int parameter = 100)
         {
             // parameter is the ItemModel group to request.  1, 2, 3, 100
 
@@ -65,7 +65,7 @@ namespace Game.Services
         // Random is to have the value random between 1 and the Level
         // Attribute is a filter to return only items for that attribute, else unknown is used for any
         // Location is a filter to return only items for that location, else unknown is used for any
-        public static async Task<List<BodyPartModel>> GetItemsFromServerPostAsync(int number, int level, AttributeEnum attribute, BodyPartEnum location, int category, bool random, bool updateDataBase)
+        public static async Task<List<ItemModel>> GetItemsFromServerPostAsync(int number, int level, AttributeEnum attribute, BodyPartEnum location, int category, bool random, bool updateDataBase)
         {
             // Needs to get items from the server
             // Parse them
@@ -99,7 +99,7 @@ namespace Game.Services
             if (myList == null)
             {
                 // Error, no results, return empty list.
-                return new List<BodyPartModel>();
+                return new List<ItemModel>();
             }
 
             // Then update the database

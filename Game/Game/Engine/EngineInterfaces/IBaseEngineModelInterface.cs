@@ -29,7 +29,7 @@ namespace Game.Engine.EngineInterfaces
 
         BattleMessagesModel BattleMessagesModel { get; set; }
 
-        List<BodyPartModel> ItemPool { get; set; }
+        List<ItemModel> ItemPool { get; set; }
 
         List<PlayerInfoModel> MonsterList { get; set; }
 

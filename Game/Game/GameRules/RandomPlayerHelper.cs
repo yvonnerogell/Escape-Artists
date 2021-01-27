@@ -175,7 +175,7 @@ namespace Game.GameRules
             }
 
             // Add None to the list
-            ItemList.Add(new BodyPartModel { Id = null, Name = "None" });
+            ItemList.Add(new ItemModel { Id = null, Name = "None" });
 
             var result = ItemList.ElementAt(DiceHelper.RollDice(1, ItemList.Count()) - 1).Id;
             return result;

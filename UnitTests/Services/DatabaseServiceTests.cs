@@ -10,14 +10,14 @@ namespace UnitTests.Services
     [TestFixture]
     public class DatabaseServiceTests
     {
-        DatabaseService<BodyPartModel> DataStore;
+        DatabaseService<ItemModel> DataStore;
 
         [SetUp]
         public void Setup()
         {
             //DatabaseService<ItemModel>.TestMode = true;
-            DatabaseService<BodyPartModel>.TestMode = true;
-            DataStore = DatabaseService<BodyPartModel>.Instance;
+            DatabaseService<ItemModel>.TestMode = true;
+            DataStore = DatabaseService<ItemModel>.Instance;
         }
 
         [TearDown]
@@ -46,10 +46,10 @@ namespace UnitTests.Services
             // Arrange
 
             // Make a second instance
-            DatabaseService<BodyPartModel>.initialized = false;
+            DatabaseService<ItemModel>.initialized = false;
 
             // Act
-            DatabaseService<BodyPartModel> DataStore2 = new DatabaseService<BodyPartModel>();
+            DatabaseService<ItemModel> DataStore2 = new DatabaseService<ItemModel>();
 
             // Reset
 
@@ -94,7 +94,7 @@ namespace UnitTests.Services
             // Arrange
 
             // Act
-            var result = DatabaseService<BodyPartModel>.GetDataConnection();
+            var result = DatabaseService<ItemModel>.GetDataConnection();
 
             // Reset
 
@@ -163,7 +163,7 @@ namespace UnitTests.Services
             // Arrange
 
             // Act
-            var result = await DataStore.CreateAsync(new BodyPartModel());
+            var result = await DataStore.CreateAsync(new ItemModel());
 
             // Reset
 
@@ -192,7 +192,7 @@ namespace UnitTests.Services
             DataStore.ForceExceptionOnNumber = 1;
 
             // Act
-            var result = await DataStore.CreateAsync(new BodyPartModel());
+            var result = await DataStore.CreateAsync(new ItemModel());
 
             // Reset
             DataStore.ForceExceptionOnNumber = 0;
@@ -205,7 +205,7 @@ namespace UnitTests.Services
         public async Task DatabaseService_Read_Valid_Should_Pass()
         {
             // Arrange
-            var item = new BodyPartModel();
+            var item = new ItemModel();
             await DataStore.CreateAsync(item);
 
             // Act
@@ -221,7 +221,7 @@ namespace UnitTests.Services
         public async Task DatabaseService_Read_InValid_Null_List_Should_Fail()
         {
             // Arrange
-            var item = new BodyPartModel();
+            var item = new ItemModel();
             await DataStore.CreateAsync(item);
 
             // Act
@@ -237,7 +237,7 @@ namespace UnitTests.Services
         public async Task DatabaseService_Read_InValid_ForceException_Should_Fail()
         {
             // Arrange
-            var item = new BodyPartModel();
+            var item = new ItemModel();
             await DataStore.CreateAsync(item);
 
             DataStore.ForceExceptionOnNumber = 1;
@@ -255,7 +255,7 @@ namespace UnitTests.Services
         public async Task DatabaseService_Index_Valid_Should_Pass()
         {
             // Arrange
-            var item = new BodyPartModel();
+            var item = new ItemModel();
             await DataStore.CreateAsync(item);
 
             // Act
@@ -271,7 +271,7 @@ namespace UnitTests.Services
         public async Task DatabaseService_Index_InValid_ForceException_Should_Fail()
         {
             // Arrange
-            var item = new BodyPartModel();
+            var item = new ItemModel();
             await DataStore.CreateAsync(item);
 
             DataStore.ForceExceptionOnNumber = 1;
@@ -289,12 +289,12 @@ namespace UnitTests.Services
         public async Task DatabaseService_Delete_Valid_Should_Pass()
         {
             // Arrange
-            var item1 = new BodyPartModel
+            var item1 = new ItemModel
             {
                 Name = "a"
             };
 
-            var item2 = new BodyPartModel
+            var item2 = new ItemModel
             {
                 Name = "b"
             };
@@ -315,12 +315,12 @@ namespace UnitTests.Services
         public async Task DatabaseService_Delete_InValid_Should_Fail()
         {
             // Arrange
-            var item1 = new BodyPartModel
+            var item1 = new ItemModel
             {
                 Name = "a"
             };
 
-            var item2 = new BodyPartModel
+            var item2 = new ItemModel
             {
                 Name = "b"
             };
@@ -341,12 +341,12 @@ namespace UnitTests.Services
         public async Task DatabaseService_Delete_InValid_Null_Should_Fail()
         {
             // Arrange
-            var item1 = new BodyPartModel
+            var item1 = new ItemModel
             {
                 Name = "a"
             };
 
-            var item2 = new BodyPartModel
+            var item2 = new ItemModel
             {
                 Name = "b"
             };
@@ -367,7 +367,7 @@ namespace UnitTests.Services
         public async Task DatabaseService_Delete_InValid_ForceException_Should_Fail()
         {
             // Arrange
-            var item1 = new BodyPartModel
+            var item1 = new ItemModel
             {
                 Name = "a"
             };
@@ -390,12 +390,12 @@ namespace UnitTests.Services
         public async Task DatabaseService_Update_Valid_Should_Pass()
         {
             // Arrange
-            var item1 = new BodyPartModel
+            var item1 = new ItemModel
             {
                 Name = "a"
             };
 
-            var item2 = new BodyPartModel
+            var item2 = new ItemModel
             {
                 Name = "b"
             };
@@ -420,12 +420,12 @@ namespace UnitTests.Services
         public async Task DatabaseService_Update_InValid_Null_Should_Fail()
         {
             // Arrange
-            var item1 = new BodyPartModel
+            var item1 = new ItemModel
             {
                 Name = "a"
             };
 
-            var item2 = new BodyPartModel
+            var item2 = new ItemModel
             {
                 Name = "b"
             };
@@ -446,12 +446,12 @@ namespace UnitTests.Services
         public async Task DatabaseService_Update_InValid_ID_Should_Fail()
         {
             // Arrange
-            var item1 = new BodyPartModel
+            var item1 = new ItemModel
             {
                 Name = "a"
             };
 
-            var item2 = new BodyPartModel
+            var item2 = new ItemModel
             {
                 Name = "b"
             };
@@ -474,12 +474,12 @@ namespace UnitTests.Services
         public async Task DatabaseService_Update_ForceException_Should_Fail()
         {
              // Arrange
-            var item1 = new BodyPartModel
+            var item1 = new ItemModel
             {
                 Name = "a"
             };
 
-            var item2 = new BodyPartModel
+            var item2 = new ItemModel
             {
                 Name = "b"
             };

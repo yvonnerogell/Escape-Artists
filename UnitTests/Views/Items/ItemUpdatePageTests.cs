@@ -34,7 +34,7 @@ namespace UnitTests.Views
             app = new App();
             Application.Current = app;
 
-            page = new ItemUpdatePage(new GenericViewModel<BodyPartModel>(new BodyPartModel()));
+            page = new ItemUpdatePage(new GenericViewModel<ItemModel>(new ItemModel()));
         }
 
         [TearDown]
@@ -118,8 +118,8 @@ namespace UnitTests.Views
         public void ItemUpdatePage_Value_OnStepperValueChanged_Default_Should_Pass()
         {
             // Arrange
-            var data = new BodyPartModel();
-            var ViewModel = new GenericViewModel<BodyPartModel>(data);
+            var data = new ItemModel();
+            var ViewModel = new GenericViewModel<ItemModel>(data);
 
             page = new ItemUpdatePage(ViewModel);
             double oldValue = 0.0;
@@ -140,8 +140,8 @@ namespace UnitTests.Views
         public void ItemUpdatePage_Range_OnStepperValueChanged_Default_Should_Pass()
         {
             // Arrange
-            var data = new BodyPartModel();
-            var ViewModel = new GenericViewModel<BodyPartModel>(data);
+            var data = new ItemModel();
+            var ViewModel = new GenericViewModel<ItemModel>(data);
 
             page = new ItemUpdatePage(ViewModel);
             double oldRange = 0.0;
@@ -162,8 +162,8 @@ namespace UnitTests.Views
         public void ItemUpdatePage_Damage_OnStepperDamageChanged_Default_Should_Pass()
         {
             // Arrange
-            var data = new BodyPartModel();
-            var ViewModel = new GenericViewModel<BodyPartModel>(data);
+            var data = new ItemModel();
+            var ViewModel = new GenericViewModel<ItemModel>(data);
 
             page = new ItemUpdatePage(ViewModel);
             double oldDamage = 0.0;

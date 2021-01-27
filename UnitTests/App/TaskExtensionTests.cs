@@ -23,7 +23,7 @@ namespace UnitTests.Views
             // Initilize Xamarin Forms
             MockForms.Init();
 
-           IDataStore<BodyPartModel> DataSource_SQL = new TestDatabaseService<BodyPartModel>(false);
+           IDataStore<ItemModel> DataSource_SQL = new TestDatabaseService<ItemModel>(false);
 
             // Act
             // Add each model here to warm up and load it.
@@ -52,7 +52,7 @@ namespace UnitTests.Views
 #pragma warning restore CS0219 // Variable is assigned but its value is never used
 
             // Call with Error=true
-            IDataStore<BodyPartModel> DataSource_SQL = new TestDatabaseService<BodyPartModel>(true, myact);
+            IDataStore<ItemModel> DataSource_SQL = new TestDatabaseService<ItemModel>(true, myact);
 
             // Act
             // Add each model here to warm up and load it.
@@ -67,49 +67,49 @@ namespace UnitTests.Views
         [Test]
         public void TestDatabaseService_WipeDataListAsync_Should_Throw_Excpetion()
         {
-            IDataStore<BodyPartModel> DataSource_SQL = new TestDatabaseService<BodyPartModel>(false);
+            IDataStore<ItemModel> DataSource_SQL = new TestDatabaseService<ItemModel>(false);
             Assert.ThrowsAsync<NotImplementedException>(() => DataSource_SQL.WipeDataListAsync());
         }
 
         [Test]
         public void TestDatabaseService_CreateAsync_Should_Throw_Excpetion()
         {
-            IDataStore<BodyPartModel> DataSource_SQL = new TestDatabaseService<BodyPartModel>(false);
+            IDataStore<ItemModel> DataSource_SQL = new TestDatabaseService<ItemModel>(false);
             Assert.ThrowsAsync<NotImplementedException>(async () => await DataSource_SQL.CreateAsync(null));
         }
 
         [Test]
         public void TestDatabaseService_ReadAsync_Should_Throw_Excpetion()
         {
-            IDataStore<BodyPartModel> DataSource_SQL = new TestDatabaseService<BodyPartModel>(false);
+            IDataStore<ItemModel> DataSource_SQL = new TestDatabaseService<ItemModel>(false);
             Assert.ThrowsAsync<NotImplementedException>(async () => await DataSource_SQL.ReadAsync(null));
         }
 
         [Test]
         public void TestDatabaseService_UpdateAsync_Should_Throw_Excpetion()
         {
-            IDataStore<BodyPartModel> DataSource_SQL = new TestDatabaseService<BodyPartModel>(false);
+            IDataStore<ItemModel> DataSource_SQL = new TestDatabaseService<ItemModel>(false);
             Assert.ThrowsAsync<NotImplementedException>(async () => await DataSource_SQL.UpdateAsync(null));
         }
 
         [Test]
         public void TestDatabaseService_DeleteAsync_Should_Throw_Excpetion()
         {
-            IDataStore<BodyPartModel> DataSource_SQL = new TestDatabaseService<BodyPartModel>(false);
+            IDataStore<ItemModel> DataSource_SQL = new TestDatabaseService<ItemModel>(false);
             Assert.ThrowsAsync<NotImplementedException>(async () =>  await DataSource_SQL.DeleteAsync(null));
         }
 
         [Test]
         public void TestDatabaseService_IndexAsync_Should_Throw_Excpetion()
         {
-            IDataStore<BodyPartModel> DataSource_SQL = new TestDatabaseService<BodyPartModel>(false);
+            IDataStore<ItemModel> DataSource_SQL = new TestDatabaseService<ItemModel>(false);
             Assert.ThrowsAsync<NotImplementedException>(async () => await DataSource_SQL.IndexAsync());
         }
 
         [Test]
         public void TestDatabaseService_GetNeedsInitializationAsync_Should_Throw_Excpetion()
         {
-            IDataStore<BodyPartModel> DataSource_SQL = new TestDatabaseService<BodyPartModel>(false);
+            IDataStore<ItemModel> DataSource_SQL = new TestDatabaseService<ItemModel>(false);
             Assert.ThrowsAsync<NotImplementedException>(async () => await DataSource_SQL.GetNeedsInitializationAsync());
         }
     }

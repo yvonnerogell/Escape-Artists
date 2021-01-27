@@ -100,10 +100,10 @@ namespace UnitTests.Models
             result.MonstersKilledList = "monsters";
             result.ItemsDroppedList = "items";
 
-            result.ItemModelDropList = new List<BodyPartModel> { new BodyPartModel { Name = "Item" } };
+            result.ItemModelDropList = new List<ItemModel> { new ItemModel { Name = "Item" } };
             result.MonsterModelDeathList = new List<PlayerInfoModel> { new PlayerInfoModel(new MonsterModel())};
             result.CharacterModelDeathList = new List<PlayerInfoModel> { new PlayerInfoModel(new CharacterModel()) };
-            result.ItemModelSelectList = new List<BodyPartModel> { new BodyPartModel { Name = "Item" } };
+            result.ItemModelSelectList = new List<ItemModel> { new ItemModel { Name = "Item" } };
 
             // Reset
 
@@ -187,7 +187,7 @@ namespace UnitTests.Models
             // Arrange
             var dataScore = new ScoreModel();
 
-            var data = new BodyPartModel
+            var data = new ItemModel
             {
                 Name = "Item1",
                 Location = BodyPartEnum.Feet,

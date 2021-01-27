@@ -514,8 +514,8 @@ namespace UnitTests.Models
         [Test]
         public async Task BasePlayerModel_DropAllItems_Default_Should_Pass()
         {
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 1, Id = "head" });
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 20, Id = "necklass" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Id = "head" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Id = "necklass" });
 
             var item = ItemIndexViewModel.Instance.Dataset.FirstOrDefault();
 
@@ -561,8 +561,8 @@ namespace UnitTests.Models
             // Arrange
             var data = new BasePlayerModel<CharacterModel>();
 
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 1, Id = "head" });
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 20, Id = "necklass" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Id = "head" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Id = "necklass" });
 
             var itemOld = ItemIndexViewModel.Instance.Dataset.FirstOrDefault();
 
@@ -583,8 +583,8 @@ namespace UnitTests.Models
             // Arrange
             var data = new BasePlayerModel<CharacterModel>();
 
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 1, Id = "head" });
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 20, Id = "necklass" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Id = "head" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Id = "necklass" });
 
             var itemOld = ItemIndexViewModel.Instance.Dataset.FirstOrDefault();
             var itemNew = ItemIndexViewModel.Instance.Dataset.LastOrDefault();
@@ -610,13 +610,13 @@ namespace UnitTests.Models
             // Add each model here to warm up and load it.
             Game.Helpers.DataSetsHelper.WarmUp();
 
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 1, Id="head" });
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 20, Id = "necklass" });
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 300, Id = "PrimaryHand" });
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 4000, Id = "OffHand" });
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 50000, Id = "RightFinger" });
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 600000, Id = "LeftFinger" });
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 7000000, Id = "feet" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Id="head" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Id = "necklass" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 300, Id = "PrimaryHand" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 4000, Id = "OffHand" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 50000, Id = "RightFinger" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 600000, Id = "LeftFinger" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 7000000, Id = "feet" });
 
             var data = new BasePlayerModel<CharacterModel>();
 
@@ -647,13 +647,13 @@ namespace UnitTests.Models
             // Add each model here to warm up and load it.
             Game.Helpers.DataSetsHelper.WarmUp();
 
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 1, Id = "head" });
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 20, Id = "necklass" });
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 300, Id = "PrimaryHand" });
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 4000, Id = "OffHand" });
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 50000, Id = "RightFinger" });
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 600000, Id = "LeftFinger" });
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 7000000, Id = "feet" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Id = "head" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Id = "necklass" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 300, Id = "PrimaryHand" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 4000, Id = "OffHand" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 50000, Id = "RightFinger" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 600000, Id = "LeftFinger" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 7000000, Id = "feet" });
 
             var data = new BasePlayerModel<CharacterModel>();
 
@@ -684,13 +684,13 @@ namespace UnitTests.Models
             // Add each model here to warm up and load it.
             Game.Helpers.DataSetsHelper.WarmUp();
 
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Defense, Value = 1, Id = "head" });
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Defense, Value = 20, Id = "necklass" });
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Defense, Value = 300, Id = "PrimaryHand" });
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Defense, Value = 4000, Id = "OffHand" });
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Defense, Value = 50000, Id = "RightFinger" });
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Defense, Value = 600000, Id = "LeftFinger" });
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Defense, Value = 7000000, Id = "feet" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Defense, Value = 1, Id = "head" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Defense, Value = 20, Id = "necklass" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Defense, Value = 300, Id = "PrimaryHand" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Defense, Value = 4000, Id = "OffHand" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Defense, Value = 50000, Id = "RightFinger" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Defense, Value = 600000, Id = "LeftFinger" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Defense, Value = 7000000, Id = "feet" });
 
             var data = new BasePlayerModel<CharacterModel>();
 
@@ -721,13 +721,13 @@ namespace UnitTests.Models
             // Add each model here to warm up and load it.
             Game.Helpers.DataSetsHelper.WarmUp();
 
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Speed, Value = 1, Id = "head" });
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Speed, Value = 20, Id = "necklass" });
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Speed, Value = 300, Id = "PrimaryHand" });
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Speed, Value = 4000, Id = "OffHand" });
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Speed, Value = 50000, Id = "RightFinger" });
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Speed, Value = 600000, Id = "LeftFinger" });
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Speed, Value = 7000000, Id = "feet" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Speed, Value = 1, Id = "head" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Speed, Value = 20, Id = "necklass" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Speed, Value = 300, Id = "PrimaryHand" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Speed, Value = 4000, Id = "OffHand" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Speed, Value = 50000, Id = "RightFinger" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Speed, Value = 600000, Id = "LeftFinger" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Speed, Value = 7000000, Id = "feet" });
 
             var data = new BasePlayerModel<CharacterModel>();
 
@@ -758,13 +758,13 @@ namespace UnitTests.Models
             // Add each model here to warm up and load it.
             Game.Helpers.DataSetsHelper.WarmUp();
 
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 1, Id = "head" });
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 20, Id = "necklass" });
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 300, Id = "PrimaryHand" });
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 4000, Id = "OffHand" });
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 50000, Id = "RightFinger" });
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 600000, Id = "LeftFinger" });
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 7000000, Id = "feet" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Id = "head" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Id = "necklass" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 300, Id = "PrimaryHand" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 4000, Id = "OffHand" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 50000, Id = "RightFinger" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 600000, Id = "LeftFinger" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 7000000, Id = "feet" });
 
             var data = new BasePlayerModel<CharacterModel>();
             data.Level = 1;
@@ -800,7 +800,7 @@ namespace UnitTests.Models
             // Add each model here to warm up and load it.
             Game.Helpers.DataSetsHelper.WarmUp();
 
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 300, Id = "PrimaryHand" , Damage=1});
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 300, Id = "PrimaryHand" , Damage=1});
 
             var data = new BasePlayerModel<CharacterModel>();
             data.Level = 1;
@@ -831,7 +831,7 @@ namespace UnitTests.Models
             // Add each model here to warm up and load it.
             DataSetsHelper.WarmUp();
 
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 300, Id = "PrimaryHand", Damage = 1 });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 300, Id = "PrimaryHand", Damage = 1 });
 
             var data = new BasePlayerModel<CharacterModel>
             {
@@ -864,7 +864,7 @@ namespace UnitTests.Models
             // Add each model here to warm up and load it.
             DataSetsHelper.WarmUp();
 
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 300, Id = "PrimaryHand", Damage = 1 });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 300, Id = "PrimaryHand", Damage = 1 });
 
             var data = new BasePlayerModel<CharacterModel>();
             data.Level = 1;
@@ -890,8 +890,8 @@ namespace UnitTests.Models
         [Test]
         public async Task BasePlayerModel_ItemSlotsFormatOutput_Full_Should_Pass()
         {
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 1, Id = "head" });
-            await ItemIndexViewModel.Instance.CreateAsync(new BodyPartModel { Attribute = AttributeEnum.Attack, Value = 20, Id = "necklass" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Id = "head" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Id = "necklass" });
 
             var item = ItemIndexViewModel.Instance.Dataset.FirstOrDefault();
 
@@ -1222,7 +1222,7 @@ namespace UnitTests.Models
         {
 
             var data = new BasePlayerModel<CharacterModel>();
-            var item = new BodyPartModel { Range = 0 };
+            var item = new ItemModel { Range = 0 };
 
             await ItemIndexViewModel.Instance.CreateAsync(item);
 
@@ -1238,7 +1238,7 @@ namespace UnitTests.Models
         {
 
             var data = new BasePlayerModel<CharacterModel>();
-            var item = new BodyPartModel { Range = -1 };
+            var item = new ItemModel { Range = -1 };
 
             await ItemIndexViewModel.Instance.CreateAsync(item);
 
@@ -1254,7 +1254,7 @@ namespace UnitTests.Models
         {
 
             var data = new BasePlayerModel<CharacterModel>();
-            var item = new BodyPartModel { Range = 1 };
+            var item = new ItemModel { Range = 1 };
 
             await ItemIndexViewModel.Instance.CreateAsync(item);
 

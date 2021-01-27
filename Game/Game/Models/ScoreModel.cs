@@ -65,11 +65,11 @@ namespace Game.Models
 
         // Add Item to the List for Score, New Round, and Easier testing
         [Ignore]
-        public List<BodyPartModel> ItemModelDropList { get; set; } = new List<BodyPartModel>();
+        public List<ItemModel> ItemModelDropList { get; set; } = new List<ItemModel>();
 
         // Add the Selected Items to the List for Score, New Round, and Easier testing
         [Ignore]
-        public List<BodyPartModel> ItemModelSelectList { get; set; } = new List<BodyPartModel>();
+        public List<ItemModel> ItemModelSelectList { get; set; } = new List<ItemModel>();
 
         /// <summary>
         /// Instantiate new Score 
@@ -144,7 +144,7 @@ namespace Game.Models
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public bool AddToList(BodyPartModel data)
+        public bool AddToList(ItemModel data)
         {
             if (data == null)
             {

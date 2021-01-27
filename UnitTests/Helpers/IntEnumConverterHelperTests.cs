@@ -61,7 +61,7 @@ namespace UnitTests.Helpers
         {
             var myConverter = new StringEnumConverter();
 
-            var myObject = new BodyPartModel();
+            var myObject = new ItemModel();
             var Result = myConverter.Convert(myObject, null, null, null);
             var Expected = 0;
 

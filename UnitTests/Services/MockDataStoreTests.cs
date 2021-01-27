@@ -10,12 +10,12 @@ namespace UnitTests.Services
     [TestFixture]
     public class MockDataStoreTests
     {
-        MockDataStore<BodyPartModel> DataStore;
+        MockDataStore<ItemModel> DataStore;
 
         [SetUp]
         public void Setup()
         {
-            DataStore = MockDataStore<BodyPartModel>.Instance;
+            DataStore = MockDataStore<ItemModel>.Instance;
         }
 
         [TearDown]
@@ -99,7 +99,7 @@ namespace UnitTests.Services
             // Arrange
 
             // Act
-            var result = await DataStore.CreateAsync(new BodyPartModel());
+            var result = await DataStore.CreateAsync(new ItemModel());
 
             // Reset
 
@@ -125,7 +125,7 @@ namespace UnitTests.Services
         public async Task MockDataStore_Read_Valid_Should_Pass()
         {
             // Arrange
-            var item = new BodyPartModel();
+            var item = new ItemModel();
             await DataStore.CreateAsync(item);
 
             // Act
@@ -141,7 +141,7 @@ namespace UnitTests.Services
         public async Task MockDataStore_Read_InValid_Empty_List_Should_Fail()
         {
             // Arrange
-            var item = new BodyPartModel();
+            var item = new ItemModel();
             await DataStore.CreateAsync(item);
             DataStore.datalist.Clear();
 
@@ -158,7 +158,7 @@ namespace UnitTests.Services
         public async Task MockDataStore_Read_InValid_Null_List_Should_Fail()
         {
             // Arrange
-            var item = new BodyPartModel();
+            var item = new ItemModel();
             await DataStore.CreateAsync(item);
 
             // Act
@@ -174,7 +174,7 @@ namespace UnitTests.Services
         public async Task MockDataStore_Index_Valid_Should_Pass()
         {
             // Arrange
-            var item = new BodyPartModel();
+            var item = new ItemModel();
             await DataStore.CreateAsync(item);
 
             // Act
@@ -190,12 +190,12 @@ namespace UnitTests.Services
         public async Task MockDataStore_Delete_Valid_Should_Pass()
         {
             // Arrange
-            var item1 = new BodyPartModel
+            var item1 = new ItemModel
             {
                 Name = "a"
             };
 
-            var item2 = new BodyPartModel
+            var item2 = new ItemModel
             {
                 Name = "b"
             };
@@ -217,12 +217,12 @@ namespace UnitTests.Services
         public async Task MockDataStore_Delete_InValid_Should_Fail()
         {
             // Arrange
-            var item1 = new BodyPartModel
+            var item1 = new ItemModel
             {
                 Name = "a"
             };
 
-            var item2 = new BodyPartModel
+            var item2 = new ItemModel
             {
                 Name = "b"
             };
@@ -244,12 +244,12 @@ namespace UnitTests.Services
         public async Task MockDataStore_Delete_InValid_Null_Should_Fail()
         {
             // Arrange
-            var item1 = new BodyPartModel
+            var item1 = new ItemModel
             {
                 Name = "a"
             };
 
-            var item2 = new BodyPartModel
+            var item2 = new ItemModel
             {
                 Name = "b"
             };
@@ -271,12 +271,12 @@ namespace UnitTests.Services
         public async Task MockDataStore_Update_Valid_Should_Pass()
         {
             // Arrange
-            var item1 = new BodyPartModel
+            var item1 = new ItemModel
             {
                 Name = "a"
             };
 
-            var item2 = new BodyPartModel
+            var item2 = new ItemModel
             {
                 Name = "b"
             };
@@ -301,12 +301,12 @@ namespace UnitTests.Services
         public async Task MockDataStore_Update_InValid_Null_Should_Fail()
         {
             // Arrange
-            var item1 = new BodyPartModel
+            var item1 = new ItemModel
             {
                 Name = "a"
             };
 
-            var item2 = new BodyPartModel
+            var item2 = new ItemModel
             {
                 Name = "b"
             };
@@ -327,12 +327,12 @@ namespace UnitTests.Services
         public async Task MockDataStore_Update_InValid_ID_Should_Fail()
         {
             // Arrange
-            var item1 = new BodyPartModel
+            var item1 = new ItemModel
             {
                 Name = "a"
             };
 
-            var item2 = new BodyPartModel
+            var item2 = new ItemModel
             {
                 Name = "b"
             };

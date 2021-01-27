@@ -85,7 +85,7 @@ namespace UnitTests.Views
         {
             // Arrange
 
-            var selectedItem = new BodyPartModel();
+            var selectedItem = new ItemModel();
 
             var selectedItemChangedEventArgs = new SelectedItemChangedEventArgs(selectedItem, 0);
 

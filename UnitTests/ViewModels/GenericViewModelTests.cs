@@ -20,7 +20,7 @@ namespace UnitTests.ViewModels
             // Arrange
 
             // Act
-            var result = new GenericViewModel<BodyPartModel>();
+            var result = new GenericViewModel<ItemModel>();
             // Reset
 
             // Assert
@@ -31,11 +31,11 @@ namespace UnitTests.ViewModels
         public void GenericViewModel_Constructor_Valid_Data_Should_Pass()
         {
             // Arrange
-            var data = new BodyPartModel();
+            var data = new ItemModel();
             data.Name = "test";
 
             // Act
-            var result = new GenericViewModel<BodyPartModel>(data);
+            var result = new GenericViewModel<ItemModel>(data);
             // Reset
 
             // Assert
@@ -46,11 +46,11 @@ namespace UnitTests.ViewModels
         public void GenericViewModel_Constructor_Valid_Data__Null_Should_Pass()
         {
             // Arrange
-            var data = new BodyPartModel();
+            var data = new ItemModel();
             data.Name = null;
 
             // Act
-            var result = new GenericViewModel<BodyPartModel>(data);
+            var result = new GenericViewModel<ItemModel>(data);
             // Reset
 
             // Assert

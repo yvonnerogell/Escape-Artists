@@ -45,7 +45,7 @@ namespace Game.Engine.EngineModels
          public BattleMessagesModel BattleMessagesModel { get; set; } = new BattleMessagesModel();
 
         // The Pool of items collected during the round as turns happen
-         public List<BodyPartModel> ItemPool { get; set; } = new List<BodyPartModel>();
+         public List<ItemModel> ItemPool { get; set; } = new List<ItemModel>();
 
         // List of Monsters
          public List<PlayerInfoModel> MonsterList { get; set; } = new List<PlayerInfoModel>();

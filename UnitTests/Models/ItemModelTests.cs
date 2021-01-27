@@ -14,7 +14,7 @@ namespace UnitTests.Models
             // Arrange
 
             // Act
-            var result = new BodyPartModel();
+            var result = new ItemModel();
 
             // Reset
 
@@ -26,12 +26,12 @@ namespace UnitTests.Models
         public void ItemModel_Constructor_New_Item_Should_Copy()
         {
             // Arrange
-            var dataNew = new BodyPartModel();
+            var dataNew = new ItemModel();
             dataNew.Value = 2;
             dataNew.Id = "oldID";
 
             // Act
-            var result = new BodyPartModel(dataNew);
+            var result = new ItemModel(dataNew);
 
             // Reset
 
@@ -45,7 +45,7 @@ namespace UnitTests.Models
             // Arrange
 
             // Act
-            var result = new BodyPartModel();
+            var result = new ItemModel();
 
             // Reset
 
@@ -63,7 +63,7 @@ namespace UnitTests.Models
             // Arrange
 
             // Act
-            var result = new BodyPartModel();
+            var result = new ItemModel();
             result.Value = 6;
             result.Range = 7;
             result.Damage = 8;
@@ -84,10 +84,10 @@ namespace UnitTests.Models
         public void ItemModel_Update_Default_Should_Pass()
         {
             // Arrange
-            var dataOriginal = new BodyPartModel();
+            var dataOriginal = new ItemModel();
             dataOriginal.Value = 1;
 
-            var dataNew = new BodyPartModel();
+            var dataNew = new ItemModel();
             dataNew.Value = 2;
 
             // Act
@@ -103,7 +103,7 @@ namespace UnitTests.Models
         public void ItemModel_Update_InValid_Null_Should_Fail()
         {
             // Arrange
-            var dataOriginal = new BodyPartModel();
+            var dataOriginal = new ItemModel();
             dataOriginal.Value = 2;
 
             // Act
@@ -119,7 +119,7 @@ namespace UnitTests.Models
         public void ItemModel_FormatOuput_Default_Should_Pass()
         {
             // Arrange
-            var data  = new BodyPartModel();
+            var data  = new ItemModel();
 
             // Act
             var result = data.FormatOutput();
@@ -134,7 +134,7 @@ namespace UnitTests.Models
         public void ItemModel_ScaleLevel_Default_Should_Pass()
         {
             // Arrange
-            var data = new BodyPartModel();
+            var data = new ItemModel();
 
             // Act
             var result = data.ScaleLevel(1);
@@ -149,7 +149,7 @@ namespace UnitTests.Models
         public void ItemModel_ScaleLevel_ForcedVaue_Should_Pass()
         {
             // Arrange
-            var data = new BodyPartModel();
+            var data = new ItemModel();
 
             DiceHelper.EnableForcedRolls();
             DiceHelper.SetForcedRollValue(1);

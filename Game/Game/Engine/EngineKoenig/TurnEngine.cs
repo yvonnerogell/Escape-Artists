@@ -455,7 +455,7 @@ namespace Game.Engine.EngineKoenig
         /// <summary>
         /// Will drop between 1 and 4 items from the ItemModel set...
         /// </summary>
-        public override List<BodyPartModel> GetRandomMonsterItemDrops(int round)
+        public override List<ItemModel> GetRandomMonsterItemDrops(int round)
         {
             // TODO: Teams, You need to implement your own modification to the Logic cannot use mine as is.
 
@@ -465,7 +465,7 @@ namespace Game.Engine.EngineKoenig
             // Negative results in nothing dropped
             var NumberToDrop = (DiceHelper.RollDice(1, round + 1) - 1);
 
-            var result = new List<BodyPartModel>();
+            var result = new List<ItemModel>();
 
             for (var i = 0; i < NumberToDrop; i++)
             {

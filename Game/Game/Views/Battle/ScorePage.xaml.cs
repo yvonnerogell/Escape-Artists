@@ -161,11 +161,11 @@ namespace Game.Views
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public StackLayout CreateItemDisplayBox(BodyPartModel data)
+        public StackLayout CreateItemDisplayBox(ItemModel data)
         {
             if (data == null)
             {
-                data = new BodyPartModel();
+                data = new ItemModel();
             }
 
             // Hookup the image

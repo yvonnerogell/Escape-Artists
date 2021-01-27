@@ -99,7 +99,7 @@ namespace UnitTests.Views
         {
             // Arrange
             // Act
-            page.ShowPopup(new BodyPartModel());
+            page.ShowPopup(new ItemModel());
 
             // Reset
 
@@ -138,7 +138,7 @@ namespace UnitTests.Views
         {
             // Arrange
             // Act
-            page.GetItemToDisplay(new BodyPartModel { Id = "" });
+            page.GetItemToDisplay(new ItemModel { Id = "" });
 
             // Reset
 
@@ -150,7 +150,7 @@ namespace UnitTests.Views
         public async Task RoundOverPage_GetItemToDisplay_Valid_Should_Pass()
         {
             // Arrange
-            var data = new BodyPartModel { Name = "Mike" };
+            var data = new ItemModel { Name = "Mike" };
             await ItemIndexViewModel.Instance.CreateAsync(data);
 
             // Act
@@ -190,7 +190,7 @@ namespace UnitTests.Views
             // Arrange
 
             // Draw the Items
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Add(new BodyPartModel());
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Add(new ItemModel());
 
             // Draw two times
             page.DrawDroppedItems();
@@ -210,8 +210,8 @@ namespace UnitTests.Views
             // Arrange
 
             // Draw the Items
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Add(new BodyPartModel());
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelSelectList.Add(new BodyPartModel());
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Add(new ItemModel());
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelSelectList.Add(new ItemModel());
 
             // Draw two times
             page.DrawItemLists();
@@ -231,8 +231,8 @@ namespace UnitTests.Views
             // Arrange
 
             // Draw the Items
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Add(new BodyPartModel());
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelSelectList.Add(new BodyPartModel());
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Add(new ItemModel());
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelSelectList.Add(new ItemModel());
 
             // Draw two times
             page.DrawSelectedItems();

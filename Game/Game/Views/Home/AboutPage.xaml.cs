@@ -186,7 +186,7 @@ namespace Game.Views
         public async Task<string> GetItemsPost()
         {
             var result = "No Results";
-            var dataList = new List<BodyPartModel>();
+            var dataList = new List<ItemModel>();
 
             var number = Convert.ToInt32(ServerItemValue.Text);
             var level = 6;  // Max Value of 6
