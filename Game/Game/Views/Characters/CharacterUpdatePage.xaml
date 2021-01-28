@@ -95,7 +95,7 @@
                             HorizontalTextAlignment="End"/>
 
                     <Stepper Grid.Row="3" Grid.Column="1"
-                            Value="{Binding Data.Level, Mode=TwoWay}"
+                            Value="{Binding Data.Attack, Mode=TwoWay}"
                             ValueChanged="Attack_OnStepperValueChanged"
                              Minimum="1"
                              Maximum="20"/>
