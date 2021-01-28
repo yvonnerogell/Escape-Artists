@@ -70,5 +70,15 @@ namespace Game.Views
         {
             LevelValue.Text = String.Format("{0}", e.NewValue);
         }
+
+        /// <summary>
+        /// Catch the change to the stepper for Attack
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void Attack_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            AttackValue.Text = String.Format("{0}", e.NewValue);
+        }
     }
 }
