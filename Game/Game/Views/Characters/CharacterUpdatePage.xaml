@@ -59,22 +59,26 @@
                         Style="{StaticResource EntryStyle}"/>
 
                     <Label Grid.Row="2" Grid.Column="0"
-                        Text="Location" 
-                        Style="{StaticResource LabelStyle}"/>
+                            Text="Level"
+                            Style="{StaticResource ValueStyle}"
+                            Padding="0,0,10,0"
+                            HorizontalOptions="Start"
+                            HorizontalTextAlignment="Start"/>
 
-                    <Picker Grid.Row="2" Grid.Column="1"
-                        ItemsSource="{x:Static local:ItemLocationEnumHelper.GetListCharacter}" 
-                        SelectedItem="{Binding Data.Location, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
-                        x:Name="LocationPicker"/>
+                    <Label Grid.Row="2" Grid.Column="0"
+                            Text="{Binding Data.Level}" 
+                            x:Name="LevelValue"
+                            Style="{StaticResource ValueStyle}"
+                            Padding="0,0,10,0"
+                            HorizontalOptions="End"
+                            HorizontalTextAlignment="End"/>
 
-                    <Label Grid.Row="3" Grid.Column="0"
-                        Text="Attribute" 
-                        Style="{StaticResource LabelStyle}"/>
-
-                    <Picker Grid.Row="3" Grid.Column="1"
-                        ItemsSource="{x:Static local:AttributeEnumHelper.GetListCharacter}" 
-                        SelectedItem="{Binding Data.Attribute, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
-                        x:Name="AttributePicker"/>
+                    <Stepper Grid.Row="2" Grid.Column="1"
+                            Value="{Binding Data.Level, Mode=TwoWay}"
+                            ValueChanged="Level_OnStepperValueChanged"
+                             Minimum="1"
+                             Maximum="20"/>
+                    
 
                 </Grid>
 

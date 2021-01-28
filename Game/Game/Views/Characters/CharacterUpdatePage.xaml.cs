@@ -60,5 +60,15 @@ namespace Game.Views
         {
             await Navigation.PopModalAsync();
         }
+
+        /// <summary>
+        /// Catch the change to the stepper for Level
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void Level_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            LevelValue.Text = String.Format("{0}", e.NewValue);
+        }
     }
 }
