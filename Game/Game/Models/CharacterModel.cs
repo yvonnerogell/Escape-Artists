@@ -19,6 +19,7 @@ namespace Game.Models
         public CharacterModel()
         {
             PlayerType = PlayerTypeEnum.Character;
+            SpecificPlayerType = SpecificPlayerTypeEnum.Unknown;
             Guid = Id;
             Name = "Elf";
             Description = "Happy Elf";
