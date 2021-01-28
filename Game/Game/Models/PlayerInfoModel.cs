@@ -329,7 +329,7 @@ namespace Game.Models
                     break;
 
                 case AbilityEnum.Curse:
-                case AbilityEnum.Focus:
+                case AbilityEnum.Bribes:
                     //BuffAttack();
                     break;
             

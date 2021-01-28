@@ -24,11 +24,11 @@ namespace Game.Models
         // Student can get an extension
         Extension = 21,
 
-        // Buff Defense
+        //Student can get a flash of genius
         Flash_Genius = 22,
 
-        // Buff Attack
-        Focus = 23,
+        // Parent can give bribes
+        Bribes = 23,
 
 
         // Cleric Abilities > 50 Range
@@ -74,8 +74,8 @@ namespace Game.Models
                     Message = "Toughen Up";
                     break;
 
-                case AbilityEnum.Focus:
-                    Message = "Mental Focus";
+                case AbilityEnum.Bribes:
+                    Message = "Mental Bribes";
                     break;
 
                 case AbilityEnum.Quick:
@@ -132,7 +132,7 @@ namespace Game.Models
                 List<string> AbilityList = new List<string>{
                 AbilityEnum.Extension.ToString(),
                 AbilityEnum.Flash_Genius.ToString(),
-                AbilityEnum.Focus.ToString()
+                AbilityEnum.Bribes.ToString()
                 };
 
                 AbilityList.AddRange(GetListOthers);

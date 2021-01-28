@@ -69,12 +69,12 @@ namespace UnitTests.Models
             // Arrange
 
             // Act
-            var result = AbilityEnum.Focus.ToMessage();
+            var result = AbilityEnum.Bribes.ToMessage();
 
             // Reset
 
             // Assert
-            Assert.AreEqual("Mental Focus", result);
+            Assert.AreEqual("Mental Bribes", result);
         }
 
         [Test]
