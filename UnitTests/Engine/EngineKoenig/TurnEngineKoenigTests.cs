@@ -1140,8 +1140,8 @@ namespace UnitTests.Engine.EngineKoenig
             var characterPlayer = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Unknown });
 
             // remove it so it is not found
-            characterPlayer.AbilityTracker.Add(AbilityEnum.Toughness,1);
-            Engine.EngineSettings.CurrentActionAbility = AbilityEnum.Toughness;
+            characterPlayer.AbilityTracker.Add(AbilityEnum.Flash_Genius,1);
+            Engine.EngineSettings.CurrentActionAbility = AbilityEnum.Flash_Genius;
 
             // Act
             var result = Engine.Round.Turn.UseAbility(characterPlayer);

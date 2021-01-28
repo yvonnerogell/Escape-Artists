@@ -125,7 +125,7 @@ namespace UnitTests.Models
             // Arrange
 
             // Act
-            var result = AbilityEnum.Toughness.ToMessage();
+            var result = AbilityEnum.Flash_Genius.ToMessage();
 
             // Reset
 

@@ -323,7 +323,7 @@ namespace Game.Models
                     //BuffHealth();
                     break;
 
-                case AbilityEnum.Toughness:
+                case AbilityEnum.Flash_Genius:
                 case AbilityEnum.Barrier:
                    //BuffDefense();
                     break;

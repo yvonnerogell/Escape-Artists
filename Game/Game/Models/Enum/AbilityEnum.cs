@@ -21,12 +21,11 @@ namespace Game.Models
         Extra_Credit = 10,
 
 
-        // Fighter Abilities > 20 Range
-        // Buff Speed
+        // Student can get an extension
         Extension = 21,
 
         // Buff Defense
-        Toughness = 22,
+        Flash_Genius = 22,
 
         // Buff Attack
         Focus = 23,
@@ -71,7 +70,7 @@ namespace Game.Models
                     Message = "React Quickly";
                     break;
 
-                case AbilityEnum.Toughness:
+                case AbilityEnum.Flash_Genius:
                     Message = "Toughen Up";
                     break;
 
@@ -132,7 +131,7 @@ namespace Game.Models
             {
                 List<string> AbilityList = new List<string>{
                 AbilityEnum.Extension.ToString(),
-                AbilityEnum.Toughness.ToString(),
+                AbilityEnum.Flash_Genius.ToString(),
                 AbilityEnum.Focus.ToString()
                 };
 
