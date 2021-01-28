@@ -12,7 +12,7 @@
         Student = 10,
         Parent = 11,
 
-        // The Monster
+        // The Monsters
         Faculty = 20,
         Admin = 21,
     }
