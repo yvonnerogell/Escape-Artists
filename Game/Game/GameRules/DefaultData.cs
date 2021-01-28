@@ -135,16 +135,17 @@ namespace Game.GameRules
         var RightFingerString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.Finger);
         var LeftFingerString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.Finger);
 
-        var datalist = new List<CharacterModel>()
+            var datalist = new List<CharacterModel>()
             {
                 new CharacterModel {
-                    Name = "C1",
-                    Description = "C1",
+                    Name = "Smarty Pants",
+                    Description = "My IQ is bigger than your height in centimeters!",
+                    SpecificPlayerType = SpecificPlayerTypeEnum.Student,
                     Level = 1,
-                    MaxHealth = 5,
+                    MaxHealth = 80,
                     ImageURI = "squid.jpg",
                     Head = HeadString,
-                    Necklace = NecklassString,
+                    Necklace = "None",
                     PrimaryHand = PrimaryHandString,
                     OffHand = OffHandString,
                     Feet = FeetString,
@@ -153,10 +154,11 @@ namespace Game.GameRules
                 },
 
                 new CharacterModel {
-                    Name = "C2",
-                    Description = "C2",
+                    Name = "Overachiever",
+                    Description = "Where can I find extra reading on this material?",
+                    SpecificPlayerType = SpecificPlayerTypeEnum.Student,
                     Level = 1,
-                    MaxHealth = 5,
+                    MaxHealth = 70,
                     ImageURI = "squid.jpg",
                     Head = HeadString,
                     Necklace = NecklassString,
