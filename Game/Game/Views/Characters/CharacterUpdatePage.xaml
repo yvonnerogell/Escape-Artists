@@ -100,6 +100,27 @@
                              Minimum="1"
                              Maximum="20"/>
 
+                    <Label Grid.Row="4" Grid.Column="0"
+                            Text="Defense"
+                            Style="{StaticResource ValueStyle}"
+                            Padding="0,0,10,0"
+                            HorizontalOptions="Start"
+                            HorizontalTextAlignment="Start"/>
+
+                    <Label Grid.Row="4" Grid.Column="0"
+                            Text="{Binding Data.Defense}" 
+                            x:Name="DefenseValue"
+                            Style="{StaticResource ValueStyle}"
+                            Padding="0,0,10,0"
+                            HorizontalOptions="End"
+                            HorizontalTextAlignment="End"/>
+
+                    <Stepper Grid.Row="4" Grid.Column="1"
+                            Value="{Binding Data.Defense, Mode=TwoWay}"
+                            ValueChanged="Defense_OnStepperValueChanged"
+                             Minimum="1"
+                             Maximum="20"/>
+
 
                 </Grid>
 
