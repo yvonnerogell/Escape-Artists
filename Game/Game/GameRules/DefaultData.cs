@@ -234,10 +234,11 @@ namespace Game.GameRules
                 },
 
                 new CharacterModel {
-                    Name = "C7",
-                    Description = "C6",
+                    Name = "Procrastinator",
+                    Description = "Only if they hadn't released the new GoT season...",
                     Level = 1,
-                    MaxHealth = 5,
+                    SpecificPlayerType = SpecificPlayerTypeEnum.Student,
+                    MaxHealth = 100,
                     ImageURI = "squid.jpg",
                     Head = HeadString,
                     Necklace = NecklaceString,
