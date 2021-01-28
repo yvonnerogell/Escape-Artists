@@ -248,6 +248,22 @@ namespace Game.GameRules
                     RightFinger = RightFingerString,
                     LeftFinger = LeftFingerString,
                 },
+
+                 new CharacterModel {
+                    Name = "Helicopter_Parent",
+                    Description = "My baby needs me!",
+                    Level = 1,
+                    SpecificPlayerType = SpecificPlayerTypeEnum.Parent,
+                    MaxHealth = 100,
+                    ImageURI = "squid.jpg",
+                    Head = "None",
+                    Necklace = "None",
+                    PrimaryHand = PrimaryHandString,
+                    OffHand = OffHandString,
+                    Feet = FeetString,
+                    RightFinger = RightFingerString,
+                    LeftFinger = LeftFingerString,
+                },
             };
 
         return datalist;
