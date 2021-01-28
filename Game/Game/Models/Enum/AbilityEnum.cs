@@ -35,13 +35,13 @@ namespace Game.Models
         Pay_Tuition = 51,
 
         // Buff Defense
-        Barrier = 52,
+        //Barrier = 52,
 
         // Buff Attack
-        Curse = 53,
+        //Curse = 53,
 
         // Heal Self
-        Heal = 54,
+        //Heal = 54,
     }
 
     /// <summary>
@@ -77,10 +77,10 @@ namespace Game.Models
                     Message = "Mental Bribes";
                     break;
 
-                case AbilityEnum.Quick:
+                case AbilityEnum.Pay_Tuition:
                     Message = "Anticipate";
                     break;
-
+/*
                 case AbilityEnum.Barrier:
                     Message = "Barrier Defense";
                     break;
@@ -92,7 +92,7 @@ namespace Game.Models
                 case AbilityEnum.Heal:
                     Message = "Heal Self";
                     break;
-
+*/
                 case AbilityEnum.None:
                 case AbilityEnum.Unknown:
                 default:
@@ -148,10 +148,10 @@ namespace Game.Models
             {
 
                 List<string> AbilityList = new List<string>{
-                AbilityEnum.Quick.ToString(),
-                AbilityEnum.Barrier.ToString(),
-                AbilityEnum.Curse.ToString(),
-                AbilityEnum.Heal.ToString()
+                AbilityEnum.Pay_Tuition.ToString(),
+                //AbilityEnum.Barrier.ToString(),
+                //AbilityEnum.Curse.ToString(),
+                //AbilityEnum.Heal.ToString()
                 };
 
                 AbilityList.AddRange(GetListOthers);

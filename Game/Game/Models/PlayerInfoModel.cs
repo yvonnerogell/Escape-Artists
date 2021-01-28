@@ -229,11 +229,13 @@ namespace Game.Models
             // If health is 25% or less of max health, try to heal
             if (GetCurrentHealth() < (GetMaxHealth() * .25))
             {
+/*
                 // Try to use Heal or Extra_Credit
                 if (IsAbilityAvailable(AbilityEnum.Heal))
                 {
                     return AbilityEnum.Heal;
                 }
+*/
 
                 if (IsAbilityAvailable(AbilityEnum.Extra_Credit))
                 {
@@ -257,10 +259,10 @@ namespace Game.Models
                 var data = ability.Key;
 
                 // Skip over Heal and Extra_Credit because covered in healing
-                if (data == AbilityEnum.Heal)
-                {
-                    continue;
-                }
+                //if (data == AbilityEnum.Heal)
+                //{
+                //    continue;
+               // }
 
                 if (data == AbilityEnum.Extra_Credit)
                 {
@@ -318,23 +320,23 @@ namespace Game.Models
             
             switch (ability)
             {
-                case AbilityEnum.Heal:
+                //case AbilityEnum.Heal:
                 case AbilityEnum.Extra_Credit:
                     //BuffHealth();
                     break;
 
                 case AbilityEnum.Flash_Genius:
-                case AbilityEnum.Barrier:
+                //case AbilityEnum.Barrier:
                    //BuffDefense();
                     break;
 
-                case AbilityEnum.Curse:
+                //case AbilityEnum.Curse:
                 case AbilityEnum.Bribes:
                     //BuffAttack();
                     break;
             
 
-                case AbilityEnum.Quick:
+                //case AbilityEnum.Quick:
                 case AbilityEnum.Extension:
                     //BuffSpeed();
                     break;
