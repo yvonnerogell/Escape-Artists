@@ -142,6 +142,19 @@
                              Minimum="1"
                              Maximum="20"/>
 
+                    <StackLayout Grid.Row="6" Grid.Column="0">
+
+                        <!-- TODO pull in character's items here-->
+                        <Label Grid.Row="5" Grid.Column="0"
+                            Text="PLACEHOLDER FOR ITEMS"
+                            Style="{StaticResource ValueStyle}"
+                            Padding="0,20,10,0"
+                            HorizontalOptions="Start"
+                            HorizontalTextAlignment="Start"/>
+
+
+                    </StackLayout>
+
 
                 </Grid>
 
