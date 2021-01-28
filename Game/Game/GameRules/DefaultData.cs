@@ -128,7 +128,7 @@ namespace Game.GameRules
     public static List<CharacterModel> LoadData(CharacterModel temp)
     {
         var HeadString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.Head);
-        var NecklassString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.Necklace);
+        var NecklaceString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.Necklace);
         var PrimaryHandString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.PrimaryHand);
         var OffHandString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.OffHand);
         var FeetString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.Feet);
@@ -161,7 +161,7 @@ namespace Game.GameRules
                     MaxHealth = 70,
                     ImageURI = "squid.jpg",
                     Head = HeadString,
-                    Necklace = NecklassString,
+                    Necklace = NecklaceString,
                     PrimaryHand = PrimaryHandString,
                     OffHand = OffHandString,
                     Feet = FeetString,
@@ -176,7 +176,7 @@ namespace Game.GameRules
                     MaxHealth = 5,
                     ImageURI = "squid.jpg",
                     Head = HeadString,
-                    Necklace = NecklassString,
+                    Necklace = NecklaceString,
                     PrimaryHand = PrimaryHandString,
                     OffHand = OffHandString,
                     Feet = FeetString,
@@ -191,7 +191,7 @@ namespace Game.GameRules
                     MaxHealth = 5,
                     ImageURI = "squid.jpg",
                     Head = HeadString,
-                    Necklace = NecklassString,
+                    Necklace = NecklaceString,
                     PrimaryHand = PrimaryHandString,
                     OffHand = OffHandString,
                     Feet = FeetString,
@@ -206,7 +206,7 @@ namespace Game.GameRules
                     MaxHealth = 5,
                     ImageURI = "squid.jpg",
                     Head = HeadString,
-                    Necklace = NecklassString,
+                    Necklace = NecklaceString,
                     PrimaryHand = PrimaryHandString,
                     OffHand = OffHandString,
                     Feet = FeetString,
@@ -221,7 +221,7 @@ namespace Game.GameRules
                     MaxHealth = 5,
                     ImageURI = "squid.jpg",
                     Head = HeadString,
-                    Necklace = NecklassString,
+                    Necklace = NecklaceString,
                     PrimaryHand = PrimaryHandString,
                     OffHand = OffHandString,
                     Feet = FeetString,
@@ -236,7 +236,7 @@ namespace Game.GameRules
                     MaxHealth = 5,
                     ImageURI = "squid.jpg",
                     Head = HeadString,
-                    Necklace = NecklassString,
+                    Necklace = NecklaceString,
                     PrimaryHand = PrimaryHandString,
                     OffHand = OffHandString,
                     Feet = FeetString,
