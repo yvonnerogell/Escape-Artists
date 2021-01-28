@@ -241,7 +241,7 @@ namespace Game.GameRules
                     MaxHealth = 100,
                     ImageURI = "squid.jpg",
                     Head = HeadString,
-                    Necklace = NecklaceString,
+                    Necklace = "None",
                     PrimaryHand = PrimaryHandString,
                     OffHand = OffHandString,
                     Feet = FeetString,
