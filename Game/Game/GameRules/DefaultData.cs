@@ -170,13 +170,14 @@ namespace Game.GameRules
                 },
 
                 new CharacterModel {
-                    Name = "C3",
-                    Description = "C3",
+                    Name = "International Student",
+                    Description = "I would have been a professor by now if it weren't for the stress of I-94 renewal",
+                    SpecificPlayerType = SpecificPlayerTypeEnum.Student,
                     Level = 1,
-                    MaxHealth = 5,
+                    MaxHealth = 80,
                     ImageURI = "squid.jpg",
                     Head = HeadString,
-                    Necklace = NecklaceString,
+                    Necklace = "None",
                     PrimaryHand = PrimaryHandString,
                     OffHand = OffHandString,
                     Feet = FeetString,
