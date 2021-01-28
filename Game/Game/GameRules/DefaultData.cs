@@ -193,7 +193,7 @@ namespace Game.GameRules
                     MaxHealth = 100,
                     ImageURI = "squid.jpg",
                     Head = HeadString,
-                    Necklace = NecklaceString,
+                    Necklace = "None",
                     PrimaryHand = PrimaryHandString,
                     OffHand = OffHandString,
                     Feet = FeetString,
@@ -202,10 +202,11 @@ namespace Game.GameRules
                 },
 
                 new CharacterModel {
-                    Name = "C5",
-                    Description = "C5",
+                    Name = "Second_Career",
+                    Description = "So no one told you life was gonna be this way",
+                    SpecificPlayerType = SpecificPlayerTypeEnum.Student,
                     Level = 1,
-                    MaxHealth = 5,
+                    MaxHealth = 100,
                     ImageURI = "squid.jpg",
                     Head = HeadString,
                     Necklace = NecklaceString,
@@ -217,10 +218,11 @@ namespace Game.GameRules
                 },
 
                 new CharacterModel {
-                    Name = "C6",
-                    Description = "C6",
+                    Name = "Slacker",
+                    Description = "So the midterm is sometime this month, right?",
                     Level = 1,
-                    MaxHealth = 5,
+                    SpecificPlayerType = SpecificPlayerTypeEnum.Student,
+                    MaxHealth = 100,
                     ImageURI = "squid.jpg",
                     Head = HeadString,
                     Necklace = NecklaceString,
