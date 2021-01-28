@@ -28,6 +28,7 @@
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                                 
                                 <Label Text="{Binding Name}" HorizontalTextAlignment="Center" LineBreakMode="NoWrap"/>
+                                <Label Text="- Level " HorizontalTextAlignment="Center" LineBreakMode="NoWrap"/>
                                 <Label Text="{Binding Level}" HorizontalTextAlignment="Center" LineBreakMode="NoWrap" />
                                 
                             </StackLayout>
