@@ -112,12 +112,7 @@
                         Grid.Column="1"
                         Grid.Row="4"
                         Text="{Binding Data.MaxHealth}" />
-                    <Label 
-                        Style="{StaticResource GridLabelStyle}"
-                        Grid.Column="1"
-                        Grid.Row="5"
-                        Text="{Binding Data.Damage}" />
-                    
+
                 </Grid>
             </StackLayout>
 
@@ -126,6 +121,7 @@
                         JustifyContent="SpaceAround"
                         AlignContent="SpaceAround">
                 <!-- TODO: Item Data-->
+                
             </FlexLayout>
             
         </StackLayout>
