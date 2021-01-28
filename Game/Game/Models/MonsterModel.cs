@@ -54,6 +54,11 @@ namespace Game.Models
             }
 
             PlayerType = newData.PlayerType;
+            if (newData.SpecificPlayerType == SpecificPlayerTypeEnum.Faculty 
+                || newData.SpecificPlayerType == SpecificPlayerTypeEnum.Admin)
+            {
+                SpecificPlayerType = newData.SpecificPlayerType;
+            }
             Guid = newData.Guid;
             Name = newData.Name;
             Description = newData.Description;
