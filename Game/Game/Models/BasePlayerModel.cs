@@ -18,9 +18,9 @@ namespace Game.Models
         #region Attributes
 
         #region GameEngineAttributes
-        // graduation status, graduated is the same as dead, so NotGraduated is equivalent to alive
+        // graduation status, graduated is the same as dead, so Alive is equivalent to alive
         [Ignore]
-        public bool NotGraduated { get; set; } = true;
+        public bool Alive { get; set; } = true;
 
         // The type of player, character comes before monster
         [Ignore]
@@ -571,11 +571,11 @@ namespace Game.Models
         }
 
         // Death
-        // NotGraduated turns to False
+        // Alive turns to False
         public bool CauseDeath()
         {
-            NotGraduated = false;
-            return NotGraduated;
+            Alive = false;
+            return Alive;
         }
 
         #endregion BattleMethods

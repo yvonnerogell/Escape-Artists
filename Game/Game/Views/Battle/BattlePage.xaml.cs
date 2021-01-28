@@ -572,7 +572,7 @@ namespace Game.Views
             DefenderName.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender.Name;
             DefenderHealth.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender.GetCurrentHealthTotal.ToString() + " / " + BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender.GetMaxHealthTotal.ToString();
 
-            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender.NotGraduated == false)
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender.Alive == false)
             {
                 UpdateMapGrid();
                 DefenderImage.BackgroundColor = Color.Red;

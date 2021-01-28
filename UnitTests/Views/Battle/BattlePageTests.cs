@@ -264,7 +264,7 @@ namespace UnitTests.Views
             // Arrange
 
             BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(new PlayerInfoModel(new CharacterModel()));
-            BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender( new PlayerInfoModel(new CharacterModel { NotGraduated=false }));
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender( new PlayerInfoModel(new CharacterModel { Alive=false }));
 
             // Act
             page.DrawGameAttackerDefenderBoard();
@@ -281,7 +281,7 @@ namespace UnitTests.Views
             // Arrange
 
             BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(new PlayerInfoModel(new CharacterModel()));
-            BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(new PlayerInfoModel(new CharacterModel { NotGraduated = false }));
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(new PlayerInfoModel(new CharacterModel { Alive = false }));
 
             var oldItem = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PrimaryHand;
 
