@@ -58,14 +58,14 @@
                         Text="{Binding Data.Description}" 
                         Style="{StaticResource EntryStyle}"/>
 
-                    <Label Grid.Row="2" Grid.Column="0"
+                    <Label Grid.Row="3" Grid.Column="0"
                             Text="Level"
                             Style="{StaticResource ValueStyle}"
                             Padding="0,0,10,0"
                             HorizontalOptions="Start"
                             HorizontalTextAlignment="Start"/>
 
-                    <Label Grid.Row="2" Grid.Column="0"
+                    <Label Grid.Row="3" Grid.Column="0"
                             Text="{Binding Data.Level}" 
                             x:Name="LevelValue"
                             Style="{StaticResource ValueStyle}"
@@ -73,20 +73,20 @@
                             HorizontalOptions="End"
                             HorizontalTextAlignment="End"/>
 
-                    <Stepper Grid.Row="2" Grid.Column="1"
+                    <Stepper Grid.Row="3" Grid.Column="1"
                             Value="{Binding Data.Level, Mode=TwoWay}"
                             ValueChanged="Level_OnStepperValueChanged"
                              Minimum="1"
                              Maximum="20"/>
 
-                    <Label Grid.Row="3" Grid.Column="0"
+                    <Label Grid.Row="4" Grid.Column="0"
                             Text="Attack"
                             Style="{StaticResource ValueStyle}"
                             Padding="0,0,10,0"
                             HorizontalOptions="Start"
                             HorizontalTextAlignment="Start"/>
 
-                    <Label Grid.Row="3" Grid.Column="0"
+                    <Label Grid.Row="4" Grid.Column="0"
                             Text="{Binding Data.Attack}" 
                             x:Name="AttackValue"
                             Style="{StaticResource ValueStyle}"
@@ -94,20 +94,20 @@
                             HorizontalOptions="End"
                             HorizontalTextAlignment="End"/>
 
-                    <Stepper Grid.Row="3" Grid.Column="1"
+                    <Stepper Grid.Row="4" Grid.Column="1"
                             Value="{Binding Data.Attack, Mode=TwoWay}"
                             ValueChanged="Attack_OnStepperValueChanged"
                              Minimum="1"
                              Maximum="20"/>
 
-                    <Label Grid.Row="4" Grid.Column="0"
+                    <Label Grid.Row="5" Grid.Column="0"
                             Text="Defense"
                             Style="{StaticResource ValueStyle}"
                             Padding="0,0,10,0"
                             HorizontalOptions="Start"
                             HorizontalTextAlignment="Start"/>
 
-                    <Label Grid.Row="4" Grid.Column="0"
+                    <Label Grid.Row="5" Grid.Column="0"
                             Text="{Binding Data.Defense}" 
                             x:Name="DefenseValue"
                             Style="{StaticResource ValueStyle}"
@@ -115,20 +115,20 @@
                             HorizontalOptions="End"
                             HorizontalTextAlignment="End"/>
 
-                    <Stepper Grid.Row="4" Grid.Column="1"
+                    <Stepper Grid.Row="5" Grid.Column="1"
                             Value="{Binding Data.Defense, Mode=TwoWay}"
                             ValueChanged="Defense_OnStepperValueChanged"
                              Minimum="1"
                              Maximum="20"/>
 
-                    <Label Grid.Row="5" Grid.Column="0"
+                    <Label Grid.Row="6" Grid.Column="0"
                             Text="Speed"
                             Style="{StaticResource ValueStyle}"
                             Padding="0,0,10,0"
                             HorizontalOptions="Start"
                             HorizontalTextAlignment="Start"/>
 
-                    <Label Grid.Row="5" Grid.Column="0"
+                    <Label Grid.Row="6" Grid.Column="0"
                             Text="{Binding Data.Speed}" 
                             x:Name="SpeedValue"
                             Style="{StaticResource ValueStyle}"
@@ -136,19 +136,19 @@
                             HorizontalOptions="End"
                             HorizontalTextAlignment="End"/>
 
-                    <Stepper Grid.Row="5" Grid.Column="1"
+                    <Stepper Grid.Row="6" Grid.Column="1"
                             Value="{Binding Data.Speed, Mode=TwoWay}"
                             ValueChanged="Speed_OnStepperValueChanged"
                              Minimum="1"
                              Maximum="20"/>
 
-                    <StackLayout Grid.Row="6" Grid.Column="0">
+                    <StackLayout Grid.Row="8" Grid.Column="0">
 
                         <!-- TODO pull in character's items here-->
                         <Label Grid.Row="5" Grid.Column="0"
                             Text="PLACEHOLDER FOR ITEMS"
                             Style="{StaticResource ValueStyle}"
-                            Padding="0,20,10,0"
+                            Padding="0,0,10,0"
                             HorizontalOptions="Start"
                             HorizontalTextAlignment="Start"/>
 
