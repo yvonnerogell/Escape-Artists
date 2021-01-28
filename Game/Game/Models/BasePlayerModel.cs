@@ -26,6 +26,10 @@ namespace Game.Models
         [Ignore]
         public PlayerTypeEnum PlayerType { get; set; } = PlayerTypeEnum.Unknown;
 
+        // The specific player type: Student, Parent, Faculty, or Admin
+        [Ignore]
+        public SpecificPlayerTypeEnum SpecificPlayerType { get; set; } = SpecificPlayerTypeEnum.Unknown;
+
         // TurnOrder
         [Ignore]
         public int Order { get; set; } = 0;
