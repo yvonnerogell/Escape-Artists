@@ -210,7 +210,7 @@ namespace UnitTests.Models
         {
             // Arrange
             var data = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Fighter });
-            data.AbilityTracker[AbilityEnum.Nimble] = 1;
+            data.AbilityTracker[AbilityEnum.Extension] = 1;
 
             // Act
             var result = data.SelectAbilityToUse();
@@ -218,7 +218,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert
-            Assert.AreEqual(AbilityEnum.Nimble, result);
+            Assert.AreEqual(AbilityEnum.Extension, result);
         }
 
         [Test]

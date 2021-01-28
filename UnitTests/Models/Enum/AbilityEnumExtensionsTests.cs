@@ -97,7 +97,7 @@ namespace UnitTests.Models
             // Arrange
 
             // Act
-            var result = AbilityEnum.Nimble.ToMessage();
+            var result = AbilityEnum.Extension.ToMessage();
 
             // Reset
 

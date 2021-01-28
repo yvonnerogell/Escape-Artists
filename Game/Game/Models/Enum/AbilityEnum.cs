@@ -23,7 +23,7 @@ namespace Game.Models
 
         // Fighter Abilities > 20 Range
         // Buff Speed
-        Nimble = 21,
+        Extension = 21,
 
         // Buff Defense
         Toughness = 22,
@@ -67,7 +67,7 @@ namespace Game.Models
                     Message = "Apply Bandages";
                     break;
 
-                case AbilityEnum.Nimble:
+                case AbilityEnum.Extension:
                     Message = "React Quickly";
                     break;
 
@@ -131,7 +131,7 @@ namespace Game.Models
             get
             {
                 List<string> AbilityList = new List<string>{
-                AbilityEnum.Nimble.ToString(),
+                AbilityEnum.Extension.ToString(),
                 AbilityEnum.Toughness.ToString(),
                 AbilityEnum.Focus.ToString()
                 };

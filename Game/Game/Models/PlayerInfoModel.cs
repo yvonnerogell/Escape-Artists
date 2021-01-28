@@ -335,7 +335,7 @@ namespace Game.Models
             
 
                 case AbilityEnum.Quick:
-                case AbilityEnum.Nimble:
+                case AbilityEnum.Extension:
                     //BuffSpeed();
                     break;
             
