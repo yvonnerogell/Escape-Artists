@@ -41,9 +41,8 @@ namespace Game.Views
         /// <param name="e"></param>
         public async void Update_Clicked(object sender, EventArgs e)
         {
-            //TODO: uncomment when Character Update page is created. 
-            //await Navigation.PushModalAsync(new NavigationPage(new CharaterUpdatePage(ViewModel)));
-            //await Navigation.PopAsync();
+            await Navigation.PushModalAsync(new NavigationPage(new CharacterUpdatePage(ViewModel)));
+            await Navigation.PopAsync();
         }
 
         /// <summary>
