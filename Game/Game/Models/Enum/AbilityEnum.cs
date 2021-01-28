@@ -16,9 +16,9 @@ namespace Game.Models
         // Not specified
         None = 1,
 
-        // General Abilities 10 Range
-        // Heal Self
-        Bandage = 10,
+     
+        // Student can get extra credit
+        Extra_Credit = 10,
 
 
         // Fighter Abilities > 20 Range
@@ -63,7 +63,7 @@ namespace Game.Models
 
             switch (value)
             {
-                case AbilityEnum.Bandage:
+                case AbilityEnum.Extra_Credit:
                     Message = "Apply Bandages";
                     break;
 
@@ -170,7 +170,7 @@ namespace Game.Models
             {
 
                 List<string> AbilityList = new List<string>{
-                AbilityEnum.Bandage.ToString(),
+                AbilityEnum.Extra_Credit.ToString(),
                 };
 
                 return AbilityList;

@@ -573,7 +573,7 @@ namespace UnitTests.Engine.EngineBase
             // Arrange
 
             Engine.EngineSettings.CurrentAction = ActionEnum.Ability;
-            Engine.EngineSettings.CurrentActionAbility = AbilityEnum.Bandage;
+            Engine.EngineSettings.CurrentActionAbility = AbilityEnum.Extra_Credit;
 
             var PlayerInfo = new PlayerInfoModel(new CharacterModel());
 

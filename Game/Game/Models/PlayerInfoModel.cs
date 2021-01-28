@@ -229,15 +229,15 @@ namespace Game.Models
             // If health is 25% or less of max health, try to heal
             if (GetCurrentHealth() < (GetMaxHealth() * .25))
             {
-                // Try to use Heal or Bandage
+                // Try to use Heal or Extra_Credit
                 if (IsAbilityAvailable(AbilityEnum.Heal))
                 {
                     return AbilityEnum.Heal;
                 }
 
-                if (IsAbilityAvailable(AbilityEnum.Bandage))
+                if (IsAbilityAvailable(AbilityEnum.Extra_Credit))
                 {
-                    return AbilityEnum.Bandage;
+                    return AbilityEnum.Extra_Credit;
                 }
             }
 
@@ -256,13 +256,13 @@ namespace Game.Models
             {
                 var data = ability.Key;
 
-                // Skip over Heal and Bandage because covered in healing
+                // Skip over Heal and Extra_Credit because covered in healing
                 if (data == AbilityEnum.Heal)
                 {
                     continue;
                 }
 
-                if (data == AbilityEnum.Bandage)
+                if (data == AbilityEnum.Extra_Credit)
                 {
                     continue;
                 }
@@ -319,7 +319,7 @@ namespace Game.Models
             switch (ability)
             {
                 case AbilityEnum.Heal:
-                case AbilityEnum.Bandage:
+                case AbilityEnum.Extra_Credit:
                     //BuffHealth();
                     break;
 

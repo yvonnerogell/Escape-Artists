@@ -27,7 +27,7 @@ namespace UnitTests.Models
             // Arrange
 
             // Act
-            var result = AbilityEnum.Bandage.ToMessage();
+            var result = AbilityEnum.Extra_Credit.ToMessage();
 
             // Reset
 
