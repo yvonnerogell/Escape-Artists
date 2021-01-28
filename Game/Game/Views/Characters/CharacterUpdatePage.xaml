@@ -121,6 +121,27 @@
                              Minimum="1"
                              Maximum="20"/>
 
+                    <Label Grid.Row="5" Grid.Column="0"
+                            Text="Speed"
+                            Style="{StaticResource ValueStyle}"
+                            Padding="0,0,10,0"
+                            HorizontalOptions="Start"
+                            HorizontalTextAlignment="Start"/>
+
+                    <Label Grid.Row="5" Grid.Column="0"
+                            Text="{Binding Data.Speed}" 
+                            x:Name="SpeedValue"
+                            Style="{StaticResource ValueStyle}"
+                            Padding="0,0,10,0"
+                            HorizontalOptions="End"
+                            HorizontalTextAlignment="End"/>
+
+                    <Stepper Grid.Row="5" Grid.Column="1"
+                            Value="{Binding Data.Speed, Mode=TwoWay}"
+                            ValueChanged="Speed_OnStepperValueChanged"
+                             Minimum="1"
+                             Maximum="20"/>
+
 
                 </Grid>
 
