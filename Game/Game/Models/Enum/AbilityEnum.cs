@@ -31,9 +31,8 @@ namespace Game.Models
         Bribes = 23,
 
 
-        // Cleric Abilities > 50 Range
-        // Buff Speed
-        Quick = 51,
+        // Parent can pay tuition
+        Pay_Tuition = 51,
 
         // Buff Defense
         Barrier = 52,
