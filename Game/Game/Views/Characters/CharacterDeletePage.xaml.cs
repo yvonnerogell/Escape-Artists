@@ -9,13 +9,13 @@ using Game.Models;
 namespace Game.Views
 {
     /// <summary>
-    /// The Read Page
+    /// The Delete Page
     /// </summary>
     [DesignTimeVisible(false)] 
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharaterDeletePage : ContentPage
     {
-        // View Model for Item
+        // View Model for Character
         readonly GenericViewModel<CharacterModel> viewModel;
 
         // Empty Constructor for UTs
@@ -32,7 +32,7 @@ namespace Game.Views
         }
 
         /// <summary>
-        /// Save calls to Update
+        /// Save calls to Delete
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
