@@ -72,6 +72,8 @@
                             Padding="0,0,10,0"
                             HorizontalOptions="End"
                             HorizontalTextAlignment="End"/>
+                    
+                    <!-- TODO: Change Steppers to something that looks better on Android. -->
 
                     <Stepper Grid.Row="3" Grid.Column="1"
                             Value="{Binding Data.Level, Mode=TwoWay}"
