@@ -13,6 +13,9 @@ using Game.Models;
 
 namespace Game.Views.Characters
 {
+	/// <summary>
+	/// The Index Page
+	/// </summary>
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class CharacterIndexPage : ContentPage
 	{
@@ -23,7 +26,7 @@ namespace Game.Views.Characters
 		// Empty Constructor for UTs
 		public CharacterIndexPage(bool UnitTest) { }
 
-
+		// Constructor for Index. Initialized with ViewModel bindingcontext. 
 		public CharacterIndexPage()
 		{
 			InitializeComponent();
@@ -43,7 +46,7 @@ namespace Game.Views.Characters
 		}
 
 		/// <summary>
-		/// Redirect to Read a Character from list of Characters
+		/// Redirect to the read page for the clicked Character.
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
