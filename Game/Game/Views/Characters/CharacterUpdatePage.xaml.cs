@@ -9,20 +9,20 @@ using Game.Models;
 namespace Game.Views
 {
     /// <summary>
-    /// Item Update Page
+    /// Character Update Page
     /// </summary>
     [DesignTimeVisible(false)]
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharacterUpdatePage : ContentPage
     {
-        // View Model for Item
+        // View Model for Character
         public readonly GenericViewModel<CharacterModel> ViewModel;
 
         // Empty Constructor for Tests
         public CharacterUpdatePage(bool UnitTest){ }
 
         /// <summary>
-        /// Constructor that takes and existing data item
+        /// Constructor that takes and existing character item
         /// </summary>
         public CharacterUpdatePage(GenericViewModel<CharacterModel> data)
         {
