@@ -58,23 +58,21 @@
                         Text="{Binding Data.Description}" 
                         Style="{StaticResource EntryStyle}"/>
 
+                    <!-- TODO: Change Steppers to something that looks better on Android. -->
+
                     <Label Grid.Row="3" Grid.Column="0"
                             Text="Level"
-                            Style="{StaticResource LabelStyle}"
-                            Padding="0,0,10,0"
+                            Style="{StaticResource LabelStyleUpdateText}"
                             HorizontalOptions="Start"
                             HorizontalTextAlignment="Start"/>
 
                     <Label Grid.Row="3" Grid.Column="0"
                             Text="{Binding Data.Level}" 
                             x:Name="LevelValue"
-                            Style="{StaticResource LabelStyle}"
-                            Padding="0,0,10,0"
+                            Style="{StaticResource LabelStyleUpdateText}"
                             HorizontalOptions="End"
                             HorizontalTextAlignment="End"/>
                     
-                    <!-- TODO: Change Steppers to something that looks better on Android. -->
-
                     <Stepper Grid.Row="3" Grid.Column="1"
                             Value="{Binding Data.Level, Mode=TwoWay}"
                             ValueChanged="Level_OnStepperValueChanged"
@@ -83,16 +81,14 @@
 
                     <Label Grid.Row="4" Grid.Column="0"
                             Text="Attack"
-                            Style="{StaticResource LabelStyle}"
-                            Padding="0,0,10,0"
+                            Style="{StaticResource LabelStyleUpdateText}"
                             HorizontalOptions="Start"
                             HorizontalTextAlignment="Start"/>
 
                     <Label Grid.Row="4" Grid.Column="0"
                             Text="{Binding Data.Attack}" 
                             x:Name="AttackValue"
-                            Style="{StaticResource LabelStyle}"
-                            Padding="0,0,10,0"
+                            Style="{StaticResource LabelStyleUpdateText}"
                             HorizontalOptions="End"
                             HorizontalTextAlignment="End"/>
 
@@ -104,16 +100,14 @@
 
                     <Label Grid.Row="5" Grid.Column="0"
                             Text="Defense"
-                            Style="{StaticResource LabelStyle}"
-                            Padding="0,0,10,0"
+                            Style="{StaticResource LabelStyleUpdateText}"
                             HorizontalOptions="Start"
                             HorizontalTextAlignment="Start"/>
 
                     <Label Grid.Row="5" Grid.Column="0"
                             Text="{Binding Data.Defense}" 
                             x:Name="DefenseValue"
-                            Style="{StaticResource LabelStyle}"
-                            Padding="0,0,10,0"
+                            Style="{StaticResource LabelStyleUpdateText}"
                             HorizontalOptions="End"
                             HorizontalTextAlignment="End"/>
 
@@ -125,16 +119,14 @@
 
                     <Label Grid.Row="6" Grid.Column="0"
                             Text="Speed"
-                            Style="{StaticResource LabelStyle}"
-                            Padding="0,0,10,0"
+                            Style="{StaticResource LabelStyleUpdateText}"
                             HorizontalOptions="Start"
                             HorizontalTextAlignment="Start"/>
 
                     <Label Grid.Row="6" Grid.Column="0"
                             Text="{Binding Data.Speed}" 
                             x:Name="SpeedValue"
-                            Style="{StaticResource LabelStyle}"
-                            Padding="0,0,10,0"
+                            Style="{StaticResource LabelStyleUpdateText}"
                             HorizontalOptions="End"
                             HorizontalTextAlignment="End"/>
 
@@ -149,8 +141,7 @@
                         <!-- TODO pull in character's items here-->
                         <Label Grid.Row="5" Grid.Column="0"
                             Text="PLACEHOLDER FOR ITEMS"
-                            Style="{StaticResource LabelStyle}"
-                            Padding="0,0,10,0"
+                            Style="{StaticResource LabelStyleUpdateText}"
                             HorizontalOptions="Start"
                             HorizontalTextAlignment="Start"/>
 

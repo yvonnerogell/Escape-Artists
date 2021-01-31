@@ -146,6 +146,12 @@
                 <Setter Property="TextColor" Value="{StaticResource TriciaryTextColor}" />
             </Style>
 
+            <Style TargetType="Label"
+                x:Key="LabelStyleUpdateText"
+                BasedOn="{StaticResource LabelStyle}">
+                <Setter Property="Padding" Value="0,0,10,0"/>
+            </Style>
+
             <!--<Style TargetType="Label"
                 x:Key="MessageLargeStyle"
                 BasedOn="{StaticResource MessageStyle}">
