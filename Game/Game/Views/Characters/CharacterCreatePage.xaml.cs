@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+using Game.ViewModels;
+using Game.Models;
 
 namespace Game.Views.Characters
 {
@@ -13,6 +16,11 @@ namespace Game.Views.Characters
         public CharacterCreatePage()
         {
             InitializeComponent();
+
+          //  Character = new CharacterModel();
+
+            BindingContext = this;
+            
         }
 
         void ToolbarItem_Clicked(System.Object sender, System.EventArgs e)
@@ -27,6 +35,18 @@ namespace Game.Views.Characters
         public async void CancelCharacter_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
+        }
+
+        /// <summary>
+        /// Save the newly created character and close this page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void SaveCharacter_Clicked(object sender, EventArgs e)
+        {
+           // MessagingCenter.Send(this, "AddItem", );
+           // await Navigation.PopModalAsync();
+
         }
     }
 }
