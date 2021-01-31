@@ -72,8 +72,8 @@
                     <Stepper Grid.Row="3" Grid.Column="1"
                             Value="{Binding Data.Level, Mode=TwoWay}"
                             ValueChanged="Level_OnStepperValueChanged"
-                             Minimum="1"
-                             Maximum="20"/>
+                            Minimum="1"
+                            Maximum="20"/>
 
                     <Label Grid.Row="4" Grid.Column="0"
                             Text="Attack"
@@ -87,8 +87,8 @@
                     <Stepper Grid.Row="4" Grid.Column="1"
                             Value="{Binding Data.Attack, Mode=TwoWay}"
                             ValueChanged="Attack_OnStepperValueChanged"
-                             Minimum="1"
-                             Maximum="20"/>
+                            Minimum="1"
+                            Maximum="20"/>
 
                     <Label Grid.Row="5" Grid.Column="0"
                             Text="Defense"
@@ -102,8 +102,8 @@
                     <Stepper Grid.Row="5" Grid.Column="1"
                             Value="{Binding Data.Defense, Mode=TwoWay}"
                             ValueChanged="Defense_OnStepperValueChanged"
-                             Minimum="1"
-                             Maximum="20"/>
+                            Minimum="1"
+                            Maximum="20"/>
 
                     <Label Grid.Row="6" Grid.Column="0"
                             Text="Speed"
@@ -117,8 +117,8 @@
                     <Stepper Grid.Row="6" Grid.Column="1"
                             Value="{Binding Data.Speed, Mode=TwoWay}"
                             ValueChanged="Speed_OnStepperValueChanged"
-                             Minimum="1"
-                             Maximum="20"/>
+                            Minimum="1"
+                            Maximum="20"/>
 
                     <StackLayout Grid.Row="8" Grid.Column="0">
 
