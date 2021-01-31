@@ -25,9 +25,14 @@
                     <Label 
                         Text="{Binding Data.Description}" 
                         Style="{StaticResource LabelStyle}"/>
-                    <Label 
-                        Text="{Binding Data.Level}" 
-                        Style="{StaticResource LabelStyle}"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label 
+                            Text="Level: " 
+                            Style="{StaticResource LabelStyle}"/>
+                        <Label 
+                            Text="{Binding Data.Level}" 
+                            Style="{StaticResource LabelStyle}"/>
+                    </StackLayout>
                 </StackLayout>
 
                 <StackLayout Style="{StaticResource CharacterInfoImage}">
