@@ -150,6 +150,15 @@
                 x:Key="LabelStyleUpdateText"
                 BasedOn="{StaticResource LabelStyle}">
                 <Setter Property="Padding" Value="0,0,10,0"/>
+                <Setter Property="HorizontalOptions" Value="Start"/>
+                <Setter Property="HorizontalTextAlignment" Value="Start"/>
+            </Style>
+
+            <Style TargetType="Label"
+                x:Key="LabelStyleUpdateValue"
+                BasedOn="{StaticResource LabelStyleUpdateText}">
+                <Setter Property="HorizontalOptions" Value="End"/>
+                <Setter Property="HorizontalTextAlignment" Value="End"/>
             </Style>
 
             <!--<Style TargetType="Label"
