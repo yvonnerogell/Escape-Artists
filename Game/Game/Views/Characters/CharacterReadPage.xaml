@@ -24,7 +24,9 @@
                         Style="{StaticResource HeaderStyle}"/>
                     <Label 
                         Text="{Binding Data.Description}" 
-                        Style="{StaticResource LabelStyle}"/>
+                        Style="{StaticResource LabelStyle}"
+                        LineBreakMode="WordWrap"
+                        MaxLines="2"/>
                     <StackLayout Orientation="Horizontal">
                         <Label 
                             Text="Level: " 
