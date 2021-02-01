@@ -20,6 +20,15 @@
             <Label Text="Character description:" FontSize="Small" TextColor="Black"/>
             <Entry Placeholder="Description of character" FontSize="Small"/>
 
+           <Picker Title="Select a character type">
+              <Picker.Items>
+                <x:String>Student</x:String>
+                <x:String>Parent</x:String>
+              </Picker.Items>
+            </Picker>
+            
+            
+
         </StackLayout>
     </ScrollView>
  </ContentPage.Content>
