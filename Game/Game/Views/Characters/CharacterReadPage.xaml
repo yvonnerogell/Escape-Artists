@@ -23,6 +23,9 @@
                         Text="{Binding Data.Name}" 
                         Style="{StaticResource HeaderStyle}"/>
                     <Label 
+                        Text="{Binding Data.SpecificCharacterType}" 
+                        Style="{StaticResource LabelStyle}"/>
+                    <Label 
                         Text="{Binding Data.Description}" 
                         Style="{StaticResource LabelStyle}"
                         LineBreakMode="WordWrap"
