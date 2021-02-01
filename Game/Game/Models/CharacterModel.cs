@@ -10,7 +10,7 @@ namespace Game.Models
     public class CharacterModel : BasePlayerModel<CharacterModel>
     {
         //TODO: Add new Character Varaibles
-        public SpecificCharacterTypeEnum SpecCharacterTypeEnum { get; set; }
+        public SpecificCharacterTypeEnum SpecificCharacterTypeEnum { get; set; }
         /// <summary>
         /// Default character
         /// 
@@ -20,7 +20,7 @@ namespace Game.Models
         {
             PlayerType = PlayerTypeEnum.Character;
             CharacterTypeEnum = CharacterTypeEnum.Student;
-            SpecCharacterTypeEnum = SpecificCharacterTypeEnum.SmartyPants;
+            SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.SmartyPants;
             Guid = Id;
             Name = null;
             Description = null;
@@ -67,7 +67,7 @@ namespace Game.Models
             {
                 CharacterTypeEnum = newData.CharacterTypeEnum;
             }
-            SpecCharacterTypeEnum = newData.SpecCharacterTypeEnum;
+            SpecificCharacterTypeEnum = newData.SpecificCharacterTypeEnum;
             Name = newData.Name;
             Description = newData.Description;
             Level = newData.Level;
