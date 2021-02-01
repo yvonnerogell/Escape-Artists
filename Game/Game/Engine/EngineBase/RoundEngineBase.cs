@@ -489,7 +489,7 @@ namespace Game.Engine.EngineBase
                 data.ClearBuffs();
             }
 
-            foreach (var data in EngineSettings.CharacterList)
+            foreach (var data in EngineSettings.StudentList)
             {
                 data.ClearBuffs();
             }

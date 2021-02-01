@@ -137,7 +137,7 @@ namespace Game.Engine.EngineKoenig
             //// Will first pull from existing characters
             //foreach (var data in CharacterIndexViewModel.Instance.Dataset)
             //{
-            //    if (Battle.EngineSettings.CharacterList.Count() >= Battle.EngineSettings.MaxNumberPartyCharacters)
+            //    if (Battle.EngineSettings.StudentList.Count() >= Battle.EngineSettings.MaxNumberPartyCharacters)
             //    {
             //        break;
             //    }

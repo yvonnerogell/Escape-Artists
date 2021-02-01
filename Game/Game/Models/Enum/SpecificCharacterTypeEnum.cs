@@ -14,7 +14,7 @@ namespace Game.Models
         /// Returns list of all characters
         /// </summary>
         /// <returns></returns>
-        public List<string> CharacterList()
+        public List<string> StudentList()
         {
             var characterList = new List<string>()
                 {
@@ -24,9 +24,7 @@ namespace Game.Models
                 "Prodigy",
                 "Second Career",
                 "Slacker",
-                "Procrastinator",
-                "Helicopter Parent",
-                "Cool Parent"
+                "Procrastinator"
                 };
             return characterList;
         }

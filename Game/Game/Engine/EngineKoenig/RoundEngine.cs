@@ -436,7 +436,7 @@ namespace Game.Engine.EngineKoenig
                 data.ClearBuffs();
             }
 
-            foreach (var data in EngineSettings.CharacterList)
+            foreach (var data in EngineSettings.StudentList)
             {
                 data.ClearBuffs();
             }

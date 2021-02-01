@@ -74,7 +74,7 @@ namespace Scenario
        //                         ListOrder = 1,
        //                     });
 
-       //     page.EngineViewModel.CharacterList.Add(CharacterPlayerMike);
+       //     page.EngineViewModel.StudentList.Add(CharacterPlayerMike);
 
 
        //     // Add Monsters
