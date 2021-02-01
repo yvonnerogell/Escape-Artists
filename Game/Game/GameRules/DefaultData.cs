@@ -138,9 +138,10 @@ namespace Game.GameRules
             var datalist = new List<CharacterModel>()
             {
                 new CharacterModel {
-                    Name = "Smarty Pants",
+                    Name = "Bobbet",
                     Description = "My IQ is bigger than your height in centimeters!",
                     CharacterTypeEnum = CharacterTypeEnum.Student,
+                    SpecCharacterTypeEnum = SpecificCharacterTypeEnum.SmartyPants,
                     Level = 1,
                     MaxHealth = 100,
                     ImageURI = "student.png",
@@ -154,9 +155,10 @@ namespace Game.GameRules
                 },
 
                 new CharacterModel {
-                    Name = "Overachiever",
+                    Name = "Lucy",
                     Description = "Where can I find extra reading on this material?",
                     CharacterTypeEnum = CharacterTypeEnum.Student,
+                    SpecCharacterTypeEnum = SpecificCharacterTypeEnum.Overachiever,
                     Level = 1,
                     MaxHealth = 100,
                     ImageURI = "student.png",
@@ -170,9 +172,10 @@ namespace Game.GameRules
                 },
 
                 new CharacterModel {
-                    Name = "International Student",
+                    Name = "Nancy",
                     Description = "I would have been a professor by now if it weren't for the stress of I-94 renewal",
                     CharacterTypeEnum = CharacterTypeEnum.Student,
+                    SpecCharacterTypeEnum = SpecificCharacterTypeEnum.InternationalStudent,
                     Level = 1,
                     MaxHealth = 100,
                     ImageURI = "student.png",
@@ -186,9 +189,10 @@ namespace Game.GameRules
                 },
 
                 new CharacterModel {
-                    Name = "Prodigy",
+                    Name = "Petter",
                     Description = "I'm a big Proust fan ... since the age of 4",
                     CharacterTypeEnum = CharacterTypeEnum.Student,
+                    SpecCharacterTypeEnum = SpecificCharacterTypeEnum.Prodigy,
                     Level = 1,
                     MaxHealth = 100,
                     ImageURI = "student.png",
@@ -202,9 +206,10 @@ namespace Game.GameRules
                 },
 
                 new CharacterModel {
-                    Name = "Second_Career",
+                    Name = "Micheal",
                     Description = "So no one told you life was gonna be this way",
                     CharacterTypeEnum = CharacterTypeEnum.Student,
+                    SpecCharacterTypeEnum = SpecificCharacterTypeEnum.SecondCareer,
                     Level = 1,
                     MaxHealth = 100,
                     ImageURI = "student.png",
@@ -218,10 +223,11 @@ namespace Game.GameRules
                 },
 
                 new CharacterModel {
-                    Name = "Slacker",
+                    Name = "Brian",
                     Description = "So the midterm is sometime this month, right?",
                     Level = 1,
                     CharacterTypeEnum = CharacterTypeEnum.Student,
+                    SpecCharacterTypeEnum = SpecificCharacterTypeEnum.Slacker,
                     MaxHealth = 100,
                     ImageURI = "student.png",
                     Head = HeadString,
@@ -234,10 +240,11 @@ namespace Game.GameRules
                 },
 
                 new CharacterModel {
-                    Name = "Procrastinator",
+                    Name = "Emily",
                     Description = "Only if they hadn't released the new GoT season...",
                     Level = 1,
                     CharacterTypeEnum = CharacterTypeEnum.Student,
+                    SpecCharacterTypeEnum = SpecificCharacterTypeEnum.Procrastinator,
                     MaxHealth = 100,
                     ImageURI = "student.png",
                     Head = HeadString,
@@ -250,10 +257,11 @@ namespace Game.GameRules
                 },
 
                  new CharacterModel {
-                    Name = "Helicopter_Parent",
+                    Name = "Ms. Wang",
                     Description = "My baby needs me!",
                     Level = 1,
                     CharacterTypeEnum = CharacterTypeEnum.Parent,
+                    SpecCharacterTypeEnum = SpecificCharacterTypeEnum.HelicopterParent,
                     MaxHealth = 100,
                     ImageURI = "parent.png",
                     Head = "None",
@@ -266,10 +274,11 @@ namespace Game.GameRules
                 },
 
                   new CharacterModel {
-                    Name = "Cool_Parent",
+                    Name = "Mr. Robert",
                     Description = "I'm cool, can't help it",
                     Level = 1,
                     CharacterTypeEnum = CharacterTypeEnum.Parent,
+                    SpecCharacterTypeEnum = SpecificCharacterTypeEnum.CoolParent,
                     MaxHealth = 100,
                     ImageURI = "parent.png",
                     Head = "None",
