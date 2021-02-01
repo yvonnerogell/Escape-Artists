@@ -56,8 +56,7 @@ namespace Game.Models
             }
 
             PlayerType = newData.PlayerType;
-            if (newData.SpecificMonsterType == SpecificMonsterTypeEnum.Faculty 
-                || newData.SpecificMonsterType == SpecificMonsterTypeEnum.Admin)
+            if (PlayerType == PlayerTypeEnum.Monster)
             {
                 SpecificMonsterType = newData.SpecificMonsterType;
             }
