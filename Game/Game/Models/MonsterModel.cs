@@ -17,7 +17,7 @@ namespace Game.Models
         public MonsterModel()
         {
             PlayerType = PlayerTypeEnum.Monster;
-            SpecificPlayerType = SpecificCharacterTypeEnum.Faculty;
+            SpecificMonsterType = SpecificMonsterTypeEnum.Faculty;
             Guid = Id;
             Name = "Troll";
             Description = "Angry Troll";
@@ -54,10 +54,10 @@ namespace Game.Models
             }
 
             PlayerType = newData.PlayerType;
-            if (newData.SpecificPlayerType == SpecificCharacterTypeEnum.Faculty 
-                || newData.SpecificPlayerType == SpecificCharacterTypeEnum.Admin)
+            if (newData.SpecificMonsterType == SpecificMonsterTypeEnum.Faculty 
+                || newData.SpecificMonsterType == SpecificMonsterTypeEnum.Admin)
             {
-                SpecificPlayerType = newData.SpecificPlayerType;
+                SpecificMonsterType = newData.SpecificMonsterType;
             }
             Guid = newData.Guid;
             Name = newData.Name;
