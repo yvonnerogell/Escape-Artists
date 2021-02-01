@@ -73,7 +73,7 @@ namespace Game.Models
                 SpecificCharacterTypeEnum = newData.SpecificCharacterTypeEnum;
             }
 
-            if (CharacterTypeEnum == CharacterTypeEnum. && SpecificCharacterTypeEnum.StudentList().Contains(newData.SpecificCharacterTypeEnum.ToString()))
+            if (CharacterTypeEnum == CharacterTypeEnum.Parent && SpecificCharacterTypeEnum.ParentList().Contains(newData.SpecificCharacterTypeEnum.ToString()))
             {
                 SpecificCharacterTypeEnum = newData.SpecificCharacterTypeEnum;
             }
