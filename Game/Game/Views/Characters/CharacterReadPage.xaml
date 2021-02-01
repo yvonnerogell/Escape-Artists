@@ -27,10 +27,10 @@
                             Text="{Binding Data.CharacterTypeEnum}" 
                             Style="{StaticResource LabelStyle}"/>
                         <Label 
-                            Text=", " 
+                            Text="- " 
                             Style="{StaticResource LabelStyle}"/>
                         <Label 
-                            Text="{Binding Data.SpecCharacterTypeEnum.Value}" 
+                            Text="{Binding Data.SpecificCharacterTypeEnum.Value}" 
                             Style="{StaticResource LabelStyle}"/>
                     </StackLayout>
                         
