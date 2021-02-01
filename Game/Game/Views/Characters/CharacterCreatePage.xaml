@@ -13,8 +13,13 @@
         <StackLayout Style="{StaticResource OuterBoxStack}" Spacing="10">
 
             <Label Text="Create Character Page" Style="{StaticResource HeaderStyle}"/>
-            <Label Text="Enter character name:" FontSize="Small"/>
+
+            <Label Text="Enter character name:" FontSize="Small" TextColor="Black"/>
             <Entry Placeholder="Character name" FontSize="Small"/>
+
+            <Label Text="Character description:" FontSize="Small" TextColor="Black"/>
+            <Entry Placeholder="Description of character" FontSize="Small"/>
+
         </StackLayout>
     </ScrollView>
  </ContentPage.Content>
