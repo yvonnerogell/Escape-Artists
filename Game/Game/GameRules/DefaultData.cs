@@ -271,7 +271,7 @@ namespace Game.GameRules
                     Level = 1,
                     SpecificPlayerType = SpecificPlayerTypeEnum.Parent,
                     MaxHealth = 100,
-                    ImageURI = "squid.jpg",
+                    ImageURI = "parent.png",
                     Head = "None",
                     Necklace = "None",
                     PrimaryHand = PrimaryHandString,
