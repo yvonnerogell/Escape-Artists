@@ -21,10 +21,10 @@ namespace Game.Models
             PlayerType = PlayerTypeEnum.Character;
             SpecificCharacterType = SpecificCharacterTypeEnum.Student;
             Guid = Id;
-            Name = "Elf";
-            Description = "Happy Elf";
+            Name = null;
+            Description = null;
             Level = 1;
-            ImageURI = "item.png";
+            ImageURI = null;
             ExperienceTotal = 0;
             ExperienceRemaining = LevelTableHelper.LevelDetailsList[Level + 1].Experience - 1;
             Feet = null;

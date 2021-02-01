@@ -11,9 +11,5 @@
         // The Characters
         Student = 10,
         Parent = 11,
-
-        // The Monsters
-        Faculty = 20,
-        Admin = 21,
     }
 }
