@@ -22,9 +22,18 @@
                     <Label 
                         Text="{Binding Data.Name}" 
                         Style="{StaticResource HeaderStyle}"/>
-                    <Label 
-                        Text="{Binding Data.CharacterTypeEnum}" 
-                        Style="{StaticResource LabelStyle}"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label 
+                            Text="{Binding Data.CharacterTypeEnum}" 
+                            Style="{StaticResource LabelStyle}"/>
+                        <Label 
+                            Text=", " 
+                            Style="{StaticResource LabelStyle}"/>
+                        <Label 
+                            Text="{Binding Data.SpecCharacterTypeEnum.Value}" 
+                            Style="{StaticResource LabelStyle}"/>
+                    </StackLayout>
+                        
                     <Label 
                         Text="{Binding Data.Description}" 
                         Style="{StaticResource LabelStyle}"
