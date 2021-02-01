@@ -10,6 +10,27 @@ namespace Game.Models
 
         public string Value { get; set; }
 
+        // <summary>
+        /// Returns list of all characters
+        /// </summary>
+        /// <returns></returns>
+        public List<string> CharacterList()
+        {
+            var characterList = new List<string>()
+                {
+                "Smarty Pants",
+                "Overachiever",
+                "International Student",
+                "Prodigy",
+                "Second Career",
+                "Slacker",
+                "Procrastinator",
+                "Helicopter Parent",
+                "Cool Parent"
+                };
+            return characterList;
+        }
+
         /// <summary>
         /// Returns list of all characters
         /// </summary>
