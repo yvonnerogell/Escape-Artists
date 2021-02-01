@@ -30,7 +30,7 @@ namespace Game.Models
         }
 
         /// <summary>
-        /// Returns list of all monsters
+        /// Returns list of all parents
         /// </summary>
         /// <returns></returns>
         public List<string> ParentList()
