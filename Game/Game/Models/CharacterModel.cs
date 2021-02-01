@@ -68,14 +68,17 @@ namespace Game.Models
                 CharacterTypeEnum = newData.CharacterTypeEnum;
             }
 
-            if (CharacterTypeEnum == CharacterTypeEnum.Student && SpecificCharacterTypeEnum.StudentList().Contains(newData.SpecificCharacterTypeEnum.ToString()))
+            // TODO: change this check for each character for images and CharacterType. (i.e. dication, case states or methods). 
+            if (CharacterTypeEnum == CharacterTypeEnum.Student && SpecificCharacterTypeEnum.StudentList().Contains(newData.SpecificCharacterTypeEnum.Value))
             {
                 SpecificCharacterTypeEnum = newData.SpecificCharacterTypeEnum;
+                ImageURI = "student.png";
             }
 
-            if (CharacterTypeEnum == CharacterTypeEnum.Parent && SpecificCharacterTypeEnum.ParentList().Contains(newData.SpecificCharacterTypeEnum.ToString()))
+            if (CharacterTypeEnum == CharacterTypeEnum.Parent && SpecificCharacterTypeEnum.ParentList().Contains(newData.SpecificCharacterTypeEnum.Value))
             {
                 SpecificCharacterTypeEnum = newData.SpecificCharacterTypeEnum;
+                ImageURI = "parent.png";
             }
 
             Name = newData.Name;
