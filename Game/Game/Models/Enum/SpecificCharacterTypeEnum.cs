@@ -32,7 +32,7 @@ namespace Game.Models
         }
 
         /// <summary>
-        /// Returns list of all characters
+        /// Returns list of all students
         /// </summary>
         /// <returns></returns>
         public List<string> StudentList()
