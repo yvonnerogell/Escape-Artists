@@ -191,7 +191,7 @@ namespace Game.GameRules
                     SpecificPlayerType = SpecificPlayerTypeEnum.Student,
                     Level = 1,
                     MaxHealth = 100,
-                    ImageURI = "squid.jpg",
+                    ImageURI = "student.png",
                     Head = HeadString,
                     Necklace = "None",
                     PrimaryHand = PrimaryHandString,
