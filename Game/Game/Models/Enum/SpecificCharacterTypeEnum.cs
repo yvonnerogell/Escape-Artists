@@ -3,7 +3,7 @@
     /// <summary>
     /// The player in the round, Monster or Character
     /// </summary>
-    public enum SpecificPlayerTypeEnum
+    public enum SpecificCharacterTypeEnum
     {
         // Not Known
         Unknown = 0,

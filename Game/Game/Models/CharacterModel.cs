@@ -19,7 +19,7 @@ namespace Game.Models
         public CharacterModel()
         {
             PlayerType = PlayerTypeEnum.Character;
-            SpecificPlayerType = SpecificPlayerTypeEnum.Student;
+            SpecificPlayerType = SpecificCharacterTypeEnum.Student;
             Guid = Id;
             Name = "Elf";
             Description = "Happy Elf";
@@ -62,7 +62,7 @@ namespace Game.Models
             }
 
             PlayerType = newData.PlayerType;
-            if (newData.SpecificPlayerType == SpecificPlayerTypeEnum.Student || newData.SpecificPlayerType == SpecificPlayerTypeEnum.Parent)
+            if (newData.SpecificPlayerType == SpecificCharacterTypeEnum.Student || newData.SpecificPlayerType == SpecificCharacterTypeEnum.Parent)
             {
                 SpecificPlayerType = newData.SpecificPlayerType;
             }
