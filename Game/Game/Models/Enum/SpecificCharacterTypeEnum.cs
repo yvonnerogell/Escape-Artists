@@ -30,6 +30,20 @@ namespace Game.Models
         }
 
         /// <summary>
+        /// Returns list of all monsters
+        /// </summary>
+        /// <returns></returns>
+        public List<string> ParentList()
+        {
+            var characterList = new List<string>()
+                {
+                "Helicopter Parent",
+                "Cool Parent"
+                };
+            return characterList;
+        }
+
+        /// <summary>
         /// returns individual character type
         /// </summary>
         public static SpecificCharacterTypeEnum SmartyPants { get { return new SpecificCharacterTypeEnum("Smarty Pants"); } }

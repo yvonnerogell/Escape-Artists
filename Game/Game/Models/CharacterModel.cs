@@ -72,7 +72,12 @@ namespace Game.Models
             {
                 SpecificCharacterTypeEnum = newData.SpecificCharacterTypeEnum;
             }
-            
+
+            if (CharacterTypeEnum == CharacterTypeEnum. && SpecificCharacterTypeEnum.StudentList().Contains(newData.SpecificCharacterTypeEnum.ToString()))
+            {
+                SpecificCharacterTypeEnum = newData.SpecificCharacterTypeEnum;
+            }
+
             Name = newData.Name;
             Description = newData.Description;
             Level = newData.Level;
