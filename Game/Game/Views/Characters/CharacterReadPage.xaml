@@ -23,7 +23,7 @@
                         Text="{Binding Data.Name}" 
                         Style="{StaticResource HeaderStyle}"/>
                     <Label 
-                        Text="{Binding Data.SpecificCharacterType}" 
+                        Text="{Binding Data.CharacterTypeEnum}" 
                         Style="{StaticResource LabelStyle}"/>
                     <Label 
                         Text="{Binding Data.Description}" 
