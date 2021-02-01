@@ -21,12 +21,12 @@ namespace Game.Models
             PlayerType = PlayerTypeEnum.Monster;
             SpecificMonsterType = SpecificMonsterTypeEnum.Faculty;
             Guid = Id;
-            Name = "Troll";
-            Description = "Angry Troll";
+            Name = null;
+            Description = null;
             Attack = 1;
             Difficulty = DifficultyEnum.Average;
             UniqueItem = null;
-            ImageURI = "item.png";
+            ImageURI = null;
             ExperienceTotal = 0;
             ExperienceRemaining = LevelTableHelper.LevelDetailsList[Level + 1].Experience - 1;
 

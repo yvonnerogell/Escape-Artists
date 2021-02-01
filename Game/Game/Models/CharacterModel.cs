@@ -62,7 +62,7 @@ namespace Game.Models
             }
 
             PlayerType = newData.PlayerType;
-            if (newData.SpecificCharacterType == SpecificCharacterTypeEnum.Student || newData.SpecificCharacterType == SpecificCharacterTypeEnum.Parent)
+            if (PlayerType == PlayerTypeEnum.Character)
             {
                 SpecificCharacterType = newData.SpecificCharacterType;
             }
