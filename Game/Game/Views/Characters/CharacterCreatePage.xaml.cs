@@ -13,13 +13,19 @@ namespace Game.Views.Characters
     /// </summary>
     public partial class CharacterCreatePage : ContentPage
     {
+        //new character 
+        public GenericViewModel<CharacterModel> ViewModel = new GenericViewModel<CharacterModel>();
+
+        //constructor
         public CharacterCreatePage()
         {
             InitializeComponent();
 
-          //  Character = new CharacterModel();
+            this.ViewModel.Data = new CharacterModel();
 
-            BindingContext = this;
+            BindingContext = this.ViewModel;
+
+            this.ViewModel.Title = "Create";
             
         }
 
@@ -32,7 +38,7 @@ namespace Game.Views.Characters
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public async void CancelCharacter_Clicked(object sender, EventArgs e)
+        public async void Cancel_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
         }
@@ -42,10 +48,10 @@ namespace Game.Views.Characters
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public async void SaveCharacter_Clicked(object sender, EventArgs e)
+        public async void Save_Clicked(object sender, EventArgs e)
         {
-           // MessagingCenter.Send(this, "AddItem", );
-           // await Navigation.PopModalAsync();
+            MessagingCenter.Send(this, "Create", ViewModel.Data);
+            await Navigation.PopModalAsync();
 
         }
     }

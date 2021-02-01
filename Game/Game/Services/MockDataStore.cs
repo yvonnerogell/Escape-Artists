@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,7 +7,7 @@ using Game.Models;
 
 namespace Game.Services
 {
-    public class MockDataStore<T> : IDataStore<T> where T: new()
+    public class MockDataStore<T> : IDataStore<T> where T : new()
     {
         #region Singleton
 
@@ -94,9 +94,9 @@ namespace Game.Services
         /// </summary>
         /// <param name="id"></param>
         /// <returns>Record if found else null</returns>
-        #pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
         public async Task<T> ReadAsync(string id)
-        #pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
+#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         {
             if (string.IsNullOrEmpty(id))
             {
