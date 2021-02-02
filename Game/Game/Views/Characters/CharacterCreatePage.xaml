@@ -34,14 +34,17 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
+
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>
                 </Grid.ColumnDefinitions>
 
                 <Label Grid.Row="0" Grid.Column="0"
-                    Text="Name:" 
+                    Text="Name:"
                     Style="{StaticResource LabelStyle}"/>
                 <Entry Grid.Row="0" Grid.Column="1"
+                    Placeholder="New Character"
+                    PlaceholderColor="LightGray"
                     Text="{Binding Data.Name}" 
                     Style="{StaticResource EntryStyle}"/>
 
@@ -49,8 +52,10 @@
                     Text="Description:" 
                     Style="{StaticResource LabelStyle}"/>
                 <Entry Grid.Row="1" Grid.Column="1"
-                        Text="{Binding Data.Description}" 
-                        Style="{StaticResource EntryStyle}"/>
+                       Placeholder="New description."
+                       PlaceholderColor="LightGray"
+                       Text="{Binding Data.Description}" 
+                       Style="{StaticResource EntryStyle}"/>
 
 
             </Grid>
