@@ -88,7 +88,7 @@ namespace Game.GameRules
                     Location = ItemLocationEnum.PrimaryHand,
                     Attribute = AttributeEnum.Attack
                 };
-                item.Name = "I" + (datalist.Count+1).ToString();
+                item.Name = "I" + (datalist.Count + 1).ToString();
                 item.Description = item.Name;
 
                 datalist.Add(item);
@@ -97,14 +97,14 @@ namespace Game.GameRules
             return datalist;
         }
 
-    /// <summary>
-    /// Load Example Scores
-    /// </summary>
-    /// <param name="temp"></param>
-    /// <returns></returns>
-    public static List<ScoreModel> LoadData(ScoreModel temp)
-    {
-        var datalist = new List<ScoreModel>()
+        /// <summary>
+        /// Load Example Scores
+        /// </summary>
+        /// <param name="temp"></param>
+        /// <returns></returns>
+        public static List<ScoreModel> LoadData(ScoreModel temp)
+        {
+            var datalist = new List<ScoreModel>()
             {
                 new ScoreModel {
                     Name = "First Score",
@@ -117,23 +117,23 @@ namespace Game.GameRules
                 }
             };
 
-        return datalist;
-    }
+            return datalist;
+        }
 
-    /// <summary>
-    /// Load Characters
-    /// </summary>
-    /// <param name="temp"></param>
-    /// <returns></returns>
-    public static List<CharacterModel> LoadData(CharacterModel temp)
-    {
-        var HeadString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.Head);
-        var NecklaceString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.Necklace);
-        var PrimaryHandString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.PrimaryHand);
-        var OffHandString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.OffHand);
-        var FeetString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.Feet);
-        var RightFingerString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.Finger);
-        var LeftFingerString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.Finger);
+        /// <summary>
+        /// Load Characters
+        /// </summary>
+        /// <param name="temp"></param>
+        /// <returns></returns>
+        public static List<CharacterModel> LoadData(CharacterModel temp)
+        {
+            var HeadString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.Head);
+            var NecklaceString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.Necklace);
+            var PrimaryHandString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.PrimaryHand);
+            var OffHandString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.OffHand);
+            var FeetString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.Feet);
+            var RightFingerString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.Finger);
+            var LeftFingerString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.Finger);
 
             var datalist = new List<CharacterModel>()
             {
@@ -144,7 +144,7 @@ namespace Game.GameRules
                     SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.SmartyPants,
                     Level = 1,
                     MaxHealth = 100,
-                    ImageURI = "item.png",
+                    ImageURI = "student.png",
                     Head = HeadString,
                     Necklace = "None",
                     PrimaryHand = PrimaryHandString,
@@ -161,7 +161,7 @@ namespace Game.GameRules
                     SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.Overachiever,
                     Level = 1,
                     MaxHealth = 100,
-                    ImageURI = "item.png",
+                    ImageURI = "student.png",
                     Head = HeadString,
                     Necklace = NecklaceString,
                     PrimaryHand = PrimaryHandString,
@@ -178,7 +178,7 @@ namespace Game.GameRules
                     SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.InternationalStudent,
                     Level = 1,
                     MaxHealth = 100,
-                    ImageURI = "item.png",
+                    ImageURI = "student.png",
                     Head = HeadString,
                     Necklace = "None",
                     PrimaryHand = PrimaryHandString,
@@ -195,7 +195,7 @@ namespace Game.GameRules
                     SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.Prodigy,
                     Level = 1,
                     MaxHealth = 100,
-                    ImageURI = "item.png",
+                    ImageURI = "student.png",
                     Head = HeadString,
                     Necklace = "None",
                     PrimaryHand = PrimaryHandString,
@@ -212,7 +212,7 @@ namespace Game.GameRules
                     SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.SecondCareer,
                     Level = 1,
                     MaxHealth = 100,
-                    ImageURI = "item.png",
+                    ImageURI = "student.png",
                     Head = HeadString,
                     Necklace = NecklaceString,
                     PrimaryHand = PrimaryHandString,
@@ -229,7 +229,7 @@ namespace Game.GameRules
                     CharacterTypeEnum = CharacterTypeEnum.Student,
                     SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.Slacker,
                     MaxHealth = 100,
-                    ImageURI = "item.png",
+                    ImageURI = "student.png",
                     Head = HeadString,
                     Necklace = NecklaceString,
                     PrimaryHand = PrimaryHandString,
@@ -246,7 +246,7 @@ namespace Game.GameRules
                     CharacterTypeEnum = CharacterTypeEnum.Student,
                     SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.Procrastinator,
                     MaxHealth = 100,
-                    ImageURI = "item.png",
+                    ImageURI = "student.png",
                     Head = HeadString,
                     Necklace = "None",
                     PrimaryHand = PrimaryHandString,
@@ -263,7 +263,7 @@ namespace Game.GameRules
                     CharacterTypeEnum = CharacterTypeEnum.Parent,
                     SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.HelicopterParent,
                     MaxHealth = 100,
-                    ImageURI = "item.png",
+                    ImageURI = "parent.png",
                     Head = "None",
                     Necklace = "None",
                     PrimaryHand = PrimaryHandString,
@@ -280,7 +280,7 @@ namespace Game.GameRules
                     CharacterTypeEnum = CharacterTypeEnum.Parent,
                     SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.CoolParent,
                     MaxHealth = 100,
-                    ImageURI = "item.png",
+                    ImageURI = "parent.png",
                     Head = "None",
                     Necklace = "None",
                     PrimaryHand = PrimaryHandString,
@@ -291,17 +291,17 @@ namespace Game.GameRules
                 },
             };
 
-        return datalist;
-    }
+            return datalist;
+        }
 
-    /// <summary>
-    /// Load Characters
-    /// </summary>
-    /// <param name="temp"></param>
-    /// <returns></returns>
-    public static List<MonsterModel> LoadData(MonsterModel temp)
-    {
-        var datalist = new List<MonsterModel>()
+        /// <summary>
+        /// Load Characters
+        /// </summary>
+        /// <param name="temp"></param>
+        /// <returns></returns>
+        public static List<MonsterModel> LoadData(MonsterModel temp)
+        {
+            var datalist = new List<MonsterModel>()
             {
                 new MonsterModel {
                     Name = "M1",
@@ -346,7 +346,7 @@ namespace Game.GameRules
                 },
             };
 
-        return datalist;
+            return datalist;
+        }
     }
-}
 }
