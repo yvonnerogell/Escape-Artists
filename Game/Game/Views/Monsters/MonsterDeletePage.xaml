@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Game.Views.MonsterDeletePage"
+             Title="Delete">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" IconImageSource="icon_cancel.png"/>
+    </ContentPage.ToolbarItems>
+    
+    <ScrollView
+        HorizontalOptions="CenterAndExpand">
+        <StackLayout 
+            Style="{StaticResource OuterBoxStack}"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Spacing="10">
+
+            <Label 
+                Text="Are you sure you want to delete this character?" 
+                Style="{StaticResource HeaderStyle}"/>
+
+            <StackLayout 
+                Style="{StaticResource HorizontalCenterStack}"
+                VerticalOptions="Center">
+                <Label 
+                    Text="{Binding Data.Name}" 
+                    Style="{StaticResource HeaderStyle}"/>
+                <Label 
+                   Text=", " 
+                    Style="{StaticResource HeaderStyle}"/>
+                <Label 
+                   Text="{Binding Data.Level}" 
+                    Style="{StaticResource HeaderStyle}"/>
+            </StackLayout>
+
+            <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}"/>
+
+
+            <StackLayout 
+            HorizontalOptions="Center" 
+            Padding="20">
+
+                <Button 
+                Text="Delete Character" 
+                Clicked="Delete_Clicked" 
+                HorizontalOptions="Center"
+                FontSize="Medium"
+                BorderWidth="1" 
+                BorderColor="black">
+                </Button>
+            </StackLayout>
+            
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
