@@ -19,7 +19,7 @@
             Spacing="10">
 
             <Label 
-                Text="Are you sure you want to delete this character?" 
+                Text="Are you sure you want to delete this monster?" 
                 Style="{StaticResource HeaderStyle}"/>
 
             <StackLayout 
@@ -27,12 +27,6 @@
                 VerticalOptions="Center">
                 <Label 
                     Text="{Binding Data.Name}" 
-                    Style="{StaticResource HeaderStyle}"/>
-                <Label 
-                   Text=", " 
-                    Style="{StaticResource HeaderStyle}"/>
-                <Label 
-                   Text="{Binding Data.Level}" 
                     Style="{StaticResource HeaderStyle}"/>
             </StackLayout>
 
