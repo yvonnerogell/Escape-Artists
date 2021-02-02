@@ -1,16 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using Game.ViewModels;
 using Game.Models;
 
+
 namespace Game.Views.Characters
 {
     /// <summary>
     /// The Create page for the characters
     /// </summary>
+    [DesignTimeVisible(false)] 
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharacterCreatePage : ContentPage
     {
         //new character 
@@ -28,6 +32,7 @@ namespace Game.Views.Characters
             this.ViewModel.Title = "Create";
             
         }
+
 
         void ToolbarItem_Clicked(System.Object sender, System.EventArgs e)
         {

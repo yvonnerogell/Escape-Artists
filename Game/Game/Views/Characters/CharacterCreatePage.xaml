@@ -42,6 +42,7 @@
                 <Label Grid.Row="0" Grid.Column="0"
                     Text="Name:"
                     Style="{StaticResource LabelStyle}"/>
+
                 <Entry Grid.Row="0" Grid.Column="1"
                     Placeholder="New Character"
                     PlaceholderColor="LightGray"
@@ -51,11 +52,67 @@
                 <Label Grid.Row="1" Grid.Column="0"
                     Text="Description:" 
                     Style="{StaticResource LabelStyle}"/>
+
                 <Entry Grid.Row="1" Grid.Column="1"
                        Placeholder="New description."
                        PlaceholderColor="LightGray"
                        Text="{Binding Data.Description}" 
                        Style="{StaticResource EntryStyle}"/>
+
+                <Label Grid.Row="2" Grid.Column="0"
+                        Text="Character Type" 
+                        Style="{StaticResource LabelStyle}"/>
+
+                <Picker Grid.Row="2" Grid.Column="1">
+                    <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                      <x:String>Smarty Pants</x:String>
+                      <x:String>Overachiever</x:String>
+                      <x:String>International Student</x:String>
+                      <x:String>Prodigy</x:String>
+                      <x:String>Second Career</x:String>
+                      <x:String>Slacker</x:String>
+                      <x:String>Procrastinator</x:String>
+                      <x:String>Helicopter Parent</x:String>
+                      <x:String>Cool Parent</x:String>
+                    </x:Array>
+                  </Picker.ItemsSource>
+                    </Picker>
+
+                <Label Grid.Row="3" Grid.Column="0"
+                        Text="Levels" 
+                        Style="{StaticResource LabelStyle}"/>
+
+                <Picker Grid.Row="3" Grid.Column="1">
+                    <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                      <x:String>1</x:String>
+                      <x:String>2</x:String>
+                      <x:String>3</x:String>
+                      <x:String>4</x:String>
+                      <x:String>5</x:String>
+                      <x:String>6</x:String>
+                      <x:String>7</x:String>
+                      <x:String>8</x:String>
+                      <x:String>9</x:String>
+                      <x:String>10</x:String>
+                      <x:String>11</x:String>
+                      <x:String>12</x:String>
+                      <x:String>13</x:String>
+                      <x:String>14</x:String>
+                      <x:String>15</x:String>
+                      <x:String>16</x:String>
+                      <x:String>17</x:String>
+                      <x:String>18</x:String>
+                      <x:String>19</x:String>
+                      <x:String>20</x:String>
+                    </x:Array>
+                  </Picker.ItemsSource>
+                    <Picker.SelectedIndex>1</Picker.SelectedIndex>
+                    </Picker>
+                       
+
+
 
 
             </Grid>
