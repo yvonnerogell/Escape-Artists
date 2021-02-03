@@ -85,13 +85,13 @@ namespace Game.Views.Monsters
         }
 
         /// <summary>
-        /// Catch the change to the stepper for Damage
+        /// Catch the change to the stepper for Speed
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void Damage_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        public void Speed_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
-            DamageValue.Text = String.Format("{0}", e.NewValue);
+            SpeedValue.Text = String.Format("{0}", e.NewValue);
         }
     }
 }
