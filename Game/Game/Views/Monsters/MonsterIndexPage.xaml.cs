@@ -4,6 +4,7 @@ using Game.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Game.ViewModels;
+using Game.Views.Monsters;
 
 namespace Game.Views.Characters
 {
@@ -36,7 +37,7 @@ namespace Game.Views.Characters
 		/// <param name="e"></param>
 		public async void AddMonster_Clicked(object sender, EventArgs e)
 		{
-			 // await Navigation.PushModalAsync(new NavigationPage(new CharacterCreatePage()));
+			 await Navigation.PushModalAsync(new NavigationPage(new MonsterCreatePage()));
 		}
 
 		/// <summary>
