@@ -5,7 +5,7 @@ using System.Linq;
 namespace Game.Models
 {
     /// <summary>
-    /// The player in the round, Monster or Character
+    /// The player in the round for Character
     /// </summary>
     public class SpecificCharacterTypeEnum
     {
