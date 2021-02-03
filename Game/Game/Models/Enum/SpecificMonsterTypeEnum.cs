@@ -1,4 +1,8 @@
-﻿namespace Game.Models
+﻿using System.Collections.Generic;
+using System;
+using System.Linq;
+
+namespace Game.Models
 {
     /// <summary>
     /// The player in the round for Monster
