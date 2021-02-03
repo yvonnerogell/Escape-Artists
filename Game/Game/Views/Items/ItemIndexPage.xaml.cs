@@ -6,6 +6,7 @@ using Xamarin.Forms.Xaml;
 
 using Game.Models;
 using Game.ViewModels;
+using System.Linq;
 
 namespace Game.Views
 {
@@ -72,8 +73,18 @@ namespace Game.Views
         /// <param name="e"></param>
         public async void ReadItem_Clicked(object sender, EventArgs e)
         {
+            var button = sender as ImageButton;
+
+            String itemId = button.CommandParameter as String;
+            ItemModel data = ViewModel.Dataset.FirstOrDefault(itm => itm.Id == itemId);
+
+            if (data == null)
+            {
+                return;
+            }
+
             // Open the Read Page
-           // await Navigation.PushAsync(new ItemReadPage(new GenericViewModel<ItemModel>(data)));
+            await Navigation.PushAsync(new ItemReadPage(new GenericViewModel<ItemModel>(data)));
         }
 
 
