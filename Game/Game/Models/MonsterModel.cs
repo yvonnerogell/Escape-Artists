@@ -69,11 +69,12 @@ namespace Game.Models
                 ImageURI = "faculty.png";
             }
 
-            if (CharacterTypeEnum == CharacterTypeEnum.Parent && SpecificCharacterTypeEnum.ParentList().Contains(newData.SpecificCharacterTypeEnum.Value))
+            if (SpecificMonsterTypeEnum == MonsterTypeEnum.Administrator && Models.SpecificMonsterTypeEnum.AdministratorList().Contains(newData.SpecificMonsterTypeEnum.Value))
             {
-                SpecificCharacterTypeEnum = newData.SpecificCharacterTypeEnum;
-                ImageURI = "parent.png";
+                SpecificMonsterTypeEnum = newData.SpecificMonsterTypeEnum;
+                ImageURI = "administrator.png";
             }
+
             Guid = newData.Guid;
             Name = newData.Name;
             Description = newData.Description;
