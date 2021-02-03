@@ -19,7 +19,8 @@ namespace Game.Models
         public MonsterModel()
         {
             PlayerType = PlayerTypeEnum.Monster;
-            SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.Faculty;
+            MonsterType = MonsterTypeEnum.Faculty;
+            SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.TeachingAssistant;
             Guid = Id;
             Name = null;
             Description = null;
