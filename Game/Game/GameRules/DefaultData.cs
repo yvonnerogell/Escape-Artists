@@ -309,8 +309,12 @@ namespace Game.GameRules
                     MonsterTypeEnum = MonsterTypeEnum.Faculty,
                     SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.TeachingAssistant,
                     Difficulty = DifficultyEnum.Easy,
-                    UniqueDropItem = ItemLocationEnum.Head,
-                    Items = null,
+                    UniqueDropItem = ItemLocationEnum.RightFinger.ToMessage(),
+                    Items = new List<ItemLocationEnum>()
+                    {
+                        ItemLocationEnum.Head,
+                        ItemLocationEnum.Necklace
+                    },
                     Attack = 1,
                     ImageURI = "squid.jpg"
                 }
