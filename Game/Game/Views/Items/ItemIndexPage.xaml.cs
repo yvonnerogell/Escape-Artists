@@ -52,7 +52,7 @@ namespace Game.Views
             await Navigation.PushAsync(new ItemReadPage(new GenericViewModel<ItemModel>(data)));
 
             // Manually deselect item.
-            ItemsListView.SelectedItem = null;
+            //ItemsListView.SelectedItem = null;
         }
 
         /// <summary>
@@ -64,6 +64,18 @@ namespace Game.Views
         {
             await Navigation.PushModalAsync(new NavigationPage(new ItemCreatePage()));
         }
+
+        /// <summary>
+        /// Call to Add a new record
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void ReadItem_Clicked(object sender, EventArgs e)
+        {
+            // Open the Read Page
+           // await Navigation.PushAsync(new ItemReadPage(new GenericViewModel<ItemModel>(data)));
+        }
+
 
         /// <summary>
         /// Refresh the list on page appearing
