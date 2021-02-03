@@ -75,7 +75,7 @@ namespace Game.Models
         public static SpecificMonsterTypeEnum Professor { get { return new SpecificMonsterTypeEnum("Professor"); } }
         public static SpecificMonsterTypeEnum HRAdministrator { get { return new SpecificMonsterTypeEnum("HR Administrator"); } }
         public static SpecificMonsterTypeEnum RegistrationAdministrator { get { return new SpecificMonsterTypeEnum("Registration Administrator"); } }
-        public staticSpecificMonsterTypeEnum GraduationOfficeAdministrator { get { return new SpecificMonsterTypeEnum("Graduation Office Administrator"); } }
+        public static SpecificMonsterTypeEnum GraduationOfficeAdministrator { get { return new SpecificMonsterTypeEnum("Graduation Office Administrator"); } }
 
     }
 
