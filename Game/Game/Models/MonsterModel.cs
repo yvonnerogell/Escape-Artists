@@ -28,7 +28,7 @@ namespace Game.Models
             Difficulty = DifficultyEnum.Average;
             UniqueDropItem = null;
             Items = null;
-            ImageURI = "squid.jpg";
+            ImageURI = null;
             ExperienceTotal = 0;
             ExperienceRemaining = LevelTableHelper.LevelDetailsList[Level + 1].Experience - 1;
 
