@@ -10,16 +10,16 @@ using Game.Views.Characters;
 
 namespace Game.ViewModels
 {
-	public class MonsterIndexViewModel : BaseViewModel<CharacterModel>
+	public class MonsterIndexViewModel : BaseViewModel<MonsterModel>
 	{
 
         #region Singleton
 
         // Make this a singleton so it only exist one time because holds all the data records in memory
-        private static volatile CharacterIndexViewModel instance;
+        private static volatile MonsterIndexViewModel instance;
         private static readonly object syncRoot = new Object();
 
-        public static CharacterIndexViewModel Instance
+        public static MonsterIndexViewModel Instance
         {
             get
             {
@@ -29,7 +29,7 @@ namespace Game.ViewModels
                     {
                         if (instance == null)
                         {
-                            instance = new CharacterIndexViewModel();
+                            instance = new MonsterIndexViewModel();
                             instance.Initialize();
                         }
                     }
@@ -53,24 +53,24 @@ namespace Game.ViewModels
             #region Messages
 
             // Register the Create Message
-            MessagingCenter.Subscribe<CharacterCreatePage, CharacterModel>(this, "Create", async (obj, data) =>
+            MessagingCenter.Subscribe<CharacterCreatePage, MonsterModel>(this, "Create", async (obj, data) =>
             {
-                await CreateAsync(data as CharacterModel);
+                await CreateAsync(data as MonsterModel);
             });
 
             // Register the Update Message
-            MessagingCenter.Subscribe<CharacterUpdatePage, CharacterModel>(this, "Update", async (obj, data) =>
+            MessagingCenter.Subscribe<CharacterUpdatePage, MonsterModel>(this, "Update", async (obj, data) =>
             {
                 // Have the item update itself
                 data.Update(data);
                 
-                await UpdateAsync(data as CharacterModel);
+                await UpdateAsync(data as MonsterModel);
             });
 
             // Register the Delete Message
-            MessagingCenter.Subscribe<CharaterDeletePage, CharacterModel>(this, "Delete", async (obj, data) =>
+            MessagingCenter.Subscribe<CharaterDeletePage, MonsterModel>(this, "Delete", async (obj, data) =>
             {
-                await DeleteAsync(data as CharacterModel);
+                await DeleteAsync(data as MonsterModel);
             });
 
             // Register the Set Data Source Message
@@ -93,7 +93,7 @@ namespace Game.ViewModels
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public override CharacterModel CheckIfExists(CharacterModel data)
+        public override MonsterModel CheckIfExists(MonsterModel data)
         {
             if (data == null)
             {
@@ -123,9 +123,9 @@ namespace Game.ViewModels
         /// Load the Default Data
         /// </summary>
         /// <returns></returns>
-        public override List<CharacterModel> GetDefaultData()
+        public override List<MonsterModel> GetDefaultData()
         {
-            return DefaultData.LoadData(new CharacterModel());
+            return DefaultData.LoadData(new MonsterModel());
         }
     }
 }
