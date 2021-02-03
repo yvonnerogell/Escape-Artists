@@ -65,13 +65,13 @@ namespace Game.Views.Monsters
         }
 
         /// <summary>
-        /// Catch the change to the Stepper for Range
+        /// Catch the change to the Stepper for Attack
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void Range_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        public void Attack_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
-            RangeValue.Text = String.Format("{0}", e.NewValue);
+            AttackValue.Text = String.Format("{0}", e.NewValue);
         }
 
         /// <summary>

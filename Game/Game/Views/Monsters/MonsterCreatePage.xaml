@@ -60,14 +60,14 @@
                     <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="FillAndExpand">
 
                         <Label 
-                            Text="Range" 
+                            Text="Attack" 
                             Style="{StaticResource LabelStyle}"/>
 
                     <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
 
                         <Label 
-                            Text="{Binding Data.Range}" 
-                            x:Name="RangeValue"
+                            Text="{Binding Data.Attack}" 
+                            x:Name="AttackValue"
                             Style="{StaticResource ValueStyle}"
                             Padding="0,0,10,0"
                             HorizontalOptions="End"
@@ -75,7 +75,7 @@
                     
                         <Stepper 
                             Value="{Binding Data.Range, Mode=TwoWay}"
-                            ValueChanged="Range_OnStepperValueChanged"/>
+                            ValueChanged="Attack_OnStepperValueChanged"/>
                         
                     </StackLayout>
 
