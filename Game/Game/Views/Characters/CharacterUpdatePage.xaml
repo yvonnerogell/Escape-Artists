@@ -68,12 +68,16 @@
                             Text="{Binding Data.Level}" 
                             x:Name="LevelValue"
                             Style="{StaticResource LabelStyleUpdateValue}"/>
-                    
-                    <Stepper Grid.Row="3" Grid.Column="1"
-                            Value="{Binding Data.Level, Mode=TwoWay}"
-                            ValueChanged="Level_OnStepperValueChanged"
-                            Minimum="1"
-                            Maximum="20"/>
+
+
+                    <StackLayout Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
+                        
+                        <Button Text="+"  Grid.Row="3" Grid.Column="1" WidthRequest="30"/>
+
+                        <Button Text="-"  Grid.Row="3" Grid.Column="2"  WidthRequest="30"/>
+
+                    </StackLayout>
+
 
                     <Label Grid.Row="4" Grid.Column="0"
                             Text="Attack"
