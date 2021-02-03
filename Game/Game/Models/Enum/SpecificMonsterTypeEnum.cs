@@ -68,14 +68,14 @@ namespace Game.Models
         /// <summary>
         /// returns individual monster type
         /// </summary>
-        public static SpecificCharacterTypeEnum TeachingAssistant { get { return new SpecificCharacterTypeEnum("Teaching Assistant"); } }
-        public static SpecificCharacterTypeEnum AdjunctFaculty { get { return new SpecificCharacterTypeEnum("Adjunct Faculty"); } }
-        public static SpecificCharacterTypeEnum AssistantProfessor { get { return new SpecificCharacterTypeEnum("Assistant Professor"); } }
-        public static SpecificCharacterTypeEnum AssociateProfessor { get { return new SpecificCharacterTypeEnum("Associate Professor"); } }
-        public static SpecificCharacterTypeEnum Professor { get { return new SpecificCharacterTypeEnum("Professor"); } }
-        public static SpecificCharacterTypeEnum HRAdministrator { get { return new SpecificCharacterTypeEnum("HR Administrator"); } }
-        public static SpecificCharacterTypeEnum RegistrationAdministrator { get { return new SpecificCharacterTypeEnum("Registration Administrator"); } }
-        public static SpecificCharacterTypeEnum GraduationOfficeAdministrator { get { return new SpecificCharacterTypeEnum("Graduation Office Administrator"); } }
+        public static SpecificMonsterTypeEnum TeachingAssistant { get { return new SpecificMonsterTypeEnum("Teaching Assistant"); } }
+        public static SpecificMonsterTypeEnum AdjunctFaculty { get { return new SpecificMonsterTypeEnum("Adjunct Faculty"); } }
+        public static SpecificMonsterTypeEnum AssistantProfessor { get { return new SpecificMonsterTypeEnum("Assistant Professor"); } }
+        public static SpecificMonsterTypeEnum AssociateProfessor { get { return new SpecificMonsterTypeEnum("Associate Professor"); } }
+        public static SpecificMonsterTypeEnum Professor { get { return new SpecificMonsterTypeEnum("Professor"); } }
+        public static SpecificMonsterTypeEnum HRAdministrator { get { return new SpecificMonsterTypeEnum("HR Administrator"); } }
+        public static SpecificMonsterTypeEnum RegistrationAdministrator { get { return new SpecificMonsterTypeEnum("Registration Administrator"); } }
+        public staticSpecificMonsterTypeEnum GraduationOfficeAdministrator { get { return new SpecificMonsterTypeEnum("Graduation Office Administrator"); } }
 
     }
 
