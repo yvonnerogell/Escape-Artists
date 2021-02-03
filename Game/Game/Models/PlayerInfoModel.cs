@@ -55,7 +55,7 @@ namespace Game.Models
             RightFinger = data.RightFinger;
             LeftFinger = data.LeftFinger;
             Feet = data.Feet;
-            UniqueItem = data.UniqueItem;
+            UniqueDropItem = data.UniqueDropItem;
 
             Difficulty = data.Difficulty;
 
@@ -97,7 +97,7 @@ namespace Game.Models
             RightFinger = data.RightFinger;
             LeftFinger = data.LeftFinger;
             Feet = data.Feet;
-            UniqueItem = data.UniqueItem;
+            UniqueDropItem = data.UniqueDropItem;
 
             Difficulty = data.Difficulty;
 
@@ -173,7 +173,7 @@ namespace Game.Models
             LeftFinger = data.LeftFinger;
             Feet = data.Feet;
 
-            UniqueItem = data.UniqueItem;
+            UniqueDropItem = data.UniqueDropItem;
 
             Difficulty = data.Difficulty;
 

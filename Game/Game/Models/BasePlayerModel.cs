@@ -165,7 +165,7 @@ namespace Game.Models
         public string LeftFinger { get; set; } = null;
 
         // Unique Drop Item for Monsters
-        public string UniqueItem { get; set; } = null;
+        public string UniqueDropItem { get; set; } = null;
         #endregion Items
 
         #region AttributeDisplay
@@ -1019,7 +1019,7 @@ namespace Game.Models
         {
             var myReturn = "";
 
-            var data = ItemIndexViewModel.Instance.GetItem(UniqueItem);
+            var data = ItemIndexViewModel.Instance.GetItem(UniqueDropItem);
             if (data != null)
             {
                 myReturn += data.FormatOutput();

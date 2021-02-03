@@ -238,7 +238,7 @@ namespace UnitTests.Helpers
         //{
         //    // Arrange
         //    CharacterIndexViewModel.Instance.Dataset.Clear();
-        //    await CharacterIndexViewModel.Instance.CreateAsync(new CharacterModel { UniqueItem = "1" });
+        //    await CharacterIndexViewModel.Instance.CreateAsync(new CharacterModel { UniqueDropItem = "1" });
 
         //    // Arrange
         //    DiceHelper.EnableForcedRolls();
@@ -251,7 +251,7 @@ namespace UnitTests.Helpers
         //    DiceHelper.DisableForcedRolls();
 
         //    // Assert
-        //    Assert.AreEqual(true, result.UniqueItem.Equals("1"));
+        //    Assert.AreEqual(true, result.UniqueDropItem.Equals("1"));
         //}
 
         //[Test]
@@ -259,9 +259,9 @@ namespace UnitTests.Helpers
         //{
         //    // Arrange
         //    CharacterIndexViewModel.Instance.Dataset.Clear();
-        //    await CharacterIndexViewModel.Instance.CreateAsync(new CharacterModel { UniqueItem = "1" });
-        //    await CharacterIndexViewModel.Instance.CreateAsync(new CharacterModel { UniqueItem = "2" });
-        //    await CharacterIndexViewModel.Instance.CreateAsync(new CharacterModel { UniqueItem = "3" });
+        //    await CharacterIndexViewModel.Instance.CreateAsync(new CharacterModel { UniqueDropItem = "1" });
+        //    await CharacterIndexViewModel.Instance.CreateAsync(new CharacterModel { UniqueDropItem = "2" });
+        //    await CharacterIndexViewModel.Instance.CreateAsync(new CharacterModel { UniqueDropItem = "3" });
 
         //    DiceHelper.EnableForcedRolls();
         //    DiceHelper.SetForcedRollValue(2);
@@ -273,7 +273,7 @@ namespace UnitTests.Helpers
         //    DiceHelper.DisableForcedRolls();
 
         //    // Assert
-        //    Assert.AreEqual(true, result.UniqueItem.Equals("2"));
+        //    Assert.AreEqual(true, result.UniqueDropItem.Equals("2"));
         //}
 
         //[Test]
@@ -281,9 +281,9 @@ namespace UnitTests.Helpers
         //{
         //    // Arrange
         //    CharacterIndexViewModel.Instance.Dataset.Clear();
-        //    await CharacterIndexViewModel.Instance.CreateAsync(new CharacterModel { UniqueItem = "1" });
-        //    await CharacterIndexViewModel.Instance.CreateAsync(new CharacterModel { UniqueItem = "2" });
-        //    await CharacterIndexViewModel.Instance.CreateAsync(new CharacterModel { UniqueItem = "3" });
+        //    await CharacterIndexViewModel.Instance.CreateAsync(new CharacterModel { UniqueDropItem = "1" });
+        //    await CharacterIndexViewModel.Instance.CreateAsync(new CharacterModel { UniqueDropItem = "2" });
+        //    await CharacterIndexViewModel.Instance.CreateAsync(new CharacterModel { UniqueDropItem = "3" });
 
         //    DiceHelper.EnableForcedRolls();
         //    DiceHelper.SetForcedRollValue(2);
@@ -334,9 +334,9 @@ namespace UnitTests.Helpers
         //{
         //    // Arrange
         //    MonsterIndexViewModel.Instance.Dataset.Clear();
-        //    await MonsterIndexViewModel.Instance.CreateAsync(new MonsterModel { UniqueItem = "1" });
-        //    await MonsterIndexViewModel.Instance.CreateAsync(new MonsterModel { UniqueItem = "2" });
-        //    await MonsterIndexViewModel.Instance.CreateAsync(new MonsterModel { UniqueItem = "3" });
+        //    await MonsterIndexViewModel.Instance.CreateAsync(new MonsterModel { UniqueDropItem = "1" });
+        //    await MonsterIndexViewModel.Instance.CreateAsync(new MonsterModel { UniqueDropItem = "2" });
+        //    await MonsterIndexViewModel.Instance.CreateAsync(new MonsterModel { UniqueDropItem = "3" });
 
         //    // Act
         //    var result = RandomPlayerHelper.GetRandomMonster(1,true);

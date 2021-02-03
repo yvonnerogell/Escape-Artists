@@ -25,7 +25,7 @@ namespace Game.Models
             Description = null;
             Attack = 1;
             Difficulty = DifficultyEnum.Average;
-            UniqueItem = null;
+            UniqueDropItem = null;
             ImageURI = null;
             ExperienceTotal = 0;
             ExperienceRemaining = LevelTableHelper.LevelDetailsList[Level + 1].Experience - 1;
@@ -84,7 +84,7 @@ namespace Game.Models
             RightFinger = newData.RightFinger;
             LeftFinger = newData.LeftFinger;
             Feet = newData.Feet;
-            UniqueItem = newData.UniqueItem;
+            UniqueDropItem = newData.UniqueDropItem;
 
             //Job = newData.Job;
 

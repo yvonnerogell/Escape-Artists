@@ -905,7 +905,7 @@ namespace UnitTests.Models
                 RightFinger = item.Id,
                 LeftFinger = item.Id,
                 Feet = item.Id,
-                UniqueItem = item.Id,
+                UniqueDropItem = item.Id,
             };
 
             // Act
@@ -930,7 +930,7 @@ namespace UnitTests.Models
                 RightFinger = null,
                 LeftFinger = null,
                 Feet = null,
-                UniqueItem = null,
+                UniqueDropItem = null,
             };
 
             // Act

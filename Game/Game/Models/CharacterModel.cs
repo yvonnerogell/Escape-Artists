@@ -132,9 +132,9 @@ namespace Game.Models
                 Feet = newData.Feet;
             }
 
-            if (newData.UniqueItem != "None")
+            if (newData.UniqueDropItem != "None")
             {
-                UniqueItem = newData.UniqueItem;
+                UniqueDropItem = newData.UniqueDropItem;
             }
 
             // Update the Job
