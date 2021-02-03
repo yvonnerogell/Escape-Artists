@@ -62,11 +62,11 @@ namespace Game.Models
                 SpecificMonsterTypeEnum = newData.SpecificMonsterTypeEnum;
             }
 
-            // TODO: change this check for each character for images and CharacterType. (i.e. dication, case states or methods). 
-            if (SpecificMonsterTYpe == MonsterTypeEnum.Faculty && Models.SpecificMonsterTypeEnum.FacultyList().Contains(newData.SpecificMonsterTypeEnum.Value))
+            // TODO: change this check for each monster for images and MonsterType. (i.e. dication, case states or methods). 
+            if (SpecificMonsterTypeEnum == MonsterTypeEnum.Faculty && Models.SpecificMonsterTypeEnum.FacultyList().Contains(newData.SpecificMonsterTypeEnum.Value))
             {
-                SpecificCharacterTypeEnum = newData.SpecificCharacterTypeEnum;
-                ImageURI = "student.png";
+                SpecificMonsterTypeEnum = newData.SpecificMonsterTypeEnum;
+                ImageURI = "faculty.png";
             }
 
             if (CharacterTypeEnum == CharacterTypeEnum.Parent && SpecificCharacterTypeEnum.ParentList().Contains(newData.SpecificCharacterTypeEnum.Value))
