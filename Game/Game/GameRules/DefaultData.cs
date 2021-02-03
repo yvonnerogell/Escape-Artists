@@ -304,15 +304,15 @@ namespace Game.GameRules
             var datalist = new List<MonsterModel>()
             {
                 new MonsterModel {
-                    Name = "M1",
-                    Description = "M1",
+                    Name = "Sam",
+                    Description = "I do all the work everyone else gets credit for!",
                     MonsterTypeEnum = MonsterTypeEnum.Faculty,
                     SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.TeachingAssistant,
                     Difficulty = DifficultyEnum.Easy,
-                    UniqueDropItem = null,
+                    UniqueDropItem = ItemLocationEnum.Head,
                     Items = null,
                     Attack = 1,
-                    ImageURI = "squid.png"
+                    ImageURI = "squid.jpg"
                 }
             };
 
