@@ -47,17 +47,18 @@
         }
 
         /// <summary>
-        /// Returns list of all parents
+        /// Returns list of all administrators
         /// </summary>
         /// <returns></returns>
-        public List<string> ParentList()
+        public List<string> AdministratorList()
         {
-            var characterList = new List<string>()
+            var adminList = new List<string>()
                 {
-                "Helicopter Parent",
-                "Cool Parent"
+                "HR Administrator",
+                "Registration Administrator",
+                "Graduation Office Administrator"
                 };
-            return characterList;
+            return adminList;
         }
 
         /// <summary>
