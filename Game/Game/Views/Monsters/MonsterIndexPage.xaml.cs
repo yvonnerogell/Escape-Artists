@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Linq;
 using Game.Models;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
 using Game.ViewModels;
 
 namespace Game.Views.Characters
 {
 	/// <summary>
-	/// The Index Page
+	/// The Index Page for Monsters
 	/// </summary>
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class MonsterIndexPage : ContentPage
@@ -32,7 +30,7 @@ namespace Game.Views.Characters
 		}
 
 		/// <summary>
-		/// Call to Add a new character
+		/// Call to Add a new Monster
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
