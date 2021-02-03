@@ -97,7 +97,7 @@ namespace Game.Models
         }
 
         /// <summary>
-        /// Returns a list of strings of the enum for SpecificCharacterTypeEnum
+        /// Returns a list of strings of the enum for SpecificMonsterTypeEnum
         /// Removes the unknown
         /// </summary>
         public static List<string> GetListMonster
