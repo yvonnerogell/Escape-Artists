@@ -28,12 +28,10 @@ namespace Game.Models
             Difficulty = DifficultyEnum.Average;
             UniqueDropItem = null;
             Items = null;
-            ImageURI = null;
+            ImageURI = "squid.jpg";
             ExperienceTotal = 0;
             ExperienceRemaining = LevelTableHelper.LevelDetailsList[Level + 1].Experience - 1;
 
-            // Default to unknown, which is no special job
-            //Job = CharacterJobEnum.Unknown;
         }
 
         /// <summary>
@@ -67,13 +65,13 @@ namespace Game.Models
             if (MonsterTypeEnum == MonsterTypeEnum.Faculty && SpecificMonsterTypeEnum.FacultyList().Contains(newData.SpecificMonsterTypeEnum.Value))
             {
                 SpecificMonsterTypeEnum = newData.SpecificMonsterTypeEnum;
-                ImageURI = "faculty.png";
+                //ImageURI = "faculty.png";
             }
 
             if (MonsterTypeEnum == MonsterTypeEnum.Administrator && SpecificMonsterTypeEnum.AdministratorList().Contains(newData.SpecificMonsterTypeEnum.Value))
             {
                 SpecificMonsterTypeEnum = newData.SpecificMonsterTypeEnum;
-                ImageURI = "administrator.png";
+                //ImageURI = "administrator.png";
             }
 
             Guid = newData.Guid;
