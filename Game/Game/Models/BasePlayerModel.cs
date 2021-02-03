@@ -30,7 +30,10 @@ namespace Game.Models
         [Ignore]
         public CharacterTypeEnum CharacterTypeEnum { get; set; } = CharacterTypeEnum.Unknown;
 
-        
+        // The specific monster type: Faculty or Admin
+        [Ignore]
+        public MonsterTypeEnum MonsterTypeEnum { get; set; } = MonsterTypeEnum.Unknown;
+
 
         // TurnOrder
         [Ignore]
