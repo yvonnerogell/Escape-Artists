@@ -72,9 +72,9 @@
 
                     <StackLayout Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
                         
-                        <Button Text="+"  Grid.Row="3" Grid.Column="1" WidthRequest="30"/>
+                        <Button x:Name="LevelPlusButton" Text="+"  Grid.Row="3" Grid.Column="1" WidthRequest="30" Clicked="LevelPlusButton_Clicked" />
 
-                        <Button Text="-"  Grid.Row="3" Grid.Column="2"  WidthRequest="30"/>
+                        <Button x:Name="LevelMinusButton" Text="-"  Grid.Row="3" Grid.Column="2"  WidthRequest="30" Clicked="LevelPlusButton_Clicked"/>
 
                     </StackLayout>
 

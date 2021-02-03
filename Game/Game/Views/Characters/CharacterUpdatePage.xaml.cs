@@ -61,6 +61,23 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        public void LevelPlusButton_Clicked(object sender, EventArgs e)
+        {
+            var value = int.Parse(LevelValue.Text);
+
+            // Only increment if values is less than max. 
+            if (value < 20)
+			{
+                LevelValue.Text = String.Format("{0}", value + 1);
+            }
+
+        }
+
+        /// <summary>
+        /// Catch the change to the stepper for Level
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void Level_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
             LevelValue.Text = String.Format("{0}", e.NewValue);
