@@ -75,13 +75,13 @@ namespace Game.Views.Monsters
         }
 
         /// <summary>
-        /// Catch the change to the stepper for Value
+        /// Catch the change to the stepper for Defense
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void Value_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
+        public void Defense_OnStepperValueChanged(object sender, ValueChangedEventArgs e)
         {
-            ValueValue.Text = String.Format("{0}", e.NewValue);
+            DefenseValue.Text = String.Format("{0}", e.NewValue);
         }
 
         /// <summary>
