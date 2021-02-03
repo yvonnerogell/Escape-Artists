@@ -62,17 +62,16 @@
         }
 
         /// <summary>
-        /// returns individual character type
+        /// returns individual monster type
         /// </summary>
-        public static SpecificCharacterTypeEnum SmartyPants { get { return new SpecificCharacterTypeEnum("Smarty Pants"); } }
-        public static SpecificCharacterTypeEnum Overachiever { get { return new SpecificCharacterTypeEnum("Overachiever"); } }
-        public static SpecificCharacterTypeEnum InternationalStudent { get { return new SpecificCharacterTypeEnum("International Student"); } }
-        public static SpecificCharacterTypeEnum Prodigy { get { return new SpecificCharacterTypeEnum("Prodigy"); } }
-        public static SpecificCharacterTypeEnum SecondCareer { get { return new SpecificCharacterTypeEnum("Second Career"); } }
-        public static SpecificCharacterTypeEnum Slacker { get { return new SpecificCharacterTypeEnum("Slacker"); } }
-        public static SpecificCharacterTypeEnum Procrastinator { get { return new SpecificCharacterTypeEnum("Procrastinator"); } }
-        public static SpecificCharacterTypeEnum HelicopterParent { get { return new SpecificCharacterTypeEnum("Helicopter Parent"); } }
-        public static SpecificCharacterTypeEnum CoolParent { get { return new SpecificCharacterTypeEnum("Cool Parent"); } }
+        public static SpecificCharacterTypeEnum TeachingAssistant { get { return new SpecificCharacterTypeEnum("Teaching Assistant"); } }
+        public static SpecificCharacterTypeEnum AdjunctFaculty { get { return new SpecificCharacterTypeEnum("Adjunct Faculty"); } }
+        public static SpecificCharacterTypeEnum AssistantProfessor { get { return new SpecificCharacterTypeEnum("Assistant Professor"); } }
+        public static SpecificCharacterTypeEnum AssociateProfessor { get { return new SpecificCharacterTypeEnum("Associate Professor"); } }
+        public static SpecificCharacterTypeEnum Professor { get { return new SpecificCharacterTypeEnum("Professor"); } }
+        public static SpecificCharacterTypeEnum HRAdministrator { get { return new SpecificCharacterTypeEnum("HR Administrator"); } }
+        public static SpecificCharacterTypeEnum RegistrationAdministrator { get { return new SpecificCharacterTypeEnum("Registration Administrator"); } }
+        public static SpecificCharacterTypeEnum GraduationOfficeAdministrator { get { return new SpecificCharacterTypeEnum("Graduation Office Administrator"); } }
 
     }
 
