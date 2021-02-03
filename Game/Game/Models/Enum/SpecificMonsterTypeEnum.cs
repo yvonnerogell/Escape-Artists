@@ -30,22 +30,20 @@
         }
 
         /// <summary>
-        /// Returns list of all students
+        /// Returns list of all faculty
         /// </summary>
         /// <returns></returns>
-        public List<string> StudentList()
+        public List<string> FacultyList()
         {
-            var characterList = new List<string>()
+            var facultyList = new List<string>()
                 {
-                "Smarty Pants",
-                "Overachiever",
-                "International Student",
-                "Prodigy",
-                "Second Career",
-                "Slacker",
-                "Procrastinator"
+                 "Teaching Assistant",
+                "Adjunct Faculty",
+                "Assistant Professor",
+                "Associate Professor",
+                "Professor"
                 };
-            return characterList;
+            return facultyList;
         }
 
         /// <summary>
