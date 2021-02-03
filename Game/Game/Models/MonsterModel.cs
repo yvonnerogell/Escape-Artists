@@ -9,7 +9,7 @@ namespace Game.Models
     /// </summary>
     public class MonsterModel : BasePlayerModel<MonsterModel>
     {
-        private SpecificMonsterTypeEnum SpecificMonsterType;
+        private SpecificMonsterTypeEnum SpecificMonsterTypeEnum;
 
         /// <summary>
         /// Set Type to Monster
@@ -19,7 +19,7 @@ namespace Game.Models
         public MonsterModel()
         {
             PlayerType = PlayerTypeEnum.Monster;
-            SpecificMonsterType = SpecificMonsterTypeEnum.Faculty;
+            SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.Faculty;
             Guid = Id;
             Name = null;
             Description = null;
@@ -59,7 +59,20 @@ namespace Game.Models
             PlayerType = newData.PlayerType;
             if (PlayerType == PlayerTypeEnum.Monster)
             {
-                SpecificMonsterType = newData.SpecificMonsterType;
+                SpecificMonsterTypeEnum = newData.SpecificMonsterTypeEnum;
+            }
+
+            // TODO: change this check for each character for images and CharacterType. (i.e. dication, case states or methods). 
+            if (SpecificMonsterTYpe == MonsterTypeEnum.Faculty && Models.SpecificMonsterTypeEnum.FacultyList().Contains(newData.SpecificMonsterTypeEnum.Value))
+            {
+                SpecificCharacterTypeEnum = newData.SpecificCharacterTypeEnum;
+                ImageURI = "student.png";
+            }
+
+            if (CharacterTypeEnum == CharacterTypeEnum.Parent && SpecificCharacterTypeEnum.ParentList().Contains(newData.SpecificCharacterTypeEnum.Value))
+            {
+                SpecificCharacterTypeEnum = newData.SpecificCharacterTypeEnum;
+                ImageURI = "parent.png";
             }
             Guid = newData.Guid;
             Name = newData.Name;
