@@ -76,18 +76,18 @@
     }
 
     /// <summary>
-    /// Helper for the Specific Character Type Enum Class
+    /// Helper for the Specific Monster Type Enum Class
     /// </summary>
-    public static class SpecificCharacterTypeEnumHelper
+    public static class SpecificMonsterTypeEnumHelper
     {
         /// <summary>
-        /// Returns a list of strings of the enum for SpecificCharacterTypeEnum
+        /// Returns a list of strings of the enum for SpecificMonsterTypeEnum
         /// </summary>
         public static List<string> GetListItem
         {
             get
             {
-                var myList = Enum.GetNames(typeof(SpecificCharacterTypeEnum)).ToList();
+                var myList = Enum.GetNames(typeof(SpecificMonsterTypeEnum)).ToList();
                 return myList;
             }
         }
@@ -96,11 +96,11 @@
         /// Returns a list of strings of the enum for SpecificCharacterTypeEnum
         /// Removes the unknown
         /// </summary>
-        public static List<string> GetListCharacter
+        public static List<string> GetListMonster
         {
             get
             {
-                var myList = Enum.GetNames(typeof(SpecificCharacterTypeEnum)).ToList().Where(m => m.ToString().Equals("Unknown") == false).ToList();
+                var myList = Enum.GetNames(typeof(SpecificMonsterTypeEnum)).ToList().Where(m => m.ToString().Equals("Unknown") == false).ToList();
                 return myList;
             }
         }
