@@ -45,16 +45,16 @@ namespace Game.Views.Characters
 		}
 
 		/// <summary>
-		/// Redirect to the read page for the clicked Character.
+		/// Redirect to the read page for the clicked Monster.
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		public async void ReadCharacter_Clicked(object sender, EventArgs args)
+		public async void ReadMonster_Clicked(object sender, EventArgs args)
 		{
 			var button = sender as ImageButton;
 
-			String characterId = button.CommandParameter as String;
-			MonsterModel data = ViewModel.Dataset.FirstOrDefault(itm => itm.Id == characterId);
+			String monsterId = button.CommandParameter as String;
+			MonsterModel data = ViewModel.Dataset.FirstOrDefault(itm => itm.Id == monsterId);
 			if (data == null)
 			{
 				return;
