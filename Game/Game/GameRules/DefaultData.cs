@@ -312,7 +312,7 @@ namespace Game.GameRules
                     UniqueDropItem = null,
                     Items = null,
                     Attack = 1,
-                    ImageURI = "monster.png"
+                    ImageURI = "squid.png"
                 }
             };
 
