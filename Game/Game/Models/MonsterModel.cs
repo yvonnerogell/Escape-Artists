@@ -83,14 +83,14 @@ namespace Game.Models
 
             Difficulty = newData.Difficulty;
 
-            Speed = newData.Speed;
-            Defense = newData.Defense;
+            //Speed = newData.Speed;
+            //Defense = newData.Defense;
             Attack = newData.Attack;
 
             ExperienceTotal = newData.ExperienceTotal;
             ExperienceRemaining = newData.ExperienceRemaining;
-            CurrentHealth = newData.CurrentHealth;
-            MaxHealth = newData.MaxHealth;
+            //CurrentHealth = newData.CurrentHealth;
+            //MaxHealth = newData.MaxHealth;
 
             Head = newData.Head;
             Necklace = newData.Necklace;
