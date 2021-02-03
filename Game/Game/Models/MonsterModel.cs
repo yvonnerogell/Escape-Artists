@@ -60,17 +60,17 @@ namespace Game.Models
             PlayerType = newData.PlayerType;
             if (PlayerType == PlayerTypeEnum.Monster)
             {
-                SpecificMonsterTypeEnum = newData.SpecificMonsterTypeEnum;
+               MonsterTypeEnum = newData.MonsterTypeEnum;
             }
 
             // TODO: change this check for each monster for images and MonsterType. (i.e. dication, case states or methods). 
-            if (SpecificMonsterTypeEnum == MonsterTypeEnum.Faculty && Models.SpecificMonsterTypeEnum.FacultyList().Contains(newData.SpecificMonsterTypeEnum.Value))
+            if (MonsterTypeEnum == MonsterTypeEnum.Faculty && SpecificMonsterTypeEnum.FacultyList().Contains(newData.SpecificMonsterTypeEnum.Value))
             {
                 SpecificMonsterTypeEnum = newData.SpecificMonsterTypeEnum;
                 ImageURI = "faculty.png";
             }
 
-            if (SpecificMonsterTypeEnum == MonsterTypeEnum.Administrator && Models.SpecificMonsterTypeEnum.AdministratorList().Contains(newData.SpecificMonsterTypeEnum.Value))
+            if (MonsterTypeEnum == MonsterTypeEnum.Administrator && SpecificMonsterTypeEnum.AdministratorList().Contains(newData.SpecificMonsterTypeEnum.Value))
             {
                 SpecificMonsterTypeEnum = newData.SpecificMonsterTypeEnum;
                 ImageURI = "administrator.png";
