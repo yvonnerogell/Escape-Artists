@@ -2,6 +2,7 @@
 using System.Globalization;
 
 using Xamarin.Forms;
+using Game.Models;
 
 namespace Game.Helpers
 {
@@ -26,7 +27,17 @@ namespace Game.Helpers
         {
             if (value is Enum)
             {
-                return (int)value;
+                //return (int)value;
+                return ((SpecificCharacterTypeEnum)value).ToMessage();
+            }
+
+            if (value is string)
+            {
+                // Convert String Enum and then Enum to Message
+                var myEnum = SpecificCharacterTypeEnumHelper.ConvertMessageStringToEnum((string)value);
+                var myReturn = myEnum.ToMessage();
+
+                return myReturn;
             }
 
             return 0;
@@ -45,9 +56,16 @@ namespace Game.Helpers
             if (value is int)
             {
                 var myReturn = Enum.ToObject(targetType, value);
-                return myReturn.ToString();
+                return ((SpecificCharacterTypeEnum)myReturn).ToMessage();
             }
 
+            if (value is string)
+            {
+                // Convert the Message String to the Enum
+                var myReturn = ItemLocationEnumHelper.ConvertStringToEnum((string)value);
+
+                return myReturn;
+            }
             return 0;
         }
     }
