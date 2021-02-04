@@ -40,4 +40,66 @@ namespace Game.Models
         CoolParent = 50
     }
 
+    /// <summary>
+    /// Friendly strings for the Enum Class
+    /// </summary>
+    public static class SpecificCharacterTypeEnumExtensions
+    {
+        /// <summary>
+        /// Display a String for the Enums
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static string ToMessage(this SpecificCharacterTypeEnum value)
+        {
+            // Default String
+            var Message = "PlayerType";
+
+            switch (value)
+            {
+
+                case SpecificCharacterTypeEnum.SmartyPants:
+                    Message = "SmartyPants";
+                    break;
+
+                case SpecificCharacterTypeEnum.Overachiever:
+                    Message = "Overachiever";
+                    break;
+
+                case SpecificCharacterTypeEnum.InternationalStudent:
+                    Message = "International Student";
+                    break;
+                
+                case SpecificCharacterTypeEnum.Prodigy:
+                    Message = "Prodigy";
+                    break;
+
+                case SpecificCharacterTypeEnum.SecondCareer:
+                    Message = "Second Career";
+                    break;
+
+                case SpecificCharacterTypeEnum.Slacker:
+                    Message = "Slacker";
+                    break;
+
+                case SpecificCharacterTypeEnum.Procrastinator:
+                    Message = "Procrastinator";
+                    break;
+
+                case SpecificCharacterTypeEnum.HelicopterParent:
+                    Message = "Helicopter Parent";
+                    break;
+
+                case SpecificCharacterTypeEnum.CoolParent:
+                    Message = "Cool Parent";
+                    break;
+
+                case SpecificCharacterTypeEnum.Unknown:
+                default:
+                    break;
+            }
+
+            return Message;
+        }
+    }
 }
