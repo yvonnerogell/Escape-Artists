@@ -126,9 +126,13 @@
                                 HorizontalOptions="End"
                                 HorizontalTextAlignment="End"/>
 
-                        <Stepper 
-                                Value="{Binding Data.Speed, Mode=TwoWay}"
-                                ValueChanged="Speed_OnStepperValueChanged"/>
+                        <Slider 
+                                Maximum="20" 
+                                Minimum="0"
+                                Margin="30, 5"
+                                ValueChanged="OnSliderChanged"
+                                x:Name="SpeedSlider"
+                                Value="{Binding Data.Speed}"/>
 
                     </StackLayout>
 
