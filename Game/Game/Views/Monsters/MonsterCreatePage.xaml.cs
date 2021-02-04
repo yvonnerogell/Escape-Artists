@@ -50,6 +50,12 @@ namespace Game.Views.Monsters
             await Navigation.PopModalAsync();
         }
 
+
+        /// <summary>
+        /// Changes the slider value for the appropriate slider (attack, defense, speed)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void OnSliderChanged(object sender, ValueChangedEventArgs e)
         {
             if (sender == AttackSlider)
@@ -64,7 +70,6 @@ namespace Game.Views.Monsters
             {
                 SpeedValue.Text = String.Format("{0}", (int)e.NewValue);
             }
-
         }
 
         public string GetImageURI()
