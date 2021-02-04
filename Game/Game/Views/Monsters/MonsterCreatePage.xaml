@@ -102,9 +102,13 @@
                                 HorizontalOptions="End"
                                 HorizontalTextAlignment="End"/>
 
-                            <Stepper 
-                                Value="{Binding Data.Defense, Mode=TwoWay}"
-                                ValueChanged="Defense_OnStepperValueChanged"/>
+                            <Slider 
+                                    Maximum="20" 
+                                    Minimum="0"
+                                    Margin="30, 5"
+                                    ValueChanged="OnSliderChanged"
+                                    x:Name="DefenseSlider"
+                                    Value="{Binding Data.Defense}"/>
 
                         </StackLayout>
 

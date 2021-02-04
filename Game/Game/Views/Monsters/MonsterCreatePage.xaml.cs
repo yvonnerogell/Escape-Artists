@@ -56,7 +56,11 @@ namespace Game.Views.Monsters
 			{
                 AttackValue.Text = String.Format("{0}", (int)e.NewValue);
 			}
-            
+            if (sender == DefenseSlider)
+            {
+                DefenseValue.Text = String.Format("{0}", (int)e.NewValue);
+            }
+
         }
 
         public string GetImageURI()
