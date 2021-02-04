@@ -174,6 +174,34 @@ namespace Game.Models
         }
 
         /// <summary>
+        /// Returns a list of strings of the enum for Parent SpecificCharacterType
+        /// </summary>
+        public static List<string> GetParentList
+        {
+            get
+            {
+                var myList = new List<string>();
+                myList.Add("CoolParent");
+                myList.Add("HelicopterParent");
+                return myList;
+            }
+        }
+
+        /// <summary>
+        /// Returns a list of Full strings of the enum for Parent SpecificCharacterType
+        /// </summary>
+        public static List<string> GetParentListMessage
+        {
+            get
+            {
+                var list = new List<string>();
+                list.Add("Cool Parent");
+                list.Add("Helicopter Parent");
+                return list;
+            }
+        }
+
+        /// <summary>
         /// Given the String for an enum, return its value.  That allows for the enums to be numbered 2,4,6 rather than 1,2,3
         /// </summary>
         /// <param name="value"></param>
