@@ -6,7 +6,7 @@ using Game.Models;
 using Game.Views;
 using Game.GameRules;
 using Xamarin.Forms;
-using Game.Views.Characters;
+using Game.Views.Monsters;
 
 namespace Game.ViewModels
 {
@@ -53,7 +53,7 @@ namespace Game.ViewModels
             #region Messages
 
             // Register the Create Message
-            MessagingCenter.Subscribe<CharacterCreatePage, MonsterModel>(this, "Create", async (obj, data) =>
+            MessagingCenter.Subscribe<MonsterCreatePage, MonsterModel>(this, "Create", async (obj, data) =>
             {
                 await CreateAsync(data as MonsterModel);
             });
