@@ -53,7 +53,7 @@ namespace Game.Views.Monsters
         public string GetImageURI()
 		{
             var monsterType = ViewModel.Data.SpecificMonsterTypeEnum.Value;
-            var imageURI = Constants.DefaultMonsterImageURI;
+            var imageURI = Constants.SpecificMonsterTypeDefaultImageURI;
 
             // Change image based on type selected. 
             // Had to do an if statement instead of switch because switch statements cannot have evaluated statements as case statements. 
