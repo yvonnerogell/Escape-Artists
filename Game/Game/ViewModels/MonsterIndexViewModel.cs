@@ -59,6 +59,7 @@ namespace Game.ViewModels
             });
 
             // Register the Update Message
+            // TODO: Change to MonsterUpdatePage once page has been created. 
             MessagingCenter.Subscribe<CharacterUpdatePage, MonsterModel>(this, "Update", async (obj, data) =>
             {
                 // Have the item update itself
