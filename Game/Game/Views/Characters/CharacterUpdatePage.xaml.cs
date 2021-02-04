@@ -56,6 +56,11 @@ namespace Game.Views
             await Navigation.PopModalAsync();
         }
 
+        /// <summary>
+        /// Updates the value associated with the changed slider (attack, level, defense or speed)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void OnSliderChanged(object sender, ValueChangedEventArgs e)
 		{
             if (sender == LevelSlider)
