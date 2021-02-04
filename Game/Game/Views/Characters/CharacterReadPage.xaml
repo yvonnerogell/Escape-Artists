@@ -4,6 +4,9 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:local="using:Game.Models"
+             xmlns:local_helpers="clr-namespace:Game.Helpers"
+             xmlns:local_enum="clr-namespace:Game.Models"
              x:Class="Game.Views.CharacterReadPage"
              Title="Read">
 
@@ -11,6 +14,12 @@
         <ToolbarItem Text="Delete" Clicked="Delete_Clicked" IconImageSource="icon_delete.png"/>
         <ToolbarItem Text="Update" Clicked="Update_Clicked" IconImageSource="icon_edit.png"/>
     </ContentPage.ToolbarItems>
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local_helpers:SpecificCharacterTypeEnumConverter x:Key="SpecificCharacterTypeEnumConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <ScrollView>
 
@@ -30,7 +39,8 @@
                             Text="- " 
                             Style="{StaticResource LabelStyle}"/>
                         <Label 
-                            Text="{Binding Data.SpecificCharacterTypeEnum.Value}" 
+                            Text="{Binding Data.SpecificCharacterTypeEnum, 
+                             Converter={StaticResource SpecificCharacterTypeEnumConverter}}" 
                             Style="{StaticResource LabelStyle}"/>
                     </StackLayout>
                         
