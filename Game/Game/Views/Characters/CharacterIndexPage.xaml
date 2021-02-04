@@ -1,12 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local_helpers="clr-namespace:Game.Helpers"
              x:Class="Game.Views.Characters.CharacterIndexPage"
              Title="Characters">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="AddCharacter_Clicked" IconImageSource="icon_add.png"/>
     </ContentPage.ToolbarItems>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local_helpers:SpecificCharacterTypeEnumConverter x:Key="SpecificCharacterTypeEnumConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <ContentPage.Content>
         <ScrollView>
@@ -29,7 +36,8 @@
 
                                 <Label Text="{Binding Name}" HorizontalTextAlignment="Center"/>
                                 <Label Text="the " HorizontalTextAlignment="Center" LineBreakMode="NoWrap"/>
-                                <Label Text="{Binding SpecificCharacterTypeEnum}" HorizontalTextAlignment="Center"/>
+                                <Label Text="{Binding SpecificCharacterTypeEnum, Converter={StaticResource SpecificCharacterTypeEnumConverter}}"  
+                                       HorizontalTextAlignment="Center"/>
 
 
                             </StackLayout>
