@@ -106,11 +106,14 @@
                             x:Name="DefenseValue"
                             Style="{StaticResource LabelStyleUpdateValue}"/>
 
-                    <Stepper Grid.Row="5" Grid.Column="1"
-                            Value="{Binding Data.Defense, Mode=TwoWay}"
-                            ValueChanged="Defense_OnStepperValueChanged"
+                    <Slider Grid.Row="5" 
+                            Grid.Column="1" 
+                            Maximum="20" 
                             Minimum="1"
-                            Maximum="20"/>
+                            Margin="30, 5"
+                            ValueChanged="OnSliderChanged"
+                            x:Name="DefenseSlider"
+                            Value="{Binding Data.Defense}"/>
 
                     <Label Grid.Row="6" Grid.Column="0"
                             Text="Speed"

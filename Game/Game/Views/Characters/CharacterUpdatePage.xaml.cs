@@ -66,7 +66,11 @@ namespace Game.Views
 			{
                 AttackValue.Text = String.Format("{0}", (int)e.NewValue);
             }
-		}
+            if (sender == DefenseSlider)
+            {
+                DefenseValue.Text = String.Format("{0}", (int)e.NewValue);
+            }
+        }
 
 
         /// <summary>
