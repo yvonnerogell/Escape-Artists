@@ -79,7 +79,7 @@
                             Value="{Binding Data.Level}"/> 
 
 
-                        <Label Grid.Row="4" Grid.Column="0"
+                    <Label Grid.Row="4" Grid.Column="0"
                             Text="Attack"
                             Style="{StaticResource LabelStyleUpdateText}"/>
 
@@ -88,11 +88,14 @@
                             x:Name="AttackValue"
                             Style="{StaticResource LabelStyleUpdateValue}"/>
 
-                    <Stepper Grid.Row="4" Grid.Column="1"
-                            Value="{Binding Data.Attack, Mode=TwoWay}"
-                            ValueChanged="Attack_OnStepperValueChanged"
+                    <Slider Grid.Row="4" 
+                            Grid.Column="1" 
+                            Maximum="20" 
                             Minimum="1"
-                            Maximum="20"/>
+                            Margin="30, 5"
+                            ValueChanged="OnSliderChanged"
+                            x:Name="AttackSlider"
+                            Value="{Binding Data.Attack}"/>
 
                     <Label Grid.Row="5" Grid.Column="0"
                             Text="Defense"
