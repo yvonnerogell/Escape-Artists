@@ -52,10 +52,43 @@ namespace Game.Views.Monsters
 
         public string GetImageURI()
 		{
-            var monsterType = ViewModel.Data.SpecificMonsterTypeEnum;
+            var monsterType = ViewModel.Data.SpecificMonsterTypeEnum.Value;
             var imageURI = Constants.DefaultMonsterImageURI;
 
-            // TODO: Add switch statement to change image based on specific monster type. 
+            // Change image based on type selected. 
+            // Had to do an if statement instead of switch because switch statements cannot have evaluated statements as case statements. 
+            if (monsterType == SpecificMonsterTypeEnum.AdjunctFaculty.Value)
+			{
+                imageURI = Constants.SpecificMonsterTypeAdjunctFacultyImageURI;
+            }
+            else if (monsterType == SpecificMonsterTypeEnum.AssistantProfessor.Value)
+			{
+                imageURI = Constants.SpecificMonsterTypeAssistantProfessorImageURI;
+            }
+            else if (monsterType == SpecificMonsterTypeEnum.AssociateProfessor.Value)
+            {
+                // imageURI = Constants.SpecificMonsterTypeAssociateProfessorImageURI;
+            }
+            else if (monsterType == SpecificMonsterTypeEnum.GraduationOfficeAdministrator.Value)
+            {
+                imageURI = Constants.SpecificMonsterTypeGraduationOfficeAdministratorImageURI;
+            }
+            else if (monsterType == SpecificMonsterTypeEnum.HRAdministrator.Value)
+            {
+                imageURI = Constants.SpecificMonsterTypeHRAdministratorImageURI;
+            }
+            else if (monsterType == SpecificMonsterTypeEnum.Professor.Value)
+            {
+                imageURI = Constants.SpecificMonsterTypeProfessorImageURI;
+            }
+            else if (monsterType == SpecificMonsterTypeEnum.RegistrationAdministrator.Value)
+            {
+                imageURI = Constants.SpecificMonsterTypeRegistrationAdministratorImageURI;
+            }
+            else if (monsterType == SpecificMonsterTypeEnum.TeachingAssistant.Value)
+            {
+                imageURI = Constants.SpecificMonsterTypeTeachingAssistantImageURI;
+            }
 
             return imageURI;
 		}
