@@ -119,6 +119,24 @@ namespace Game.Models
                 return myList;
             }
         }
+
+        /// <summary>
+        /// Returns a list of Full strings of the enum for SpecificCharacterType
+        /// </summary>
+        public static List<string> GetListMessageAll
+        {
+            get
+            {
+                var list = new List<string>();
+
+                foreach (var item in Enum.GetValues(typeof(SpecificCharacterTypeEnum)))
+                {
+                    list.Add(((SpecificCharacterTypeEnum)item).ToMessage());
+                }
+                return list;
+            }
+        }
+
     }
 
 }
