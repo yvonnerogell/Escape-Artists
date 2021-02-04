@@ -137,6 +137,32 @@ namespace Game.Models
             }
         }
 
+        /// <summary>
+        /// Given the String for an enum, return its value.  That allows for the enums to be numbered 2,4,6 rather than 1,2,3
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static SpecificCharacterTypeEnum ConvertStringToEnum(string value)
+        {
+            return (SpecificCharacterTypeEnum)Enum.Parse(typeof(SpecificCharacterTypeEnum), value);
+        }
+
+        /// <summary>
+        /// Given the Full String for an enum, return its value
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static SpecificCharacterTypeEnum ConvertMessageStringToEnum(string value)
+        {
+            foreach (SpecificCharacterTypeEnum item in Enum.GetValues(typeof(SpecificCharacterTypeEnum)))
+            {
+                if (item.ToMessage().Equals(value))
+                {
+                    return item;
+                }
+            }
+            return SpecificCharacterTypeEnum.Unknown;
+        }
     }
 
 }
