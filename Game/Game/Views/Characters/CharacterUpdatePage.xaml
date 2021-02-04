@@ -69,17 +69,17 @@
                             x:Name="LevelValue"
                             Style="{StaticResource LabelStyleUpdateValue}"/>
 
+                    <Slider Grid.Row="3" 
+                            Grid.Column="1" 
+                            Maximum="20" 
+                            Minimum="1"
+                            Margin="30, 5"
+                            ValueChanged="OnSliderChanged"
+                            x:Name="LevelSlider"
+                            Value="{Binding Data.Level}"/> 
 
-                    <StackLayout Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
-                        
-                        <Button x:Name="LevelPlusButton" Text="+"  Grid.Row="3" Grid.Column="1" WidthRequest="30" Clicked="LevelPlusButton_Clicked" />
 
-                        <Button x:Name="LevelMinusButton" Text="-"  Grid.Row="3" Grid.Column="2"  WidthRequest="30" Clicked="LevelPlusButton_Clicked"/>
-
-                    </StackLayout>
-
-
-                    <Label Grid.Row="4" Grid.Column="0"
+                        <Label Grid.Row="4" Grid.Column="0"
                             Text="Attack"
                             Style="{StaticResource LabelStyleUpdateText}"/>
 
