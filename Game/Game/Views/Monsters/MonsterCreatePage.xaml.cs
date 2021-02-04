@@ -44,15 +44,21 @@ namespace Game.Views.Monsters
         /// <param name="e"></param>
         public async void Save_Clicked(object sender, EventArgs e)
         {
-            // If the image in the data box is empty, use the default one..
-            if (string.IsNullOrEmpty(ViewModel.Data.ImageURI))
-            {
-                ViewModel.Data.ImageURI = Services.ItemService.DefaultImageURI;
-            }
+            ViewModel.Data.ImageURI = GetImageURI();
 
             MessagingCenter.Send(this, "Create", ViewModel.Data);
             await Navigation.PopModalAsync();
         }
+
+        public string GetImageURI()
+		{
+            var monsterType = ViewModel.Data.SpecificMonsterTypeEnum;
+            var imageURI = Constants.DefaultMonsterImageURI;
+
+            // TODO: Add switch statement to change image based on specific monster type. 
+
+            return imageURI;
+		}
 
         /// <summary>
         /// Cancel the Create

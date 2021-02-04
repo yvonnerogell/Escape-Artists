@@ -23,5 +23,7 @@ namespace Game
                 return Path.Combine(basePath, DatabaseFilename);
             }
         }
+
+        public static string DefaultMonsterImageURI = "squid.jpg";
     }
 }
