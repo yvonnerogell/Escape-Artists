@@ -70,6 +70,10 @@ namespace Game.Views
             {
                 DefenseValue.Text = String.Format("{0}", (int)e.NewValue);
             }
+            if (sender == SpeedSlider)
+            {
+                SpeedValue.Text = String.Format("{0}", (int)e.NewValue);
+            }
         }
 
 
