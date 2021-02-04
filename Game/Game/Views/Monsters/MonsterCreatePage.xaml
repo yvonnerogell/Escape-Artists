@@ -123,6 +123,16 @@
                                 ValueChanged="Speed_OnStepperValueChanged"/>
 
                     </StackLayout>
+
+                    <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,10,10,0">
+
+                        <!-- TODO pull in character's items here-->
+                        <Label 
+                            Text="PLACEHOLDER FOR ITEMS"
+                            Style="{StaticResource LabelStyleUpdateText}"/>
+
+
+                    </StackLayout>
                 </StackLayout>
             </StackLayout>
         </ScrollView>
