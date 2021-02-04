@@ -68,18 +68,9 @@ namespace Game.Models
                 CharacterTypeEnum = newData.CharacterTypeEnum;
             }
 
-            // TODO: change this check for each character for images and CharacterType. (i.e. dication, case states or methods). 
-            if (CharacterTypeEnum == CharacterTypeEnum.Student && SpecificCharacterTypeEnum.StudentList().Contains(newData.SpecificCharacterTypeEnum.Value))
-            {
-                SpecificCharacterTypeEnum = newData.SpecificCharacterTypeEnum;
-                ImageURI = "student.png";
-            }
+            // helper for figuring out which image based on CharacterSpecific type
+            UpdateImageURI(newData);
 
-            if (CharacterTypeEnum == CharacterTypeEnum.Parent && SpecificCharacterTypeEnum.ParentList().Contains(newData.SpecificCharacterTypeEnum.Value))
-            {
-                SpecificCharacterTypeEnum = newData.SpecificCharacterTypeEnum;
-                ImageURI = "parent.png";
-            }
 
             Name = newData.Name;
             Description = newData.Description;
@@ -141,6 +132,53 @@ namespace Game.Models
             //Job = newData.Job;
 
             return true;
+        }
+
+        public void UpdateImageURI(CharacterModel newData)
+        {
+            switch (newData.SpecificCharacterTypeEnum)
+            {
+
+                case SpecificCharacterTypeEnum.SmartyPants:
+                    ImageURI = "student.png";
+                    break;
+
+                case SpecificCharacterTypeEnum.Overachiever:
+                    ImageURI = "student.png";
+                    break;
+
+                case SpecificCharacterTypeEnum.InternationalStudent:
+                    ImageURI = "student.png";
+                    break;
+
+                case SpecificCharacterTypeEnum.Prodigy:
+                    ImageURI = "student.png";
+                    break;
+
+                case SpecificCharacterTypeEnum.SecondCareer:
+                    ImageURI = "student.png";
+                    break;
+
+                case SpecificCharacterTypeEnum.Slacker:
+                    ImageURI = "student.png";
+                    break;
+
+                case SpecificCharacterTypeEnum.Procrastinator:
+                    ImageURI = "student.png";
+                    break;
+
+                case SpecificCharacterTypeEnum.HelicopterParent:
+                    ImageURI = "parent.png";
+                    break;
+
+                case SpecificCharacterTypeEnum.CoolParent:
+                    ImageURI = "parent.png";
+                    break;
+
+                case SpecificCharacterTypeEnum.Unknown:
+                default:
+                    break;
+            }
         }
 
         /// <summary>
