@@ -26,7 +26,7 @@ namespace Game.Models
 
         // Second Career has real life experience, has special ability and Head and Necklace item location.
         SecondCareer = 30,
-        
+
         // Slacker likes to chill and has extra Head and Necklace item location
         Slacker = 35,
 
@@ -69,7 +69,7 @@ namespace Game.Models
                 case SpecificCharacterTypeEnum.InternationalStudent:
                     Message = "International Student";
                     break;
-                
+
                 case SpecificCharacterTypeEnum.Prodigy:
                     Message = "Prodigy";
                     break;
@@ -102,4 +102,23 @@ namespace Game.Models
             return Message;
         }
     }
+
+    /// <summary>
+    /// Helper for the Enum Class
+    /// </summary>
+    public static class SpecificCharacterTypeEnumHelper
+    {
+        /// <summary>
+        /// Returns a list of strings of the enum for SpecificCharacterType
+        /// </summary>
+        public static List<string> GetListAll
+        {
+            get
+            {
+                var myList = Enum.GetNames(typeof(SpecificCharacterTypeEnum)).ToList();
+                return myList;
+            }
+        }
+    }
+
 }
