@@ -50,6 +50,15 @@ namespace Game.Views.Monsters
             await Navigation.PopModalAsync();
         }
 
+        public void OnSliderChanged(object sender, ValueChangedEventArgs e)
+        {
+            if (sender == AttackSlider)
+			{
+                AttackValue.Text = String.Format("{0}", (int)e.NewValue);
+			}
+            
+        }
+
         public string GetImageURI()
 		{
             var monsterType = ViewModel.Data.SpecificMonsterTypeEnum.Value;

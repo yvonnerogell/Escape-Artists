@@ -70,19 +70,23 @@
 
                         <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
 
-                            <Label 
+                        <Label 
                                 Text="{Binding Data.Attack}" 
                                 x:Name="AttackValue"
                                 Style="{StaticResource ValueStyle}"
                                 Padding="0,0,10,0"
                                 HorizontalOptions="End"
                                 HorizontalTextAlignment="End"/>
-                    
-                            <Stepper 
-                                Value="{Binding Data.Attack, Mode=TwoWay}"
-                                ValueChanged="Attack_OnStepperValueChanged"/>
-                        
-                        </StackLayout>
+
+                        <Slider 
+                                Maximum="20" 
+                                Minimum="0"
+                                Margin="30, 5"
+                                ValueChanged="OnSliderChanged"
+                                x:Name="AttackSlider"
+                                Value="{Binding Data.Attack}"/>
+
+                    </StackLayout>
 
                         <Label 
                             Text="Defense"
