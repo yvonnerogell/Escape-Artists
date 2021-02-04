@@ -12,6 +12,7 @@ namespace Game.Models
         // Not specified
         Unknown = 0,
 
+        //The following are Student type 
         // Smarty pants is smart, has special ability and extra Head item location
         SmartyPants = 10,
 
@@ -32,6 +33,8 @@ namespace Game.Models
 
         // Procrastinator likes to wait, has special ability and extra Head item location
         Procrastinator = 40,
+
+        //The following are Parent type 
 
         // Helicopter Parent likes to control and has special ability
         HelicopterParent = 45,
@@ -59,7 +62,7 @@ namespace Game.Models
             {
 
                 case SpecificCharacterTypeEnum.SmartyPants:
-                    Message = "SmartyPants";
+                    Message = "Smarty Pants";
                     break;
 
                 case SpecificCharacterTypeEnum.Overachiever:
@@ -133,6 +136,39 @@ namespace Game.Models
                 {
                     list.Add(((SpecificCharacterTypeEnum)item).ToMessage());
                 }
+                return list;
+            }
+        }
+
+        /// <summary>
+        /// Returns a list of strings of the enum for Student SpecificCharacterType
+        /// </summary>
+        public static List<string> GetStudentList
+        {
+            get
+            {
+                var myList = Enum.GetNames(typeof(SpecificCharacterTypeEnum)).ToList();
+                myList.Remove("CoolParent");
+                myList.Remove("HelicopterParent");
+                return myList;
+            }
+        }
+
+        /// <summary>
+        /// Returns a list of Full strings of the enum for SpecificCharacterType
+        /// </summary>
+        public static List<string> GetStudentListMessage
+        {
+            get
+            {
+                var list = new List<string>();
+
+                foreach (var item in Enum.GetValues(typeof(SpecificCharacterTypeEnum)))
+                {
+                    list.Add(((SpecificCharacterTypeEnum)item).ToMessage());
+                }
+                list.Remove("Cool Parent");
+                list.Remove("Helicopter Parent");
                 return list;
             }
         }
