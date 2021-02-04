@@ -32,5 +32,6 @@ namespace Game
         public static string SpecificMonsterTypeHRAdministratorImageURI = "squid.jpg";
         public static string SpecificMonsterTypeRegistrationAdministratorImageURI = "squid.jpg";
         public static string SpecificMonsterTypeGraduationOfficeAdministratorImageURI = "squid.jpg";
+        public static string SpecificMonsterTypeAssociateProfessorImageURI = "squid.jpg";
     }
 }

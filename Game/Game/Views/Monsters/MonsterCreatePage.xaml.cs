@@ -67,7 +67,7 @@ namespace Game.Views.Monsters
             }
             else if (monsterType == SpecificMonsterTypeEnum.AssociateProfessor.Value)
             {
-                // imageURI = Constants.SpecificMonsterTypeAssociateProfessorImageURI;
+                imageURI = Constants.SpecificMonsterTypeAssociateProfessorImageURI;
             }
             else if (monsterType == SpecificMonsterTypeEnum.GraduationOfficeAdministrator.Value)
             {
