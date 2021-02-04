@@ -56,22 +56,14 @@ namespace Game.Views
             await Navigation.PopModalAsync();
         }
 
-        /// <summary>
-        /// Catch the change to the stepper for Level
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public void LevelPlusButton_Clicked(object sender, EventArgs e)
-        {
-            var value = int.Parse(LevelValue.Text);
-
-            // Only increment if values is less than max. 
-            if (value < 20)
+        public void OnSliderChanged(object sender, ValueChangedEventArgs e)
+		{
+            if (sender == LevelSlider)
 			{
-                LevelValue.Text = String.Format("{0}", value + 1);
+               LevelValue.Text = String.Format("{0}", (int) e.NewValue);
             }
+		}
 
-        }
 
         /// <summary>
         /// Catch the change to the stepper for Level
