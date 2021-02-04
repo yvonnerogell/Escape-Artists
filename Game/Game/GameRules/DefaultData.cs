@@ -316,7 +316,7 @@ namespace Game.GameRules
                         ItemLocationEnum.Necklace
                     },
                     Attack = 1,
-                    ImageURI = "squid.jpg"
+                    ImageURI = Constants.SpecificMonsterTypeTeachingAssistantImageURI
                 }
             };
 
