@@ -52,12 +52,13 @@
                         Text="Monster Type" 
                         Style="{StaticResource LabelStyle}"/>
 
-                    <!-- TODO update Binding Data.Name to Binding Data.SpecificMonsterType once MonsterModel has been updated 
+                    <!-- TODO update Binding Data.Name to Binding Data.SpecificMonsterType once MonsterModel has been updated -->
                     <Picker Grid.Row="5" Grid.Column="0"
-                            ItemsSource="{x:Static local:SpecificCharacterTypeEnumHelper.GetListCharacter}"
-                            SelectedItem="{Binding Data.Name, Converter={StaticResource StringEnum}, Mode=TwoWay}"
+                              ItemsSource="{x:Static local:ItemLocationEnumHelper.GetListItem}"
+                            SelectedItem="{Binding Data.SpecificMonsterType, Converter={StaticResource StringEnum,StringEnum}, Mode=TwoWay}"
+                          
                             x:Name="MonsterTypePicker"/>
-                    -->
+                    
 
                 </Grid>
 
