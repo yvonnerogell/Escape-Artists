@@ -19,7 +19,7 @@ namespace Game.Models
         AdjunctFaculty = 20,
 
         // Assistant professor drops a laptop after a good fight
-        AssitantProfessor = 30,
+        AssistantProfessor = 30,
 
         // Associate professor is surprisingly not that rich, and drops textbooks
         AssociateProfessor = 40,
@@ -36,10 +36,62 @@ namespace Game.Models
         // Graduation office administrator drops cap and robe
         GraduationOfficeAdministrator = 80
     }
-        
+
+    public static class SpecificMonsterTypeEnumExtensions
+    {
+        /// <summary>
+        /// Presents Monster Enums in string format
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static string ToMessage(this SpecificMonsterTypeEnum value)
+        {
+            // Default String
+            var Message = "PlayerType";
+
+            switch (value)
+            {
+
+                case SpecificMonsterTypeEnum.TeachingAssistant:
+                    Message = "Teaching Assistant";
+                    break;
+
+                case SpecificMonsterTypeEnum.AdjunctFaculty:
+                    Message = "Adjunct Faculty";
+                    break;
+
+                case SpecificMonsterTypeEnum.AssistantProfessor:
+                    Message = "Assistant Professor";
+                    break;
+
+                case SpecificMonsterTypeEnum.AssociateProfessor:
+                    Message = "Associate Professor";
+                    break;
+
+                case SpecificMonsterTypeEnum.Professor:
+                    Message = "Professor";
+                    break;
+
+                case SpecificMonsterTypeEnum.HRAdministrator:
+                    Message = "HR Administrator";
+                    break;
+
+                case SpecificMonsterTypeEnum.RegistrationAdministrator:
+                    Message = "Registration Administrator";
+                    break;
+
+                case SpecificMonsterTypeEnum.GraduationOfficeAdministrator:
+                    Message = "Graduation Office Administrator";
+                    break;
+            }
+
+            return Message;
+        }
+    }
 
 
-        private SpecificMonsterTypeEnum(string value) { Value = value; }
+
+    private SpecificMonsterTypeEnum(string value) { Value = value; }
 
         public string Value { get; set; }
 
