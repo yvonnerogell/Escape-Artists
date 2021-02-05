@@ -187,7 +187,37 @@ namespace Game.Models
             }
         }
 
-        private SpecificMonsterTypeEnum(string value) { Value = value; }
+        /// <summary>
+        /// Returns Enum values for a string value
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static SpecificMonsterTypeEnum ConvertStringToEnum(string value)
+        {
+            return (SpecificMonsterTypeEnum)Enum.Parse(typeof(SpecificMonsterTypeEnum), value);
+        }
+
+        /// <summary>
+        /// Given the Full String for an enum, return its value
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static SpecificMonsterTypeEnum ConvertMessageStringToEnum(string value)
+        {
+            foreach (SpecificMonsterTypeEnum item in Enum.GetValues(typeof(SpecificMonsterTypeEnum)))
+            {
+                if (item.ToMessage().Equals(value))
+                {
+                    return item;
+                }
+            }
+            return SpecificMonsterTypeEnum.Unknown;
+        }
+    }
+
+}
+
+private SpecificMonsterTypeEnum(string value) { Value = value; }
 
         public string Value { get; set; }
 
