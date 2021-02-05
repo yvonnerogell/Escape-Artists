@@ -9,27 +9,44 @@
     
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" IconImageSource="icon_cancel.png"/>
-        <ToolbarItem Text="Delete" Clicked="Delete_Clicked" IconImageSource="icon_delete.png"/>
     </ContentPage.ToolbarItems>
 
-    <ScrollView>
-        <StackLayout Style="{StaticResource OuterBoxStack}"
+    <ScrollView
+        HorizontalOptions ="CenterAndExpand">
+        <StackLayout 
+                Style="{StaticResource OuterBoxStack}"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
                 Spacing="10">
+            <Label 
+                Text="Are you sure you want to delete this item?" 
+                Style="{StaticResource HeaderStyle}"/>
 
-            <Label Text="Delete Page" Style="{StaticResource HeaderStyle}"/>
-
-            <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}"/>
-
-            <StackLayout Style="{StaticResource HorizontalStack}">
+            <StackLayout 
+                Style="{StaticResource HorizontalCenterStack}"
+                VerticalOptions="Center">
                 <Label 
-                   Text="Name : " 
+                    Text="Name: " 
                     Style="{StaticResource LabelStyle}"/>
                 <Label 
                     Text="{Binding Data.Name}" 
-                    Style="{StaticResource ValueStyle}"/>
+                    Style="{StaticResource LabelStyle}"/>
             </StackLayout>
 
-            <StackLayout Style="{StaticResource HorizontalStack}">
+            <StackLayout 
+                Style="{StaticResource HorizontalCenterStack}"
+                VerticalOptions="Center">
+                <Label 
+                    Text="Type: " 
+                    Style="{StaticResource LabelStyle}"/>
+                <Label 
+                    Text="{Binding Data.ItemType}" 
+                    Style="{StaticResource LabelStyle}"/>
+            </StackLayout>
+            
+            <StackLayout 
+                Style="{StaticResource HorizontalCenterStack}"
+                VerticalOptions="Center">
                 <Label 
                     Text="Description : " 
                     Style="{StaticResource LabelStyle}"/>
@@ -37,16 +54,16 @@
                     Text="{Binding Data.Description}" 
                     Style="{StaticResource ValueStyle}"/>
             </StackLayout>
+            
+            <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}"/>
 
 
             <StackLayout 
             HorizontalOptions="Center" 
             Padding="20">
 
-                <Label Text="Really delete this?" Style="{StaticResource MessageStyle}"/>
-
                 <Button 
-                Text="Yes" 
+                Text="Delete Item" 
                 Clicked="Delete_Clicked" 
                 HorizontalOptions="Center"
                 FontSize="Medium"
@@ -54,7 +71,7 @@
                 BorderColor="black">
                 </Button>
             </StackLayout>
-            
+
         </StackLayout>
     </ScrollView>
 </ContentPage>
