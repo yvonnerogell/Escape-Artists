@@ -65,13 +65,13 @@ namespace Game.Models
             if (MonsterTypeEnum == MonsterTypeEnum.Faculty && SpecificMonsterTypeEnumHelper.GetFacultyList.Contains(newData.SpecificMonsterTypeEnum.ToMessage()))
             {
                 SpecificMonsterTypeEnum = newData.SpecificMonsterTypeEnum;
-                //ImageURI = "faculty.png";
             }
 
             if (MonsterTypeEnum == MonsterTypeEnum.Administrator && SpecificMonsterTypeEnumHelper.GetAdministratorList.Contains(newData.SpecificMonsterTypeEnum.ToMessage()))
             {
                 SpecificMonsterTypeEnum = newData.SpecificMonsterTypeEnum;
-                //ImageURI = "administrator.png";
+                // helper for figuring out which image based on CharacterSpecific type
+                UpdateImageURI(newData);
             }
 
             Guid = newData.Guid;
@@ -121,6 +121,52 @@ namespace Game.Models
             myReturn += " , Damage : " + GetDamageTotalString;
 
             return myReturn;
+        }
+
+        /// <summary>
+        /// assigns a specific Image for each Monster
+        /// </summary>
+        /// <param name="newData"></param>
+        public void UpdateImageURI(MonsterModel newData)
+        {
+            switch (newData.SpecificMonsterTypeEnum)
+            {
+
+                case SpecificMonsterTypeEnum.TeachingAssistant:
+                    ImageURI = "squid.jpg";
+                    break;
+
+                case SpecificMonsterTypeEnum.AdjunctFaculty:
+                    ImageURI = "squid.jpg";
+                    break;
+
+                case SpecificMonsterTypeEnum.AssistantProfessor:
+                    ImageURI = "squid.jpg";
+                    break;
+
+                case SpecificMonsterTypeEnum.AssociateProfessor:
+                    ImageURI = "squid.jpg";
+                    break;
+
+                case SpecificMonsterTypeEnum.Professor:
+                    ImageURI = "squid.jpg";
+                    break;
+
+                case SpecificMonsterTypeEnum.HRAdministrator:
+                    ImageURI = "squid.jpg";
+                    break;
+
+                case SpecificMonsterTypeEnum.RegistrationAdministrator:
+                    ImageURI = "squid.jpg";
+                    break;
+
+                case SpecificMonsterTypeEnum.GraduationOfficeAdministrator:
+                    ImageURI = "squid.jpg";
+                    break;
+
+
+
+            }
         }
     }
 }
