@@ -108,7 +108,7 @@
     <AndroidResource Include="Resources\drawable\icon_cancel_old.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon_delete.png" />
+    <AndroidResource Include="Resources\drawable\icon_delete_old.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon_edit.png" />
@@ -133,6 +133,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon_cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\icon_delete.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
