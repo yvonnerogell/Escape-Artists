@@ -39,6 +39,15 @@
                     </StackLayout>
                     -->
 
+                    <StackLayout Orientation="Horizontal">
+                        <Label 
+                            Text="Difficulty: " 
+                            Style="{StaticResource LabelStyle}"/>
+                        <Label 
+                        Text="{Binding Data.Difficulty}" 
+                        Style="{StaticResource LabelStyle}"/>
+                    </StackLayout>
+
 
                     <Label 
                         Text="{Binding Data.Description}" 
