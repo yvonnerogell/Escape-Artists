@@ -52,4 +52,83 @@ namespace Game.Models
         Diploma = 65
     }
 
+    /// <summary>
+    /// Friendly strings for the Enum Class
+    /// </summary>
+    public static class ItemTypeEnumExtensions
+    {
+        /// <summary>
+        /// Display a String for the Enums
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static string ToMessage(this ItemTypeEnum value)
+        {
+            // Default String
+            var Message = "ItemType";
+
+            switch (value)
+            {
+
+                case ItemTypeEnum.IndexCards:
+                    Message = "Index Cards";
+                    break;
+                
+                case ItemTypeEnum.PencilEraser:
+                    Message = "Pencil Eraser";
+                    break;
+
+                case ItemTypeEnum.Textbooks:
+                    Message = "Textbooks";
+                    break;
+
+                case ItemTypeEnum.Notebook:
+                    Message = "Notebook";
+                    break;
+
+                case ItemTypeEnum.Calculator:
+                    Message = "Calculator";
+                    break;
+
+                case ItemTypeEnum.LibraryCard:
+                    Message = "Library Card";
+                    break;
+
+                case ItemTypeEnum.FoodCourtCard:
+                    Message = "Food Court Card";
+                    break;
+
+                case ItemTypeEnum.Laptop:
+                    Message = "Laptop";
+                    break;
+
+                case ItemTypeEnum.PrivateTutor:
+                    Message = "Private Tutor";
+                    break;
+
+                case ItemTypeEnum.FinancialAid:
+                    Message = "Financial Aid";
+                    break;
+
+                case ItemTypeEnum.Tuition:
+                    Message = "Tuition";
+                    break;
+
+                case ItemTypeEnum.GraduationCapAndRobe:
+                    Message = "Graduation Cap and Robe";
+                    break;
+
+                case ItemTypeEnum.Diploma:
+                    Message = "Diploma";
+                    break;
+
+                case ItemTypeEnum.Unknown:
+                default:
+                    break;
+            }
+
+            return Message;
+        }
+    }
+
 }
