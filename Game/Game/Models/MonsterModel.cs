@@ -67,6 +67,8 @@ namespace Game.Models
                 SpecificMonsterTypeEnum = newData.SpecificMonsterTypeEnum;
             }
 
+            UpdateImageURI(newData);
+
             if (MonsterTypeEnum == MonsterTypeEnum.Administrator && SpecificMonsterTypeEnumHelper.GetAdministratorList.Contains(newData.SpecificMonsterTypeEnum.ToMessage()))
             {
                 SpecificMonsterTypeEnum = newData.SpecificMonsterTypeEnum;
