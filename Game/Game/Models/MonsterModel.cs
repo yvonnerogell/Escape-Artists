@@ -80,7 +80,6 @@ namespace Game.Models
             Name = newData.Name;
             Description = newData.Description;
             Level = newData.Level;
-            ImageURI = newData.ImageURI;
 
             Difficulty = newData.Difficulty;
 
