@@ -89,9 +89,24 @@ namespace Game.Models
         }
     }
 
+    /// <summary>
+    /// Helper for the Monster Enum Class
+    /// </summary>
+    public static class SpecificMonsterTypeEnumHelper
+    {
+        /// <summary>
+        /// Returns a list of strings of the enum for SpecificMonsterType
+        /// </summary>
+        public static List<string> GetListAll
+        {
+            get
+            {
+                var myList = Enum.GetNames(typeof(SpecificMonsterTypeEnum)).ToList();
+                return myList;
+            }
+        }
 
-
-    private SpecificMonsterTypeEnum(string value) { Value = value; }
+        private SpecificMonsterTypeEnum(string value) { Value = value; }
 
         public string Value { get; set; }
 
