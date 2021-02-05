@@ -495,7 +495,15 @@
                 <Setter Property="VerticalOptions" Value="Fill" />
                 <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
             </Style>
-            
+
+            <Style TargetType="Grid"
+                x:Key="TableGridStyle">
+                <Setter Property="VerticalOptions" Value="Fill" />
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="BackgroundColor" Value="{StaticResource SecondaryBackgroundColor}" />
+                <Setter Property="Padding" Value="3" />
+            </Style>
+
             <!-- Entry -->
             <Style TargetType="Entry"
                 x:Key="EntryStyle">
