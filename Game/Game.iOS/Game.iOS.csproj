@@ -175,7 +175,7 @@
     <BundleResource Include="Resources\squid.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon_save.png" />
+    <BundleResource Include="Resources\icon_save_old.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\parent.png" />
@@ -191,5 +191,8 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\icon_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_save.png" />
   </ItemGroup>
 </Project>
