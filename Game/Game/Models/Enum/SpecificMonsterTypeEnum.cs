@@ -106,6 +106,23 @@ namespace Game.Models
             }
         }
 
+        /// <summary>
+        /// Returns a list of all the strings of the SpecificMonsterTypeEnum
+        /// </summary>
+        public static List<string> GetListMessageAll
+        {
+            get
+            {
+                var list = new List<string>();
+
+                foreach (var item in Enum.GetValues(typeof(SpecificMonsterTypeEnum)))
+                {
+                    list.Add(((SpecificMonsterTypeEnum)item).ToMessage());
+                }
+                return list;
+            }
+        }
+
         private SpecificMonsterTypeEnum(string value) { Value = value; }
 
         public string Value { get; set; }
