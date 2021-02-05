@@ -32,19 +32,20 @@
                     ColumnSpacing="2"
                     VerticalOptions="Center">
 
+
                     <Label Grid.Row="0" Grid.Column="0" 
                         Text="Name" 
                         Style="{StaticResource LabelStyle}"/>
 
-                    <Entry Grid.Row="1" Grid.Column="0" 
+                    <Entry Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
                         Text="{Binding Data.Name}" 
                         Style="{StaticResource EntryStyle}"/>
 
-                    <Label Grid.Row="2" Grid.Column="0"
+                    <Label Grid.Row="2" Grid.Column="0" 
                         Text="Description" 
                         Style="{StaticResource LabelStyle}"/>
 
-                    <Entry Grid.Row="3" Grid.Column="0"
+                    <Entry Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
                         Text="{Binding Data.Description}" 
                         Style="{StaticResource EntryStyle}"/>
 
@@ -52,98 +53,79 @@
                         Text="Monster Type" 
                         Style="{StaticResource LabelStyle}"/>
 
-                    <Picker Grid.Row="5" Grid.Column="0"
+                    <Picker Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
                             ItemsSource="{x:Static local:SpecificMonsterTypeEnumHelper.GetListMessageAllNoUnknown}"                  
                             SelectedItem="{Binding Data.SpecificMonsterTypeEnum, Converter={StaticResource StringEnumConverter}, Mode=TwoWay}"
                             x:Name="MonsterTypePicker">
                     </Picker>
 
-                </Grid>
-
-                    <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="FillAndExpand">
-
-                        <Label 
+                    <Label Grid.Row="6" Grid.Column="0"
                             Text="Attack" 
                             Style="{StaticResource LabelStyle}"/>
 
-                        <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
-
-                        <Label 
+                    <Label Grid.Row="6" Grid.Column="0"
                                 Text="{Binding Data.Attack}" 
-                                x:Name="AttackValue"
                                 Style="{StaticResource ValueStyle}"
                                 Padding="0,0,10,0"
                                 HorizontalOptions="End"
-                                HorizontalTextAlignment="End"/>
+                                HorizontalTextAlignment="End"
+                                x:Name="AttackValue"/>
 
-                        <Slider 
+                    <Slider Grid.Row="6" Grid.Column="1"
                                 Maximum="20" 
                                 Minimum="0"
                                 Margin="30, 5"
                                 ValueChanged="OnSliderChanged"
-                                x:Name="AttackSlider"
-                                Value="{Binding Data.Attack}"/>
+                                Value="{Binding Data.Attack}"
+                                x:Name="AttackSlider"/>
 
-                    </StackLayout>
-
-                        <Label 
+                    <Label Grid.Row="7" Grid.Column="0"
                             Text="Defense"
                             Style="{StaticResource LabelStyle}"/>
 
-                        <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
-                        
-                            <Label 
-                                Text="{Binding Data.Defense}" 
-                                x:Name="DefenseValue"
-                                Style="{StaticResource ValueStyle}"
-                                Padding="0,0,10,0"
-                                HorizontalOptions="End"
-                                HorizontalTextAlignment="End"/>
+                    <Label Grid.Row="7" Grid.Column="0"
+                            Text="{Binding Data.Defense}" 
+                            x:Name="DefenseValue"
+                            Style="{StaticResource ValueStyle}"
+                            Padding="0,0,10,0"
+                            HorizontalOptions="End"
+                            HorizontalTextAlignment="End"/>
 
-                            <Slider 
-                                    Maximum="20" 
-                                    Minimum="0"
-                                    Margin="30, 5"
-                                    ValueChanged="OnSliderChanged"
-                                    x:Name="DefenseSlider"
-                                    Value="{Binding Data.Defense}"/>
+                    <Slider Grid.Row="7" Grid.Column="1"
+                            Maximum="20" 
+                            Minimum="0"
+                            Margin="30, 5"
+                            ValueChanged="OnSliderChanged"
+                            x:Name="DefenseSlider"
+                            Value="{Binding Data.Defense}"/>
 
-                        </StackLayout>
-
-                        <Label 
+                    <Label Grid.Row="8" Grid.Column="0"
                             Text="Speed" 
                             Style="{StaticResource LabelStyle}"/>
 
-                    <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
 
-                        <Label 
-                                Text="{Binding Data.Speed}" 
-                                x:Name="SpeedValue"
-                                Style="{StaticResource ValueStyle}"
-                                Padding="0,0,10,0"
-                                HorizontalOptions="End"
-                                HorizontalTextAlignment="End"/>
+                    <Label Grid.Row="8" Grid.Column="0"
+                            Text="{Binding Data.Speed}" 
+                            x:Name="SpeedValue"
+                            Style="{StaticResource ValueStyle}"
+                            Padding="0,0,10,0"
+                            HorizontalOptions="End"
+                            HorizontalTextAlignment="End"/>
 
-                        <Slider 
-                                Maximum="20" 
-                                Minimum="0"
-                                Margin="30, 5"
-                                ValueChanged="OnSliderChanged"
-                                x:Name="SpeedSlider"
-                                Value="{Binding Data.Speed}"/>
+                    <Slider Grid.Row="8" Grid.Column="1"
+                            Maximum="20" 
+                            Minimum="0"
+                            Margin="30, 5"
+                            ValueChanged="OnSliderChanged"
+                            x:Name="SpeedSlider"
+                            Value="{Binding Data.Speed}"/>
 
-                    </StackLayout>
-
-                    <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,10,10,0">
-
-                        <!-- TODO pull in character's items here-->
-                        <Label 
+                    <Label Grid.Row="9" Grid.Column="0"
                             Text="PLACEHOLDER FOR ITEMS"
                             Style="{StaticResource LabelStyleUpdateText}"/>
 
+                </Grid>
 
-                    </StackLayout>
-                </StackLayout>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
