@@ -67,15 +67,14 @@ namespace Game.Models
                 SpecificMonsterTypeEnum = newData.SpecificMonsterTypeEnum;
             }
 
-            UpdateImageURI(newData);
+            
 
             if (MonsterTypeEnum == MonsterTypeEnum.Administrator && SpecificMonsterTypeEnumHelper.GetAdministratorList.Contains(newData.SpecificMonsterTypeEnum.ToMessage()))
             {
                 SpecificMonsterTypeEnum = newData.SpecificMonsterTypeEnum;
-                // helper for figuring out which image based on CharacterSpecific type
-                UpdateImageURI(newData);
             }
 
+            UpdateImageURI(newData);
             Guid = newData.Guid;
             Name = newData.Name;
             Description = newData.Description;
