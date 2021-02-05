@@ -5,10 +5,40 @@ using System.Linq;
 namespace Game.Models
 {
     /// <summary>
-    /// The player in the round for Monster
+    /// The specific Monster Enums
     /// </summary>
-    public class SpecificMonsterTypeEnum
+    public enum SpecificMonsterTypeEnum
     {
+        // not specified
+        Unknown = 0,
+
+        // Teaching assistant drops Index cards
+        TeachingAssistant = 10,
+
+        // Adjunct faculty has no unique drop item
+        AdjunctFaculty = 20,
+
+        // Assistant professor drops a laptop after a good fight
+        AssitantProfessor = 30,
+
+        // Associate professor is surprisingly not that rich, and drops textbooks
+        AssociateProfessor = 40,
+
+        // Professor lives and dies without dropping any item
+        Professor = 50,
+
+        // HR Administrator drops... financial aid!
+        HRAdministrator = 60, 
+
+        // Registration administrator is not one for dropping anything
+        RegistrationAdministrator = 70,
+
+        // Graduation office administrator drops cap and robe
+        GraduationOfficeAdministrator = 80
+    }
+        
+
+
         private SpecificMonsterTypeEnum(string value) { Value = value; }
 
         public string Value { get; set; }
