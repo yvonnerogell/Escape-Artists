@@ -163,7 +163,7 @@
     <BundleResource Include="Resources\icon_delete_old.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon_edit.png" />
+    <BundleResource Include="Resources\icon_edit_old.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\icon_new.png" />
@@ -188,5 +188,8 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\icon_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_edit.png" />
   </ItemGroup>
 </Project>
