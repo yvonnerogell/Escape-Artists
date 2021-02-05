@@ -22,11 +22,14 @@
                     <Label 
                         Text="{Binding Data.Name}" 
                         Style="{StaticResource HeaderStyle}"/>
-                    <!-- TODO: once Monsters types are completed, change these variables. 
                     <StackLayout Orientation="Horizontal">
                         <Label 
-                            Text="{Binding Data.CharacterTypeEnum}" 
+                            Text="{Binding Data.MonsterTypeEnum}" 
                             Style="{StaticResource LabelStyle}"/>
+                    </StackLayout>
+                    
+                    <!-- TODO: once Monsters types are completed, change these variables. 
+                    <StackLayout Orientation="Horizontal">
                         <Label 
                             Text="- " 
                             Style="{StaticResource LabelStyle}"/>
@@ -35,6 +38,7 @@
                             Style="{StaticResource LabelStyle}"/>
                     </StackLayout>
                     -->
+
 
                     <Label 
                         Text="{Binding Data.Description}" 
