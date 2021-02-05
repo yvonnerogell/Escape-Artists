@@ -47,7 +47,7 @@ namespace Game.Models
         public static string ToMessage(this SpecificMonsterTypeEnum value)
         {
             // Default String
-            var Message = "PlayerType";
+            var Message = "Unknown";
 
             switch (value)
             {
