@@ -62,13 +62,13 @@ namespace Game.Models
             }
 
             // TODO: change this check for each monster for images and MonsterType. (i.e. dication, case states or methods). 
-            if (MonsterTypeEnum == MonsterTypeEnum.Faculty && SpecificMonsterTypeEnum.FacultyList().Contains(newData.SpecificMonsterTypeEnum.Value))
+            if (MonsterTypeEnum == MonsterTypeEnum.Faculty && SpecificMonsterTypeEnumHelper.GetFacultyList.Contains(newData.SpecificMonsterTypeEnum.ToMessage()))
             {
                 SpecificMonsterTypeEnum = newData.SpecificMonsterTypeEnum;
                 //ImageURI = "faculty.png";
             }
 
-            if (MonsterTypeEnum == MonsterTypeEnum.Administrator && SpecificMonsterTypeEnum.AdministratorList().Contains(newData.SpecificMonsterTypeEnum.Value))
+            if (MonsterTypeEnum == MonsterTypeEnum.Administrator && SpecificMonsterTypeEnumHelper.GetAdministratorList.Contains(newData.SpecificMonsterTypeEnum.ToMessage()))
             {
                 SpecificMonsterTypeEnum = newData.SpecificMonsterTypeEnum;
                 //ImageURI = "administrator.png";
