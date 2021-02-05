@@ -147,13 +147,13 @@ namespace Game.Models
         {
             get
             {
-                var list = new List<string>();
+                var myList = new List<string>();
                 myList.Add("Teaching Assistant");
                 myList.Add("Adjunct Faculty");
                 myList.Add("Assistant Professor");
                 myList.Add("Associate Professor");
                 myList.Add("Professor");
-                return list;
+                return myList;
             }
         }
 
