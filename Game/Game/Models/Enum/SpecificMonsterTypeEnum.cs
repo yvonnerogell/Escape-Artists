@@ -123,6 +123,40 @@ namespace Game.Models
             }
         }
 
+        /// <summary>
+        /// Returns a list of Faculty types as SpecificMonsterTypeEnums
+        /// </summary>
+        public static List<string> GetFacultyList
+        {
+            get
+            {
+                var myList = new List<string>();
+                myList.Add("Teaching Assistant");
+                myList.Add("Adjunct Faculty");
+                myList.Add("Assistant Professor");
+                myList.Add("Associate Professor");
+                myList.Add("Professor");
+                return myList;
+            }
+        }
+
+        /// <summary>
+        /// Returns a list of Faculty types as String
+        /// </summary>
+        public static List<string> GetFacultyListMessage
+        {
+            get
+            {
+                var list = new List<string>();
+                myList.Add("Teaching Assistant");
+                myList.Add("Adjunct Faculty");
+                myList.Add("Assistant Professor");
+                myList.Add("Associate Professor");
+                myList.Add("Professor");
+                return list;
+            }
+        }
+
         private SpecificMonsterTypeEnum(string value) { Value = value; }
 
         public string Value { get; set; }
