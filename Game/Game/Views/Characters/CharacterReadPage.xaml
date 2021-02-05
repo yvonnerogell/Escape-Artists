@@ -65,7 +65,7 @@
             </StackLayout>
 
             <StackLayout Style="{StaticResource VerticalStack}">
-                <Grid Style="{StaticResource MapGridStyle}">
+                <Grid Style="{StaticResource TableGridStyle}">
                     <!-- Headers First Row-->
                     <Label 
                         Style="{StaticResource GridLabelStyle}"
