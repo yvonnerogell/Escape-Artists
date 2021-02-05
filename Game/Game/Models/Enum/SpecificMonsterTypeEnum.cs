@@ -157,6 +157,36 @@ namespace Game.Models
             }
         }
 
+        /// <summary>
+        /// Returns a list of Administrator types as SpecificMonsterTypeEnums
+        /// </summary>
+        public static List<string> GetAdministratorList
+        {
+            get
+            {
+                var myList = new List<string>();
+                myList.Add("HR Administrator");
+                myList.Add("Registration Administrator");
+                myList.Add("Graduation Office Administrator");
+                return myList;
+            }
+        }
+
+        /// <summary>
+        /// Returns a list of Administrator types as String
+        /// </summary>
+        public static List<string> GetAdministratorListMessage
+        {
+            get
+            {
+                var myList = new List<string>();
+                myList.Add("HR Administrator");
+                myList.Add("Registration Administrator");
+                myList.Add("Graduation Office Administrator");
+                return myList;
+            }
+        }
+
         private SpecificMonsterTypeEnum(string value) { Value = value; }
 
         public string Value { get; set; }
