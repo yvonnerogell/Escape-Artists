@@ -136,6 +136,7 @@
     <Content Include="icon_cancel.png" />
     <Content Include="icon_cancel_old.png" />
     <Content Include="icon_delete.png" />
+    <Content Include="icon_delete_old.png" />
     <Content Include="icon_edit.png" />
     <Content Include="icon_new.png" />
     <Content Include="icon_save.png" />
