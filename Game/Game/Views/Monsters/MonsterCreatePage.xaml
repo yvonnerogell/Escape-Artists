@@ -54,7 +54,7 @@
 
                     <!-- TODO update Binding Data.Name to Binding Data.SpecificMonsterType once MonsterModel has been updated -->
                     <Picker Grid.Row="5" Grid.Column="0"
-                              ItemsSource="{x:Static local:SpecificMonsterTypeEnumHelper.GetListMessageAll}"
+                              ItemsSource="{x:Static local:SpecificMonsterTypeEnumHelper.GetListMessageAllNoUnknown}"
                             SelectedItem="{Binding Data.SpecificMonsterTypeEnum, Converter={StaticResource StringEnumConverter}, Mode=TwoWay}"
                           
                             x:Name="MonsterTypePicker"/>

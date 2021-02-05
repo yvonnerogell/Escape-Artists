@@ -124,6 +124,24 @@ namespace Game.Models
         }
 
         /// <summary>
+        /// Returns a list of all the strings of the SpecificMonsterTypeEnum
+        /// </summary>
+        public static List<string> GetListMessageAllNoUnknown
+        {
+            get
+            {
+                var list = new List<string>();
+
+                foreach (var item in Enum.GetValues(typeof(SpecificMonsterTypeEnum)))
+                {
+                    list.Add(((SpecificMonsterTypeEnum)item).ToMessage());
+                }
+                list.Remove(SpecificMonsterTypeEnum.Unknown.ToString());
+                return list;
+            }
+        }
+
+        /// <summary>
         /// Returns a list of Faculty types as SpecificMonsterTypeEnums
         /// </summary>
         public static List<string> GetFacultyList
