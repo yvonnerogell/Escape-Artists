@@ -68,6 +68,17 @@ namespace Game.Models
                 CharacterTypeEnum = newData.CharacterTypeEnum;
             }
 
+            // Updates each Character by SpecificMonsterType Enum 
+            if (CharacterTypeEnum == CharacterTypeEnum.Student && SpecificCharacterTypeEnumHelper.GetStudentList.Contains(newData.SpecificCharacterTypeEnum.ToMessage()))
+            {
+                SpecificCharacterTypeEnum = newData.SpecificCharacterTypeEnum;
+            }
+
+            if (CharacterTypeEnum == CharacterTypeEnum.Parent && SpecificCharacterTypeEnumHelper.GetParentList.Contains(newData.SpecificCharacterTypeEnum.ToMessage()))
+            {
+                SpecificCharacterTypeEnum = newData.SpecificCharacterTypeEnum;
+            }
+
             // helper for figuring out which image based on CharacterSpecific type
             UpdateImageURI(newData);
 
