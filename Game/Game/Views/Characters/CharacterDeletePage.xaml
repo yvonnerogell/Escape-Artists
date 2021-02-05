@@ -26,14 +26,39 @@
                 Style="{StaticResource HorizontalCenterStack}"
                 VerticalOptions="Center">
                 <Label 
+                    Text="Name: " 
+                    Style="{StaticResource LabelStyle}"/>
+                <Label 
                     Text="{Binding Data.Name}" 
-                    Style="{StaticResource HeaderStyle}"/>
+                    Style="{StaticResource LabelStyle}"/>
+            </StackLayout>
+
+            <StackLayout 
+                Style="{StaticResource HorizontalCenterStack}"
+                VerticalOptions="Center">
                 <Label 
-                   Text=", " 
-                    Style="{StaticResource HeaderStyle}"/>
+                    Text="Type: " 
+                    Style="{StaticResource LabelStyle}"/>
                 <Label 
-                   Text="{Binding Data.Level}" 
-                    Style="{StaticResource HeaderStyle}"/>
+                    Text="{Binding Data.CharacterTypeEnum}" 
+                    Style="{StaticResource LabelStyle}"/>
+                <Label 
+                    Text=" - " 
+                    Style="{StaticResource LabelStyle}"/>
+                <Label 
+                    Text="{Binding Data.SpecificCharacterTypeEnum}" 
+                    Style="{StaticResource LabelStyle}"/>
+            </StackLayout>
+
+            <StackLayout 
+                Style="{StaticResource HorizontalCenterStack}"
+                VerticalOptions="Center">
+                <Label 
+                    Text="Level: " 
+                    Style="{StaticResource LabelStyle}"/>
+                <Label 
+                    Text="{Binding Data.Level}" 
+                    Style="{StaticResource LabelStyle}"/>
             </StackLayout>
 
             <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}"/>

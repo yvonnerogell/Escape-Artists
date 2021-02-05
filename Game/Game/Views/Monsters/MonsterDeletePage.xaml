@@ -26,8 +26,33 @@
                 Style="{StaticResource HorizontalCenterStack}"
                 VerticalOptions="Center">
                 <Label 
+                    Text="Name: " 
+                    Style="{StaticResource LabelStyle}"/>
+                <Label 
                     Text="{Binding Data.Name}" 
-                    Style="{StaticResource HeaderStyle}"/>
+                    Style="{StaticResource LabelStyle}"/>
+            </StackLayout>
+            
+            <StackLayout 
+                Style="{StaticResource HorizontalCenterStack}"
+                VerticalOptions="Center">
+                <Label 
+                    Text="Type: " 
+                    Style="{StaticResource LabelStyle}"/>
+                <Label 
+                    Text="{Binding Data.MonsterTypeEnum}" 
+                    Style="{StaticResource LabelStyle}"/>
+            </StackLayout>
+
+            <StackLayout 
+                Style="{StaticResource HorizontalCenterStack}"
+                VerticalOptions="Center">
+                <Label 
+                    Text="Difficulty: " 
+                    Style="{StaticResource LabelStyle}"/>
+                <Label 
+                    Text="{Binding Data.Difficulty}" 
+                    Style="{StaticResource LabelStyle}"/>
             </StackLayout>
 
             <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}"/>
