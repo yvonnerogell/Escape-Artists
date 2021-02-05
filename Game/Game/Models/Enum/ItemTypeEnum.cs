@@ -131,4 +131,39 @@ namespace Game.Models
         }
     }
 
+    /// <summary>
+    /// Helper for the Enum Class
+    /// </summary>
+    public static class ItemTypeEnumHelper
+    {
+        /// <summary>
+        /// Returns a list of strings of the enum for ItemTypeEnum
+        /// </summary>
+        public static List<string> GetListAll
+        {
+            get
+            {
+                var myList = Enum.GetNames(typeof(ItemTypeEnum)).ToList();
+                return myList;
+            }
+        }
+
+        /// <summary>
+        /// Returns a list of Full strings of the enum for ItemTypeEnum
+        /// </summary>
+        public static List<string> GetListMessageAll
+        {
+            get
+            {
+                var list = new List<string>();
+
+                foreach (var item in Enum.GetValues(typeof(ItemTypeEnum)))
+                {
+                    list.Add(((ItemTypeEnum)item).ToMessage());
+                }
+                return list;
+            }
+        }
+
+    }
 }
