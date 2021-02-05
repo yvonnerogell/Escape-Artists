@@ -61,7 +61,7 @@ namespace Game.Models
                MonsterTypeEnum = newData.MonsterTypeEnum;
             }
 
-            // TODO: change this check for each monster for images and MonsterType. (i.e. dication, case states or methods). 
+            // Updates each Monster by SpecificMonsterType Enum 
             if (MonsterTypeEnum == MonsterTypeEnum.Faculty && SpecificMonsterTypeEnumHelper.GetFacultyList.Contains(newData.SpecificMonsterTypeEnum.ToMessage()))
             {
                 SpecificMonsterTypeEnum = newData.SpecificMonsterTypeEnum;
