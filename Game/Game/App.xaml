@@ -203,7 +203,16 @@
                 <Setter Property="HorizontalTextAlignment" Value="Center" />
                 <Setter Property="HorizontalOptions" Value="Center" />
             </Style>
-            
+
+            <!-- Slider -->
+            <Style TargetType="Slider"
+                   x:Key="SliderStyle">
+                <Setter Property="MinimumTrackColor" Value="Black"/>
+                <Setter Property="MaximumTrackColor" Value="Black"/>
+                <Setter Property="Margin" Value="30, 5"/>
+            </Style>
+
+
             <!-- Image -->
             <Style TargetType="Image"
                 x:Key="ImageLargeStyle">
