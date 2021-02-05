@@ -39,6 +39,12 @@
                     </StackLayout>
                     -->
 
+                    <Label 
+                        Text="{Binding Data.Description}" 
+                        Style="{StaticResource LabelStyle}"
+                        LineBreakMode="WordWrap"
+                        MaxLines="2"/>
+
                     <StackLayout Orientation="Horizontal">
                         <Label 
                             Text="Difficulty: " 
@@ -49,11 +55,6 @@
                     </StackLayout>
 
 
-                    <Label 
-                        Text="{Binding Data.Description}" 
-                        Style="{StaticResource LabelStyle}"
-                        LineBreakMode="WordWrap"
-                        MaxLines="2"/>
                     <!-- TODO: Complete once Monster Model is complete 
                     <StackLayout Orientation="Horizontal">
                         <Label 
