@@ -157,7 +157,7 @@
     <BundleResource Include="Resources\icon_add.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\icon_cancel.png" />
+    <BundleResource Include="Resources\icon_cancel_old.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\icon_delete.png" />
@@ -182,5 +182,8 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\student.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_cancel.png" />
   </ItemGroup>
 </Project>
