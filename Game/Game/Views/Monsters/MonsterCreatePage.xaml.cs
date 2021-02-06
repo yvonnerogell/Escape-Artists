@@ -74,42 +74,38 @@ namespace Game.Views.Monsters
 
         public string GetImageURI()
 		{
-            var monsterType = ViewModel.Data.SpecificMonsterTypeEnum.ToMessage();
+            var monsterType = ViewModel.Data.SpecificMonsterTypeEnum;
             var imageURI = Constants.SpecificMonsterTypeDefaultImageURI;
 
             // Change image based on type selected. 
             // Had to do an if statement instead of switch because switch statements cannot have evaluated statements as case statements. 
-            if (monsterType == SpecificMonsterTypeEnum.AdjunctFaculty.ToMessage())
+
+            switch (monsterType)
 			{
-                imageURI = Constants.SpecificMonsterTypeAdjunctFacultyImageURI;
-            }
-            else if (monsterType == SpecificMonsterTypeEnum.AssistantProfessor.ToMessage())
-			{
-                imageURI = Constants.SpecificMonsterTypeAssistantProfessorImageURI;
-            }
-            else if (monsterType == SpecificMonsterTypeEnum.AssociateProfessor.ToMessage())
-            {
-                imageURI = Constants.SpecificMonsterTypeAssociateProfessorImageURI;
-            }
-            else if (monsterType == SpecificMonsterTypeEnum.GraduationOfficeAdministrator.ToMessage())
-            {
-                imageURI = Constants.SpecificMonsterTypeGraduationOfficeAdministratorImageURI;
-            }
-            else if (monsterType == SpecificMonsterTypeEnum.HRAdministrator.ToMessage())
-            {
-                imageURI = Constants.SpecificMonsterTypeHRAdministratorImageURI;
-            }
-            else if (monsterType == SpecificMonsterTypeEnum.Professor.ToMessage())
-            {
-                imageURI = Constants.SpecificMonsterTypeProfessorImageURI;
-            }
-            else if (monsterType == SpecificMonsterTypeEnum.RegistrationAdministrator.ToMessage())
-            {
-                imageURI = Constants.SpecificMonsterTypeRegistrationAdministratorImageURI;
-            }
-            else if (monsterType == SpecificMonsterTypeEnum.TeachingAssistant.ToMessage())
-            {
-                imageURI = Constants.SpecificMonsterTypeTeachingAssistantImageURI;
+                case SpecificMonsterTypeEnum.AdjunctFaculty:
+                    imageURI = Constants.SpecificMonsterTypeAdjunctFacultyImageURI;
+                    break;
+                case SpecificMonsterTypeEnum.AssistantProfessor:
+                    imageURI = Constants.SpecificMonsterTypeAssistantProfessorImageURI;
+                    break;
+                case SpecificMonsterTypeEnum.AssociateProfessor:
+                    imageURI = Constants.SpecificMonsterTypeAssociateProfessorImageURI;
+                    break;
+                case SpecificMonsterTypeEnum.GraduationOfficeAdministrator:
+                    imageURI = Constants.SpecificMonsterTypeGraduationOfficeAdministratorImageURI;
+                    break;
+                case SpecificMonsterTypeEnum.HRAdministrator:
+                    imageURI = Constants.SpecificMonsterTypeHRAdministratorImageURI;
+                    break;
+                case SpecificMonsterTypeEnum.Professor:
+                    imageURI = Constants.SpecificMonsterTypeProfessorImageURI;
+                    break;
+                case SpecificMonsterTypeEnum.RegistrationAdministrator:
+                    imageURI = Constants.SpecificMonsterTypeRegistrationAdministratorImageURI;
+                    break;
+                case SpecificMonsterTypeEnum.TeachingAssistant:
+                    imageURI = Constants.SpecificMonsterTypeTeachingAssistantImageURI;
+                    break;
             }
 
             return imageURI;
