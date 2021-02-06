@@ -6,6 +6,7 @@ using System.ComponentModel;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Game.Helpers;
 
 namespace Game.Views.Monsters
 {
@@ -44,11 +45,21 @@ namespace Game.Views.Monsters
         /// <param name="e"></param>
         public async void Save_Clicked(object sender, EventArgs e)
         {
+            ViewModel.Data.PlayerType = PlayerTypeEnum.Monster;
             ViewModel.Data.ImageURI = GetImageURI();
+            ViewModel.Data.SpecificMonsterTypeEnum = SpecificMonsterTypeEnumHelper.ConvertMessageStringToEnum(MonsterTypePicker.SelectedItem.ToString());
+            ViewModel.Data.MonsterTypeEnum = GetMonsterTypeFromSpecificMonsterTypeEnum();
+
+            // TODO Unique Drop item - do we want to randomly assign one here?
 
             MessagingCenter.Send(this, "Create", ViewModel.Data);
             await Navigation.PopModalAsync();
         }
+
+        public MonsterTypeEnum GetMonsterTypeFromSpecificMonsterTypeEnum()
+		{
+            return MonsterTypeEnum.Unknown;
+		}
 
 
         /// <summary>
