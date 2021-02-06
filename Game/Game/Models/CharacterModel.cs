@@ -150,43 +150,44 @@ namespace Game.Models
             {
 
                 case SpecificCharacterTypeEnum.SmartyPants:
-                    ImageURI = "student.png";
+                    ImageURI = Constants.SpecificCharacterTypeSmartyPantsImageURI;
                     break;
 
                 case SpecificCharacterTypeEnum.Overachiever:
-                    ImageURI = "student.png";
+                    ImageURI = Constants.SpecificCharacterTypeOverachieverImageURI;
                     break;
 
                 case SpecificCharacterTypeEnum.InternationalStudent:
-                    ImageURI = "student.png";
+                    ImageURI = Constants.SpecificCharacterTypeInternationalStudentImageURI;
                     break;
 
                 case SpecificCharacterTypeEnum.Prodigy:
-                    ImageURI = "student.png";
+                    ImageURI = Constants.SpecificCharacterTypeProdigyImageURI;
                     break;
 
                 case SpecificCharacterTypeEnum.SecondCareer:
-                    ImageURI = "student.png";
+                    ImageURI = Constants.SpecificCharacterTypeSecondCareerImageURI;
                     break;
 
                 case SpecificCharacterTypeEnum.Slacker:
-                    ImageURI = "student.png";
+                    ImageURI = Constants.SpecificCharacterTypeSlackerImageURI;
                     break;
 
                 case SpecificCharacterTypeEnum.Procrastinator:
-                    ImageURI = "student.png";
+                    ImageURI = Constants.SpecificCharacterTypeProcrastinatorImageURI;
                     break;
 
                 case SpecificCharacterTypeEnum.HelicopterParent:
-                    ImageURI = "parent.png";
+                    ImageURI = Constants.SpecificCharacterTypeHelicopterParentImageURI;
                     break;
 
                 case SpecificCharacterTypeEnum.CoolParent:
-                    ImageURI = "parent.png";
+                    ImageURI = Constants.SpecificCharacterTypeCoolParentImageURI;
                     break;
 
                 case SpecificCharacterTypeEnum.Unknown:
                 default:
+                    ImageURI = Constants.SpecificCharacterTypeDefaultImageURI;
                     break;
             }
         }
