@@ -131,39 +131,36 @@ namespace Game.Models
             {
 
                 case SpecificMonsterTypeEnum.TeachingAssistant:
-                    ImageURI = "squid.jpg";
+                    ImageURI = Constants.SpecificMonsterTypeTeachingAssistantImageURI;
                     break;
 
                 case SpecificMonsterTypeEnum.AdjunctFaculty:
-                    ImageURI = "squid.jpg";
+                    ImageURI = Constants.SpecificMonsterTypeAdjunctFacultyImageURI;
                     break;
 
                 case SpecificMonsterTypeEnum.AssistantProfessor:
-                    ImageURI = "squid.jpg";
+                    ImageURI = Constants.SpecificMonsterTypeAssistantProfessorImageURI;
                     break;
 
                 case SpecificMonsterTypeEnum.AssociateProfessor:
-                    ImageURI = "squid.jpg";
+                    ImageURI = Constants.SpecificMonsterTypeAssistantProfessorImageURI;
                     break;
 
                 case SpecificMonsterTypeEnum.Professor:
-                    ImageURI = "squid.jpg";
+                    ImageURI = Constants.SpecificMonsterTypeProfessorImageURI;
                     break;
 
                 case SpecificMonsterTypeEnum.HRAdministrator:
-                    ImageURI = "squid.jpg";
+                    ImageURI = Constants.SpecificMonsterTypeHRAdministratorImageURI;
                     break;
 
                 case SpecificMonsterTypeEnum.RegistrationAdministrator:
-                    ImageURI = "squid.jpg";
+                    ImageURI = Constants.SpecificMonsterTypeRegistrationAdministratorImageURI;
                     break;
 
                 case SpecificMonsterTypeEnum.GraduationOfficeAdministrator:
-                    ImageURI = "squid.jpg";
+                    ImageURI = Constants.SpecificMonsterTypeGraduationOfficeAdministratorImageURI;
                     break;
-
-
-
             }
         }
     }
