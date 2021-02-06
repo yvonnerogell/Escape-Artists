@@ -43,8 +43,8 @@
 
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
 
-                                <Label Text="Level " HorizontalTextAlignment="Center"/>
-                                <Label Text="{Binding Level}" HorizontalTextAlignment="Center" LineBreakMode="NoWrap" />
+                                <Label Text="Difficulty: " HorizontalTextAlignment="Center"/>
+                                <Label Text="{Binding Difficulty}" HorizontalTextAlignment="Center" LineBreakMode="NoWrap" />
 
                             </StackLayout>
 
