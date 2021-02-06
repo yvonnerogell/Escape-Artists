@@ -69,17 +69,22 @@ namespace Game.Views.Monsters
         /// <param name="e"></param>
         public void OnSliderChanged(object sender, ValueChangedEventArgs e)
         {
+            var newValue = (int)e.NewValue;
+            var newValueStr = String.Format("{0}", newValue);
             if (sender == AttackSlider)
 			{
-                AttackValue.Text = String.Format("{0}", (int)e.NewValue);
-			}
+                AttackValue.Text = newValueStr;
+                AttackSlider.Value = newValue;
+            }
             if (sender == DefenseSlider)
             {
-                DefenseValue.Text = String.Format("{0}", (int)e.NewValue);
+                DefenseValue.Text = newValueStr;
+                DefenseSlider.Value = newValue;
             }
             if (sender == SpeedSlider)
             {
-                SpeedValue.Text = String.Format("{0}", (int)e.NewValue);
+                SpeedValue.Text = newValueStr;
+                SpeedSlider.Value = newValue;
             }
         }
 
