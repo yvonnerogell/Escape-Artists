@@ -33,5 +33,19 @@ namespace Game
         public static string SpecificMonsterTypeRegistrationAdministratorImageURI = "squid.jpg";
         public static string SpecificMonsterTypeGraduationOfficeAdministratorImageURI = "squid.jpg";
         public static string SpecificMonsterTypeAssociateProfessorImageURI = "squid.jpg";
+
+        // Student Character Types
+        public static string SpecificCharacterTypeDefaultImageURI = "student.png";
+        public static string SpecificCharacterTypeSmartyPantsImageURI = "student.png";
+        public static string SpecificCharacterTypeOverachieverImageURI = "student.png";
+        public static string SpecificCharacterTypeInternationalStudentImageURI = "student.png";
+        public static string SpecificCharacterTypeProdigyImageURI = "student.png";
+        public static string SpecificCharacterTypeSecondCareerImageURI = "student.png";
+        public static string SpecificCharacterTypeSlackerImageURI = "student.png";
+        public static string SpecificCharacterTypeProcrastinatorImageURI = "student.png";
+
+        // Parent Character Types
+        public static string SpecificCharacterTypeHelicopterParentImageURI = "parent.png";
+        public static string SpecificCharacterTypeCoolParentImageURI = "parent.png";
     }
 }
