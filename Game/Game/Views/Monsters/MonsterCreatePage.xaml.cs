@@ -56,11 +56,6 @@ namespace Game.Views.Monsters
             await Navigation.PopModalAsync();
         }
 
-        public MonsterTypeEnum GetMonsterTypeFromSpecificMonsterTypeEnum()
-		{
-            return MonsterTypeEnum.Unknown;
-		}
-
 
         /// <summary>
         /// Changes the slider value for the appropriate slider (attack, defense, speed)
