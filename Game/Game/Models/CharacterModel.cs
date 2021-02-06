@@ -25,7 +25,7 @@ namespace Game.Models
             Name = null;
             Description = null;
             Level = 1;
-            ImageURI = null;
+            ImageURI = "student.png";
             ExperienceTotal = 0;
             ExperienceRemaining = LevelTableHelper.LevelDetailsList[Level + 1].Experience - 1;
             Feet = null;
