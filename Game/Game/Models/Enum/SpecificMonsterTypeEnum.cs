@@ -124,7 +124,7 @@ namespace Game.Models
         }
 
         /// <summary>
-        /// Returns a list of all the strings of the SpecificMonsterTypeEnum
+        /// Returns a list of all the friendly strings of the SpecificMonsterTypeEnum, except the Unknown enum.
         /// </summary>
         public static List<string> GetListMessageAllNoUnknown
         {
@@ -233,7 +233,7 @@ namespace Game.Models
         }
 
         /// <summary>
-        /// Given the Full String for an enum, return its value
+        /// Given a SpecificMonsterTypeEnum, returns the corresponding MonsterTypeEnum.
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
