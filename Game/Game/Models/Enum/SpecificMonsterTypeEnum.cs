@@ -231,6 +231,32 @@ namespace Game.Models
             }
             return SpecificMonsterTypeEnum.Unknown;
         }
+
+        /// <summary>
+        /// Given the Full String for an enum, return its value
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static MonsterTypeEnum GetMonsterTypeEnumFromSpecificMonsterTypeEnum(SpecificMonsterTypeEnum specificMonsterType)
+        {
+            var result = MonsterTypeEnum.Unknown;
+            switch (specificMonsterType)
+			{
+                case SpecificMonsterTypeEnum.AdjunctFaculty:
+                case SpecificMonsterTypeEnum.AssistantProfessor:
+                case SpecificMonsterTypeEnum.AssociateProfessor:
+                case SpecificMonsterTypeEnum.Professor:
+                case SpecificMonsterTypeEnum.TeachingAssistant:
+                    result = MonsterTypeEnum.Faculty;
+                    break;
+                case SpecificMonsterTypeEnum.GraduationOfficeAdministrator:
+                case SpecificMonsterTypeEnum.HRAdministrator:
+                case SpecificMonsterTypeEnum.RegistrationAdministrator:
+                    result = MonsterTypeEnum.Administrator;
+                    break;
+			}
+            return result;
+        }
     }
 
 }

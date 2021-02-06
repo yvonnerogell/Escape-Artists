@@ -48,7 +48,7 @@ namespace Game.Views.Monsters
             ViewModel.Data.PlayerType = PlayerTypeEnum.Monster;
             ViewModel.Data.ImageURI = GetImageURI();
             ViewModel.Data.SpecificMonsterTypeEnum = SpecificMonsterTypeEnumHelper.ConvertMessageStringToEnum(MonsterTypePicker.SelectedItem.ToString());
-            ViewModel.Data.MonsterTypeEnum = GetMonsterTypeFromSpecificMonsterTypeEnum();
+            ViewModel.Data.MonsterTypeEnum = SpecificMonsterTypeEnumHelper.GetMonsterTypeEnumFromSpecificMonsterTypeEnum(ViewModel.Data.SpecificMonsterTypeEnum);
 
             // TODO Unique Drop item - do we want to randomly assign one here?
 
