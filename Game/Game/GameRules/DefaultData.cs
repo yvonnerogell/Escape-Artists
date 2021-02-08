@@ -56,13 +56,13 @@ namespace Game.GameRules
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
-                    Name = "I5",
-                    Description = "I5",
+                    Name = ItemTypeEnum.Calculator.ToMessage(),
+                    Description = "Avoid doing math in your head.",
                     ImageURI = "item.png",
                     Range = 10,
                     Damage = 10,
-                    Value = 9,
-                    Location = ItemLocationEnum.Finger,
+                    Value = 5,
+                    Location = ItemLocationEnum.LeftFinger,
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
