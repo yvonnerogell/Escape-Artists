@@ -18,7 +18,7 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <local_helpers:StringEnumConverter x:Key="StringEnum"/>
+            <local_helpers:SpecificCharacterTypeEnumConverter x:Key="SpecificCharacterTypeEnumConverter"/>
         </ResourceDictionary>
     </ContentPage.Resources>
     
@@ -60,21 +60,12 @@
                         Text="Character Type" 
                         Style="{StaticResource LabelStyle}"/>
 
-                <Picker Grid.Row="2" Grid.Column="1">
-                    <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                      <x:String>Smarty Pants</x:String>
-                      <x:String>Overachiever</x:String>
-                      <x:String>International Student</x:String>
-                      <x:String>Prodigy</x:String>
-                      <x:String>Second Career</x:String>
-                      <x:String>Slacker</x:String>
-                      <x:String>Procrastinator</x:String>
-                      <x:String>Helicopter Parent</x:String>
-                      <x:String>Cool Parent</x:String>
-                    </x:Array>
-                  </Picker.ItemsSource>
-                    </Picker>
+                <Picker Grid.Row="2" Grid.Column="1" 
+                        ItemsSource="{x:Static local:SpecificCharacterTypeEnumHelper.GetListMessageAll}"                  
+                        x:Name="CharacterTypePicker" >
+                        <Picker.SelectedItem>"{Binding Data.SpecificCharacterType, Converter={StaticResource SpecificCharacterTypeEnumConverter}, Mode=TwoWay}"</Picker.SelectedItem>
+                    <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                </Picker>
 
                 <Label Grid.Row="3" Grid.Column="0"
                         Text="Levels" 
