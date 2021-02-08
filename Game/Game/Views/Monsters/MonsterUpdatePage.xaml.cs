@@ -66,11 +66,6 @@ namespace Game.Views
             var newValue = (int)e.NewValue;
             var newValueStr = String.Format("{0}", newValue);
 
-            if (sender == LevelSlider)
-            {
-                LevelValue.Text = newValueStr;
-                LevelSlider.Value = newValue;
-            }
             if (sender == AttackSlider)
             {
                 AttackValue.Text = newValueStr;

@@ -59,22 +59,20 @@
                     <!-- TODO: Change Steppers to something that looks better on Android. -->
 
                     <Label Grid.Row="3" Grid.Column="0"
-                            Text="Level"
+                            Text="Difficulty"
                             Style="{StaticResource LabelStyleUpdateText}"/>
 
                     <Label Grid.Row="3" Grid.Column="0"
-                            Text="{Binding Data.Level}" 
-                            x:Name="LevelValue"
+                            Text="{Binding Data.Difficulty}" 
+                            x:Name="DifficultyLevel"
                             Style="{StaticResource LabelStyleUpdateValue}"/>
 
-                    <Slider Grid.Row="3" 
-                            Grid.Column="1" 
-                            Maximum="20" 
-                            Minimum="1"
-                            Style="{StaticResource SliderStyle}"
-                            ValueChanged="OnSliderChanged"
-                            x:Name="LevelSlider"
-                            Value="{Binding Data.Level}"/> 
+                    <Picker Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"
+                            ItemsSource="{x:Static local:DifficultyEnumHelper.GetListAll}"                  
+                            x:Name="DifficultyLevelPicker" >
+                        <Picker.SelectedItem>"{Binding Data.Difficulty, Converter={StaticResource DifficultyEnum}, Mode=TwoWay}"</Picker.SelectedItem>
+                        <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                    </Picker>
 
 
                     <Label Grid.Row="4" Grid.Column="0"
