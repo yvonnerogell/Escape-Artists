@@ -119,6 +119,11 @@
                         Grid.Column="0"
                         Grid.Row="5"
                         Text="Damage" />
+                    <Label 
+                        Style="{StaticResource GridLabelStyle}"
+                        Grid.Column="0"
+                        Grid.Row="6"
+                        Text="GPA" />
 
                     <!-- TODO: Data-->
                     <Label 
@@ -141,6 +146,16 @@
                         Grid.Column="1"
                         Grid.Row="4"
                         Text="{Binding Data.MaxHealth}" />
+                    <Label 
+                        Style="{StaticResource GridLabelStyle}"
+                        Grid.Column="1"
+                        Grid.Row="5"
+                        Text="{Binding Data.Damage}" />
+                    <Label 
+                        Style="{StaticResource GridLabelStyle}"
+                        Grid.Column="1"
+                        Grid.Row="6"
+                        Text="{Binding Data.GPA}" />
 
                 </Grid>
             </StackLayout>
