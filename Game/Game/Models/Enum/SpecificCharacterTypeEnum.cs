@@ -245,6 +245,33 @@ namespace Game.Models
             }
             return SpecificCharacterTypeEnum.Unknown;
         }
+
+        /// <summary>
+        /// Given a SpecificCharacterTypeEnum, returns the corresponding CharacterTypeEnum.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static CharacterTypeEnum GetCharacterTypeEnumFromSpecificCharacterTypeEnum(SpecificCharacterTypeEnum specificCharacterType)
+        {
+            var result = CharacterTypeEnum.Unknown;
+            switch (specificCharacterType)
+            {
+                case SpecificCharacterTypeEnum.CoolParent:
+                case SpecificCharacterTypeEnum.HelicopterParent:
+                    result = CharacterTypeEnum.Parent;
+                    break;
+                case SpecificCharacterTypeEnum.InternationalStudent:
+                case SpecificCharacterTypeEnum.Overachiever:
+                case SpecificCharacterTypeEnum.Procrastinator:
+                case SpecificCharacterTypeEnum.Prodigy:
+                case SpecificCharacterTypeEnum.SecondCareer:
+                case SpecificCharacterTypeEnum.Slacker:
+                case SpecificCharacterTypeEnum.SmartyPants:
+                    result = CharacterTypeEnum.Student;
+                    break;
+            }
+            return result;
+        }
     }
 
 }
