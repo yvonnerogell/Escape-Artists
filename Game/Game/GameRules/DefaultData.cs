@@ -75,6 +75,16 @@ namespace Game.GameRules
                     Location = ItemLocationEnum.Necklace,
                     Attribute = AttributeEnum.Attack
                 },
+                new ItemModel {
+                    Name = ItemTypeEnum.FoodCourtCard.ToMessage(),
+                    Description = "Don’t run out of fuel.",
+                    ImageURI = "item.png",
+                    Range = 10,
+                    Damage = 10,
+                    Value = 5,
+                    Location = ItemLocationEnum.Necklace,
+                    Attribute = AttributeEnum.Attack
+                },
             };
 
             for (int i = 0; i < 20; i++)
