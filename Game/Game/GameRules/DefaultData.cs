@@ -97,12 +97,22 @@ namespace Game.GameRules
                 },
                 new ItemModel {
                     Name = ItemTypeEnum.PrivateTutor.ToMessage(),
-                    Description = "Get expert homework help. ",
+                    Description = "Get expert homework help.",
                     ImageURI = "item.png",
                     Range = 10,
                     Damage = 10,
-                    Value = 100,
+                    Value = 10,
                     Location = ItemLocationEnum.Necklace,
+                    Attribute = AttributeEnum.Attack
+                },
+                new ItemModel {
+                    Name = ItemTypeEnum.FinancialAid.ToMessage(),
+                    Description = "Get some financial help.",
+                    ImageURI = "item.png",
+                    Range = 10,
+                    Damage = 10,
+                    Value = 40,
+                    Location = ItemLocationEnum.OffHand,
                     Attribute = AttributeEnum.Attack
                 },
             };
