@@ -74,6 +74,11 @@ namespace Game.Views.Characters
                 LevelValue.Text = newValueStr;
                 LevelSlider.Value = newValue;
             }
+            if (sender == AttackSlider)
+            {
+                AttackValue.Text = newValueStr;
+                AttackSlider.Value = newValue;
+            }
         }
     }
 }

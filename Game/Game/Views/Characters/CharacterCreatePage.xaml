@@ -86,12 +86,32 @@
                             ValueChanged="OnSliderChanged"
                             Value="{Binding Data.Level}"
                             x:Name="LevelSlider"/>
-                       
+
+                <Label Grid.Row="4" Grid.Column="0"
+                        Text="Attack" 
+                        Style="{StaticResource LabelStyle}"/>
+
+                <Label Grid.Row="4" Grid.Column="0"
+                            Text="{Binding Data.Attack}" 
+                            Style="{StaticResource ValueStyle}"
+                            Padding="0,0,10,0"
+                            HorizontalOptions="End"
+                            HorizontalTextAlignment="End"
+                            x:Name="AttackValue"/>
+
+                <Slider Grid.Row="4" Grid.Column="1"
+                            Maximum="20" 
+                            Minimum="0"
+                            Style="{StaticResource SliderStyle}"
+                            ValueChanged="OnSliderChanged"
+                            Value="{Binding Data.Attack}"
+                            x:Name="AttackSlider"/>
 
 
 
 
-            </Grid>
+
+                </Grid>
             
           
             
