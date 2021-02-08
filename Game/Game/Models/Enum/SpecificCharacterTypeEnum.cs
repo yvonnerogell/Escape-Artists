@@ -141,6 +141,24 @@ namespace Game.Models
         }
 
         /// <summary>
+        /// Returns a list of all the friendly strings of the SpecificCharacterTypeEnum, except the Unknown enum.
+        /// </summary>
+        public static List<string> GetListMessageAllNoUnknown
+        {
+            get
+            {
+                var list = new List<string>();
+
+                foreach (var item in Enum.GetValues(typeof(SpecificCharacterTypeEnum)))
+                {
+                    list.Add(((SpecificCharacterTypeEnum)item).ToMessage());
+                }
+                list.Remove(SpecificCharacterTypeEnum.Unknown.ToString());
+                return list;
+            }
+        }
+
+        /// <summary>
         /// Returns a list of strings of the enum for Student SpecificCharacterType
         /// </summary>
         public static List<string> GetStudentList
