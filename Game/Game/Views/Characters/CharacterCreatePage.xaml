@@ -54,7 +54,7 @@
                     Style="{StaticResource LabelStyle}"/>
 
                 <Entry Grid.Row="1" Grid.Column="1"
-                       Placeholder="New description."
+                       Placeholder="New Character Description"
                        PlaceholderColor="LightGray"
                        Text="{Binding Data.Description}" 
                        Style="{StaticResource EntryStyle}"/>
