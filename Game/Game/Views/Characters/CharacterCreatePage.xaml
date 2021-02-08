@@ -61,7 +61,7 @@
                         Style="{StaticResource LabelStyle}"/>
 
                 <Picker Grid.Row="2" Grid.Column="1" 
-                        ItemsSource="{x:Static local:SpecificCharacterTypeEnumHelper.GetListMessageAll}"                  
+                        ItemsSource="{x:Static local:SpecificCharacterTypeEnumHelper.GetListMessageAllNoUnknown}"                  
                         x:Name="CharacterTypePicker" >
                         <Picker.SelectedItem>"{Binding Data.SpecificCharacterType, Converter={StaticResource SpecificCharacterTypeEnumConverter}, Mode=TwoWay}"</Picker.SelectedItem>
                     <Picker.SelectedIndex>0</Picker.SelectedIndex>
