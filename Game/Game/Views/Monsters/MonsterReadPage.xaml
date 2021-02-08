@@ -43,17 +43,6 @@
                              Converter={StaticResource SpecificMonsterTypeEnumConverter}}" 
                             Style="{StaticResource LabelStyle}"/>
                     </StackLayout>
-                    
-                    <!-- TODO: once Monsters types are completed, change these variables. 
-                    <StackLayout Orientation="Horizontal">
-                        <Label 
-                            Text="- " 
-                            Style="{StaticResource LabelStyle}"/>
-                        <Label 
-                            Text="{Binding Data.SpecificCharacterTypeEnum.Value}" 
-                            Style="{StaticResource LabelStyle}"/>
-                    </StackLayout>
-                    -->
 
                     <Label 
                         Text="{Binding Data.Description}" 
@@ -70,17 +59,6 @@
                         Style="{StaticResource LabelStyle}"/>
                     </StackLayout>
 
-
-                    <!-- TODO: Complete once Monster Model is complete 
-                    <StackLayout Orientation="Horizontal">
-                        <Label 
-                            Text="Level: " 
-                            Style="{StaticResource LabelStyle}"/>
-                        <Label 
-                            Text="{Binding Data.Level}" 
-                            Style="{StaticResource LabelStyle}"/>
-                    </StackLayout>
-                    -->
                 </StackLayout>
 
                 <StackLayout Style="{StaticResource CharacterInfoImage}">
@@ -88,7 +66,7 @@
                 </StackLayout>
             </StackLayout>
 
-            <!-- TODO: update once Monsters model adds additional data. -->
+            <!-- TODO: update once Item model adds additional data. -->
             <StackLayout Style="{StaticResource VerticalStack}">
                 <Grid Style="{StaticResource TableGridStyle}">
                     <!-- Headers First Row-->
@@ -140,13 +118,11 @@
                         Grid.Row="5"
                         Text="Damage" />
 
-                    <!-- TODO: Data-->
                     <Label 
                         Style="{StaticResource GridLabelStyle}"
                         Grid.Column="1"
                         Grid.Row="1"
                         Text="{Binding Data.Attack}" />
-                    <!-- Monster currently do not have these attributes
                     <Label 
                         Style="{StaticResource GridLabelStyle}"
                         Grid.Column="1"
@@ -162,7 +138,6 @@
                         Grid.Column="1"
                         Grid.Row="4"
                         Text="{Binding Data.MaxHealth}" />
-                    -->
 
                 </Grid>
             </StackLayout>
