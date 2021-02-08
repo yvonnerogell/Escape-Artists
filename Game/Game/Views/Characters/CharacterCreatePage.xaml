@@ -24,10 +24,9 @@
     
  <ContentPage.Content>
     <ScrollView>
-        <StackLayout Style="{d:StaticResource OuterBoxStack}"
+            <StackLayout Style="{d:StaticResource OuterBoxStack}"
                      Spacing="10">
-            <Label Text="Create Character Page" Style="{StaticResource HeaderStyle}"/>
-            <Grid
+                <Grid
                 RowSpacing="1"
                 ColumnSpacing="2"
                 VerticalOptions="Center">
