@@ -335,12 +335,28 @@ namespace Game.GameRules
                 },
 
                 new MonsterModel {
-                    Name = "Mr. Smith",
-                    Description = "No one can fire me.",
+                    Name = "Mr. Frank",
+                    Description = "I have to grade everything!",
                     MonsterTypeEnum = MonsterTypeEnum.Faculty,
                     SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AssistantProfessor,
                     Difficulty = DifficultyEnum.Difficult,
                     UniqueDropItem = ItemLocationEnum.PrimaryHand.ToMessage(),
+                    Items = new List<ItemLocationEnum>()
+                    {
+                        ItemLocationEnum.Head,
+                        ItemLocationEnum.Necklace
+                    },
+                    Attack = 1,
+                    ImageURI = Constants.SpecificMonsterTypeAssistantProfessorImageURI
+                },
+
+                new MonsterModel {
+                    Name = "Ms. Randy",
+                    Description = "I love teaching!",
+                    MonsterTypeEnum = MonsterTypeEnum.Faculty,
+                    SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AssociateProfessor,
+                    Difficulty = DifficultyEnum.Difficult,
+                    UniqueDropItem = ItemTypeEnum.Textbooks.ToMessage(),
                     Items = new List<ItemLocationEnum>()
                     {
                         ItemLocationEnum.Head,
