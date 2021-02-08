@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:local_helpers="clr-namespace:Game.Helpers"
+             xmlns:local="using:Game.Models"
+             x:Class="Game.Views.MonsterUpdatePage"
+             Title="Update">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked" IconImageSource="icon_cancel.png"/>
+        <ToolbarItem Text="Save" Clicked="Save_Clicked" IconImageSource="icon_save.png"/>
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local_helpers:StringEnumConverter x:Key="StringEnum"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+
+        <ScrollView>
+            <StackLayout Style="{StaticResource OuterBoxStack}"
+                Spacing="10">
+
+                <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}" HorizontalOptions="CenterAndExpand"/>
+
+                <Grid
+                    RowSpacing="1"
+                    ColumnSpacing="2"
+                    VerticalOptions="Center">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0"
+                        Text="Name" 
+                        Style="{StaticResource LabelStyle}"/>
+
+                    <Entry Grid.Row="0" Grid.Column="1"
+                        Text="{Binding Data.Name}" 
+                        Style="{StaticResource EntryStyle}"/>
+
+                    <Label Grid.Row="1" Grid.Column="0"
+                        Text="Description" 
+                        Style="{StaticResource LabelStyle}"/>
+
+                    <Editor Grid.Row="1" Grid.Column="1"
+                        Text="{Binding Data.Description}" 
+                        Style="{StaticResource EntryStyle}"/>
+
+                    <!-- TODO: Change Steppers to something that looks better on Android. -->
+
+                    <Label Grid.Row="3" Grid.Column="0"
+                            Text="Level"
+                            Style="{StaticResource LabelStyleUpdateText}"/>
+
+                    <Label Grid.Row="3" Grid.Column="0"
+                            Text="{Binding Data.Level}" 
+                            x:Name="LevelValue"
+                            Style="{StaticResource LabelStyleUpdateValue}"/>
+
+                    <Slider Grid.Row="3" 
+                            Grid.Column="1" 
+                            Maximum="20" 
+                            Minimum="1"
+                            Style="{StaticResource SliderStyle}"
+                            ValueChanged="OnSliderChanged"
+                            x:Name="LevelSlider"
+                            Value="{Binding Data.Level}"/> 
+
+
+                    <Label Grid.Row="4" Grid.Column="0"
+                            Text="Attack"
+                            Style="{StaticResource LabelStyleUpdateText}"/>
+
+                    <Label Grid.Row="4" Grid.Column="0"
+                            Text="{Binding Data.Attack}" 
+                            x:Name="AttackValue"
+                            Style="{StaticResource LabelStyleUpdateValue}"/>
+
+                    <Slider Grid.Row="4" 
+                            Grid.Column="1" 
+                            Maximum="20" 
+                            Minimum="0"
+                            Style="{StaticResource SliderStyle}"
+                            ValueChanged="OnSliderChanged"
+                            x:Name="AttackSlider"
+                            Value="{Binding Data.Attack}"/>
+
+                    <Label Grid.Row="5" Grid.Column="0"
+                            Text="Defense"
+                            Style="{StaticResource LabelStyleUpdateText}"/>
+
+                    <Label Grid.Row="5" Grid.Column="0"
+                            Text="{Binding Data.Defense}" 
+                            x:Name="DefenseValue"
+                            Style="{StaticResource LabelStyleUpdateValue}"/>
+
+                    <Slider Grid.Row="5" 
+                            Grid.Column="1" 
+                            Maximum="20" 
+                            Minimum="0"
+                            Style="{StaticResource SliderStyle}"
+                            ValueChanged="OnSliderChanged"
+                            x:Name="DefenseSlider"
+                            Value="{Binding Data.Defense}"/>
+
+                    <Label Grid.Row="6" Grid.Column="0"
+                            Text="Speed"
+                            Style="{StaticResource LabelStyleUpdateText}"/>
+
+                    <Label Grid.Row="6" Grid.Column="0"
+                            Text="{Binding Data.Speed}" 
+                            x:Name="SpeedValue"
+                            Style="{StaticResource LabelStyleUpdateValue}"/>
+
+                    <Slider Grid.Row="6" 
+                            Grid.Column="1" 
+                            Maximum="20" 
+                            Minimum="0"
+                            Style="{StaticResource SliderStyle}"
+                            ValueChanged="OnSliderChanged"
+                            x:Name="SpeedSlider"
+                            Value="{Binding Data.Speed}"/>
+
+                    <StackLayout Grid.Row="8" Grid.Column="0">
+
+                        <!-- TODO pull in character's items here-->
+                        <Label Grid.Row="5" Grid.Column="0"
+                            Text="PLACEHOLDER FOR ITEMS"
+                            Style="{StaticResource LabelStyleUpdateText}"/>
+
+
+                    </StackLayout>
+
+
+                </Grid>
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
