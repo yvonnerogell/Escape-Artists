@@ -16,6 +16,11 @@ namespace Game.Models
         /// 
         /// Gets a type, guid, name and description
         /// </summary>
+        /// 
+
+        // Character GPA
+        public int GPA { get; set; } = 0;
+
         public CharacterModel()
         {
             PlayerType = PlayerTypeEnum.Character;
