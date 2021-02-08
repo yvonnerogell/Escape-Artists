@@ -49,7 +49,7 @@
                     <Entry Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
                         Text="{Binding Data.Description}" 
                         Style="{StaticResource EntryStyle}"
-                        Placeholder="Monster description"/>
+                        Placeholder="New Monster Description"/>
 
                     <Label Grid.Row="4" Grid.Column="0"
                         Text="Monster Type" 
