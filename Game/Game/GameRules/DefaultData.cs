@@ -95,6 +95,16 @@ namespace Game.GameRules
                     Location = ItemLocationEnum.PrimaryHand,
                     Attribute = AttributeEnum.Attack
                 },
+                new ItemModel {
+                    Name = ItemTypeEnum.PrivateTutor.ToMessage(),
+                    Description = "Get expert homework help. ",
+                    ImageURI = "item.png",
+                    Range = 10,
+                    Damage = 10,
+                    Value = 100,
+                    Location = ItemLocationEnum.Necklace,
+                    Attribute = AttributeEnum.Attack
+                },
             };
 
             for (int i = 0; i < 20; i++)
