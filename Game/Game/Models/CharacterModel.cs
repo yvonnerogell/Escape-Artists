@@ -133,11 +133,6 @@ namespace Game.Models
                 Feet = newData.Feet;
             }
 
-            if (newData.UniqueDropItem != "None")
-            {
-                UniqueDropItem = newData.UniqueDropItem;
-            }
-
             // Update the Job
             //Job = newData.Job;
 

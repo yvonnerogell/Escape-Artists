@@ -171,8 +171,6 @@ namespace Game.Models
         // LeftFinger is a string referencing the database table
         public string LeftFinger { get; set; } = null;
 
-        // Unique Drop Item for Monsters
-        public string UniqueDropItem { get; set; } = null;
         #endregion Items
 
         #region AttributeDisplay
@@ -1026,13 +1024,7 @@ namespace Game.Models
         {
             var myReturn = "";
 
-            var data = ItemIndexViewModel.Instance.GetItem(UniqueDropItem);
-            if (data != null)
-            {
-                myReturn += data.FormatOutput();
-            }
-
-            data = ItemIndexViewModel.Instance.GetItem(Head);
+            var data = ItemIndexViewModel.Instance.GetItem(Head);
             if (data != null)
             {
                 myReturn += data.FormatOutput();
