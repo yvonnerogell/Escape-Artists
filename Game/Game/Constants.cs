@@ -54,5 +54,8 @@ namespace Game
         // Default Character name
         public static string CharacterNameDefault = "Minnie";
         public static string CharacterDescriptionDefault = "I am the best there ever was!";
+
+        // Default Monster name
+        public static string MonsterNameDefault = "Alvin";
     }
 }
