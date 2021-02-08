@@ -15,7 +15,7 @@ namespace Game.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MonsterDeletePage : ContentPage
     {
-        // View Model for Character
+        // View Model for Monster
         readonly GenericViewModel<MonsterModel> viewModel;
 
         // Empty Constructor for UTs
