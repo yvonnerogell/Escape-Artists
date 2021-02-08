@@ -46,13 +46,13 @@ namespace Game.GameRules
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
-                    Name = "I4",
-                    Description = "I4",
+                    Name = ItemTypeEnum.Notebook.ToMessage(),
+                    Description = "Keep track of the most crucial things to know.",
                     ImageURI = "item.png",
                     Range = 10,
                     Damage = 10,
-                    Value = 9,
-                    Location = ItemLocationEnum.OffHand,
+                    Value = 2,
+                    Location = ItemLocationEnum.PrimaryHand,
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
