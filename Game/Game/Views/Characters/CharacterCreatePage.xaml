@@ -141,6 +141,18 @@
                             Value="{Binding Data.Speed}"/>
 
                     <Label Grid.Row="10" Grid.Column="0"
+                            Text="GPA"
+                            Style="{StaticResource LabelStyleUpdateText}"/>
+
+                    <Slider  Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2"
+                             Maximum="100"
+                             Minimum="10"
+                             Style="{StaticResource SliderStyle}"
+                             ValueChanged="OnSliderChanged"
+                             x:Name="GPASlider"
+                             Value="{Binding Data.GPA}"/>
+ 
+                    <Label Grid.Row="11" Grid.Column="0"
                             Text="PLACEHOLDER FOR ITEMS"
                             Style="{StaticResource LabelStyleUpdateText}"/>
 
