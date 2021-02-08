@@ -339,7 +339,7 @@ namespace Game.GameRules
                     Description = "I have to grade everything!",
                     MonsterTypeEnum = MonsterTypeEnum.Faculty,
                     SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AssistantProfessor,
-                    Difficulty = DifficultyEnum.Difficult,
+                    Difficulty = DifficultyEnum.Average,
                     UniqueDropItem = ItemTypeEnum.Laptop.ToMessage(),
                     Items = new List<ItemLocationEnum>()
                     {
@@ -386,7 +386,7 @@ namespace Game.GameRules
                     Description = "Do you want to get paid?",
                     MonsterTypeEnum = MonsterTypeEnum.Administrator,
                     SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.HRAdministrator,
-                    Difficulty = DifficultyEnum.Difficult,
+                    Difficulty = DifficultyEnum.Easy,
                     UniqueDropItem = ItemTypeEnum.FinancialAid.ToMessage(),
                     Items = new List<ItemLocationEnum>()
                     {
@@ -402,7 +402,7 @@ namespace Game.GameRules
                     Description = "Class is full, take it next quarter.",
                     MonsterTypeEnum = MonsterTypeEnum.Administrator,
                     SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.RegistrationAdministrator,
-                    Difficulty = DifficultyEnum.Difficult,
+                    Difficulty = DifficultyEnum.Average,
                     Items = new List<ItemLocationEnum>()
                     {
                         ItemLocationEnum.Head,
