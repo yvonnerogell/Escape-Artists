@@ -50,5 +50,8 @@ namespace Game
         // Parent Character Types Image URIs
         public static string SpecificCharacterTypeHelicopterParentImageURI = "parent.png";
         public static string SpecificCharacterTypeCoolParentImageURI = "parent.png";
+
+        // Default Character name
+        public static string CharacterNameDefault = "Minnie";
     }
 }

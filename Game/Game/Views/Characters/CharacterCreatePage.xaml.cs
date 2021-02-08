@@ -59,6 +59,12 @@ namespace Game.Views.Characters
             ViewModel.Data.SpecificCharacterTypeEnum = SpecificCharacterTypeEnumHelper.ConvertMessageStringToEnum(CharacterTypePicker.SelectedItem.ToString());
             ViewModel.Data.CharacterTypeEnum = SpecificCharacterTypeEnumHelper.GetCharacterTypeEnumFromSpecificCharacterTypeEnum(ViewModel.Data.SpecificCharacterTypeEnum);
             ViewModel.Data.UpdateImageURI(ViewModel.Data);
+            
+            // Check to see if name was filled in by user. If not, use default data. 
+            if (String.IsNullOrEmpty(ViewModel.Data.Name))
+			{
+                ViewModel.Data.Name = Constants.CharacterNameDefault;
+			}
 
             // TODO add Items
 
