@@ -68,36 +68,24 @@
                 </Picker>
 
                 <Label Grid.Row="3" Grid.Column="0"
-                        Text="Levels" 
+                        Text="Level" 
                         Style="{StaticResource LabelStyle}"/>
 
-                <Picker Grid.Row="3" Grid.Column="1">
-                    <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                      <x:String>1</x:String>
-                      <x:String>2</x:String>
-                      <x:String>3</x:String>
-                      <x:String>4</x:String>
-                      <x:String>5</x:String>
-                      <x:String>6</x:String>
-                      <x:String>7</x:String>
-                      <x:String>8</x:String>
-                      <x:String>9</x:String>
-                      <x:String>10</x:String>
-                      <x:String>11</x:String>
-                      <x:String>12</x:String>
-                      <x:String>13</x:String>
-                      <x:String>14</x:String>
-                      <x:String>15</x:String>
-                      <x:String>16</x:String>
-                      <x:String>17</x:String>
-                      <x:String>18</x:String>
-                      <x:String>19</x:String>
-                      <x:String>20</x:String>
-                    </x:Array>
-                  </Picker.ItemsSource>
-                    <Picker.SelectedIndex>1</Picker.SelectedIndex>
-                    </Picker>
+                <Label Grid.Row="3" Grid.Column="0"
+                            Text="{Binding Data.Level}" 
+                            Style="{StaticResource ValueStyle}"
+                            Padding="0,0,10,0"
+                            HorizontalOptions="End"
+                            HorizontalTextAlignment="End"
+                            x:Name="LevelValue"/>
+
+                <Slider Grid.Row="3" Grid.Column="1"
+                            Maximum="20" 
+                            Minimum="1"
+                            Style="{StaticResource SliderStyle}"
+                            ValueChanged="OnSliderChanged"
+                            Value="{Binding Data.Level}"
+                            x:Name="LevelSlider"/>
                        
 
 
