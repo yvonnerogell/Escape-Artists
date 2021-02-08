@@ -121,8 +121,6 @@ namespace Game.Models
         // Total Experience Earned
         public int ExperienceTotal { get; set; } = 0;
 
-        // GPA for a Character
-        public int GPA { get; set; } = 0;
 
         // The Experience available to given up
         public int ExperienceRemaining { get; set; }
