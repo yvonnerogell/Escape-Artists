@@ -45,7 +45,6 @@
 
                 <Entry Grid.Row="0" Grid.Column="1"
                     Placeholder="New Character Name"
-                    PlaceholderColor="LightGray"
                     Text="{Binding Data.Name}" 
                     Style="{StaticResource EntryStyle}"/>
 
@@ -55,7 +54,6 @@
 
                 <Entry Grid.Row="1" Grid.Column="1"
                        Placeholder="New Character Description"
-                       PlaceholderColor="LightGray"
                        Text="{Binding Data.Description}" 
                        Style="{StaticResource EntryStyle}"/>
 
