@@ -135,6 +135,16 @@ namespace Game.GameRules
                     Location = ItemLocationEnum.Head,
                     Attribute = AttributeEnum.Attack
                 },
+                new ItemModel {
+                    Name = ItemTypeEnum.Diploma.ToMessage(),
+                    Description = "A diploma is the (almost) final step before graduation.",
+                    ImageURI = "item.png",
+                    Range = 10,
+                    Damage = 10,
+                    Value = 1000,
+                    Location = ItemLocationEnum.OffHand,
+                    Attribute = AttributeEnum.Attack
+                },
             };
 
             for (int i = 0; i < 20; i++)
