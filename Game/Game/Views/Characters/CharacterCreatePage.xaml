@@ -56,7 +56,7 @@
                     <Picker Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
                             ItemsSource="{x:Static local:SpecificCharacterTypeEnumHelper.GetListMessageAllNoUnknown}"                  
                             x:Name="CharacterTypePicker" >
-                            <Picker.SelectedItem>"{Binding Data.SpecificCharacterType, Converter={StaticResource SpecificCharacterTypeEnumConverter}, Mode=TwoWay}"</Picker.SelectedItem>
+                        <Picker.SelectedItem>"{Binding Data.SpecificCharacterType, Converter={StaticResource SpecificCharacterTypeEnumConverter}, Mode=TwoWay}"</Picker.SelectedItem>
                         <Picker.SelectedIndex>0</Picker.SelectedIndex>
                     </Picker>
 
@@ -124,7 +124,6 @@
                             Text="Speed" 
                             Style="{StaticResource LabelStyle}"/>
 
-
                     <Label Grid.Row="9" Grid.Column="0"
                             Text="{Binding Data.Speed}" 
                             x:Name="SpeedValue"
@@ -145,15 +144,8 @@
                             Text="PLACEHOLDER FOR ITEMS"
                             Style="{StaticResource LabelStyleUpdateText}"/>
 
-
-
                 </Grid>
-            
-          
-            
-            
-
-        </StackLayout>
+            </StackLayout>
     </ScrollView>
  </ContentPage.Content>
 </ContentPage>
