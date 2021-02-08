@@ -309,7 +309,7 @@ namespace Game.GameRules
                     MonsterTypeEnum = MonsterTypeEnum.Faculty,
                     SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.TeachingAssistant,
                     Difficulty = DifficultyEnum.Easy,
-                    UniqueDropItem = ItemLocationEnum.RightFinger.ToMessage(),
+                    UniqueDropItem = ItemTypeEnum.IndexCards.ToMessage(),
                     Items = new List<ItemLocationEnum>()
                     {
                         ItemLocationEnum.Head,
@@ -340,7 +340,7 @@ namespace Game.GameRules
                     MonsterTypeEnum = MonsterTypeEnum.Faculty,
                     SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AssistantProfessor,
                     Difficulty = DifficultyEnum.Difficult,
-                    UniqueDropItem = ItemLocationEnum.PrimaryHand.ToMessage(),
+                    UniqueDropItem = ItemTypeEnum.Laptop.ToMessage(),
                     Items = new List<ItemLocationEnum>()
                     {
                         ItemLocationEnum.Head,
