@@ -57,7 +57,7 @@ namespace Game.Views.Characters
         {
             ViewModel.Data.PlayerType = PlayerTypeEnum.Character;
             ViewModel.Data.SpecificCharacterTypeEnum = SpecificCharacterTypeEnumHelper.ConvertMessageStringToEnum(CharacterTypePicker.SelectedItem.ToString());
-            // add deriving character type from specific character type
+            ViewModel.Data.CharacterTypeEnum = SpecificCharacterTypeEnumHelper.GetCharacterTypeEnumFromSpecificCharacterTypeEnum(ViewModel.Data.SpecificCharacterTypeEnum);
             ViewModel.Data.UpdateImageURI(ViewModel.Data);
 
             // TODO add Items
