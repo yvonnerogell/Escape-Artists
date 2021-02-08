@@ -52,11 +52,11 @@ namespace Game
         public static string SpecificCharacterTypeCoolParentImageURI = "parent.png";
 
         // Default Character name
-        public static string CharacterNameDefault = "Minnie";
-        public static string CharacterDescriptionDefault = "I am the best there ever was!";
+        public static string CharacterNameDefault = "New Character Name";
+        public static string CharacterDescriptionDefault = "New Character Description";
 
         // Default Monster name
-        public static string MonsterNameDefault = "Alvin";
-        public static string MonsterDescriptionDefault = "I will eat you and your grades alive.";
+        public static string MonsterNameDefault = "New Monster Name";
+        public static string MonsterDescriptionDefault = "New Monster Description";
     }
 }
