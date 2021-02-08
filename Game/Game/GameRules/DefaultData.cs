@@ -380,6 +380,22 @@ namespace Game.GameRules
                     Attack = 5,
                     ImageURI = Constants.SpecificMonsterTypeProfessorImageURI
                 },
+
+                new MonsterModel {
+                    Name = "Karen",
+                    Description = "Do you want to get paid?",
+                    MonsterTypeEnum = MonsterTypeEnum.Administrator,
+                    SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.HRAdministrator,
+                    Difficulty = DifficultyEnum.Difficult,
+                    UniqueDropItem = ItemTypeEnum.FinancialAid.ToMessage(),
+                    Items = new List<ItemLocationEnum>()
+                    {
+                        ItemLocationEnum.Head,
+                        ItemLocationEnum.Necklace
+                    },
+                    Attack = 3,
+                    ImageURI = Constants.SpecificMonsterTypeHRAdministratorImageURI
+                },
             };
 
             return datalist;
