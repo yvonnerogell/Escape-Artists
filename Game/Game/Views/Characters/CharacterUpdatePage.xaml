@@ -131,6 +131,20 @@
                             x:Name="SpeedSlider"
                             Value="{Binding Data.Speed}"/>
 
+                    <Label Grid.Row="7" Grid.Column="0"
+                            Text="{Binding Data.GPA}" 
+                            x:Name="GPAValue"
+                            Style="{StaticResource LabelStyleUpdateValue}"/>
+
+                    <Slider Grid.Row="7" 
+                            Grid.Column="1" 
+                            Maximum="100" 
+                            Minimum="10"
+                            Style="{StaticResource SliderStyle}"
+                            ValueChanged="OnSliderChanged"
+                            x:Name="GPASlider"
+                            Value="{Binding Data.GPA}"/>
+
                     <StackLayout Grid.Row="8" Grid.Column="0">
 
                         <!-- TODO pull in character's items here-->
