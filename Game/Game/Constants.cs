@@ -50,5 +50,13 @@ namespace Game
         // Parent Character Types Image URIs
         public static string SpecificCharacterTypeHelicopterParentImageURI = "parent.png";
         public static string SpecificCharacterTypeCoolParentImageURI = "parent.png";
+
+        // Default Character name
+        public static string CharacterNameDefault = "Minnie";
+        public static string CharacterDescriptionDefault = "I am the best there ever was!";
+
+        // Default Monster name
+        public static string MonsterNameDefault = "Alvin";
+        public static string MonsterDescriptionDefault = "I will eat you and your grades alive.";
     }
 }
