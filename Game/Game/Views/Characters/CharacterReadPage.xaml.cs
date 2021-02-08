@@ -70,13 +70,44 @@ namespace Game.Views
                 ItemBox.Children.Remove(data);
             }
 
-            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.Head));
-            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.Necklace));
-            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.PrimaryHand));
-            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.OffHand));
-            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.RightFinger));
-            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.LeftFinger));
-            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.Feet));
+            if (CheckItemExist(ItemLocationEnum.Head))
+            {
+                ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.Head));
+            }
+            if (CheckItemExist(ItemLocationEnum.Necklace))
+            {
+                ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.Necklace));
+            }
+            if (CheckItemExist(ItemLocationEnum.PrimaryHand))
+            {
+                ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.PrimaryHand));
+            }
+            if (CheckItemExist(ItemLocationEnum.OffHand))
+            {
+                ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.OffHand));
+            }
+            if (CheckItemExist(ItemLocationEnum.RightFinger))
+            {
+                ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.RightFinger));
+            }
+            if (CheckItemExist(ItemLocationEnum.LeftFinger))
+            {
+                ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.LeftFinger));
+            }
+            if (CheckItemExist(ItemLocationEnum.Feet))
+            {
+                ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.Feet));
+            }
+        }
+
+        public bool CheckItemExist(ItemLocationEnum location)
+        {
+            var data = ViewModel.Data.GetItemByLocation(location);
+            if (data == null)
+            {
+                return false;
+            }
+            return true;
         }
 
         /// <summary>
@@ -87,18 +118,18 @@ namespace Game.Views
         public StackLayout GetItemToDisplay(ItemLocationEnum location)
         {
             // Defualt Image is the Plus
-            var ImageSource = "icon_cancel.png";
-            var ClickableButton = true;
+            //var ImageSource = "icon_cancel.png";
+            //var ClickableButton = true;
 
             var data = ViewModel.Data.GetItemByLocation(location);
-            if (data == null)
-            {
+            //if (data == null)
+            //{
                 // Show the Default Icon for the Location
-                data = new ItemModel { Location = location, ImageURI = ImageSource };
+            //    data = new ItemModel { Location = location, ImageURI = ImageSource };
 
                 // Turn off click action
-                ClickableButton = false;
-            }
+            //    ClickableButton = false;
+            //}
 
             // Hookup the Image Button to show the Item picture
             var ItemButton = new ImageButton
