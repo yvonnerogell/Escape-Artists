@@ -123,6 +123,19 @@
                             x:Name="SpeedSlider"
                             Value="{Binding Data.Speed}"/>
 
+                    <Label Grid.Row="9" Grid.Column="0"
+                            Text="Difficulty" 
+                            x:Name="DifficultyLevel"
+                            Style="{StaticResource ValueStyle}"
+                            Padding="0,0,10,0"/>
+
+                    <Picker Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2"
+                            ItemsSource="{x:Static local:DifficultyEnumHelper.GetListAll}"                  
+                            x:Name="DifficultyLevelPicker" >
+                        <Picker.SelectedItem>"{Binding Data.Difficulty, Converter={StaticResource DifficultyEnum}, Mode=TwoWay}"</Picker.SelectedItem>
+                        <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                    </Picker>
+
                     <Label Grid.Row="10" Grid.Column="0"
                             Text="PLACEHOLDER FOR ITEMS"
                             Style="{StaticResource LabelStyleUpdateText}"/>
