@@ -107,7 +107,25 @@
                             Value="{Binding Data.Attack}"
                             x:Name="AttackSlider"/>
 
+                <Label Grid.Row="5" Grid.Column="0"
+                        Text="Defense"
+                        Style="{StaticResource LabelStyle}"/>
 
+                <Label Grid.Row="5" Grid.Column="0"
+                        Text="{Binding Data.Defense}" 
+                        x:Name="DefenseValue"
+                        Style="{StaticResource ValueStyle}"
+                        Padding="0,0,10,0"
+                        HorizontalOptions="End"
+                        HorizontalTextAlignment="End"/>
+
+                <Slider Grid.Row="5" Grid.Column="1"
+                        Maximum="20" 
+                        Minimum="0"
+                        Style="{StaticResource SliderStyle}"
+                        ValueChanged="OnSliderChanged"
+                        x:Name="DefenseSlider"
+                        Value="{Binding Data.Defense}"/>
 
 
 
