@@ -63,7 +63,7 @@
             Padding="20">
 
                 <Button 
-                Text="Delete Character" 
+                Text="Delete Monster" 
                 Clicked="Delete_Clicked" 
                 HorizontalOptions="Center"
                 FontSize="Medium"
