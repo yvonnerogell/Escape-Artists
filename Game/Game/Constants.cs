@@ -57,5 +57,6 @@ namespace Game
 
         // Default Monster name
         public static string MonsterNameDefault = "Alvin";
+        public static string MonsterDescriptionDefault = "I will eat you and your grades alive.";
     }
 }

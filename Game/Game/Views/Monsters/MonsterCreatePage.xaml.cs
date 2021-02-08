@@ -55,6 +55,11 @@ namespace Game.Views.Monsters
             {
                 ViewModel.Data.Name = Constants.MonsterNameDefault;
             }
+            if (String.IsNullOrEmpty(ViewModel.Data.Description))
+            {
+                ViewModel.Data.Description = Constants.MonsterDescriptionDefault;
+            }
+
 
             // TODO Unique Drop item - do we want to randomly assign one here?
 
