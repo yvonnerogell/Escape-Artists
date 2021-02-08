@@ -56,7 +56,7 @@ namespace Game.Models
         public static string ToMessage(this SpecificCharacterTypeEnum value)
         {
             // Default String
-            var Message = "PlayerType";
+            var Message = "Unknown";
 
             switch (value)
             {
@@ -136,6 +136,24 @@ namespace Game.Models
                 {
                     list.Add(((SpecificCharacterTypeEnum)item).ToMessage());
                 }
+                return list;
+            }
+        }
+
+        /// <summary>
+        /// Returns a list of all the friendly strings of the SpecificCharacterTypeEnum, except the Unknown enum.
+        /// </summary>
+        public static List<string> GetListMessageAllNoUnknown
+        {
+            get
+            {
+                var list = new List<string>();
+
+                foreach (var item in Enum.GetValues(typeof(SpecificCharacterTypeEnum)))
+                {
+                    list.Add(((SpecificCharacterTypeEnum)item).ToMessage());
+                }
+                list.Remove(SpecificCharacterTypeEnum.Unknown.ToString());
                 return list;
             }
         }
@@ -226,6 +244,33 @@ namespace Game.Models
                 }
             }
             return SpecificCharacterTypeEnum.Unknown;
+        }
+
+        /// <summary>
+        /// Given a SpecificCharacterTypeEnum, returns the corresponding CharacterTypeEnum.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static CharacterTypeEnum GetCharacterTypeEnumFromSpecificCharacterTypeEnum(SpecificCharacterTypeEnum specificCharacterType)
+        {
+            var result = CharacterTypeEnum.Unknown;
+            switch (specificCharacterType)
+            {
+                case SpecificCharacterTypeEnum.CoolParent:
+                case SpecificCharacterTypeEnum.HelicopterParent:
+                    result = CharacterTypeEnum.Parent;
+                    break;
+                case SpecificCharacterTypeEnum.InternationalStudent:
+                case SpecificCharacterTypeEnum.Overachiever:
+                case SpecificCharacterTypeEnum.Procrastinator:
+                case SpecificCharacterTypeEnum.Prodigy:
+                case SpecificCharacterTypeEnum.SecondCareer:
+                case SpecificCharacterTypeEnum.Slacker:
+                case SpecificCharacterTypeEnum.SmartyPants:
+                    result = CharacterTypeEnum.Student;
+                    break;
+            }
+            return result;
         }
     }
 
