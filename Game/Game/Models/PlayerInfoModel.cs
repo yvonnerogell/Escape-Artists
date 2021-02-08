@@ -55,7 +55,8 @@ namespace Game.Models
             RightFinger = data.RightFinger;
             LeftFinger = data.LeftFinger;
             Feet = data.Feet;
-            UniqueDropItem = data.UniqueDropItem;
+            // Removed since character should not have this.
+            //UniqueDropItem = data.UniqueDropItem;
 
             Difficulty = data.Difficulty;
 
@@ -97,7 +98,8 @@ namespace Game.Models
             RightFinger = data.RightFinger;
             LeftFinger = data.LeftFinger;
             Feet = data.Feet;
-            UniqueDropItem = data.UniqueDropItem;
+            // Removed since character should not have this.
+            //UniqueDropItem = data.UniqueDropItem;
 
             Difficulty = data.Difficulty;
 
@@ -172,8 +174,9 @@ namespace Game.Models
             RightFinger = data.RightFinger;
             LeftFinger = data.LeftFinger;
             Feet = data.Feet;
-
-            UniqueDropItem = data.UniqueDropItem;
+            
+            // Removed since character should not have this.
+            //UniqueDropItem = data.UniqueDropItem;
 
             Difficulty = data.Difficulty;
 
