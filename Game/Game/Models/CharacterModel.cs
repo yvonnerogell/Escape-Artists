@@ -87,6 +87,7 @@ namespace Game.Models
             Name = newData.Name;
             Description = newData.Description;
             Level = newData.Level;
+            GPA = newData.GPA;
 
             // Difficulty = newData.Difficulty;
 
