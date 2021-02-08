@@ -31,8 +31,8 @@ namespace Game.GameRules
                     ImageURI = "item.png",
                     Range = 10,
                     Damage = 10,
-                    Value = 9,
-                    Location = ItemLocationEnum.Head,
+                    Value = 1,
+                    Location = ItemLocationEnum.PrimaryHand,
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
