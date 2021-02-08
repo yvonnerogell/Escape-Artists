@@ -363,7 +363,22 @@ namespace Game.GameRules
                         ItemLocationEnum.Necklace
                     },
                     Attack = 1,
-                    ImageURI = Constants.SpecificMonsterTypeAssistantProfessorImageURI
+                    ImageURI = Constants.SpecificMonsterTypeAssociateProfessorImageURI
+                },
+
+                new MonsterModel {
+                    Name = "Professor Mike",
+                    Description = "So many research projects!",
+                    MonsterTypeEnum = MonsterTypeEnum.Faculty,
+                    SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.Professor,
+                    Difficulty = DifficultyEnum.Difficult,
+                    Items = new List<ItemLocationEnum>()
+                    {
+                        ItemLocationEnum.Head,
+                        ItemLocationEnum.Necklace
+                    },
+                    Attack = 5,
+                    ImageURI = Constants.SpecificMonsterTypeProfessorImageURI
                 },
             };
 
