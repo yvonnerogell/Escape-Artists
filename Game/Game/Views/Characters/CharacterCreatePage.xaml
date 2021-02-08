@@ -127,6 +127,27 @@
                         x:Name="DefenseSlider"
                         Value="{Binding Data.Defense}"/>
 
+                <Label Grid.Row="6" Grid.Column="0"
+                        Text="Speed" 
+                        Style="{StaticResource LabelStyle}"/>
+
+
+                <Label Grid.Row="6" Grid.Column="0"
+                        Text="{Binding Data.Speed}" 
+                        x:Name="SpeedValue"
+                        Style="{StaticResource ValueStyle}"
+                        Padding="0,0,10,0"
+                        HorizontalOptions="End"
+                        HorizontalTextAlignment="End"/>
+
+                <Slider Grid.Row="6" Grid.Column="1"
+                        Maximum="20" 
+                        Minimum="0"
+                        Style="{StaticResource SliderStyle}"
+                        ValueChanged="OnSliderChanged"
+                        x:Name="SpeedSlider"
+                        Value="{Binding Data.Speed}"/>
+
 
 
                 </Grid>

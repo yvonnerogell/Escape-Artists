@@ -84,6 +84,11 @@ namespace Game.Views.Characters
                 DefenseValue.Text = newValueStr;
                 DefenseSlider.Value = newValue;
             }
+            if (sender == SpeedSlider)
+            {
+                SpeedValue.Text = newValueStr;
+                SpeedSlider.Value = newValue;
+            }
         }
     }
 }
