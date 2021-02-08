@@ -396,6 +396,21 @@ namespace Game.GameRules
                     Attack = 3,
                     ImageURI = Constants.SpecificMonsterTypeHRAdministratorImageURI
                 },
+
+                new MonsterModel {
+                    Name = "Sandra",
+                    Description = "Class is full, take it next quarter.",
+                    MonsterTypeEnum = MonsterTypeEnum.Administrator,
+                    SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.RegistrationAdministrator,
+                    Difficulty = DifficultyEnum.Difficult,
+                    Items = new List<ItemLocationEnum>()
+                    {
+                        ItemLocationEnum.Head,
+                        ItemLocationEnum.Necklace
+                    },
+                    Attack = 2,
+                    ImageURI = Constants.SpecificMonsterTypeRegistrationAdministratorImageURI
+                },
             };
 
             return datalist;
