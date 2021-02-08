@@ -47,6 +47,21 @@ namespace Game
         public static string SpecificCharacterTypeSlackerImageURI = "student.png";
         public static string SpecificCharacterTypeProcrastinatorImageURI = "student.png";
 
+        // Item Types Image URIs
+        public static string ItemTypeIndexCardsImageURI = "item.png";
+        public static string ItemTypePencilEraserImageURI = "item.png";
+        public static string ItemTypeTextbooksImageURI = "item.png";
+        public static string ItemTypeNotebookImageURI = "item.png";
+        public static string ItemTypeCalculatorImageURI = "item.png";
+        public static string ItemTypeLibraryCardImageURI = "item.png";
+        public static string ItemTypeFoodCourtCardImageURI = "item.png";
+        public static string ItemTypeLaptopImageURI = "item.png";
+        public static string ItemTypePrivateTutorImageURI = "item.png";
+        public static string ItemTypeFinancialAidImageURI = "item.png";
+        public static string ItemTypeTuitionImageURI = "item.png";
+        public static string ItemTypeGraduationCapAndRobeImageURI = "item.png";
+        public static string ItemTypeDiplomaImageURI = "item.png";
+
         // Parent Character Types Image URIs
         public static string SpecificCharacterTypeHelicopterParentImageURI = "parent.png";
         public static string SpecificCharacterTypeCoolParentImageURI = "parent.png";
