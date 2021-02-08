@@ -66,13 +66,13 @@ namespace Game.GameRules
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
-                    Name = "I6",
-                    Description = "I6",
+                    Name = ItemTypeEnum.LibraryCard.ToMessage(),
+                    Description = "Get your textbooks for free.",
                     ImageURI = "item.png",
                     Range = 10,
                     Damage = 10,
-                    Value = 9,
-                    Location = ItemLocationEnum.Feet,
+                    Value = 3,
+                    Location = ItemLocationEnum.Necklace,
                     Attribute = AttributeEnum.Attack
                 },
             };
