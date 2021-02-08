@@ -65,6 +65,10 @@ namespace Game.Views.Characters
 			{
                 ViewModel.Data.Name = Constants.CharacterNameDefault;
 			}
+            if (String.IsNullOrEmpty(ViewModel.Data.Description))
+            {
+                ViewModel.Data.Description = Constants.CharacterDescriptionDefault;
+            }
 
             // TODO add Items
 
