@@ -160,12 +160,11 @@
                 </Grid>
             </StackLayout>
 
-            <FlexLayout x:Name="flexLayout"
-                        Wrap="Wrap"
-                        JustifyContent="SpaceAround"
-                        AlignContent="SpaceAround">
-                <!-- TODO: Item Data-->
-                
+            <FlexLayout 
+                Padding="5"
+                JustifyContent="SpaceAround"
+                AlignContent="SpaceAround"
+                x:Name="ItemBox">
             </FlexLayout>
             
         </StackLayout>
