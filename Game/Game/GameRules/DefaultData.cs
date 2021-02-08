@@ -115,6 +115,16 @@ namespace Game.GameRules
                     Location = ItemLocationEnum.OffHand,
                     Attribute = AttributeEnum.Attack
                 },
+                new ItemModel {
+                    Name = ItemTypeEnum.Tuition.ToMessage(),
+                    Description = "Pay your way through college.",
+                    ImageURI = "item.png",
+                    Range = 10,
+                    Damage = 10,
+                    Value = 50,
+                    Location = ItemLocationEnum.PrimaryHand,
+                    Attribute = AttributeEnum.Attack
+                },
             };
 
             for (int i = 0; i < 20; i++)
