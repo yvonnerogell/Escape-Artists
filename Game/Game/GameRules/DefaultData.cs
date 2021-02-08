@@ -125,6 +125,16 @@ namespace Game.GameRules
                     Location = ItemLocationEnum.PrimaryHand,
                     Attribute = AttributeEnum.Attack
                 },
+                new ItemModel {
+                    Name = ItemTypeEnum.GraduationCapAndRobe.ToMessage(),
+                    Description = "The cap will help you feel closer to graduation.",
+                    ImageURI = "item.png",
+                    Range = 10,
+                    Damage = 10,
+                    Value = 200,
+                    Location = ItemLocationEnum.Head,
+                    Attribute = AttributeEnum.Attack
+                },
             };
 
             for (int i = 0; i < 20; i++)
