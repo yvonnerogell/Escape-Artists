@@ -18,9 +18,6 @@ namespace Game.Models
     /// </summary>
     public class ItemModel : BaseModel<ItemModel>
     {
-        // Enum of the different item types, it can only be picked during create.
-        public ItemTypeEnum ItemType { get; set; } = ItemTypeEnum.Unknown;
-
         // Range of the item, swords are 1, hats/rings are 0, bows are >1
         public int Range { get; set; } = 0;
 
@@ -79,7 +76,6 @@ namespace Game.Models
             // Update all the fields in the Data, except for the Id and guid
             Name = newData.Name;
             Description = newData.Description;
-            ItemType = newData.ItemType;
             Value = newData.Value;
             Attribute = newData.Attribute;
             Location = newData.Location;
