@@ -27,130 +27,123 @@
             <StackLayout Style="{d:StaticResource OuterBoxStack}"
                      Spacing="10">
                 <Grid
-                RowSpacing="1"
-                ColumnSpacing="2"
-                VerticalOptions="Center">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                </Grid.RowDefinitions>
+                    RowSpacing="1"
+                    ColumnSpacing="2"
+                    VerticalOptions="Center">
 
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto"/>
-                </Grid.ColumnDefinitions>
-
-                <Label Grid.Row="0" Grid.Column="0"
-                    Text="Name:"
-                    Style="{StaticResource LabelStyle}"/>
-
-                <Entry Grid.Row="0" Grid.Column="1"
-                    Placeholder="New Character Name"
-                    Text="{Binding Data.Name}" 
-                    Style="{StaticResource EntryStyle}"/>
-
-                <Label Grid.Row="1" Grid.Column="0"
-                    Text="Description:" 
-                    Style="{StaticResource LabelStyle}"/>
-
-                <Entry Grid.Row="1" Grid.Column="1"
-                       Placeholder="New Character Description"
-                       Text="{Binding Data.Description}" 
-                       Style="{StaticResource EntryStyle}"/>
-
-                <Label Grid.Row="2" Grid.Column="0"
-                        Text="Character Type" 
+                    <Label Grid.Row="0" Grid.Column="0"
+                        Text="Name:"
                         Style="{StaticResource LabelStyle}"/>
 
-                <Picker Grid.Row="2" Grid.Column="1" 
-                        ItemsSource="{x:Static local:SpecificCharacterTypeEnumHelper.GetListMessageAllNoUnknown}"                  
-                        x:Name="CharacterTypePicker" >
-                        <Picker.SelectedItem>"{Binding Data.SpecificCharacterType, Converter={StaticResource SpecificCharacterTypeEnumConverter}, Mode=TwoWay}"</Picker.SelectedItem>
-                    <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                </Picker>
+                    <Entry Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                        Placeholder="New Character Name"
+                        Text="{Binding Data.Name}" 
+                        Style="{StaticResource EntryStyle}"/>
 
-                <Label Grid.Row="3" Grid.Column="0"
-                        Text="Level" 
+                    <Label Grid.Row="2" Grid.Column="0" 
+                        Text="Description:" 
                         Style="{StaticResource LabelStyle}"/>
 
-                <Label Grid.Row="3" Grid.Column="0"
-                            Text="{Binding Data.Level}" 
+                    <Entry Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+                           Placeholder="New Character Description"
+                           Text="{Binding Data.Description}" 
+                           Style="{StaticResource EntryStyle}"/>
+
+                    <Label Grid.Row="4" Grid.Column="0"
+                            Text="Character Type" 
+                            Style="{StaticResource LabelStyle}"/>
+
+                    <Picker Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
+                            ItemsSource="{x:Static local:SpecificCharacterTypeEnumHelper.GetListMessageAllNoUnknown}"                  
+                            x:Name="CharacterTypePicker" >
+                            <Picker.SelectedItem>"{Binding Data.SpecificCharacterType, Converter={StaticResource SpecificCharacterTypeEnumConverter}, Mode=TwoWay}"</Picker.SelectedItem>
+                        <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                    </Picker>
+
+                    <Label Grid.Row="6" Grid.Column="0"
+                            Text="Level" 
+                            Style="{StaticResource LabelStyle}"/>
+
+                    <Label Grid.Row="6" Grid.Column="0"
+                                Text="{Binding Data.Level}" 
+                                Style="{StaticResource ValueStyle}"
+                                Padding="0,0,10,0"
+                                HorizontalOptions="End"
+                                HorizontalTextAlignment="End"
+                                x:Name="LevelValue"/>
+
+                    <Slider Grid.Row="6" Grid.Column="1"
+                                Maximum="20" 
+                                Minimum="1"
+                                Style="{StaticResource SliderStyle}"
+                                ValueChanged="OnSliderChanged"
+                                Value="{Binding Data.Level}"
+                                x:Name="LevelSlider"/>
+
+                    <Label Grid.Row="7" Grid.Column="0"
+                            Text="Attack" 
+                            Style="{StaticResource LabelStyle}"/>
+
+                    <Label Grid.Row="7" Grid.Column="0"
+                                Text="{Binding Data.Attack}" 
+                                Style="{StaticResource ValueStyle}"
+                                Padding="0,0,10,0"
+                                HorizontalOptions="End"
+                                HorizontalTextAlignment="End"
+                                x:Name="AttackValue"/>
+
+                    <Slider Grid.Row="7" Grid.Column="1"
+                                Maximum="20" 
+                                Minimum="0"
+                                Style="{StaticResource SliderStyle}"
+                                ValueChanged="OnSliderChanged"
+                                Value="{Binding Data.Attack}"
+                                x:Name="AttackSlider"/>
+
+                    <Label Grid.Row="8" Grid.Column="0"
+                            Text="Defense"
+                            Style="{StaticResource LabelStyle}"/>
+
+                    <Label Grid.Row="8" Grid.Column="0"
+                            Text="{Binding Data.Defense}" 
+                            x:Name="DefenseValue"
                             Style="{StaticResource ValueStyle}"
                             Padding="0,0,10,0"
                             HorizontalOptions="End"
-                            HorizontalTextAlignment="End"
-                            x:Name="LevelValue"/>
+                            HorizontalTextAlignment="End"/>
 
-                <Slider Grid.Row="3" Grid.Column="1"
-                            Maximum="20" 
-                            Minimum="1"
-                            Style="{StaticResource SliderStyle}"
-                            ValueChanged="OnSliderChanged"
-                            Value="{Binding Data.Level}"
-                            x:Name="LevelSlider"/>
-
-                <Label Grid.Row="4" Grid.Column="0"
-                        Text="Attack" 
-                        Style="{StaticResource LabelStyle}"/>
-
-                <Label Grid.Row="4" Grid.Column="0"
-                            Text="{Binding Data.Attack}" 
-                            Style="{StaticResource ValueStyle}"
-                            Padding="0,0,10,0"
-                            HorizontalOptions="End"
-                            HorizontalTextAlignment="End"
-                            x:Name="AttackValue"/>
-
-                <Slider Grid.Row="4" Grid.Column="1"
+                    <Slider Grid.Row="8" Grid.Column="1"
                             Maximum="20" 
                             Minimum="0"
                             Style="{StaticResource SliderStyle}"
                             ValueChanged="OnSliderChanged"
-                            Value="{Binding Data.Attack}"
-                            x:Name="AttackSlider"/>
+                            x:Name="DefenseSlider"
+                            Value="{Binding Data.Defense}"/>
 
-                <Label Grid.Row="5" Grid.Column="0"
-                        Text="Defense"
-                        Style="{StaticResource LabelStyle}"/>
-
-                <Label Grid.Row="5" Grid.Column="0"
-                        Text="{Binding Data.Defense}" 
-                        x:Name="DefenseValue"
-                        Style="{StaticResource ValueStyle}"
-                        Padding="0,0,10,0"
-                        HorizontalOptions="End"
-                        HorizontalTextAlignment="End"/>
-
-                <Slider Grid.Row="5" Grid.Column="1"
-                        Maximum="20" 
-                        Minimum="0"
-                        Style="{StaticResource SliderStyle}"
-                        ValueChanged="OnSliderChanged"
-                        x:Name="DefenseSlider"
-                        Value="{Binding Data.Defense}"/>
-
-                <Label Grid.Row="6" Grid.Column="0"
-                        Text="Speed" 
-                        Style="{StaticResource LabelStyle}"/>
+                    <Label Grid.Row="9" Grid.Column="0"
+                            Text="Speed" 
+                            Style="{StaticResource LabelStyle}"/>
 
 
-                <Label Grid.Row="6" Grid.Column="0"
-                        Text="{Binding Data.Speed}" 
-                        x:Name="SpeedValue"
-                        Style="{StaticResource ValueStyle}"
-                        Padding="0,0,10,0"
-                        HorizontalOptions="End"
-                        HorizontalTextAlignment="End"/>
+                    <Label Grid.Row="9" Grid.Column="0"
+                            Text="{Binding Data.Speed}" 
+                            x:Name="SpeedValue"
+                            Style="{StaticResource ValueStyle}"
+                            Padding="0,0,10,0"
+                            HorizontalOptions="End"
+                            HorizontalTextAlignment="End"/>
 
-                <Slider Grid.Row="6" Grid.Column="1"
-                        Maximum="20" 
-                        Minimum="0"
-                        Style="{StaticResource SliderStyle}"
-                        ValueChanged="OnSliderChanged"
-                        x:Name="SpeedSlider"
-                        Value="{Binding Data.Speed}"/>
+                    <Slider Grid.Row="9" Grid.Column="1"
+                            Maximum="20" 
+                            Minimum="0"
+                            Style="{StaticResource SliderStyle}"
+                            ValueChanged="OnSliderChanged"
+                            x:Name="SpeedSlider"
+                            Value="{Binding Data.Speed}"/>
 
-                <Label Grid.Row="7" Grid.Column="0"
-                        Text="PLACEHOLDER FOR ITEMS"
-                        Style="{StaticResource LabelStyleUpdateText}"/>
+                    <Label Grid.Row="10" Grid.Column="0"
+                            Text="PLACEHOLDER FOR ITEMS"
+                            Style="{StaticResource LabelStyleUpdateText}"/>
 
 
 
