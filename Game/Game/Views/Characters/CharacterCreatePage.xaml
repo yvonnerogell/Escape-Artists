@@ -148,6 +148,10 @@
                         x:Name="SpeedSlider"
                         Value="{Binding Data.Speed}"/>
 
+                <Label Grid.Row="7" Grid.Column="0"
+                        Text="PLACEHOLDER FOR ITEMS"
+                        Style="{StaticResource LabelStyleUpdateText}"/>
+
 
 
                 </Grid>
