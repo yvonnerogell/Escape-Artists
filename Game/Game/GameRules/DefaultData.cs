@@ -411,6 +411,22 @@ namespace Game.GameRules
                     Attack = 2,
                     ImageURI = Constants.SpecificMonsterTypeRegistrationAdministratorImageURI
                 },
+
+                 new MonsterModel {
+                    Name = "Mandy",
+                    Description = "You have graduated!!!",
+                    MonsterTypeEnum = MonsterTypeEnum.Administrator,
+                    SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.GraduationOfficeAdministrator,
+                    Difficulty = DifficultyEnum.Difficult,
+                    UniqueDropItem = ItemTypeEnum.GraduationCapAndRobe.ToMessage(),
+                    Items = new List<ItemLocationEnum>()
+                    {
+                        ItemLocationEnum.Head,
+                        ItemLocationEnum.Necklace
+                    },
+                    Attack = 8,
+                    ImageURI = Constants.SpecificMonsterTypeGraduationOfficeAdministratorImageURI
+                },
             };
 
             return datalist;
