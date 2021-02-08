@@ -85,6 +85,16 @@ namespace Game.GameRules
                     Location = ItemLocationEnum.Necklace,
                     Attribute = AttributeEnum.Attack
                 },
+                new ItemModel {
+                    Name = ItemTypeEnum.Laptop.ToMessage(),
+                    Description = "Complete your assignments faster with a laptop.",
+                    ImageURI = "item.png",
+                    Range = 10,
+                    Damage = 10,
+                    Value = 20,
+                    Location = ItemLocationEnum.PrimaryHand,
+                    Attribute = AttributeEnum.Attack
+                },
             };
 
             for (int i = 0; i < 20; i++)
