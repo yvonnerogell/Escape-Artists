@@ -36,13 +36,13 @@ namespace Game.GameRules
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
-                    Name = "I3",
-                    Description = "I3",
+                    Name = ItemTypeEnum.Textbooks.ToMessage(),
+                    Description = "Reference course literature effectively.",
                     ImageURI = "item.png",
                     Range = 10,
                     Damage = 10,
-                    Value = 9,
-                    Location = ItemLocationEnum.Necklace,
+                    Value = 10,
+                    Location = ItemLocationEnum.PrimaryHand,
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
