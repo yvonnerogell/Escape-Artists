@@ -16,18 +16,18 @@ namespace Game.GameRules
             var datalist = new List<ItemModel>()
             {
                 new ItemModel {
-                    Name = "I1",
-                    Description = "I1",
+                    Name = ItemTypeEnum.IndexCards.ToMessage(),
+                    Description = "Memorize your homework.",
                     ImageURI = "item.png",
                     Range = 10,
                     Damage = 10,
-                    Value = 9,
-                    Location = ItemLocationEnum.PrimaryHand,
+                    Value = 2,
+                    Location = ItemLocationEnum.RightFinger,
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
-                    Name = "I2",
-                    Description = "I2",
+                    Name = ItemTypeEnum.PencilEraser.ToMessage(),
+                    Description = "Forget about your mistakes.",
                     ImageURI = "item.png",
                     Range = 10,
                     Damage = 10,
