@@ -55,6 +55,13 @@ namespace Game.Views.Characters
         /// <param name="e"></param>
         public async void Save_Clicked(object sender, EventArgs e)
         {
+            ViewModel.Data.PlayerType = PlayerTypeEnum.Character;
+            ViewModel.Data.SpecificCharacterTypeEnum = SpecificCharacterTypeEnumHelper.ConvertMessageStringToEnum(CharacterTypePicker.SelectedItem.ToString());
+            // add deriving character type from specific character type
+            ViewModel.Data.UpdateImageURI(ViewModel.Data);
+
+            // TODO add Items
+
             MessagingCenter.Send(this, "Create", ViewModel.Data);
             await Navigation.PopModalAsync();
 
