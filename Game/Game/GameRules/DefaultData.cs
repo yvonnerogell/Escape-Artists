@@ -317,7 +317,23 @@ namespace Game.GameRules
                     },
                     Attack = 1,
                     ImageURI = Constants.SpecificMonsterTypeTeachingAssistantImageURI
-                }
+                },
+
+                new MonsterModel {
+                    Name = "Mr. Smith",
+                    Description = "No one can fire me.",
+                    MonsterTypeEnum = MonsterTypeEnum.Faculty,
+                    SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty,
+                    Difficulty = DifficultyEnum.Average,
+                    Items = new List<ItemLocationEnum>()
+                    {
+                        ItemLocationEnum.Head,
+                        ItemLocationEnum.Necklace
+                    },
+                    Attack = 1,
+                    ImageURI = Constants.SpecificMonsterTypeAdjunctFacultyImageURI
+                },
+
             };
 
             return datalist;
