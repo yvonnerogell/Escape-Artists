@@ -24,6 +24,9 @@ namespace Game.Models
         // The Damage the Item can do if it is used as a weapon in the primary hand
         public int Damage { get; set; } = 0;
 
+        // Set the item to be a specific type, unknown is defaulted.
+        public ItemTypeEnum ItemType { get; set; } = ItemTypeEnum.Unknown;
+
         // Enum of the different attributes that the item modifies, Items can only modify one item
         public AttributeEnum Attribute { get; set; } = AttributeEnum.Unknown;
 
