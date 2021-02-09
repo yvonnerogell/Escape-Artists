@@ -66,13 +66,13 @@ namespace Game.Views.Characters
                 ItemBox.Children.Remove(data);
             }
 
-            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.Head));
-            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.Necklace));
-            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.PrimaryHand));
-            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.OffHand));
-            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.RightFinger));
-            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.LeftFinger));
-            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.Feet));
+            ItemBox.Children.Add(LoadEmptyItem(ItemLocationEnum.Head));
+            ItemBox.Children.Add(LoadEmptyItem(ItemLocationEnum.Necklace));
+            ItemBox.Children.Add(LoadEmptyItem(ItemLocationEnum.PrimaryHand));
+            ItemBox.Children.Add(LoadEmptyItem(ItemLocationEnum.OffHand));
+            ItemBox.Children.Add(LoadEmptyItem(ItemLocationEnum.RightFinger));
+            ItemBox.Children.Add(LoadEmptyItem(ItemLocationEnum.LeftFinger));
+            ItemBox.Children.Add(LoadEmptyItem(ItemLocationEnum.Feet));
         }
 
         /// <summary>
@@ -86,36 +86,29 @@ namespace Game.Views.Characters
                 ItemBox.Children.Remove(data);
             }
 
-            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.Necklace));
-            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.PrimaryHand));
-            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.OffHand));
-            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.RightFinger));
-            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.LeftFinger));
-            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.Feet));
+            ItemBox.Children.Add(LoadEmptyItem(ItemLocationEnum.Necklace));
+            ItemBox.Children.Add(LoadEmptyItem(ItemLocationEnum.PrimaryHand));
+            ItemBox.Children.Add(LoadEmptyItem(ItemLocationEnum.OffHand));
+            ItemBox.Children.Add(LoadEmptyItem(ItemLocationEnum.RightFinger));
+            ItemBox.Children.Add(LoadEmptyItem(ItemLocationEnum.LeftFinger));
+            ItemBox.Children.Add(LoadEmptyItem(ItemLocationEnum.Feet));
         }
 
         /// <summary>
-        /// get the item details to load into item box
+        /// load an empty item
         /// </summary>
         /// <param name="location"></param>
         /// <returns></returns>
-        public StackLayout GetItemToDisplay(ItemLocationEnum location)
+        public StackLayout LoadEmptyItem(ItemLocationEnum location)
         {
             // Defualt Image is the Plus
             var ImageSource = "icon_cancel.png";
-            var data = new ItemModel { Location = location, ImageURI = ImageSource };
             // Hookup the Image Button to show the Item picture
             var ItemButton = new ImageButton
             {
                 Style = (Style)Application.Current.Resources["ImageMediumStyle"],
-                Source = data.ImageURI
+                Source = ImageSource,
             };
-
-            //if (ClickableButton)
-            //{
-            // Add a event to the user can click the item and see more
-            //    ItemButton.Clicked += (sender, args) => ShowPopup(data);
-            //}
 
             // Add the Display Text for the item
             var ItemLabel = new Label
@@ -130,16 +123,23 @@ namespace Game.Views.Characters
             {
                 Padding = 3,
                 Style = (Style)Application.Current.Resources["ItemImageBox"],
-                //HorizontalOptions = LayoutOptions.Center,
                 Children = {
                     ItemButton,
                     ItemLabel
                 },
             };
 
+
+            // TODO: uncomment once item create page is completed. 
+            //ItemButton.Clicked += (sender, args) => CreateNewItem(data);
             return ItemStack;
         }
 
+        public async void CreateNewItem(ItemModel data)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new ItemCreatePage()));
+            // TODO: get data that was created and add it. 
+        }
 
         void ToolbarItem_Clicked(System.Object sender, System.EventArgs e)
         {

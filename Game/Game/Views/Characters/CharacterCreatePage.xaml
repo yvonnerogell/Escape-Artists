@@ -155,6 +155,7 @@
                     x:Name="ItemBox">
                 </FlexLayout>
             </StackLayout>
+        
     </ScrollView>
  </ContentPage.Content>
 </ContentPage>
