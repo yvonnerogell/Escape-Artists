@@ -275,6 +275,11 @@ namespace Game.ViewModels
             return data;
         }
 
+        /// <summary>
+        /// Returns the item id of the first item from all items of input type
+        /// </summary>
+        /// <param name="itemType"></param>
+        /// <returns></returns>
         public string GetDefaultItemTypeItemId(ItemTypeEnum itemType)
         {
             var data = GetDefaultItemTypeItem(itemType);
