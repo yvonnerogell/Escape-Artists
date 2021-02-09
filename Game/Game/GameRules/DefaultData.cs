@@ -16,7 +16,7 @@ namespace Game.GameRules
             var datalist = new List<ItemModel>()
             {
                 new ItemModel {
-                    Name = ItemTypeEnum.IndexCards.ToMessage(),
+                    Name = "Exam " + ItemTypeEnum.IndexCards.ToMessage(),
                     Description = "Memorize your homework.",
                     ItemType = ItemTypeEnum.IndexCards,
                     ImageURI = Constants.ItemTypeIndexCardsImageURI,
@@ -27,7 +27,7 @@ namespace Game.GameRules
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
-                    Name = ItemTypeEnum.PencilEraser.ToMessage(),
+                    Name = "Blue " + ItemTypeEnum.PencilEraser.ToMessage(),
                     Description = "Forget about your mistakes.",
                     ItemType = ItemTypeEnum.PencilEraser,
                     ImageURI = Constants.ItemTypePencilEraserImageURI,
@@ -38,7 +38,7 @@ namespace Game.GameRules
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
-                    Name = ItemTypeEnum.Textbooks.ToMessage(),
+                    Name = "Math " + ItemTypeEnum.Textbooks.ToMessage(),
                     Description = "Reference course literature effectively.",
                     ItemType = ItemTypeEnum.Textbooks,
                     ImageURI = Constants.ItemTypeTextbooksImageURI,
@@ -49,7 +49,7 @@ namespace Game.GameRules
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
-                    Name = ItemTypeEnum.Notebook.ToMessage(),
+                    Name = "Pink " + ItemTypeEnum.Notebook.ToMessage(),
                     Description = "Keep track of the most crucial things to know.",
                     ItemType = ItemTypeEnum.Notebook,
                     ImageURI = Constants.ItemTypeNotebookImageURI,
@@ -60,7 +60,7 @@ namespace Game.GameRules
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
-                    Name = ItemTypeEnum.Calculator.ToMessage(),
+                    Name = "Graphing " + ItemTypeEnum.Calculator.ToMessage(),
                     Description = "Avoid doing math in your head.",
                     ItemType = ItemTypeEnum.Calculator,
                     ImageURI = Constants.ItemTypeCalculatorImageURI,
@@ -71,7 +71,7 @@ namespace Game.GameRules
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
-                    Name = ItemTypeEnum.LibraryCard.ToMessage(),
+                    Name = "Student " + ItemTypeEnum.LibraryCard.ToMessage(),
                     Description = "Get your textbooks for free.",
                     ItemType = ItemTypeEnum.LibraryCard,
                     ImageURI = Constants.ItemTypeLibraryCardImageURI,
@@ -82,7 +82,7 @@ namespace Game.GameRules
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
-                    Name = ItemTypeEnum.FoodCourtCard.ToMessage(),
+                    Name = "Student " + ItemTypeEnum.FoodCourtCard.ToMessage(),
                     Description = "Don’t run out of fuel.",
                     ItemType = ItemTypeEnum.FoodCourtCard,
                     ImageURI = Constants.ItemTypeFoodCourtCardImageURI,
@@ -93,7 +93,7 @@ namespace Game.GameRules
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
-                    Name = ItemTypeEnum.Laptop.ToMessage(),
+                    Name = "Mac " + ItemTypeEnum.Laptop.ToMessage(),
                     Description = "Complete your assignments faster with a laptop.",
                     ItemType = ItemTypeEnum.Laptop,
                     ImageURI = Constants.ItemTypeLaptopImageURI,
@@ -104,7 +104,7 @@ namespace Game.GameRules
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
-                    Name = ItemTypeEnum.PrivateTutor.ToMessage(),
+                    Name = "Math " + ItemTypeEnum.PrivateTutor.ToMessage(),
                     Description = "Get expert homework help.",
                     ItemType = ItemTypeEnum.PrivateTutor,
                     ImageURI = Constants.ItemTypePrivateTutorImageURI,
@@ -115,7 +115,7 @@ namespace Game.GameRules
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
-                    Name = ItemTypeEnum.FinancialAid.ToMessage(),
+                    Name = "Undergraduate " + ItemTypeEnum.FinancialAid.ToMessage(),
                     Description = "Get some financial help.",
                     ItemType = ItemTypeEnum.FinancialAid,
                     ImageURI = Constants.ItemTypeFinancialAidImageURI,
@@ -126,7 +126,7 @@ namespace Game.GameRules
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
-                    Name = ItemTypeEnum.Tuition.ToMessage(),
+                    Name = "Sprint quarter " + ItemTypeEnum.Tuition.ToMessage(),
                     Description = "Pay your way through college.",
                     ItemType = ItemTypeEnum.Tuition,
                     ImageURI = Constants.ItemTypeTuitionImageURI,
@@ -137,7 +137,7 @@ namespace Game.GameRules
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
-                    Name = ItemTypeEnum.GraduationCapAndRobe.ToMessage(),
+                    Name = "Master's " + ItemTypeEnum.GraduationCapAndRobe.ToMessage(),
                     Description = "The cap will help you feel closer to graduation.",
                     ItemType = ItemTypeEnum.GraduationCapAndRobe,
                     ImageURI = Constants.ItemTypeGraduationCapAndRobeImageURI,
@@ -148,7 +148,7 @@ namespace Game.GameRules
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
-                    Name = ItemTypeEnum.Diploma.ToMessage(),
+                    Name = "Master's " + ItemTypeEnum.Diploma.ToMessage(),
                     Description = "A diploma is the (almost) final step before graduation.",
                     ItemType = ItemTypeEnum.Diploma,
                     ImageURI = Constants.ItemTypeDiplomaImageURI,
