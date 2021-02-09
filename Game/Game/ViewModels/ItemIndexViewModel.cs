@@ -243,5 +243,18 @@ namespace Game.ViewModels
 
             return data;
         }
+
+        /// <summary>
+        /// Takes in item type and returns all items of this type
+        /// </summary>
+        /// <param name="itemType"></param>
+        /// <returns></returns>
+        public List<ItemModel> GetItemTypeItems(ItemTypeEnum itemType)
+        {
+            List<ItemModel> data = null;
+
+            data = Dataset.Where(m => m.ItemType == itemType).ToList();
+            return data;
+        }
     }
 }
