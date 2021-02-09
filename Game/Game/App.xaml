@@ -235,6 +235,13 @@
                 <Setter Property="Minimum" Value="1"/>
             </Style>
 
+            <Style TargetType="Slider"
+                   x:Key="GPASliderStyle"
+                   BasedOn="{StaticResource AttackSliderStyle}">
+                <Setter Property="Minimum" Value="10"/>
+                <Setter Property="Maximum" Value="100"/>
+            </Style>
+
 
             <!-- Image -->
             <Style TargetType="Image"

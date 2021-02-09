@@ -137,9 +137,7 @@
                             Style="{StaticResource LabelStyleUpdateText}"/>
 
                     <Slider  Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2"
-                             Maximum="100"
-                             Minimum="10"
-                             Style="{StaticResource SliderStyle}"
+                             Style="{StaticResource GPASliderStyle}"
                              ValueChanged="OnSliderChanged"
                              x:Name="GPASlider"
                              Value="{Binding Data.GPA}"/>
