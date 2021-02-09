@@ -38,14 +38,14 @@ namespace Game
         public static string SpecificMonsterTypeGraduationOfficeAdministratorImageURI = "squid.jpg";
 
         // Student Character Types Image URIs
-        public static string SpecificCharacterTypeDefaultImageURI = "student.png";
-        public static string SpecificCharacterTypeSmartyPantsImageURI = "student.png";
-        public static string SpecificCharacterTypeOverachieverImageURI = "student.png";
-        public static string SpecificCharacterTypeInternationalStudentImageURI = "student.png";
-        public static string SpecificCharacterTypeProdigyImageURI = "student.png";
-        public static string SpecificCharacterTypeSecondCareerImageURI = "student.png";
-        public static string SpecificCharacterTypeSlackerImageURI = "student.png";
-        public static string SpecificCharacterTypeProcrastinatorImageURI = "student.png";
+        public static string SpecificCharacterTypeDefaultImageURI = "smarty_pants_character.png";
+        public static string SpecificCharacterTypeSmartyPantsImageURI = "smarty_pants_student.png";
+        public static string SpecificCharacterTypeOverachieverImageURI = "overachiever_student.png";
+        public static string SpecificCharacterTypeInternationalStudentImageURI = "international_student.png";
+        public static string SpecificCharacterTypeProdigyImageURI = "prodigy_student.png";
+        public static string SpecificCharacterTypeSecondCareerImageURI = "second_career_student.png";
+        public static string SpecificCharacterTypeSlackerImageURI = "slacker_student.png";
+        public static string SpecificCharacterTypeProcrastinatorImageURI = "procrastinator_student.png";
 
         // Item Types Image URIs
         public static string ItemTypeIndexCardsImageURI = "item.png";
@@ -63,8 +63,8 @@ namespace Game
         public static string ItemTypeDiplomaImageURI = "item.png";
 
         // Parent Character Types Image URIs
-        public static string SpecificCharacterTypeHelicopterParentImageURI = "parent.png";
-        public static string SpecificCharacterTypeCoolParentImageURI = "parent.png";
+        public static string SpecificCharacterTypeHelicopterParentImageURI = "helicopter_parent.png";
+        public static string SpecificCharacterTypeCoolParentImageURI = "coolparent.png";
 
         // Default Character name
         public static string CharacterNameDefault = "New Character Name";
