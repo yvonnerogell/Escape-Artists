@@ -210,10 +210,10 @@ namespace Game.GameRules
             var DefaultFoodCourtCard = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.FoodCourtCard);
             var DefaultLaptop = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.Laptop);
             var DefaultPrivateTutor = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.PrivateTutor);
-            var DefaultFinancialAid = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.FinancialAid);
+            //var DefaultFinancialAid = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.FinancialAid);
             var DefaultTuition = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.Tuition);
-            var DefaultGraduationCapAndRobe = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.GraduationCapAndRobe);
-            var DefaultDiploma = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.Diploma);
+            //var DefaultGraduationCapAndRobe = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.GraduationCapAndRobe);
+            //var DefaultDiploma = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.Diploma);
 
 
             var datalist = new List<CharacterModel>()
@@ -245,13 +245,13 @@ namespace Game.GameRules
                     GPA = 80,
                     MaxHealth = 100,
                     ImageURI = Constants.SpecificCharacterTypeOverachieverImageURI,
-                    Head = HeadString,
-                    Necklace = NecklaceString,
-                    PrimaryHand = PrimaryHandString,
-                    OffHand = OffHandString,
-                    Feet = FeetString,
-                    RightFinger = RightFingerString,
-                    LeftFinger = LeftFingerString,
+                    Head = "None",
+                    Necklace = "None",
+                    PrimaryHand = DefaultTextbooks,
+                    OffHand = "None",
+                    Feet = "None",
+                    RightFinger = "None",
+                    LeftFinger = "None",
                 },
 
                 new CharacterModel {
@@ -263,13 +263,13 @@ namespace Game.GameRules
                     GPA = 80,
                     MaxHealth = 100,
                     ImageURI = Constants.SpecificCharacterTypeInternationalStudentImageURI,
-                    Head = HeadString,
+                    Head = "None",
                     Necklace = "None",
-                    PrimaryHand = PrimaryHandString,
-                    OffHand = OffHandString,
-                    Feet = FeetString,
-                    RightFinger = RightFingerString,
-                    LeftFinger = LeftFingerString,
+                    PrimaryHand = DefaultNotebook,
+                    OffHand = "None",
+                    Feet = "None",
+                    RightFinger = "None",
+                    LeftFinger = "None",
                 },
 
                 new CharacterModel {
@@ -281,13 +281,13 @@ namespace Game.GameRules
                     GPA = 70,
                     MaxHealth = 100,
                     ImageURI = Constants.SpecificCharacterTypeProdigyImageURI,
-                    Head = HeadString,
-                    Necklace = "None",
-                    PrimaryHand = PrimaryHandString,
-                    OffHand = OffHandString,
-                    Feet = FeetString,
-                    RightFinger = RightFingerString,
-                    LeftFinger = LeftFingerString,
+                    Head = "None",
+                    Necklace = DefaultLibraryCard,
+                    PrimaryHand = "None",
+                    OffHand = "None",
+                    Feet = "None",
+                    RightFinger = "None",
+                    LeftFinger = "None",
                 },
 
                 new CharacterModel {
@@ -299,13 +299,13 @@ namespace Game.GameRules
                     GPA = 80,
                     MaxHealth = 100,
                     ImageURI = Constants.SpecificCharacterTypeSecondCareerImageURI,
-                    Head = HeadString,
-                    Necklace = NecklaceString,
-                    PrimaryHand = PrimaryHandString,
-                    OffHand = OffHandString,
-                    Feet = FeetString,
-                    RightFinger = RightFingerString,
-                    LeftFinger = LeftFingerString,
+                    Head = "None",
+                    Necklace = "None",
+                    PrimaryHand = DefaultLaptop,
+                    OffHand = "None",
+                    Feet = "None",
+                    RightFinger = "None",
+                    LeftFinger = "None",
                 },
 
                 new CharacterModel {
@@ -317,13 +317,13 @@ namespace Game.GameRules
                     SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.Slacker,
                     MaxHealth = 100,
                     ImageURI = Constants.SpecificCharacterTypeSlackerImageURI,
-                    Head = HeadString,
-                    Necklace = NecklaceString,
-                    PrimaryHand = PrimaryHandString,
-                    OffHand = OffHandString,
-                    Feet = FeetString,
-                    RightFinger = RightFingerString,
-                    LeftFinger = LeftFingerString,
+                    Head = "None",
+                    Necklace = "None",
+                    PrimaryHand = "None",
+                    OffHand = "None",
+                    Feet = "None",
+                    RightFinger = "None",
+                    LeftFinger = DefaultCalculator,
                 },
 
                 new CharacterModel {
@@ -335,9 +335,9 @@ namespace Game.GameRules
                     SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.Procrastinator,
                     MaxHealth = 100,
                     ImageURI = Constants.SpecificCharacterTypeProcrastinatorImageURI,
-                    Head = HeadString,
-                    Necklace = "None",
-                    PrimaryHand = PrimaryHandString,
+                    Head = "None",
+                    Necklace = DefaultFoodCourtCard,
+                    PrimaryHand = "None",
                     OffHand = OffHandString,
                     Feet = FeetString,
                     RightFinger = RightFingerString,
@@ -355,7 +355,7 @@ namespace Game.GameRules
                     ImageURI = Constants.SpecificCharacterTypeHelicopterParentImageURI,
                     Head = "None",
                     Necklace = "None",
-                    PrimaryHand = PrimaryHandString,
+                    PrimaryHand = DefaultTuition,
                     OffHand = OffHandString,
                     Feet = FeetString,
                     RightFinger = RightFingerString,
@@ -372,7 +372,7 @@ namespace Game.GameRules
                     MaxHealth = 100,
                     ImageURI = Constants.SpecificCharacterTypeCoolParentImageURI,
                     Head = "None",
-                    Necklace = "None",
+                    Necklace = DefaultPrivateTutor,
                     PrimaryHand = PrimaryHandString,
                     OffHand = OffHandString,
                     Feet = FeetString,
