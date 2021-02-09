@@ -30,7 +30,7 @@ namespace Game.Models
             Name = null;
             Description = null;
             Level = 1;
-            ImageURI = "student.png";
+            ImageURI = "smarty_pants_character.png";
             GPA = 0;
             ExperienceTotal = 0;
             ExperienceRemaining = LevelTableHelper.LevelDetailsList[Level + 1].Experience - 1;
