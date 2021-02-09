@@ -23,8 +23,8 @@ namespace Game.Models
             MonsterTypeEnum = MonsterTypeEnum.Faculty;
             SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.TeachingAssistant;
             Guid = Id;
-            Name = null;
-            Description = null;
+            Name = "This is a New Monster";
+            Description = "This is a New Monster Description";
             Attack = 1;
             Difficulty = DifficultyEnum.Average;
             UniqueDropItem = null;
