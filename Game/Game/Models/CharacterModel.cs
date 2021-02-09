@@ -141,6 +141,10 @@ namespace Game.Models
             return true;
         }
 
+        /// <summary>
+        /// Given the inputted Character, updates the image URI based on the SpecificCharacterTypeEnum. 
+        /// </summary>
+        /// <param name="newData">Character to update</param>
         public void UpdateImageURI(CharacterModel newData)
         {
             switch (newData.SpecificCharacterTypeEnum)
