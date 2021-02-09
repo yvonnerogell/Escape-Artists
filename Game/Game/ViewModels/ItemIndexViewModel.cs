@@ -274,5 +274,16 @@ namespace Game.ViewModels
 
             return data;
         }
+
+        public string GetDefaultItemTypeItemId(ItemTypeEnum itemType)
+        {
+            var data = GetDefaultItemTypeItems(itemType);
+            if (data == null)
+            {
+                return null;
+            }
+
+            return data.Id;
+        }
     }
 }
