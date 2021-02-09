@@ -264,4 +264,28 @@
   <ItemGroup>
     <BundleResource Include="Resources\item_indexcards.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\human_resources_monster.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\professor_monster.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\registration_monster.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\teaching_assistant_monster.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\adjunct_faculty_monster.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\assistant_professor_monster.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\associate_professor_monster.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\grad_office_monster.png" />
+  </ItemGroup>
 </Project>
