@@ -33,6 +33,28 @@ namespace Game.Views.Characters
             
         }
 
+
+        /// <summary>
+        /// Any time picker changes, items reset because parents type do not allow head location
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void OnPickerSelectedIndexChanged(object sender, EventArgs e)
+        {
+            var picker = (Picker)sender;
+            string selectedIndex = (string)picker.SelectedItem;
+
+            if (SpecificCharacterTypeEnumHelper.GetStudentListMessage.Contains(selectedIndex))
+            {
+                AddStudentItemsToDisplay();
+            }
+            else
+            {
+                AddParentItemsToDisplay();
+            }
+
+        }
+
         /// <summary>
         /// Load the item box for students type
         /// </summary>
