@@ -26,16 +26,16 @@ namespace Game
 
         // Faculty Monster types Image URIs
         public static string SpecificMonsterTypeDefaultImageURI = "squid.jpg";
-        public static string SpecificMonsterTypeTeachingAssistantImageURI = "teaching_assistant_monster.jpg";
-        public static string SpecificMonsterTypeAdjunctFacultyImageURI = "adjunct_faculty_monster.jpg";
-        public static string SpecificMonsterTypeAssistantProfessorImageURI = "assistant_professor_monster.jpg";
-        public static string SpecificMonsterTypeAssociateProfessorImageURI = "associate_professor_monster.jpg";
-        public static string SpecificMonsterTypeProfessorImageURI = "professor_monster.jpg";
+        public static string SpecificMonsterTypeTeachingAssistantImageURI = "teaching_assistant_monster.png";
+        public static string SpecificMonsterTypeAdjunctFacultyImageURI = "adjunct_faculty_monster.png";
+        public static string SpecificMonsterTypeAssistantProfessorImageURI = "assistant_professor_monster.png";
+        public static string SpecificMonsterTypeAssociateProfessorImageURI = "associate_professor_monster.png";
+        public static string SpecificMonsterTypeProfessorImageURI = "professor_monster.png";
 
         // Administrator Monster types Image URIs
-        public static string SpecificMonsterTypeHRAdministratorImageURI = "human_resources_monster.jpg";
-        public static string SpecificMonsterTypeRegistrationAdministratorImageURI = "registration_monster.jpg";
-        public static string SpecificMonsterTypeGraduationOfficeAdministratorImageURI = "grad_office_monster.jpg";
+        public static string SpecificMonsterTypeHRAdministratorImageURI = "human_resources_monster.png";
+        public static string SpecificMonsterTypeRegistrationAdministratorImageURI = "registration_monster.png";
+        public static string SpecificMonsterTypeGraduationOfficeAdministratorImageURI = "grad_office_monster.png";
 
         // Student Character Types Image URIs
         public static string SpecificCharacterTypeDefaultImageURI = "smarty_pants_character.png";
