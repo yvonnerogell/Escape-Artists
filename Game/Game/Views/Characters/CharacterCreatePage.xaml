@@ -127,9 +127,7 @@
                             HorizontalTextAlignment="End"/>
 
                     <Slider Grid.Row="9" Grid.Column="1"
-                            Maximum="20" 
-                            Minimum="0"
-                            Style="{StaticResource SliderStyle}"
+                            Style="{StaticResource SpeedSliderStyle}"
                             ValueChanged="OnSliderChanged"
                             x:Name="SpeedSlider"
                             Value="{Binding Data.Speed}"/>
