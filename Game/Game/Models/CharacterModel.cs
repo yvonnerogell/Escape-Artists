@@ -9,14 +9,9 @@ namespace Game.Models
     /// </summary>
     public class CharacterModel : BasePlayerModel<CharacterModel>
     {
-        //TODO: Add new Character Varaibles
+
+        // SpecificCharacterTypeEnum for this Character (e.g. Procrastinator, Helicopter Parent, etc.)
         public SpecificCharacterTypeEnum SpecificCharacterTypeEnum { get; set; }
-        /// <summary>
-        /// Default character
-        /// 
-        /// Gets a type, guid, name and description
-        /// </summary>
-        /// 
 
         // Character GPA
         public int GPA { get; set; } = 0;
