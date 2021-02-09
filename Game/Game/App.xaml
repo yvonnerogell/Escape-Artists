@@ -212,6 +212,36 @@
                 <Setter Property="Margin" Value="30, 5"/>
             </Style>
 
+            <Style TargetType="Slider"
+                   x:Key="AttackSliderStyle"
+                   BasedOn="{StaticResource SliderStyle}">
+                <Setter Property="Minimum" Value="0"/>
+                <Setter Property="Maximum" Value="20"/>
+            </Style>
+
+            <Style TargetType="Slider"
+                   x:Key="DefenseSliderStyle"
+                   BasedOn="{StaticResource AttackSliderStyle}">
+            </Style>
+
+            <Style TargetType="Slider"
+                   x:Key="SpeedSliderStyle"
+                   BasedOn="{StaticResource AttackSliderStyle}">
+            </Style>
+
+            <Style TargetType="Slider"
+                   x:Key="LevelSliderStyle"
+                   BasedOn="{StaticResource AttackSliderStyle}">
+                <Setter Property="Minimum" Value="1"/>
+            </Style>
+
+            <Style TargetType="Slider"
+                   x:Key="GPASliderStyle"
+                   BasedOn="{StaticResource AttackSliderStyle}">
+                <Setter Property="Minimum" Value="10"/>
+                <Setter Property="Maximum" Value="100"/>
+            </Style>
+
 
             <!-- Image -->
             <Style TargetType="Image"
@@ -301,7 +331,7 @@
 
             <!-- Button -->
             <Style TargetType="Button"
-                   x:Key="ButtonStyle">
+                   x:Key="ButtonStyleSmall">
                 <Setter Property="BackgroundColor" Value="{StaticResource SecondaryBackgroundColor}" />
                 <Setter Property="TextColor" Value="{StaticResource SecondaryTextColor}" />
                 <Setter Property="BorderColor" Value="{StaticResource TriciaryBackgroundColor}"/>
@@ -311,7 +341,16 @@
                 <Setter Property="Padding" Value="1"/>
                 <Setter Property="Margin" Value="0,5,0,5"/>
                 <Setter Property="HeightRequest" Value="30"/>
+                <Setter Property="WidthRequest" Value="50"/>
                 <Setter Property="BorderWidth" Value="1"/>
+            </Style>
+
+            <Style TargetType="Button"
+                   x:Key="ButtonStyleMedium"
+                   BasedOn="{StaticResource ButtonStyleSmall}">
+                 <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="WidthRequest" Value="190"/>
+
             </Style>
 
             <!-- Stack Layouts -->

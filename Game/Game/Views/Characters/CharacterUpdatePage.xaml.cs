@@ -86,6 +86,11 @@ namespace Game.Views
                 SpeedValue.Text = newValueStr;
                 SpeedSlider.Value = newValue;
             }
+            if (sender == GPASlider)
+            {
+                GPAValue.Text = newValueStr;
+                GPASlider.Value = newValue;
+            }
         }
     }
 }

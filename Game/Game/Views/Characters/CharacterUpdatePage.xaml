@@ -69,9 +69,7 @@
 
                     <Slider Grid.Row="3" 
                             Grid.Column="1" 
-                            Maximum="20" 
-                            Minimum="1"
-                            Style="{StaticResource SliderStyle}"
+                            Style="{StaticResource LevelSliderStyle}"
                             ValueChanged="OnSliderChanged"
                             x:Name="LevelSlider"
                             Value="{Binding Data.Level}"/> 
@@ -88,9 +86,7 @@
 
                     <Slider Grid.Row="4" 
                             Grid.Column="1" 
-                            Maximum="20" 
-                            Minimum="0"
-                            Style="{StaticResource SliderStyle}"
+                            Style="{StaticResource AttackSliderStyle}"
                             ValueChanged="OnSliderChanged"
                             x:Name="AttackSlider"
                             Value="{Binding Data.Attack}"/>
@@ -106,9 +102,7 @@
 
                     <Slider Grid.Row="5" 
                             Grid.Column="1" 
-                            Maximum="20" 
-                            Minimum="0"
-                            Style="{StaticResource SliderStyle}"
+                            Style="{StaticResource DefenseSliderStyle}"
                             ValueChanged="OnSliderChanged"
                             x:Name="DefenseSlider"
                             Value="{Binding Data.Defense}"/>
@@ -124,23 +118,22 @@
 
                     <Slider Grid.Row="6" 
                             Grid.Column="1" 
-                            Maximum="20" 
-                            Minimum="0"
-                            Style="{StaticResource SliderStyle}"
+                            Style="{StaticResource SpeedSliderStyle}"
                             ValueChanged="OnSliderChanged"
                             x:Name="SpeedSlider"
                             Value="{Binding Data.Speed}"/>
+
+                    <Label Grid.Row="7" Grid.Column="0"
+                            Text="GPA"
+                            Style="{StaticResource LabelStyleUpdateText}"/>
 
                     <Label Grid.Row="7" Grid.Column="0"
                             Text="{Binding Data.GPA}" 
                             x:Name="GPAValue"
                             Style="{StaticResource LabelStyleUpdateValue}"/>
 
-                    <Slider Grid.Row="7" 
-                            Grid.Column="1" 
-                            Maximum="100" 
-                            Minimum="10"
-                            Style="{StaticResource SliderStyle}"
+                    <Slider Grid.Row="7" Grid.Column="1" 
+                            Style="{StaticResource GPASliderStyle}"
                             ValueChanged="OnSliderChanged"
                             x:Name="GPASlider"
                             Value="{Binding Data.GPA}"/>

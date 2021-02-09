@@ -13,10 +13,9 @@ namespace Game.Models
 
         // Unique Drop Item for Monsters
         public string UniqueDropItem { get; set; } = null;
+
         /// <summary>
-        /// Set Type to Monster
-        /// 
-        /// Set Name and Description
+        /// Constructor to create a new MonsterModel.
         /// </summary>
         public MonsterModel()
         {

@@ -76,12 +76,10 @@
                 <Label Text="Really delete this?" Style="{StaticResource MessageStyle}"/>
 
                 <Button 
+                    Style="{StaticResource ButtonStyleMedium}"
                     Text="Yes" 
                     Clicked="Delete_Clicked" 
-                    HorizontalOptions="Center"
-                    FontSize="Medium"
-                    BorderWidth="1" 
-                    BorderColor="black">
+                    FontSize="Medium">
                 </Button>
 
             </StackLayout>
