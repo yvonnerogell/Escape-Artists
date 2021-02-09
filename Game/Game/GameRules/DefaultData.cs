@@ -338,10 +338,10 @@ namespace Game.GameRules
                     Head = "None",
                     Necklace = DefaultFoodCourtCard,
                     PrimaryHand = "None",
-                    OffHand = OffHandString,
-                    Feet = FeetString,
-                    RightFinger = RightFingerString,
-                    LeftFinger = LeftFingerString,
+                    OffHand = "None",
+                    Feet = "None",
+                    RightFinger = "None",
+                    LeftFinger = "None",
                 },
 
                  new CharacterModel {
@@ -356,10 +356,10 @@ namespace Game.GameRules
                     Head = "None",
                     Necklace = "None",
                     PrimaryHand = DefaultTuition,
-                    OffHand = OffHandString,
-                    Feet = FeetString,
-                    RightFinger = RightFingerString,
-                    LeftFinger = LeftFingerString,
+                    OffHand = "None",
+                    Feet = "None",
+                    RightFinger = "None",
+                    LeftFinger = "None",
                 },
 
                   new CharacterModel {
@@ -373,11 +373,11 @@ namespace Game.GameRules
                     ImageURI = Constants.SpecificCharacterTypeCoolParentImageURI,
                     Head = "None",
                     Necklace = DefaultPrivateTutor,
-                    PrimaryHand = PrimaryHandString,
-                    OffHand = OffHandString,
-                    Feet = FeetString,
-                    RightFinger = RightFingerString,
-                    LeftFinger = LeftFingerString,
+                    PrimaryHand = "None",
+                    OffHand = "None",
+                    Feet = "None",
+                    RightFinger = "None",
+                    LeftFinger = "None",
                 },
             };
 
