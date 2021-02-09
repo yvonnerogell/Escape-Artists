@@ -229,6 +229,12 @@
                    BasedOn="{StaticResource AttackSliderStyle}">
             </Style>
 
+            <Style TargetType="Slider"
+                   x:Key="LevelSliderStyle"
+                   BasedOn="{StaticResource AttackSliderStyle}">
+                <Setter Property="Minimum" Value="1"/>
+            </Style>
+
 
             <!-- Image -->
             <Style TargetType="Image"
