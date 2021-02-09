@@ -48,19 +48,19 @@ namespace Game
         public static string SpecificCharacterTypeProcrastinatorImageURI = "procrastinator_student.png";
 
         // Item Types Image URIs
-        public static string ItemTypeIndexCardsImageURI = "item.png";
-        public static string ItemTypePencilEraserImageURI = "item.png";
-        public static string ItemTypeTextbooksImageURI = "item.png";
-        public static string ItemTypeNotebookImageURI = "item.png";
-        public static string ItemTypeCalculatorImageURI = "item.png";
-        public static string ItemTypeLibraryCardImageURI = "item.png";
-        public static string ItemTypeFoodCourtCardImageURI = "item.png";
-        public static string ItemTypeLaptopImageURI = "item.png";
-        public static string ItemTypePrivateTutorImageURI = "item.png";
-        public static string ItemTypeFinancialAidImageURI = "item.png";
-        public static string ItemTypeTuitionImageURI = "item.png";
-        public static string ItemTypeGraduationCapAndRobeImageURI = "item.png";
-        public static string ItemTypeDiplomaImageURI = "item.png";
+        public static string ItemTypeIndexCardsImageURI = "item_indexcards.png";
+        public static string ItemTypePencilEraserImageURI = "item_pencil.png";
+        public static string ItemTypeTextbooksImageURI = "item_textbook.png";
+        public static string ItemTypeNotebookImageURI = "item_notebook.png";
+        public static string ItemTypeCalculatorImageURI = "item_calculator.png";
+        public static string ItemTypeLibraryCardImageURI = "item_librarycard.png";
+        public static string ItemTypeFoodCourtCardImageURI = "item_foodcard.png";
+        public static string ItemTypeLaptopImageURI = "item_laptop.png";
+        public static string ItemTypePrivateTutorImageURI = "item_privatetutor.png";
+        public static string ItemTypeFinancialAidImageURI = "item_financialaid.png";
+        public static string ItemTypeTuitionImageURI = "item_tuition.png";
+        public static string ItemTypeGraduationCapAndRobeImageURI = "item_gradcap.png";
+        public static string ItemTypeDiplomaImageURI = "item_diploma.png";
 
         // Parent Character Types Image URIs
         public static string SpecificCharacterTypeHelicopterParentImageURI = "helicopter_parent.png";
