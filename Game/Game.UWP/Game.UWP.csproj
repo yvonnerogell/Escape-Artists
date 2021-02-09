@@ -104,6 +104,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="adjunct_faculty_monster.png" />
     <Content Include="Assets\BadgeLogo.scale-100.png" />
     <Content Include="Assets\BadgeLogo.scale-125.png" />
     <Content Include="Assets\BadgeLogo.scale-150.png" />
@@ -132,6 +133,10 @@
     <Content Include="Assets\StoreLogo.scale-150.png" />
     <Content Include="Assets\Wide310x150Logo.scale-125.png" />
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
+    <Content Include="assistant_professor_monster.png" />
+    <Content Include="associate_professor_monster.png" />
+    <Content Include="grad_office_monster.png" />
+    <Content Include="human_resources_monster.png" />
     <Content Include="item_calculator.png" />
     <Content Include="coolparent.png" />
     <Content Include="helicopter_parent.png" />
@@ -165,6 +170,7 @@
     <Content Include="parent.png" />
     <Content Include="procrastinator_student.png" />
     <Content Include="prodigy_student.png" />
+    <Content Include="professor_monster.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-200.png" />
@@ -193,11 +199,13 @@
     <Content Include="Assets\Wide310x150Logo.scale-100.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="registration_monster.png" />
     <Content Include="second_career_student.png" />
     <Content Include="slacker_student.png" />
     <Content Include="smarty_pants_character.png" />
     <Content Include="squid.jpg" />
     <Content Include="student.png" />
+    <Content Include="teaching_assistant_monster.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
