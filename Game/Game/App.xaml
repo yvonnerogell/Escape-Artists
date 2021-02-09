@@ -311,6 +311,7 @@
                 <Setter Property="Padding" Value="1"/>
                 <Setter Property="Margin" Value="0,5,0,5"/>
                 <Setter Property="HeightRequest" Value="30"/>
+                <Setter Property="WidthRequest" Value="50"/>
                 <Setter Property="BorderWidth" Value="1"/>
             </Style>
 
