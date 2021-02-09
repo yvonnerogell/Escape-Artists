@@ -79,6 +79,7 @@ namespace Game.Models
             // Update all the fields in the Data, except for the Id and guid
             Name = newData.Name;
             Description = newData.Description;
+            ItemType = newData.ItemType;
             Value = newData.Value;
             Attribute = newData.Attribute;
             Location = newData.Location;
