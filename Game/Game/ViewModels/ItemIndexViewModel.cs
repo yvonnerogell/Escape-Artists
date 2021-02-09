@@ -262,7 +262,7 @@ namespace Game.ViewModels
         /// </summary>
         /// <param name="itemType"></param>
         /// <returns></returns>
-        public ItemModel GetDefaultItemTypeItems(ItemTypeEnum itemType)
+        public ItemModel GetDefaultItemTypeItem(ItemTypeEnum itemType)
         {
             var dataList = GetItemTypeItems(itemType);
             if (dataList.Count() == 0)
@@ -277,7 +277,7 @@ namespace Game.ViewModels
 
         public string GetDefaultItemTypeItemId(ItemTypeEnum itemType)
         {
-            var data = GetDefaultItemTypeItems(itemType);
+            var data = GetDefaultItemTypeItem(itemType);
             if (data == null)
             {
                 return null;
