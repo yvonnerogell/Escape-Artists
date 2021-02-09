@@ -26,16 +26,16 @@ namespace Game
 
         // Faculty Monster types Image URIs
         public static string SpecificMonsterTypeDefaultImageURI = "squid.jpg";
-        public static string SpecificMonsterTypeTeachingAssistantImageURI = "squid.jpg";
-        public static string SpecificMonsterTypeAdjunctFacultyImageURI = "squid.jpg";
-        public static string SpecificMonsterTypeAssistantProfessorImageURI = "squid.jpg";
-        public static string SpecificMonsterTypeAssociateProfessorImageURI = "squid.jpg";
-        public static string SpecificMonsterTypeProfessorImageURI = "squid.jpg";
+        public static string SpecificMonsterTypeTeachingAssistantImageURI = "teaching_assistant_monster.jpg";
+        public static string SpecificMonsterTypeAdjunctFacultyImageURI = "adjunct_faculty_monster.jpg";
+        public static string SpecificMonsterTypeAssistantProfessorImageURI = "assistant_professor_monster.jpg";
+        public static string SpecificMonsterTypeAssociateProfessorImageURI = "associate_professor_monster.jpg";
+        public static string SpecificMonsterTypeProfessorImageURI = "professor_monster.jpg";
 
         // Administrator Monster types Image URIs
-        public static string SpecificMonsterTypeHRAdministratorImageURI = "squid.jpg";
-        public static string SpecificMonsterTypeRegistrationAdministratorImageURI = "squid.jpg";
-        public static string SpecificMonsterTypeGraduationOfficeAdministratorImageURI = "squid.jpg";
+        public static string SpecificMonsterTypeHRAdministratorImageURI = "human_resources_monster.jpg";
+        public static string SpecificMonsterTypeRegistrationAdministratorImageURI = "registration_monster.jpg";
+        public static string SpecificMonsterTypeGraduationOfficeAdministratorImageURI = "grad_office_monster.jpg";
 
         // Student Character Types Image URIs
         public static string SpecificCharacterTypeDefaultImageURI = "smarty_pants_character.png";
