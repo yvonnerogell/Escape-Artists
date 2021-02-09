@@ -98,6 +98,73 @@ namespace Game.Models
         }
 
         /// <summary>
+        /// Given the inputted Character, updates the image URI based on the SpecificCharacterTypeEnum. 
+        /// </summary>
+        /// <param name="newData">Character to update</param>
+        public void UpdateImageURI(ItemModel newData)
+        {
+            switch (newData.ItemType)
+            {
+                case ItemTypeEnum.IndexCards:
+                    ImageURI = Constants.ItemTypeIndexCardsImageURI;
+                    break;
+
+                case ItemTypeEnum.PencilEraser:
+                    ImageURI = Constants.ItemTypePencilEraserImageURI;
+                    break;
+
+                case ItemTypeEnum.Textbooks:
+                    ImageURI = Constants.ItemTypeTextbooksImageURI;
+                    break;
+
+                case ItemTypeEnum.Notebook:
+                    ImageURI = Constants.ItemTypeNotebookImageURI;
+                    break;
+
+                case ItemTypeEnum.Calculator:
+                    ImageURI = Constants.ItemTypeCalculatorImageURI;
+                    break;
+
+                case ItemTypeEnum.LibraryCard:
+                    ImageURI = Constants.ItemTypeLibraryCardImageURI;
+                    break;
+
+                case ItemTypeEnum.FoodCourtCard:
+                    ImageURI = Constants.ItemTypeFoodCourtCardImageURI;
+                    break;
+
+                case ItemTypeEnum.Laptop:
+                    ImageURI = Constants.ItemTypeLaptopImageURI;
+                    break;
+
+                case ItemTypeEnum.PrivateTutor:
+                    ImageURI = Constants.ItemTypePrivateTutorImageURI;
+                    break;
+                
+                case ItemTypeEnum.FinancialAid:
+                    ImageURI = Constants.ItemTypeFinancialAidImageURI;
+                break;
+
+                case ItemTypeEnum.Tuition:
+                    ImageURI = Constants.ItemTypeTuitionImageURI;
+                break;
+
+                case ItemTypeEnum.GraduationCapAndRobe:
+                    ImageURI = Constants.ItemTypeGraduationCapAndRobeImageURI;
+                break;
+
+                case ItemTypeEnum.Diploma:
+                    ImageURI = Constants.ItemTypeDiplomaImageURI;
+                break;
+           
+                case ItemTypeEnum.Unknown:
+                default:
+                    ImageURI = Constants.ItemTypeDefaultImageURI;
+                    break;
+            }
+        }
+
+        /// <summary>
         /// Helper to combine the attributes into a single line, to make it easier to display the item as a string
         /// </summary>
         /// <returns></returns>

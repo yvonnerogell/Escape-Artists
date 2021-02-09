@@ -48,6 +48,7 @@ namespace Game
         public static string SpecificCharacterTypeProcrastinatorImageURI = "procrastinator_student.png";
 
         // Item Types Image URIs
+        public static string ItemTypeDefaultImageURI = "item.png";
         public static string ItemTypeIndexCardsImageURI = "item_indexcards.png";
         public static string ItemTypePencilEraserImageURI = "item_pencil.png";
         public static string ItemTypeTextbooksImageURI = "item_textbook.png";
