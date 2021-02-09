@@ -40,7 +40,8 @@
 
                 <Button
                     Text="Enter"
-                    Clicked="GameButton_Clicked"/>
+                    Clicked="GameButton_Clicked"
+                    Style="{StaticResource ButtonStyle}"/>
 
             </StackLayout>
         </ScrollView>
