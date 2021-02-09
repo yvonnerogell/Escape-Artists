@@ -69,7 +69,7 @@
             Padding="20">
 
                 <Button 
-                    Style="{StaticResource ButtonStyle}"
+                    Style="{StaticResource ButtonStyleMedium}"
                     Text="Delete Character" 
                     Clicked="Delete_Clicked" 
                     FontSize="Medium">

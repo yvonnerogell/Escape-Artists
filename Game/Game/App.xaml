@@ -301,7 +301,7 @@
 
             <!-- Button -->
             <Style TargetType="Button"
-                   x:Key="ButtonStyle">
+                   x:Key="ButtonStyleSmall">
                 <Setter Property="BackgroundColor" Value="{StaticResource SecondaryBackgroundColor}" />
                 <Setter Property="TextColor" Value="{StaticResource SecondaryTextColor}" />
                 <Setter Property="BorderColor" Value="{StaticResource TriciaryBackgroundColor}"/>
@@ -312,6 +312,14 @@
                 <Setter Property="Margin" Value="0,5,0,5"/>
                 <Setter Property="HeightRequest" Value="30"/>
                 <Setter Property="BorderWidth" Value="1"/>
+            </Style>
+
+            <Style TargetType="Button"
+                   x:Key="ButtonStyleMedium"
+                   BasedOn="{StaticResource ButtonStyleSmall}">
+                 <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="WidthRequest" Value="190"/>
+
             </Style>
 
             <!-- Stack Layouts -->
