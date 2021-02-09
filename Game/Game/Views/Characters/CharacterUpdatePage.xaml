@@ -69,9 +69,7 @@
 
                     <Slider Grid.Row="3" 
                             Grid.Column="1" 
-                            Maximum="20" 
-                            Minimum="1"
-                            Style="{StaticResource SliderStyle}"
+                            Style="{StaticResource LevelSliderStyle}"
                             ValueChanged="OnSliderChanged"
                             x:Name="LevelSlider"
                             Value="{Binding Data.Level}"/> 
