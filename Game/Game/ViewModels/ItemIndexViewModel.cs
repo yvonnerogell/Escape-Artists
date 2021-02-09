@@ -256,5 +256,23 @@ namespace Game.ViewModels
             data = Dataset.Where(m => m.ItemType == itemType).ToList();
             return data;
         }
+
+        /// <summary>
+        /// Returns the first from all items of this type
+        /// </summary>
+        /// <param name="itemType"></param>
+        /// <returns></returns>
+        public ItemModel GetDefaultItemTypeItems(ItemTypeEnum itemType)
+        {
+            var dataList = GetItemTypeItems(itemType);
+            if (dataList.Count() == 0)
+            {
+                return null;
+            }
+
+            var data = dataList.FirstOrDefault();
+
+            return data;
+        }
     }
 }
