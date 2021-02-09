@@ -18,6 +18,7 @@ namespace Game.GameRules
                 new ItemModel {
                     Name = ItemTypeEnum.IndexCards.ToMessage(),
                     Description = "Memorize your homework.",
+                    ItemType = ItemTypeEnum.IndexCards,
                     ImageURI = Constants.ItemTypeIndexCardsImageURI,
                     Range = 10,
                     Damage = 10,
@@ -28,6 +29,7 @@ namespace Game.GameRules
                 new ItemModel {
                     Name = ItemTypeEnum.PencilEraser.ToMessage(),
                     Description = "Forget about your mistakes.",
+                    ItemType = ItemTypeEnum.PencilEraser,
                     ImageURI = Constants.ItemTypePencilEraserImageURI,
                     Range = 10,
                     Damage = 10,
@@ -38,6 +40,7 @@ namespace Game.GameRules
                 new ItemModel {
                     Name = ItemTypeEnum.Textbooks.ToMessage(),
                     Description = "Reference course literature effectively.",
+                    ItemType = ItemTypeEnum.Textbooks,
                     ImageURI = Constants.ItemTypeTextbooksImageURI,
                     Range = 10,
                     Damage = 10,
@@ -48,6 +51,7 @@ namespace Game.GameRules
                 new ItemModel {
                     Name = ItemTypeEnum.Notebook.ToMessage(),
                     Description = "Keep track of the most crucial things to know.",
+                    ItemType = ItemTypeEnum.Notebook,
                     ImageURI = Constants.ItemTypeNotebookImageURI,
                     Range = 10,
                     Damage = 10,
@@ -58,6 +62,7 @@ namespace Game.GameRules
                 new ItemModel {
                     Name = ItemTypeEnum.Calculator.ToMessage(),
                     Description = "Avoid doing math in your head.",
+                    ItemType = ItemTypeEnum.Calculator,
                     ImageURI = Constants.ItemTypeCalculatorImageURI,
                     Range = 10,
                     Damage = 10,
@@ -68,6 +73,7 @@ namespace Game.GameRules
                 new ItemModel {
                     Name = ItemTypeEnum.LibraryCard.ToMessage(),
                     Description = "Get your textbooks for free.",
+                    ItemType = ItemTypeEnum.LibraryCard,
                     ImageURI = Constants.ItemTypeLibraryCardImageURI,
                     Range = 10,
                     Damage = 10,
@@ -78,6 +84,7 @@ namespace Game.GameRules
                 new ItemModel {
                     Name = ItemTypeEnum.FoodCourtCard.ToMessage(),
                     Description = "Don’t run out of fuel.",
+                    ItemType = ItemTypeEnum.FoodCourtCard,
                     ImageURI = Constants.ItemTypeFoodCourtCardImageURI,
                     Range = 10,
                     Damage = 10,
@@ -88,6 +95,7 @@ namespace Game.GameRules
                 new ItemModel {
                     Name = ItemTypeEnum.Laptop.ToMessage(),
                     Description = "Complete your assignments faster with a laptop.",
+                    ItemType = ItemTypeEnum.Laptop,
                     ImageURI = Constants.ItemTypeLaptopImageURI,
                     Range = 10,
                     Damage = 10,
@@ -98,6 +106,7 @@ namespace Game.GameRules
                 new ItemModel {
                     Name = ItemTypeEnum.PrivateTutor.ToMessage(),
                     Description = "Get expert homework help.",
+                    ItemType = ItemTypeEnum.PrivateTutor,
                     ImageURI = Constants.ItemTypePrivateTutorImageURI,
                     Range = 10,
                     Damage = 10,
@@ -108,6 +117,7 @@ namespace Game.GameRules
                 new ItemModel {
                     Name = ItemTypeEnum.FinancialAid.ToMessage(),
                     Description = "Get some financial help.",
+                    ItemType = ItemTypeEnum.FinancialAid,
                     ImageURI = Constants.ItemTypeFinancialAidImageURI,
                     Range = 10,
                     Damage = 10,
@@ -118,6 +128,7 @@ namespace Game.GameRules
                 new ItemModel {
                     Name = ItemTypeEnum.Tuition.ToMessage(),
                     Description = "Pay your way through college.",
+                    ItemType = ItemTypeEnum.Tuition,
                     ImageURI = Constants.ItemTypeTuitionImageURI,
                     Range = 10,
                     Damage = 10,
@@ -128,6 +139,7 @@ namespace Game.GameRules
                 new ItemModel {
                     Name = ItemTypeEnum.GraduationCapAndRobe.ToMessage(),
                     Description = "The cap will help you feel closer to graduation.",
+                    ItemType = ItemTypeEnum.GraduationCapAndRobe,
                     ImageURI = Constants.ItemTypeGraduationCapAndRobeImageURI,
                     Range = 10,
                     Damage = 10,
@@ -138,6 +150,7 @@ namespace Game.GameRules
                 new ItemModel {
                     Name = ItemTypeEnum.Diploma.ToMessage(),
                     Description = "A diploma is the (almost) final step before graduation.",
+                    ItemType = ItemTypeEnum.Diploma,
                     ImageURI = Constants.ItemTypeDiplomaImageURI,
                     Range = 10,
                     Damage = 10,
