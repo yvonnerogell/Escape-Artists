@@ -69,12 +69,10 @@
             Padding="20">
 
                 <Button 
-                Text="Delete Character" 
-                Clicked="Delete_Clicked" 
-                HorizontalOptions="Center"
-                FontSize="Medium"
-                BorderWidth="1" 
-                BorderColor="black">
+                    Style="{StaticResource ButtonStyle}"
+                    Text="Delete Character" 
+                    Clicked="Delete_Clicked" 
+                    FontSize="Medium">
                 </Button>
             </StackLayout>
             
