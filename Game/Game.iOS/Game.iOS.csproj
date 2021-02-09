@@ -222,4 +222,46 @@
   <ItemGroup>
     <BundleResource Include="Resources\smarty_pants_character.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_laptop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_librarycard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_notebook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_privatetutor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_textbook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_tuition.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_calculator.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_diploma.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_eraser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_financialaid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_foodcard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_gradcap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_indexcards.png" />
+  </ItemGroup>
 </Project>
