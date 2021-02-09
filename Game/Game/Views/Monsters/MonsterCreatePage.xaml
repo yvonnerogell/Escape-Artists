@@ -75,9 +75,7 @@
                                 x:Name="AttackValue"/>
 
                     <Slider Grid.Row="6" Grid.Column="1"
-                                Maximum="20" 
-                                Minimum="0"
-                                Style="{StaticResource SliderStyle}"
+                                Style="{StaticResource AttackSliderStyle}"
                                 ValueChanged="OnSliderChanged"
                                 Value="{Binding Data.Attack}"
                                 x:Name="AttackSlider"/>

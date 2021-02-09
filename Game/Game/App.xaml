@@ -212,6 +212,13 @@
                 <Setter Property="Margin" Value="30, 5"/>
             </Style>
 
+            <Style TargetType="Slider"
+                   x:Key="AttackSliderStyle"
+                   BasedOn="{StaticResource SliderStyle}">
+                <Setter Property="Minimum" Value="0"/>
+                <Setter Property="Maximum" Value="20"/>
+            </Style>
+
 
             <!-- Image -->
             <Style TargetType="Image"
