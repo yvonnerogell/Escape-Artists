@@ -6,7 +6,7 @@ using Xamarin.Forms.Xaml;
 
 using Game.ViewModels;
 using Game.Models;
-
+using System.Linq;
 
 namespace Game.Views.Characters
 {
@@ -31,6 +31,91 @@ namespace Game.Views.Characters
 
             this.ViewModel.Title = "Create";
             
+        }
+
+        /// <summary>
+        /// Load the item box for students type
+        /// </summary>
+        public void AddStudentItemsToDisplay()
+        {
+            var FlexList = ItemBox.Children.ToList();
+            foreach (var data in FlexList)
+            {
+                ItemBox.Children.Remove(data);
+            }
+
+            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.Head));
+            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.Necklace));
+            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.PrimaryHand));
+            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.OffHand));
+            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.RightFinger));
+            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.LeftFinger));
+            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.Feet));
+        }
+
+        /// <summary>
+        /// Load the item box for parents type
+        /// </summary>
+        public void AddParentItemsToDisplay()
+        {
+            var FlexList = ItemBox.Children.ToList();
+            foreach (var data in FlexList)
+            {
+                ItemBox.Children.Remove(data);
+            }
+
+            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.Necklace));
+            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.PrimaryHand));
+            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.OffHand));
+            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.RightFinger));
+            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.LeftFinger));
+            ItemBox.Children.Add(GetItemToDisplay(ItemLocationEnum.Feet));
+        }
+
+        /// <summary>
+        /// get the item details to load into item box
+        /// </summary>
+        /// <param name="location"></param>
+        /// <returns></returns>
+        public StackLayout GetItemToDisplay(ItemLocationEnum location)
+        {
+            // Defualt Image is the Plus
+            var ImageSource = "icon_cancel.png";
+            var data = new ItemModel { Location = location, ImageURI = ImageSource };
+            // Hookup the Image Button to show the Item picture
+            var ItemButton = new ImageButton
+            {
+                Style = (Style)Application.Current.Resources["ImageMediumStyle"],
+                Source = data.ImageURI
+            };
+
+            //if (ClickableButton)
+            //{
+            // Add a event to the user can click the item and see more
+            //    ItemButton.Clicked += (sender, args) => ShowPopup(data);
+            //}
+
+            // Add the Display Text for the item
+            var ItemLabel = new Label
+            {
+                Text = location.ToMessage(),
+                HorizontalOptions = LayoutOptions.Center,
+                HorizontalTextAlignment = TextAlignment.Center,
+            };
+
+            // Put the Image Button and Text inside a layout
+            var ItemStack = new StackLayout
+            {
+                Padding = 3,
+                Style = (Style)Application.Current.Resources["ItemImageBox"],
+                //HorizontalOptions = LayoutOptions.Center,
+                Children = {
+                    ItemButton,
+                    ItemLabel
+                },
+            };
+
+            return ItemStack;
         }
 
 
