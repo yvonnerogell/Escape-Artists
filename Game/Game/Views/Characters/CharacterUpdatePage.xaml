@@ -124,6 +124,10 @@
                             Value="{Binding Data.Speed}"/>
 
                     <Label Grid.Row="7" Grid.Column="0"
+                            Text="GPA"
+                            Style="{StaticResource LabelStyleUpdateText}"/>
+
+                    <Label Grid.Row="7" Grid.Column="0"
                             Text="{Binding Data.GPA}" 
                             x:Name="GPAValue"
                             Style="{StaticResource LabelStyleUpdateValue}"/>
