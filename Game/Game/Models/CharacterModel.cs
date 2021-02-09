@@ -18,12 +18,12 @@ namespace Game.Models
 
         public CharacterModel()
         {
+            Name = "This is a New Character";
+            Description = "This is a New Character Description";
             PlayerType = PlayerTypeEnum.Character;
             CharacterTypeEnum = CharacterTypeEnum.Student;
             SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.SmartyPants;
             Guid = Id;
-            Name = null;
-            Description = null;
             Level = 1;
             ImageURI = "smarty_pants_character.png";
             GPA = 0;
