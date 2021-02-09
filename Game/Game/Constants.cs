@@ -39,7 +39,7 @@ namespace Game
 
         // Student Character Types Image URIs
         public static string SpecificCharacterTypeDefaultImageURI = "smarty_pants_character.png";
-        public static string SpecificCharacterTypeSmartyPantsImageURI = "smarty_pants_student.png";
+        public static string SpecificCharacterTypeSmartyPantsImageURI = "smarty_pants_character.png";
         public static string SpecificCharacterTypeOverachieverImageURI = "overachiever_student.png";
         public static string SpecificCharacterTypeInternationalStudentImageURI = "international_student.png";
         public static string SpecificCharacterTypeProdigyImageURI = "prodigy_student.png";
