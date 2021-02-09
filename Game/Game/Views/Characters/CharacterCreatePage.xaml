@@ -151,12 +151,16 @@
                              ValueChanged="OnSliderChanged"
                              x:Name="GPASlider"
                              Value="{Binding Data.GPA}"/>
- 
-                    <Label Grid.Row="11" Grid.Column="0"
-                            Text="PLACEHOLDER FOR ITEMS"
-                            Style="{StaticResource LabelStyleUpdateText}"/>
-
                 </Grid>
+                <Label Grid.Row="11" Grid.Column="0"
+                            Text="ADD ITEMS"
+                            Style="{StaticResource LabelStyleUpdateText}"/>
+                <FlexLayout 
+                    Padding="5"
+                    JustifyContent="SpaceAround"
+                    AlignContent="SpaceAround"
+                    x:Name="ItemBox">
+                </FlexLayout>
             </StackLayout>
     </ScrollView>
  </ContentPage.Content>
