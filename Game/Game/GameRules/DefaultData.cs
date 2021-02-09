@@ -201,6 +201,21 @@ namespace Game.GameRules
             var RightFingerString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.Finger);
             var LeftFingerString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.Finger);
 
+            var DefaultIndexCards = ItemIndexViewModel.Instance.GetDefaultItemTypeItems(ItemTypeEnum.IndexCards);
+            var DefaultPencilEraser = ItemIndexViewModel.Instance.GetDefaultItemTypeItems(ItemTypeEnum.PencilEraser);
+            var DefaultTextbooks = ItemIndexViewModel.Instance.GetDefaultItemTypeItems(ItemTypeEnum.Textbooks);
+            var DefaultNotebook = ItemIndexViewModel.Instance.GetDefaultItemTypeItems(ItemTypeEnum.Notebook);
+            var DefaultCalculator = ItemIndexViewModel.Instance.GetDefaultItemTypeItems(ItemTypeEnum.Calculator);
+            var DefaultLibraryCard = ItemIndexViewModel.Instance.GetDefaultItemTypeItems(ItemTypeEnum.LibraryCard);
+            var DefaultFoodCourtCard = ItemIndexViewModel.Instance.GetDefaultItemTypeItems(ItemTypeEnum.FoodCourtCard);
+            var DefaultLaptop = ItemIndexViewModel.Instance.GetDefaultItemTypeItems(ItemTypeEnum.Laptop);
+            var DefaultPrivateTutor = ItemIndexViewModel.Instance.GetDefaultItemTypeItems(ItemTypeEnum.PrivateTutor);
+            var DefaultFinancialAid = ItemIndexViewModel.Instance.GetDefaultItemTypeItems(ItemTypeEnum.FinancialAid);
+            var DefaultTuition = ItemIndexViewModel.Instance.GetDefaultItemTypeItems(ItemTypeEnum.Tuition);
+            var DefaultGraduationCapAndRobe = ItemIndexViewModel.Instance.GetDefaultItemTypeItems(ItemTypeEnum.GraduationCapAndRobe);
+            var DefaultDiploma = ItemIndexViewModel.Instance.GetDefaultItemTypeItems(ItemTypeEnum.Diploma);
+
+
             var datalist = new List<CharacterModel>()
             {
                 new CharacterModel {
