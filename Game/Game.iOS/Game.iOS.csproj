@@ -195,4 +195,31 @@
   <ItemGroup>
     <BundleResource Include="Resources\icon_save.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\coolparent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\helicopter_parent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\international_student.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\overachiever_student.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\procrastinator_student.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\prodigy_student.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\second_career_student.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\slacker_student.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\smarty_pants_character.png" />
+  </ItemGroup>
 </Project>

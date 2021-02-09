@@ -132,6 +132,8 @@
     <Content Include="Assets\StoreLogo.scale-150.png" />
     <Content Include="Assets\Wide310x150Logo.scale-125.png" />
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
+    <Content Include="coolparent.png" />
+    <Content Include="helicopter_parent.png" />
     <Content Include="icon_add.png" />
     <Content Include="icon_cancel.png" />
     <Content Include="icon_cancel_old.png" />
@@ -142,9 +144,13 @@
     <Content Include="icon_new.png" />
     <Content Include="icon_save.png" />
     <Content Include="icon_save_old.png" />
+    <Content Include="international_student.png" />
     <Content Include="item.png" />
     <Content Include="mapcell.png" />
+    <Content Include="overachiever_student.png" />
     <Content Include="parent.png" />
+    <Content Include="procrastinator_student.png" />
+    <Content Include="prodigy_student.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-200.png" />
@@ -173,6 +179,9 @@
     <Content Include="Assets\Wide310x150Logo.scale-100.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="second_career_student.png" />
+    <Content Include="slacker_student.png" />
+    <Content Include="smarty_pants_character.png" />
     <Content Include="squid.jpg" />
     <Content Include="student.png" />
   </ItemGroup>
