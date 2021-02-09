@@ -219,6 +219,11 @@
                 <Setter Property="Maximum" Value="20"/>
             </Style>
 
+            <Style TargetType="Slider"
+                   x:Key="DefenseSliderStyle"
+                   BasedOn="{StaticResource AttackSliderStyle}">
+            </Style>
+
 
             <!-- Image -->
             <Style TargetType="Image"
