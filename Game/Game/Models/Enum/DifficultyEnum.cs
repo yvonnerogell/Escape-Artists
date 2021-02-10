@@ -141,6 +141,20 @@ namespace Game.Models
         }
 
         /// <summary>
+        /// Returns a list of strings of the enum for Difficulty except Unknown
+        /// Removes the Difficultys that are not changable by Items such as Unknown, MaxHealth
+        /// </summary>
+        public static List<string> GetListAllExceptUnknown
+        {
+            get
+            {
+                var myList = Enum.GetNames(typeof(DifficultyEnum)).ToList();
+                myList.Remove(DifficultyEnum.Unknown.ToMessage());
+                return myList;
+            }
+        }
+
+        /// <summary>
         /// Returns a list of strings of the enum for Difficulty
         /// Removes the unknown
         /// </summary>
