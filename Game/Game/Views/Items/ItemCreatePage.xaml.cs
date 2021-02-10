@@ -35,9 +35,9 @@ namespace Game.Views
 
             this.ViewModel.Title = "Create";
 
-            //Need to make the SelectedItem a string, so it can select the correct item.
-            LocationPicker.SelectedItem = ViewModel.Data.Location.ToString();
-            AttributePicker.SelectedItem = ViewModel.Data.Attribute.ToString();
+            // Set default values for location and attribute pickers
+            LocationPicker.SelectedIndex = 0;
+            AttributePicker.SelectedIndex = 0;
         }
 
         /// <summary>
