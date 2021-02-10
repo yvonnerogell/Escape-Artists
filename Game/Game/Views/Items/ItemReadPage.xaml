@@ -46,6 +46,8 @@
 
             </StackLayout>
 
+            <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" WidthRequest="1" Color="Black"/>
+
             <StackLayout Style="{StaticResource HorizontalStack}">
 
                 <Label 
