@@ -136,10 +136,18 @@
                             Value="{Binding Data.Speed}"/>
 
                     <Label Grid.Row="10" Grid.Column="0"
-                            Text="GPA"
-                            Style="{StaticResource LabelStyleUpdateText}"/>
+                            Text="GPA" 
+                            Style="{StaticResource LabelStyle}"/>
 
-                    <Slider  Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2"
+                    <Label Grid.Row="10" Grid.Column="0"
+                            Text="{Binding Data.GPA}" 
+                            x:Name="GPAValue"
+                            Style="{StaticResource ValueStyle}"
+                            Padding="0,0,10,0"
+                            HorizontalOptions="End"
+                            HorizontalTextAlignment="End"/>
+
+                    <Slider  Grid.Row="10" Grid.Column="1"
                              Style="{StaticResource GPASliderStyle}"
                              ValueChanged="OnSliderChanged"
                              x:Name="GPASlider"
