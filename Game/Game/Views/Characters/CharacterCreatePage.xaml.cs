@@ -168,14 +168,11 @@ namespace Game.Views.Characters
             ViewModel.Data.UpdateImageURI(ViewModel.Data);
             
             // Check to see if name and description were filled in by user. If not, use default data. 
-            if (String.IsNullOrEmpty(ViewModel.Data.Name))
-			{
-                ViewModel.Data.Name = Constants.CharacterNameDefault;
-			}
-            if (String.IsNullOrEmpty(ViewModel.Data.Description))
+            if (String.IsNullOrEmpty(ViewModel.Data.Name) || String.IsNullOrEmpty(ViewModel.Data.Description))
             {
-                ViewModel.Data.Description = Constants.CharacterDescriptionDefault;
-            }
+                ViewModel.Data = null;
+			}
+
 
             // TODO add Items
 
