@@ -18,6 +18,7 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <local_helpers:StringEnumConverter x:Key="StringEnum"/>
+            <local_helpers:ItemTypeEnumConverter x:Key="ItemTypeEnumConverter"/>
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -54,7 +55,7 @@
 
                     <Picker Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
                         ItemsSource="{x:Static local_enum:ItemTypeEnumHelper.GetListMessageAllNoUnknown}" 
-                        SelectedItem="{Binding Data.ItemType, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
+                        SelectedItem="{Binding Data.ItemType, Converter={StaticResource ItemTypeEnumConverter}, Mode=TwoWay}" 
                         x:Name="ItemTypePicker"/>
 
                     <Label Grid.Row="6" Grid.Column="0"
