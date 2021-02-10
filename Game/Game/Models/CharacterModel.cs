@@ -18,8 +18,8 @@ namespace Game.Models
 
         public CharacterModel()
         {
-            Name = "This is a New Character";
-            Description = "This is a New Character Description";
+            Name = "";
+            Description = "";
             PlayerType = PlayerTypeEnum.Character;
             CharacterTypeEnum = CharacterTypeEnum.Student;
             SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.SmartyPants;
