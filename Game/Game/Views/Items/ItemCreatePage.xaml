@@ -53,7 +53,7 @@
                         Style="{StaticResource LabelStyle}"/>
 
                     <Picker Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
-                        ItemsSource="{x:Static local_enum:ItemTypeEnumHelper.GetListMessageAll}" 
+                        ItemsSource="{x:Static local_enum:ItemTypeEnumHelper.GetListMessageAllNoUnknown}" 
                         SelectedItem="{Binding Data.ItemType, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
                         x:Name="ItemTypePicker"/>
 

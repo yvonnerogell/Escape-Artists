@@ -65,7 +65,7 @@ namespace Game.Models
         public static string ToMessage(this ItemTypeEnum value)
         {
             // Default String
-            var Message = "ItemType";
+            var Message = "Unknown";
 
             switch (value)
             {
@@ -161,6 +161,24 @@ namespace Game.Models
                 {
                     list.Add(((ItemTypeEnum)item).ToMessage());
                 }
+                return list;
+            }
+        }
+
+        /// <summary>
+        /// Returns a list of Full strings of the enum for ItemTypeEnum
+        /// </summary>
+        public static List<string> GetListMessageAllNoUnknown
+        {
+            get
+            {
+                var list = new List<string>();
+
+                foreach (var item in Enum.GetValues(typeof(ItemTypeEnum)))
+                {
+                    list.Add(((ItemTypeEnum)item).ToMessage());
+                }
+                list.Remove(ItemTypeEnum.Unknown.ToMessage());
                 return list;
             }
         }
