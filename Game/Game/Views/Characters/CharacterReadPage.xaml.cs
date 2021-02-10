@@ -138,6 +138,7 @@ namespace Game.Views
                 Source = data.ImageURI
             };
 
+            // TODO: will implement link to item page 
             //if (ClickableButton)
             //{
                 // Add a event to the user can click the item and see more
@@ -148,7 +149,6 @@ namespace Game.Views
             var ItemLabel = new Label
             {
                 Text = location.ToMessage(),
-                Style = (Style)Application.Current.Resources["ValueStyleMicro"],
                 HorizontalOptions = LayoutOptions.Center,
                 HorizontalTextAlignment = TextAlignment.Center
             };
