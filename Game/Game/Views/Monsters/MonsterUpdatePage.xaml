@@ -56,8 +56,6 @@
                         Text="{Binding Data.Description}" 
                         Style="{StaticResource EntryStyle}"/>
 
-                    <!-- TODO: Change Steppers to something that looks better on Android. -->
-
                     <Label Grid.Row="3" Grid.Column="0"
                             Text="Difficulty"
                             Style="{StaticResource LabelStyleUpdateText}"/>
