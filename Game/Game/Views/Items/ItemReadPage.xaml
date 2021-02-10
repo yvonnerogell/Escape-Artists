@@ -17,31 +17,41 @@
         <StackLayout Style="{StaticResource OuterBoxStack}"
             Spacing="10">
 
-            <Label Text="Detail Page" Style="{StaticResource HeaderStyle}"/>
-
-            <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}"/>
-
             <StackLayout Style="{StaticResource HorizontalStack}">
-                <Label 
-                   Text="Name : " 
-                    Style="{StaticResource LabelStyle}"/>
-                <Label 
-                    Text="{Binding Data.Name}" 
-                    Style="{StaticResource ValueStyle}"/>
+
+                <StackLayout Style="{StaticResource VerticalStack}" VerticalOptions="Center">
+
+                    <StackLayout Style="{StaticResource HorizontalStack}">
+
+                        <Label 
+                            Text="Name:  " 
+                            Style="{StaticResource LabelStyle}"/>
+                        <Label 
+                            Text="{Binding Data.Name}" 
+                            Style="{StaticResource ValueStyle}"/>
+                    </StackLayout>
+
+                    <StackLayout Style="{StaticResource HorizontalStack}">
+                        <Label 
+                            Text="Description:  " 
+                            Style="{StaticResource LabelStyle}"/>
+                        <Label 
+                            Text="{Binding Data.Description}" 
+                            Style="{StaticResource ValueStyle}"/>
+                    </StackLayout>
+
+                </StackLayout>
+
+                <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}"/>
+
             </StackLayout>
 
-            <StackLayout Style="{StaticResource HorizontalStack}">
-                <Label 
-                    Text="Description : " 
-                    Style="{StaticResource LabelStyle}"/>
-                <Label 
-                    Text="{Binding Data.Description}" 
-                    Style="{StaticResource ValueStyle}"/>
-            </StackLayout>
+            <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" WidthRequest="1" Color="Black"/>
 
             <StackLayout Style="{StaticResource HorizontalStack}">
+
                 <Label 
-                    Text="Location : " 
+                    Text="Location:  " 
                     Style="{StaticResource LabelStyle}"/>
                 <Label 
                     Text="{Binding Data.Location}" 
@@ -50,7 +60,7 @@
 
             <StackLayout Style="{StaticResource HorizontalStack}">
                 <Label 
-                    Text="Attribute : " 
+                    Text="Attribute:  " 
                     Style="{StaticResource LabelStyle}"/>
                 <Label 
                     Text="{Binding Data.Attribute}" 
@@ -59,7 +69,7 @@
 
             <StackLayout Style="{StaticResource HorizontalStack}">
                 <Label 
-                    Text="Range : " 
+                    Text="Range:  " 
                     Style="{StaticResource LabelStyle}"/>
                 <Label 
                     Text="{Binding Data.Range}" 
@@ -68,16 +78,7 @@
 
             <StackLayout Style="{StaticResource HorizontalStack}">
                 <Label 
-                    Text="Range : " 
-                    Style="{StaticResource LabelStyle}"/>
-                <Label 
-                    Text="{Binding Data.Range}" 
-                    Style="{StaticResource ValueStyle}"/>
-            </StackLayout>
-
-            <StackLayout Style="{StaticResource HorizontalStack}">
-                <Label 
-                    Text="Value : " 
+                    Text="Value:  " 
                     Style="{StaticResource LabelStyle}"/>
                 <Label 
                     Text="{Binding Data.Value}" 
@@ -86,7 +87,7 @@
 
             <StackLayout Style="{StaticResource HorizontalStack}">
                 <Label 
-                    Text="Damage : " 
+                    Text="Damage:  " 
                     Style="{StaticResource LabelStyle}"/>
                 <Label 
                     Text="{Binding Data.Damage}" 
