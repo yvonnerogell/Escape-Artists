@@ -60,7 +60,6 @@
                             ItemsSource="{x:Static local:SpecificMonsterTypeEnumHelper.GetListMessageAllNoUnknown}"                  
                             x:Name="MonsterTypePicker" >
                         <Picker.SelectedItem>"{Binding Data.SpecificMonsterTypeEnum, Converter={StaticResource SpecificMonsterTypeEnumConverter}, Mode=TwoWay}"</Picker.SelectedItem>
-                        <Picker.SelectedIndex>0</Picker.SelectedIndex>
                     </Picker>
 
                     <Label Grid.Row="6" Grid.Column="0"

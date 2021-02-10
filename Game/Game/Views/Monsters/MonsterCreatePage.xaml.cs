@@ -36,6 +36,8 @@ namespace Game.Views.Monsters
 
             this.ViewModel.Title = "Create";
 
+            MonsterTypePicker.SelectedIndex = 0;
+
         }
 
         /// <summary>
