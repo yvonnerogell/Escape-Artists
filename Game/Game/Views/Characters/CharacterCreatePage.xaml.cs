@@ -185,7 +185,7 @@ namespace Game.Views.Characters
         }
 
         /// <summary>
-        /// Changes the slider value for the appropriate slider (attack, defense, speed)
+        /// Changes the slider value for the appropriate slider (attack, defense, speed, GPA)
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -212,6 +212,12 @@ namespace Game.Views.Characters
             {
                 SpeedValue.Text = newValueStr;
                 SpeedSlider.Value = newValue;
+            }
+
+            if (sender ==GPASlider)
+            {
+                GPAValue.Text = newValueStr;
+                GPASlider.Value = newValue;
             }
         }
     }
