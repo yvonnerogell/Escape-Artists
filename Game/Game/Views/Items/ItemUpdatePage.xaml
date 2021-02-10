@@ -67,6 +67,25 @@
                         SelectedItem="{Binding Data.Location, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
                         x:Name="LocationPicker"/>
 
+                    <Label Grid.Row="8" Grid.Column="0"
+                            Text="Value" 
+                            Style="{StaticResource LabelStyle}"/>
+
+                    <Label Grid.Row="8" Grid.Column="0"
+                                Text="{Binding Data.Value}" 
+                                Style="{StaticResource ValueStyle}"
+                                Padding="0,0,10,0"
+                                HorizontalOptions="End"
+                                HorizontalTextAlignment="End"
+                                x:Name="ValueValue"/>
+
+                    <Slider Grid.Row="8" Grid.Column="1"
+                                Style="{StaticResource ValueSliderStyle}"
+                                ValueChanged="OnSliderChanged"
+                                Value="{Binding Data.Value}"
+                                x:Name="ValueSlider"/>
+
+
                 </Grid>
 
                 <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="FillAndExpand">
@@ -91,25 +110,7 @@
 
                     </StackLayout>
 
-                    <Label 
-                        Text="Value"
-                        Style="{StaticResource LabelStyle}"/>
-
-                    <StackLayout Style="{StaticResource HorizontalStack}" Padding="10,0,10,0">
-
-                        <Label 
-                            Text="{Binding Data.Value}" 
-                            x:Name="ValueValue"
-                            Style="{StaticResource ValueStyle}"
-                            Padding="0,0,10,0"
-                            HorizontalOptions="End"
-                            HorizontalTextAlignment="End"/>
-
-                        <Stepper 
-                            Value="{Binding Data.Value, Mode=TwoWay}"
-                            ValueChanged="Value_OnStepperValueChanged"/>
-
-                    </StackLayout>
+                    
 
                     <Label 
                         Text="Damage" 

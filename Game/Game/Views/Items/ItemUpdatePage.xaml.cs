@@ -65,6 +65,22 @@ namespace Game.Views
         }
 
         /// <summary>
+        /// Changes the slider value for the appropriate slider (attack, value, speed)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void OnSliderChanged(object sender, ValueChangedEventArgs e)
+        {
+            var newValue = (int)e.NewValue;
+            var newValueStr = String.Format("{0}", newValue);
+            if (sender == ValueSlider)
+            {
+                ValueValue.Text = newValueStr;
+                ValueSlider.Value = newValue;
+            }
+        }
+
+        /// <summary>
         /// Catch the change to the Stepper for Range
         /// </summary>
         /// <param name="sender"></param>
