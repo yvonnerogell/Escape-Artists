@@ -125,7 +125,7 @@
                             Padding="0,0,10,0"/>
 
                     <Picker Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="2"
-                            ItemsSource="{x:Static local:DifficultyEnumHelper.GetListAll}"                  
+                            ItemsSource="{x:Static local:DifficultyEnumHelper.GetListAllExceptUnknown}"                  
                             x:Name="DifficultyLevelPicker" >
                         <Picker.SelectedItem>"{Binding Data.Difficulty, Converter={StaticResource DifficultyEnum}, Mode=TwoWay}"</Picker.SelectedItem>
                         <Picker.SelectedIndex>0</Picker.SelectedIndex>
