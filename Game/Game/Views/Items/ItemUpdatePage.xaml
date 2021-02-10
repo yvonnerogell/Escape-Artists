@@ -50,22 +50,22 @@
                         Style="{StaticResource EntryStyle}"/>
 
                     <Label Grid.Row="4" Grid.Column="0"
-                        Text="Location" 
-                        Style="{StaticResource LabelStyle}"/>
-
-                    <Picker Grid.Row="5" Grid.Column="0"
-                        ItemsSource="{x:Static local:ItemLocationEnumHelper.GetListCharacter}" 
-                        SelectedItem="{Binding Data.Location, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
-                        x:Name="LocationPicker"/>
-
-                    <Label Grid.Row="6" Grid.Column="0"
                         Text="Attribute" 
                         Style="{StaticResource LabelStyle}"/>
 
-                    <Picker Grid.Row="7" Grid.Column="0"
+                    <Picker Grid.Row="5" Grid.Column="0"
                         ItemsSource="{x:Static local:AttributeEnumHelper.GetListCharacter}" 
                         SelectedItem="{Binding Data.Attribute, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
                         x:Name="AttributePicker"/>
+
+                    <Label Grid.Row="6" Grid.Column="0"
+                        Text="Location" 
+                        Style="{StaticResource LabelStyle}"/>
+
+                    <Picker Grid.Row="7" Grid.Column="0"
+                        ItemsSource="{x:Static local:ItemLocationEnumHelper.GetListCharacter}" 
+                        SelectedItem="{Binding Data.Location, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
+                        x:Name="LocationPicker"/>
 
                 </Grid>
 
