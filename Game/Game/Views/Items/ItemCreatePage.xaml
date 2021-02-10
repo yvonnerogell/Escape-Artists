@@ -115,7 +115,7 @@
                                 x:Name="DamageValue"/>
 
                     <Slider Grid.Row="10" Grid.Column="1"
-                                Style="{StaticResource AttackSliderStyle}"
+                                Style="{StaticResource DamageSliderStyle}"
                                 ValueChanged="OnSliderChanged"
                                 Value="{Binding Data.Damage}"
                                 x:Name="DamageSlider"/>

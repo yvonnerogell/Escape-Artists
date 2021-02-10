@@ -235,6 +235,11 @@
             </Style>
 
             <Style TargetType="Slider"
+                   x:Key="DamageSliderStyle"
+                   BasedOn="{StaticResource AttackSliderStyle}">
+            </Style>
+
+            <Style TargetType="Slider"
                    x:Key="SpeedSliderStyle"
                    BasedOn="{StaticResource AttackSliderStyle}">
             </Style>
