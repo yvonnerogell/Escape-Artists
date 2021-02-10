@@ -77,7 +77,6 @@ namespace Game.Models
             Guid = newData.Guid;
             Name = newData.Name;
             Description = newData.Description;
-            Level = newData.Level;
 
             Difficulty = newData.Difficulty;
 
@@ -113,7 +112,6 @@ namespace Game.Models
             var myReturn = Name;
             myReturn += " , " + Description;
             //myReturn += " , a " + Job.ToMessage();
-            myReturn += " , Level : " + Level.ToString();
             myReturn += " , Difficulty : " + Difficulty.ToString();
             myReturn += " , Total Experience : " + ExperienceTotal;
             myReturn += " , Items : " + ItemSlotsFormatOutput();
