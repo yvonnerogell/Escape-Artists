@@ -97,7 +97,7 @@
                                 x:Name="RangeValue"/>
 
                     <Slider Grid.Row="9" Grid.Column="1"
-                                Style="{StaticResource AttackSliderStyle}"
+                                Style="{StaticResource RangeSliderStyle}"
                                 ValueChanged="OnSliderChanged"
                                 Value="{Binding Data.Range}"
                                 x:Name="RangeSlider"/>
