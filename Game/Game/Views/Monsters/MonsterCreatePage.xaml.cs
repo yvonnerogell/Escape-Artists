@@ -50,17 +50,12 @@ namespace Game.Views.Monsters
             ViewModel.Data.MonsterTypeEnum = SpecificMonsterTypeEnumHelper.GetMonsterTypeEnumFromSpecificMonsterTypeEnum(ViewModel.Data.SpecificMonsterTypeEnum);
             ViewModel.Data.UpdateImageURI(ViewModel.Data);
 
-            // Check to see if name and description were filled in by user. If not, use default data. 
-            if (String.IsNullOrEmpty(ViewModel.Data.Name))
+            // Check to see if name and description were filled in by user. If not, don't save the new data 
+            if (String.IsNullOrEmpty(ViewModel.Data.Name) || (String.IsNullOrEmpty(ViewModel.Data.Description)))
             {
-                ViewModel.Data.Name = Constants.MonsterNameDefault;
+                ViewModel.Data = null;             
             }
-            if (String.IsNullOrEmpty(ViewModel.Data.Description))
-            {
-                ViewModel.Data.Description = Constants.MonsterDescriptionDefault;
-            }
-
-
+           
             // TODO Unique Drop item - do we want to randomly assign one here?
 
             MessagingCenter.Send(this, "Create", ViewModel.Data);
