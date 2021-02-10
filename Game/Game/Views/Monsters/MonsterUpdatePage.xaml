@@ -56,18 +56,14 @@
                         Text="{Binding Data.Description}" 
                         Style="{StaticResource EntryStyle}"/>
 
-                    <!-- TODO: Change Steppers to something that looks better on Android. -->
-
                     <Label Grid.Row="3" Grid.Column="0"
                             Text="Difficulty"
                             Style="{StaticResource LabelStyleUpdateText}"/>
 
                     <Picker Grid.Row="3" Grid.Column="1"
                             ItemsSource="{x:Static local:DifficultyEnumHelper.GetListAllExceptUnknown}"                  
-                            x:Name="DifficultyLevelPicker" >
-                            
-                        <Picker.SelectedItem>"{Binding Data.Difficulty, Converter={StaticResource DifficultyEnum}, Mode=TwoWay}"</Picker.SelectedItem>
-                        <Picker.SelectedIndex>1</Picker.SelectedIndex>
+                            x:Name="DifficultyLevelPicker" 
+                            SelectedItem="{Binding Data.Difficulty, Converter={StaticResource StringEnum}, Mode=TwoWay}">
                     </Picker>
 
 

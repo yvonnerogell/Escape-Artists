@@ -32,6 +32,8 @@ namespace Game.Views
 
             this.ViewModel.Title = "Update " + data.Title;
 
+            // Default difficulty level to current difficulty level
+            DifficultyLevelPicker.SelectedItem = ViewModel.Data.Difficulty.ToMessage();
         }
 
         /// <summary>

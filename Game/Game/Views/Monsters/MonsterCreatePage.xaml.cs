@@ -36,6 +36,10 @@ namespace Game.Views.Monsters
 
             this.ViewModel.Title = "Create";
 
+            // Set default values for pickers
+            MonsterTypePicker.SelectedIndex = 0;
+            DifficultyLevelPicker.SelectedIndex = 0;
+
         }
 
         /// <summary>
