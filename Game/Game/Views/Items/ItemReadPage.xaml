@@ -5,45 +5,64 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Game.Views.ItemReadPage"
+             xmlns:local_helpers="clr-namespace:Game.Helpers"
              Title="{Binding Title}">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Update" Clicked="Update_Clicked" IconImageSource="icon_edit.png"/>
         <ToolbarItem Text="Delete" Clicked="Delete_Clicked" IconImageSource="icon_delete.png"/>
     </ContentPage.ToolbarItems>
-
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local_helpers:ItemTypeEnumConverter x:Key="ItemTypeEnumConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <ScrollView>
+        
         <StackLayout Style="{StaticResource OuterBoxStack}"
             Spacing="10">
+            
+            <StackLayout Orientation="Horizontal">
+                <StackLayout Style="{StaticResource CharacterInfoBox}">
+                    <Label 
+                         Text="{Binding Data.Name}" 
+                         Style="{StaticResource HeaderStyle}"/>
 
-            <StackLayout Style="{StaticResource HorizontalStack}">
-
-                <StackLayout Style="{StaticResource VerticalStack}" VerticalOptions="Center">
-
-                    <StackLayout Style="{StaticResource HorizontalStack}">
-
+                    <StackLayout Orientation="Horizontal">
                         <Label 
-                            Text="Name:  " 
+                            Text="Item Type:  " 
                             Style="{StaticResource LabelStyle}"/>
                         <Label 
-                            Text="{Binding Data.Name}" 
-                            Style="{StaticResource ValueStyle}"/>
+                            Text="{Binding Data.ItemType,
+                            Converter={StaticResource ItemTypeEnumConverter}}" 
+                            Style="{StaticResource LabelStyle}"/>
                     </StackLayout>
 
-                    <StackLayout Style="{StaticResource HorizontalStack}">
+                    <StackLayout Orientation="Horizontal">
                         <Label 
                             Text="Description:  " 
                             Style="{StaticResource LabelStyle}"/>
                         <Label 
                             Text="{Binding Data.Description}" 
-                            Style="{StaticResource ValueStyle}"/>
+                            Style="{StaticResource LabelStyle}"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label 
+                            Text="Location:  " 
+                            Style="{StaticResource LabelStyle}"/>
+                        <Label 
+                            Text="{Binding Data.Location}" 
+                            Style="{StaticResource LabelStyle}"/>
                     </StackLayout>
 
                 </StackLayout>
 
-                <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}"/>
-
+                <StackLayout Style="{StaticResource CharacterInfoImage}">
+                    <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}"/>
+                </StackLayout>
             </StackLayout>
 
             <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" WidthRequest="1" Color="Black"/>
