@@ -34,8 +34,8 @@ namespace Game.Models
             OffHand = null;
             RightFinger = null;
             LeftFinger = null;
-            Necklace = "None";
-            Head = "None";
+            Necklace = null;
+            Head = null;
 
             // Default to unknown, which is no special job
             //Job = CharacterJobEnum.Unknown; 
@@ -100,40 +100,13 @@ namespace Game.Models
             CurrentHealth = newData.CurrentHealth;
             MaxHealth = newData.MaxHealth;
 
-            if (newData.Head != "None")
-            {
-                Head = newData.Head;
-            }
-
-            if (newData.Necklace != "None")
-            {
-                Necklace = newData.Necklace;
-            }
-
-            if (newData.PrimaryHand != "None")
-            {
-                PrimaryHand = newData.PrimaryHand;
-            }
-
-            if (newData.OffHand != "None")
-            {
-                OffHand = newData.OffHand;
-            }
-
-            if (newData.RightFinger != "None")
-            {
-                RightFinger = newData.RightFinger;
-            }
-
-            if (newData.LeftFinger != "None")
-            {
-                LeftFinger = newData.LeftFinger;
-            }
-
-            if (newData.Feet != "None")
-            {
-                Feet = newData.Feet;
-            }
+            Head = newData.Head;
+            Necklace = newData.Necklace;
+            PrimaryHand = newData.PrimaryHand;
+            OffHand = newData.OffHand;
+            RightFinger = newData.RightFinger;
+            LeftFinger = newData.LeftFinger;
+            Feet = newData.Feet;
 
             // Update the Job
             //Job = newData.Job;
