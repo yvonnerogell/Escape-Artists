@@ -49,28 +49,37 @@
                         Style="{StaticResource EntryStyle}"/>
 
                     <Label Grid.Row="4" Grid.Column="0"
-                        Text="Attribute" 
+                        Text="Item type" 
                         Style="{StaticResource LabelStyle}"/>
 
                     <Picker Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
                         ItemsSource="{x:Static local_enum:AttributeEnumHelper.GetListCharacter}" 
                         SelectedItem="{Binding Data.Attribute, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
-                        x:Name="AttributePicker"/>
+                        x:Name="ItemTypePicker"/>
 
                     <Label Grid.Row="6" Grid.Column="0"
-                        Text="Location" 
+                        Text="Attribute" 
                         Style="{StaticResource LabelStyle}"/>
 
                     <Picker Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"
+                        ItemsSource="{x:Static local_enum:AttributeEnumHelper.GetListCharacter}" 
+                        SelectedItem="{Binding Data.Attribute, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
+                        x:Name="AttributePicker"/>
+
+                    <Label Grid.Row="8" Grid.Column="0"
+                        Text="Location" 
+                        Style="{StaticResource LabelStyle}"/>
+
+                    <Picker Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2"
                         ItemsSource="{x:Static local_enum:ItemLocationEnumHelper.GetListCharacter}" 
                         SelectedItem="{Binding Data.Location, Converter={StaticResource StringEnum}, Mode=TwoWay}" 
                         x:Name="LocationPicker"/>
 
-                    <Label Grid.Row="8" Grid.Column="0"
+                    <Label Grid.Row="10" Grid.Column="0"
                             Text="Value" 
                             Style="{StaticResource LabelStyle}"/>
 
-                    <Label Grid.Row="8" Grid.Column="0"
+                    <Label Grid.Row="10" Grid.Column="0"
                                 Text="{Binding Data.Value}" 
                                 Style="{StaticResource ValueStyle}"
                                 Padding="0,0,10,0"
@@ -78,17 +87,17 @@
                                 HorizontalTextAlignment="End"
                                 x:Name="ValueValue"/>
 
-                    <Slider Grid.Row="8" Grid.Column="1"
+                    <Slider Grid.Row="10" Grid.Column="1"
                                 Style="{StaticResource ValueSliderStyle}"
                                 ValueChanged="OnSliderChanged"
                                 Value="{Binding Data.Value}"
                                 x:Name="ValueSlider"/>
 
-                    <Label Grid.Row="9" Grid.Column="0"
+                    <Label Grid.Row="11" Grid.Column="0"
                             Text="Range" 
                             Style="{StaticResource LabelStyle}"/>
 
-                    <Label Grid.Row="9" Grid.Column="0"
+                    <Label Grid.Row="11" Grid.Column="0"
                                 Text="{Binding Data.Range}" 
                                 Style="{StaticResource ValueStyle}"
                                 Padding="0,0,10,0"
@@ -96,17 +105,17 @@
                                 HorizontalTextAlignment="End"
                                 x:Name="RangeValue"/>
 
-                    <Slider Grid.Row="9" Grid.Column="1"
+                    <Slider Grid.Row="11" Grid.Column="1"
                                 Style="{StaticResource RangeSliderStyle}"
                                 ValueChanged="OnSliderChanged"
                                 Value="{Binding Data.Range}"
                                 x:Name="RangeSlider"/>
 
-                    <Label Grid.Row="10" Grid.Column="0"
+                    <Label Grid.Row="12" Grid.Column="0"
                             Text="Damage" 
                             Style="{StaticResource LabelStyle}"/>
 
-                    <Label Grid.Row="10" Grid.Column="0"
+                    <Label Grid.Row="12" Grid.Column="0"
                                 Text="{Binding Data.Damage}" 
                                 Style="{StaticResource ValueStyle}"
                                 Padding="0,0,10,0"
@@ -114,7 +123,7 @@
                                 HorizontalTextAlignment="End"
                                 x:Name="DamageValue"/>
 
-                    <Slider Grid.Row="10" Grid.Column="1"
+                    <Slider Grid.Row="12" Grid.Column="1"
                                 Style="{StaticResource DamageSliderStyle}"
                                 ValueChanged="OnSliderChanged"
                                 Value="{Binding Data.Damage}"
