@@ -78,6 +78,11 @@ namespace Game.Views
                 ValueValue.Text = newValueStr;
                 ValueSlider.Value = newValue;
             }
+            if (sender == RangeSlider)
+            {
+                RangeValue.Text = newValueStr;
+                RangeSlider.Value = newValue;
+            }
         }
 
         /// <summary>
