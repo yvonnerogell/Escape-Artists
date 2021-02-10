@@ -63,7 +63,7 @@
                             Style="{StaticResource LabelStyleUpdateText}"/>
 
                     <Picker Grid.Row="3" Grid.Column="1"
-                            ItemsSource="{x:Static local:DifficultyEnumHelper.GetListAll}"                  
+                            ItemsSource="{x:Static local:DifficultyEnumHelper.GetListAllExceptUnknown}"                  
                             x:Name="DifficultyLevelPicker" >
                             
                         <Picker.SelectedItem>"{Binding Data.Difficulty, Converter={StaticResource DifficultyEnum}, Mode=TwoWay}"</Picker.SelectedItem>
