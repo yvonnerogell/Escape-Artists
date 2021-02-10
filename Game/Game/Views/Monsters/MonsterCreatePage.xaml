@@ -72,7 +72,6 @@
                             ItemsSource="{x:Static local:DifficultyEnumHelper.GetListAllExceptUnknown}"                  
                             x:Name="DifficultyLevelPicker" >
                         <Picker.SelectedItem>"{Binding Data.Difficulty, Converter={StaticResource DifficultyEnum}, Mode=TwoWay}"</Picker.SelectedItem>
-                        <Picker.SelectedIndex>0</Picker.SelectedIndex>
                     </Picker>
 
                     <Label Grid.Row="8" Grid.Column="0"
