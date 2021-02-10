@@ -65,8 +65,9 @@
                     <Picker Grid.Row="3" Grid.Column="1"
                             ItemsSource="{x:Static local:DifficultyEnumHelper.GetListAll}"                  
                             x:Name="DifficultyLevelPicker" >
+                            
                         <Picker.SelectedItem>"{Binding Data.Difficulty, Converter={StaticResource DifficultyEnum}, Mode=TwoWay}"</Picker.SelectedItem>
-                        <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                        <Picker.SelectedIndex>1</Picker.SelectedIndex>
                     </Picker>
 
 
