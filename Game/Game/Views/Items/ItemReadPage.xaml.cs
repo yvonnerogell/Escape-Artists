@@ -55,5 +55,15 @@ namespace Game.Views
             await Navigation.PushModalAsync(new NavigationPage(new ItemDeletePage(ViewModel)));
             await Navigation.PopAsync();
         }
+
+        /// <summary>
+        /// close the read page. similar to back
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void Close_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
     }
 }
