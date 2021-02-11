@@ -37,7 +37,6 @@ namespace Game.Views
 
             // Set default values for location and attribute pickers
             ItemTypePicker.SelectedIndex = 0;
-            LocationPicker.SelectedIndex = 0;
             AttributePicker.SelectedIndex = 0;
         }
 
