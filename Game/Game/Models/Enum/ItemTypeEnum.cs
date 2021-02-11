@@ -209,5 +209,59 @@ namespace Game.Models
             }
             return ItemTypeEnum.Unknown;
         }
+
+        /// <summary>
+        /// Returns the ItemLocationEnum associated with the ItemType.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static ItemLocationEnum GetLocationFromItemType(ItemTypeEnum itemType)
+        {
+            ItemLocationEnum itemLocation = ItemLocationEnum.Unknown;
+            switch (itemType)
+			{
+                case ItemTypeEnum.Tuition:
+                    itemLocation = ItemLocationEnum.PrimaryHand;
+                    break;
+                case ItemTypeEnum.Textbooks:
+                    itemLocation = ItemLocationEnum.PrimaryHand;
+                    break;
+                case ItemTypeEnum.PrivateTutor:
+                    itemLocation = ItemLocationEnum.Necklace;
+                    break;
+                case ItemTypeEnum.PencilEraser:
+                    itemLocation = ItemLocationEnum.PrimaryHand;
+                    break;
+                case ItemTypeEnum.Notebook:
+                    itemLocation = ItemLocationEnum.PrimaryHand;
+                    break;
+                case ItemTypeEnum.LibraryCard:
+                    itemLocation = ItemLocationEnum.Necklace;
+                    break;
+                case ItemTypeEnum.Laptop:
+                    itemLocation = ItemLocationEnum.PrimaryHand;
+                    break;
+                case ItemTypeEnum.IndexCards:
+                    itemLocation = ItemLocationEnum.RightFinger;
+                    break;
+                case ItemTypeEnum.GraduationCapAndRobe:
+                    itemLocation = ItemLocationEnum.Head;
+                    break;
+                case ItemTypeEnum.FoodCourtCard:
+                    itemLocation = ItemLocationEnum.Necklace;
+                    break;
+                case ItemTypeEnum.FinancialAid:
+                    itemLocation = ItemLocationEnum.OffHand;
+                    break;
+                case ItemTypeEnum.Diploma:
+                    itemLocation = ItemLocationEnum.OffHand;
+                    break;
+                case ItemTypeEnum.Calculator:
+                    itemLocation = ItemLocationEnum.LeftFinger;
+                    break;
+			}
+
+            return itemLocation;
+        }
     }
 }
