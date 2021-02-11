@@ -44,9 +44,18 @@ namespace Game.Views
         /// <param name="e"></param>
         public async void Save_Clicked(object sender, EventArgs e)
         {
-
-            MessagingCenter.Send(this, "Update", ViewModel.Data);
-            await Navigation.PopModalAsync();
+            // if the name or description are not entered, the page remains on the update screen
+            if (string.IsNullOrEmpty(ViewModel.Data.Name) || string.IsNullOrEmpty(ViewModel.Data.Description))
+            {
+                await Navigation.PushModalAsync(new NavigationPage(new MonsterUpdatePage(ViewModel)));
+                await Navigation.PopModalAsync();
+            }
+            // otherwise it completes the update and returns to the read page
+            else
+            {
+                MessagingCenter.Send(this, "Update", ViewModel.Data);
+                await Navigation.PopModalAsync();
+            }
         }
 
         /// <summary>
