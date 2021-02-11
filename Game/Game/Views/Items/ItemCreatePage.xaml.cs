@@ -48,7 +48,7 @@ namespace Game.Views
         public ItemCreatePage(ItemModel data)
         {
             InitializeComponent();
-            this.ViewModel.Data = data;
+            BindingContext = this.ViewModel.Data = data;
 
             // TODO: set default for location based on data. 
             // TODO: limit the type to be only for that location.
