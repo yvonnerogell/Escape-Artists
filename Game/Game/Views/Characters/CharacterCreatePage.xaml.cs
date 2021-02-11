@@ -162,7 +162,7 @@ namespace Game.Views.Characters
         /// <param name="e"></param>
         public async void Save_Clicked(object sender, EventArgs e)
         {
-            // if the name or description are not entered, the page remains on the update screen
+            // if the name or description are not entered, the page remains on the create screen
             if (string.IsNullOrEmpty(ViewModel.Data.Name) || string.IsNullOrEmpty(ViewModel.Data.Description))
             {
                 await Navigation.PushModalAsync(new NavigationPage(new CharacterUpdatePage(ViewModel)));
