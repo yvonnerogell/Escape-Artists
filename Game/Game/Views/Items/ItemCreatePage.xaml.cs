@@ -41,6 +41,20 @@ namespace Game.Views
         }
 
         /// <summary>
+        ///  Constructor for Create when we already have a item
+        ///  This usually means is coming from the Character Create page
+        /// </summary>
+        /// <param name="data"></param>
+        public ItemCreatePage(ItemModel data)
+        {
+            InitializeComponent();
+            this.ViewModel.Data = data;
+
+            // TODO: set default for location based on data. 
+            // TODO: limit the type to be only for that location.
+        }
+
+        /// <summary>
         /// Save by calling for Create
         /// </summary>
         /// <param name="sender"></param>
