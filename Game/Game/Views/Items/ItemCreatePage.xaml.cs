@@ -50,8 +50,16 @@ namespace Game.Views
             InitializeComponent();
             BindingContext = this.ViewModel.Data = data;
 
-            // TODO: set default for location based on data. 
-            // TODO: limit the type to be only for that location.
+            // Limit the item type to be only for that location.
+            ItemTypePicker.ItemsSource.Clear();
+            var newItems = ItemLocationEnumHelper.GetItemFromLocationType(data.Location);
+            foreach (var item in newItems)
+            {
+                ItemTypePicker.ItemsSource.Add(item.ToMessage());
+            }
+            ItemTypePicker.SelectedIndex = 0;
+
+            
         }
 
         /// <summary>

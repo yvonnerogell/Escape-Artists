@@ -184,5 +184,46 @@ namespace Game.Models
                     return ItemLocationEnum.Feet;
             }
         }
+
+        /// <summary>
+        /// Returns the ItemLocationEnum associated with the ItemType.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static List<ItemTypeEnum> GetItemFromLocationType(ItemLocationEnum location)
+        {
+            List<ItemTypeEnum> items = new List<ItemTypeEnum>();
+            switch (location)
+            {
+                case ItemLocationEnum.Head:
+                    items.Add(ItemTypeEnum.GraduationCapAndRobe);
+                    break;
+                case ItemLocationEnum.Necklace:
+                    items.Add(ItemTypeEnum.LibraryCard);
+                    items.Add(ItemTypeEnum.FoodCourtCard);
+                    items.Add(ItemTypeEnum.PrivateTutor);
+                    break;
+                case ItemLocationEnum.PrimaryHand:
+                    items.Add(ItemTypeEnum.PencilEraser);
+                    items.Add(ItemTypeEnum.Textbooks);
+                    items.Add(ItemTypeEnum.Notebook);
+                    items.Add(ItemTypeEnum.Laptop);
+                    items.Add(ItemTypeEnum.Tuition);
+                    break;
+                case ItemLocationEnum.OffHand:
+                    items.Add(ItemTypeEnum.FinancialAid);
+                    break;
+                case ItemLocationEnum.RightFinger:
+                    items.Add(ItemTypeEnum.IndexCards);
+                    break;
+                case ItemLocationEnum.LeftFinger:
+                    items.Add(ItemTypeEnum.Calculator);
+                    break;
+                case ItemLocationEnum.Feet:
+                    break;
+            }
+
+            return items;
+        }
     }
 }

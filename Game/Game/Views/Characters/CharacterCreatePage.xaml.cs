@@ -23,14 +23,11 @@ namespace Game.Views.Characters
         //constructor
         public CharacterCreatePage()
         {
+            BindingContext = this.ViewModel.Data = new CharacterModel();
+            
             InitializeComponent();
 
-            this.ViewModel.Data = new CharacterModel();
-
-            BindingContext = this.ViewModel;
-
             this.ViewModel.Title = "Create";
-            
         }
 
 
@@ -44,54 +41,23 @@ namespace Game.Views.Characters
             var picker = (Picker)sender;
             string selectedIndex = (string)picker.SelectedItem;
 
+            var FlexList = ItemBox.Children.ToList();
+            foreach (var data in FlexList)
+            {
+                ItemBox.Children.Remove(data);
+            }
+
             if (SpecificCharacterTypeEnumHelper.GetStudentListMessage.Contains(selectedIndex))
             {
-                AddStudentItemsToDisplay();
+                ItemBox.Children.Add(LoadEmptyItem(ItemLocationEnum.Head));
             }
-            else
-            {
-                AddParentItemsToDisplay();
-            }
-
-        }
-
-        /// <summary>
-        /// Load the item box for students type
-        /// </summary>
-        public void AddStudentItemsToDisplay()
-        {
-            var FlexList = ItemBox.Children.ToList();
-            foreach (var data in FlexList)
-            {
-                ItemBox.Children.Remove(data);
-            }
-
-            ItemBox.Children.Add(LoadEmptyItem(ItemLocationEnum.Head));
             ItemBox.Children.Add(LoadEmptyItem(ItemLocationEnum.Necklace));
             ItemBox.Children.Add(LoadEmptyItem(ItemLocationEnum.PrimaryHand));
             ItemBox.Children.Add(LoadEmptyItem(ItemLocationEnum.OffHand));
             ItemBox.Children.Add(LoadEmptyItem(ItemLocationEnum.RightFinger));
             ItemBox.Children.Add(LoadEmptyItem(ItemLocationEnum.LeftFinger));
             ItemBox.Children.Add(LoadEmptyItem(ItemLocationEnum.Feet));
-        }
 
-        /// <summary>
-        /// Load the item box for parents type
-        /// </summary>
-        public void AddParentItemsToDisplay()
-        {
-            var FlexList = ItemBox.Children.ToList();
-            foreach (var data in FlexList)
-            {
-                ItemBox.Children.Remove(data);
-            }
-
-            ItemBox.Children.Add(LoadEmptyItem(ItemLocationEnum.Necklace));
-            ItemBox.Children.Add(LoadEmptyItem(ItemLocationEnum.PrimaryHand));
-            ItemBox.Children.Add(LoadEmptyItem(ItemLocationEnum.OffHand));
-            ItemBox.Children.Add(LoadEmptyItem(ItemLocationEnum.RightFinger));
-            ItemBox.Children.Add(LoadEmptyItem(ItemLocationEnum.LeftFinger));
-            ItemBox.Children.Add(LoadEmptyItem(ItemLocationEnum.Feet));
         }
 
         /// <summary>
@@ -103,11 +69,20 @@ namespace Game.Views.Characters
         {
             // Defualt Image is the Plus
             var ImageSource = "icon_cancel.png";
+            var ClickableItem = false;
+            // check 
+            var data = ViewModel.Data.GetItemByLocation(location);
+            if (data == null)
+            {
+                data = new ItemModel { Location = location, ImageURI = ImageSource };
+                ClickableItem = true;
+            }
+
             // Hookup the Image Button to show the Item picture
             var ItemButton = new ImageButton
             {
                 Style = (Style)Application.Current.Resources["ImageMediumStyle"],
-                Source = ImageSource,
+                Source = data.ImageURI,
             };
 
             // Add the Display Text for the item
@@ -117,6 +92,11 @@ namespace Game.Views.Characters
                 HorizontalOptions = LayoutOptions.Center,
                 HorizontalTextAlignment = TextAlignment.Center,
             };
+
+            if (ClickableItem)
+            {
+                ItemButton.Clicked += (sender, args) => CreateNewItem(data);
+            }
 
             // Put the Image Button and Text inside a layout
             var ItemStack = new StackLayout
@@ -129,16 +109,22 @@ namespace Game.Views.Characters
                 },
             };
 
-
-            // TODO: uncomment once item create page is completed. 
-            //ItemButton.Clicked += (sender, args) => CreateNewItem(data);
             return ItemStack;
         }
 
+        /// <summary>
+        /// Triggers the create item page 
+        /// </summary>
+        /// <param name="location"></param>
         public async void CreateNewItem(ItemModel data)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new ItemCreatePage()));
-            // TODO: get data that was created and add it. 
+            // Add the item to the location
+            ViewModel.Data.AddItem(data.Location, data.Id);
+            
+            // trigger new item create page with created item
+            await Navigation.PushModalAsync(new NavigationPage(new ItemCreatePage(data)));
+
+            // TODO: need to work on reloading the current page after item is created
         }
 
         void ToolbarItem_Clicked(System.Object sender, System.EventArgs e)
@@ -219,5 +205,6 @@ namespace Game.Views.Characters
                 GPASlider.Value = newValue;
             }
         }
+
     }
 }
