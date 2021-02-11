@@ -49,21 +49,25 @@ namespace Game.Views.Monsters
         /// <param name="e"></param>
         public async void Save_Clicked(object sender, EventArgs e)
         {
-            ViewModel.Data.PlayerType = PlayerTypeEnum.Monster;
-            ViewModel.Data.SpecificMonsterTypeEnum = SpecificMonsterTypeEnumHelper.ConvertMessageStringToEnum(MonsterTypePicker.SelectedItem.ToString());
-            ViewModel.Data.MonsterTypeEnum = SpecificMonsterTypeEnumHelper.GetMonsterTypeEnumFromSpecificMonsterTypeEnum(ViewModel.Data.SpecificMonsterTypeEnum);
-            ViewModel.Data.UpdateImageURI(ViewModel.Data);
-
-            // Check to see if name and description were filled in by user. If not, don't save the new data 
-            if (String.IsNullOrEmpty(ViewModel.Data.Name) || (String.IsNullOrEmpty(ViewModel.Data.Description)))
+            // if the name or description are not entered, the page remains on the create screen
+            if (string.IsNullOrEmpty(ViewModel.Data.Name) || string.IsNullOrEmpty(ViewModel.Data.Description))
             {
-                ViewModel.Data = null;             
+                await Navigation.PushModalAsync(new NavigationPage(new MonsterUpdatePage(ViewModel)));
+                await Navigation.PopModalAsync();
             }
-           
-            // TODO Unique Drop item - do we want to randomly assign one here?
+            // otherwise it creates and saves the new monster
+            else
+            {
+                ViewModel.Data.PlayerType = PlayerTypeEnum.Monster;
+                ViewModel.Data.SpecificMonsterTypeEnum = SpecificMonsterTypeEnumHelper.ConvertMessageStringToEnum(MonsterTypePicker.SelectedItem.ToString());
+                ViewModel.Data.MonsterTypeEnum = SpecificMonsterTypeEnumHelper.GetMonsterTypeEnumFromSpecificMonsterTypeEnum(ViewModel.Data.SpecificMonsterTypeEnum);
+                ViewModel.Data.UpdateImageURI(ViewModel.Data);
 
-            MessagingCenter.Send(this, "Create", ViewModel.Data);
-            await Navigation.PopModalAsync();
+                // TODO Unique Drop item - do we want to randomly assign one here?
+
+                MessagingCenter.Send(this, "Create", ViewModel.Data);
+                await Navigation.PopModalAsync();
+            }
         }
 
 
