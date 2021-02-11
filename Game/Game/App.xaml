@@ -80,8 +80,8 @@
             <!-- Scroll View -->
 
             <Style TargetType="ScrollView">
-                <Setter Property="VerticalScrollBarVisibility" Value="Never"/>
-                <Setter Property="HorizontalScrollBarVisibility" Value="Never"/>
+                <Setter Property="VerticalScrollBarVisibility" Value="Default"/>
+                <Setter Property="HorizontalScrollBarVisibility" Value="Default"/>
             </Style>
 
             <!-- Label -->
