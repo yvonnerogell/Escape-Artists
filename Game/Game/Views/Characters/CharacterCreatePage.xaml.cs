@@ -162,23 +162,25 @@ namespace Game.Views.Characters
         /// <param name="e"></param>
         public async void Save_Clicked(object sender, EventArgs e)
         {
-            ViewModel.Data.PlayerType = PlayerTypeEnum.Character;
-            ViewModel.Data.SpecificCharacterTypeEnum = SpecificCharacterTypeEnumHelper.ConvertMessageStringToEnum(CharacterTypePicker.SelectedItem.ToString());
-            ViewModel.Data.CharacterTypeEnum = SpecificCharacterTypeEnumHelper.GetCharacterTypeEnumFromSpecificCharacterTypeEnum(ViewModel.Data.SpecificCharacterTypeEnum);
-            ViewModel.Data.UpdateImageURI(ViewModel.Data);
-            
-            // Check to see if name and description were filled in by user. If not, use default data. 
-            if (String.IsNullOrEmpty(ViewModel.Data.Name) || String.IsNullOrEmpty(ViewModel.Data.Description))
+            // if the name or description are not entered, the page remains on the update screen
+            if (string.IsNullOrEmpty(ViewModel.Data.Name) || string.IsNullOrEmpty(ViewModel.Data.Description))
             {
-                ViewModel.Data = null;
-			}
+                await Navigation.PushModalAsync(new NavigationPage(new CharacterUpdatePage(ViewModel)));
+                await Navigation.PopModalAsync();
+            }
+            // otherwise it creates and saves the new character
+            else
+            {
+                ViewModel.Data.PlayerType = PlayerTypeEnum.Character;
+                ViewModel.Data.SpecificCharacterTypeEnum = SpecificCharacterTypeEnumHelper.ConvertMessageStringToEnum(CharacterTypePicker.SelectedItem.ToString());
+                ViewModel.Data.CharacterTypeEnum = SpecificCharacterTypeEnumHelper.GetCharacterTypeEnumFromSpecificCharacterTypeEnum(ViewModel.Data.SpecificCharacterTypeEnum);
+                ViewModel.Data.UpdateImageURI(ViewModel.Data);
 
+                // TODO add Items
 
-            // TODO add Items
-
-            MessagingCenter.Send(this, "Create", ViewModel.Data);
-            await Navigation.PopModalAsync();
-
+                MessagingCenter.Send(this, "Create", ViewModel.Data);
+                await Navigation.PopModalAsync();
+            }
         }
 
         /// <summary>
