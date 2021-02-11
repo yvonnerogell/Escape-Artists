@@ -48,8 +48,10 @@ namespace Game.Views
         public async void Save_Clicked(object sender, EventArgs e)
         {
             var itemType = ItemTypePicker.SelectedItem.ToString();
-            ViewModel.Data.ItemType = ItemTypeEnumHelper.ConvertMessageStringToEnum(itemType);
+            var itemTypeEnum = ItemTypeEnumHelper.ConvertMessageStringToEnum(itemType);
+            ViewModel.Data.ItemType = itemTypeEnum;
             ViewModel.Data.UpdateImageURI(ViewModel.Data);
+            ViewModel.Data.Location = ItemTypeEnumHelper.GetLocationFromItemType(itemTypeEnum);
 
             MessagingCenter.Send(this, "Create", ViewModel.Data);
             await Navigation.PopModalAsync();
