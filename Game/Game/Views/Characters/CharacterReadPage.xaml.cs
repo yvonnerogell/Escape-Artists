@@ -157,6 +157,10 @@ namespace Game.Views
             return ItemStack;
         }
 
+        /// <summary>
+        /// Opens up the read page for the specified item. 
+        /// </summary>
+        /// <param name="data"></param>
         public async void ShowItem(ItemModel data)
         {
             await Navigation.PushAsync(new ItemReadPage(new GenericViewModel<ItemModel>(data)));
