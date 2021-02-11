@@ -41,7 +41,8 @@
                     <Entry Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
                         Text="{Binding Data.Name}"
                         Style="{StaticResource EntryStyle}"
-                        Placeholder="New Monster Name"
+                        Placeholder="This is a mandatory field!"
+                        PlaceholderColor="Red"
                            />
 
                     <Label Grid.Row="2" Grid.Column="0" 
@@ -51,7 +52,9 @@
                     <Editor Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
                         Text="{Binding Data.Description}" 
                         Style="{StaticResource EntryStyle}"
-                        Placeholder="New Monster Description"/>
+                        Placeholder="This is a mandatory field!"
+                        PlaceholderColor="Red"
+                            />
 
                     <Label Grid.Row="4" Grid.Column="0"
                         Text="Monster Type" 
