@@ -10,7 +10,7 @@
 
             <StackLayout>
 
-                <StackLayout Style="{StaticResource VillageMenuBox}">
+                <StackLayout Style="{StaticResource GamePageMenuBox}">
 
                     <Grid RowSpacing="1" ColumnSpacing="3">
 
@@ -27,7 +27,7 @@
 
                 </StackLayout>
 
-                <StackLayout Style="{StaticResource VillageMenuBox}">
+                <StackLayout Style="{StaticResource GamePageMenuBox}">
 
                     <Grid RowSpacing="1" ColumnSpacing="3">
 
@@ -44,10 +44,9 @@
 
                 </StackLayout>
 
-                <StackLayout Style="{StaticResource VillageMenuBox}">
+                <StackLayout Style="{StaticResource GamePageMenuBox}">
 
                     <Grid RowSpacing="1" ColumnSpacing="3">
-
 
                         <Label Grid.Row="0" Grid.Column="0"
                             Text="Auto Battle"
