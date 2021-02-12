@@ -39,16 +39,18 @@
                 </StackLayout>
 
 
-                <StackLayout Style="{StaticResource CardImageTextBox}">
-
-                    <ImageButton
-                                Source="item.png"
-                                Style="{StaticResource ImageLargeStyle}"
-                                Clicked="ItemsButton_Clicked"/>
+                <StackLayout Orientation="Horizontal" BackgroundColor="Gray" WidthRequest="500" Padding="10" Margin="10">
 
                     <Label 
                                 Text="Items"
                                 Style="{StaticResource CenterMessageStyle}"/>
+
+                    <ImageButton
+                                FlexLayout.AlignSelf="End"
+                                Source="item.png"
+                                Style="{StaticResource ImageLargeStyle}"
+                                Clicked="ItemsButton_Clicked"/>
+
                 </StackLayout>
 
 
