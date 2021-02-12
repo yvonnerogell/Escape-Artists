@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Game.Views.GamePage"
-             >
+             xmlns:local="using:Game"
+             x:Class="Game.Views.GamePage">
 
     <ContentPage.Content>
 
@@ -10,16 +10,21 @@
 
             <StackLayout>
 
-                <StackLayout Style="{StaticResource CardImageTextBox}">
+                <StackLayout Style="{StaticResource VillageMenuBox}">
 
-                    <ImageButton
-                        Source="item.png"
-                        Style="{StaticResource ImageLargeStyle}"
-                        Clicked="VillageButton_Clicked"/>
+                    <Grid RowSpacing="1" ColumnSpacing="3">
 
-                    <Label 
-                        Text="Village"
-                        Style="{StaticResource CenterMessageStyle}"/>
+                        <Label Grid.Row="0" Grid.Column="0"
+                            Text="Village"
+                            Style="{StaticResource CenterMessageStyle}"/>
+
+                        <ImageButton Grid.Row="0" Grid.Column="2"
+                            Source="{x:Static local:Constants.SpecificCharacterTypeDefaultImageURI}"
+                            Style="{StaticResource VillageMenuImageButton}"
+                            Clicked="VillageButton_Clicked"/>
+
+                    </Grid>
+
                 </StackLayout>
 
                 <StackLayout Style="{StaticResource CardImageTextBox}">
