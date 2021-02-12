@@ -37,7 +37,7 @@
                                 Style="{StaticResource CenterMessageStyle}"/>
 
                         <ImageButton Grid.Row="0" Grid.Column="2"
-                                    Source="item.png"
+                                    Source="{x:Static local:Constants.SpecificMonsterTypeAssistantProfessorImageURI}"
                                     Style="{StaticResource VillageMenuImageButton}"
                                     Clicked="MonstersButton_Clicked"/>
 
