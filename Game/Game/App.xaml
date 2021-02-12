@@ -556,7 +556,7 @@
             <Style TargetType="StackLayout"
                 x:Key="VillageMenuBox">
                 <Setter Property="Orientation" Value="Horizontal" />
-                <Setter Property="BackgroundColor" Value="{StaticResource SecondaryBackgroundColor}" />
+                <Setter Property="BackgroundColor" Value="{StaticResource New_SecondaryBackgroundColor}" />
                 <Setter Property="WidthRequest" Value="500" />
                 <Setter Property="Padding" Value="10" />
                 <Setter Property="Margin" Value="10" />
