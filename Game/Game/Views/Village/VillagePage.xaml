@@ -19,9 +19,8 @@
                                 Style="{StaticResource CenterMessageStyle}"/>
 
                         <ImageButton Grid.Row="0" Grid.Column="2"
-                                FlexLayout.AlignSelf="End"
                                 Source="item.png"
-                                Style="{StaticResource ImageLargeStyle}"
+                                Style="{StaticResource VillageMenuImageButton}"
                                 Clicked="CharactersButton_Clicked"/>
 
                     </Grid>
@@ -37,9 +36,8 @@
                                 Style="{StaticResource CenterMessageStyle}"/>
 
                         <ImageButton Grid.Row="0" Grid.Column="2"
-                                    FlexLayout.AlignSelf="End"
                                     Source="item.png"
-                                    Style="{StaticResource ImageLargeStyle}"
+                                    Style="{StaticResource VillageMenuImageButton}"
                                     Clicked="MonstersButton_Clicked"/>
 
                     </Grid>
@@ -56,9 +54,8 @@
                                 Style="{StaticResource CenterMessageStyle}"/>
 
                         <ImageButton Grid.Row="0" Grid.Column="2"
-                                    FlexLayout.AlignSelf="End"
                                     Source="item.png"
-                                    Style="{StaticResource ImageLargeStyle}"
+                                    Style="{StaticResource VillageMenuImageButton}"
                                     Clicked="ItemsButton_Clicked"/>
 
                     </Grid>
@@ -75,9 +72,8 @@
                                 Style="{StaticResource CenterMessageStyle}"/>
 
                         <ImageButton Grid.Row="0" Grid.Column="2"
-                                FlexLayout.AlignSelf="End"
                                 Source="item.png"
-                                Style="{StaticResource ImageLargeStyle}"
+                                Style="{StaticResource VillageMenuImageButton}"
                                 Clicked="ScoresButton_Clicked"/>
 
                     </Grid>

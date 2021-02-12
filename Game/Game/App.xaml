@@ -270,6 +270,12 @@
             </Style>
 
             <Style TargetType="Image"
+                x:Key="VillageMenuImageButton"
+                BasedOn="{StaticResource ImageLargeStyle}">
+                <Setter Property="FlexLayout.AlignSelf" Value="End" />
+            </Style>
+
+            <Style TargetType="Image"
                 x:Key="ImageMediumStyle"
                 BasedOn="{StaticResource ImageLargeStyle}">
                 <Setter Property="HeightRequest" Value="50" />
