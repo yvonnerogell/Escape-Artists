@@ -35,7 +35,7 @@
                             Text="Dungeon"
                             Style="{StaticResource CenterMessageStyle}"/>
 
-                        <ImageButton  Grid.Row="0" Grid.Column="2"
+                        <ImageButton Grid.Row="0" Grid.Column="2"
                             Source="{x:Static local:Constants.SpecificMonsterTypeGraduationOfficeAdministratorImageURI}"
                             Style="{StaticResource ImageLargeStyle}"
                             Clicked="DungeonButton_Clicked"/>
@@ -44,16 +44,21 @@
 
                 </StackLayout>
 
-                <StackLayout Style="{StaticResource CardImageTextBox}">
+                <StackLayout Style="{StaticResource VillageMenuBox}">
 
-                    <ImageButton
-                        Source="item.png"
-                        Style="{StaticResource ImageLargeStyle}"
-                        Clicked="AutobattleButton_Clicked"/>
+                    <Grid RowSpacing="1" ColumnSpacing="3">
 
-                    <Label 
-                        Text="Auto Battle"
-                        Style="{StaticResource CenterMessageStyle}"/>
+
+                        <Label Grid.Row="0" Grid.Column="0"
+                            Text="Auto Battle"
+                            Style="{StaticResource CenterMessageStyle}"/>
+
+                        <ImageButton Grid.Row="0" Grid.Column="2"
+                            Source="{x:Static local:Constants.SpecificMonsterTypeProfessorImageURI}"
+                            Style="{StaticResource ImageLargeStyle}"
+                            Clicked="AutobattleButton_Clicked"/>
+
+                    </Grid>
                 </StackLayout>
             </StackLayout>
         </ScrollView>
