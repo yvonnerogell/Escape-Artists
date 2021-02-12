@@ -40,7 +40,7 @@
             <Color x:Key="New_TransparentColor">Transparent</Color>
 
 
-            <!-- Old colors -- will be deprecated -->
+            <!-- Old colors will be deprecated -->
             <Color x:Key="PageBackgroundColor">White</Color>
             <Color x:Key="ViewBackgroundColor">Gray</Color>
             <Color x:Key="NavigationBarColor">Black</Color>
