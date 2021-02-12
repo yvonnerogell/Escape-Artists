@@ -176,6 +176,13 @@
             </Style>
 
             <Style TargetType="Label"
+                x:Key="CenterMessageLargeStyle"
+                BasedOn="{StaticResource CenterMessageStyle}">
+                <Setter Property="FontSize" Value="Large" />
+                <Setter Property="TextColor" Value="{StaticResource MenuTextColor}" />
+            </Style>
+
+            <Style TargetType="Label"
                 x:Key="CenterMessageMediumStyle"
                 BasedOn="{StaticResource CenterMessageStyle}">
                 <Setter Property="FontSize" Value="Medium" />
