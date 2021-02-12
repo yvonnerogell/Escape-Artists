@@ -36,7 +36,7 @@
                                 Text="Monsters"
                                 Style="{StaticResource CenterMessageStyle}"/>
 
-                        <ImageButton  Grid.Row="0" Grid.Column="2"
+                        <ImageButton Grid.Row="0" Grid.Column="2"
                                     FlexLayout.AlignSelf="End"
                                     Source="item.png"
                                     Style="{StaticResource ImageLargeStyle}"
@@ -49,15 +49,19 @@
 
                 <StackLayout Orientation="Horizontal" BackgroundColor="Gray" WidthRequest="500" Padding="10" Margin="10">
 
-                    <Label 
+                    <Grid RowSpacing="1" ColumnSpacing="3">
+
+                        <Label Grid.Row="0" Grid.Column="0"
                                 Text="Items"
                                 Style="{StaticResource CenterMessageStyle}"/>
 
-                    <ImageButton
-                                FlexLayout.AlignSelf="End"
-                                Source="item.png"
-                                Style="{StaticResource ImageLargeStyle}"
-                                Clicked="ItemsButton_Clicked"/>
+                        <ImageButton Grid.Row="0" Grid.Column="2"
+                                    FlexLayout.AlignSelf="End"
+                                    Source="item.png"
+                                    Style="{StaticResource ImageLargeStyle}"
+                                    Clicked="ItemsButton_Clicked"/>
+
+                    </Grid>
 
                 </StackLayout>
 
