@@ -17,7 +17,7 @@
 
                         <Label Grid.Row="0" Grid.Column="0"
                                 Text="Characters"
-                                Style="{StaticResource CenterMessageStyle}"/>
+                                Style="{StaticResource CenterMessageMediumStyle}"/>
 
                         <ImageButton Grid.Row="0" Grid.Column="2"
                                 Source="{x:Static local:Constants.SpecificCharacterTypeDefaultImageURI}"
@@ -34,7 +34,7 @@
 
                         <Label Grid.Row="0" Grid.Column="0"
                                 Text="Monsters"
-                                Style="{StaticResource CenterMessageStyle}"/>
+                                Style="{StaticResource CenterMessageMediumStyle}"/>
 
                         <ImageButton Grid.Row="0" Grid.Column="2"
                                     Source="{x:Static local:Constants.SpecificMonsterTypeAssistantProfessorImageURI}"
@@ -52,7 +52,7 @@
 
                         <Label Grid.Row="0" Grid.Column="0"
                                 Text="Items"
-                                Style="{StaticResource CenterMessageStyle}"/>
+                                Style="{StaticResource CenterMessageMediumStyle}"/>
 
                         <ImageButton Grid.Row="0" Grid.Column="2"
                                     Source="{x:Static local:Constants.ItemTypeLaptopImageURI}"
@@ -70,7 +70,7 @@
 
                         <Label Grid.Row="0" Grid.Column="0"
                                 Text="Scores"
-                                Style="{StaticResource CenterMessageStyle}"/>
+                                Style="{StaticResource CenterMessageMediumStyle}"/>
 
                         <ImageButton Grid.Row="0" Grid.Column="2"
                                 Source="{x:Static local:Constants.ItemTypeGraduationCapAndRobeImageURI}"
