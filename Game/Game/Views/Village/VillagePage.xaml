@@ -55,7 +55,7 @@
                                 Style="{StaticResource CenterMessageStyle}"/>
 
                         <ImageButton Grid.Row="0" Grid.Column="2"
-                                    Source="{x:Static local:Constants.ItemTypeGraduationCapAndRobeImageURI}"
+                                    Source="{x:Static local:Constants.ItemTypeLaptopImageURI}"
                                     Style="{StaticResource VillageMenuImageButton}"
                                     Clicked="ItemsButton_Clicked"/>
 
