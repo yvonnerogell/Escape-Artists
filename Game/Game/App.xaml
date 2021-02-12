@@ -34,6 +34,7 @@
             <Color x:Key="PrimaryTextColor">black</Color>
             <Color x:Key="SecondaryTextColor">black</Color>
             <Color x:Key="TriciaryTextColor">Gray</Color>
+            <Color x:Key="MenuTextColor">White</Color>
 
             <Color x:Key="TransparentColor">Transparent</Color>
 
@@ -175,9 +176,10 @@
             </Style>
 
             <Style TargetType="Label"
-                x:Key="CenterMessageLargeStyle"
+                x:Key="CenterMessageMediumStyle"
                 BasedOn="{StaticResource CenterMessageStyle}">
-                <Setter Property="FontSize" Value="Large" />
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" Value="{StaticResource MenuTextColor}" />
             </Style>
             
             <Style TargetType="Label"
