@@ -8,21 +8,19 @@
 
         <ScrollView Orientation="Vertical" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never" Padding="10">
 
-            <FlexLayout x:Name="flexLayout"
-                        Wrap="Wrap"
-                        JustifyContent="SpaceAround"
-                        AlignContent="SpaceAround">
+            <StackLayout >
 
-                <StackLayout Style="{StaticResource CardImageTextBox}">
-
-                    <ImageButton
-                                Source="item.png"
-                                Style="{StaticResource ImageLargeStyle}"
-                                Clicked="CharactersButton_Clicked"/>
+                <StackLayout Orientation="Horizontal" BackgroundColor="Gray" WidthRequest="500" Padding="10" Margin="10">
 
                     <Label 
                                 Text="Characters"
                                 Style="{StaticResource CenterMessageStyle}"/>
+
+                    <ImageButton
+                                FlexLayout.AlignSelf="End"
+                                Source="item.png"
+                                Style="{StaticResource ImageLargeStyle}"
+                                Clicked="CharactersButton_Clicked"/>
 
                 </StackLayout>
 
@@ -66,7 +64,7 @@
 
                 </StackLayout>
 
-            </FlexLayout>
+            </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
