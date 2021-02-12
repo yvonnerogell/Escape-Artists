@@ -276,6 +276,11 @@
             </Style>
 
             <Style TargetType="Image"
+                x:Key="GamePageMenuImageButton"
+                BasedOn="{StaticResource VillageMenuImageButton}">
+            </Style>
+
+            <Style TargetType="Image"
                 x:Key="ImageMediumStyle"
                 BasedOn="{StaticResource ImageLargeStyle}">
                 <Setter Property="HeightRequest" Value="50" />

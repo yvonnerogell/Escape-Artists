@@ -20,7 +20,7 @@
 
                         <ImageButton Grid.Row="0" Grid.Column="2"
                             Source="{x:Static local:Constants.SpecificCharacterTypeDefaultImageURI}"
-                            Style="{StaticResource VillageMenuImageButton}"
+                            Style="{StaticResource GamePageMenuImageButton}"
                             Clicked="VillageButton_Clicked"/>
 
                     </Grid>
@@ -37,7 +37,7 @@
 
                         <ImageButton Grid.Row="0" Grid.Column="2"
                             Source="{x:Static local:Constants.SpecificMonsterTypeGraduationOfficeAdministratorImageURI}"
-                            Style="{StaticResource ImageLargeStyle}"
+                            Style="{StaticResource GamePageMenuImageButton}"
                             Clicked="DungeonButton_Clicked"/>
                         
                     </Grid>
@@ -55,7 +55,7 @@
 
                         <ImageButton Grid.Row="0" Grid.Column="2"
                             Source="{x:Static local:Constants.SpecificMonsterTypeProfessorImageURI}"
-                            Style="{StaticResource ImageLargeStyle}"
+                            Style="{StaticResource GamePageMenuImageButton}"
                             Clicked="AutobattleButton_Clicked"/>
 
                     </Grid>
