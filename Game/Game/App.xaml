@@ -386,9 +386,9 @@
             <!-- Button -->
             <Style TargetType="Button"
                    x:Key="ButtonStyleSmall">
-                <Setter Property="BackgroundColor" Value="{StaticResource SecondaryBackgroundColor}" />
-                <Setter Property="TextColor" Value="{StaticResource SecondaryTextColor}" />
-                <Setter Property="BorderColor" Value="{StaticResource TriciaryBackgroundColor}"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource New_ButtonColor}" />
+                <Setter Property="TextColor" Value="{StaticResource New_ButtonTextColor}" />
+                <Setter Property="BorderColor" Value="{StaticResource New_ButtonColor}"/>
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center"/>
                 <Setter Property="FontSize" Value="Micro"/>
