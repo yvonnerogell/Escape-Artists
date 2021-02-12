@@ -288,4 +288,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\grad_office_monster.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_skateboard.png" />
+  </ItemGroup>
 </Project>

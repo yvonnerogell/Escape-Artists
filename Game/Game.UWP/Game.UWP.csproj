@@ -201,6 +201,7 @@
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="registration_monster.png" />
     <Content Include="second_career_student.png" />
+    <Content Include="item_skateboard.png" />
     <Content Include="slacker_student.png" />
     <Content Include="smarty_pants_character.png" />
     <Content Include="squid.jpg" />
