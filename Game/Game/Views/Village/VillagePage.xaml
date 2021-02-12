@@ -68,15 +68,19 @@
 
                 <StackLayout Orientation="Horizontal" BackgroundColor="Gray" WidthRequest="500" Padding="10" Margin="10">
 
-                    <Label 
+                    <Grid RowSpacing="1" ColumnSpacing="3">
+
+                        <Label Grid.Row="0" Grid.Column="0"
                                 Text="Scores"
                                 Style="{StaticResource CenterMessageStyle}"/>
-                    
-                    <ImageButton
+
+                        <ImageButton Grid.Row="0" Grid.Column="2"
                                 FlexLayout.AlignSelf="End"
                                 Source="item.png"
                                 Style="{StaticResource ImageLargeStyle}"
                                 Clicked="ScoresButton_Clicked"/>
+
+                    </Grid>
 
                 </StackLayout>
 
