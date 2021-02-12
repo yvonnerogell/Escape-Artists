@@ -10,7 +10,7 @@
 
             <StackLayout >
 
-                <StackLayout Orientation="Horizontal" BackgroundColor="Gray" WidthRequest="500" Padding="10" Margin="10">
+                <StackLayout Style="{StaticResource VillageMenuBox}">
 
                     <Grid RowSpacing="1" ColumnSpacing="3">
 
@@ -28,7 +28,7 @@
 
                 </StackLayout>
 
-                <StackLayout Orientation="Horizontal" BackgroundColor="Gray" WidthRequest="500" Padding="10" Margin="10">
+                <StackLayout Style="{StaticResource VillageMenuBox}">
 
                     <Grid RowSpacing="1" ColumnSpacing="3">
 
@@ -47,7 +47,7 @@
                 </StackLayout>
 
 
-                <StackLayout Orientation="Horizontal" BackgroundColor="Gray" WidthRequest="500" Padding="10" Margin="10">
+                <StackLayout Style="{StaticResource VillageMenuBox}">
 
                     <Grid RowSpacing="1" ColumnSpacing="3">
 
@@ -66,7 +66,7 @@
                 </StackLayout>
 
 
-                <StackLayout Orientation="Horizontal" BackgroundColor="Gray" WidthRequest="500" Padding="10" Margin="10">
+                <StackLayout Style="{StaticResource VillageMenuBox}">
 
                     <Grid RowSpacing="1" ColumnSpacing="3">
 
