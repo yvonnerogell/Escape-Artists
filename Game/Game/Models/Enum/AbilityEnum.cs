@@ -88,7 +88,7 @@ namespace Game.Models
         /// Returns a list of strings of the enum for Ability
         /// Removes the Abilitys that are not changable by Items such as Unknown, MaxHealth
         /// </summary>
-        public static List<string> GetFullList
+        public static List<string> GetFullAbilityEnumList
         {
             get
             {
