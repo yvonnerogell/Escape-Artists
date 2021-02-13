@@ -122,7 +122,7 @@ namespace Game.Views.Characters
             ViewModel.Data.AddItem(data.Location, data.Id);
             
             // trigger new item create page with created item
-            await Navigation.PushModalAsync(new NavigationPage(new ItemCreatePage(data)));
+            //await Navigation.PushModalAsync(new NavigationPage(new ItemCreatePage(data)));
 
             // TODO: need to work on reloading the current page after item is created
         }
