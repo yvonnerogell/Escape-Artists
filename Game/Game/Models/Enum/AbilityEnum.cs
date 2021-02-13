@@ -98,55 +98,6 @@ namespace Game.Models
         }
 
         /// <summary>
-        /// Returns a list of strings of the enum for Fighter
-        /// </summary>
-        public static List<string> GetListFighter
-        {
-            get
-            {
-                List<string> AbilityList = new List<string>{
-                AbilityEnum.Extension.ToString(),
-                AbilityEnum.FlashGenius.ToString(),
-                AbilityEnum.Bribes.ToString()
-                };
-
-                AbilityList.AddRange(GetListOthers);
-                return AbilityList;
-            }
-        }
-
-        /// <summary>
-        /// Returns a list of strings of the enum for Cleric
-        /// </summary>
-        public static List<string> GetListCleric
-        {
-            get
-            {
-                List<string> AbilityList = new List<string>{
-                AbilityEnum.PayTuition.ToString(),
-                };
-
-                AbilityList.AddRange(GetListOthers);
-                return AbilityList;
-            }
-        }
-
-        /// <summary>
-        /// Returns a list of strings of the enum of not Cleric or Fighter
-        /// </summary>
-        public static List<string> GetListOthers
-        {
-            get
-            {
-                List<string> AbilityList = new List<string>{
-                AbilityEnum.ExtraCredit.ToString(),
-                };
-
-                return AbilityList;
-            }
-        }
-
-        /// <summary>
         /// Given the String for an enum, return its value.  That allows for the enums to be numbered 2,4,6 rather than 1,2,3
         /// </summary>
         /// <param name="value"></param>

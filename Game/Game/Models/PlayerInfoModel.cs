@@ -188,12 +188,6 @@ namespace Game.Models
             // Set amount to give to be 1 below max for that level.
             ExperienceRemaining = LevelTableHelper.LevelDetailsList[Level + 1].Experience - 1;
 
-            // Adding abilities for monsters, why not, they work hard for a living
-            foreach (var item in AbilityEnumHelper.GetListOthers)
-            {
-                AbilityTracker.Add(AbilityEnumHelper.ConvertStringToEnum(item), Level);
-            }
-
         }
 
         public override string FormatOutput()
