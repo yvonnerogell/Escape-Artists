@@ -5,7 +5,7 @@ using System.Linq;
 namespace Game.Models
 {
     /// <summary>
-    /// The Types of s a Ability can have
+    /// The Types of an Ability a character can have
     /// Used in Ability Crudi, and in Battles.
     /// </summary>
     public enum AbilityEnum
@@ -122,7 +122,6 @@ namespace Game.Models
         {
             get
             {
-
                 List<string> AbilityList = new List<string>{
                 AbilityEnum.PayTuition.ToString(),
                 };
