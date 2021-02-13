@@ -123,5 +123,23 @@ namespace Game.Models
         {
             return (AbilityEnum)Enum.Parse(typeof(AbilityEnum), value);
         }
+
+
+        /// <summary>
+        /// Given the Full String for an enum, return its value
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static AbilityEnum ConvertMessageStringToEnum(string value)
+        {
+            foreach (AbilityEnum item in Enum.GetValues(typeof(AbilityEnum)))
+            {
+                if (item.ToMessage().Equals(value))
+                {
+                    return item;
+                }
+            }
+            return AbilityEnum.Unknown;
+        }
     }
 }
