@@ -34,7 +34,7 @@ namespace Game.Views.Characters
         }
 
         /// <summary>
-        /// Any time picker changes, items reset because parents type do not allow head location
+        /// Any time picker changes, items reset based on player type
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
