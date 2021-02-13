@@ -21,6 +21,8 @@ namespace Game.Models
 
         public AbilityEnum SpecialAbility { get; set; }
 
+        public bool Graduated { get; set; } = false;
+
         public CharacterModel()
         {
             Name = "";
