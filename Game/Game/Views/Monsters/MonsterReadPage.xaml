@@ -142,6 +142,19 @@
                 </Grid>
             </StackLayout>
             
+            <StackLayout>
+                <Label
+                            Text="Unique Drop Item"
+                            Style="{StaticResource LabelStyleUpdateText}"
+                            x:Name="ShowItemLabel"
+                            IsVisible="false"/>
+                <FlexLayout 
+                        Padding="5"
+                        JustifyContent="SpaceAround"
+                        AlignContent="SpaceAround"
+                        x:Name="ItemBox">
+                </FlexLayout>
+            </StackLayout>
         </StackLayout>
         
     </ScrollView>
