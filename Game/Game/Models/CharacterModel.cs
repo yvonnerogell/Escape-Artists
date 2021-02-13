@@ -19,6 +19,8 @@ namespace Game.Models
 
         public bool AbilityUsedInCurrentRound { get; set; } = false;
 
+        public AbilityEnum SpecialAbility { get; set; }
+
         public CharacterModel()
         {
             Name = "";
