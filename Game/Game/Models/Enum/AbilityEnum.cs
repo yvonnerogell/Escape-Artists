@@ -33,15 +33,6 @@ namespace Game.Models
 
         // Parent can pay tuition
         Pay_Tuition = 51,
-
-        // Buff Defense
-        //Barrier = 52,
-
-        // Buff Attack
-        //Curse = 53,
-
-        // Heal Self
-        //Heal = 54,
     }
 
     /// <summary>
