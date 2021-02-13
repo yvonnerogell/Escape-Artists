@@ -98,6 +98,23 @@ namespace Game.Models
         }
 
         /// <summary>
+        /// Returns a list of Full strings of the enum for AbilityEnum
+        /// </summary>
+        public static List<string> GetListMessageAll
+        {
+            get
+            {
+                var list = new List<string>();
+
+                foreach (var item in Enum.GetValues(typeof(AbilityEnum)))
+                {
+                    list.Add(((AbilityEnum)item).ToMessage());
+                }
+                return list;
+            }
+        }
+
+        /// <summary>
         /// Given the String for an enum, return its value.  That allows for the enums to be numbered 2,4,6 rather than 1,2,3
         /// </summary>
         /// <param name="value"></param>
