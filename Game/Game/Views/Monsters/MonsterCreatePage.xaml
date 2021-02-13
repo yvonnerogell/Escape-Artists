@@ -62,7 +62,7 @@
 
                     <Picker Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
                             ItemsSource="{x:Static local:SpecificMonsterTypeEnumHelper.GetListMessageAllNoUnknown}"                  
-                            x:Name="MonsterTypePicker" >
+                            x:Name="MonsterTypePicker" SelectedIndexChanged="OnPickerSelectedIndexChanged">
                         <Picker.SelectedItem>"{Binding Data.SpecificMonsterTypeEnum, Converter={StaticResource SpecificMonsterTypeEnumConverter}, Mode=TwoWay}"</Picker.SelectedItem>
                     </Picker>
 
@@ -132,12 +132,25 @@
                             x:Name="SpeedSlider"
                             Value="{Binding Data.Speed}"/>
 
-                    <Label Grid.Row="11" Grid.Column="0"
-                            Text="PLACEHOLDER FOR ITEMS"
-                            Style="{StaticResource LabelStyleUpdateText}"/>
+                    
 
                 </Grid>
-
+                <StackLayout>
+                    <Label Grid.Row="11" Grid.Column="0"
+                            Text="Unique Drop Item"
+                            Style="{StaticResource LabelStyleUpdateText}"/>
+                    <Label Grid.Row="11" Grid.Column="0"
+                            Text="ONLY CLICKED on item will ADD item"
+                            Style="{StaticResource LabelStyleUpdateText}"
+                            x:Name="ShowItemLabel"
+                           IsVisible="false"/>
+                    <FlexLayout 
+                        Padding="5"
+                        JustifyContent="SpaceAround"
+                        AlignContent="SpaceAround"
+                        x:Name="ItemBox">
+                    </FlexLayout>
+                </StackLayout>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
