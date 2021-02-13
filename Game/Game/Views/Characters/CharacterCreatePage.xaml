@@ -23,52 +23,54 @@
     </ContentPage.Resources>
     
  <ContentPage.Content>
-    <ScrollView>
-            <StackLayout Style="{d:StaticResource OuterBoxStack}"
-                     Spacing="10">
-                <Grid
+     <ScrollView>
+            <StackLayout Style="{d:StaticResource OuterBoxStack}"    
+                         Spacing="10">
+                <StackLayout>
+                    <Grid
                     RowSpacing="1"
                     ColumnSpacing="2"
                     VerticalOptions="Center">
 
-                    <Label Grid.Row="0" Grid.Column="0"
+                        <Label Grid.Row="0" Grid.Column="0"
                         Text="Name:"
                         Style="{StaticResource LabelStyle}"/>
 
-                    <Entry Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                        <Entry Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
                         Text="{Binding Data.Name}" 
                         Style="{StaticResource EntryStyle}"
                         Placeholder="This is a mandatory field!"
                         PlaceholderColor="Red"/>
 
-                    <Label Grid.Row="2" Grid.Column="0" 
+                        <Label Grid.Row="2" Grid.Column="0" 
                         Text="Description:" 
                         Style="{StaticResource LabelStyle}"/>
 
-                    <Editor Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+                        <Editor Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
                            Text="{Binding Data.Description}" 
                            Style="{StaticResource EntryStyle}"
                            Placeholder="This is a mandatory field!"
                         PlaceholderColor="Red"/>
 
-                    <Label Grid.Row="4" Grid.Column="0"
+                        <Label Grid.Row="4" Grid.Column="0"
                             Text="Character Type" 
                             Style="{StaticResource LabelStyle}"/>
 
-                    <Picker Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
+                        <Picker Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
                             ItemsSource="{x:Static local:SpecificCharacterTypeEnumHelper.GetListMessageAllNoUnknown}"                  
-                            x:Name="CharacterTypePicker">
-                        <Picker.SelectedItem>"{Binding Data.SpecificCharacterType, 
+                            x:Name="CharacterTypePicker"
+                            SelectedIndexChanged="OnPickerSelectedIndexChanged">
+                            <Picker.SelectedItem>"{Binding Data.SpecificCharacterType, 
                             Converter={StaticResource SpecificCharacterTypeEnumConverter}, 
                             Mode=TwoWay}"</Picker.SelectedItem>
-                        <Picker.SelectedIndex>0</Picker.SelectedIndex>
-                    </Picker>
+                            <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                        </Picker>
 
-                    <Label Grid.Row="6" Grid.Column="0"
+                        <Label Grid.Row="6" Grid.Column="0"
                             Text="Level" 
                             Style="{StaticResource LabelStyle}"/>
 
-                    <Label Grid.Row="6" Grid.Column="0"
+                        <Label Grid.Row="6" Grid.Column="0"
                                 Text="{Binding Data.Level}" 
                                 Style="{StaticResource ValueStyle}"
                                 Padding="0,0,10,0"
@@ -76,17 +78,17 @@
                                 HorizontalTextAlignment="End"
                                 x:Name="LevelValue"/>
 
-                    <Slider Grid.Row="6" Grid.Column="1"
+                        <Slider Grid.Row="6" Grid.Column="1"
                                 Style="{StaticResource LevelSliderStyle}"
                                 ValueChanged="OnSliderChanged"
                                 Value="{Binding Data.Level}"
                                 x:Name="LevelSlider"/>
 
-                    <Label Grid.Row="7" Grid.Column="0"
+                        <Label Grid.Row="7" Grid.Column="0"
                             Text="Attack" 
                             Style="{StaticResource LabelStyle}"/>
 
-                    <Label Grid.Row="7" Grid.Column="0"
+                        <Label Grid.Row="7" Grid.Column="0"
                                 Text="{Binding Data.Attack}" 
                                 Style="{StaticResource ValueStyle}"
                                 Padding="0,0,10,0"
@@ -94,17 +96,17 @@
                                 HorizontalTextAlignment="End"
                                 x:Name="AttackValue"/>
 
-                    <Slider Grid.Row="7" Grid.Column="1"
+                        <Slider Grid.Row="7" Grid.Column="1"
                                 Style="{StaticResource AttackSliderStyle}"
                                 ValueChanged="OnSliderChanged"
                                 Value="{Binding Data.Attack}"
                                 x:Name="AttackSlider"/>
 
-                    <Label Grid.Row="8" Grid.Column="0"
+                        <Label Grid.Row="8" Grid.Column="0"
                             Text="Defense"
                             Style="{StaticResource LabelStyle}"/>
 
-                    <Label Grid.Row="8" Grid.Column="0"
+                        <Label Grid.Row="8" Grid.Column="0"
                             Text="{Binding Data.Defense}" 
                             x:Name="DefenseValue"
                             Style="{StaticResource ValueStyle}"
@@ -112,17 +114,17 @@
                             HorizontalOptions="End"
                             HorizontalTextAlignment="End"/>
 
-                    <Slider Grid.Row="8" Grid.Column="1"
+                        <Slider Grid.Row="8" Grid.Column="1"
                             Style="{StaticResource DefenseSliderStyle}"
                             ValueChanged="OnSliderChanged"
                             x:Name="DefenseSlider"
                             Value="{Binding Data.Defense}"/>
 
-                    <Label Grid.Row="9" Grid.Column="0"
+                        <Label Grid.Row="9" Grid.Column="0"
                             Text="Speed" 
                             Style="{StaticResource LabelStyle}"/>
 
-                    <Label Grid.Row="9" Grid.Column="0"
+                        <Label Grid.Row="9" Grid.Column="0"
                             Text="{Binding Data.Speed}" 
                             x:Name="SpeedValue"
                             Style="{StaticResource ValueStyle}"
@@ -130,17 +132,17 @@
                             HorizontalOptions="End"
                             HorizontalTextAlignment="End"/>
 
-                    <Slider Grid.Row="9" Grid.Column="1"
+                        <Slider Grid.Row="9" Grid.Column="1"
                             Style="{StaticResource SpeedSliderStyle}"
                             ValueChanged="OnSliderChanged"
                             x:Name="SpeedSlider"
                             Value="{Binding Data.Speed}"/>
 
-                    <Label Grid.Row="10" Grid.Column="0"
+                        <Label Grid.Row="10" Grid.Column="0"
                             Text="GPA" 
                             Style="{StaticResource LabelStyle}"/>
 
-                    <Label Grid.Row="10" Grid.Column="0"
+                        <Label Grid.Row="10" Grid.Column="0"
                             Text="{Binding Data.GPA}" 
                             x:Name="GPAValue"
                             Style="{StaticResource ValueStyle}"
@@ -148,19 +150,33 @@
                             HorizontalOptions="End"
                             HorizontalTextAlignment="End"/>
 
-                    <Slider  Grid.Row="10" Grid.Column="1"
+                        <Slider  Grid.Row="10" Grid.Column="1"
                              Style="{StaticResource GPASliderStyle}"
                              ValueChanged="OnSliderChanged"
                              x:Name="GPASlider"
                              Value="{Binding Data.GPA}"/>
-                
+
+                    </Grid>
+                </StackLayout>
+
+                <StackLayout>
                     <Label Grid.Row="11" Grid.Column="0"
-                            Text="ITEMS ARE ASSIGNED BASED ON PLAYER TYPE"
+                            Text="ITEMS ARE ASSIGNED BASED ON CHARACTER TYPE"
                             Style="{StaticResource LabelStyleUpdateText}"/>
-                </Grid>    
+                    <Label Grid.Row="11" Grid.Column="0"
+                            Text="ONLY CLICKED on item will ADD item"
+                            Style="{StaticResource LabelStyleUpdateText}"/>
+                    <FlexLayout 
+                        Padding="5"
+                        JustifyContent="SpaceAround"
+                        AlignContent="SpaceAround"
+                        x:Name="ItemBox">
+                    </FlexLayout>
+                </StackLayout>
+
             </StackLayout>
-        
-    </ScrollView>
+         
+        </ScrollView>
  </ContentPage.Content>
 </ContentPage>
 
