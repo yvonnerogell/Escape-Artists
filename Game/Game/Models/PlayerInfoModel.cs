@@ -240,9 +240,9 @@ namespace Game.Models
                 }
 */
 
-                if (IsAbilityAvailable(AbilityEnum.Extra_Credit))
+                if (IsAbilityAvailable(AbilityEnum.ExtraCredit))
                 {
-                    return AbilityEnum.Extra_Credit;
+                    return AbilityEnum.ExtraCredit;
                 }
             }
 
@@ -267,7 +267,7 @@ namespace Game.Models
                 //    continue;
                // }
 
-                if (data == AbilityEnum.Extra_Credit)
+                if (data == AbilityEnum.ExtraCredit)
                 {
                     continue;
                 }
@@ -324,11 +324,11 @@ namespace Game.Models
             switch (ability)
             {
                 //case AbilityEnum.Heal:
-                case AbilityEnum.Extra_Credit:
+                case AbilityEnum.ExtraCredit:
                     //BuffHealth();
                     break;
 
-                case AbilityEnum.Flash_Genius:
+                case AbilityEnum.FlashGenius:
                 //case AbilityEnum.Barrier:
                    //BuffDefense();
                     break;

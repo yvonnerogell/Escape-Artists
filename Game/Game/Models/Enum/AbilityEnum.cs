@@ -17,7 +17,7 @@ namespace Game.Models
         None = 1,
      
         // Student can get extra credit
-        Extra_Credit = 10,
+        ExtraCredit = 10,
 
         // Student can get an extension
         Extension = 21,
@@ -49,7 +49,7 @@ namespace Game.Models
 
             switch (value)
             {
-                case AbilityEnum.Extra_Credit:
+                case AbilityEnum.ExtraCredit:
                     Message = "Apply Bandages";
                     break;
 
@@ -57,7 +57,7 @@ namespace Game.Models
                     Message = "React Quickly";
                     break;
 
-                case AbilityEnum.Flash_Genius:
+                case AbilityEnum.FlashGenius:
                     Message = "Toughen Up";
                     break;
 
@@ -65,7 +65,7 @@ namespace Game.Models
                     Message = "Mental Bribes";
                     break;
 
-                case AbilityEnum.Pay_Tuition:
+                case AbilityEnum.PayTuition:
                     Message = "Anticipate";
                     break;
 /*
@@ -118,7 +118,7 @@ namespace Game.Models
             {
                 List<string> AbilityList = new List<string>{
                 AbilityEnum.Extension.ToString(),
-                AbilityEnum.Flash_Genius.ToString(),
+                AbilityEnum.FlashGenius.ToString(),
                 AbilityEnum.Bribes.ToString()
                 };
 
@@ -136,7 +136,7 @@ namespace Game.Models
             {
 
                 List<string> AbilityList = new List<string>{
-                AbilityEnum.Pay_Tuition.ToString(),
+                AbilityEnum.PayTuition.ToString(),
                 //AbilityEnum.Barrier.ToString(),
                 //AbilityEnum.Curse.ToString(),
                 //AbilityEnum.Heal.ToString()
@@ -156,7 +156,7 @@ namespace Game.Models
             {
 
                 List<string> AbilityList = new List<string>{
-                AbilityEnum.Extra_Credit.ToString(),
+                AbilityEnum.ExtraCredit.ToString(),
                 };
 
                 return AbilityList;
