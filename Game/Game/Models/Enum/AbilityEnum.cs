@@ -15,24 +15,21 @@ namespace Game.Models
 
         // Not specified
         None = 1,
-
      
         // Student can get extra credit
         Extra_Credit = 10,
-
 
         // Student can get an extension
         Extension = 21,
 
         //Student can get a flash of genius
-        Flash_Genius = 22,
+        FlashGenius = 22,
 
         // Parent can give bribes
         Bribes = 23,
 
-
         // Parent can pay tuition
-        Pay_Tuition = 51,
+        PayTuition = 51,
     }
 
     /// <summary>
