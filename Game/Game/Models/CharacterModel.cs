@@ -17,6 +17,8 @@ namespace Game.Models
         // Character GPA
         public int GPA { get; set; } = 0;
 
+        public bool AbilityUsedInCurrentRound { get; set; } = false;
+
         public CharacterModel()
         {
             Name = "";
@@ -31,6 +33,7 @@ namespace Game.Models
             ExperienceTotal = 0;
             ExperienceRemaining = LevelTableHelper.LevelDetailsList[Level + 1].Experience - 1;
             UpdateItemsBasedOnCharacterType(SpecificCharacterTypeEnum);
+
             // Default to unknown, which is no special job
             //Job = CharacterJobEnum.Unknown; 
         }
