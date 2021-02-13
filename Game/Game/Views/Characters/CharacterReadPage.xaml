@@ -18,6 +18,7 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <local_helpers:SpecificCharacterTypeEnumConverter x:Key="SpecificCharacterTypeEnumConverter"/>
+            <local_helpers:AbilityEnumConverterHelper x:Key="AbilityEnumConverterHelper"/>
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -63,7 +64,7 @@
                             Text="Special ability: " 
                             Style="{StaticResource LabelStyle}"/>
                         <Label 
-                            Text="{Binding Data.SpecialAbility}" 
+                            Text="{Binding Data.SpecialAbility, Converter={StaticResource AbilityEnumConverterHelper}}" 
                             Style="{StaticResource LabelStyle}"/>
                     </StackLayout>
                 </StackLayout>
