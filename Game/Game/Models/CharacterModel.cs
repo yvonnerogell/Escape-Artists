@@ -19,7 +19,7 @@ namespace Game.Models
 
         public bool AbilityUsedInCurrentRound { get; set; } = false;
 
-        public AbilityEnum SpecialAbility { get; set; } = AbilityEnum.None;
+        public AbilityEnum SpecialAbility { get; set; } 
 
         public bool Graduated { get; set; } = false;
 
@@ -37,6 +37,7 @@ namespace Game.Models
             ExperienceTotal = 0;
             ExperienceRemaining = LevelTableHelper.LevelDetailsList[Level + 1].Experience - 1;
             UpdateItemsBasedOnCharacterType(SpecificCharacterTypeEnum);
+            SpecialAbility = SelectSpecialAbilityBasedOnSpecificCharacterType(SpecificCharacterTypeEnum);
 
         }
 
@@ -218,6 +219,45 @@ namespace Game.Models
                     break;
             }
         }
+
+        public AbilityEnum SelectSpecialAbilityBasedOnSpecificCharacterType(SpecificCharacterTypeEnum specificCharacterType)
+		{
+            var abilityEnum = AbilityEnum.Unknown;
+            switch (specificCharacterType)
+			{
+                case SpecificCharacterTypeEnum.SmartyPants:
+                    abilityEnum = AbilityEnum.ExtraCredit;
+                    break;
+                case SpecificCharacterTypeEnum.Slacker:
+                    abilityEnum = AbilityEnum.Extension;
+                    break;
+                case SpecificCharacterTypeEnum.SecondCareer:
+                    abilityEnum = AbilityEnum.Extension;
+                    break;
+                case SpecificCharacterTypeEnum.Prodigy:
+                    abilityEnum = AbilityEnum.ExtraCredit;
+                    break;
+                case SpecificCharacterTypeEnum.Procrastinator:
+                    abilityEnum = AbilityEnum.Extension;
+                    break;
+                case SpecificCharacterTypeEnum.Overachiever:
+                    abilityEnum = AbilityEnum.FlashGenius;
+                    break;
+                case SpecificCharacterTypeEnum.InternationalStudent:
+                    abilityEnum = AbilityEnum.FlashGenius;
+                    break;
+                case SpecificCharacterTypeEnum.HelicopterParent:
+                    abilityEnum = AbilityEnum.Bribes;
+                    break;
+                case SpecificCharacterTypeEnum.CoolParent:
+                    abilityEnum = AbilityEnum.PayTuition;
+                    break;
+                default:
+                    abilityEnum = AbilityEnum.Unknown;
+                    break;
+			}
+            return abilityEnum;
+		}
 
         /// <summary>
         /// Helper to combine the attributes into a single line, to make it easier to display the item as a string
