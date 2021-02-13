@@ -7,6 +7,7 @@ using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Game.Helpers;
+using System.Linq;
 
 namespace Game.Views.Monsters
 {
@@ -19,6 +20,9 @@ namespace Game.Views.Monsters
     {
         // The item to create
         public GenericViewModel<MonsterModel> ViewModel = new GenericViewModel<MonsterModel>();
+
+        // page place holder for dropItem
+        ItemModel dropItem = null; 
 
         // Empty Constructor for UTs
         public MonsterCreatePage(bool UnitTest){}
@@ -40,6 +44,88 @@ namespace Game.Views.Monsters
             MonsterTypePicker.SelectedIndex = 0;
             DifficultyLevelPicker.SelectedIndex = 0;
 
+        }
+
+        /// <summary>
+        /// Any time picker changes, items reset based on player type
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void OnPickerSelectedIndexChanged(object sender, EventArgs e)
+        {
+            var picker = (Picker)sender;
+            SpecificMonsterTypeEnum SpecificMonsterTypeEnum = SpecificMonsterTypeEnumHelper.ConvertMessageStringToEnum((string)picker.SelectedItem);
+
+            //get the items based on monster
+            dropItem = ViewModel.Data.UpdateItemsBasedOnCharacterType(SpecificMonsterTypeEnum);
+
+            //remove items from page
+            var FlexList = ItemBox.Children.ToList();
+            foreach (var data in FlexList)
+            {
+                ItemBox.Children.Remove(data);
+            }
+
+            if (dropItem != null)
+            {
+                ItemBox.Children.Add(LoadItem(dropItem));
+            }
+        }
+
+        /// <summary>
+        /// load an item
+        /// </summary>
+        /// <param name="location"></param>
+        /// <returns></returns>
+        public StackLayout LoadItem(ItemModel dropItem)
+        {
+            // Hookup the Image Button to show the Item picture
+            var ItemButton = new ImageButton
+            {
+                Style = (Style)Application.Current.Resources["ItemImage"],
+                Source = dropItem.ImageURI,
+            };
+            ItemButton.Clicked += (sender, args) => UpdateNewItem(sender, dropItem);
+
+            // Add the Display Text for the item
+            var ItemLabel = new Label
+            {
+                Text = dropItem.ItemType.ToMessage(),
+                HorizontalOptions = LayoutOptions.Center,
+                HorizontalTextAlignment = TextAlignment.Center,
+            };
+
+            // Put the Image Button and Text inside a layout
+            var ItemStack = new StackLayout
+            {
+                Padding = 3,
+                Style = (Style)Application.Current.Resources["ItemImageBox"],
+                Children = {
+                    ItemButton,
+                    ItemLabel
+                },
+            };
+
+            return ItemStack;
+        }
+
+        /// <summary>
+        /// Triggers the update item page 
+        /// </summary>
+        /// <param name="location"></param>
+        public async void UpdateNewItem(object sender, ItemModel data)
+        {
+            // Add the item to the location
+            ViewModel.Data.UniqueDropItem = data.Id;
+            MessagingCenter.Send(this, "CreateItem", data);
+            // trigger new item create page with created item
+            GenericViewModel<ItemModel> generalData = new GenericViewModel<ItemModel>(data);
+            await Navigation.PushModalAsync(new NavigationPage(new ItemUpdatePage(generalData)));
+
+            ImageButton btn = sender as ImageButton;
+            btn.Style = (Style)Application.Current.Resources["ItemImageClicked"];
+            btn.IsEnabled = false;
+            // TODO: need to work on reloading the current page after item is created
         }
 
         /// <summary>

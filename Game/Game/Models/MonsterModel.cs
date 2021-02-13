@@ -103,6 +103,55 @@ namespace Game.Models
         }
 
         /// <summary>
+        /// Given the inputed Monster, updates the image URI based on the SpecificMonsterTypeEnum. 
+        /// </summary>
+        /// <param name="newData">Character to update</param>
+        public ItemModel UpdateItemsBasedOnCharacterType(SpecificMonsterTypeEnum monsterType)
+        {
+            ItemModel uniqueDrop = null;
+            switch (monsterType)
+            {
+                case SpecificMonsterTypeEnum.TeachingAssistant:
+                    uniqueDrop = new ItemModel(ItemTypeEnum.IndexCards);
+                    UniqueDropItem = uniqueDrop.Id;
+                    break;
+
+                case SpecificMonsterTypeEnum.AdjunctFaculty:
+                    UniqueDropItem = null;
+                    break;
+
+                case SpecificMonsterTypeEnum.AssistantProfessor:
+                    uniqueDrop = new ItemModel(ItemTypeEnum.Laptop);
+                    UniqueDropItem = uniqueDrop.Id;
+                    break;
+
+                case SpecificMonsterTypeEnum.AssociateProfessor:
+                    uniqueDrop = new ItemModel(ItemTypeEnum.Textbooks);
+                    UniqueDropItem = uniqueDrop.Id;
+                    break;
+
+                case SpecificMonsterTypeEnum.Professor:
+                    UniqueDropItem = null;
+                    break;
+
+                case SpecificMonsterTypeEnum.HRAdministrator:
+                    uniqueDrop = new ItemModel(ItemTypeEnum.FinancialAid);
+                    UniqueDropItem = uniqueDrop.Id;
+                    break;
+
+                case SpecificMonsterTypeEnum.RegistrationAdministrator:
+                    UniqueDropItem = null;
+                    break;
+
+                case SpecificMonsterTypeEnum.GraduationOfficeAdministrator:
+                    uniqueDrop = new ItemModel(ItemTypeEnum.GraduationCapAndRobe);
+                    UniqueDropItem = uniqueDrop.Id;
+                    break;
+            }
+            return uniqueDrop;
+        }
+
+        /// <summary>
         /// Helper to combine the attributes into a single line, to make it easier to display the item as a string
         /// </summary>
         /// <returns></returns>

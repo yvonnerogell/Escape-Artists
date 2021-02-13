@@ -40,8 +40,12 @@ namespace Game.Views.Characters
         /// <param name="e"></param>
         public void OnPickerSelectedIndexChanged(object sender, EventArgs e)
         {
+            var picker = (Picker)sender;
+            ClearPreviousItems();
+            SpecificCharacterTypeEnum SpecificCharacterTypeEnum = SpecificCharacterTypeEnumHelper.ConvertMessageStringToEnum((string)picker.SelectedItem);
+
             //get the items based on character
-            newItems = ViewModel.Data.UpdateItemsBasedOnCharacterType(ViewModel.Data.SpecificCharacterTypeEnum);
+            newItems = ViewModel.Data.UpdateItemsBasedOnCharacterType(SpecificCharacterTypeEnum);
 
             //remove items from page
             var FlexList = ItemBox.Children.ToList();
@@ -52,6 +56,20 @@ namespace Game.Views.Characters
 
             //add items to page
             AddItemsToDisplay();
+        }
+
+        /// <summary>
+        /// Clear previously selected character type items
+        /// </summary>
+        public void ClearPreviousItems()
+        {
+            ViewModel.Data.Head = null;
+            ViewModel.Data.Necklace = null;
+            ViewModel.Data.PrimaryHand = null; 
+            ViewModel.Data.OffHand = null;
+            ViewModel.Data.RightFinger = null;
+            ViewModel.Data.LeftFinger = null;
+            ViewModel.Data.Feet = null;
         }
 
         /// <summary>

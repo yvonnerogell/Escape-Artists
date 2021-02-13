@@ -8,6 +8,7 @@ using Game.Models;
 using Game.Views;
 using Game.GameRules;
 using Game.Views.Characters;
+using Game.Views.Monsters;
 
 namespace Game.ViewModels
 {
@@ -97,6 +98,11 @@ namespace Game.ViewModels
                 await CreateAsync(data as ItemModel);
             });
 
+            // Register the Create Message
+            MessagingCenter.Subscribe<MonsterCreatePage, ItemModel>(this, "CreateItem", async (obj, data) =>
+            {
+                await CreateAsync(data as ItemModel);
+            });
             #endregion Messages
         }
 

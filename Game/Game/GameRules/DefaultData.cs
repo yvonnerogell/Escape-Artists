@@ -16,7 +16,7 @@ namespace Game.GameRules
             var datalist = new List<ItemModel>()
             {
                 new ItemModel {
-                    Id = "IndexCards2",
+                    Id = "IndexCards1",
                     Name = "Exam " + ItemTypeEnum.IndexCards.ToMessage(),
                     Description = "Memorize your homework.",
                     ItemType = ItemTypeEnum.IndexCards,
