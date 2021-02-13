@@ -1,54 +1,65 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Game.Views.GamePage"
-             >
+             xmlns:local="using:Game"
+             x:Class="Game.Views.GamePage">
 
     <ContentPage.Content>
 
         <ScrollView Orientation="Vertical" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never" Padding="10">
 
-            <FlexLayout x:Name="flexLayout"
-                        Wrap="Wrap"
-                        JustifyContent="SpaceAround"
-                        AlignContent="SpaceAround">
+            <StackLayout>
 
-                <StackLayout Style="{StaticResource CardImageTextBox}">
+                <StackLayout Style="{StaticResource GamePageMenuBox}">
 
-                    <ImageButton
-                        Source="item.png"
-                        Style="{StaticResource ImageLargeStyle}"
-                        Clicked="VillageButton_Clicked"/>
+                    <Grid RowSpacing="1" ColumnSpacing="3">
 
-                    <Label 
-                        Text="Village"
-                        Style="{StaticResource CenterMessageStyle}"/>
+                        <Label Grid.Row="0" Grid.Column="0"
+                            Text="Village"
+                            Style="{StaticResource CenterMessageMediumStyle}"/>
+
+                        <ImageButton Grid.Row="0" Grid.Column="2"
+                            Source="{x:Static local:Constants.SpecificCharacterTypeDefaultImageURI}"
+                            Style="{StaticResource GamePageMenuImageButton}"
+                            Clicked="VillageButton_Clicked"/>
+
+                    </Grid>
+
                 </StackLayout>
 
-                <StackLayout Style="{StaticResource CardImageTextBox}">
+                <StackLayout Style="{StaticResource GamePageMenuBox}">
 
-                    <ImageButton
-                        Source="item.png"
-                        Style="{StaticResource ImageLargeStyle}"
-                        Clicked="DungeonButton_Clicked"/>
+                    <Grid RowSpacing="1" ColumnSpacing="3">
 
-                    <Label 
-                        Text="Dungeon"
-                        Style="{StaticResource CenterMessageStyle}"/>
+                        <Label Grid.Row="0" Grid.Column="0"
+                            Text="Dungeon"
+                            Style="{StaticResource CenterMessageMediumStyle}"/>
+
+                        <ImageButton Grid.Row="0" Grid.Column="2"
+                            Source="{x:Static local:Constants.SpecificMonsterTypeGraduationOfficeAdministratorImageURI}"
+                            Style="{StaticResource GamePageMenuImageButton}"
+                            Clicked="DungeonButton_Clicked"/>
+                        
+                    </Grid>
+
                 </StackLayout>
 
-                <StackLayout Style="{StaticResource CardImageTextBox}">
+                <StackLayout Style="{StaticResource GamePageMenuBox}">
 
-                    <ImageButton
-                        Source="item.png"
-                        Style="{StaticResource ImageLargeStyle}"
-                        Clicked="AutobattleButton_Clicked"/>
+                    <Grid RowSpacing="1" ColumnSpacing="3">
 
-                    <Label 
-                        Text="Auto Battle"
-                        Style="{StaticResource CenterMessageStyle}"/>
+                        <Label Grid.Row="0" Grid.Column="0"
+                            Text="Auto Battle"
+                            Style="{StaticResource CenterMessageMediumStyle}"/>
+
+                        <ImageButton Grid.Row="0" Grid.Column="2"
+                            Source="{x:Static local:Constants.SpecificMonsterTypeProfessorImageURI}"
+                            Style="{StaticResource GamePageMenuImageButton}"
+                            Clicked="AutobattleButton_Clicked"/>
+
+                    </Grid>
                 </StackLayout>
-            </FlexLayout>
+            </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

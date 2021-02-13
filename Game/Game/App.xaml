@@ -22,6 +22,25 @@
                 Dark
                 -->
 
+            <!-- Adding new color here with prefix New_ so that we can switch out the other styles over time-->
+            <Color x:Key="New_PageBackgroundColor">#FFFFFF</Color>
+            <Color x:Key="New_ViewBackgroundColor">#FFFFFF</Color>
+            <Color x:Key="New_NavigationBarColor">#25A46D</Color>
+
+            <Color x:Key="New_PrimaryBackgroundColor">#FFFFFF</Color>
+            <Color x:Key="New_SecondaryBackgroundColor">#25A46D</Color>
+            <Color x:Key="New_LightBackgroundColor">lightgray</Color>
+
+            <Color x:Key="New_PrimaryTextColor">#000000</Color>
+            <Color x:Key="New_SecondaryTextColor">#B4B4B4</Color>
+            <Color x:Key="New_MenuTextColor">#FFFFFF</Color>
+            <Color x:Key="New_ButtonColor">#146A55</Color>
+            <Color x:Key="New_ButtonTextColor">#FFFFFF</Color>
+
+            <Color x:Key="New_TransparentColor">Transparent</Color>
+
+
+            <!-- Old colors will be deprecated -->
             <Color x:Key="PageBackgroundColor">White</Color>
             <Color x:Key="ViewBackgroundColor">Gray</Color>
             <Color x:Key="NavigationBarColor">Black</Color>
@@ -34,6 +53,7 @@
             <Color x:Key="PrimaryTextColor">black</Color>
             <Color x:Key="SecondaryTextColor">black</Color>
             <Color x:Key="TriciaryTextColor">Gray</Color>
+            <Color x:Key="MenuTextColor">White</Color>
 
             <Color x:Key="TransparentColor">Transparent</Color>
 
@@ -178,6 +198,14 @@
                 x:Key="CenterMessageLargeStyle"
                 BasedOn="{StaticResource CenterMessageStyle}">
                 <Setter Property="FontSize" Value="Large" />
+                <Setter Property="TextColor" Value="{StaticResource MenuTextColor}" />
+            </Style>
+
+            <Style TargetType="Label"
+                x:Key="CenterMessageMediumStyle"
+                BasedOn="{StaticResource CenterMessageStyle}">
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="TextColor" Value="{StaticResource MenuTextColor}" />
             </Style>
             
             <Style TargetType="Label"
@@ -270,6 +298,17 @@
             </Style>
 
             <Style TargetType="Image"
+                x:Key="VillageMenuImageButton"
+                BasedOn="{StaticResource ImageLargeStyle}">
+                <Setter Property="FlexLayout.AlignSelf" Value="End" />
+            </Style>
+
+            <Style TargetType="Image"
+                x:Key="GamePageMenuImageButton"
+                BasedOn="{StaticResource VillageMenuImageButton}">
+            </Style>
+
+            <Style TargetType="Image"
                 x:Key="ImageMediumStyle"
                 BasedOn="{StaticResource ImageLargeStyle}">
                 <Setter Property="HeightRequest" Value="50" />
@@ -347,9 +386,9 @@
             <!-- Button -->
             <Style TargetType="Button"
                    x:Key="ButtonStyleSmall">
-                <Setter Property="BackgroundColor" Value="{StaticResource SecondaryBackgroundColor}" />
-                <Setter Property="TextColor" Value="{StaticResource SecondaryTextColor}" />
-                <Setter Property="BorderColor" Value="{StaticResource TriciaryBackgroundColor}"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource New_ButtonColor}" />
+                <Setter Property="TextColor" Value="{StaticResource New_ButtonTextColor}" />
+                <Setter Property="BorderColor" Value="{StaticResource New_ButtonColor}"/>
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center"/>
                 <Setter Property="FontSize" Value="Micro"/>
@@ -512,6 +551,20 @@
                 <Setter Property="MinimumHeightRequest" Value="250" />
                 <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
                 <Setter Property="VerticalOptions" Value="EndAndExpand" />
+            </Style>
+
+            <Style TargetType="StackLayout"
+                x:Key="VillageMenuBox">
+                <Setter Property="Orientation" Value="Horizontal" />
+                <Setter Property="BackgroundColor" Value="{StaticResource New_SecondaryBackgroundColor}" />
+                <Setter Property="WidthRequest" Value="500" />
+                <Setter Property="Padding" Value="10" />
+                <Setter Property="Margin" Value="10" />
+            </Style>
+
+            <Style TargetType="StackLayout"
+                x:Key="GamePageMenuBox"
+                BasedOn="{StaticResource VillageMenuBox}">
             </Style>
 
             <!-- Frame -->

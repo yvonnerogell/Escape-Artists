@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="using:Game"
              x:Class="Game.Views.VillagePage"
              >
 
@@ -8,65 +9,79 @@
 
         <ScrollView Orientation="Vertical" HorizontalScrollBarVisibility="Never" VerticalScrollBarVisibility="Never" Padding="10">
 
-            <FlexLayout x:Name="flexLayout"
-                        Wrap="Wrap"
-                        JustifyContent="SpaceAround"
-                        AlignContent="SpaceAround">
+            <StackLayout >
 
-                <StackLayout Style="{StaticResource CardImageTextBox}">
+                <StackLayout Style="{StaticResource VillageMenuBox}">
 
-                    <ImageButton
-                                Source="item.png"
-                                Style="{StaticResource ImageLargeStyle}"
+                    <Grid RowSpacing="1" ColumnSpacing="3">
+
+                        <Label Grid.Row="0" Grid.Column="0"
+                                Text="Characters"
+                                Style="{StaticResource CenterMessageMediumStyle}"/>
+
+                        <ImageButton Grid.Row="0" Grid.Column="2"
+                                Source="{x:Static local:Constants.SpecificCharacterTypeDefaultImageURI}"
+                                Style="{StaticResource VillageMenuImageButton}"
                                 Clicked="CharactersButton_Clicked"/>
 
-                    <Label 
-                                Text="Characters"
-                                Style="{StaticResource CenterMessageStyle}"/>
+                    </Grid>
 
                 </StackLayout>
 
-                <StackLayout Style="{StaticResource CardImageTextBox}">
+                <StackLayout Style="{StaticResource VillageMenuBox}">
 
-                    <ImageButton
-                                Source="item.png"
-                                Style="{StaticResource ImageLargeStyle}"
-                                Clicked="MonstersButton_Clicked"/>
+                    <Grid RowSpacing="1" ColumnSpacing="3">
 
-                    <Label 
+                        <Label Grid.Row="0" Grid.Column="0"
                                 Text="Monsters"
-                                Style="{StaticResource CenterMessageStyle}"/>
+                                Style="{StaticResource CenterMessageMediumStyle}"/>
+
+                        <ImageButton Grid.Row="0" Grid.Column="2"
+                                    Source="{x:Static local:Constants.SpecificMonsterTypeAssistantProfessorImageURI}"
+                                    Style="{StaticResource VillageMenuImageButton}"
+                                    Clicked="MonstersButton_Clicked"/>
+
+                    </Grid>
 
                 </StackLayout>
 
 
-                <StackLayout Style="{StaticResource CardImageTextBox}">
+                <StackLayout Style="{StaticResource VillageMenuBox}">
 
-                    <ImageButton
-                                Source="item.png"
-                                Style="{StaticResource ImageLargeStyle}"
-                                Clicked="ItemsButton_Clicked"/>
+                    <Grid RowSpacing="1" ColumnSpacing="3">
 
-                    <Label 
+                        <Label Grid.Row="0" Grid.Column="0"
                                 Text="Items"
-                                Style="{StaticResource CenterMessageStyle}"/>
+                                Style="{StaticResource CenterMessageMediumStyle}"/>
+
+                        <ImageButton Grid.Row="0" Grid.Column="2"
+                                    Source="{x:Static local:Constants.ItemTypeLaptopImageURI}"
+                                    Style="{StaticResource VillageMenuImageButton}"
+                                    Clicked="ItemsButton_Clicked"/>
+
+                    </Grid>
+
                 </StackLayout>
 
 
-                <StackLayout Style="{StaticResource CardImageTextBox}">
+                <StackLayout Style="{StaticResource VillageMenuBox}">
 
-                    <ImageButton
-                                Source="item.png"
-                                Style="{StaticResource ImageLargeStyle}"
+                    <Grid RowSpacing="1" ColumnSpacing="3">
+
+                        <Label Grid.Row="0" Grid.Column="0"
+                                Text="Scores"
+                                Style="{StaticResource CenterMessageMediumStyle}"/>
+
+                        <ImageButton Grid.Row="0" Grid.Column="2"
+                                Source="{x:Static local:Constants.ItemTypeGraduationCapAndRobeImageURI}"
+                                Style="{StaticResource VillageMenuImageButton}"
                                 Clicked="ScoresButton_Clicked"/>
 
-                    <Label 
-                                Text="Scores"
-                                Style="{StaticResource CenterMessageStyle}"/>
+                    </Grid>
 
                 </StackLayout>
 
-            </FlexLayout>
+            </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
