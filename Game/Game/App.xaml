@@ -296,6 +296,27 @@
                 <Setter Property="VerticalOptions" Value="Center"/>
                 <Setter Property="Aspect" Value="Fill" />
             </Style>
+            
+            <Style TargetType="Image"
+                x:Key="ItemImage">
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="WidthRequest" Value="50" />
+                <Setter Property="BackgroundColor" Value="PaleVioletRed" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="Aspect" Value="Fill" />
+            </Style>
+
+            <Style TargetType="Image"
+                x:Key="ItemImageClicked">
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="WidthRequest" Value="50" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="Aspect" Value="Fill" />
+            </Style>
+
 
             <Style TargetType="Image"
                 x:Key="VillageMenuImageButton"
