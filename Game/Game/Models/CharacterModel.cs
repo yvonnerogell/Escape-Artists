@@ -109,6 +109,10 @@ namespace Game.Models
             LeftFinger = newData.LeftFinger;
             Feet = newData.Feet;
 
+            Graduated = newData.Graduated;
+            SpecialAbility = newData.SpecialAbility;
+            AbilityUsedInCurrentRound = newData.AbilityUsedInCurrentRound;
+
             // Update the Job
             //Job = newData.Job;
 
