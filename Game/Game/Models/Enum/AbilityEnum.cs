@@ -50,23 +50,23 @@ namespace Game.Models
             switch (value)
             {
                 case AbilityEnum.ExtraCredit:
-                    Message = "Apply Bandages";
+                    Message = "Extra credit";
                     break;
 
                 case AbilityEnum.Extension:
-                    Message = "React Quickly";
+                    Message = "Extension";
                     break;
 
                 case AbilityEnum.FlashGenius:
-                    Message = "Toughen Up";
+                    Message = "Flash of genius";
                     break;
 
                 case AbilityEnum.Bribes:
-                    Message = "Mental Bribes";
+                    Message = "Bribes";
                     break;
 
                 case AbilityEnum.PayTuition:
-                    Message = "Anticipate";
+                    Message = "Pay tuition";
                     break;
 /*
                 case AbilityEnum.Barrier:
