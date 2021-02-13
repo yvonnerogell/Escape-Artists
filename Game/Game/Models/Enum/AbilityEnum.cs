@@ -68,19 +68,7 @@ namespace Game.Models
                 case AbilityEnum.PayTuition:
                     Message = "Pay tuition";
                     break;
-/*
-                case AbilityEnum.Barrier:
-                    Message = "Barrier Defense";
-                    break;
 
-                case AbilityEnum.Curse:
-                    Message = "Shout Curse";
-                    break;
-
-                case AbilityEnum.Heal:
-                    Message = "Heal Self";
-                    break;
-*/
                 case AbilityEnum.None:
                 case AbilityEnum.Unknown:
                 default:
@@ -137,9 +125,6 @@ namespace Game.Models
 
                 List<string> AbilityList = new List<string>{
                 AbilityEnum.PayTuition.ToString(),
-                //AbilityEnum.Barrier.ToString(),
-                //AbilityEnum.Curse.ToString(),
-                //AbilityEnum.Heal.ToString()
                 };
 
                 AbilityList.AddRange(GetListOthers);
@@ -154,7 +139,6 @@ namespace Game.Models
         {
             get
             {
-
                 List<string> AbilityList = new List<string>{
                 AbilityEnum.ExtraCredit.ToString(),
                 };
