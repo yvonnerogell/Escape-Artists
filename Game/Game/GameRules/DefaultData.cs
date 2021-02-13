@@ -16,7 +16,20 @@ namespace Game.GameRules
             var datalist = new List<ItemModel>()
             {
                 new ItemModel {
+                    Id = "IndexCards2",
                     Name = "Exam " + ItemTypeEnum.IndexCards.ToMessage(),
+                    Description = "Memorize your homework.",
+                    ItemType = ItemTypeEnum.IndexCards,
+                    ImageURI = Constants.ItemTypeIndexCardsImageURI,
+                    Range = 10,
+                    Damage = 10,
+                    Value = 2,
+                    Location = ItemLocationEnum.RightFinger,
+                    Attribute = AttributeEnum.Attack
+                },
+                new ItemModel {
+                    Id = "IndexCards2",
+                    Name = "Midterm " + ItemTypeEnum.IndexCards.ToMessage(),
                     Description = "Memorize your homework.",
                     ItemType = ItemTypeEnum.IndexCards,
                     ImageURI = Constants.ItemTypeIndexCardsImageURI,
@@ -38,7 +51,20 @@ namespace Game.GameRules
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
+                    Id = "Textbooks1",
                     Name = "Math " + ItemTypeEnum.Textbooks.ToMessage(),
+                    Description = "Reference course literature effectively.",
+                    ItemType = ItemTypeEnum.Textbooks,
+                    ImageURI = Constants.ItemTypeTextbooksImageURI,
+                    Range = 10,
+                    Damage = 10,
+                    Value = 10,
+                    Location = ItemLocationEnum.PrimaryHand,
+                    Attribute = AttributeEnum.Attack
+                },
+                new ItemModel {
+                    Id = "Textbooks2",
+                    Name = "English " + ItemTypeEnum.Textbooks.ToMessage(),
                     Description = "Reference course literature effectively.",
                     ItemType = ItemTypeEnum.Textbooks,
                     ImageURI = Constants.ItemTypeTextbooksImageURI,
@@ -93,7 +119,20 @@ namespace Game.GameRules
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
+                    Id = "Laptop1",
                     Name = "Mac " + ItemTypeEnum.Laptop.ToMessage(),
+                    Description = "Complete your assignments faster with a laptop.",
+                    ItemType = ItemTypeEnum.Laptop,
+                    ImageURI = Constants.ItemTypeLaptopImageURI,
+                    Range = 10,
+                    Damage = 10,
+                    Value = 20,
+                    Location = ItemLocationEnum.PrimaryHand,
+                    Attribute = AttributeEnum.Attack
+                },
+                new ItemModel {
+                    Id = "Laptop2",
+                    Name = "PC " + ItemTypeEnum.Laptop.ToMessage(),
                     Description = "Complete your assignments faster with a laptop.",
                     ItemType = ItemTypeEnum.Laptop,
                     ImageURI = Constants.ItemTypeLaptopImageURI,
@@ -200,20 +239,17 @@ namespace Game.GameRules
             var FeetString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.Feet);
             var RightFingerString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.Finger);
             var LeftFingerString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.Finger);
-
-            var DefaultIndexCards = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.IndexCards);
+            
+            var DefaultIndexCards = ItemIndexViewModel.Instance.GetItem("IndexCards1").Id;
             var DefaultPencilEraser = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.PencilEraser);
-            var DefaultTextbooks = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.Textbooks);
+            var DefaultTextbooks = ItemIndexViewModel.Instance.GetItem("Textbooks1").Id;
             var DefaultNotebook = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.Notebook);
             var DefaultCalculator = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.Calculator);
             var DefaultLibraryCard = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.LibraryCard);
             var DefaultFoodCourtCard = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.FoodCourtCard);
-            var DefaultLaptop = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.Laptop);
+            var DefaultLaptop = ItemIndexViewModel.Instance.GetItem("Laptop1").Id;
             var DefaultPrivateTutor = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.PrivateTutor);
-            //var DefaultFinancialAid = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.FinancialAid);
             var DefaultTuition = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.Tuition);
-            //var DefaultGraduationCapAndRobe = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.GraduationCapAndRobe);
-            //var DefaultDiploma = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.Diploma);
 
 
             var datalist = new List<CharacterModel>()
@@ -391,6 +427,12 @@ namespace Game.GameRules
         /// <returns></returns>
         public static List<MonsterModel> LoadData(MonsterModel temp)
         {
+            var DefaultIndexCards = ItemIndexViewModel.Instance.GetItem("IndexCards2").Id;
+            var DefaultLaptop = ItemIndexViewModel.Instance.GetItem("Laptop2").Id;
+            var DefaultTextbooks = ItemIndexViewModel.Instance.GetItem("Textbooks2").Id;
+            var DefaultFinancialAid = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.FinancialAid);
+            var DefaultGraduationCapAndRobe = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.GraduationCapAndRobe);
+            //var DefaultDiploma = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.Diploma);
             var datalist = new List<MonsterModel>()
             {
                 new MonsterModel {
@@ -399,12 +441,7 @@ namespace Game.GameRules
                     MonsterTypeEnum = MonsterTypeEnum.Faculty,
                     SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.TeachingAssistant,
                     Difficulty = DifficultyEnum.Easy,
-                    UniqueDropItem = ItemTypeEnum.IndexCards.ToMessage(),
-                    Items = new List<ItemLocationEnum>()
-                    {
-                        ItemLocationEnum.Head,
-                        ItemLocationEnum.Necklace
-                    },
+                    UniqueDropItem = DefaultIndexCards,
                     Attack = 1,
                     ImageURI = Constants.SpecificMonsterTypeTeachingAssistantImageURI
                 },
@@ -415,11 +452,6 @@ namespace Game.GameRules
                     MonsterTypeEnum = MonsterTypeEnum.Faculty,
                     SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty,
                     Difficulty = DifficultyEnum.Average,
-                    Items = new List<ItemLocationEnum>()
-                    {
-                        ItemLocationEnum.Head,
-                        ItemLocationEnum.Necklace
-                    },
                     Attack = 1,
                     ImageURI = Constants.SpecificMonsterTypeAdjunctFacultyImageURI
                 },
@@ -430,12 +462,7 @@ namespace Game.GameRules
                     MonsterTypeEnum = MonsterTypeEnum.Faculty,
                     SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AssistantProfessor,
                     Difficulty = DifficultyEnum.Average,
-                    UniqueDropItem = ItemTypeEnum.Laptop.ToMessage(),
-                    Items = new List<ItemLocationEnum>()
-                    {
-                        ItemLocationEnum.Head,
-                        ItemLocationEnum.Necklace
-                    },
+                    UniqueDropItem = DefaultLaptop,
                     Attack = 1,
                     ImageURI = Constants.SpecificMonsterTypeAssistantProfessorImageURI
                 },
@@ -446,12 +473,7 @@ namespace Game.GameRules
                     MonsterTypeEnum = MonsterTypeEnum.Faculty,
                     SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AssociateProfessor,
                     Difficulty = DifficultyEnum.Difficult,
-                    UniqueDropItem = ItemTypeEnum.Textbooks.ToMessage(),
-                    Items = new List<ItemLocationEnum>()
-                    {
-                        ItemLocationEnum.Head,
-                        ItemLocationEnum.Necklace
-                    },
+                    UniqueDropItem = DefaultTextbooks,
                     Attack = 1,
                     ImageURI = Constants.SpecificMonsterTypeAssociateProfessorImageURI
                 },
@@ -462,11 +484,6 @@ namespace Game.GameRules
                     MonsterTypeEnum = MonsterTypeEnum.Faculty,
                     SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.Professor,
                     Difficulty = DifficultyEnum.Difficult,
-                    Items = new List<ItemLocationEnum>()
-                    {
-                        ItemLocationEnum.Head,
-                        ItemLocationEnum.Necklace
-                    },
                     Attack = 5,
                     ImageURI = Constants.SpecificMonsterTypeProfessorImageURI
                 },
@@ -477,12 +494,7 @@ namespace Game.GameRules
                     MonsterTypeEnum = MonsterTypeEnum.Administrator,
                     SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.HRAdministrator,
                     Difficulty = DifficultyEnum.Easy,
-                    UniqueDropItem = ItemTypeEnum.FinancialAid.ToMessage(),
-                    Items = new List<ItemLocationEnum>()
-                    {
-                        ItemLocationEnum.Head,
-                        ItemLocationEnum.Necklace
-                    },
+                    UniqueDropItem = DefaultFinancialAid,
                     Attack = 3,
                     ImageURI = Constants.SpecificMonsterTypeHRAdministratorImageURI
                 },
@@ -493,11 +505,6 @@ namespace Game.GameRules
                     MonsterTypeEnum = MonsterTypeEnum.Administrator,
                     SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.RegistrationAdministrator,
                     Difficulty = DifficultyEnum.Average,
-                    Items = new List<ItemLocationEnum>()
-                    {
-                        ItemLocationEnum.Head,
-                        ItemLocationEnum.Necklace
-                    },
                     Attack = 2,
                     ImageURI = Constants.SpecificMonsterTypeRegistrationAdministratorImageURI
                 },
@@ -508,12 +515,7 @@ namespace Game.GameRules
                     MonsterTypeEnum = MonsterTypeEnum.Administrator,
                     SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.GraduationOfficeAdministrator,
                     Difficulty = DifficultyEnum.Difficult,
-                    UniqueDropItem = ItemTypeEnum.GraduationCapAndRobe.ToMessage(),
-                    Items = new List<ItemLocationEnum>()
-                    {
-                        ItemLocationEnum.Head,
-                        ItemLocationEnum.Necklace
-                    },
+                    UniqueDropItem = DefaultGraduationCapAndRobe,
                     Attack = 8,
                     ImageURI = Constants.SpecificMonsterTypeGraduationOfficeAdministratorImageURI
                 },
