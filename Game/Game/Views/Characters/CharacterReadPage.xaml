@@ -57,6 +57,15 @@
                             Text="{Binding Data.Level}" 
                             Style="{StaticResource LabelStyle}"/>
                     </StackLayout>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label 
+                            Text="Special ability: " 
+                            Style="{StaticResource LabelStyle}"/>
+                        <Label 
+                            Text="{Binding Data.SpecialAbility}" 
+                            Style="{StaticResource LabelStyle}"/>
+                    </StackLayout>
                 </StackLayout>
 
                 <StackLayout Style="{StaticResource CharacterInfoImage}">
