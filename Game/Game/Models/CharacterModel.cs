@@ -19,7 +19,7 @@ namespace Game.Models
 
         public bool AbilityUsedInCurrentRound { get; set; } = false;
 
-        public AbilityEnum SpecialAbility { get; set; }
+        public AbilityEnum SpecialAbility { get; set; } = AbilityEnum.None;
 
         public bool Graduated { get; set; } = false;
 
@@ -37,6 +37,7 @@ namespace Game.Models
             ExperienceTotal = 0;
             ExperienceRemaining = LevelTableHelper.LevelDetailsList[Level + 1].Experience - 1;
             UpdateItemsBasedOnCharacterType(SpecificCharacterTypeEnum);
+
 
             // Default to unknown, which is no special job
             //Job = CharacterJobEnum.Unknown; 
