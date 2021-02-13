@@ -57,6 +57,17 @@ namespace Game.Models
         }
 
         /// <summary>
+        /// Create ItemModel based on item type
+        /// </summary>
+        /// <param name="itemType"></param>
+        public ItemModel(ItemTypeEnum itemType)
+        {
+            ItemType = itemType;
+            Location = ItemTypeEnumHelper.GetLocationFromItemType(ItemType);
+            UpdateImageURI(itemType);
+        }
+
+        /// <summary>
         /// Constructor to create an item based on what is passed in
         /// </summary>
         /// <param name="data"></param>
@@ -101,9 +112,9 @@ namespace Game.Models
         /// Given the inputted Character, updates the image URI based on the SpecificCharacterTypeEnum. 
         /// </summary>
         /// <param name="newData">Character to update</param>
-        public void UpdateImageURI(ItemModel newData)
+        public void UpdateImageURI(ItemTypeEnum itemType)
         {
-            switch (newData.ItemType)
+            switch (itemType)
             {
                 case ItemTypeEnum.IndexCards:
                     ImageURI = Constants.ItemTypeIndexCardsImageURI;

@@ -50,7 +50,7 @@ namespace Game.Views
             var itemType = ItemTypePicker.SelectedItem.ToString();
             var itemTypeEnum = ItemTypeEnumHelper.ConvertMessageStringToEnum(itemType);
             ViewModel.Data.ItemType = itemTypeEnum;
-            ViewModel.Data.UpdateImageURI(ViewModel.Data);
+            ViewModel.Data.UpdateImageURI(itemTypeEnum);
             ViewModel.Data.Location = ItemTypeEnumHelper.GetLocationFromItemType(itemTypeEnum);
 
             MessagingCenter.Send(this, "Create", ViewModel.Data);
