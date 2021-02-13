@@ -65,10 +65,11 @@ namespace Game.Views.Monsters
             {
                 ItemBox.Children.Remove(data);
             }
-
+            ShowItemLabel.IsVisible = false;
             if (dropItem != null)
             {
                 ItemBox.Children.Add(LoadItem(dropItem));
+                ShowItemLabel.IsVisible = true;
             }
         }
 
