@@ -38,9 +38,6 @@ namespace Game.Models
             ExperienceRemaining = LevelTableHelper.LevelDetailsList[Level + 1].Experience - 1;
             UpdateItemsBasedOnCharacterType(SpecificCharacterTypeEnum);
 
-
-            // Default to unknown, which is no special job
-            //Job = CharacterJobEnum.Unknown; 
         }
 
         /// <summary>
@@ -96,9 +93,6 @@ namespace Game.Models
             Graduated = newData.Graduated;
             SpecialAbility = newData.SpecialAbility;
             AbilityUsedInCurrentRound = newData.AbilityUsedInCurrentRound;
-
-            // Update the Job
-            //Job = newData.Job;
 
             return true;
         }
@@ -234,7 +228,6 @@ namespace Game.Models
             var myReturn = string.Empty;
             myReturn += Name;
             myReturn += " , " + Description;
-           // myReturn += " , a " + Job.ToMessage();
             myReturn += " , Level : " + Level.ToString();
             myReturn += " , Total Experience : " + ExperienceTotal;
             myReturn += " , Attack :" + GetAttackTotal;
