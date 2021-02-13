@@ -270,6 +270,7 @@ namespace Game.GameRules
                     Feet = "None",
                     RightFinger = DefaultIndexCards,
                     LeftFinger = "None",
+                    SpecialAbility = AbilityEnum.ExtraCredit
                 },
 
                 new CharacterModel {
@@ -288,7 +289,8 @@ namespace Game.GameRules
                     Feet = "None",
                     RightFinger = "None",
                     LeftFinger = "None",
-                },
+                    SpecialAbility = AbilityEnum.FlashGenius
+        },
 
                 new CharacterModel {
                     Name = "Nancy",
@@ -306,6 +308,7 @@ namespace Game.GameRules
                     Feet = "None",
                     RightFinger = "None",
                     LeftFinger = "None",
+                    SpecialAbility = AbilityEnum.FlashGenius
                 },
 
                 new CharacterModel {
@@ -324,6 +327,7 @@ namespace Game.GameRules
                     Feet = "None",
                     RightFinger = "None",
                     LeftFinger = "None",
+                    SpecialAbility = AbilityEnum.ExtraCredit
                 },
 
                 new CharacterModel {
@@ -342,6 +346,7 @@ namespace Game.GameRules
                     Feet = "None",
                     RightFinger = "None",
                     LeftFinger = "None",
+                    SpecialAbility = AbilityEnum.Extension
                 },
 
                 new CharacterModel {
@@ -360,6 +365,7 @@ namespace Game.GameRules
                     Feet = "None",
                     RightFinger = "None",
                     LeftFinger = DefaultCalculator,
+                    SpecialAbility = AbilityEnum.Extension
                 },
 
                 new CharacterModel {
@@ -378,6 +384,7 @@ namespace Game.GameRules
                     Feet = "None",
                     RightFinger = "None",
                     LeftFinger = "None",
+                    SpecialAbility = AbilityEnum.Extension
                 },
 
                  new CharacterModel {
@@ -396,6 +403,7 @@ namespace Game.GameRules
                     Feet = "None",
                     RightFinger = "None",
                     LeftFinger = "None",
+                    SpecialAbility = AbilityEnum.Bribes
                 },
 
                   new CharacterModel {
@@ -414,6 +422,7 @@ namespace Game.GameRules
                     Feet = "None",
                     RightFinger = "None",
                     LeftFinger = "None",
+                    SpecialAbility = AbilityEnum.PayTuition
                 },
             };
 
