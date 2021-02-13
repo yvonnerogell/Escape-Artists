@@ -41,28 +41,6 @@ namespace Game.Views
         }
 
         /// <summary>
-        ///  Constructor for Create when we already have a item
-        ///  This usually means is coming from the Character Create page
-        /// </summary>
-        /// <param name="data"></param>
-        public ItemCreatePage(ItemModel data)
-        {
-            InitializeComponent();
-            BindingContext = this.ViewModel.Data = data;
-
-            // Limit the item type to be only for that location.
-            ItemTypePicker.ItemsSource.Clear();
-            var newItems = ItemLocationEnumHelper.GetItemFromLocationType(data.Location);
-            foreach (var item in newItems)
-            {
-                ItemTypePicker.ItemsSource.Add(item.ToMessage());
-            }
-            ItemTypePicker.SelectedIndex = 0;
-
-            
-        }
-
-        /// <summary>
         /// Save by calling for Create
         /// </summary>
         /// <param name="sender"></param>
