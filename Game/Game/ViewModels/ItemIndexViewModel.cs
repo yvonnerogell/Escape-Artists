@@ -7,6 +7,7 @@ using Xamarin.Forms;
 using Game.Models;
 using Game.Views;
 using Game.GameRules;
+using Game.Views.Characters;
 
 namespace Game.ViewModels
 {
@@ -88,6 +89,12 @@ namespace Game.ViewModels
             MessagingCenter.Subscribe<AboutPage, bool>(this, "WipeDataList", async (obj, data) =>
             {
                 await WipeDataListAsync();
+            });
+
+            // Register the Create Message
+            MessagingCenter.Subscribe<CharacterCreatePage, ItemModel>(this, "CreateItem", async (obj, data) =>
+            {
+                await CreateAsync(data as ItemModel);
             });
 
             #endregion Messages
