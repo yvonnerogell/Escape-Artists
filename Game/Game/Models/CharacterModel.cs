@@ -29,14 +29,7 @@ namespace Game.Models
             GPA = 0;
             ExperienceTotal = 0;
             ExperienceRemaining = LevelTableHelper.LevelDetailsList[Level + 1].Experience - 1;
-            Feet = null;
-            PrimaryHand = null;
-            OffHand = null;
-            RightFinger = null;
-            LeftFinger = null;
-            Necklace = null;
-            Head = null;
-
+            UpdateItemsBasedOnCharacterType(SpecificCharacterTypeEnum);
             // Default to unknown, which is no special job
             //Job = CharacterJobEnum.Unknown; 
         }
@@ -83,7 +76,6 @@ namespace Game.Models
             // helper for figuring out which image based on CharacterSpecific type
             UpdateImageURI(newData);
 
-
             Name = newData.Name;
             Description = newData.Description;
             Level = newData.Level;
@@ -112,6 +104,53 @@ namespace Game.Models
             //Job = newData.Job;
 
             return true;
+        }
+        /// <summary>
+        /// Given the inputted Character, updates the image URI based on the SpecificCharacterTypeEnum. 
+        /// </summary>
+        /// <param name="newData">Character to update</param>
+        public void UpdateItemsBasedOnCharacterType(SpecificCharacterTypeEnum characterType)
+        {
+            switch (characterType)
+            {
+
+                case SpecificCharacterTypeEnum.SmartyPants:
+                    PrimaryHand = (new ItemModel(ItemTypeEnum.PencilEraser)).Id;
+                    RightFinger = (new ItemModel(ItemTypeEnum.IndexCards)).Id;
+                    break;
+
+                case SpecificCharacterTypeEnum.Overachiever:
+                    PrimaryHand = (new ItemModel(ItemTypeEnum.Textbooks)).Id;
+                    break;
+
+                case SpecificCharacterTypeEnum.InternationalStudent:
+                    PrimaryHand = (new ItemModel(ItemTypeEnum.Notebook)).Id;
+                    break;
+
+                case SpecificCharacterTypeEnum.Prodigy:
+                    Necklace = (new ItemModel(ItemTypeEnum.LibraryCard)).Id;
+                    break;
+
+                case SpecificCharacterTypeEnum.SecondCareer:
+                    PrimaryHand = (new ItemModel(ItemTypeEnum.Laptop)).Id;
+                    break;
+
+                case SpecificCharacterTypeEnum.Slacker:
+                    LeftFinger = (new ItemModel(ItemTypeEnum.Calculator)).Id;
+                    break;
+
+                case SpecificCharacterTypeEnum.Procrastinator:
+                    Necklace = (new ItemModel(ItemTypeEnum.FoodCourtCard)).Id;
+                    break;
+
+                case SpecificCharacterTypeEnum.HelicopterParent:
+                    PrimaryHand = (new ItemModel(ItemTypeEnum.Tuition)).Id;
+                    break;
+
+                case SpecificCharacterTypeEnum.CoolParent:
+                    Necklace = (new ItemModel(ItemTypeEnum.PrivateTutor)).Id;
+                    break;
+            }
         }
 
         /// <summary>
