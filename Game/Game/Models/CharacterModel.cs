@@ -1,4 +1,5 @@
 ﻿using Game.GameRules;
+using System.Collections.Generic;
 
 namespace Game.Models
 {
@@ -105,53 +106,76 @@ namespace Game.Models
 
             return true;
         }
+
         /// <summary>
         /// Given the inputted Character, updates the image URI based on the SpecificCharacterTypeEnum. 
         /// </summary>
         /// <param name="newData">Character to update</param>
-        public void UpdateItemsBasedOnCharacterType(SpecificCharacterTypeEnum characterType)
+        public List<ItemModel> UpdateItemsBasedOnCharacterType(SpecificCharacterTypeEnum characterType)
         {
+            List<ItemModel> item = new List<ItemModel>();
             switch (characterType)
             {
-
                 case SpecificCharacterTypeEnum.SmartyPants:
-                    PrimaryHand = (new ItemModel(ItemTypeEnum.PencilEraser)).Id;
-                    RightFinger = (new ItemModel(ItemTypeEnum.IndexCards)).Id;
+                    var pencil = new ItemModel(ItemTypeEnum.PencilEraser);
+                    var indexcard = new ItemModel(ItemTypeEnum.IndexCards);
+                    item.Add(pencil);
+                    item.Add(indexcard);
+                    PrimaryHand = pencil.Id;
+                    RightFinger = indexcard.Id;
                     break;
 
                 case SpecificCharacterTypeEnum.Overachiever:
-                    PrimaryHand = (new ItemModel(ItemTypeEnum.Textbooks)).Id;
+                    var Textbooks = new ItemModel(ItemTypeEnum.Textbooks);
+                    item.Add(Textbooks);
+                    PrimaryHand = Textbooks.Id;
                     break;
 
                 case SpecificCharacterTypeEnum.InternationalStudent:
-                    PrimaryHand = (new ItemModel(ItemTypeEnum.Notebook)).Id;
+                    var Notebook = new ItemModel(ItemTypeEnum.Notebook);
+                    item.Add(Notebook);
+                    PrimaryHand = Notebook.Id;
                     break;
 
                 case SpecificCharacterTypeEnum.Prodigy:
-                    Necklace = (new ItemModel(ItemTypeEnum.LibraryCard)).Id;
+                    var LibraryCard = new ItemModel(ItemTypeEnum.LibraryCard);
+                    item.Add(LibraryCard);
+                    Necklace = LibraryCard.Id;
                     break;
 
                 case SpecificCharacterTypeEnum.SecondCareer:
-                    PrimaryHand = (new ItemModel(ItemTypeEnum.Laptop)).Id;
+                    var Laptop = new ItemModel(ItemTypeEnum.Laptop);
+                    item.Add(Laptop);
+                    PrimaryHand = Laptop.Id;
                     break;
 
                 case SpecificCharacterTypeEnum.Slacker:
-                    LeftFinger = (new ItemModel(ItemTypeEnum.Calculator)).Id;
+                    var Calculator = new ItemModel(ItemTypeEnum.Calculator);
+                    item.Add(Calculator);
+                    LeftFinger = Calculator.Id;
                     break;
 
                 case SpecificCharacterTypeEnum.Procrastinator:
-                    Necklace = (new ItemModel(ItemTypeEnum.FoodCourtCard)).Id;
+                    var FoodCourtCard = new ItemModel(ItemTypeEnum.FoodCourtCard);
+                    item.Add(FoodCourtCard);
+                    Necklace = FoodCourtCard.Id;
                     break;
 
                 case SpecificCharacterTypeEnum.HelicopterParent:
-                    PrimaryHand = (new ItemModel(ItemTypeEnum.Tuition)).Id;
+                    var Tuition = new ItemModel(ItemTypeEnum.Tuition);
+                    item.Add(Tuition);
+                    PrimaryHand = Tuition.Id;
                     break;
 
                 case SpecificCharacterTypeEnum.CoolParent:
-                    Necklace = (new ItemModel(ItemTypeEnum.PrivateTutor)).Id;
+                    var PrivateTutor = new ItemModel(ItemTypeEnum.PrivateTutor);
+                    item.Add(PrivateTutor);
+                    Necklace = PrivateTutor.Id;
                     break;
             }
+            return item;
         }
+
 
         /// <summary>
         /// Given the inputted Character, updates the image URI based on the SpecificCharacterTypeEnum. 

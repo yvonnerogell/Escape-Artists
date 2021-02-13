@@ -13,7 +13,7 @@ namespace Game.Views.Characters
     /// <summary>
     /// The Create page for the characters
     /// </summary>
-    [DesignTimeVisible(false)] 
+    [DesignTimeVisible(false)]
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharacterCreatePage : ContentPage
     {
@@ -24,7 +24,7 @@ namespace Game.Views.Characters
         public CharacterCreatePage()
         {
             BindingContext = this.ViewModel.Data = new CharacterModel();
-            
+
             InitializeComponent();
 
             this.ViewModel.Title = "Create";
@@ -60,10 +60,15 @@ namespace Game.Views.Characters
                 ViewModel.Data.SpecificCharacterTypeEnum = SpecificCharacterTypeEnumHelper.ConvertMessageStringToEnum(CharacterTypePicker.SelectedItem.ToString());
                 ViewModel.Data.CharacterTypeEnum = SpecificCharacterTypeEnumHelper.GetCharacterTypeEnumFromSpecificCharacterTypeEnum(ViewModel.Data.SpecificCharacterTypeEnum);
                 ViewModel.Data.UpdateImageURI(ViewModel.Data);
-
-                // TODO add Items
+                List<ItemModel> addedItem = ViewModel.Data.UpdateItemsBasedOnCharacterType(ViewModel.Data.SpecificCharacterTypeEnum);
+                // Add Items
+                foreach (ItemModel item in addedItem)
+                {
+                    MessagingCenter.Send(this, "CreateItem", item);
+                }
 
                 MessagingCenter.Send(this, "Create", ViewModel.Data);
+
                 await Navigation.PopModalAsync();
             }
         }
@@ -98,12 +103,11 @@ namespace Game.Views.Characters
                 SpeedSlider.Value = newValue;
             }
 
-            if (sender ==GPASlider)
+            if (sender == GPASlider)
             {
                 GPAValue.Text = newValueStr;
                 GPASlider.Value = newValue;
             }
         }
-
     }
 }
