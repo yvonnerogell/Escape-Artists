@@ -243,8 +243,8 @@ namespace Game.Models
         /// <returns></returns>
         public bool UseAbility(AbilityEnum ability)
         {
-            var avaible = AbilityTracker.TryGetValue(ability, out int remaining);
-            if (avaible == false)
+            var available = AbilityTracker.TryGetValue(ability, out int remaining);
+            if (available == false)
             {
                 // does not exist
                 return false;
