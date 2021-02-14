@@ -42,7 +42,7 @@ namespace Game.Views
                 switch (id)
                 {
                     case (int)MenuItemEnum.Village:
-                        MenuPages.Add(id, new NavigationPage(new VillagePage()));
+                        MenuPages.Add(id, new NavigationPage(new SchoolPage()));
                         break;
 
                     case (int)MenuItemEnum.Battle:
