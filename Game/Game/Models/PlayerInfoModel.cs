@@ -68,6 +68,8 @@ namespace Game.Models
             Difficulty = data.Difficulty;
 
             AbilityTracker = data.AbilityTracker;
+
+            GPA = data.GPA;
         }
 
         /// <summary>
