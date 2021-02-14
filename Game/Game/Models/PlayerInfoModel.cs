@@ -166,7 +166,6 @@ namespace Game.Models
             var myReturn = string.Empty;
             myReturn += Name;
             myReturn += " , " + Description;
-            //myReturn += " , a " + Job.ToMessage();
             myReturn += " , Level : " + Level.ToString();
 
             if (PlayerType == PlayerTypeEnum.Character)
