@@ -32,13 +32,13 @@
                     <Grid RowSpacing="1" ColumnSpacing="3">
 
                         <Label Grid.Row="0" Grid.Column="0"
-                            Text="Dungeon"
+                            Text="Classroom"
                             Style="{StaticResource CenterMessageMediumStyle}"/>
 
                         <ImageButton Grid.Row="0" Grid.Column="2"
                             Source="{x:Static local:Constants.SpecificMonsterTypeGraduationOfficeAdministratorImageURI}"
                             Style="{StaticResource GamePageMenuImageButton}"
-                            Clicked="DungeonButton_Clicked"/>
+                            Clicked="ClassroomButton_Clicked"/>
                         
                     </Grid>
 
