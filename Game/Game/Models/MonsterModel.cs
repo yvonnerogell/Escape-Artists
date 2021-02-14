@@ -9,6 +9,7 @@ namespace Game.Models
     /// </summary>
     public class MonsterModel : BasePlayerModel<MonsterModel>
     {
+        // The specific monster type for this monster
         public SpecificMonsterTypeEnum SpecificMonsterTypeEnum { get; set; }
 
         // Unique Drop Item for Monsters
