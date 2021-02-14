@@ -103,8 +103,6 @@ namespace Game.Models
 
             Difficulty = data.Difficulty;
 
-            //Job = data.Job;
-
             // Give the copy a differet quid, so it can be used in the battles as a copy
             Guid = System.Guid.NewGuid().ToString();
 
@@ -179,8 +177,6 @@ namespace Game.Models
             //UniqueDropItem = data.UniqueDropItem;
 
             Difficulty = data.Difficulty;
-
-            //Job = data.Job;
 
             // Give the copy a differet quid, so it can be used in the battles as a copy
             Guid = System.Guid.NewGuid().ToString();
