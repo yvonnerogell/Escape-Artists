@@ -166,6 +166,10 @@ namespace Game.Models
 
         }
 
+        /// <summary>
+        /// Formats the output of this player.
+        /// </summary>
+        /// <returns></returns>
         public override string FormatOutput()
         {
             var myReturn = string.Empty;
