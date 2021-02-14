@@ -159,6 +159,8 @@
                     </Grid>
                 </StackLayout>
 
+                <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" WidthRequest="1" Color="Black"/>
+                
                 <StackLayout>
                     <Label Grid.Row="11" Grid.Column="0"
                             Text="Click on the items below to add them to this character"
