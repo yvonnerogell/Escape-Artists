@@ -15,6 +15,12 @@
         Game = 5,
 
         // About
-        About = 6
+        About = 6,
+
+        // School 
+        School = 12,
+
+        // Classroom
+        Classroom = 20
     }
 }
