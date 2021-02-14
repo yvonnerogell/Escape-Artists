@@ -161,10 +161,7 @@
 
                 <StackLayout>
                     <Label Grid.Row="11" Grid.Column="0"
-                            Text="ITEMS ARE ASSIGNED BASED ON CHARACTER TYPE"
-                            Style="{StaticResource LabelStyleUpdateText}"/>
-                    <Label Grid.Row="11" Grid.Column="0"
-                            Text="ONLY CLICKED on item will ADD item"
+                            Text="Click on the items below to add them to this character"
                             Style="{StaticResource LabelStyleUpdateText}"/>
                     <FlexLayout 
                         Padding="5"
