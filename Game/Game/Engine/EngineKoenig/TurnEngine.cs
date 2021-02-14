@@ -172,9 +172,9 @@ namespace Game.Engine.EngineKoenig
             // <30% chance
             if (DiceHelper.RollDice(1, 10) < 3)
             {
-                EngineSettings.CurrentActionAbility = Attacker.SelectAbilityToUse();
+                EngineSettings.CurrentActionAbility = Attacker.SelectSpecialAbilityToUse();
 
-                if (EngineSettings.CurrentActionAbility != AbilityEnum.Unknown)
+                if (EngineSettings.CurrentActionAbility != AbilityEnum.None)
                 {
                     // Ability can , switch to unknown to exit
                     EngineSettings.CurrentAction = ActionEnum.Ability;

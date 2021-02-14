@@ -213,7 +213,7 @@ namespace Game.Engine.EngineBase
         {
             // See if healing is needed.
             EngineSettings.CurrentActionAbility = Attacker.SelectHealingAbility();
-            if (EngineSettings.CurrentActionAbility != AbilityEnum.Unknown)
+            if (EngineSettings.CurrentActionAbility != AbilityEnum.None)
             {
                 EngineSettings.CurrentAction = ActionEnum.Ability;
                 return true;
@@ -223,7 +223,7 @@ namespace Game.Engine.EngineBase
             // <30% chance
             if (DiceHelper.RollDice(1, 10) < 3)
             {
-                EngineSettings.CurrentActionAbility = Attacker.SelectAbilityToUse();
+                EngineSettings.CurrentActionAbility = Attacker.SelectSpecialAbilityToUse();
 
                 if (EngineSettings.CurrentActionAbility != AbilityEnum.Unknown)
                 {

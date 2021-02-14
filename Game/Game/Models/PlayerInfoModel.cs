@@ -214,38 +214,37 @@ namespace Game.Models
         }
 
         /// <summary>
-        /// Walk the Abilities and return one to use
+        /// Returns the special ability to be used. If none is available (e.g. for Monsters, since they don't have special abilities
+        /// or if a character has already used their special ability in a round), then the method return AbilityEnum.None
         /// </summary>
-        /// <param name="Attacker"></param>
-        /// <returns></returns>
-        public AbilityEnum SelectAbilityToUse()
-        {
-            // Walk the other abilities and see which can be used
-            foreach (var ability in AbilityTracker)
-            {
-                var data = ability.Key;
+        /// <returns>The ability enum that can be used.</returns>
+        public AbilityEnum SelectSpecialAbilityToUse()
+		{
 
-                // Skip over Heal and Extra_Credit because covered in healing
-                //if (data == AbilityEnum.Heal)
-                //{
-                //    continue;
-               // }
+            var abilityEnum = AbilityEnum.None;
 
-                if (data == AbilityEnum.ExtraCredit)
-                {
-                    continue;
-                }
-
-                var result = AbilityTracker.TryGetValue(data, out int remaining);
-                if (remaining > 0)
-                {
-                    // Got one so can prepare it to be used
-                    return data;
-                }
+            // Monsters will not have any abilities in the AbilityTracker, and will therefore return AbilityEnum.None
+            if (AbilityTracker.Count == 0)
+			{
+                return abilityEnum;
             }
+            
+            // Characters will only have 1 ability in their trackers. However, foreach loop was easiest way to
+            // not have to switch on SpecificCharacterType. 
+            foreach (var item in AbilityTracker)
+			{
+                abilityEnum = item.Key;
 
-            return AbilityEnum.Unknown;
-        }
+                var result = AbilityTracker.TryGetValue(abilityEnum, out int remaining);
+                
+                // If the special ability count is 0, return None since there is no more to use this round
+                if (remaining <= 0)
+				{
+                    abilityEnum = AbilityEnum.None;
+				}
+            }
+            return abilityEnum;
+		}
 
         public bool IsAbilityAvailable(AbilityEnum ability)
         {
