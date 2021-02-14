@@ -5,6 +5,11 @@
              x:Class="Game.Views.Characters.CharacterIndexPage"
              Title="Characters">
 
+    <sync:SfListView>
+        
+    </sync:SfListView>
+    
+    
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="AddCharacter_Clicked" IconImageSource="icon_add.png"/>
     </ContentPage.ToolbarItems>
@@ -16,6 +21,7 @@
     </ContentPage.Resources>
 
     <ContentPage.Content>
+
         <ScrollView>
 
             <FlexLayout
@@ -23,17 +29,18 @@
                 Wrap="Wrap"
                 Direction="Row"
                 JustifyContent="SpaceEvenly">
-                
+
                 <BindableLayout.ItemTemplate >
 
                     <DataTemplate>
-
+                        
                         <StackLayout Padding="10">
 
                             <ImageButton Source="{Binding ImageURI}"  Clicked="ReadCharacter_Clicked" CommandParameter="{Binding Id}"/>
 
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-
+                               
+                                
                                 <Label Text="{Binding Name}" HorizontalTextAlignment="Center"/>
                                 <Label Text="the " HorizontalTextAlignment="Center" LineBreakMode="NoWrap"/>
                                 <Label Text="{Binding SpecificCharacterTypeEnum, Converter={StaticResource SpecificCharacterTypeEnumConverter}}"  
