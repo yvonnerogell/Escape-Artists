@@ -15,13 +15,13 @@
                     <Grid RowSpacing="1" ColumnSpacing="3">
 
                         <Label Grid.Row="0" Grid.Column="0"
-                            Text="Village"
+                            Text="School"
                             Style="{StaticResource CenterMessageMediumStyle}"/>
 
                         <ImageButton Grid.Row="0" Grid.Column="2"
                             Source="{x:Static local:Constants.SpecificCharacterTypeDefaultImageURI}"
                             Style="{StaticResource GamePageMenuImageButton}"
-                            Clicked="VillageButton_Clicked"/>
+                            Clicked="SchoolButton_Clicked"/>
 
                     </Grid>
 
