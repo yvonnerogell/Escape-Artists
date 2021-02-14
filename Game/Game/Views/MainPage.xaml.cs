@@ -41,7 +41,7 @@ namespace Game.Views
             {
                 switch (id)
                 {
-                    case (int)MenuItemEnum.Village:
+                    case (int)MenuItemEnum.School:
                         MenuPages.Add(id, new NavigationPage(new SchoolPage()));
                         break;
 
