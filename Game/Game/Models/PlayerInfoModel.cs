@@ -223,6 +223,11 @@ namespace Game.Models
             return abilityEnum;
 		}
 
+        /// <summary>
+        /// Returns true if the specified ability is available for use, false if not. 
+        /// </summary>
+        /// <param name="ability"></param>
+        /// <returns></returns>
         public bool IsAbilityAvailable(AbilityEnum ability)
         {
             var available = AbilityTracker.TryGetValue(ability, out int remaining);
