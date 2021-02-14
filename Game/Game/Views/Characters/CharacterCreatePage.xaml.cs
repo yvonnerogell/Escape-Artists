@@ -256,8 +256,21 @@ namespace Game.Views.Characters
 
             if (sender == GPASlider)
             {
+                // ensuring that the slider snaps to increments of 5
                 GPAValue.Text = newValueStr;
-                GPASlider.Value = newValue;
+                if (newValue % 5 == 0)
+                {
+                    GPASlider.Value = newValue;
+                }
+                else
+                {
+                    while (newValue % 5 != 0)
+                    {
+                        newValue += 1;
+                    }
+                    GPASlider.Value = newValue;
+                }
+               
             }
         }
     }
