@@ -14,7 +14,8 @@ namespace Game.Models
     public class PlayerInfoModel : BasePlayerModel<PlayerInfoModel>
     {
         // Track the Abilities in the Battle
-        // The Ability will be the List of Abilities per Job, and a count of how many times they can use it per round
+        // The AbilityTracker holds the character's ability and the number of times it can be used per round (default is 1)
+        // Only characters have abilities.
         public Dictionary<AbilityEnum, int> AbilityTracker = new Dictionary<AbilityEnum, int>();
 
         /// <summary>
