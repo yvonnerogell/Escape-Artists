@@ -160,13 +160,6 @@ namespace Game.Engine.EngineKoenig
         /// <returns></returns>
         public override bool ChooseToUseAbility(PlayerInfoModel Attacker)
         {
-            // See if healing is needed.
-            EngineSettings.CurrentActionAbility = Attacker.SelectHealingAbility();
-            if (EngineSettings.CurrentActionAbility != AbilityEnum.Unknown)
-            {
-                EngineSettings.CurrentAction = ActionEnum.Ability;
-                return true;
-            }
 
             // If not needed, then role dice to see if other ability should be used
             // <30% chance

@@ -184,34 +184,6 @@ namespace Game.Models
 
         #region Abilities
 
-        /// <summary>
-        /// Check to see if healing would help
-        /// 
-        /// if not, return unknown
-        /// </summary>
-        /// <returns></returns>
-        public AbilityEnum SelectHealingAbility()
-        {
-            // Save the Health for when it is needed
-            // If health is 25% or less of max health, try to heal
-            if (GetCurrentHealth() < (GetMaxHealth() * .25))
-            {
-/*
-                // Try to use Heal or Extra_Credit
-                if (IsAbilityAvailable(AbilityEnum.Heal))
-                {
-                    return AbilityEnum.Heal;
-                }
-*/
-
-                if (IsAbilityAvailable(AbilityEnum.ExtraCredit))
-                {
-                    return AbilityEnum.ExtraCredit;
-                }
-            }
-
-            return AbilityEnum.Unknown;
-        }
 
         /// <summary>
         /// Returns the special ability to be used. If none is available (e.g. for Monsters, since they don't have special abilities

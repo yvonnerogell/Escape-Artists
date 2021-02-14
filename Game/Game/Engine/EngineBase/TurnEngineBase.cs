@@ -211,13 +211,6 @@ namespace Game.Engine.EngineBase
         /// <returns></returns>
         public virtual bool ChooseToUseAbility(PlayerInfoModel Attacker)
         {
-            // See if healing is needed.
-            EngineSettings.CurrentActionAbility = Attacker.SelectHealingAbility();
-            if (EngineSettings.CurrentActionAbility != AbilityEnum.None)
-            {
-                EngineSettings.CurrentAction = ActionEnum.Ability;
-                return true;
-            }
 
             // If not needed, then role dice to see if other ability should be used
             // <30% chance
