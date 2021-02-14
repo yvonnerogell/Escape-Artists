@@ -32,9 +32,8 @@ namespace Game.Views
 
             this.ViewModel.Title = "Update " + data.Title;
 
-            // Default difficulty level to current difficulty level
-            // Onur: this line of code breaks the MonsterUpdatePage, so I commented it out for now
-           // DifficultyLevelPicker.SelectedItem = ViewModel.Data.Difficulty.ToMessage();
+           // Default difficulty level to current difficulty level
+           DifficultyLevelPicker.SelectedItem = ViewModel.Data.Difficulty.ToMessage();
         }
 
         /// <summary>
