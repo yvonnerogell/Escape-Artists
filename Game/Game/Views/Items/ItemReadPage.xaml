@@ -21,7 +21,8 @@
 
     <ScrollView>
         
-        <StackLayout Style="{StaticResource OuterBoxStack}"
+        <StackLayout Style="{StaticResource OuterBoxStack}" 
+            HorizontalOptions="FillAndExpand"
             Spacing="10">
             
             <StackLayout Orientation="Horizontal">
