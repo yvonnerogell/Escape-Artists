@@ -220,8 +220,8 @@ namespace Game.Models
 
         public bool IsAbilityAvailable(AbilityEnum ability)
         {
-            var avaible = AbilityTracker.TryGetValue(ability, out int remaining);
-            if (avaible == false)
+            var available = AbilityTracker.TryGetValue(ability, out int remaining);
+            if (available == false)
             {
                 // does not exist
                 return false;
