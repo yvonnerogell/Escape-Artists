@@ -264,19 +264,19 @@ namespace Game.Models
             switch (ability)
 			{
                 case AbilityEnum.ExtraCredit:
-                    GPA = (int)(GPA * 1.05);
+                    GPA = (int)(GPA * Constants.SpecialAbilityGPABoostExtension);
                     break;
                 case AbilityEnum.Bribes:
-                    GPA = (int)(GPA * 1.10);
+                    GPA = (int)(GPA * Constants.SpecialAbilityGPABoostBribes);
                     break;
                 case AbilityEnum.Extension:
-                    GPA = (int)(GPA * 1.02);
+                    GPA = (int)(GPA * Constants.SpecialAbilityGPABoostExtension);
                     break;
                 case AbilityEnum.FlashGenius:
-                    GPA = (int)(GPA * 1.03);
+                    GPA = (int)(GPA * Constants.SpecialAbilityGPABoostFlashGenius);
                     break;
                 case AbilityEnum.PayTuition:
-                    GPA = (int)(GPA * 1.05);
+                    GPA = (int)(GPA * Constants.SpecialAbilityGPABoostPayTuition);
                     break;
                 default:
                     break;

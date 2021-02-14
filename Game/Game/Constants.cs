@@ -81,7 +81,7 @@ namespace Game
         public static double SpecialAbilityGPABoostExtension = 1.02;
         public static double SpecialAbilityGPABoostFlashGenius = 1.03;
         public static double SpecialAbilityGPABoostBribes = 1.10;
-        public static double SpecialAbilityGPABoostPayTuiution = 1.05;
+        public static double SpecialAbilityGPABoostPayTuition = 1.05;
 
     }
 }
