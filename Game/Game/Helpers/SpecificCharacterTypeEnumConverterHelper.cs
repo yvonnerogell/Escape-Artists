@@ -62,7 +62,7 @@ namespace Game.Helpers
             if (value is string)
             {
                 // Convert the Message String to the Enum
-                var myReturn = ItemLocationEnumHelper.ConvertStringToEnum((string)value);
+                var myReturn = SpecificCharacterTypeEnumHelper.ConvertStringToEnum((string)value);
 
                 return myReturn;
             }
