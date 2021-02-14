@@ -60,8 +60,6 @@ namespace Game.Models
 
             Difficulty = data.Difficulty;
 
-            //Job = data.Job;
-
             AbilityTracker = data.AbilityTracker;
         }
 
