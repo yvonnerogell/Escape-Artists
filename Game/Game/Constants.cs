@@ -74,5 +74,7 @@ namespace Game
         // Default Monster name
         public static string MonsterNameDefault = "New Monster Name";
         public static string MonsterDescriptionDefault = "New Monster Description";
+
+        public static int SpecialAbilityUsePerRound = 1;
     }
 }

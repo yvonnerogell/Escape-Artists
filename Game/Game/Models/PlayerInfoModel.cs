@@ -109,6 +109,8 @@ namespace Game.Models
             // Set current experience to be 1 above minimum.
             ExperienceTotal = LevelTableHelper.LevelDetailsList[Level - 1].Experience + 1;
 
+            AbilityTracker.Add(data.SpecialAbility, Constants.SpecialAbilityUsePerRound);
+
         }
 
         /// <summary>
