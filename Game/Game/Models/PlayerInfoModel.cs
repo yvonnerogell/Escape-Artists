@@ -245,7 +245,7 @@ namespace Game.Models
         /// Use the Ability
         /// </summary>
         /// <param name="Attacker"></param>
-        /// <returns></returns>
+        /// <returns>Returns true if ability was successfully used, false if not</returns>
         public bool UseAbility(AbilityEnum ability)
         {
             var available = AbilityTracker.TryGetValue(ability, out int remaining);
@@ -260,6 +260,27 @@ namespace Game.Models
                 // out of tries
                 return false;
             }
+
+            switch (ability)
+			{
+                case AbilityEnum.ExtraCredit:
+                    GPA = (int)(GPA * 1.05);
+                    break;
+                case AbilityEnum.Bribes:
+                    GPA = (int)(GPA * 1.10);
+                    break;
+                case AbilityEnum.Extension:
+                    GPA = (int)(GPA * 1.02);
+                    break;
+                case AbilityEnum.FlashGenius:
+                    GPA = (int)(GPA * 1.03);
+                    break;
+                case AbilityEnum.PayTuition:
+                    GPA = (int)(GPA * 1.05);
+                    break;
+                default:
+                    break;
+			}
 
             // Reduce the count
             AbilityTracker[ability] = remaining - 1;
