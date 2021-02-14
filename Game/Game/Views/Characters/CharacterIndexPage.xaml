@@ -3,13 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local_helpers="clr-namespace:Game.Helpers"
              x:Class="Game.Views.Characters.CharacterIndexPage"
-             Title="Characters">
-
-    <sync:SfListView>
+             Title="Characters"
+             >
         
-    </sync:SfListView>
-    
-    
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="AddCharacter_Clicked" IconImageSource="icon_add.png"/>
     </ContentPage.ToolbarItems>
