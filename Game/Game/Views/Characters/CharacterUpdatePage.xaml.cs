@@ -72,7 +72,7 @@ namespace Game.Views
         /// <param name="sender"></param>
         /// <param name="e"></param>
         public void OnSliderChanged(object sender, ValueChangedEventArgs e)
-		{
+        {
             var newValue = (int)e.NewValue;
             var newValueStr = String.Format("{0}", newValue);
 
@@ -98,8 +98,20 @@ namespace Game.Views
             }
             if (sender == GPASlider)
             {
+                // ensuring that the slider snaps to increments of 5
                 GPAValue.Text = newValueStr;
-                GPASlider.Value = newValue;
+                if (newValue % 5 == 0)
+                {
+                    GPASlider.Value = newValue;
+                }
+                else
+                {
+                    while (newValue % 5 != 0)
+                    {
+                        newValue += 1;
+                    }
+                    GPASlider.Value = newValue;
+                }
             }
         }
     }
