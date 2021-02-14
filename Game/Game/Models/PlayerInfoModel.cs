@@ -21,6 +21,9 @@ namespace Game.Models
         // Only monsters can have UniqueDropItems
         public string UniqueDropItem { get; set; }
 
+        // Only Characters can have GPA
+        public int GPA { get; set; }
+
         /// <summary>
         /// Default Constructor
         /// </summary>
@@ -110,6 +113,8 @@ namespace Game.Models
             ExperienceTotal = LevelTableHelper.LevelDetailsList[Level - 1].Experience + 1;
 
             AbilityTracker.Add(data.SpecialAbility, Constants.SpecialAbilityUsePerRound);
+
+            GPA = data.GPA;
 
         }
 
