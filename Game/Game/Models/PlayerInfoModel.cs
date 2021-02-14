@@ -147,8 +147,7 @@ namespace Game.Models
             LeftFinger = data.LeftFinger;
             Feet = data.Feet;
             
-            // Removed since character should not have this.
-            //UniqueDropItem = data.UniqueDropItem;
+            UniqueDropItem = data.UniqueDropItem;
 
             Difficulty = data.Difficulty;
 
