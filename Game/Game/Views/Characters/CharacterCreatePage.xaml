@@ -169,7 +169,8 @@
                         Padding="5"
                         JustifyContent="SpaceAround"
                         AlignContent="SpaceAround"
-                        x:Name="ItemBox">
+                        x:Name="ItemBox"
+                        Margin="50">
                     </FlexLayout>
                 </StackLayout>
 
