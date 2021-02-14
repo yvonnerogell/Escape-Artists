@@ -18,6 +18,9 @@ namespace Game.Models
         // Only characters have abilities.
         public Dictionary<AbilityEnum, int> AbilityTracker = new Dictionary<AbilityEnum, int>();
 
+        // Only monsters can have UniqueDropItems
+        public string UniqueDropItem { get; set; }
+
         /// <summary>
         /// Default Constructor
         /// </summary>
@@ -56,8 +59,8 @@ namespace Game.Models
             RightFinger = data.RightFinger;
             LeftFinger = data.LeftFinger;
             Feet = data.Feet;
-            // Removed since character should not have this.
-            //UniqueDropItem = data.UniqueDropItem;
+
+            UniqueDropItem = data.UniqueDropItem;
 
             Difficulty = data.Difficulty;
 
