@@ -255,31 +255,6 @@ namespace Game.Models
                 // out of tries
                 return false;
             }
-            
-            switch (ability)
-            {
-                //case AbilityEnum.Heal:
-                case AbilityEnum.ExtraCredit:
-                    //BuffHealth();
-                    break;
-
-                case AbilityEnum.FlashGenius:
-                //case AbilityEnum.Barrier:
-                   //BuffDefense();
-                    break;
-
-                //case AbilityEnum.Curse:
-                case AbilityEnum.Bribes:
-                    //BuffAttack();
-                    break;
-            
-
-                //case AbilityEnum.Quick:
-                case AbilityEnum.Extension:
-                    //BuffSpeed();
-                    break;
-            
-            }
 
             // Reduce the count
             AbilityTracker[ability] = remaining - 1;
