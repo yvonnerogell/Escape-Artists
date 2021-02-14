@@ -14,11 +14,15 @@
 
                     <Grid RowSpacing="1" ColumnSpacing="3">
 
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                        </Grid.ColumnDefinitions>
+
                         <Label Grid.Row="0" Grid.Column="0"
                             Text="School"
                             Style="{StaticResource CenterMessageMediumStyle}"/>
 
-                        <ImageButton Grid.Row="0" Grid.Column="2"
+                        <ImageButton Grid.Row="0" Grid.Column="9"
                             Source="{x:Static local:Constants.SpecificCharacterTypeDefaultImageURI}"
                             Style="{StaticResource GamePageMenuImageButton}"
                             Clicked="SchoolButton_Clicked"/>
@@ -31,11 +35,15 @@
 
                     <Grid RowSpacing="1" ColumnSpacing="3">
 
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                        </Grid.ColumnDefinitions>
+
                         <Label Grid.Row="0" Grid.Column="0"
                             Text="Classroom"
                             Style="{StaticResource CenterMessageMediumStyle}"/>
 
-                        <ImageButton Grid.Row="0" Grid.Column="2"
+                        <ImageButton Grid.Row="0" Grid.Column="9"
                             Source="{x:Static local:Constants.SpecificMonsterTypeGraduationOfficeAdministratorImageURI}"
                             Style="{StaticResource GamePageMenuImageButton}"
                             Clicked="ClassroomButton_Clicked"/>
@@ -47,15 +55,19 @@
                 <StackLayout Style="{StaticResource GamePageMenuBox}">
 
                     <Grid RowSpacing="1" ColumnSpacing="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                        </Grid.ColumnDefinitions>
 
                         <Label Grid.Row="0" Grid.Column="0"
                             Text="Auto Battle"
                             Style="{StaticResource CenterMessageMediumStyle}"/>
 
-                        <ImageButton Grid.Row="0" Grid.Column="2"
+                        <ImageButton Grid.Row="0" Grid.Column="9"
                             Source="{x:Static local:Constants.SpecificMonsterTypeProfessorImageURI}"
                             Style="{StaticResource GamePageMenuImageButton}"
-                            Clicked="AutobattleButton_Clicked"/>
+                            Clicked="AutobattleButton_Clicked"        
+                        />
 
                     </Grid>
                 </StackLayout>
