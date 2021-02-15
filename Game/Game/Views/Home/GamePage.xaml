@@ -10,67 +10,72 @@
 
             <StackLayout>
 
-                <StackLayout Style="{StaticResource GamePageMenuBox}">
+                <StackLayout Style="{StaticResource GamePageMenuBox}" Orientation="Vertical">
 
-                    <Grid RowSpacing="1" ColumnSpacing="3">
+                    <Grid RowSpacing="3" ColumnSpacing="0" HorizontalOptions="CenterAndExpand">
 
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="200"/>
                         </Grid.ColumnDefinitions>
 
                         <Label Grid.Row="0" Grid.Column="0"
-                            Text="School"
-                            Style="{StaticResource CenterMessageMediumStyle}"/>
+                               HorizontalOptions="StartAndExpand"
+                               Text="School"
+                               Style="{StaticResource CenterMessageMediumStyle}"/>
 
-                        <ImageButton Grid.Row="0" Grid.Column="9"
+                        <ImageButton Grid.Row="0" Grid.Column="1"
                             Source="{x:Static local:Constants.SpecificCharacterTypeDefaultImageURI}"
-                            Style="{StaticResource GamePageMenuImageButton}"
-                            Clicked="SchoolButton_Clicked"/>
+                            HorizontalOptions="EndAndExpand"
+                            Style="{StaticResource GamePageMenuImageButton}"/>
 
+                        <Button Grid.Row="0" Grid.Column="0" Clicked="SchoolButton_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="1" Clicked="SchoolButton_Clicked"/>
                     </Grid>
 
-                </StackLayout>
-
-                <StackLayout Style="{StaticResource GamePageMenuBox}">
-
-                    <Grid RowSpacing="1" ColumnSpacing="3">
+                    <Grid RowSpacing="3" ColumnSpacing="0" HorizontalOptions="CenterAndExpand">
 
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="200"/>
                         </Grid.ColumnDefinitions>
 
                         <Label Grid.Row="0" Grid.Column="0"
+                            HorizontalOptions="StartAndExpand"
                             Text="Classroom"
                             Style="{StaticResource CenterMessageMediumStyle}"/>
 
-                        <ImageButton Grid.Row="0" Grid.Column="9"
+                        <ImageButton Grid.Row="0" Grid.Column="1"
+                            HorizontalOptions="EndAndExpand"
                             Source="{x:Static local:Constants.SpecificMonsterTypeGraduationOfficeAdministratorImageURI}"
-                            Style="{StaticResource GamePageMenuImageButton}"
-                            Clicked="ClassroomButton_Clicked"/>
-                        
+                            Style="{StaticResource GamePageMenuImageButton}"/>
+
+                        <Button Grid.Row="0" Grid.Column="0" Clicked="ClassroomButton_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="1" Clicked="ClassroomButton_Clicked"/>
                     </Grid>
 
-                </StackLayout>
+                    <Grid RowSpacing="3" ColumnSpacing="0" HorizontalOptions="CenterAndExpand">
 
-                <StackLayout Style="{StaticResource GamePageMenuBox}">
-
-                    <Grid RowSpacing="1" ColumnSpacing="3">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="200"/>
                         </Grid.ColumnDefinitions>
-
+                        
                         <Label Grid.Row="0" Grid.Column="0"
-                            Text="Auto Battle"
+                            HorizontalOptions="StartAndExpand"
+                            Text="Auto Battle" 
                             Style="{StaticResource CenterMessageMediumStyle}"/>
 
-                        <ImageButton Grid.Row="0" Grid.Column="9"
+                        <ImageButton Grid.Row="0" Grid.Column="1"
+                            HorizontalOptions="EndAndExpand"
                             Source="{x:Static local:Constants.SpecificMonsterTypeProfessorImageURI}"
-                            Style="{StaticResource GamePageMenuImageButton}"
-                            Clicked="AutobattleButton_Clicked"        
-                        />
+                            Style="{StaticResource GamePageMenuImageButton}"/>
+
+                        <Button Grid.Row="0" Grid.Column="0" Clicked="AutobattleButton_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="1" Clicked="AutobattleButton_Clicked"/>
 
                     </Grid>
+
                 </StackLayout>
+
+              
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
