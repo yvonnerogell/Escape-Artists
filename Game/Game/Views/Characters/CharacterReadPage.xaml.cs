@@ -127,7 +127,7 @@ namespace Game.Views
             // Hookup the Image Button to show the Item picture
             var ItemButton = new ImageButton
             {
-                Style = (Style)Application.Current.Resources["ImageLargeStyle"],
+                Style = (Style)Application.Current.Resources["ItemImageClicked"],
                 Source = data.ImageURI
             };
 
