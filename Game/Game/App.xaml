@@ -121,6 +121,12 @@
             </Style>
 
             <Style TargetType="Label"
+                x:Key="LabelRedStyle"
+                BasedOn="{StaticResource LabelBaseStyle}">
+                <Setter Property="TextColor" Value="Red" />
+            </Style>
+
+            <Style TargetType="Label"
                 x:Key="ListStyle"
                 BasedOn="{StaticResource LabelBaseStyle}">
                 <Setter Property="FontSize" Value="Micro" />
@@ -299,8 +305,8 @@
             
             <Style TargetType="Image"
                 x:Key="ItemImage">
-                <Setter Property="HeightRequest" Value="50" />
-                <Setter Property="WidthRequest" Value="50" />
+                <Setter Property="HeightRequest" Value="120" />
+                <Setter Property="WidthRequest" Value="120" />
                 <Setter Property="BackgroundColor" Value="PaleVioletRed" />
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center"/>
@@ -309,8 +315,8 @@
 
             <Style TargetType="Image"
                 x:Key="ItemImageClicked">
-                <Setter Property="HeightRequest" Value="50" />
-                <Setter Property="WidthRequest" Value="50" />
+                <Setter Property="HeightRequest" Value="120" />
+                <Setter Property="WidthRequest" Value="120" />
                 <Setter Property="BackgroundColor" Value="Transparent" />
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center"/>
