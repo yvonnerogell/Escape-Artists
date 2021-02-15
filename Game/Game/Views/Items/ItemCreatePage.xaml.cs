@@ -47,14 +47,24 @@ namespace Game.Views
         /// <param name="e"></param>
         public async void Save_Clicked(object sender, EventArgs e)
         {
-            var itemType = ItemTypePicker.SelectedItem.ToString();
-            var itemTypeEnum = ItemTypeEnumHelper.ConvertMessageStringToEnum(itemType);
-            ViewModel.Data.ItemType = itemTypeEnum;
-            ViewModel.Data.UpdateImageURI(itemTypeEnum);
-            ViewModel.Data.Location = ItemTypeEnumHelper.GetLocationFromItemType(itemTypeEnum);
+            // if the name or description are not entered, the page remains on the create screen
+            if (string.IsNullOrEmpty(ViewModel.Data.Name) || string.IsNullOrEmpty(ViewModel.Data.Description))
+            {
+                await Navigation.PushModalAsync(new NavigationPage(new ItemUpdatePage(ViewModel)));
+                await Navigation.PopModalAsync();
+            }
+            // otherwise it creates and saves the new character
+            else
+            {
+                var itemType = ItemTypePicker.SelectedItem.ToString();
+                var itemTypeEnum = ItemTypeEnumHelper.ConvertMessageStringToEnum(itemType);
+                ViewModel.Data.ItemType = itemTypeEnum;
+                ViewModel.Data.UpdateImageURI(itemTypeEnum);
+                ViewModel.Data.Location = ItemTypeEnumHelper.GetLocationFromItemType(itemTypeEnum);
 
-            MessagingCenter.Send(this, "Create", ViewModel.Data);
-            await Navigation.PopModalAsync();
+                MessagingCenter.Send(this, "Create", ViewModel.Data);
+                await Navigation.PopModalAsync();
+            }
         }
 
         /// <summary>
