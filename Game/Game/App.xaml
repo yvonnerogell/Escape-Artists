@@ -456,6 +456,16 @@
             </Style>
 
             <Style TargetType="StackLayout"
+                x:Key="VerticalCenterStack">
+                <Setter Property="Orientation" Value="Vertical" />
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="Padding" Value="0" />
+                <Setter Property="Spacing" Value="1" />
+            </Style>
+
+            <Style TargetType="StackLayout"
                 x:Key="OuterBoxStack"
                 BasedOn="{StaticResource VerticalStack}">
             </Style>
