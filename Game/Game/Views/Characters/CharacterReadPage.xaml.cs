@@ -100,6 +100,11 @@ namespace Game.Views
             }
         }
 
+        /// <summary>
+        /// Helper method to check if the location is holding an item
+        /// </summary>
+        /// <param name="location"></param>
+        /// <returns></returns>
         public bool CheckItemExist(ItemLocationEnum location)
         {
             var data = ViewModel.Data.GetItemByLocation(location);
