@@ -62,69 +62,61 @@ namespace Game.Views
             await Navigation.PopAsync();
         }
 
+        /// <summary>
+        /// Returns the total damage for this character.
+        /// </summary>
+        /// <returns>Total damage for character</returns>
         public int GetTotalDamageForCharacter()
 		{
             int totalDamage = 0;
 
             if (ViewModel.Data.LeftFinger != null && ViewModel.Data.LeftFinger != "None")
 			{
-                // Get item from string id
-                var headItem = ItemIndexViewModel.Instance.GetItem(ViewModel.Data.LeftFinger);
-
-                // Add damage from item to total
-                totalDamage += headItem.Damage;
+                totalDamage += GetDamageFromStringId(ViewModel.Data.LeftFinger);
             }
             if (ViewModel.Data.Feet != null && ViewModel.Data.Feet != "None")
 			{
-                // Get item from string id
-                var feetItem = ItemIndexViewModel.Instance.GetItem(ViewModel.Data.Feet);
-
-                // Add damage from item to total
-                totalDamage += feetItem.Damage;
+                totalDamage += GetDamageFromStringId(ViewModel.Data.Feet);
             }
             if (ViewModel.Data.Head != null && ViewModel.Data.Head != "None")
             {
-                // Get item from string id
-                var headItem = ItemIndexViewModel.Instance.GetItem(ViewModel.Data.Head);
-
-                // Add damage from item to total
-                totalDamage += headItem.Damage;
+                totalDamage += GetDamageFromStringId(ViewModel.Data.Head);
             }
             if (ViewModel.Data.Necklace != null && ViewModel.Data.Necklace != "None")
             {
-                // Get item from string id
-                var necklaceItem = ItemIndexViewModel.Instance.GetItem(ViewModel.Data.Necklace);
-
-                // Add damage from item to total
-                totalDamage += necklaceItem.Damage;
+                totalDamage += GetDamageFromStringId(ViewModel.Data.Necklace);
             }
             if (ViewModel.Data.OffHand != null && ViewModel.Data.OffHand != "None")
             {
-                // Get item from string id
-                var offhandItem = ItemIndexViewModel.Instance.GetItem(ViewModel.Data.OffHand);
-
-                // Add damage from item to total
-                totalDamage += offhandItem.Damage;
+                totalDamage += GetDamageFromStringId(ViewModel.Data.OffHand);
             }
             if (ViewModel.Data.PrimaryHand != null && ViewModel.Data.PrimaryHand != "None")
             {
-                // Get item from string id
-                var primaryHandItem = ItemIndexViewModel.Instance.GetItem(ViewModel.Data.PrimaryHand);
-
-                // Add damage from item to total
-                totalDamage += primaryHandItem.Damage;
+                totalDamage += GetDamageFromStringId(ViewModel.Data.PrimaryHand);
             }
             if (ViewModel.Data.RightFinger != null && ViewModel.Data.RightFinger != "None")
             {
-                // Get item from string id
-                var rightFingerItem = ItemIndexViewModel.Instance.GetItem(ViewModel.Data.RightFinger);
-
-                // Add damage from item to total
-                totalDamage += rightFingerItem.Damage;
+                totalDamage += GetDamageFromStringId(ViewModel.Data.RightFinger);
             }
 
             return totalDamage;
 		}
+
+        /// <summary>
+        /// Returns the damage given a specific item ID.
+        /// </summary>
+        /// <param name="id">Id of item to get damage for</param>
+        /// <returns>Damage for specified item</returns>
+        public int GetDamageFromStringId(string id)
+		{
+            // Get item from string id
+            var item = ItemIndexViewModel.Instance.GetItem(id);
+
+            // Add damage from item to total
+            var damage = item.Damage;
+
+            return damage;
+        }
 
         /// <summary>
         /// Show the Items the Character has
