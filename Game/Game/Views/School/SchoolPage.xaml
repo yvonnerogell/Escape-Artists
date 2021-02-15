@@ -11,71 +11,100 @@
 
             <StackLayout >
 
-                <StackLayout Style="{StaticResource VillageMenuBox}">
+                <StackLayout Style="{StaticResource VillageMenuBox}" Orientation="Vertical">
 
-                    <Grid RowSpacing="1" ColumnSpacing="3">
+                    <Grid RowSpacing="3" ColumnSpacing="0" HorizontalOptions="CenterAndExpand">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"/>
+                        </Grid.ColumnDefinitions>
 
                         <Label Grid.Row="0" Grid.Column="0"
-                                Text="Characters"
-                                Style="{StaticResource CenterMessageMediumStyle}"/>
+                               HorizontalOptions="StartAndExpand"
+                               Text="Characters"
+                               Style="{StaticResource CenterMessageMediumStyle}"/>
 
-                        <ImageButton Grid.Row="0" Grid.Column="2"
-                                Source="{x:Static local:Constants.SpecificCharacterTypeDefaultImageURI}"
-                                Style="{StaticResource VillageMenuImageButton}"
-                                Clicked="CharactersButton_Clicked"/>
+                        <ImageButton Grid.Row="0" Grid.Column="1"
+                            Source="{x:Static local:Constants.SpecificCharacterTypeDefaultImageURI}"
+                            HorizontalOptions="EndAndExpand"
+                            Style="{StaticResource VillageMenuImageButton}"/>
 
+                        <Button Grid.Row="0" Grid.Column="0" Clicked="CharactersButton_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="1" Clicked="CharactersButton_Clicked"/>
                     </Grid>
 
                 </StackLayout>
 
-                <StackLayout Style="{StaticResource VillageMenuBox}">
+                <StackLayout Style="{StaticResource VillageMenuBox}" Orientation="Vertical">
 
-                    <Grid RowSpacing="1" ColumnSpacing="3">
+                    <Grid RowSpacing="3" ColumnSpacing="0" HorizontalOptions="CenterAndExpand">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"/>
+                        </Grid.ColumnDefinitions>
 
                         <Label Grid.Row="0" Grid.Column="0"
-                                Text="Monsters"
-                                Style="{StaticResource CenterMessageMediumStyle}"/>
+                               HorizontalOptions="StartAndExpand"
+                               Text="Monsters"
+                               Style="{StaticResource CenterMessageMediumStyle}"/>
 
-                        <ImageButton Grid.Row="0" Grid.Column="2"
-                                    Source="{x:Static local:Constants.SpecificMonsterTypeAssistantProfessorImageURI}"
-                                    Style="{StaticResource VillageMenuImageButton}"
-                                    Clicked="MonstersButton_Clicked"/>
+                        <ImageButton Grid.Row="0" Grid.Column="1"
+                            Source="{x:Static local:Constants.SpecificMonsterTypeAssistantProfessorImageURI}"
+                            HorizontalOptions="EndAndExpand"
+                            Style="{StaticResource VillageMenuImageButton}"/>
 
+                        <Button Grid.Row="0" Grid.Column="0" Clicked="MonstersButton_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="1" Clicked="MonstersButton_Clicked"/>
                     </Grid>
-
+                    
                 </StackLayout>
 
 
-                <StackLayout Style="{StaticResource VillageMenuBox}">
+                <StackLayout Style="{StaticResource VillageMenuBox}" Orientation="Vertical">
 
-                    <Grid RowSpacing="1" ColumnSpacing="3">
+                    <Grid RowSpacing="3" ColumnSpacing="0" HorizontalOptions="CenterAndExpand">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"/>
+                        </Grid.ColumnDefinitions>
 
                         <Label Grid.Row="0" Grid.Column="0"
-                                Text="Items"
-                                Style="{StaticResource CenterMessageMediumStyle}"/>
+                               HorizontalOptions="StartAndExpand"
+                               Text="Items"
+                               Style="{StaticResource CenterMessageMediumStyle}"/>
 
-                        <ImageButton Grid.Row="0" Grid.Column="2"
+                        <ImageButton Grid.Row="0" Grid.Column="1"
                                     Source="{x:Static local:Constants.ItemTypeLaptopImageURI}"
                                     Style="{StaticResource VillageMenuImageButton}"
-                                    Clicked="ItemsButton_Clicked"/>
+                                    HorizontalOptions="EndAndExpand"/>
+
+                        <Button Grid.Row="0" Grid.Column="0" Clicked="ItemsButton_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="1" Clicked="ItemsButton_Clicked"/>
 
                     </Grid>
 
                 </StackLayout>
 
+                <StackLayout Style="{StaticResource VillageMenuBox}" Orientation="Vertical">
 
-                <StackLayout Style="{StaticResource VillageMenuBox}">
+                    <Grid RowSpacing="3" ColumnSpacing="0" HorizontalOptions="CenterAndExpand">
 
-                    <Grid RowSpacing="1" ColumnSpacing="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"/>
+                        </Grid.ColumnDefinitions>                    
 
                         <Label Grid.Row="0" Grid.Column="0"
-                                Text="Scores"
-                                Style="{StaticResource CenterMessageMediumStyle}"/>
+                               Text="Scores"
+                               HorizontalOptions="StartAndExpand"
+                               Style="{StaticResource CenterMessageMediumStyle}"/>
 
-                        <ImageButton Grid.Row="0" Grid.Column="2"
+                        <ImageButton Grid.Row="0" Grid.Column="1"
                                 Source="{x:Static local:Constants.ItemTypeGraduationCapAndRobeImageURI}"
                                 Style="{StaticResource VillageMenuImageButton}"
-                                Clicked="ScoresButton_Clicked"/>
+                                HorizontalOptions="EndAndExpand"/>
+
+                        <Button Grid.Row="0" Grid.Column="0" Clicked="ScoresButton_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="1" Clicked="ScoresButton_Clicked"/>
 
                     </Grid>
 
