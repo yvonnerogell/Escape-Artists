@@ -44,22 +44,30 @@
                     <Label Grid.Row="0" Grid.Column="0"
                         Text="Name" 
                         Style="{StaticResource LabelStyle}"/>
-                    
-                    <Entry Grid.Row="0" Grid.Column="1"
+
+                    <Entry Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
                         Text="{Binding Data.Name}" 
-                        Style="{StaticResource EntryStyle}"/>
+                        Style="{StaticResource EntryStyle}"
+                        Placeholder="This is a mandatory field!"
+                        PlaceholderColor="Red"/>
 
                     <Label Grid.Row="1" Grid.Column="0"
                         Text="Score" 
                         Style="{StaticResource LabelStyle}"/>
-                    
-                    <Entry Grid.Row="1" Grid.Column="1"
-                        Text="{Binding Data.ScoreTotal}" 
-                        Style="{StaticResource EntryStyle}"/>
 
-                    <Label Grid.Row="1" Grid.Column="0"
-                        Text="Score" 
-                        Style="{StaticResource LabelStyle}"/>
+                    <Label Grid.Row="8" Grid.Column="0"
+                                Text="{Binding Data.ScoreTotal}" 
+                                Style="{StaticResource ValueStyle}"
+                                Padding="0,0,10,0"
+                                HorizontalOptions="End"
+                                HorizontalTextAlignment="End"
+                                x:Name="ValueValue"/>
+
+                    <Slider Grid.Row="8" Grid.Column="1"
+                                Style="{StaticResource ValueSliderStyle}"
+                                ValueChanged="OnSliderChanged"
+                                Value="{Binding Data.ScoreTotal}"
+                                x:Name="ValueSlider"/>
 
                 </Grid>
             </StackLayout>
