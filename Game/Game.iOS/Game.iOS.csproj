@@ -265,9 +265,6 @@
     <BundleResource Include="Resources\item_gradcap.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\item_indexcards.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\human_resources_monster.png" />
   </ItemGroup>
   <ItemGroup>
