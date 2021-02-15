@@ -36,7 +36,7 @@ namespace Game.Views
 
             this.ViewModel.Title = "Update " + data.Title;
 
-            // Make a copy of the character for cancel to restore
+            // Make a copy of the monster for cancel to restore
             DataCopy = new MonsterModel(data.Data);
 
             // Default difficulty level to current difficulty level
