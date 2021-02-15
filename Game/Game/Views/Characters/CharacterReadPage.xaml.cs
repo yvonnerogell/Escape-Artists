@@ -112,6 +112,11 @@ namespace Game.Views
             // Get item from string id
             var item = ItemIndexViewModel.Instance.GetItem(id);
 
+            if (item == null)
+			{
+                return 0;
+			}
+
             // Add damage from item to total
             var damage = item.Damage;
 
