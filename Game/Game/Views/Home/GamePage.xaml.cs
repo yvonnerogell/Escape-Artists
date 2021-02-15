@@ -19,17 +19,17 @@ namespace Game.Views
 		}
 
 		/// <summary>
-		/// Jump to the Dungeon
+		/// Jump to the Game
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-        public async void ClassroomButton_Clicked(object sender, EventArgs e)
+        public async void ExamRoomButton_Clicked(object sender, EventArgs e)
         {
 			await Navigation.PushAsync(new PickCharactersPage());
 		}
 
 		/// <summary>
-		/// Jump to the Village
+		/// Jump to the School which lists out character/monster/items/score
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -39,7 +39,7 @@ namespace Game.Views
 		}
 
 		/// <summary>
-		/// Jump to the Dungeon
+		/// Jump to the Auto  Game
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
