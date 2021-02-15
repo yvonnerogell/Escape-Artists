@@ -53,7 +53,7 @@ namespace Game.Views
                 await Navigation.PushModalAsync(new NavigationPage(new ItemUpdatePage(ViewModel)));
                 await Navigation.PopModalAsync();
             }
-            // otherwise it creates and saves the new character
+            // otherwise it creates and saves the new item
             else
             {
                 var itemType = ItemTypePicker.SelectedItem.ToString();
