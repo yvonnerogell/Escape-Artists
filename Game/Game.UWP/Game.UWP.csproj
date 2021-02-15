@@ -157,6 +157,7 @@
     <Content Include="item_financialaid.png" />
     <Content Include="item_foodcard.png" />
     <Content Include="item_gradcap.png" />
+    <Content Include="item_indexcards.png" />
     <Content Include="item_laptop.png" />
     <Content Include="item_librarycard.png" />
     <Content Include="item_notebook.png" />
