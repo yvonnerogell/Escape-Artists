@@ -41,6 +41,24 @@ namespace Game.ViewModels
 
         #endregion Singleton
 
+
+        #region SortDataSet
+
+        /// <summary>
+        /// The Sort Order for the MonsterModel
+        /// </summary>
+        /// <param name="dataset"></param>
+        /// <returns></returns>
+        public override List<MonsterModel> SortDataset(List<MonsterModel> dataset)
+        {
+            return dataset
+                    .OrderBy(a => a.Name)
+                    .ThenBy(a => a.Description)
+                    .ToList();
+        }
+
+        #endregion SortDataSet
+
         /// <summary>
         /// Constructor
         /// 
