@@ -21,7 +21,7 @@ namespace Game.Models
         // Range of the item, swords are 1, hats/rings are 0, bows are >1
         public int Range { get; set; } = 0;
 
-        // The Damage the Item can do if it is used as a weapon in the primary hand
+        // The Damage the Item can do if it is used as a weapon
         public int Damage { get; set; } = 0;
 
         // Set the item to be a specific type, unknown is defaulted.
