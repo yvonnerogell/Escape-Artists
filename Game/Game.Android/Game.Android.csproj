@@ -216,9 +216,6 @@
     <AndroidResource Include="Resources\drawable\item_gradcap.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\item_indexcards.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\item_laptop.png" />
   </ItemGroup>
   <ItemGroup>
