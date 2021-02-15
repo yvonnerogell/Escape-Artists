@@ -185,17 +185,11 @@ namespace Game.Views
             // Hookup the Image Button to show the Item picture
             var ItemButton = new ImageButton
             {
-                Style = (Style)Application.Current.Resources["ImageMediumStyle"],
+                Style = (Style)Application.Current.Resources["ImageLargeStyle"],
                 Source = data.ImageURI
             };
 
             ItemButton.Clicked += (sender, args) => UpdateItem(data);
-            // TODO: will implement link to item page 
-            //if (ClickableButton)
-            //{
-            // Add a event to the user can click the item and see more
-            //    ItemButton.Clicked += (sender, args) => ShowPopup(data);
-            //}
 
             // Add the Display Text for the item
             var ItemLabel = new Label
