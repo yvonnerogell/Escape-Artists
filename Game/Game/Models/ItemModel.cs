@@ -53,7 +53,7 @@ namespace Game.Models
         {
             ItemType = itemType;
             Location = ItemTypeEnumHelper.GetLocationFromItemType(ItemType);
-            UpdateImageURI(itemType);
+            UpdateImageURIAndDamage(itemType);
         }
 
         /// <summary>
@@ -98,61 +98,74 @@ namespace Game.Models
         /// Given the inputted Character, updates the image URI based on the SpecificCharacterTypeEnum. 
         /// </summary>
         /// <param name="newData">Character to update</param>
-        public void UpdateImageURI(ItemTypeEnum itemType)
+        public void UpdateImageURIAndDamage(ItemTypeEnum itemType)
         {
             switch (itemType)
             {
                 case ItemTypeEnum.IndexCards:
                     ImageURI = Constants.ItemTypeIndexCardsImageURI;
+                    Damage = 2;
                     break;
 
                 case ItemTypeEnum.PencilEraser:
                     ImageURI = Constants.ItemTypePencilEraserImageURI;
+                    Damage = 1;
                     break;
 
                 case ItemTypeEnum.Textbooks:
                     ImageURI = Constants.ItemTypeTextbooksImageURI;
+                    Damage = 10;
                     break;
 
                 case ItemTypeEnum.Notebook:
                     ImageURI = Constants.ItemTypeNotebookImageURI;
+                    Damage = 2;
                     break;
 
                 case ItemTypeEnum.Calculator:
                     ImageURI = Constants.ItemTypeCalculatorImageURI;
+                    Damage = 5;
                     break;
 
                 case ItemTypeEnum.LibraryCard:
                     ImageURI = Constants.ItemTypeLibraryCardImageURI;
+                    Damage = 3;
                     break;
 
                 case ItemTypeEnum.FoodCourtCard:
                     ImageURI = Constants.ItemTypeFoodCourtCardImageURI;
+                    Damage = 5;
                     break;
 
                 case ItemTypeEnum.Laptop:
                     ImageURI = Constants.ItemTypeLaptopImageURI;
+                    Damage = 20;
                     break;
 
                 case ItemTypeEnum.PrivateTutor:
                     ImageURI = Constants.ItemTypePrivateTutorImageURI;
+                    Damage = 10;
                     break;
                 
                 case ItemTypeEnum.FinancialAid:
                     ImageURI = Constants.ItemTypeFinancialAidImageURI;
-                break;
+                    Damage = 40;
+                    break;
 
                 case ItemTypeEnum.Tuition:
                     ImageURI = Constants.ItemTypeTuitionImageURI;
-                break;
+                    Damage = 50;
+                    break;
 
                 case ItemTypeEnum.GraduationCapAndRobe:
                     ImageURI = Constants.ItemTypeGraduationCapAndRobeImageURI;
-                break;
+                    Damage = 200;
+                    break;
 
                 case ItemTypeEnum.Diploma:
                     ImageURI = Constants.ItemTypeDiplomaImageURI;
-                break;
+                    Damage = 1000;
+                    break;
            
                 case ItemTypeEnum.Unknown:
                 default:
