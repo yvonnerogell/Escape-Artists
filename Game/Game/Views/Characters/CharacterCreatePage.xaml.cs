@@ -142,6 +142,7 @@ namespace Game.Views.Characters
             var ItemLabel = new Label
             {
                 Text = data.ItemType.ToMessage(),
+                //Style = (Style)Application.Current.Resources["LabelRedStyle"],
                 HorizontalOptions = LayoutOptions.Center,
                 HorizontalTextAlignment = TextAlignment.Center,
             };
