@@ -76,6 +76,7 @@ namespace Game.Models
         /// </summary>
         public ScoreModel()
         {
+            Name = "";
             GameDate = DateTime.Now;    // Set to be now by default.
             AutoBattle = false;         //assume user battle
 
