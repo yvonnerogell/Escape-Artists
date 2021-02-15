@@ -291,4 +291,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\item_skateboard.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\item_indexcards.png" />
+  </ItemGroup>
 </Project>
