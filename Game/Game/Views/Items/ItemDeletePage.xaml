@@ -54,8 +54,8 @@
                     Text="{Binding Data.Description}" 
                     Style="{StaticResource ValueStyle}"/>
             </StackLayout>
-            
-            <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ImageLargeStyle}"/>
+
+            <Image Source="{Binding Data.ImageURI}" Style="{StaticResource ItemImageClicked}"/>
 
 
             <StackLayout 
