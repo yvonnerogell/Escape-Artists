@@ -62,5 +62,21 @@ namespace Game.Views
         {
             await Navigation.PopModalAsync();
         }
+
+        /// <summary>
+        /// Changes the slider value for the appropriate slider (total score)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void OnSliderChanged(object sender, ValueChangedEventArgs e)
+        {
+            var newValue = (int)e.NewValue;
+            var newValueStr = String.Format("{0}", newValue);
+            if (sender == ScoreSlider)
+            {
+                ValueValue.Text = newValueStr;
+                ScoreSlider.Value = newValue;
+            }
+        }
     }
 }
