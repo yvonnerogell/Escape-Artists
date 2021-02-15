@@ -35,7 +35,7 @@ namespace Game.Views
 
             this.ViewModel.Title = "Update " + data.Title;
 
-            // Make a copy of the character for cancel to restore
+            // Make a copy of the item for cancel to restore
             DataCopy = new ItemModel(data.Data);
 
             //Need to make the SelectedItem a string, so it can select the correct item.
