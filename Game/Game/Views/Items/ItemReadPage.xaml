@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Class="Game.Views.ItemReadPage"
              xmlns:local_helpers="clr-namespace:Game.Helpers"
-             Title="{Binding Title}">
+             Title="Read">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Update" Clicked="Update_Clicked" IconImageSource="icon_edit.png"/>
