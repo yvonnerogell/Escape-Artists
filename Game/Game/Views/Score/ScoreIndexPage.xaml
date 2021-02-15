@@ -42,31 +42,35 @@
 
                                     <Label Grid.Row="0" Grid.Column="0" 
                                        Text="Name: " 
-                                       Style="{StaticResource ListStyle}"
+                                       Style="{StaticResource LabelStyle}"
                                        HorizontalOptions="StartAndExpand"
                                        BackgroundColor="MediumSeaGreen"/>
 
                                     <Label Grid.Row="0" Grid.Column="1" 
                                        Text="{Binding Name}" 
-                                       Style="{StaticResource ListStyle}"
+                                       Style="{StaticResource LabelStyle}"
                                        HorizontalOptions="EndAndExpand"
                                        BackgroundColor="MediumSeaGreen"/>
 
                                     <Label Grid.Row="1" Grid.Column="0"     
                                        Text="Round: " 
-                                       Style="{StaticResource ListStyle}"/>
+                                       Style="{StaticResource LabelStyle}"
+                                       HorizontalOptions="StartAndExpand"/>
 
                                     <Label Grid.Row="1" Grid.Column="1"     
                                        Text="{Binding RoundCount}" 
-                                       Style="{StaticResource ListStyle}"/>
+                                       Style="{StaticResource ValueStyle}"
+                                       HorizontalOptions="EndAndExpand"/>
 
                                     <Label Grid.Row="2" Grid.Column="0" 
                                        Text="Score: " 
-                                       Style="{StaticResource ListStyle}"/>
+                                       Style="{StaticResource LabelStyle}"
+                                       HorizontalOptions="StartAndExpand"/>
 
                                     <Label Grid.Row="2" Grid.Column="1" 
                                        Text="{Binding ScoreTotal}" 
-                                       Style="{StaticResource ListStyle}"/>
+                                       Style="{StaticResource ValueStyle}"
+                                       HorizontalOptions="EndAndExpand"/>
 
                                 </Grid>
 
