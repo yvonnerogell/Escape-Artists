@@ -19,6 +19,9 @@ namespace Game.Views
         // View Model for Monster
         public readonly GenericViewModel<MonsterModel> ViewModel;
 
+        // Hold a copy of the original data for Cancel to use
+        public MonsterModel DataCopy;
+
         // Empty Constructor for Tests
         public MonsterUpdatePage(bool UnitTest){ }
 
@@ -33,8 +36,11 @@ namespace Game.Views
 
             this.ViewModel.Title = "Update " + data.Title;
 
-           // Default difficulty level to current difficulty level
-           DifficultyLevelPicker.SelectedItem = ViewModel.Data.Difficulty.ToMessage();
+            // Make a copy of the character for cancel to restore
+            DataCopy = new MonsterModel(data.Data);
+
+            // Default difficulty level to current difficulty level
+            DifficultyLevelPicker.SelectedItem = ViewModel.Data.Difficulty.ToMessage();
 
             AddUniqueDropItemToDisplay();
         }
@@ -132,6 +138,9 @@ namespace Game.Views
         /// <param name="e"></param>
         public async void Cancel_Clicked(object sender, EventArgs e)
         {
+            // Put the copy back
+            ViewModel.Data.Update(DataCopy);
+
             await Navigation.PopModalAsync();
         }
 
