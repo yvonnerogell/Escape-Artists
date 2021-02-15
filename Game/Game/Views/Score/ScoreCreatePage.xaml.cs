@@ -43,14 +43,18 @@ namespace Game.Views
         /// <param name="e"></param>
         public async void Save_Clicked(object sender, EventArgs e)
         {
-            // If the image in the data box is empty, use the default one..
-            if (string.IsNullOrEmpty(ViewModel.Data.ImageURI))
+            // if the name is not entered, the page remains on the create screen
+            if (string.IsNullOrEmpty(ViewModel.Data.Name))
             {
-                ViewModel.Data.ImageURI = Services.ItemService.DefaultImageURI;
+                await Navigation.PushModalAsync(new NavigationPage(new ScoreUpdatePage(ViewModel)));
+                await Navigation.PopModalAsync();
             }
-
-            MessagingCenter.Send(this, "Create", ViewModel.Data);
-            await Navigation.PopModalAsync();
+            // otherwise it creates and saves the new score
+            else
+            {
+                MessagingCenter.Send(this, "Create", ViewModel.Data);
+                await Navigation.PopModalAsync();
+            }
         }
 
         /// <summary>
