@@ -47,8 +47,18 @@ namespace Game.Views
         /// <param name="e"></param>
         public async void Save_Clicked(object sender, EventArgs e)
         {
-            MessagingCenter.Send(this, "Update", ViewModel.Data);
-            await Navigation.PopModalAsync();
+            // if the name is not entered, the page remains on the create screen
+            if (string.IsNullOrEmpty(ViewModel.Data.Name))
+            {
+                await Navigation.PushModalAsync(new NavigationPage(new ScoreUpdatePage(ViewModel)));
+                await Navigation.PopModalAsync();
+            }
+            // otherwise it creates and saves the new score
+            else
+            {
+                MessagingCenter.Send(this, "Create", ViewModel.Data);
+                await Navigation.PopModalAsync();
+            }
         }
 
         /// <summary>
