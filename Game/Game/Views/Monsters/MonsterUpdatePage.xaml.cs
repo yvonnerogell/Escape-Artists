@@ -5,6 +5,7 @@ using Xamarin.Forms.Xaml;
 
 using Game.ViewModels;
 using Game.Models;
+using System.Linq;
 
 namespace Game.Views
 {
@@ -34,6 +35,73 @@ namespace Game.Views
 
            // Default difficulty level to current difficulty level
            DifficultyLevelPicker.SelectedItem = ViewModel.Data.Difficulty.ToMessage();
+
+            AddUniqueDropItemToDisplay();
+        }
+
+        /// <summary>
+        /// Show the UniqueDropItem Monster has
+        /// </summary>
+        public void AddUniqueDropItemToDisplay()
+        {
+            var FlexList = ItemBox.Children.ToList();
+            foreach (var data in FlexList)
+            {
+                ItemBox.Children.Remove(data);
+            }
+
+            if (ViewModel.Data.UniqueDropItem != null)
+            {
+                ItemBox.Children.Add(LoadItem(ItemIndexViewModel.Instance.GetItem(ViewModel.Data.UniqueDropItem)));
+            }
+        }
+
+        /// <summary>
+        /// load an item
+        /// </summary>
+        /// <param name="location"></param>
+        /// <returns></returns>
+        public StackLayout LoadItem(ItemModel dropItem)
+        {
+            // Hookup the Image Button to show the Item picture
+            var ItemButton = new ImageButton
+            {
+                Style = (Style)Application.Current.Resources["ItemImageClicked"],
+                Source = dropItem.ImageURI,
+            };
+            ItemButton.Clicked += (sender, args) => UpdateNewItem(sender, dropItem);
+
+            // Add the Display Text for the item
+            var ItemLabel = new Label
+            {
+                Text = dropItem.ItemType.ToMessage(),
+                HorizontalOptions = LayoutOptions.Center,
+                HorizontalTextAlignment = TextAlignment.Center,
+            };
+
+            // Put the Image Button and Text inside a layout
+            var ItemStack = new StackLayout
+            {
+                Padding = 3,
+                Style = (Style)Application.Current.Resources["ItemImageBox"],
+                Children = {
+                    ItemButton,
+                    ItemLabel
+                },
+            };
+
+            return ItemStack;
+        }
+
+        /// <summary>
+        /// Triggers the update item page 
+        /// </summary>
+        /// <param name="location"></param>
+        public async void UpdateNewItem(object sender, ItemModel data)
+        {
+            // trigger new item create page with created item
+            GenericViewModel<ItemModel> generalData = new GenericViewModel<ItemModel>(data);
+            await Navigation.PushModalAsync(new NavigationPage(new ItemUpdatePage(generalData)));
         }
 
         /// <summary>

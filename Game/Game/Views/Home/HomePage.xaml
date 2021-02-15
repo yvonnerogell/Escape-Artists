@@ -16,13 +16,13 @@
                     <Image
                          Source="squid.jpg"
                          Style="{StaticResource ImageLargeStyle}"/>
-                
+
                 </StackLayout>
-                
-                <StackLayout HorizontalOptions="Center" Padding="70,5,70,0"> 
-               
+
+                <StackLayout HorizontalOptions="Center" Padding="70,5,70,0">
+
                     <Label 
-                        Text="Your Game Information"
+                        Text="Welcome to Escaping School!"
                         Style="{StaticResource CenterMessageStyle}"
                         FontSize="Micro"
                         LineBreakMode="WordWrap"
@@ -30,19 +30,31 @@
                         />
 
                     <Label 
-                        Text="Help them on their mission."
+                        Text="Hope you graduate!"
                         Style="{StaticResource CenterMessageStyle}"
                         FontSize="Micro"
                         LineBreakMode="WordWrap"
                         MaxLines="5"
                         />
                 </StackLayout>
-
-                <Button
-                    Text="Enter"
+                
+                <StackLayout>
+                    <Button
+                    Text="Play Now"
                     Clicked="GameButton_Clicked"
-                    Style="{StaticResource ButtonStyleSmall}"/>
+                    Style="{StaticResource ButtonStyleMedium}"/>
+                    
+                    <Button
+                    Text="About"
+                    Clicked="AboutButton_Clicked"
+                    Style="{StaticResource ButtonStyleMedium}"/>
+                    
+                    <Button
+                    Text="Score"
+                    Clicked="ScoreButton_Clicked"
+                    Style="{StaticResource ButtonStyleMedium}"/>
 
+                </StackLayout>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

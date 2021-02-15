@@ -133,7 +133,13 @@
 
 
                 </Grid>
-
+                
+                <FlexLayout 
+                Padding="5"
+                JustifyContent="SpaceAround"
+                AlignContent="SpaceAround"
+                x:Name="ItemBox">
+                </FlexLayout>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
