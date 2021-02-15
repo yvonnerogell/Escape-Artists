@@ -22,7 +22,7 @@ namespace Game.GameRules
                     ItemType = ItemTypeEnum.IndexCards,
                     ImageURI = Constants.ItemTypeIndexCardsImageURI,
                     Range = 10,
-                    Damage = 10,
+                    Damage = 2,
                     Value = 2,
                     Location = ItemLocationEnum.RightFinger,
                     Attribute = AttributeEnum.Attack
@@ -34,7 +34,7 @@ namespace Game.GameRules
                     ItemType = ItemTypeEnum.IndexCards,
                     ImageURI = Constants.ItemTypeIndexCardsImageURI,
                     Range = 10,
-                    Damage = 10,
+                    Damage = 2,
                     Value = 2,
                     Location = ItemLocationEnum.RightFinger,
                     Attribute = AttributeEnum.Attack
@@ -45,7 +45,7 @@ namespace Game.GameRules
                     ItemType = ItemTypeEnum.PencilEraser,
                     ImageURI = Constants.ItemTypePencilEraserImageURI,
                     Range = 10,
-                    Damage = 10,
+                    Damage = 1,
                     Value = 1,
                     Location = ItemLocationEnum.PrimaryHand,
                     Attribute = AttributeEnum.Attack
@@ -80,7 +80,7 @@ namespace Game.GameRules
                     ItemType = ItemTypeEnum.Notebook,
                     ImageURI = Constants.ItemTypeNotebookImageURI,
                     Range = 10,
-                    Damage = 10,
+                    Damage = 2,
                     Value = 2,
                     Location = ItemLocationEnum.PrimaryHand,
                     Attribute = AttributeEnum.Attack
@@ -91,7 +91,7 @@ namespace Game.GameRules
                     ItemType = ItemTypeEnum.Calculator,
                     ImageURI = Constants.ItemTypeCalculatorImageURI,
                     Range = 10,
-                    Damage = 10,
+                    Damage = 5,
                     Value = 5,
                     Location = ItemLocationEnum.LeftFinger,
                     Attribute = AttributeEnum.Attack
@@ -102,7 +102,7 @@ namespace Game.GameRules
                     ItemType = ItemTypeEnum.LibraryCard,
                     ImageURI = Constants.ItemTypeLibraryCardImageURI,
                     Range = 10,
-                    Damage = 10,
+                    Damage = 3,
                     Value = 3,
                     Location = ItemLocationEnum.Necklace,
                     Attribute = AttributeEnum.Attack
@@ -113,7 +113,7 @@ namespace Game.GameRules
                     ItemType = ItemTypeEnum.FoodCourtCard,
                     ImageURI = Constants.ItemTypeFoodCourtCardImageURI,
                     Range = 10,
-                    Damage = 10,
+                    Damage = 5,
                     Value = 5,
                     Location = ItemLocationEnum.Necklace,
                     Attribute = AttributeEnum.Attack
@@ -125,7 +125,7 @@ namespace Game.GameRules
                     ItemType = ItemTypeEnum.Laptop,
                     ImageURI = Constants.ItemTypeLaptopImageURI,
                     Range = 10,
-                    Damage = 10,
+                    Damage = 20,
                     Value = 20,
                     Location = ItemLocationEnum.PrimaryHand,
                     Attribute = AttributeEnum.Attack
@@ -137,7 +137,7 @@ namespace Game.GameRules
                     ItemType = ItemTypeEnum.Laptop,
                     ImageURI = Constants.ItemTypeLaptopImageURI,
                     Range = 10,
-                    Damage = 10,
+                    Damage = 20,
                     Value = 20,
                     Location = ItemLocationEnum.PrimaryHand,
                     Attribute = AttributeEnum.Attack
@@ -170,7 +170,7 @@ namespace Game.GameRules
                     ItemType = ItemTypeEnum.Tuition,
                     ImageURI = Constants.ItemTypeTuitionImageURI,
                     Range = 10,
-                    Damage = 10,
+                    Damage = 50,
                     Value = 50,
                     Location = ItemLocationEnum.PrimaryHand,
                     Attribute = AttributeEnum.Attack
@@ -181,7 +181,7 @@ namespace Game.GameRules
                     ItemType = ItemTypeEnum.GraduationCapAndRobe,
                     ImageURI = Constants.ItemTypeGraduationCapAndRobeImageURI,
                     Range = 10,
-                    Damage = 10,
+                    Damage = 200,
                     Value = 200,
                     Location = ItemLocationEnum.Head,
                     Attribute = AttributeEnum.Attack
@@ -192,7 +192,7 @@ namespace Game.GameRules
                     ItemType = ItemTypeEnum.Diploma,
                     ImageURI = Constants.ItemTypeDiplomaImageURI,
                     Range = 10,
-                    Damage = 10,
+                    Damage = 1000,
                     Value = 1000,
                     Location = ItemLocationEnum.OffHand,
                     Attribute = AttributeEnum.Attack
