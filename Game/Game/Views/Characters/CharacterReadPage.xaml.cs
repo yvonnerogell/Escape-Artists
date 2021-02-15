@@ -35,6 +35,9 @@ namespace Game.Views
             BindingContext = this.ViewModel = data;
 
             AddItemsToDisplay();
+
+            int totalDamage = GetTotalDamageForCharacter();
+            DamageLabel.Text = totalDamage.ToString();
         }
 
         /// <summary>
@@ -57,6 +60,62 @@ namespace Game.Views
         {
             await Navigation.PushModalAsync(new NavigationPage(new CharaterDeletePage(ViewModel)));
             await Navigation.PopAsync();
+        }
+
+        /// <summary>
+        /// Returns the total damage for this character.
+        /// </summary>
+        /// <returns>Total damage for character</returns>
+        public int GetTotalDamageForCharacter()
+		{
+            int totalDamage = 0;
+
+            if (ViewModel.Data.LeftFinger != null && ViewModel.Data.LeftFinger != "None")
+			{
+                totalDamage += GetDamageFromStringId(ViewModel.Data.LeftFinger);
+            }
+            if (ViewModel.Data.Feet != null && ViewModel.Data.Feet != "None")
+			{
+                totalDamage += GetDamageFromStringId(ViewModel.Data.Feet);
+            }
+            if (ViewModel.Data.Head != null && ViewModel.Data.Head != "None")
+            {
+                totalDamage += GetDamageFromStringId(ViewModel.Data.Head);
+            }
+            if (ViewModel.Data.Necklace != null && ViewModel.Data.Necklace != "None")
+            {
+                totalDamage += GetDamageFromStringId(ViewModel.Data.Necklace);
+            }
+            if (ViewModel.Data.OffHand != null && ViewModel.Data.OffHand != "None")
+            {
+                totalDamage += GetDamageFromStringId(ViewModel.Data.OffHand);
+            }
+            if (ViewModel.Data.PrimaryHand != null && ViewModel.Data.PrimaryHand != "None")
+            {
+                totalDamage += GetDamageFromStringId(ViewModel.Data.PrimaryHand);
+            }
+            if (ViewModel.Data.RightFinger != null && ViewModel.Data.RightFinger != "None")
+            {
+                totalDamage += GetDamageFromStringId(ViewModel.Data.RightFinger);
+            }
+
+            return totalDamage;
+		}
+
+        /// <summary>
+        /// Returns the damage given a specific item ID.
+        /// </summary>
+        /// <param name="id">Id of item to get damage for</param>
+        /// <returns>Damage for specified item</returns>
+        public int GetDamageFromStringId(string id)
+		{
+            // Get item from string id
+            var item = ItemIndexViewModel.Instance.GetItem(id);
+
+            // Add damage from item to total
+            var damage = item.Damage;
+
+            return damage;
         }
 
         /// <summary>
