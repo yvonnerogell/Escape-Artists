@@ -121,26 +121,34 @@
                     Style="{StaticResource ValueStyle}"/>
                 </StackLayout>
 
-                <Label 
-                Text="Characters at Death:"
-                Style="{StaticResource LabelStyle}"/>
-                <Label 
-                Text="{Binding Data.CharacterAtDeathList}" 
-                Style="{StaticResource ValueStyle}"/>
+                <StackLayout Style="{StaticResource HorizontalStack}">
+                    <Label 
+                    Text="Characters at Death:"
+                    Style="{StaticResource LabelStyle}"/>
+                    <Label 
+                    Text="{Binding Data.CharacterAtDeathList}" 
+                    Style="{StaticResource ValueStyle}"/>
 
-                <Label 
-                Text="Monsters Killed:"
-                Style="{StaticResource LabelStyle}"/>
-                <Label 
-                Text="{Binding Data.MonstersKilledList}" 
-                Style="{StaticResource ValueStyle}"/>
+                </StackLayout>
 
-                <Label 
-                Text="Items Dropped:"
-                Style="{StaticResource LabelStyle}"/>
-                <Label 
-                Text="{Binding Data.ItemsDroppedList}"
-                Style="{StaticResource ValueStyle}"/>
+                <StackLayout Style="{StaticResource HorizontalStack}">
+                     <Label 
+                        Text="Monsters Killed:"
+                        Style="{StaticResource LabelStyle}"/>
+                     <Label 
+                        Text="{Binding Data.MonstersKilledList}" 
+                        Style="{StaticResource ValueStyle}"/>
+               </StackLayout>
+
+
+                    <StackLayout Style="{StaticResource HorizontalStack}">
+                      <Label 
+                        Text="Items Dropped:"
+                        Style="{StaticResource LabelStyle}"/>
+                                <Label 
+                        Text="{Binding Data.ItemsDroppedList}"
+                        Style="{StaticResource ValueStyle}"/>
+                 </StackLayout>
 
 
             </StackLayout>
