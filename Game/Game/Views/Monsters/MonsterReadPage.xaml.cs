@@ -35,6 +35,9 @@ namespace Game.Views
             BindingContext = this.ViewModel = data;
 
             AddUniqueDropItemToDisplay();
+
+            int totalDamage = GetDamageFromUniqueDropItem(ViewModel.Data.UniqueDropItem);
+            DamageLabel.Text = totalDamage.ToString();
         }
 
         /// <summary>
@@ -122,6 +125,27 @@ namespace Game.Views
         {
             await Navigation.PushModalAsync(new NavigationPage(new MonsterDeletePage(ViewModel)));
             await Navigation.PopAsync();
+        }
+      
+        /// <summary>
+        /// Returns the damage given a specific item ID.
+        /// </summary>
+        /// <param name="id">Id of item to get damage for</param>
+        /// <returns>Damage for specified item</returns>
+        public int GetDamageFromUniqueDropItem(string id)
+        {
+            // Get item from string id
+            var item = ItemIndexViewModel.Instance.GetItem(id);
+
+            if (item == null)
+			{
+                return 0;
+			}
+
+            // Add damage from item to total
+            var damage = item.Damage;
+
+            return damage;
         }
     }
 }

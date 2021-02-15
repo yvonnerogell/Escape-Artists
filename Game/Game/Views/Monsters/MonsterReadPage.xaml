@@ -138,6 +138,12 @@
                         Grid.Column="1"
                         Grid.Row="4"
                         Text="{Binding Data.MaxHealth}" />
+                    <Label 
+                        x:Name="DamageLabel"
+                        Style="{StaticResource GridLabelStyle}"
+                        Grid.Column="1"
+                        Grid.Row="5"
+                        Text="{Binding Data.Damage}" />
 
                 </Grid>
             </StackLayout>
