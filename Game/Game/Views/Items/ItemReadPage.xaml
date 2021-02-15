@@ -47,7 +47,8 @@
                             Style="{StaticResource LabelStyle}"/>
                         <Label 
                             Text="{Binding Data.Description}" 
-                            Style="{StaticResource LabelStyle}"/>
+                            Style="{StaticResource LabelStyle}"
+                            LineBreakMode="WordWrap"/>
                     </StackLayout>
 
                     <StackLayout Orientation="Horizontal">
