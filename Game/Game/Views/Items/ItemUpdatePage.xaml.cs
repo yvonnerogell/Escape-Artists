@@ -43,14 +43,24 @@ namespace Game.Views
         /// <param name="e"></param>
         public async void Save_Clicked(object sender, EventArgs e)
         {
-            // If the image in the data box is empty, use the default one..
-            if (string.IsNullOrEmpty(ViewModel.Data.ImageURI))
+            // if the name or description are not entered, the page remains on the update screen
+            if (string.IsNullOrEmpty(ViewModel.Data.Name) || string.IsNullOrEmpty(ViewModel.Data.Description))
             {
-                ViewModel.Data.ImageURI = Services.ItemService.DefaultImageURI;
+                await Navigation.PushModalAsync(new NavigationPage(new ItemUpdatePage(ViewModel)));
+                await Navigation.PopModalAsync();
             }
+            // otherwise it creates and updates the item
+            else
+            {
+                // If the image in the data box is empty, use the default one..
+                if (string.IsNullOrEmpty(ViewModel.Data.ImageURI))
+                {
+                    ViewModel.Data.ImageURI = Services.ItemService.DefaultImageURI;
+                }
 
-            MessagingCenter.Send(this, "Update", ViewModel.Data);
-            await Navigation.PopModalAsync();
+                MessagingCenter.Send(this, "Update", ViewModel.Data);
+                await Navigation.PopModalAsync();
+            }
         }
 
         /// <summary>
