@@ -17,12 +17,18 @@ namespace Game.Models
         // Character GPA
         public int GPA { get; set; } = 0;
 
+        // Variable indicating if special ability has been used in a given round.
         public bool AbilityUsedInCurrentRound { get; set; } = false;
 
+        // Character's special ability. This is pre-determined based on SpecificCharacterType
         public AbilityEnum SpecialAbility { get; set; } 
 
+        // Variable indicating if Character has graduated or not (i.e. reached level 20)
         public bool Graduated { get; set; } = false;
 
+        /// <summary>
+        /// Default Character constructor
+        /// </summary>
         public CharacterModel()
         {
             Name = "";
@@ -220,6 +226,11 @@ namespace Game.Models
             }
         }
 
+        /// <summary>
+        /// Returns the ability enum associated with the indicated SpecificCharacterType.
+        /// </summary>
+        /// <param name="specificCharacterType">SpecificCharacterType used to extract ability enum</param>
+        /// <returns>Ability Enum associated with specified SpecificCharacterType</returns>
         public AbilityEnum SelectSpecialAbilityBasedOnSpecificCharacterType(SpecificCharacterTypeEnum specificCharacterType)
 		{
             var abilityEnum = AbilityEnum.Unknown;
