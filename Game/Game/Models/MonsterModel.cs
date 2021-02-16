@@ -57,22 +57,10 @@ namespace Game.Models
             }
 
             PlayerType = newData.PlayerType;
-            if (PlayerType == PlayerTypeEnum.Monster)
-            {
-               MonsterTypeEnum = newData.MonsterTypeEnum;
-            }
-
-            // Updates each Monster by SpecificMonsterType Enum 
-            if (MonsterTypeEnum == MonsterTypeEnum.Faculty && SpecificMonsterTypeEnumHelper.GetFacultyList.Contains(newData.SpecificMonsterTypeEnum.ToMessage()))
-            {
-                SpecificMonsterTypeEnum = newData.SpecificMonsterTypeEnum;
-            }
-
-            if (MonsterTypeEnum == MonsterTypeEnum.Administrator && SpecificMonsterTypeEnumHelper.GetAdministratorList.Contains(newData.SpecificMonsterTypeEnum.ToMessage()))
-            {
-                SpecificMonsterTypeEnum = newData.SpecificMonsterTypeEnum;
-            }
-
+            MonsterTypeEnum = newData.MonsterTypeEnum;
+            SpecificMonsterTypeEnum = newData.SpecificMonsterTypeEnum;
+            SpecificMonsterTypeEnum = newData.SpecificMonsterTypeEnum;
+            
             ImageURI = SpecificMonsterTypeEnumHelper.ToImageURI(SpecificMonsterTypeEnum);
             Guid = newData.Guid;
             Name = newData.Name;
