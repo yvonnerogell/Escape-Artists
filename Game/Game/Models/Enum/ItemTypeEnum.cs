@@ -264,20 +264,12 @@ namespace Game.Models
             return itemLocation;
         }
 
-        public static string randomeName(List<String> names)
-        {
-            // get length of list
-            var listLength = names.Count();
-
-            // get random number between 0 to listLength (not including listLength)
-            Random r = new Random();
-            int rInt = r.Next(0, listLength);
-
-            // return the name at index rInt of the names
-            return names.ElementAt(rInt);
-        }
-
-        public static List<String> getNamesBasedOnType(ItemTypeEnum itemType)
+        /// <summary>
+        /// generate random name based on item type
+        /// </summary>
+        /// <param name="itemType"></param>
+        /// <returns></returns>
+        public static String getRandomeNameBasedOnType(ItemTypeEnum itemType)
         {
             // Fun item names
             List<string> possibleNames = new List<string>();
@@ -285,7 +277,7 @@ namespace Game.Models
             
             {
                 case ItemTypeEnum.Tuition:
-                    possibleNames.Add("Masters");
+                    possibleNames.Add("Masters ");
                     possibleNames.Add("Undergraduate");
                     possibleNames.Add("Certificate");
                     break;
@@ -376,7 +368,16 @@ namespace Game.Models
                     possibleNames.Add("Green");
                     break;
             }
-            return possibleNames;
+
+            // get length of list
+            var listLength = possibleNames.Count();
+
+            // get random number between 0 to listLength (not including listLength)
+            Random r = new Random();
+            int rInt = r.Next(0, listLength);
+
+            // return the name at index rInt of the names
+            return possibleNames.ElementAt(rInt) + " " + itemType.ToMessage();
         }
 }
 }
