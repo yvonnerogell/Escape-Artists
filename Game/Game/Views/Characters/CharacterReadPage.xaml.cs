@@ -232,7 +232,8 @@ namespace Game.Views
         /// <param name="data"></param>
         public async void ShowItem(ItemModel data)
         {
-            await Navigation.PushAsync(new ItemReadPage(new GenericViewModel<ItemModel>(data)));
+            //await Navigation.PushModalAsync(new NavigationPage(new ItemDetailPage(new GenericViewModel<ItemModel>(data))));
+            await Navigation.PushAsync(new ItemDetailPage(new GenericViewModel<ItemModel>(data)));
         }
     }
 }
