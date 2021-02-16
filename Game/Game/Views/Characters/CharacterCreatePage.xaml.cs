@@ -41,11 +41,15 @@ namespace Game.Views.Characters
         public void OnPickerSelectedIndexChanged(object sender, EventArgs e)
         {
             var picker = (Picker)sender;
+
+            // clear the previous items on location
             ClearPreviousItems();
+
+            // get specificCharacterTypeEnum
             SpecificCharacterTypeEnum SpecificCharacterTypeEnum = SpecificCharacterTypeEnumHelper.ConvertMessageStringToEnum((string)picker.SelectedItem);
 
             //get the items based on character
-            newItems = ViewModel.Data.UpdateItemsBasedOnCharacterType(SpecificCharacterTypeEnum);
+            newItems = ViewModel.Data.ItemsBasedOnCharacterType(SpecificCharacterTypeEnum);
 
             //remove items from page
             var FlexList = ItemBox.Children.ToList();
@@ -133,18 +137,19 @@ namespace Game.Views.Characters
             // Hookup the Image Button to show the Item picture
             var ItemButton = new ImageButton
             {
-                Style = (Style)Application.Current.Resources["ItemImage"],
-                Source = data.ImageURI,
+                Style = (Style)Application.Current.Resources["ItemImageClicked"],
+                Source = data.ImageURI
             };
-            ItemButton.Clicked += (sender, args) => UpdateNewItem(sender, data);
+
+            // Add clicked method to load item info.
+            ItemButton.Clicked += (sender, args) => ShowItem(data);
 
             // Add the Display Text for the item
             var ItemLabel = new Label
             {
-                Text = data.ItemType.ToMessage(),
-                //Style = (Style)Application.Current.Resources["LabelRedStyle"],
+                Text = location.ToMessage(),
                 HorizontalOptions = LayoutOptions.Center,
-                HorizontalTextAlignment = TextAlignment.Center,
+                HorizontalTextAlignment = TextAlignment.Center
             };
 
             // Put the Image Button and Text inside a layout
@@ -152,6 +157,7 @@ namespace Game.Views.Characters
             {
                 Padding = 3,
                 Style = (Style)Application.Current.Resources["ItemImageBox"],
+                HorizontalOptions = LayoutOptions.Center,
                 Children = {
                     ItemButton,
                     ItemLabel
@@ -165,19 +171,10 @@ namespace Game.Views.Characters
         /// Triggers the update item page 
         /// </summary>
         /// <param name="location"></param>
-        public async void UpdateNewItem(object sender, ItemModel data)
+        public async void ShowItem(ItemModel data)
         {
-            // Add the item to the location
-            ViewModel.Data.AddItem(data.Location, data.Id);
-            MessagingCenter.Send(this, "CreateItem", data);
-            // trigger new item create page with created item
-            GenericViewModel<ItemModel> generalData = new GenericViewModel<ItemModel>(data);
-            await Navigation.PushModalAsync(new NavigationPage(new ItemUpdatePage(generalData)));
-
-            ImageButton btn = sender as ImageButton;
-            btn.Style = (Style)Application.Current.Resources["ItemImageClicked"];
-            btn.IsEnabled = false;
-            // TODO: need to work on reloading the current page after item is created
+            //await Navigation.PushModalAsync(new NavigationPage(new ItemDetailPage(new GenericViewModel<ItemModel>(data))));
+            await Navigation.PushAsync(new ItemDetailPage(new GenericViewModel<ItemModel>(data)));
         }
 
         /// <summary>
@@ -211,14 +208,13 @@ namespace Game.Views.Characters
                 ViewModel.Data.CharacterTypeEnum = SpecificCharacterTypeEnumHelper.GetCharacterTypeEnumFromSpecificCharacterTypeEnum(ViewModel.Data.SpecificCharacterTypeEnum);
                 ViewModel.Data.ImageURI = SpecificCharacterTypeEnumHelper.ToImageURI(ViewModel.Data.SpecificCharacterTypeEnum);
                 ViewModel.Data.SpecialAbility = SpecificCharacterTypeEnumHelper.ToAbility(ViewModel.Data.SpecificCharacterTypeEnum);
-                
-                // Add Items
-                //foreach (ItemModel item in newItems)
-                //{
-                //    MessagingCenter.Send(this, "CreateItem", item);
-                //}
 
                 MessagingCenter.Send(this, "Create", ViewModel.Data);
+
+                foreach (var item in newItems)
+                {
+                    MessagingCenter.Send(this, "CreateItem", item);
+                }
 
                 await Navigation.PopModalAsync();
             }

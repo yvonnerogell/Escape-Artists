@@ -42,7 +42,6 @@ namespace Game.Models
             GPA = 0;
             ExperienceTotal = 0;
             ExperienceRemaining = LevelTableHelper.LevelDetailsList[Level + 1].Experience - 1;
-            UpdateItemsBasedOnCharacterType(SpecificCharacterTypeEnum);
             SpecialAbility = SpecificCharacterTypeEnumHelper.ToAbility(SpecificCharacterTypeEnum);
 
         }
@@ -105,10 +104,10 @@ namespace Game.Models
         }
 
         /// <summary>
-        /// Given the inputted Character, updates the image URI based on the SpecificCharacterTypeEnum. 
+        /// Given SpecificCharacterTypeEnum return the items
         /// </summary>
         /// <param name="newData">Character to update</param>
-        public List<ItemModel> UpdateItemsBasedOnCharacterType(SpecificCharacterTypeEnum characterType)
+        public List<ItemModel> ItemsBasedOnCharacterType(SpecificCharacterTypeEnum characterType)
         {
             List<ItemModel> item = new List<ItemModel>();
             switch (characterType)
