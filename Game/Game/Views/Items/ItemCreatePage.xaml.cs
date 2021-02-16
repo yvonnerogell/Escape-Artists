@@ -96,11 +96,6 @@ namespace Game.Views
                 RangeValue.Text = newValueStr;
                 RangeSlider.Value = newValue;
             }
-            if (sender == DamageSlider)
-            {
-                DamageValue.Text = newValueStr;
-                DamageSlider.Value = newValue;
-            }
         }
     }
 }

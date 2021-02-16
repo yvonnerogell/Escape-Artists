@@ -109,24 +109,6 @@
                                 Value="{Binding Data.Range}"
                                 x:Name="RangeSlider"/>
 
-                    <Label Grid.Row="10" Grid.Column="0"
-                            Text="Damage" 
-                            Style="{StaticResource LabelStyle}"/>
-
-                    <Label Grid.Row="10" Grid.Column="0"
-                                Text="{Binding Data.Damage}" 
-                                Style="{StaticResource ValueStyle}"
-                                Padding="0,0,10,0"
-                                HorizontalOptions="End"
-                                HorizontalTextAlignment="End"
-                                x:Name="DamageValue"/>
-
-                    <Slider Grid.Row="10" Grid.Column="1"
-                                Style="{StaticResource DamageSliderStyle}"
-                                ValueChanged="OnSliderChanged"
-                                Value="{Binding Data.Damage}"
-                                x:Name="DamageSlider"/>
-
                 </Grid>
             </StackLayout>
         </ScrollView>
