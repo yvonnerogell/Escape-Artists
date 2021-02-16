@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Game.Views.ItemDetailPage"
+             xmlns:local_helpers="clr-namespace:Game.Helpers"
+             Title="Detail">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local_helpers:ItemTypeEnumConverter x:Key="ItemTypeEnumConverter"/>
+            <local_helpers:ItemLocationEnumConverter x:Key="ItemLocationEnumConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        
+        <StackLayout Style="{StaticResource OuterBoxStack}" 
+            HorizontalOptions="FillAndExpand"
+            Spacing="10">
+            
+            <StackLayout Orientation="Horizontal">
+                <StackLayout Style="{StaticResource CharacterInfoBox}">
+                    <Label 
+                         Text="{Binding Data.Name}" 
+                         Style="{StaticResource HeaderStyle}"/>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label 
+                            Text="Item Type:  " 
+                            Style="{StaticResource LabelStyle}"/>
+                        <Label 
+                            Text="{Binding Data.ItemType,
+                            Converter={StaticResource ItemTypeEnumConverter}}" 
+                            Style="{StaticResource LabelStyle}"/>
+                    </StackLayout>
+
+                    <Label 
+                        Text="{Binding Data.Description, StringFormat='Description: {0:F0}'}" 
+                        LineBreakMode="WordWrap"
+                        Style="{StaticResource LabelStyle}"/>
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label 
+                            Text="Location:  " 
+                            Style="{StaticResource LabelStyle}"/>
+                        <Label 
+                            Text="{Binding Data.Location,
+                            Converter={StaticResource ItemLocationEnumConverter}}" 
+                            Style="{StaticResource LabelStyle}"/>
+                    </StackLayout>
+
+                </StackLayout>
+
+                <StackLayout Style="{StaticResource CharacterInfoImage}">
+                    <Image Source="{Binding Data.ImageURI}" 
+                           Style="{StaticResource ItemImageClicked}"/>
+                </StackLayout>
+            </StackLayout>
+
+            <BoxView HorizontalOptions="FillAndExpand" HeightRequest="1" WidthRequest="1" Color="Black"/>
+
+            <StackLayout Orientation="Vertical">
+                <StackLayout Style="{StaticResource HorizontalStack}">
+                    <Label 
+                    Text="Attribute:  " 
+                    Style="{StaticResource LabelStyle}"/>
+                    <Label 
+                    Text="{Binding Data.Attribute}" 
+                    Style="{StaticResource ValueStyle}"/>
+                </StackLayout>
+
+                <StackLayout Style="{StaticResource HorizontalStack}">
+                    <Label 
+                    Text="Range:  " 
+                    Style="{StaticResource LabelStyle}"/>
+                    <Label 
+                    Text="{Binding Data.Range}" 
+                    Style="{StaticResource ValueStyle}"/>
+                </StackLayout>
+
+                <StackLayout Style="{StaticResource HorizontalStack}">
+                    <Label 
+                    Text="Value:  " 
+                    Style="{StaticResource LabelStyle}"/>
+                    <Label 
+                    Text="{Binding Data.Value}" 
+                    Style="{StaticResource ValueStyle}"/>
+                </StackLayout>
+
+                <StackLayout Style="{StaticResource HorizontalStack}">
+                    <Label 
+                    Text="Damage:  " 
+                    Style="{StaticResource LabelStyle}"/>
+                    <Label 
+                    Text="{Binding Data.Damage}" 
+                    Style="{StaticResource ValueStyle}"/>
+                </StackLayout>
+
+            </StackLayout>
+
+            <StackLayout 
+            HorizontalOptions="Center" 
+            Padding="20">
+
+                <Button 
+                    Style="{StaticResource ButtonStyleMedium}"
+                    Text="Close" 
+                    Clicked="Close_Clicked" 
+                    FontSize="Medium">
+                </Button>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
