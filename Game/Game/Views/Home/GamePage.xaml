@@ -29,8 +29,7 @@
                             HorizontalOptions="EndAndExpand"
                             Style="{StaticResource GamePageMenuImageButton}"/>
 
-                        <Button Grid.Row="0" Grid.Column="0" Opacity="0" Clicked="SchoolButton_Clicked"/>
-                        <Button Grid.Row="0" Grid.Column="1" Opacity="0" Clicked="SchoolButton_Clicked"/>
+                        <Button Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="0" Opacity="0" Clicked="SchoolButton_Clicked"/>
                     </Grid>
 
                 </StackLayout>
