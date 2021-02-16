@@ -22,14 +22,15 @@
                                HorizontalOptions="StartAndExpand"
                                Text="School"
                                Style="{StaticResource CenterMessageMediumStyle}"/>
+         
 
                         <ImageButton Grid.Row="0" Grid.Column="1"
                             Source="{x:Static local:Constants.SpecificCharacterTypeDefaultImageURI}"
                             HorizontalOptions="EndAndExpand"
                             Style="{StaticResource GamePageMenuImageButton}"/>
 
-                        <Button Grid.Row="0" Grid.Column="0" Clicked="SchoolButton_Clicked"/>
-                        <Button Grid.Row="0" Grid.Column="1" Clicked="SchoolButton_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="0" Opacity="0" Clicked="SchoolButton_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="1" Opacity="0" Clicked="SchoolButton_Clicked"/>
                     </Grid>
 
                     <Grid RowSpacing="3" ColumnSpacing="0" HorizontalOptions="CenterAndExpand">
@@ -48,8 +49,8 @@
                             Source="{x:Static local:Constants.SpecificMonsterTypeGraduationOfficeAdministratorImageURI}"
                             Style="{StaticResource GamePageMenuImageButton}"/>
 
-                        <Button Grid.Row="0" Grid.Column="0" Clicked="ExamRoomButton_Clicked"/>
-                        <Button Grid.Row="0" Grid.Column="1" Clicked="ExamRoomButton_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="0" Opacity="0" Clicked="ExamRoomButton_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="1" Opacity="0" Clicked="ExamRoomButton_Clicked"/>
                     </Grid>
 
                     <Grid RowSpacing="3" ColumnSpacing="0" HorizontalOptions="CenterAndExpand">
@@ -68,8 +69,8 @@
                             Source="{x:Static local:Constants.SpecificMonsterTypeProfessorImageURI}"
                             Style="{StaticResource GamePageMenuImageButton}"/>
 
-                        <Button Grid.Row="0" Grid.Column="0" Clicked="AutobattleButton_Clicked"/>
-                        <Button Grid.Row="0" Grid.Column="1" Clicked="AutobattleButton_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="0" Opacity="0" Clicked="AutobattleButton_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="1" Opacity="0" Clicked="AutobattleButton_Clicked"/>
 
                     </Grid>
 
