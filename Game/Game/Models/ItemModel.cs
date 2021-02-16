@@ -52,6 +52,7 @@ namespace Game.Models
         public ItemModel(ItemTypeEnum itemType)
         {
             ItemType = itemType;
+            Attribute = AttributeEnum.Attack;
             Location = ItemTypeEnumHelper.GetLocationFromItemType(ItemType);
             ImageURI = ItemTypeEnumHelper.GetImageURIFromItemType(ItemType);
             Damage = ItemTypeEnumHelper.GetDamageFromItemType(ItemType);
