@@ -28,15 +28,16 @@
 
                     <DataTemplate>
 
-                        <StackLayout Padding="10">
+                        <StackLayout Padding="10" WidthRequest="150" HeightRequest="250">
 
                             <ImageButton Source="{Binding ImageURI}"  Clicked="ReadMonster_Clicked" CommandParameter="{Binding Id}"/>
 
-                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                            <StackLayout Orientation="Vertical" HorizontalOptions="Center" >
 
-                                <Label Text="{Binding Name}" HorizontalTextAlignment="Center"/>
-                                <Label Text="the " HorizontalTextAlignment="Center" LineBreakMode="NoWrap"/>
-                                <Label Text="{Binding SpecificMonsterTypeEnum, Converter={StaticResource SpecificMonsterTypeEnumConverter}}" HorizontalTextAlignment="Center"/>
+                                <Label Text="{Binding Name}" HorizontalTextAlignment="Center" LineBreakMode="WordWrap"/>
+                                <Label Text="{Binding SpecificMonsterTypeEnum, Converter={StaticResource SpecificMonsterTypeEnumConverter}}" 
+                                       HorizontalTextAlignment="Center"
+                                       LineBreakMode="WordWrap"/>
 
 
                             </StackLayout>
