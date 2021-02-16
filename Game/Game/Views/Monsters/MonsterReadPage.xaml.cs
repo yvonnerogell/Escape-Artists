@@ -102,7 +102,7 @@ namespace Game.Views
         public async void ShowItem(object sender, ItemModel data)
         {
             // trigger new item create page with created item
-            await Navigation.PushAsync(new ItemReadPage(new GenericViewModel<ItemModel>(data)));
+            await Navigation.PushAsync(new ItemDetailPage(new GenericViewModel<ItemModel>(data)));
         }
 
         /// <summary>
