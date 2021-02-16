@@ -209,7 +209,7 @@ namespace Game.Views.Characters
                 ViewModel.Data.PlayerType = PlayerTypeEnum.Character;
                 ViewModel.Data.SpecificCharacterTypeEnum = SpecificCharacterTypeEnumHelper.ConvertMessageStringToEnum(CharacterTypePicker.SelectedItem.ToString());
                 ViewModel.Data.CharacterTypeEnum = SpecificCharacterTypeEnumHelper.GetCharacterTypeEnumFromSpecificCharacterTypeEnum(ViewModel.Data.SpecificCharacterTypeEnum);
-                ViewModel.Data.UpdateImageURI(ViewModel.Data);
+                ViewModel.Data.ImageURI = SpecificCharacterTypeEnumHelper.ToImageURI(ViewModel.Data.SpecificCharacterTypeEnum);
                 ViewModel.Data.SpecialAbility = SpecificCharacterTypeEnumHelper.ToAbility(ViewModel.Data.SpecificCharacterTypeEnum);
                 
                 // Add Items

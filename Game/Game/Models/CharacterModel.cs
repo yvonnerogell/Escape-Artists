@@ -38,7 +38,7 @@ namespace Game.Models
             SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.SmartyPants;
             Guid = Id;
             Level = 1;
-            ImageURI = "smarty_pants_character.png";
+            ImageURI = SpecificCharacterTypeEnumHelper.ToImageURI(SpecificCharacterTypeEnum);
             GPA = 0;
             ExperienceTotal = 0;
             ExperienceRemaining = LevelTableHelper.LevelDetailsList[Level + 1].Experience - 1;
@@ -73,7 +73,7 @@ namespace Game.Models
             SpecificCharacterTypeEnum = newData.SpecificCharacterTypeEnum;
 
             // helper for figuring out which image based on CharacterSpecific type
-            UpdateImageURI(newData);
+            ImageURI = SpecificCharacterTypeEnumHelper.ToImageURI(SpecificCharacterTypeEnum);
 
             Name = newData.Name;
             Description = newData.Description;
@@ -172,61 +172,6 @@ namespace Game.Models
             }
             return item;
         }
-
-
-        /// <summary>
-        /// Given the inputted Character, updates the image URI based on the SpecificCharacterTypeEnum. 
-        /// </summary>
-        /// <param name="newData">Character to update</param>
-        public void UpdateImageURI(CharacterModel newData)
-        {
-            switch (newData.SpecificCharacterTypeEnum)
-            {
-
-                case SpecificCharacterTypeEnum.SmartyPants:
-                    ImageURI = Constants.SpecificCharacterTypeSmartyPantsImageURI;
-                    break;
-
-                case SpecificCharacterTypeEnum.Overachiever:
-                    ImageURI = Constants.SpecificCharacterTypeOverachieverImageURI;
-                    break;
-
-                case SpecificCharacterTypeEnum.InternationalStudent:
-                    ImageURI = Constants.SpecificCharacterTypeInternationalStudentImageURI;
-                    break;
-
-                case SpecificCharacterTypeEnum.Prodigy:
-                    ImageURI = Constants.SpecificCharacterTypeProdigyImageURI;
-                    break;
-
-                case SpecificCharacterTypeEnum.SecondCareer:
-                    ImageURI = Constants.SpecificCharacterTypeSecondCareerImageURI;
-                    break;
-
-                case SpecificCharacterTypeEnum.Slacker:
-                    ImageURI = Constants.SpecificCharacterTypeSlackerImageURI;
-                    break;
-
-                case SpecificCharacterTypeEnum.Procrastinator:
-                    ImageURI = Constants.SpecificCharacterTypeProcrastinatorImageURI;
-                    break;
-
-                case SpecificCharacterTypeEnum.HelicopterParent:
-                    ImageURI = Constants.SpecificCharacterTypeHelicopterParentImageURI;
-                    break;
-
-                case SpecificCharacterTypeEnum.CoolParent:
-                    ImageURI = Constants.SpecificCharacterTypeCoolParentImageURI;
-                    break;
-
-                case SpecificCharacterTypeEnum.Unknown:
-                default:
-                    ImageURI = Constants.SpecificCharacterTypeDefaultImageURI;
-                    break;
-            }
-        }
-
-
 
         /// <summary>
         /// Helper to combine the attributes into a single line, to make it easier to display the item as a string
