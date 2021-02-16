@@ -35,7 +35,7 @@ namespace Game.Views
                 new HomeMenuItemModel {Id = MenuItemEnum.Game, Title="Game" },
                 new HomeMenuItemModel {Id = MenuItemEnum.About, Title="About" },
                 new HomeMenuItemModel {Id = MenuItemEnum.School, Title="School" },
-                new HomeMenuItemModel {Id = MenuItemEnum.Classroom, Title="Classroom" }
+                new HomeMenuItemModel {Id = MenuItemEnum.ExamRoom, Title="Exam Room" }
             };
 
             // Register the ListView for the Menu and the Item Selected call back

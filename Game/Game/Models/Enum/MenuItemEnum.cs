@@ -21,6 +21,9 @@
         School = 12,
 
         // Classroom
-        Classroom = 20
+        Classroom = 20,
+
+        // Exam room
+        ExamRoom = 25
     }
 }

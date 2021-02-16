@@ -45,7 +45,7 @@ namespace Game.Views
                         MenuPages.Add(id, new NavigationPage(new SchoolPage()));
                         break;
 
-                    case (int)MenuItemEnum.Classroom:
+                    case (int)MenuItemEnum.ExamRoom:
                         MenuPages.Add(id, new NavigationPage(new PickCharactersPage()));
                         break;
 
