@@ -104,6 +104,8 @@ namespace Game.Models
 
             return Message;
         }
+
+        
     }
 
     /// <summary>
@@ -272,6 +274,49 @@ namespace Game.Models
             }
             return result;
         }
-    }
 
+        /// <summary>
+        /// Returns the ability enum associated with the indicated SpecificCharacterType.
+        /// </summary>
+        /// <param name="specificCharacterType">SpecificCharacterType used to extract ability enum</param>
+        /// <returns>Ability Enum associated with specified SpecificCharacterType</returns>
+        public static AbilityEnum ToAbility(SpecificCharacterTypeEnum specificCharacterType)
+        {
+            var abilityEnum = AbilityEnum.Unknown;
+            switch (specificCharacterType)
+            {
+                case SpecificCharacterTypeEnum.SmartyPants:
+                    abilityEnum = AbilityEnum.ExtraCredit;
+                    break;
+                case SpecificCharacterTypeEnum.Slacker:
+                    abilityEnum = AbilityEnum.Extension;
+                    break;
+                case SpecificCharacterTypeEnum.SecondCareer:
+                    abilityEnum = AbilityEnum.Extension;
+                    break;
+                case SpecificCharacterTypeEnum.Prodigy:
+                    abilityEnum = AbilityEnum.ExtraCredit;
+                    break;
+                case SpecificCharacterTypeEnum.Procrastinator:
+                    abilityEnum = AbilityEnum.Extension;
+                    break;
+                case SpecificCharacterTypeEnum.Overachiever:
+                    abilityEnum = AbilityEnum.FlashGenius;
+                    break;
+                case SpecificCharacterTypeEnum.InternationalStudent:
+                    abilityEnum = AbilityEnum.FlashGenius;
+                    break;
+                case SpecificCharacterTypeEnum.HelicopterParent:
+                    abilityEnum = AbilityEnum.Bribes;
+                    break;
+                case SpecificCharacterTypeEnum.CoolParent:
+                    abilityEnum = AbilityEnum.PayTuition;
+                    break;
+                default:
+                    abilityEnum = AbilityEnum.Unknown;
+                    break;
+            }
+            return abilityEnum;
+        }
+    }
 }
