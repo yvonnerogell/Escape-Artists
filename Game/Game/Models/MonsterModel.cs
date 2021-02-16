@@ -29,7 +29,7 @@ namespace Game.Models
             Attack = 1;
             Difficulty = DifficultyEnum.Average;
             UniqueDropItem = null;
-            ImageURI = null;
+            ImageURI = Constants.SpecificMonsterTypeDefaultImageURI;
             ExperienceTotal = 0;
             ExperienceRemaining = LevelTableHelper.LevelDetailsList[Level + 1].Experience - 1;
 
