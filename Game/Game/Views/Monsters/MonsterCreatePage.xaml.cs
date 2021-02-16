@@ -57,7 +57,7 @@ namespace Game.Views.Monsters
             SpecificMonsterTypeEnum SpecificMonsterTypeEnum = SpecificMonsterTypeEnumHelper.ConvertMessageStringToEnum((string)picker.SelectedItem);
 
             //get the items based on monster
-            dropItem = ViewModel.Data.UpdateItemsBasedOnCharacterType(SpecificMonsterTypeEnum);
+            dropItem = ViewModel.Data.DropItemBasedOnCharacterType(SpecificMonsterTypeEnum);
 
             //remove items from page
             var FlexList = ItemBox.Children.ToList();
@@ -65,11 +65,9 @@ namespace Game.Views.Monsters
             {
                 ItemBox.Children.Remove(data);
             }
-            ShowItemLabel.IsVisible = false;
             if (dropItem != null)
             {
                 ItemBox.Children.Add(LoadItem(dropItem));
-                ShowItemLabel.IsVisible = true;
             }
         }
 
@@ -83,10 +81,10 @@ namespace Game.Views.Monsters
             // Hookup the Image Button to show the Item picture
             var ItemButton = new ImageButton
             {
-                Style = (Style)Application.Current.Resources["ItemImage"],
+                Style = (Style)Application.Current.Resources["ItemImageClicked"],
                 Source = dropItem.ImageURI,
             };
-            ItemButton.Clicked += (sender, args) => UpdateNewItem(sender, dropItem);
+            ItemButton.Clicked += (sender, args) => ShowItem(sender, dropItem);
 
             // Add the Display Text for the item
             var ItemLabel = new Label
@@ -114,19 +112,10 @@ namespace Game.Views.Monsters
         /// Triggers the update item page 
         /// </summary>
         /// <param name="location"></param>
-        public async void UpdateNewItem(object sender, ItemModel data)
+        public async void ShowItem(object sender, ItemModel data)
         {
-            // Add the item to the location
-            ViewModel.Data.UniqueDropItem = data.Id;
-            MessagingCenter.Send(this, "CreateItem", data);
             // trigger new item create page with created item
-            GenericViewModel<ItemModel> generalData = new GenericViewModel<ItemModel>(data);
-            await Navigation.PushModalAsync(new NavigationPage(new ItemUpdatePage(generalData)));
-
-            ImageButton btn = sender as ImageButton;
-            btn.Style = (Style)Application.Current.Resources["ItemImageClicked"];
-            btn.IsEnabled = false;
-            // TODO: need to work on reloading the current page after item is created
+            await Navigation.PushAsync(new ItemDetailPage(new GenericViewModel<ItemModel>(data)));
         }
 
         /// <summary>
@@ -150,7 +139,8 @@ namespace Game.Views.Monsters
                 ViewModel.Data.MonsterTypeEnum = SpecificMonsterTypeEnumHelper.GetMonsterTypeEnumFromSpecificMonsterTypeEnum(ViewModel.Data.SpecificMonsterTypeEnum);
                 ViewModel.Data.ImageURI = SpecificMonsterTypeEnumHelper.ToImageURI(ViewModel.Data.SpecificMonsterTypeEnum);
 
-                // TODO Unique Drop item - do we want to randomly assign one here?
+                // Unique Drop item
+                MessagingCenter.Send(this, "CreateItem", dropItem);
 
                 MessagingCenter.Send(this, "Create", ViewModel.Data);
                 await Navigation.PopModalAsync();

@@ -95,7 +95,7 @@ namespace Game.Models
         /// Given the inputed Monster, updates the image URI based on the SpecificMonsterTypeEnum. 
         /// </summary>
         /// <param name="newData">Character to update</param>
-        public ItemModel UpdateItemsBasedOnCharacterType(SpecificMonsterTypeEnum monsterType)
+        public ItemModel DropItemBasedOnCharacterType(SpecificMonsterTypeEnum monsterType)
         {
             ItemModel uniqueDrop = null;
             switch (monsterType)
