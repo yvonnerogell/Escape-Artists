@@ -257,6 +257,50 @@ namespace Game.Models
 			}
             return result;
         }
-    }
 
+        /// <summary>
+        /// assigns a specific Image for each Monster
+        /// </summary>
+        /// <param name="newData"></param>
+        public static string ToImageURI(SpecificMonsterTypeEnum specificMonsterTypeEnum)
+        {
+            var imageURI = Constants.SpecificMonsterTypeDefaultImageURI;
+            switch (specificMonsterTypeEnum)
+            {
+
+                case SpecificMonsterTypeEnum.TeachingAssistant:
+                    imageURI = Constants.SpecificMonsterTypeTeachingAssistantImageURI;
+                    break;
+
+                case SpecificMonsterTypeEnum.AdjunctFaculty:
+                    imageURI = Constants.SpecificMonsterTypeAdjunctFacultyImageURI;
+                    break;
+
+                case SpecificMonsterTypeEnum.AssistantProfessor:
+                    imageURI = Constants.SpecificMonsterTypeAssistantProfessorImageURI;
+                    break;
+
+                case SpecificMonsterTypeEnum.AssociateProfessor:
+                    imageURI = Constants.SpecificMonsterTypeAssistantProfessorImageURI;
+                    break;
+
+                case SpecificMonsterTypeEnum.Professor:
+                    imageURI = Constants.SpecificMonsterTypeProfessorImageURI;
+                    break;
+
+                case SpecificMonsterTypeEnum.HRAdministrator:
+                    imageURI = Constants.SpecificMonsterTypeHRAdministratorImageURI;
+                    break;
+
+                case SpecificMonsterTypeEnum.RegistrationAdministrator:
+                    imageURI = Constants.SpecificMonsterTypeRegistrationAdministratorImageURI;
+                    break;
+
+                case SpecificMonsterTypeEnum.GraduationOfficeAdministrator:
+                    imageURI = Constants.SpecificMonsterTypeGraduationOfficeAdministratorImageURI;
+                    break;
+            }
+            return imageURI;
+        }
+    }
 }

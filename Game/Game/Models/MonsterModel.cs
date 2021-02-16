@@ -73,7 +73,7 @@ namespace Game.Models
                 SpecificMonsterTypeEnum = newData.SpecificMonsterTypeEnum;
             }
 
-            UpdateImageURI(newData);
+            ImageURI = SpecificMonsterTypeEnumHelper.ToImageURI(SpecificMonsterTypeEnum);
             Guid = newData.Guid;
             Name = newData.Name;
             Description = newData.Description;
@@ -167,49 +167,6 @@ namespace Game.Models
             myReturn += " , Damage : " + GetDamageTotalString;
 
             return myReturn;
-        }
-
-        /// <summary>
-        /// assigns a specific Image for each Monster
-        /// </summary>
-        /// <param name="newData"></param>
-        public void UpdateImageURI(MonsterModel newData)
-        {
-            switch (newData.SpecificMonsterTypeEnum)
-            {
-
-                case SpecificMonsterTypeEnum.TeachingAssistant:
-                    ImageURI = Constants.SpecificMonsterTypeTeachingAssistantImageURI;
-                    break;
-
-                case SpecificMonsterTypeEnum.AdjunctFaculty:
-                    ImageURI = Constants.SpecificMonsterTypeAdjunctFacultyImageURI;
-                    break;
-
-                case SpecificMonsterTypeEnum.AssistantProfessor:
-                    ImageURI = Constants.SpecificMonsterTypeAssistantProfessorImageURI;
-                    break;
-
-                case SpecificMonsterTypeEnum.AssociateProfessor:
-                    ImageURI = Constants.SpecificMonsterTypeAssistantProfessorImageURI;
-                    break;
-
-                case SpecificMonsterTypeEnum.Professor:
-                    ImageURI = Constants.SpecificMonsterTypeProfessorImageURI;
-                    break;
-
-                case SpecificMonsterTypeEnum.HRAdministrator:
-                    ImageURI = Constants.SpecificMonsterTypeHRAdministratorImageURI;
-                    break;
-
-                case SpecificMonsterTypeEnum.RegistrationAdministrator:
-                    ImageURI = Constants.SpecificMonsterTypeRegistrationAdministratorImageURI;
-                    break;
-
-                case SpecificMonsterTypeEnum.GraduationOfficeAdministrator:
-                    ImageURI = Constants.SpecificMonsterTypeGraduationOfficeAdministratorImageURI;
-                    break;
-            }
         }
     }
 }
