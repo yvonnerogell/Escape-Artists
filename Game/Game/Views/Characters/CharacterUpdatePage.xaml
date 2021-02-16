@@ -143,13 +143,11 @@
                             x:Name="GPASlider"
                             Value="{Binding Data.GPA}"/>
 
-                    <StackLayout Grid.Row="8" Grid.Column="0">
+                    <StackLayout Grid.Row="9" Grid.Column="0">
 
-                        <!-- TODO pull in character's items here-->
                         <Label Grid.Row="5" Grid.Column="0"
-                            Text="PLACEHOLDER FOR ITEMS"
+                            Text="Items"
                             Style="{StaticResource LabelStyleUpdateText}"/>
-
 
                     </StackLayout>
 
