@@ -16,6 +16,7 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <local_helpers:ItemTypeEnumConverter x:Key="ItemTypeEnumConverter"/>
+            <local_helpers:ItemLocationEnumConverter x:Key="ItemLocationEnumConverter"/>
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -51,7 +52,8 @@
                             Text="Location:  " 
                             Style="{StaticResource LabelStyle}"/>
                         <Label 
-                            Text="{Binding Data.Location}" 
+                            Text="{Binding Data.Location,
+                            Converter={StaticResource ItemLocationEnumConverter}}" 
                             Style="{StaticResource LabelStyle}"/>
                     </StackLayout>
 
