@@ -105,18 +105,6 @@
                 </StackLayout>
 
             </StackLayout>
-
-            <StackLayout 
-            HorizontalOptions="Center" 
-            Padding="20">
-
-                <Button 
-                    Style="{StaticResource ButtonStyleMedium}"
-                    Text="Close" 
-                    Clicked="Close_Clicked" 
-                    FontSize="Medium">
-                </Button>
-            </StackLayout>
         </StackLayout>
     </ScrollView>
 </ContentPage>
