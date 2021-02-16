@@ -504,5 +504,75 @@ namespace Game.Models
 
             return ImageURI;
         }
+
+        /// <summary>
+        /// Given the itemType, return the damage. 
+        /// </summary>
+        /// <param name="newData">Character to update</param>
+        public static int GetDamageFromItemType(ItemTypeEnum itemType)
+        {
+            int Damage = 0;
+            switch (itemType)
+            {
+                case ItemTypeEnum.IndexCards:
+                    Damage = 2;
+                    break;
+
+                case ItemTypeEnum.PencilEraser:
+                    Damage = 1;
+                    break;
+
+                case ItemTypeEnum.Textbooks:
+                    Damage = 10;
+                    break;
+
+                case ItemTypeEnum.Notebook:
+                    Damage = 2;
+                    break;
+
+                case ItemTypeEnum.Calculator:
+                    Damage = 5;
+                    break;
+
+                case ItemTypeEnum.LibraryCard:
+                    Damage = 3;
+                    break;
+
+                case ItemTypeEnum.FoodCourtCard:
+                    Damage = 5;
+                    break;
+
+                case ItemTypeEnum.Laptop:
+                    Damage = 20;
+                    break;
+
+                case ItemTypeEnum.PrivateTutor:
+                    Damage = 10;
+                    break;
+
+                case ItemTypeEnum.FinancialAid:
+                    Damage = 40;
+                    break;
+
+                case ItemTypeEnum.Tuition:
+                    Damage = 50;
+                    break;
+
+                case ItemTypeEnum.GraduationCapAndRobe:
+                    Damage = 200;
+                    break;
+
+                case ItemTypeEnum.Diploma:
+                    Damage = 1000;
+                    break;
+
+                case ItemTypeEnum.Unknown:
+                default:
+                    Damage = 0;
+                    break;
+            }
+
+            return Damage;
+        }
     }
 }
