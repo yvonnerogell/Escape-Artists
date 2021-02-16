@@ -79,8 +79,8 @@
             
             <!-- Pages -->
             <Style TargetType="NavigationPage">
-                <Setter Property="BarBackgroundColor" Value="{StaticResource ViewBackgroundColor}" />
-                <Setter Property="BarTextColor" Value="{StaticResource SecondaryTextColor}" />
+                <Setter Property="BarBackgroundColor" Value="{StaticResource New_NavigationBarColor}" />
+                <Setter Property="BarTextColor" Value="{StaticResource New_MenuTextColor}" />
             </Style>
 
             <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
