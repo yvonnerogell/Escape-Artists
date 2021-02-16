@@ -26,13 +26,13 @@
 
                     <DataTemplate>
 
-                        <StackLayout Padding="10">
+                        <StackLayout Padding="10" WidthRequest="150" HeightRequest="220">
 
                             <ImageButton Source="{Binding ImageURI}"  Clicked="ReadItem_Clicked" CommandParameter="{Binding Id}"/>
 
                             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
 
-                                <Label Text="{Binding Name}" HorizontalTextAlignment="Center"/>
+                                <Label Text="{Binding Name}" HorizontalTextAlignment="Center" LineBreakMode="WordWrap"/>
 
                             </StackLayout>
 
