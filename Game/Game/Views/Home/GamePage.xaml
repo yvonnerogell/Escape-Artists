@@ -33,6 +33,10 @@
                         <Button Grid.Row="0" Grid.Column="1" Opacity="0" Clicked="SchoolButton_Clicked"/>
                     </Grid>
 
+                </StackLayout>
+
+                <StackLayout Style="{StaticResource VillageMenuBox}" Orientation="Vertical">
+
                     <Grid RowSpacing="3" ColumnSpacing="0" HorizontalOptions="CenterAndExpand">
 
                         <Grid.ColumnDefinitions>
@@ -52,6 +56,10 @@
                         <Button Grid.Row="0" Grid.Column="0" Opacity="0" Clicked="ExamRoomButton_Clicked"/>
                         <Button Grid.Row="0" Grid.Column="1" Opacity="0" Clicked="ExamRoomButton_Clicked"/>
                     </Grid>
+
+                </StackLayout>
+
+                <StackLayout Style="{StaticResource VillageMenuBox}" Orientation="Vertical">
 
                     <Grid RowSpacing="3" ColumnSpacing="0" HorizontalOptions="CenterAndExpand">
 
