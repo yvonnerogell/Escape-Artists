@@ -88,7 +88,7 @@
 
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="200"/>
-                        </Grid.ColumnDefinitions>                    
+                        </Grid.ColumnDefinitions>
 
                         <Label Grid.Row="0" Grid.Column="0"
                                Text="Scores"
@@ -100,13 +100,11 @@
                                 Style="{StaticResource VillageMenuImageButton}"
                                 HorizontalOptions="EndAndExpand"/>
 
-                        <Button Grid.Row="0" Grid.Column="0" Opacity="0" Clicked="ScoresButton_Clicked"/>
-                        <Button Grid.Row="0" Grid.Column="1" Opacity="0" Clicked="ScoresButton_Clicked"/>
+                        <Button Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="0" Opacity="0" Clicked="ScoresButton_Clicked"/>
 
                     </Grid>
 
                 </StackLayout>
-
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
