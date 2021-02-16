@@ -29,8 +29,8 @@
                             HorizontalOptions="EndAndExpand"
                             Style="{StaticResource VillageMenuImageButton}"/>
 
-                        <Button Grid.Row="0" Grid.Column="0" Clicked="CharactersButton_Clicked"/>
-                        <Button Grid.Row="0" Grid.Column="1" Clicked="CharactersButton_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="0" Opacity="0" Clicked="CharactersButton_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="1" Opacity="0" Clicked="CharactersButton_Clicked"/>
                     </Grid>
 
                 </StackLayout>
@@ -53,8 +53,8 @@
                             HorizontalOptions="EndAndExpand"
                             Style="{StaticResource VillageMenuImageButton}"/>
 
-                        <Button Grid.Row="0" Grid.Column="0" Clicked="MonstersButton_Clicked"/>
-                        <Button Grid.Row="0" Grid.Column="1" Clicked="MonstersButton_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="0" Opacity="0" Clicked="MonstersButton_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="1" Opacity="0" Clicked="MonstersButton_Clicked"/>
                     </Grid>
                     
                 </StackLayout>
@@ -78,8 +78,8 @@
                                     Style="{StaticResource VillageMenuImageButton}"
                                     HorizontalOptions="EndAndExpand"/>
 
-                        <Button Grid.Row="0" Grid.Column="0" Clicked="ItemsButton_Clicked"/>
-                        <Button Grid.Row="0" Grid.Column="1" Clicked="ItemsButton_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="0" Opacity="0" Clicked="ItemsButton_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="1" Opacity="0" Clicked="ItemsButton_Clicked"/>
 
                     </Grid>
 
@@ -103,8 +103,8 @@
                                 Style="{StaticResource VillageMenuImageButton}"
                                 HorizontalOptions="EndAndExpand"/>
 
-                        <Button Grid.Row="0" Grid.Column="0" Clicked="ScoresButton_Clicked"/>
-                        <Button Grid.Row="0" Grid.Column="1" Clicked="ScoresButton_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="0" Opacity="0" Clicked="ScoresButton_Clicked"/>
+                        <Button Grid.Row="0" Grid.Column="1" Opacity="0" Clicked="ScoresButton_Clicked"/>
 
                     </Grid>
 
