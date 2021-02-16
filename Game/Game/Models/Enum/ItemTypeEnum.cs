@@ -263,5 +263,120 @@ namespace Game.Models
 
             return itemLocation;
         }
-    }
+
+        public static string randomeName(List<String> names)
+        {
+            // get length of list
+            var listLength = names.Count();
+
+            // get random number between 0 to listLength (not including listLength)
+            Random r = new Random();
+            int rInt = r.Next(0, listLength);
+
+            // return the name at index rInt of the names
+            return names.ElementAt(rInt);
+        }
+
+        public static List<String> getNamesBasedOnType(ItemTypeEnum itemType)
+        {
+            // Fun item names
+            List<string> possibleNames = new List<string>();
+            switch (itemType)
+            
+            {
+                case ItemTypeEnum.Tuition:
+                    possibleNames.Add("Masters");
+                    possibleNames.Add("Undergraduate");
+                    possibleNames.Add("Certificate");
+                    break;
+                case ItemTypeEnum.Textbooks:
+                    possibleNames.Add("Math");
+                    possibleNames.Add("English");
+                    possibleNames.Add("Science");
+                    possibleNames.Add("Chemistry");
+                    possibleNames.Add("Art");
+                    possibleNames.Add("Gym");
+                    break;
+                case ItemTypeEnum.PrivateTutor:
+                    possibleNames.Add("Math");
+                    possibleNames.Add("English");
+                    possibleNames.Add("Science");
+                    possibleNames.Add("Chemistry");
+                    possibleNames.Add("Art");
+                    possibleNames.Add("Gym");
+                    break;
+                case ItemTypeEnum.PencilEraser:
+                    possibleNames.Add("Math");
+                    possibleNames.Add("English");
+                    possibleNames.Add("Science");
+                    possibleNames.Add("Chemistry");
+                    possibleNames.Add("Art");
+                    possibleNames.Add("Gym");
+                    break;
+                case ItemTypeEnum.Notebook:
+                    possibleNames.Add("Math");
+                    possibleNames.Add("English");
+                    possibleNames.Add("Science");
+                    possibleNames.Add("Chemistry");
+                    possibleNames.Add("Art");
+                    possibleNames.Add("Gym");
+                    break;
+                case ItemTypeEnum.LibraryCard:
+                    possibleNames.Add("Red");
+                    possibleNames.Add("White");
+                    possibleNames.Add("Blue");
+                    possibleNames.Add("Yellow");
+                    possibleNames.Add("Pink");
+                    possibleNames.Add("Green");
+                    break;
+                case ItemTypeEnum.Laptop:
+                    possibleNames.Add("Mac");
+                    possibleNames.Add("Windows");
+                    possibleNames.Add("Chrome");
+                    possibleNames.Add("Asus");
+                    possibleNames.Add("Acer");
+                    break;
+                case ItemTypeEnum.IndexCards:
+                    possibleNames.Add("Math");
+                    possibleNames.Add("English");
+                    possibleNames.Add("Science");
+                    possibleNames.Add("Chemistry");
+                    possibleNames.Add("Art");
+                    possibleNames.Add("Gym");
+                    break;
+                case ItemTypeEnum.GraduationCapAndRobe:
+                    possibleNames.Add("Masters");
+                    possibleNames.Add("Undergraduate");
+                    possibleNames.Add("Certificate");
+                    break;
+                case ItemTypeEnum.FoodCourtCard:
+                    possibleNames.Add("Red");
+                    possibleNames.Add("White");
+                    possibleNames.Add("Blue");
+                    possibleNames.Add("Yellow");
+                    possibleNames.Add("Pink");
+                    possibleNames.Add("Green");
+                    break;
+                case ItemTypeEnum.FinancialAid:
+                    possibleNames.Add("Masters");
+                    possibleNames.Add("Undergraduate");
+                    possibleNames.Add("Certificate");
+                    break;
+                case ItemTypeEnum.Diploma:
+                    possibleNames.Add("Masters");
+                    possibleNames.Add("Undergraduate");
+                    possibleNames.Add("Certificate");
+                    break;
+                case ItemTypeEnum.Calculator:
+                    possibleNames.Add("Red");
+                    possibleNames.Add("White");
+                    possibleNames.Add("Blue");
+                    possibleNames.Add("Yellow");
+                    possibleNames.Add("Pink");
+                    possibleNames.Add("Green");
+                    break;
+            }
+            return possibleNames;
+        }
+}
 }
