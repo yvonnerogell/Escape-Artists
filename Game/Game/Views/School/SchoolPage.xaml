@@ -53,8 +53,7 @@
                             HorizontalOptions="EndAndExpand"
                             Style="{StaticResource VillageMenuImageButton}"/>
 
-                        <Button Grid.Row="0" Grid.Column="0" Opacity="0" Clicked="MonstersButton_Clicked"/>
-                        <Button Grid.Row="0" Grid.Column="1" Opacity="0" Clicked="MonstersButton_Clicked"/>
+                        <Button Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="0" Opacity="0" Clicked="MonstersButton_Clicked"/>
                     </Grid>
                     
                 </StackLayout>
