@@ -379,5 +379,60 @@ namespace Game.Models
             // return the name at index rInt of the names
             return possibleNames.ElementAt(rInt) + " " + itemType.ToMessage();
         }
-}
+
+        /// <summary>
+        /// generate random description based on item type
+        /// </summary>
+        /// <param name="itemType"></param>
+        /// <returns></returns>
+        public static string getDescriptionBasedOnType(ItemTypeEnum itemType)
+        {
+            string descriptions = null;
+            
+            switch (itemType)
+            {
+                case ItemTypeEnum.Tuition:
+                    descriptions = "Pay your way through college.";
+                    break;
+                case ItemTypeEnum.Textbooks:
+                    descriptions = "Reference course literature effectively.";
+                    break;
+                case ItemTypeEnum.PrivateTutor:
+                    descriptions = "Get expert homework help.";
+                    break;
+                case ItemTypeEnum.PencilEraser:
+                    descriptions = "Forget about your mistakes.";
+                    break;
+                case ItemTypeEnum.Notebook:
+                    descriptions = "Keep track of the most crucial things to know.";
+                    break;
+                case ItemTypeEnum.LibraryCard:
+                    descriptions = "Get your textbooks for free.";
+                    break;
+                case ItemTypeEnum.Laptop:
+                    descriptions = "Complete your assignments faster with a laptop.";
+                    break;
+                case ItemTypeEnum.IndexCards:
+                    descriptions = "Memorize your homework.";
+                    break;
+                case ItemTypeEnum.GraduationCapAndRobe:
+                    descriptions = "The cap will help you feel closer to graduation.";
+                    break;
+                case ItemTypeEnum.FoodCourtCard:
+                    descriptions = "Don’t run out of fuel.";
+                    break;
+                case ItemTypeEnum.FinancialAid:
+                    descriptions = "Get some financial help.";
+                    break;
+                case ItemTypeEnum.Diploma:
+                    descriptions = "A diploma is the (almost) final step before graduation.";
+                    break;
+                case ItemTypeEnum.Calculator:
+                    descriptions = "Avoid doing math in your head.";
+                    break;
+            }
+
+            return descriptions;
+        }
+    }
 }
