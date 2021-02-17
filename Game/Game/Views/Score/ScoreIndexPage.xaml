@@ -43,14 +43,12 @@
                                     <Label Grid.Row="0" Grid.Column="0" 
                                        Text="Name: " 
                                        Style="{StaticResource LabelStyle}"
-                                       HorizontalOptions="StartAndExpand"
-                                       BackgroundColor="MediumSeaGreen"/>
+                                       HorizontalOptions="StartAndExpand"/>
 
                                     <Label Grid.Row="0" Grid.Column="1" 
                                        Text="{Binding Name}" 
                                        Style="{StaticResource LabelStyle}"
-                                       HorizontalOptions="EndAndExpand"
-                                       BackgroundColor="MediumSeaGreen"/>
+                                       HorizontalOptions="EndAndExpand"/>
 
                                     <Label Grid.Row="1" Grid.Column="0"     
                                        Text="Round: " 
