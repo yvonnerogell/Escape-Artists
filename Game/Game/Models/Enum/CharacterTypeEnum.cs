@@ -8,8 +8,10 @@
         // Not Known
         Unknown = 0,
 
-        // The Characters
+        // Character is of student type
         Student = 10,
+
+        // Character is of parent type
         Parent = 11,
     }
 }
