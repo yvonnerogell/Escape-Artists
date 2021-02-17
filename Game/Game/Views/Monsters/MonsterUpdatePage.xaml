@@ -123,22 +123,19 @@
 
                     <StackLayout Grid.Row="8" Grid.Column="0">
 
-                        <!-- TODO pull in character's items here-->
                         <Label Grid.Row="5" Grid.Column="0"
-                            Text="PLACEHOLDER FOR ITEMS"
+                            Text="Unique Drop Item"
                             Style="{StaticResource LabelStyleUpdateText}"/>
 
-
                     </StackLayout>
-
 
                 </Grid>
                 
                 <FlexLayout 
-                Padding="5"
-                JustifyContent="SpaceAround"
-                AlignContent="SpaceAround"
-                x:Name="ItemBox">
+                    Padding="5"
+                    JustifyContent="SpaceAround"
+                    AlignContent="SpaceAround"
+                    x:Name="ItemBox">
                 </FlexLayout>
             </StackLayout>
         </ScrollView>
