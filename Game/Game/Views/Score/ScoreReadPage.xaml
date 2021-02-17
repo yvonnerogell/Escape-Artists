@@ -20,22 +20,19 @@
                 <Label 
                    Text="Name : " 
                     Style="{StaticResource LabelStyle}"
-                    HorizontalOptions="StartAndExpand"
-                    BackgroundColor="MediumSeaGreen"/>
+                    HorizontalOptions="StartAndExpand"/>
                 
                 <Label 
                     Text="{Binding Data.Name}" 
                     Style="{StaticResource ValueStyle}"
-                    HorizontalOptions="EndAndExpand"
-                    BackgroundColor="MediumSeaGreen"/>
+                    HorizontalOptions="EndAndExpand"/>
             </StackLayout>
 
             <StackLayout Style="{StaticResource HorizontalStack}">
                 <Label 
                     Text="Game Date:"
                     Style="{StaticResource LabelStyle}"
-                    HorizontalOptions="StartAndExpand"
-                    BackgroundColor="Beige"/>
+                    HorizontalOptions="StartAndExpand"/>
 
                 <Label 
                     Text="{Binding Data.GameDate}"
@@ -46,8 +43,7 @@
                 <Label 
                     Text="AutoBattle:"                      
                     Style="{StaticResource LabelStyle}"
-                    HorizontalOptions="StartAndExpand"
-                    BackgroundColor="Beige"/>
+                    HorizontalOptions="StartAndExpand"/>
 
                 <Label 
                     Text="{Binding Data.AutoBattle}"
@@ -58,8 +54,7 @@
                 <Label 
                     Text="Score:" 
                     Style="{StaticResource LabelStyle}"
-                    HorizontalOptions="StartAndExpand"
-                    BackgroundColor="Beige"/>
+                    HorizontalOptions="StartAndExpand"/>
                 <Label 
                     Text="{Binding Data.ScoreTotal}"
                     Style="{StaticResource ValueStyle}"/>
@@ -69,8 +64,7 @@
                 <Label 
                     Text="Number of Rounds:"                      
                     Style="{StaticResource LabelStyle}"
-                    HorizontalOptions="StartAndExpand"
-                    BackgroundColor="Beige"/>
+                    HorizontalOptions="StartAndExpand"/>
 
                 <Label 
                     Text="{Binding Data.RoundCount}"
@@ -81,8 +75,7 @@
                 <Label 
                     Text="Number of Turns:"  
                     Style="{StaticResource LabelStyle}"
-                    HorizontalOptions="StartAndExpand"
-                    BackgroundColor="Beige"/>
+                    HorizontalOptions="StartAndExpand"/>
 
                 <Label 
                     Text="{Binding Data.TurnCount}"
@@ -93,8 +86,7 @@
                 <Label 
                     Text="Number of Monsters Slain:"
                     Style="{StaticResource LabelStyle}"
-                    HorizontalOptions="StartAndExpand"
-                    BackgroundColor="Beige"/>
+                    HorizontalOptions="StartAndExpand"/>
                 <Label 
                     Text="{Binding Data.MonsterSlainNumber}"
                     Style="{StaticResource ValueStyle}"/>
@@ -104,8 +96,7 @@
                 <Label 
                     Text="Total Experience Gained:"
                     Style="{StaticResource LabelStyle}"
-                    HorizontalOptions="StartAndExpand"
-                    BackgroundColor="Beige"/>
+                    HorizontalOptions="StartAndExpand"/>
 
                 <Label 
                     Text="{Binding Data.ExperienceGainedTotal}" 
@@ -116,8 +107,7 @@
                 <Label 
                     Text="Characters at Death:"
                     Style="{StaticResource LabelStyle}"
-                    HorizontalOptions="StartAndExpand"
-                    BackgroundColor="Beige"/>
+                    HorizontalOptions="StartAndExpand"/>
                 <Label 
                     Text="{Binding Data.CharacterAtDeathList}" 
                     Style="{StaticResource ValueStyle}"/>
@@ -127,8 +117,7 @@
                 <Label 
                     Text="Monsters Killed:"
                     Style="{StaticResource LabelStyle}"
-                    HorizontalOptions="StartAndExpand"
-                    BackgroundColor="Beige"/>
+                    HorizontalOptions="StartAndExpand"/>
                 <Label 
                     Text="{Binding Data.MonstersKilledList}" 
                     Style="{StaticResource ValueStyle}"/>
@@ -138,8 +127,7 @@
                 <Label 
                     Text="Items Dropped:"
                     Style="{StaticResource LabelStyle}"
-                    HorizontalOptions="StartAndExpand"
-                    BackgroundColor="Beige"/>
+                    HorizontalOptions="StartAndExpand"/>
                 <Label 
                     Text="{Binding Data.ItemsDroppedList}"
                     Style="{StaticResource ValueStyle}"/>
