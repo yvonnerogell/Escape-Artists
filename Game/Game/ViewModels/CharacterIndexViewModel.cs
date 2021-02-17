@@ -19,6 +19,9 @@ namespace Game.ViewModels
         private static volatile CharacterIndexViewModel instance;
         private static readonly object syncRoot = new Object();
 
+        /// <summary>
+        /// Creates an instance of the CharacterIndexViewModel.
+        /// </summary>
         public static CharacterIndexViewModel Instance
         {
             get
