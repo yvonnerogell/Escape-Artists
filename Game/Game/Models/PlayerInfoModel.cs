@@ -26,7 +26,7 @@ namespace Game.Models
 
         // Only characters have abilities, so only characters will have this variable
         // Indicates whether ability has been used in current round
-        public bool AbilityUsedInCurrentRound { get; set; }
+        public bool AbilityUsedInCurrentRound { get; set; } = false;
 
         /// <summary>
         /// Default Constructor
