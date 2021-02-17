@@ -261,6 +261,7 @@ namespace Game.Engine.EngineBase
             // Remember the Insert order, used for Sorting
             var ListOrder = 0;
 
+            // loop through the characters list and only add the ones that are alive
             foreach (var data in EngineSettings.CharacterList)
             {
                 if (data.Alive)
@@ -276,6 +277,7 @@ namespace Game.Engine.EngineBase
                 }
             }
 
+            // loop through the monsters list and only add the ones that are alive
             foreach (var data in EngineSettings.MonsterList)
             {
                 if (data.Alive)
