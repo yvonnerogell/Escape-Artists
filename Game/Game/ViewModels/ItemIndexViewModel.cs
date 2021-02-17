@@ -24,6 +24,9 @@ namespace Game.ViewModels
         private static volatile ItemIndexViewModel instance;
         private static readonly object syncRoot = new Object();
 
+        /// <summary>
+        /// Creates an instance of the ItemIndexViewMode.
+        /// </summary>
         public static ItemIndexViewModel Instance
         {
             get
