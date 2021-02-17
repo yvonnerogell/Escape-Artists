@@ -24,6 +24,10 @@ namespace Game.Models
         // Only Characters can have GPA
         public int GPA { get; set; }
 
+        // Only characters have abilities, so only characters will have this variable
+        // Indicates whether ability has been used in current round
+        public bool AbilityUsedInCurrentRound { get; set; }
+
         /// <summary>
         /// Default Constructor
         /// </summary>
@@ -117,6 +121,8 @@ namespace Game.Models
             AbilityTracker.Add(data.SpecialAbility, Constants.SpecialAbilityUsePerRound);
 
             GPA = data.GPA;
+
+            AbilityUsedInCurrentRound = data.AbilityUsedInCurrentRound;
 
         }
 
@@ -295,6 +301,7 @@ namespace Game.Models
 
             // Reduce the count
             AbilityTracker[ability] = remaining - 1;
+            AbilityUsedInCurrentRound = true;
 
             return true;
         }
