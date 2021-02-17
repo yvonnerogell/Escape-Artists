@@ -488,7 +488,7 @@ namespace Game.GameRules
                 },
 
                 new MonsterModel {
-                    Name = "Professor Mike",
+                    Name = "Professor Michaela",
                     Description = "So many research projects!",
                     MonsterTypeEnum = MonsterTypeEnum.Faculty,
                     SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.Professor,
