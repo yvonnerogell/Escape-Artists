@@ -27,6 +27,9 @@ namespace Game.Models
         // An empty square
         public PlayerInfoModel EmptySquare = new PlayerInfoModel { PlayerType = PlayerTypeEnum.Unknown, ImageURI= "item.png" };
 
+        /// <summary>
+        /// Default constructor for MapModel.
+        /// </summary>
         public MapModel()
         {
             // Create the Map
