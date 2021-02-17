@@ -8,8 +8,10 @@
         // Not Known
         Unknown = 0,
 
-        // The Characters
+        // Monster is of Faculty type
         Faculty = 20,
+
+        // Monster is of administrator type
         Administrator = 21,
     }
 }
