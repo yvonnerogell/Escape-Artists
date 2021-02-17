@@ -52,6 +52,7 @@ namespace Game.Engine.EngineBase
                 AutoBattle = isAutoBattle
             };
 
+            // Start a new round
             BattleRunning = true;
 
             Round.NewRound();
