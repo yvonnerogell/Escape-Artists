@@ -12,6 +12,7 @@ namespace UnitTests.Helpers
     [TestFixture]
     class AbilityEnumHelperTests
     {
+        /*
         [Test]
         public void AbilityEnumHelper_GetFullList_Should_Pass()
         {
@@ -61,6 +62,7 @@ namespace UnitTests.Helpers
             // Assert
             Assert.AreEqual(1, result.Count());
         }
+        */
 
         [Test]
         public void AbilityEnumHelper_ConvertStringToEnum_Should_Pass()
