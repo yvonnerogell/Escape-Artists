@@ -35,8 +35,8 @@ namespace UnitTests.Models
             // Reset
 
             // Assert 
-            Assert.AreEqual(0,result.Row);
-            Assert.AreEqual(0,result.Column);
+            Assert.AreEqual(0, result.Row);
+            Assert.AreEqual(0, result.Column);
         }
 
         [Test]
@@ -48,7 +48,7 @@ namespace UnitTests.Models
             var result = new CordinatesModel();
             result.Row = 3;
             result.Column = 2;
-            
+
             // Reset
 
             // Assert 
