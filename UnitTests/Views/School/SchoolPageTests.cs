@@ -14,10 +14,10 @@ using Xamarin.Forms;
 namespace UnitTests.Views
 {
     [TestFixture]
-    public class VillagePageTests
+    public class SchoolPageTests
     {
         App app;
-        VillagePage page;
+        SchoolPage page;
 
         // Base Constructor
         //public VillagePageTests() : base(true) { }
@@ -32,7 +32,7 @@ namespace UnitTests.Views
             app = new App();
             Application.Current = app;
 
-            page = new VillagePage();
+            page = new SchoolPage();
         }
 
         [TearDown]
