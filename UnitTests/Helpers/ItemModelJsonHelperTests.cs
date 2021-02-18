@@ -142,8 +142,8 @@ namespace UnitTests.Helpers
             // Arrange
 
             // Act
-            var result = ItemModelJsonHelper.ConvertFromJson(null); 
-            
+            var result = ItemModelJsonHelper.ConvertFromJson(null);
+
             // Reset
 
             // Assert
