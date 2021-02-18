@@ -119,7 +119,7 @@ namespace UnitTests.Models
         public void ItemModel_FormatOuput_Default_Should_Pass()
         {
             // Arrange
-            var data  = new ItemModel();
+            var data = new ItemModel();
 
             // Act
             var result = data.FormatOutput();
@@ -142,7 +142,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert 
-            Assert.AreEqual(1,result);
+            Assert.AreEqual(1, result);
         }
 
         [Test]
@@ -159,7 +159,7 @@ namespace UnitTests.Models
 
             // Reset
             DiceHelper.DisableForcedRolls();
-            
+
             // Assert 
             Assert.AreEqual(1, result);
         }
