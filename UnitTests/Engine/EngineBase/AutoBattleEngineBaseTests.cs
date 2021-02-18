@@ -192,7 +192,7 @@ namespace UnitTests.Engine.EngineBase
                 });
 
             AutoBattleEngine.Battle.EngineSettings.MonsterList.Add(MonsterPlayerSue);
-            
+
             //Act
             var result = await AutoBattleEngine.RunAutoBattle();
 
@@ -261,7 +261,7 @@ namespace UnitTests.Engine.EngineBase
             // Reset
 
             // Assert
-            Assert.AreEqual(true,result);
+            Assert.AreEqual(true, result);
         }
 
         [Test]
@@ -283,7 +283,7 @@ namespace UnitTests.Engine.EngineBase
         public void AutoBattleEngine_DetectInfinateLoop_Valid_Counts_Less_Than_Max_Should_Return_false()
         {
             // Arrange
-            AutoBattleEngine.Battle.EngineSettings.BattleScore.TurnCount = AutoBattleEngine.Battle.EngineSettings.MaxTurnCount -1;
+            AutoBattleEngine.Battle.EngineSettings.BattleScore.TurnCount = AutoBattleEngine.Battle.EngineSettings.MaxTurnCount - 1;
             AutoBattleEngine.Battle.EngineSettings.BattleScore.RoundCount = AutoBattleEngine.Battle.EngineSettings.MaxRoundCount - 1;
 
             // Act
