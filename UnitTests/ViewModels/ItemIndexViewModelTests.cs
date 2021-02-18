@@ -109,7 +109,7 @@ namespace UnitTests.ViewModels
         }
 
         [Test]
-        public void ItemIndexViewModel_CheckIfItemExists_Invalid_Null_Should_Fail ()
+        public void ItemIndexViewModel_CheckIfItemExists_Invalid_Null_Should_Fail()
         {
             // Arrange
 
@@ -588,7 +588,7 @@ namespace UnitTests.ViewModels
         public async Task ItemIndexViewModel_GetDefaultItemId_Head_Should_Pass()
         {
             // Arrange
-            await ViewModel.CreateAsync(new ItemModel { Location = ItemLocationEnum.PrimaryHand});
+            await ViewModel.CreateAsync(new ItemModel { Location = ItemLocationEnum.PrimaryHand });
 
             // Act
             var result = ViewModel.GetDefaultItemId(ItemLocationEnum.PrimaryHand);
