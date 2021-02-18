@@ -18,7 +18,7 @@ namespace UnitTests.Views
         ScoreIndexPage page;
 
         public ScoreIndexPageTests() : base(true) { }
-        
+
         [SetUp]
         public void Setup()
         {
