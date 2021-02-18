@@ -35,6 +35,7 @@ namespace UnitTests.Models
             Assert.AreEqual("Primary Hand", result);
         }
 
+        /*
         [Test]
         public void ItemLocationEnumExtensionsTests_Necklass_Default_Should_Pass()
         {
@@ -48,6 +49,7 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual("Necklass", result);
         }
+        */
 
         [Test]
         public void ItemLocationEnumExtensionsTests_PrimaryHand_Default_Should_Pass()
