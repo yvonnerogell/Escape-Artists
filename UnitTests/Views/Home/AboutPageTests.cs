@@ -156,7 +156,7 @@ namespace UnitTests.Views
             // Reset
 
             // Assert
-            Assert.AreEqual(!current,result); 
+            Assert.AreEqual(!current, result);
         }
 
         [Test]
@@ -175,7 +175,7 @@ namespace UnitTests.Views
             // Reset
 
             // Assert
-            Assert.AreEqual(!current, result); 
+            Assert.AreEqual(!current, result);
         }
 
         [Test]
@@ -221,14 +221,14 @@ namespace UnitTests.Views
         public void AboutPage_GetItemsGet_Clicked_Default_Should_Pass()
         {
             // Arrange
-            
+
             // Act
-            page.GetItemsGet_Command(null,null);
+            page.GetItemsGet_Command(null, null);
 
             // Reset
 
             // Assert
-            Assert.AreEqual(true,true); // Got to here, so it happened...
+            Assert.AreEqual(true, true); // Got to here, so it happened...
         }
 
         [Test]
@@ -313,6 +313,8 @@ namespace UnitTests.Views
         public async Task AboutPage_GetItemsPost_Neg_Should_Fail()
         {
             // Arrange
+            var hold = WebGlobalsModel.WebSiteAPIURL;
+            WebGlobalsModel.WebSiteAPIURL = "https://bogusurl";
 
             page.SetServerItemValue("-100");
 
@@ -320,6 +322,7 @@ namespace UnitTests.Views
             var result = await page.GetItemsPost();
 
             // Reset
+            WebGlobalsModel.WebSiteAPIURL = hold;
 
             // Assert
             Assert.AreEqual("No Results", result); // Got to here, so it happened...
