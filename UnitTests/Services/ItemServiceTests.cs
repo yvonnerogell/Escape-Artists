@@ -48,7 +48,7 @@ namespace UnitTests.Services
             // Reset
 
             // Assert
-            Assert.AreEqual(true, result.Count()>1);
+            Assert.AreEqual(true, result.Count() > 1);
         }
 
         [Test]
@@ -62,7 +62,7 @@ namespace UnitTests.Services
             // Reset
 
             // Assert
-            Assert.AreEqual(true, result.Count()==2);
+            Assert.AreEqual(true, result.Count() == 2);
             Assert.AreEqual("Strong Shield", result[0].Name);
         }
 
@@ -71,7 +71,7 @@ namespace UnitTests.Services
         {
             // Arrange
             var number = 1;
-            
+
             var level = 6;  // Max Value of 6
             var attribute = AttributeEnum.Unknown;  // Any Attribute
             var location = ItemLocationEnum.Unknown;    // Any Location
@@ -87,7 +87,7 @@ namespace UnitTests.Services
             // Reset
 
             // Assert
-            Assert.AreEqual(true, result.Count()== 1);
+            Assert.AreEqual(true, result.Count() == 1);
         }
 
         [Test]
