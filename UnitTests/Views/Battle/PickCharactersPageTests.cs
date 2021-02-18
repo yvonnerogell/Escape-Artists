@@ -57,7 +57,7 @@ namespace UnitTests.Views
             // Assert
             Assert.IsNotNull(result);
         }
-        
+
         [Test]
         public void PickCharactersPage_Constructor_UT_Default_Should_Pass()
         {
