@@ -63,7 +63,7 @@ namespace UnitTests.Views
             Assert.IsTrue(true);
         }
 
-       [Test]
+        [Test]
         public async Task MainPage_Navigate_Game_Should_Pass()
         {
             // Arrange
