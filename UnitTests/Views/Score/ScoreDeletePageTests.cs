@@ -23,7 +23,7 @@ namespace UnitTests.Views
         ScoreDeletePage page;
 
         public ScoreDeletePageTests() : base(true) { }
-        
+
         [SetUp]
         public void Setup()
         {
