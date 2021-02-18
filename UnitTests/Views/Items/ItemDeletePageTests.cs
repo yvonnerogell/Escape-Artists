@@ -23,7 +23,7 @@ namespace UnitTests.Views
         ItemDeletePage page;
 
         public ItemDeletePageTests() : base(true) { }
-        
+
         [SetUp]
         public void Setup()
         {
