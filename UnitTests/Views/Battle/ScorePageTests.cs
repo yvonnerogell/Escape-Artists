@@ -167,7 +167,7 @@ namespace UnitTests.Views
 
             // Draw the Items
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Add(new ItemModel());
-    
+
             // Act
             page.DrawOutput();
 
