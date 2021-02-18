@@ -23,7 +23,7 @@ namespace UnitTests.Views
         ItemCreatePage page;
 
         public ItemCreatePageTests() : base(true) { }
-        
+
         [SetUp]
         public void Setup()
         {
@@ -113,6 +113,7 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
+
         /*
         [Test]
         public void ItemCreatePage_Value_OnStepperValueChanged_Default_Should_Pass()
@@ -133,7 +134,7 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-        
+
         [Test]
         public void ItemCreatePage_Range_OnStepperValueChanged_Default_Should_Pass()
         {
