@@ -69,7 +69,7 @@ namespace UnitTests.Services
             // Reset
 
             // Assert
-            Assert.AreEqual(null,result);
+            Assert.AreEqual(null, result);
         }
 
         [Test]
