@@ -187,7 +187,7 @@ namespace UnitTests.Models
             result.Necklass = "necklass";
             result.PrimaryHand = "primaryhand";
             result.OffHand = "offhand";
-            result.RightFinger ="rightfinger";
+            result.RightFinger = "rightfinger";
             result.LeftFinger = "leftfinger";
 
             // Reset
@@ -365,7 +365,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert
-            Assert.AreEqual(null,result);
+            Assert.AreEqual(null, result);
         }
 
         [Test]
@@ -427,7 +427,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert
-            Assert.AreEqual(null,result);
+            Assert.AreEqual(null, result);
         }
 
         [Test]
@@ -442,7 +442,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert
-            Assert.AreEqual(null,result);
+            Assert.AreEqual(null, result);
         }
 
         [Test]
@@ -594,14 +594,14 @@ namespace UnitTests.Models
             // Add each model here to warm up and load it.
             Game.Helpers.DataSetsHelper.WarmUp();
 
-            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Id="head" });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Id = "head" });
             await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 20, Id = "necklass" });
             await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 300, Id = "PrimaryHand" });
             await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 4000, Id = "OffHand" });
             await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 50000, Id = "RightFinger" });
             await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 600000, Id = "LeftFinger" });
             await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 7000000, Id = "feet" });
-            
+
             var data = new MonsterModel();
 
             // Add the first item
@@ -623,7 +623,6 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual(7654320, result);
         }
-        
 
         [Test]
         public async Task MonsterModel_GetAttackTotal_Default_Attack_Should_Pass()
@@ -661,7 +660,6 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual(7654322, result);
         }
-        
 
         [Test]
         public async Task MonsterModel_GetDefenseTotal_Default_Defense_Should_Pass()
@@ -699,7 +697,6 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual(7654321, result);
         }
-        
 
         [Test]
         public async Task MonsterModel_GetDamageTotal_Default_Speed_Should_Pass()
@@ -737,7 +734,6 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual(7654321, result);
         }
-        
 
         [Test]
         public async Task MonsterModel_GetDamageRollAttack_Default_Speed_Should_Pass()
@@ -776,7 +772,7 @@ namespace UnitTests.Models
 
             // Reset
             Game.Helpers.DiceHelper.DisableForcedRolls();
- 
+
             // Assert
             Assert.AreEqual(2, result);
         }
@@ -789,7 +785,7 @@ namespace UnitTests.Models
             // Add each model here to warm up and load it.
             Game.Helpers.DataSetsHelper.WarmUp();
 
-            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 300, Id = "PrimaryHand" , Damage=1});
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 300, Id = "PrimaryHand", Damage = 1 });
 
             var data = new MonsterModel();
             data.Level = 1;
