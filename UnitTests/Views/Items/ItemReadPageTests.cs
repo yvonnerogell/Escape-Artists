@@ -23,7 +23,7 @@ namespace UnitTests.Views
         ItemReadPage page;
 
         public ItemReadPageTests() : base(true) { }
-        
+
         [SetUp]
         public void Setup()
         {
