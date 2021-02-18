@@ -429,7 +429,7 @@ namespace UnitTests.Engine.EngineKoenig
 
             DiceHelper.EnableForcedRolls();
             DiceHelper.SetForcedRollValue(3); // Always roll a 3.
-            
+
             // Act
             var result = Engine.Round.Turn.RollToHitTarget(AttackScore, DefenseScore);
 
@@ -593,8 +593,8 @@ namespace UnitTests.Engine.EngineKoenig
 
             Engine.EngineSettings.CurrentAction = ActionEnum.Move;
 
-            var character  = new PlayerInfoModel(new CharacterModel());
-            var monster   = new PlayerInfoModel(new CharacterModel());
+            var character = new PlayerInfoModel(new CharacterModel());
+            var monster = new PlayerInfoModel(new CharacterModel());
 
             Engine.EngineSettings.PlayerList.Add(character);
             Engine.EngineSettings.PlayerList.Add(monster);
@@ -698,9 +698,9 @@ namespace UnitTests.Engine.EngineKoenig
             var PlayerInfo = new PlayerInfoModel(player);
 
             DiceHelper.EnableForcedRolls();
-            
+
             // Drop is 0-Number, so 2 will yield 1
-            DiceHelper.SetForcedRollValue(2);   
+            DiceHelper.SetForcedRollValue(2);
 
             // Act
             var result = Engine.Round.Turn.DropItems(PlayerInfo);
@@ -995,7 +995,7 @@ namespace UnitTests.Engine.EngineKoenig
             {
                 CurrentHealth = 1,
                 Alive = true,
-                Guid="me"
+                Guid = "me"
             };
 
             var PlayerInfo = new PlayerInfoModel(Monster);
@@ -1062,7 +1062,7 @@ namespace UnitTests.Engine.EngineKoenig
             DiceHelper.SetForcedRollValue(20);
 
             // Act
-            var result = Engine.Round.Turn.TurnAsAttack(CharacterPlayer,MonsterPlayer);
+            var result = Engine.Round.Turn.TurnAsAttack(CharacterPlayer, MonsterPlayer);
 
             // Reset
             DiceHelper.DisableForcedRolls();
@@ -1080,8 +1080,8 @@ namespace UnitTests.Engine.EngineKoenig
         {
             // Arrange
             Engine.EngineSettings.CurrentActionAbility = AbilityEnum.Unknown;
-            
-            var characterPlayer = new PlayerInfoModel(new CharacterModel { Job=CharacterJobEnum.Unknown});
+
+            var characterPlayer = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Unknown });
 
             // remove it so it is not found
             characterPlayer.AbilityTracker.Remove(AbilityEnum.Unknown);
@@ -1114,8 +1114,7 @@ namespace UnitTests.Engine.EngineKoenig
 
             // Assert
             Assert.AreEqual(false, result);
-        
-        
+        }
 
         [Test]
         public void TurnEngine_UseAbility_Valid_Ability_Heal_1_Should_Pass()
@@ -1136,7 +1135,6 @@ namespace UnitTests.Engine.EngineKoenig
             // Assert
             Assert.AreEqual(true, result);
         }
-        
 
         [Test]
         public void TurnEngine_UseAbility_Valid_Ability_Toughness_1_Should_Pass()
@@ -1146,7 +1144,7 @@ namespace UnitTests.Engine.EngineKoenig
             var characterPlayer = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Unknown });
 
             // remove it so it is not found
-            characterPlayer.AbilityTracker.Add(AbilityEnum.Toughness,1);
+            characterPlayer.AbilityTracker.Add(AbilityEnum.Toughness, 1);
             Engine.EngineSettings.CurrentActionAbility = AbilityEnum.Toughness;
 
             // Act
@@ -1157,7 +1155,6 @@ namespace UnitTests.Engine.EngineKoenig
             // Assert
             Assert.AreEqual(true, result);
         }
-        
 
         [Test]
         public void TurnEngine_UseAbility_Valid_Ability_Quick_1_Should_Pass()
@@ -1340,7 +1337,7 @@ namespace UnitTests.Engine.EngineKoenig
             // Arrange
 
             var CharacterPlayer = new PlayerInfoModel(new CharacterModel());
-            
+
             // Get the longest range weapon in stock.
             var weapon = ItemIndexViewModel.Instance.Dataset.Where(m => m.Range > 1).ToList().OrderByDescending(m => m.Range).FirstOrDefault();
             CharacterPlayer.PrimaryHand = weapon.Id;
@@ -1462,7 +1459,7 @@ namespace UnitTests.Engine.EngineKoenig
         {
             // Arrange
 
-            var CharacterPlayer = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Cleric});
+            var CharacterPlayer = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Cleric });
 
             // Get the longest range weapon in stock.
             var weapon = ItemIndexViewModel.Instance.Dataset.Where(m => m.Range > 1).ToList().OrderByDescending(m => m.Range).FirstOrDefault();
@@ -1486,9 +1483,11 @@ namespace UnitTests.Engine.EngineKoenig
             // Assert
             Assert.AreEqual(true, result);
         }
+        */
         #endregion ChooseToUseAbility
 
         #region MoveAsTurn
+        /*
         [Test]
         public void TurnEngine_MoveAsTurn_Valid_Character_Should_Pass()
         {
@@ -1590,6 +1589,7 @@ namespace UnitTests.Engine.EngineKoenig
             // Assert
             Assert.AreEqual(false, result);
         }
+        
 
         [Test]
         public void TurnEngine_MoveAsTurn_Invalid_Monster_InValid_Attacker_Not_On_Map_Should_Fail()
