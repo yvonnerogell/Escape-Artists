@@ -23,7 +23,7 @@ namespace UnitTests.Views
         App app;
         BattleSettingsPage page;
 
-       // public BattleSettingsPageTests() : base(true) { }
+        // public BattleSettingsPageTests() : base(true) { }
 
         [SetUp]
         public void Setup()
