@@ -21,6 +21,7 @@ namespace UnitTests.Models
             Assert.AreEqual("None", result);
         }
 
+        /*
         [Test]
         public void AbilityEnumExtensionsTests_Bandage_Default_Should_Pass()
         {
@@ -132,5 +133,6 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual("Toughen Up", result);
         }
+        */
     }
 }
