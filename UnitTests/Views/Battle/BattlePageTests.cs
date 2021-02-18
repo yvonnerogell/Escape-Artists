@@ -160,7 +160,7 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-        
+
 
         [Test]
         public void BattlePage_ClearMessages_Default_Should_Pass()
@@ -264,7 +264,7 @@ namespace UnitTests.Views
             // Arrange
 
             BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(new PlayerInfoModel(new CharacterModel()));
-            BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender( new PlayerInfoModel(new CharacterModel { Alive=false }));
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(new PlayerInfoModel(new CharacterModel { Alive = false }));
 
             // Act
             page.DrawGameAttackerDefenderBoard();
@@ -570,7 +570,7 @@ namespace UnitTests.Views
             // Reset
 
             // Assert
-            Assert.AreEqual(true,result); // Got to here, so it happened...
+            Assert.AreEqual(true, result); // Got to here, so it happened...
         }
 
         [Test]
@@ -615,7 +615,7 @@ namespace UnitTests.Views
             page.MapLocationObject.TryGetValue(nameStack, out object dataStack);
             page.MapLocationObject.Remove(nameStack);
 
-            var nameImage= "MapR0C0ImageButton";
+            var nameImage = "MapR0C0ImageButton";
             page.MapLocationObject.TryGetValue(nameImage, out object dataImage);
 
             page.MapLocationObject.Remove(nameImage);
@@ -689,7 +689,7 @@ namespace UnitTests.Views
             // Get the current valute
 
             // Act
-            page.Setttings_Clicked(null,null);
+            page.Setttings_Clicked(null, null);
 
             // Reset
 
@@ -730,14 +730,14 @@ namespace UnitTests.Views
         public void BattleSettingsPage_ShowBattleModeUIElements_Starting_Should_Pass()
         {
             // Arrange
-            var save = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum ;
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum  = BattleStateEnum.Starting;
+            var save = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Starting;
 
             // Act
             page.ShowBattleModeUIElements();
 
             // Reset
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum  = save;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = save;
 
             // Assert
             Assert.IsTrue(true); // Got Here
@@ -747,14 +747,14 @@ namespace UnitTests.Views
         public void BattleSettingsPage_ShowBattleModeUIElements_NewRound_Should_Pass()
         {
             // Arrange
-            var save = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum ;
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum  = BattleStateEnum.NewRound;
+            var save = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.NewRound;
 
             // Act
             page.ShowBattleModeUIElements();
 
             // Reset
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum  = save;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = save;
 
             // Assert
             Assert.IsTrue(true); // Got Here
@@ -764,14 +764,14 @@ namespace UnitTests.Views
         public void BattleSettingsPage_ShowBattleModeUIElements_GameOver_Should_Pass()
         {
             // Arrange
-            var save = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum ;
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum  = BattleStateEnum.GameOver;
+            var save = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.GameOver;
 
             // Act
             page.ShowBattleModeUIElements();
 
             // Reset
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum  = save;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = save;
 
             // Assert
             Assert.IsTrue(true); // Got Here
@@ -781,14 +781,14 @@ namespace UnitTests.Views
         public void BattleSettingsPage_ShowBattleModeUIElements_RoundOver_Should_Pass()
         {
             // Arrange
-            var save = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum ;
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum  = BattleStateEnum.RoundOver;
+            var save = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.RoundOver;
 
             // Act
             page.ShowBattleModeUIElements();
 
             // Reset
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum  = save;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = save;
 
             // Assert
             Assert.IsTrue(true); // Got Here
@@ -798,14 +798,14 @@ namespace UnitTests.Views
         public void BattleSettingsPage_ShowBattleModeUIElements_Battling_Should_Pass()
         {
             // Arrange
-            var save = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum ;
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum  = BattleStateEnum.Battling;
+            var save = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Battling;
 
             // Act
             page.ShowBattleModeUIElements();
 
             // Reset
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum  = save;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = save;
 
             // Assert
             Assert.IsTrue(true); // Got Here
@@ -815,14 +815,14 @@ namespace UnitTests.Views
         public void BattleSettingsPage_ShowBattleModeUIElements_Unknown_Should_Pass()
         {
             // Arrange
-            var save = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum ;
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum  = BattleStateEnum.Unknown;
+            var save = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Unknown;
 
             // Act
             page.ShowBattleModeUIElements();
 
             // Reset
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum  = save;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = save;
 
             // Assert
             Assert.IsTrue(true); // Got Here
