@@ -26,7 +26,7 @@ namespace UnitTests.Helpers
             DiceHelper.DisableForcedRolls();
 
             // Assert
-            Assert.AreEqual(2-1, result);
+            Assert.AreEqual(2 - 1, result);
         }
 
         [Test]
@@ -129,6 +129,20 @@ namespace UnitTests.Helpers
 
             // Assert
             Assert.AreEqual("Doug", result);
+        }
+
+        [Test]
+        public void RandomPlayerHelper_GetItem_Unknown_Should_Return_0()
+        {
+            // Arrange
+
+            // Act
+            var result = RandomPlayerHelper.GetItem(Game.Models.ItemLocationEnum.Unknown);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(null, result);
         }
 
         [Test]
