@@ -176,6 +176,7 @@ namespace UnitTests.Helpers
             Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
         }
 
+        /*
         [Test]
         public void ItemLocationEnumHelper_GetLocationByPosition_2_Should_Pass()
         {
@@ -190,6 +191,7 @@ namespace UnitTests.Helpers
             // Assert
             Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);
         }
+        */
 
         [Test]
         public void ItemLocationEnumHelper_GetLocationByPosition_3_Should_Pass()
