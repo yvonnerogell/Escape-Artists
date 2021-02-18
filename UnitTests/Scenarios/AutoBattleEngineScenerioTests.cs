@@ -121,7 +121,7 @@ namespace Scenario
 
         //    var CharacterPlayer = new PlayerInfoModel(Character);
 
-        //    AutoBattle.Battle.EngineSettings.StudentList.Add(CharacterPlayer);
+        //    AutoBattle.Battle.EngineSettings.CharacterList.Add(CharacterPlayer);
 
 
         //    // Add Monsters
@@ -353,8 +353,8 @@ namespace Scenario
         //                        Name = "Mike",
         //                    });
 
-        //    Engine.EngineSettings.StudentList.Add(CharacterPlayerMike);
-        //    Engine.EngineSettings.StudentList.Add(CharacterPlayerMike);
+        //    Engine.EngineSettings.CharacterList.Add(CharacterPlayerMike);
+        //    Engine.EngineSettings.CharacterList.Add(CharacterPlayerMike);
 
 
         //    // Add Monsters

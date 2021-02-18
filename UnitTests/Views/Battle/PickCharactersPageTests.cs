@@ -112,8 +112,8 @@ namespace UnitTests.Views
         //public void PickCharactersPage_OnApperaing_Default_Should_Pass()
         //{
         //    // Arrange
-        //    BattleEngineViewModel.Instance.Engine.EngineSettings.StudentList = new List<PlayerInfoModel>();
-        //    BattleEngineViewModel.Instance.Engine.EngineSettings.StudentList.Add(new PlayerInfoModel(new CharacterModel()));
+        //    BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList = new List<PlayerInfoModel>();
+        //    BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(new CharacterModel()));
 
         //    BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList = new List<PlayerInfoModel>();
         //    BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Add(new PlayerInfoModel(new MonsterModel()));

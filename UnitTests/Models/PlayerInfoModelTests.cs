@@ -172,7 +172,7 @@ namespace UnitTests.Models
             // Arrange
             var data = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Cleric });
             data.AbilityTracker[AbilityEnum.Heal] = 0;
-            data.AbilityTracker[AbilityEnum.Extra_Credit] = 0;
+            data.AbilityTracker[AbilityEnum.Bandage] = 0;
 
             data.CurrentHealth = 1;
             data.MaxHealth = 100;
@@ -191,7 +191,7 @@ namespace UnitTests.Models
         {
             // Arrange
             var data = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Fighter });
-            data.AbilityTracker[AbilityEnum.Extra_Credit] = 1;
+            data.AbilityTracker[AbilityEnum.Bandage] = 1;
 
             data.CurrentHealth = 1;
             data.MaxHealth = 100;
@@ -202,7 +202,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert
-            Assert.AreEqual(AbilityEnum.Extra_Credit, result);
+            Assert.AreEqual(AbilityEnum.Bandage, result);
         }
 
         [Test]
@@ -210,7 +210,7 @@ namespace UnitTests.Models
         {
             // Arrange
             var data = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Fighter });
-            data.AbilityTracker[AbilityEnum.Extension] = 1;
+            data.AbilityTracker[AbilityEnum.Nimble] = 1;
 
             // Act
             var result = data.SelectAbilityToUse();
@@ -218,7 +218,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert
-            Assert.AreEqual(AbilityEnum.Extension, result);
+            Assert.AreEqual(AbilityEnum.Nimble, result);
         }
 
         [Test]

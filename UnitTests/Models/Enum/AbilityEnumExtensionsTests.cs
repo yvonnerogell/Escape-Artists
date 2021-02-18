@@ -27,7 +27,7 @@ namespace UnitTests.Models
             // Arrange
 
             // Act
-            var result = AbilityEnum.Extra_Credit.ToMessage();
+            var result = AbilityEnum.Bandage.ToMessage();
 
             // Reset
 
@@ -69,12 +69,12 @@ namespace UnitTests.Models
             // Arrange
 
             // Act
-            var result = AbilityEnum.Bribes.ToMessage();
+            var result = AbilityEnum.Focus.ToMessage();
 
             // Reset
 
             // Assert
-            Assert.AreEqual("Mental Bribes", result);
+            Assert.AreEqual("Mental Focus", result);
         }
 
         [Test]
@@ -97,7 +97,7 @@ namespace UnitTests.Models
             // Arrange
 
             // Act
-            var result = AbilityEnum.Extension.ToMessage();
+            var result = AbilityEnum.Nimble.ToMessage();
 
             // Reset
 
@@ -125,7 +125,7 @@ namespace UnitTests.Models
             // Arrange
 
             // Act
-            var result = AbilityEnum.Flash_Genius.ToMessage();
+            var result = AbilityEnum.Toughness.ToMessage();
 
             // Reset
 

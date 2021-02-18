@@ -41,12 +41,12 @@ namespace UnitTests.Models
             // Arrange
 
             // Act
-            var result = ItemLocationEnum.Necklace.ToMessage();
+            var result = ItemLocationEnum.Necklass.ToMessage();
 
             // Reset
 
             // Assert
-            Assert.AreEqual("Necklace", result);
+            Assert.AreEqual("Necklass", result);
         }
 
         [Test]

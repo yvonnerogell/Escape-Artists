@@ -154,8 +154,8 @@ namespace UnitTests.Engine.EngineKoenig
         //    //Reset
 
         //    //Assert
-        //    Assert.AreEqual(6, AutoBattleEngine.Battle.EngineSettings.StudentList.Count());
-        //    Assert.AreEqual("6", AutoBattleEngine.Battle.EngineSettings.StudentList.ElementAt(5).Name);
+        //    Assert.AreEqual(6, AutoBattleEngine.Battle.EngineSettings.CharacterList.Count());
+        //    Assert.AreEqual("6", AutoBattleEngine.Battle.EngineSettings.CharacterList.ElementAt(5).Name);
         //}
 
         //[Test]
@@ -172,7 +172,7 @@ namespace UnitTests.Engine.EngineKoenig
         //    //Reset
 
         //    //Assert
-        //    Assert.AreEqual(6, AutoBattleEngine.Battle.EngineSettings.StudentList.Count());
+        //    Assert.AreEqual(6, AutoBattleEngine.Battle.EngineSettings.CharacterList.Count());
         //}
         #endregion CreateCharacterParty   
     }

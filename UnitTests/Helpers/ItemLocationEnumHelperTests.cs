@@ -185,7 +185,7 @@ namespace UnitTests.Helpers
 
             // Act
             var Actual = ItemLocationEnumHelper.GetLocationByPosition(value);
-            var Expected = ItemLocationEnum.Necklace;
+            var Expected = ItemLocationEnum.Necklass;
 
             // Assert
             Assert.AreEqual(Expected, Actual, TestContext.CurrentContext.Test.Name);

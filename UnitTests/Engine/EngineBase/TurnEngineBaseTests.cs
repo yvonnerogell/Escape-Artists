@@ -573,7 +573,7 @@ namespace UnitTests.Engine.EngineBase
             // Arrange
 
             Engine.EngineSettings.CurrentAction = ActionEnum.Ability;
-            Engine.EngineSettings.CurrentActionAbility = AbilityEnum.Extra_Credit;
+            Engine.EngineSettings.CurrentActionAbility = AbilityEnum.Bandage;
 
             var PlayerInfo = new PlayerInfoModel(new CharacterModel());
 
@@ -1142,8 +1142,8 @@ namespace UnitTests.Engine.EngineBase
             var characterPlayer = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Unknown });
 
             // remove it so it is not found
-            characterPlayer.AbilityTracker.Add(AbilityEnum.Flash_Genius,1);
-            Engine.EngineSettings.CurrentActionAbility = AbilityEnum.Flash_Genius;
+            characterPlayer.AbilityTracker.Add(AbilityEnum.Toughness,1);
+            Engine.EngineSettings.CurrentActionAbility = AbilityEnum.Toughness;
 
             // Act
             var result = Engine.Round.Turn.UseAbility(characterPlayer);
