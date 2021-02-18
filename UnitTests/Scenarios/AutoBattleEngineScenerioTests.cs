@@ -47,7 +47,7 @@ namespace Scenario
             Assert.IsNotNull(result);
         }
 
-       [Test]
+        [Test]
         public async Task AutoBattleEngine_RunAutoBattle_Monsters_1_Should_Pass()
         {
             //Arrange
@@ -216,7 +216,7 @@ namespace Scenario
             var CharacterPlayer = new PlayerInfoModel(
                             new CharacterModel
                             {
-                                Speed = 100, 
+                                Speed = 100,
                                 Level = 20,
                                 MaxHealth = 200,
                                 CurrentHealth = 200,
