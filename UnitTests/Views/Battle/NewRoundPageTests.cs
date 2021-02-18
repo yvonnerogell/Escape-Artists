@@ -73,7 +73,7 @@ namespace UnitTests.Views
         {
             // Arrange
             // Act
-            var result = page.CreatePlayerDisplayBox(new PlayerInfoModel(new CharacterModel { Name="test"}));
+            var result = page.CreatePlayerDisplayBox(new PlayerInfoModel(new CharacterModel { Name = "test" }));
 
             // Reset
 
