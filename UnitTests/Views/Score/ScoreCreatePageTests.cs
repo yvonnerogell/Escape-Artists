@@ -23,7 +23,7 @@ namespace UnitTests.Views
         ScoreCreatePage page;
 
         public ScoreCreatePageTests() : base(true) { }
-        
+
         [SetUp]
         public void Setup()
         {
