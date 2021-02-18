@@ -68,7 +68,7 @@ namespace UnitTests.Services
             // Reset
 
             // Assert
-            Assert.AreEqual(true,result);
+            Assert.AreEqual(true, result);
         }
 
         [Test]
@@ -109,7 +109,7 @@ namespace UnitTests.Services
             var originalState = await DataStore.GetNeedsInitializationAsync();
 
             // Act
-            DataStore.NeedsInitialization=true;
+            DataStore.NeedsInitialization = true;
             var newState = await DataStore.GetNeedsInitializationAsync();
 
             // Reset
@@ -405,7 +405,7 @@ namespace UnitTests.Services
 
             // Act
             item2.Name = "c";
-            
+
             var result = await DataStore.UpdateAsync(item2);
             var name = await DataStore.ReadAsync(item2.Id);
 
@@ -473,7 +473,7 @@ namespace UnitTests.Services
         [Test]
         public async Task DatabaseService_Update_ForceException_Should_Fail()
         {
-             // Arrange
+            // Arrange
             var item1 = new ItemModel
             {
                 Name = "a"
