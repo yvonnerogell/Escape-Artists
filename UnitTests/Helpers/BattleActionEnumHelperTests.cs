@@ -21,7 +21,7 @@ namespace UnitTests.Helpers
             var result = BattleActionEnumHelper.GetListAll;
 
             // Assert
-            Assert.AreEqual(3,result.Count());
+            Assert.AreEqual(3, result.Count());
 
             // Assert
         }
