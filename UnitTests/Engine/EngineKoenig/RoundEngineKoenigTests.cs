@@ -23,7 +23,7 @@ namespace UnitTests.Engine.EngineKoenig
             Engine.Round.ClearLists();
 
             //Start the Engine in AutoBattle Mode
-            Engine.StartBattle(true);   
+            Engine.StartBattle(true);
         }
 
         [TearDown]
@@ -87,7 +87,7 @@ namespace UnitTests.Engine.EngineKoenig
                 Speed = 1,
                 Level = 1,
                 CurrentHealth = 2,
-                ExperienceTotal= 1,
+                ExperienceTotal = 1,
                 Name = "C",
                 ListOrder = 10
             };
@@ -368,7 +368,7 @@ namespace UnitTests.Engine.EngineKoenig
                 Speed = 20,
                 Level = 1,
                 CurrentHealth = 1,
-                ExperienceTotal= 1,
+                ExperienceTotal = 1,
                 Name = "Z",
                 ListOrder = 1,
                 Guid = "me"
@@ -870,7 +870,7 @@ namespace UnitTests.Engine.EngineKoenig
 
 
             // Assert
-            Assert.AreEqual("Doug",result.Name);
+            Assert.AreEqual("Doug", result.Name);
         }
 
         [Test]
@@ -1065,7 +1065,7 @@ namespace UnitTests.Engine.EngineKoenig
 
             // Make the List
             Engine.EngineSettings.PlayerList = Engine.Round.MakePlayerList();
-            
+
             // Clear the List to cause the error
             Engine.EngineSettings.PlayerList.Clear();
 
