@@ -25,6 +25,5 @@
     <Folder Include="Views\Characters\" />
     <Folder Include="Views\Monsters\" />
     <Folder Include="Engine\EngineInterfaces\" />
-    <Folder Include="Views\Village\" />
   </ItemGroup>
 </Project>
