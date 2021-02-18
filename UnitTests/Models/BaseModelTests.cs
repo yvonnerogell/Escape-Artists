@@ -16,6 +16,7 @@ namespace UnitTests.Models
             var result = new BaseModel<ItemModel>();
 
             // Reset
+            result.Name = "This is an Item";
 
             // Assert
             Assert.AreEqual("This is an Item", result.Name);
