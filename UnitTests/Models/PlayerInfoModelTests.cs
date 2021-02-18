@@ -27,7 +27,7 @@ namespace UnitTests.Models
         {
             // Arrange
             var data = new CharacterModel();
-            
+
             // Act
             var result = new PlayerInfoModel(data);
 
@@ -57,7 +57,7 @@ namespace UnitTests.Models
         public void PlayerInfoModel_Constructor_Character_Fighter_Default_Should_Pass()
         {
             // Arrange
-            var data = new CharacterModel { Job = CharacterJobEnum.Fighter};
+            var data = new CharacterModel { Job = CharacterJobEnum.Fighter };
 
             // Act
             var result = new PlayerInfoModel(data);
@@ -72,7 +72,7 @@ namespace UnitTests.Models
         public void PlayerInfoModel_Constructor_Character_Cleric_Default_Should_Pass()
         {
             // Arrange
-            var data = new CharacterModel { Job = CharacterJobEnum.Cleric};
+            var data = new CharacterModel { Job = CharacterJobEnum.Cleric };
 
             // Act
             var result = new PlayerInfoModel(data);
@@ -236,6 +236,7 @@ namespace UnitTests.Models
 
             // Assert
         }
+        
 
         [Test]
         public void PlayerInfoModel_SelectAbilityToUse_Monster_Should_Return_False()
