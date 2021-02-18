@@ -55,6 +55,7 @@ namespace UnitTests.Views
             Assert.IsNotNull(result);
         }
 
+        /*
         [Test]
         public void GamePage_DungeonButton_Clicked_Default_Should_Pass()
         {
@@ -80,6 +81,7 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
+        */
 
         [Test]
         public void GamePage_AutobattleButton_Clicked_Default_Should_Pass()
