@@ -63,6 +63,7 @@ namespace UnitTests.Models
             Assert.IsNotNull(result.Speed);
         }
 
+        /*
         [Test]
         public void MonsterModel_Set_Default_Should_Pass()
         {
@@ -106,6 +107,7 @@ namespace UnitTests.Models
 
             Assert.AreEqual(DifficultyEnum.Average, result.Difficulty);
         }
+        */
 
         [Test]
         public void MonsterModel_Update_Default_Should_Pass()
@@ -157,6 +159,7 @@ namespace UnitTests.Models
             Assert.AreEqual(true, result.Contains("Troll"));
         }
 
+        /*
         [Test]
         public void MonsterModel_Set_Get_Default_Should_Pass()
         {
@@ -213,6 +216,7 @@ namespace UnitTests.Models
             Assert.AreEqual("rightfinger", result.RightFinger);
             Assert.AreEqual("leftfinger", result.LeftFinger);
         }
+        */
 
         [Test]
         public void MonsterModel_GetAttack_Default_Should_Pass()
@@ -394,6 +398,7 @@ namespace UnitTests.Models
             Assert.AreEqual(null, result);
         }
 
+        /*
         [Test]
         public void MonsterModel_GetItemByLocation_Necklass_Default_Should_Pass()
         {
@@ -408,6 +413,7 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual(null, result);
         }
+        */
 
         [Test]
         public void MonsterModel_GetItemByLocation_PrimaryHand_Default_Should_Pass()
@@ -487,6 +493,7 @@ namespace UnitTests.Models
             Assert.AreEqual(null, result);
         }
 
+        /*
         [Test]
         public async Task MonsterModel_DropAllItems_Default_Should_Pass()
         {
@@ -514,6 +521,7 @@ namespace UnitTests.Models
             // Assert
             Assert.IsNotNull(result);
         }
+        */
 
         [Test]
         public void MonsterModel_AddItem_Unknown_Should_Fail()
@@ -578,6 +586,7 @@ namespace UnitTests.Models
             Assert.AreEqual(itemOld.Id, result.Id);
         }
 
+        /*
         [Test]
         public async Task MonsterModel_GetItemBonus_Default_Attack_Should_Pass()
         {
@@ -614,6 +623,7 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual(7654320, result);
         }
+        
 
         [Test]
         public async Task MonsterModel_GetAttackTotal_Default_Attack_Should_Pass()
@@ -651,6 +661,7 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual(7654322, result);
         }
+        
 
         [Test]
         public async Task MonsterModel_GetDefenseTotal_Default_Defense_Should_Pass()
@@ -688,6 +699,7 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual(7654321, result);
         }
+        
 
         [Test]
         public async Task MonsterModel_GetDamageTotal_Default_Speed_Should_Pass()
@@ -725,6 +737,7 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual(7654321, result);
         }
+        
 
         [Test]
         public async Task MonsterModel_GetDamageRollAttack_Default_Speed_Should_Pass()
@@ -767,6 +780,7 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual(2, result);
         }
+        */
 
         [Test]
         public async Task MonsterModel_GetDamageItemBonus_Default_Speed_Should_Pass()
