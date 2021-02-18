@@ -83,7 +83,7 @@ namespace UnitTests.Views
             // Arrange
 
             // Initilize Xamarin Forms
-            
+
             MockForms.Init();
             var page = new App();
 
