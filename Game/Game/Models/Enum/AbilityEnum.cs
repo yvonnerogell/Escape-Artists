@@ -45,7 +45,7 @@ namespace Game.Models
         public static string ToMessage(this AbilityEnum value)
         {
             // Default String
-            var Message = "None";
+            var Message = "Unknown";
 
             switch (value)
             {
@@ -70,6 +70,9 @@ namespace Game.Models
                     break;
 
                 case AbilityEnum.None:
+                    Message = "None";
+                    break;
+
                 case AbilityEnum.Unknown:
                 default:
                     break;
