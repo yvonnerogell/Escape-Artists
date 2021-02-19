@@ -17,7 +17,8 @@ namespace Game.Views
 	public partial class AutoBattlePage : ContentPage
 	{
 		// Hold the Engine, so it can be swapped out for unit testing
-		public IAutoBattleInterface AutoBattle = BattleEngineViewModel.Instance.AutoBattleEngine;
+		// Changing this to call AutoBattleEngineKoenig instead of AutoBattleEngine
+		public IAutoBattleInterface AutoBattle = BattleEngineViewModel.Instance.AutoBattleEngineKoenig;
 
 		/// <summary>
 		/// Constructor
