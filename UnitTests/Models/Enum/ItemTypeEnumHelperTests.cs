@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using System.Collections.Generic;
 using Game.Models;
+using Game;
 
 
 namespace UnitTests.Models.Enum
@@ -1122,6 +1123,202 @@ namespace UnitTests.Models.Enum
 
             // Assert
             Assert.AreEqual("Avoid doing math in your head.", result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_GetImageURIFromItemType_IndexCards_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.GetImageURIFromItemType(ItemTypeEnum.IndexCards);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(Constants.ItemTypeIndexCardsImageURI, result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_GetImageURIFromItemType_PencilEraser_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.GetImageURIFromItemType(ItemTypeEnum.PencilEraser);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(Constants.ItemTypePencilEraserImageURI, result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_GetImageURIFromItemType_Textbooks_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.GetImageURIFromItemType(ItemTypeEnum.Textbooks);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(Constants.ItemTypeTextbooksImageURI, result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_GetImageURIFromItemType_Notebook_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.GetImageURIFromItemType(ItemTypeEnum.Notebook);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(Constants.ItemTypeNotebookImageURI, result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_GetImageURIFromItemType_Calculator_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.GetImageURIFromItemType(ItemTypeEnum.Calculator);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(Constants.ItemTypeCalculatorImageURI, result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_GetImageURIFromItemType_LibraryCard_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.GetImageURIFromItemType(ItemTypeEnum.LibraryCard);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(Constants.ItemTypeLibraryCardImageURI, result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_GetImageURIFromItemType_FoodCourtCard_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.GetImageURIFromItemType(ItemTypeEnum.FoodCourtCard);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(Constants.ItemTypeFoodCourtCardImageURI, result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_GetImageURIFromItemType_Laptop_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.GetImageURIFromItemType(ItemTypeEnum.Laptop);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(Constants.ItemTypeLaptopImageURI, result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_GetImageURIFromItemType_PrivateTutor_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.GetImageURIFromItemType(ItemTypeEnum.PrivateTutor);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(Constants.ItemTypePrivateTutorImageURI, result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_GetImageURIFromItemType_FinancialAid_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.GetImageURIFromItemType(ItemTypeEnum.FinancialAid);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(Constants.ItemTypeFinancialAidImageURI, result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_GetImageURIFromItemType_Tuition_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.GetImageURIFromItemType(ItemTypeEnum.Tuition);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(Constants.ItemTypeTuitionImageURI, result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_GetImageURIFromItemType_GraduationCapAndRobe_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.GetImageURIFromItemType(ItemTypeEnum.GraduationCapAndRobe);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(Constants.ItemTypeGraduationCapAndRobeImageURI, result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_GetImageURIFromItemType_Diploma_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.GetImageURIFromItemType(ItemTypeEnum.Diploma);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(Constants.ItemTypeDiplomaImageURI, result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_GetImageURIFromItemType_Unknown_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.GetImageURIFromItemType(ItemTypeEnum.Unknown);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(Constants.ItemTypeDefaultImageURI, result);
         }
     }
 }
