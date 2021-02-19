@@ -2,7 +2,7 @@
 
 using Game.Models;
 
-namespace UnitTests.Models
+namespace UnitTests.Models.Enum
 {
     [TestFixture]
     public class CharacterJobEnumExtensionsTests
