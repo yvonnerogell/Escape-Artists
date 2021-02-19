@@ -940,5 +940,188 @@ namespace UnitTests.Models.Enum
             // Assert
             Assert.Contains(result, possibleValues);
         }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_getDescriptionBasedOnType_Tuition_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.getDescriptionBasedOnType(ItemTypeEnum.Tuition);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Pay your way through college.", result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_getDescriptionBasedOnType_Textbooks_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.getDescriptionBasedOnType(ItemTypeEnum.Textbooks);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Reference course literature effectively.", result);
+        }
+
+
+        [Test]
+        public void ItemTypeEnumHelperTests_getDescriptionBasedOnType_PrivateTutor_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.getDescriptionBasedOnType(ItemTypeEnum.PrivateTutor);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Get expert homework help.", result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_getDescriptionBasedOnType_PencilEraser_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.getDescriptionBasedOnType(ItemTypeEnum.PencilEraser);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Forget about your mistakes.", result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_getDescriptionBasedOnType_Notebook_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.getDescriptionBasedOnType(ItemTypeEnum.Notebook);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Keep track of the most crucial things to know.", result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_getDescriptionBasedOnType_LibraryCard_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.getDescriptionBasedOnType(ItemTypeEnum.LibraryCard);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Get your textbooks for free.", result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_getDescriptionBasedOnType_Laptop_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.getDescriptionBasedOnType(ItemTypeEnum.Laptop);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Complete your assignments faster with a laptop.", result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_getDescriptionBasedOnType_IndexCards_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.getDescriptionBasedOnType(ItemTypeEnum.IndexCards);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Memorize your homework.", result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_getDescriptionBasedOnType_GraduationCapAndRobe_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.getDescriptionBasedOnType(ItemTypeEnum.GraduationCapAndRobe);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("The cap will help you feel closer to graduation.", result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_getDescriptionBasedOnType_FoodCourtCard_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.getDescriptionBasedOnType(ItemTypeEnum.FoodCourtCard);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Don’t run out of fuel." , result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_getDescriptionBasedOnType_FinancialAid_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.getDescriptionBasedOnType(ItemTypeEnum.FinancialAid);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Get some financial help.", result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_getDescriptionBasedOnType_Diploma_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.getDescriptionBasedOnType(ItemTypeEnum.Diploma);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("A diploma is the (almost) final step before graduation.", result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_getDescriptionBasedOnType_Calculator_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.getDescriptionBasedOnType(ItemTypeEnum.Calculator);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Avoid doing math in your head.", result);
+        }
     }
 }
