@@ -18,7 +18,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert
-            Assert.AreEqual("None", result);
+            Assert.AreEqual("Unknown", result);
         }
 
         [Test]
