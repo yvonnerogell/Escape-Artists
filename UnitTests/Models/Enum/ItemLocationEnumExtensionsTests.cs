@@ -27,29 +27,29 @@ namespace UnitTests.Models.Enum
             // Arrange
 
             // Act
-            var result = ItemLocationEnum.PrimaryHand.ToMessage();
+            var result = ItemLocationEnum.Head.ToMessage();
 
             // Reset
 
             // Assert
-            Assert.AreEqual("Primary Hand", result);
+            Assert.AreEqual("Head", result);
         }
 
-        /*
+
         [Test]
-        public void ItemLocationEnumExtensionsTests_Necklass_Default_Should_Pass()
+        public void ItemLocationEnumExtensionsTests_Necklace_Default_Should_Pass()
         {
             // Arrange
 
             // Act
-            var result = ItemLocationEnum.Necklass.ToMessage();
+            var result = ItemLocationEnum.Necklace.ToMessage();
 
             // Reset
 
             // Assert
-            Assert.AreEqual("Necklass", result);
+            Assert.AreEqual("Necklace", result);
         }
-        */
+        
 
         [Test]
         public void ItemLocationEnumExtensionsTests_PrimaryHand_Default_Should_Pass()
