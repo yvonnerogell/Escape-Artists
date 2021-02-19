@@ -277,7 +277,7 @@ namespace Game.Models
             
             {
                 case ItemTypeEnum.Tuition:
-                    possibleNames.Add("Masters ");
+                    possibleNames.Add("Masters");
                     possibleNames.Add("Undergraduate");
                     possibleNames.Add("Certificate");
                     break;
