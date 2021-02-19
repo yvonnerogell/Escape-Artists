@@ -302,6 +302,21 @@ namespace UnitTests.Models.Enum
             Assert.AreEqual(ItemTypeEnum.Unknown, result);
         }
 
+
+        [Test]
+        public void ItemTypeEnumHelperTests_ConvertMessageStringToEnum_BogusString_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.ConvertMessageStringToEnum("This doesn't exist");
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(ItemTypeEnum.Unknown, result);
+        }
+
         [Test]
         public void ItemTypeEnumHelperTests_ConvertMessageStringToEnum_Calculator_Should_Pass()
         {
@@ -1319,6 +1334,202 @@ namespace UnitTests.Models.Enum
 
             // Assert
             Assert.AreEqual(Constants.ItemTypeDefaultImageURI, result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_GetDamageFromItemType_IndexCards_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.GetDamageFromItemType(ItemTypeEnum.IndexCards);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(2, result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_GetDamageFromItemType_PencilEraser_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.GetDamageFromItemType(ItemTypeEnum.PencilEraser);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(1, result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_GetDamageFromItemType_Textbooks_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.GetDamageFromItemType(ItemTypeEnum.Textbooks);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(10, result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_GetDamageFromItemType_Notebook_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.GetDamageFromItemType(ItemTypeEnum.Notebook);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(2, result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_GetDamageFromItemType_Calculator_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.GetDamageFromItemType(ItemTypeEnum.Calculator);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(5, result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_GetDamageFromItemType_LibraryCard_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.GetDamageFromItemType(ItemTypeEnum.LibraryCard);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(3, result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_GetDamageFromItemType_FoodCourtCard_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.GetDamageFromItemType(ItemTypeEnum.FoodCourtCard);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(5, result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_GetDamageFromItemType_Laptop_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.GetDamageFromItemType(ItemTypeEnum.Laptop);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(20, result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_GetDamageFromItemType_PrivateTutor_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.GetDamageFromItemType(ItemTypeEnum.PrivateTutor);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(10, result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_GetDamageFromItemType_FinancialAid_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.GetDamageFromItemType(ItemTypeEnum.FinancialAid);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(40, result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_GetDamageFromItemType_Tuition_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.GetDamageFromItemType(ItemTypeEnum.Tuition);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(50, result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_GetDamageFromItemType_GraduationCapAndRobe_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.GetDamageFromItemType(ItemTypeEnum.GraduationCapAndRobe);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(200, result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_GetDamageFromItemType_Diploma_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.GetDamageFromItemType(ItemTypeEnum.Diploma);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(1000, result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_GetDamageFromItemType_Unknown_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.GetDamageFromItemType(ItemTypeEnum.Unknown);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(0, result);
         }
     }
 }
