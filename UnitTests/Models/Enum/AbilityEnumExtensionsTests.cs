@@ -21,118 +21,88 @@ namespace UnitTests.Models
             Assert.AreEqual("None", result);
         }
 
-        /*
         [Test]
-        public void AbilityEnumExtensionsTests_Bandage_Default_Should_Pass()
+        public void AbilityEnumExtensionsTests_None_Default_Should_Pass()
         {
             // Arrange
 
             // Act
-            var result = AbilityEnum.Bandage.ToMessage();
+            var result = AbilityEnum.None.ToMessage();
 
             // Reset
 
             // Assert
-            Assert.AreEqual("Apply Bandages", result);
+            Assert.AreEqual("None", result);
         }
 
         [Test]
-        public void AbilityEnumExtensionsTests_Barrier_Default_Should_Pass()
+        public void AbilityEnumExtensionsTests_ExtraCredit_Default_Should_Pass()
         {
             // Arrange
 
             // Act
-            var result = AbilityEnum.Barrier.ToMessage();
+            var result = AbilityEnum.ExtraCredit.ToMessage();
 
             // Reset
 
             // Assert
-            Assert.AreEqual("Barrier Defense", result);
+            Assert.AreEqual("Extra credit", result);
         }
 
         [Test]
-        public void AbilityEnumExtensionsTests_Curse_Default_Should_Pass()
+        public void AbilityEnumExtensionsTests_Extension_Default_Should_Pass()
         {
             // Arrange
 
             // Act
-            var result = AbilityEnum.Curse.ToMessage();
+            var result = AbilityEnum.Extension.ToMessage();
 
             // Reset
 
             // Assert
-            Assert.AreEqual("Shout Curse", result);
+            Assert.AreEqual("Extension", result);
         }
 
         [Test]
-        public void AbilityEnumExtensionsTests_Focus_Default_Should_Pass()
+        public void AbilityEnumExtensionsTests_FlashGenius_Default_Should_Pass()
         {
             // Arrange
 
             // Act
-            var result = AbilityEnum.Focus.ToMessage();
+            var result = AbilityEnum.FlashGenius.ToMessage();
 
             // Reset
 
             // Assert
-            Assert.AreEqual("Mental Focus", result);
+            Assert.AreEqual("Flash of genius", result);
         }
 
         [Test]
-        public void AbilityEnumExtensionsTests_Heal_Default_Should_Pass()
+        public void AbilityEnumExtensionsTests_Bribes_Default_Should_Pass()
         {
             // Arrange
 
             // Act
-            var result = AbilityEnum.Heal.ToMessage();
+            var result = AbilityEnum.Bribes.ToMessage();
 
             // Reset
 
             // Assert
-            Assert.AreEqual("Heal Self", result);
+            Assert.AreEqual("Bribes", result);
         }
 
         [Test]
-        public void AbilityEnumExtensionsTests_Nimble_Default_Should_Pass()
+        public void AbilityEnumExtensionsTests_PayTuition_Default_Should_Pass()
         {
             // Arrange
 
             // Act
-            var result = AbilityEnum.Nimble.ToMessage();
+            var result = AbilityEnum.PayTuition.ToMessage();
 
             // Reset
 
             // Assert
-            Assert.AreEqual("React Quickly", result);
+            Assert.AreEqual("Pay tuition", result);
         }
-
-        [Test]
-        public void AbilityEnumExtensionsTests_Quick_Default_Should_Pass()
-        {
-            // Arrange
-
-            // Act
-            var result = AbilityEnum.Quick.ToMessage();
-
-            // Reset
-
-            // Assert
-            Assert.AreEqual("Anticipate", result);
-        }
-
-        [Test]
-        public void AbilityEnumExtensionsTests_Toughness_Default_Should_Pass()
-        {
-            // Arrange
-
-            // Act
-            var result = AbilityEnum.Toughness.ToMessage();
-
-            // Reset
-
-            // Assert
-            Assert.AreEqual("Toughen Up", result);
-        }
-        */
     }
 }
