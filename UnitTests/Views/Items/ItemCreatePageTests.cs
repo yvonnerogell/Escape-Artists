@@ -99,6 +99,51 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
+        [Test]
+        public void ItemUpdatePage_Save_Clicked_Emtpy_Name_Default_Should_Pass()
+        {
+            // Arrange
+            page.ViewModel.Data.Name = null;
+
+            // Act
+            page.Save_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void ItemUpdatePage_Save_Clicked_Emtpy_Description_Default_Should_Pass()
+        {
+            // Arrange
+            page.ViewModel.Data.Description = null;
+
+            // Act
+            page.Save_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void ItemUpdatePage_Save_Clicked_Emtpy_Name_Description_Default_Should_Pass()
+        {
+            // Arrange
+            page.ViewModel.Data.Name = null;
+            page.ViewModel.Data.Description = null;
+
+            // Act
+            page.Save_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
 
         [Test]
         public void ItemCreatePage_OnBackButtonPressed_Valid_Should_Pass()
@@ -114,20 +159,20 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
-        /*
         [Test]
-        public void ItemCreatePage_Value_OnStepperValueChanged_Default_Should_Pass()
+        public void ItemCreatePage_Value_OnSliderValueChanged_Default_Should_Pass()
         {
             // Arrange
-
             page = new ItemCreatePage();
             double oldValue = 0.0;
-            double newValue = 1.0;
+            double newValue = 5.0;
+
+            Slider ValueSlider = (Slider)page.FindByName("ValueSlider");
 
             var args = new ValueChangedEventArgs(oldValue, newValue);
 
             // Act
-            page.Value_OnStepperValueChanged(null, args);
+            page.OnSliderChanged(ValueSlider, args);
 
             // Reset
 
@@ -139,40 +184,21 @@ namespace UnitTests.Views
         public void ItemCreatePage_Range_OnStepperValueChanged_Default_Should_Pass()
         {
             // Arrange
-
             page = new ItemCreatePage();
             double oldRange = 0.0;
-            double newRange = 1.0;
+            double newRange = 5.0;
+
+            Slider RangeSlider = (Slider)page.FindByName("RangeSlider");
 
             var args = new ValueChangedEventArgs(oldRange, newRange);
 
             // Act
-            page.Range_OnStepperValueChanged(null, args);
+            page.OnSliderChanged(RangeSlider, args);
 
             // Reset
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-
-        [Test]
-        public void ItemCreatePage_Damage_OnStepperDamageChanged_Default_Should_Pass()
-        {
-            // Arrange
-            page = new ItemCreatePage();
-            double oldDamage = 0.0;
-            double newDamage = 1.0;
-
-            var args = new ValueChangedEventArgs(oldDamage, newDamage);
-
-            // Act
-            page.Damage_OnStepperValueChanged(null, args);
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-        */
     }
 }
