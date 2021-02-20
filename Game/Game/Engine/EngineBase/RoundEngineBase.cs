@@ -388,7 +388,7 @@ namespace Game.Engine.EngineBase
                 // Have the character, walk the items in the pool, and decide if any are better than current one.
 
                 GetItemFromPoolIfBetter(character, ItemLocationEnum.Head);
-                GetItemFromPoolIfBetter(character, ItemLocationEnum.Necklace);
+                GetItemFromPoolIfBetter(character, ItemLocationEnum.Necklass);
                 GetItemFromPoolIfBetter(character, ItemLocationEnum.PrimaryHand);
                 GetItemFromPoolIfBetter(character, ItemLocationEnum.OffHand);
                 GetItemFromPoolIfBetter(character, ItemLocationEnum.RightFinger);
