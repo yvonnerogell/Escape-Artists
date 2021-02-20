@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using Game.Models;
+using Game;
 
 namespace UnitTests.Models.Enum
 {
@@ -288,6 +289,20 @@ namespace UnitTests.Models.Enum
         }
 
         [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ConvertMessageStringToEnum_BogusString_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ConvertMessageStringToEnum("This doesn't exist");
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(SpecificMonsterTypeEnum.Unknown, result);
+        }
+
+        [Test]
         public void SpecificMonsterTypeEnumHelperTests_ConvertMessageStringToEnum_AdjunctFaculty_Should_Pass()
         {
             // Arrange
@@ -523,6 +538,132 @@ namespace UnitTests.Models.Enum
 
             // Assert
             Assert.AreEqual(MonsterTypeEnum.Faculty, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ToImageURI_Unknown_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ToImageURI(SpecificMonsterTypeEnum.Unknown);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(Constants.SpecificMonsterTypeDefaultImageURI, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ToImageURI_AdjunctFaculty_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ToImageURI(SpecificMonsterTypeEnum.AdjunctFaculty);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(Constants.SpecificMonsterTypeAdjunctFacultyImageURI, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ToImageURI_AssistantProfessor_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ToImageURI(SpecificMonsterTypeEnum.AssistantProfessor);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(Constants.SpecificMonsterTypeAssistantProfessorImageURI, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ToImageURI_AssociateProfessor_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ToImageURI(SpecificMonsterTypeEnum.AssociateProfessor);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(Constants.SpecificMonsterTypeAssociateProfessorImageURI, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ToImageURI_GraduationOfficeAdministrator_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ToImageURI(SpecificMonsterTypeEnum.GraduationOfficeAdministrator);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(Constants.SpecificMonsterTypeGraduationOfficeAdministratorImageURI, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ToImageURI_HRAdministrator_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ToImageURI(SpecificMonsterTypeEnum.HRAdministrator);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(Constants.SpecificMonsterTypeHRAdministratorImageURI, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ToImageURI_Professor_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ToImageURI(SpecificMonsterTypeEnum.Professor);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(Constants.SpecificMonsterTypeProfessorImageURI, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ToImageURI_RegistrationAdministrator_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ToImageURI(SpecificMonsterTypeEnum.RegistrationAdministrator);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(Constants.SpecificMonsterTypeRegistrationAdministratorImageURI, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ToImageURI_TeachingAssistant_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ToImageURI(SpecificMonsterTypeEnum.TeachingAssistant);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(Constants.SpecificMonsterTypeTeachingAssistantImageURI, result);
         }
     }
 }
