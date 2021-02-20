@@ -16,6 +16,18 @@ namespace Game.GameRules
             var datalist = new List<ItemModel>()
             {
                 new ItemModel {
+                    Id = "Skateboard",
+                    Name = "Blue " + ItemTypeEnum.Skateboard.ToMessage(),
+                    Description = "Helps you get to class faster!",
+                    ItemType = ItemTypeEnum.Skateboard,
+                    ImageURI = Constants.ItemTypeSkateboardImageURI,
+                    Range = 10,
+                    Damage = 10,
+                    Value = 10,
+                    Location = ItemLocationEnum.Feet,
+                    Attribute = AttributeEnum.Attack
+                },
+                new ItemModel {
                     Id = "IndexCards1",
                     Name = "Exam " + ItemTypeEnum.IndexCards.ToMessage(),
                     Description = "Memorize your homework.",
@@ -362,7 +374,7 @@ namespace Game.GameRules
                     Necklace = "None",
                     PrimaryHand = "None",
                     OffHand = "None",
-                    Feet = "None",
+                    Feet = "Skateboard",
                     RightFinger = "None",
                     LeftFinger = DefaultCalculator,
                     SpecialAbility = AbilityEnum.Extension
