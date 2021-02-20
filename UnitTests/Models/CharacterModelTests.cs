@@ -66,7 +66,6 @@ namespace UnitTests.Models
             Assert.IsNotNull(result.Speed);
         }
 
-        /*
         [Test]
         public void CharacterModel_Set_Default_Should_Pass()
         {
@@ -88,7 +87,7 @@ namespace UnitTests.Models
             Assert.IsNotNull(result.Id);
             Assert.AreEqual(result.Id, result.Guid);
 
-            Assert.AreEqual("item.png", result.ImageURI);
+            Assert.AreEqual("smarty_pants_character.png", result.ImageURI);
             Assert.AreEqual(PlayerTypeEnum.Character, result.PlayerType);
 
             Assert.AreEqual(true, result.Alive);
@@ -102,7 +101,7 @@ namespace UnitTests.Models
 
             Assert.AreEqual(null, result.Head);
             Assert.AreEqual(null, result.Feet);
-            Assert.AreEqual(null, result.Necklass);
+            Assert.AreEqual(null, result.Necklace);
             Assert.AreEqual(null, result.PrimaryHand);
             Assert.AreEqual(null, result.OffHand);
             Assert.AreEqual(null, result.RightFinger);
@@ -112,7 +111,6 @@ namespace UnitTests.Models
 
             Assert.AreEqual(CharacterJobEnum.Unknown, result.Job);
         }
-        */
 
         [Test]
         public void CharacterModel_Update_Default_Should_Pass()
@@ -163,10 +161,9 @@ namespace UnitTests.Models
             // Reset
 
             // Assert 
-            Assert.AreEqual(true, result.Contains("Elf"));
+            Assert.AreEqual(true, result.Contains("Bobbet"));
         }
 
-        /*
         [Test]
         public void CharacterModel_Set_Get_Default_Should_Pass()
         {
@@ -191,7 +188,7 @@ namespace UnitTests.Models
             result.Attack = 123;
             result.Head = "head";
             result.Feet = "feet";
-            result.Necklass = "necklass";
+            result.Necklace = "necklass";
             result.PrimaryHand = "primaryhand";
             result.OffHand = "offhand";
             result.RightFinger = "rightfinger";
@@ -218,7 +215,7 @@ namespace UnitTests.Models
             Assert.AreEqual(123, result.Attack);
             Assert.AreEqual("head", result.Head);
             Assert.AreEqual("feet", result.Feet);
-            Assert.AreEqual("necklass", result.Necklass);
+            Assert.AreEqual("necklass", result.Necklace);
             Assert.AreEqual("primaryhand", result.PrimaryHand);
             Assert.AreEqual("offhand", result.OffHand);
             Assert.AreEqual("rightfinger", result.RightFinger);
@@ -226,7 +223,7 @@ namespace UnitTests.Models
             Assert.AreEqual(CharacterJobEnum.Unknown, result.Job);
         }
         
-
+        /*
         [Test]
         public void CharacterModel_GetAttack_Fighter_Should_Pass()
         {
@@ -241,7 +238,7 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual(3, result);
         }
-
+        
         [Test]
         public void CharacterModel_GetDefense_Fighter_Should_Pass()
         {
@@ -420,7 +417,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert
-            Assert.AreEqual(true, result.Contains("Elf"));
+            Assert.AreEqual(true, result.Contains("Bobbet"));
         }
 
         [Test]
@@ -498,7 +495,6 @@ namespace UnitTests.Models
             Assert.AreEqual(null, result);
         }
 
-        /*
         [Test]
         public void CharacterModel_GetItemByLocation_Necklass_Default_Should_Pass()
         {
@@ -506,14 +502,13 @@ namespace UnitTests.Models
             var data = new CharacterModel();
 
             // Act
-            var result = data.GetItemByLocation(ItemLocationEnum.Necklass);
+            var result = data.GetItemByLocation(ItemLocationEnum.Necklace);
 
             // Reset
 
             // Assert
             Assert.AreEqual(null, result);
         }
-        */
 
         [Test]
         public void CharacterModel_GetItemByLocation_PrimaryHand_Default_Should_Pass()
@@ -590,7 +585,6 @@ namespace UnitTests.Models
             Assert.AreEqual(null, result);
         }
 
-        /*
         [Test]
         public async Task CharacterModel_DropAllItems_Default_Should_Pass()
         {
@@ -603,7 +597,7 @@ namespace UnitTests.Models
             var data = new CharacterModel
             {
                 Head = item.Id,
-                Necklass = item.Id,
+                Necklace = item.Id,
                 PrimaryHand = item.Id,
                 OffHand = item.Id,
                 RightFinger = item.Id,
@@ -619,7 +613,6 @@ namespace UnitTests.Models
             // Assert
             Assert.IsNotNull(result);
         }
-        */
 
         [Test]
         public void CharacterModel_AddItem_Unknown_Should_Fail()
@@ -704,7 +697,7 @@ namespace UnitTests.Models
 
             // Add the first item
             data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("head")).Id);
-            data.AddItem(ItemLocationEnum.Necklass, (await ItemIndexViewModel.Instance.ReadAsync("necklass")).Id);
+            data.AddItem(ItemLocationEnum.Necklace, (await ItemIndexViewModel.Instance.ReadAsync("necklass")).Id);
             data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
             data.AddItem(ItemLocationEnum.OffHand, (await ItemIndexViewModel.Instance.ReadAsync("OffHand")).Id);
             data.AddItem(ItemLocationEnum.RightFinger, (await ItemIndexViewModel.Instance.ReadAsync("RightFinger")).Id);
@@ -722,7 +715,7 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual(7654320, result);
         }
-
+        
         [Test]
         public async Task CharacterModel_GetAttackTotal_Default_Attack_Should_Pass()
         {
