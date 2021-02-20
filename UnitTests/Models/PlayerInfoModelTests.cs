@@ -208,7 +208,7 @@ namespace UnitTests.Models
         }
 
         [Test]
-        public void PlayerInfoModel_SelectAbilityToUse_Fighter_Avaiable_Should_Pass()
+        public void PlayerInfoModel_SelectSpecialAbilityToUse_Fighter_Avaiable_Should_Pass()
         {
             // Arrange
             var data = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Fighter });
@@ -224,11 +224,61 @@ namespace UnitTests.Models
         }
 
         [Test]
-        public void PlayerInfoModel_SelectAbilityToUse_None_Avaiable_Should_Pass()
+        public void PlayerInfoModel_SelectSpecialAbilityToUse_None_Avaiable_Should_Pass()
         {
             // Arrange
             var data = new PlayerInfoModel(new CharacterModel ());
             data.AbilityTracker = new Dictionary<AbilityEnum, int>();
+
+            // Act
+            var result = data.SelectSpecialAbilityToUse();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(AbilityEnum.None, result);
+        }
+
+        [Test]
+        public void PlayerInfoModel_SelectSpecialAbilityToUse_Cleric_Avaiable_Should_Pass()
+        {
+            // Arrange
+            var data = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Cleric });
+            data.AbilityTracker[AbilityEnum.ExtraCredit] = 1;
+
+            // Act
+            var result = data.SelectSpecialAbilityToUse();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(AbilityEnum.Bandage, result);
+        }
+        
+
+        [Test]
+        public void PlayerInfoModel_SelectSpecialAbilityToUse_Monster_Should_Return_False()
+        {
+            // Arrange
+            var data = new PlayerInfoModel(new MonsterModel());
+
+            // Act
+            var result = data.SelectSpecialAbilityToUse();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(AbilityEnum.Bandage, result);
+        }
+
+        [Test]
+        public void PlayerInfoModel_SelectSpecialAbilityToUse_Cleric_Heal_Should_Skip()
+        {
+            // Arrange
+            var data = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Cleric });
+            data.AbilityTracker[AbilityEnum.ExtraCredit] = 0;
+            data.AbilityTracker[AbilityEnum.Extension] = 0;
+            data.AbilityTracker[AbilityEnum.FlashGenius] = 0;
 
             // Act
             var result = data.SelectSpecialAbilityToUse();
@@ -247,14 +297,14 @@ namespace UnitTests.Models
             data.AbilityTracker[AbilityEnum.ExtraCredit] = 1;
 
             // Act
-            var result = data.SelectSpecialAbilityToUse();
+            var result = data.SelectAbilityToUse();
 
             // Reset
 
             // Assert
-            Assert.AreEqual(AbilityEnum.Bandage, result);
+            Assert.AreEqual(AbilityEnum.ExtraCredit, result);
         }
-        
+
 
         [Test]
         public void PlayerInfoModel_SelectAbilityToUse_Monster_Should_Return_False()
@@ -263,16 +313,16 @@ namespace UnitTests.Models
             var data = new PlayerInfoModel(new MonsterModel());
 
             // Act
-            var result = data.SelectSpecialAbilityToUse();
+            var result = data.SelectAbilityToUse();
 
             // Reset
 
             // Assert
-            Assert.AreEqual(AbilityEnum.Bandage, result);
+            Assert.AreEqual(AbilityEnum.Unknown, result);
         }
 
         [Test]
-        public void PlayerInfoModel_SelectAbilityToUse_Cleric_Heal_Should_Skip()
+        public void PlayerInfoModel_SelectAbilityToUse_Cleric_Should_Skip()
         {
             // Arrange
             var data = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Cleric });
@@ -281,14 +331,31 @@ namespace UnitTests.Models
             data.AbilityTracker[AbilityEnum.FlashGenius] = 0;
 
             // Act
-            var result = data.SelectSpecialAbilityToUse();
+            var result = data.SelectAbilityToUse();
 
             // Reset
 
             // Assert
-            Assert.AreEqual(AbilityEnum.None, result);
+            Assert.AreEqual(AbilityEnum.Unknown, result);
         }
 
+        [Test]
+        public void PlayerInfoModel_SelectAbilityToUse_Cleric_Heal_Should_Pass()
+        {
+            // Arrange
+            var data = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Cleric });
+            data.AbilityTracker[AbilityEnum.ExtraCredit] = 0;
+            //data.AbilityTracker = new Dictionary<AbilityEnum, int>();
+            data.AbilityTracker[AbilityEnum.Heal] = 1;
+
+            // Act
+            var result = data.SelectAbilityToUse();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(AbilityEnum.Unknown, result);
+        }
         [Test]
         public void PlayerInfoModel_AbilityUsedInCurrentRound_Get_Should_Pass()
         {
