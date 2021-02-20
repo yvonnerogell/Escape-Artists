@@ -608,6 +608,23 @@ namespace UnitTests.Models
             Assert.AreEqual(null, result);
         }
 
+        [Test]
+        public void MonsterModel_DropItemBasedOnCharacterType_TeachingAssistant_Should_Pass()
+        {
+            // Arrange
+            var data = new MonsterModel { SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.TeachingAssistant };
+
+            // Act
+
+            // create an ItemModel with Teaching Assistant SpecificMonsterType
+            var result = data.DropItemBasedOnCharacterType(data.SpecificMonsterTypeEnum);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(ItemTypeEnum.IndexCards, result.ItemType);
+        }
+
         /*
         [Test]
         public async Task MonsterModel_GetItemBonus_Default_Attack_Should_Pass()
