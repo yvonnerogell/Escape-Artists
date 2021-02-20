@@ -141,7 +141,7 @@ namespace Game.Models
         public DifficultyEnum Difficulty { get; set; } = DifficultyEnum.Unknown;
 
         // The Job for the Player
-        //public CharacterJobEnum Job { get; set; } = CharacterJobEnum.Unknown;
+        public CharacterJobEnum Job { get; set; } = CharacterJobEnum.Unknown;
 
         #endregion PlayerAttributes
 
