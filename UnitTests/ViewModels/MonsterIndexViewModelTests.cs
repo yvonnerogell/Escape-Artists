@@ -167,7 +167,6 @@ namespace UnitTests.ViewModels
             Assert.AreEqual(null, data); // Monster is removed
         }
 
-        /*
         [Test]
         public void MonsterIndexViewModel_Message_Create_Valid_Should_Pass()
         {
@@ -177,7 +176,7 @@ namespace UnitTests.ViewModels
             var data = new MonsterModel();
 
             // Make a Delete Page
-            var myPage = new Game.Views.MonsterCreatePage(true);
+            var myPage = new Game.Views.Monsters.MonsterCreatePage(true);
 
             var countBefore = ViewModel.Dataset.Count();
 
@@ -190,7 +189,6 @@ namespace UnitTests.ViewModels
             // Assert
             Assert.AreEqual(countBefore + 1, countAfter); // Count of 0 for the load was skipped
         }
-        */
 
         [Test]
         public async Task MonsterIndexViewModel_Message_Update_Valid_Should_Pass()
@@ -204,6 +202,29 @@ namespace UnitTests.ViewModels
 
             // Make a Delete Page
             var myPage = new Game.Views.MonsterUpdatePage(true);
+
+            // Act
+            MessagingCenter.Send(myPage, "Update", first);
+            var result = await ViewModel.ReadAsync(first.Id);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("test", result.Name); // Count of 0 for the load was skipped
+        }
+
+        [Test]
+        public async Task MonsterIndexViewModel_Message_Character_Update_Valid_Should_Pass()
+        {
+            // Arrange
+            await ViewModel.CreateAsync(new MonsterModel());
+
+            // Get the Monster to delete
+            var first = ViewModel.Dataset.FirstOrDefault();
+            first.Name = "test";
+
+            // Make a Delete Page
+            var myPage = new Game.Views.CharacterUpdatePage(true);
 
             // Act
             MessagingCenter.Send(myPage, "Update", first);
