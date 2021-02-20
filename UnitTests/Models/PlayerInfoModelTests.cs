@@ -128,7 +128,7 @@ namespace UnitTests.Models
             Assert.AreEqual(false, result);
         }
 
-        /*
+        
         [Test]
         public void PlayerInfoModel_SelectHealingAbility_Cleric_Heal_Avaiable_Should_Pass()
         {
@@ -184,7 +184,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert
-            Assert.AreEqual(AbilityEnum.Unknown, result);
+            Assert.AreEqual(AbilityEnum.Bandage, result);
         }
         
         [Test]
@@ -205,7 +205,6 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual(AbilityEnum.Bandage, result);
         }
-        */
 
         [Test]
         public void PlayerInfoModel_SelectAbilityToUse_Fighter_Avaiable_Should_Pass()
