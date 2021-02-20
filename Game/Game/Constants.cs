@@ -68,6 +68,7 @@ namespace Game
         public static string ItemTypeTuitionImageURI = "item_tuition.png";
         public static string ItemTypeGraduationCapAndRobeImageURI = "item_gradcap.png";
         public static string ItemTypeDiplomaImageURI = "item_diploma.png";
+        public static string ItemTypeSkateboardImageURI = "item_skateboard.png";
 
         // Parent Character Types Image URIs
         public static string SpecificCharacterTypeHelicopterParentImageURI = "helicopter_parent.png";
