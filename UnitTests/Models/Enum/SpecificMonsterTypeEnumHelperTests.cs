@@ -146,5 +146,257 @@ namespace UnitTests.Models.Enum
             Assert.Contains("Registration Administrator", result);
             Assert.Contains("Graduation Office Administrator", result);
         }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ConvertStringToEnum_Unknown_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ConvertStringToEnum("Unknown");
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(SpecificMonsterTypeEnum.Unknown, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ConvertStringToEnum_AdjunctFaculty_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ConvertStringToEnum("AdjunctFaculty");
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(SpecificMonsterTypeEnum.AdjunctFaculty, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ConvertStringToEnum_AssistantProfessor_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ConvertStringToEnum("AssistantProfessor");
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(SpecificMonsterTypeEnum.AssistantProfessor, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ConvertStringToEnum_AssociateProfessor_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ConvertStringToEnum("AssociateProfessor");
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(SpecificMonsterTypeEnum.AssociateProfessor, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ConvertStringToEnum_GraduationOfficeAdministrator_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ConvertStringToEnum("GraduationOfficeAdministrator");
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(SpecificMonsterTypeEnum.GraduationOfficeAdministrator, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ConvertStringToEnum_HRAdministrator_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ConvertStringToEnum("HRAdministrator");
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(SpecificMonsterTypeEnum.HRAdministrator, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ConvertStringToEnum_Professor_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ConvertStringToEnum("Professor");
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(SpecificMonsterTypeEnum.Professor, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ConvertStringToEnum_RegistrationAdministrator_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ConvertStringToEnum("RegistrationAdministrator");
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(SpecificMonsterTypeEnum.RegistrationAdministrator, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ConvertStringToEnum_TeachingAssistant_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ConvertStringToEnum("TeachingAssistant");
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(SpecificMonsterTypeEnum.TeachingAssistant, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ConvertMessageStringToEnum_Unknown_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ConvertMessageStringToEnum("Unknown");
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(SpecificMonsterTypeEnum.Unknown, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ConvertMessageStringToEnum_AdjunctFaculty_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ConvertMessageStringToEnum("Adjunct Faculty");
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(SpecificMonsterTypeEnum.AdjunctFaculty, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ConvertMessageStringToEnum_AssistantProfessor_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ConvertMessageStringToEnum("Assistant Professor");
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(SpecificMonsterTypeEnum.AssistantProfessor, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ConvertMessageStringToEnum_AssociateProfessor_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ConvertMessageStringToEnum("Associate Professor");
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(SpecificMonsterTypeEnum.AssociateProfessor, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ConvertMessageStringToEnum_GraduationOfficeAdministrator_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ConvertMessageStringToEnum("Graduation Office Administrator");
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(SpecificMonsterTypeEnum.GraduationOfficeAdministrator, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ConvertMessageStringToEnum_HRAdministrator_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ConvertMessageStringToEnum("HR Administrator");
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(SpecificMonsterTypeEnum.HRAdministrator, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ConvertMessageStringToEnum_Professor_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ConvertMessageStringToEnum("Professor");
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(SpecificMonsterTypeEnum.Professor, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ConvertMessageStringToEnum_RegistrationAdministrator_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ConvertMessageStringToEnum("Registration Administrator");
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(SpecificMonsterTypeEnum.RegistrationAdministrator, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ConvertMessageStringToEnum_TeachingAssistant_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ConvertMessageStringToEnum("Teaching Assistant");
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(SpecificMonsterTypeEnum.TeachingAssistant, result);
+        }
     }
 }
