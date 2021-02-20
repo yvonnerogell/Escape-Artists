@@ -148,5 +148,37 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
+
+        [Test]
+        public void ItemIndexPage_ReadItem_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+            ItemIndexViewModel ViewModel = ItemIndexViewModel.Instance;
+            ImageButton item = new ImageButton{ CommandParameter = ViewModel.Dataset[0].Id };
+
+            // Act
+            page.ReadItem_Clicked(item, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void ItemIndexPage_ReadItem_Clicked_No_Data_Should_Pass()
+        {
+            // Arrange
+            //ItemIndexViewModel ViewModel = ItemIndexViewModel.Instance;
+            ImageButton item = new ImageButton { CommandParameter = "null" };
+
+            // Act
+            page.ReadItem_Clicked(item, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
     }
 }
