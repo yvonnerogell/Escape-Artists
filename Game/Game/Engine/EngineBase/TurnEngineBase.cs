@@ -211,12 +211,19 @@ namespace Game.Engine.EngineBase
         /// <returns></returns>
         public virtual bool ChooseToUseAbility(PlayerInfoModel Attacker)
         {
+            // See if healing is needed.
+            EngineSettings.CurrentActionAbility = Attacker.SelectHealingAbility();
+            if (EngineSettings.CurrentActionAbility != AbilityEnum.Unknown)
+            {
+                EngineSettings.CurrentAction = ActionEnum.Ability;
+                return true;
+            }
 
             // If not needed, then role dice to see if other ability should be used
             // <30% chance
             if (DiceHelper.RollDice(1, 10) < 3)
             {
-                EngineSettings.CurrentActionAbility = Attacker.SelectSpecialAbilityToUse();
+                EngineSettings.CurrentActionAbility = Attacker.SelectAbilityToUse();
 
                 if (EngineSettings.CurrentActionAbility != AbilityEnum.Unknown)
                 {
@@ -518,7 +525,7 @@ namespace Game.Engine.EngineBase
                 var points = " points";
 
                 var experienceEarned = Target.CalculateExperienceEarned(EngineSettings.BattleMessagesModel.DamageAmount);
-                
+
                 if (experienceEarned == 1)
                 {
                     points = " point";
@@ -655,10 +662,10 @@ namespace Game.Engine.EngineBase
         /// <returns></returns>
         public virtual HitStatusEnum RollToHitTarget(int AttackScore, int DefenseScore)
         {
-            // dice roll for 20 sided dice
+            // Roll a 20 sided dice
             var d20 = DiceHelper.RollDice(1, 20);
 
-            // automatic miss if 1
+            // if dice roll is 1, automatic miss
             if (d20 == 1)
             {
                 EngineSettings.BattleMessagesModel.HitStatus = HitStatusEnum.Miss;
@@ -673,7 +680,7 @@ namespace Game.Engine.EngineBase
                 return EngineSettings.BattleMessagesModel.HitStatus;
             }
 
-            // automatic hit if 20
+            // if dice is 20, automatic hit
             if (d20 == 20)
             {
                 EngineSettings.BattleMessagesModel.AttackStatus = " rolls 20 for hit ";
@@ -687,7 +694,7 @@ namespace Game.Engine.EngineBase
                 return EngineSettings.BattleMessagesModel.HitStatus;
             }
 
-            // miss if hit score is less than attack score
+            // if hit score is less than defense, it's a miss
             var ToHitScore = d20 + AttackScore;
             if (ToHitScore < DefenseScore)
             {
