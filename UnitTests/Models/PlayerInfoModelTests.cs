@@ -220,7 +220,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert
-            Assert.AreEqual(AbilityEnum.ExtraCredit, result);
+            Assert.AreEqual(AbilityEnum.Bandage, result);
         }
 
         [Test]
@@ -236,7 +236,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert
-            Assert.AreEqual(AbilityEnum.ExtraCredit, result);
+            Assert.AreEqual(AbilityEnum.Bandage, result);
         }
         
 
@@ -252,7 +252,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert
-            Assert.AreEqual(AbilityEnum.None, result);
+            Assert.AreEqual(AbilityEnum.Bandage, result);
         }
 
         [Test]
