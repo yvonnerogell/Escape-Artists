@@ -130,7 +130,7 @@ namespace UnitTests.ViewModels
             Assert.AreEqual(null, result);
         }
 
-        /*
+        
         [Test]
         public async Task CharacterIndexViewModel_Message_Delete_Valid_Should_Pass()
         {
@@ -141,7 +141,7 @@ namespace UnitTests.ViewModels
             var first = ViewModel.Dataset.FirstOrDefault();
 
             // Make a Delete Page
-            var myPage = new Game.Views.CharacterDeletePage(true);
+            var myPage = new Game.Views.CharaterDeletePage(true);
 
             // Act
             MessagingCenter.Send(myPage, "Delete", first);
@@ -153,7 +153,6 @@ namespace UnitTests.ViewModels
             // Assert
             Assert.AreEqual(null, data); // Character is removed
         }
-        */
 
         [Test]
         public void CharacterIndexViewModel_CheckIfExists_InValid_Null_Should_Return_Null()
@@ -169,7 +168,7 @@ namespace UnitTests.ViewModels
             Assert.AreEqual(null, result);
         }
 
-        /*
+        
         [Test]
         public void CharacterIndexViewModel_Message_Create_Valid_Should_Pass()
         {
@@ -179,8 +178,7 @@ namespace UnitTests.ViewModels
             var data = new CharacterModel();
 
             // Make a Delete Page
-            var myPage = new Game.Views.CharacterCreatePage(true);
-
+            var myPage = new Game.Views.Characters.CharacterCreatePage(true);
             var countBefore = ViewModel.Dataset.Count();
 
             // Act
@@ -192,7 +190,7 @@ namespace UnitTests.ViewModels
             // Assert
             Assert.AreEqual(countBefore + 1, countAfter); // Count of 0 for the load was skipped
         }
-        */
+        
 
         [Test]
         public async Task CharacterIndexViewModel_Message_Update_Valid_Should_Pass()

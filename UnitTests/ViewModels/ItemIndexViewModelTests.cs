@@ -242,6 +242,74 @@ namespace UnitTests.ViewModels
         }
 
         [Test]
+        public void ItemIndexViewModel_Message_Create_Character_Page_Valid_Should_Pass()
+        {
+            // Arrange
+
+            // Make a new Item
+            var data = new ItemModel();
+
+            // Make a Create Page
+            var myPage = new Game.Views.Characters.CharacterCreatePage(true);
+
+            var countBefore = ViewModel.Dataset.Count();
+
+            // Act
+            MessagingCenter.Send(myPage, "CreateItem", data);
+            var countAfter = ViewModel.Dataset.Count();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(countBefore + 1, countAfter); // Count of 0 for the load was skipped
+        }
+
+        [Test]
+        public void ItemIndexViewModel_Message_Create_Monster_Page_Valid_Should_Pass()
+        {
+            // Arrange
+
+            // Make a new Item
+            var data = new ItemModel();
+
+            // Make a Create Page
+            var myPage = new Game.Views.Monsters.MonsterCreatePage(true);
+
+            var countBefore = ViewModel.Dataset.Count();
+
+            // Act
+            MessagingCenter.Send(myPage, "CreateItem", data);
+            var countAfter = ViewModel.Dataset.Count();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(countBefore + 1, countAfter); // Count of 0 for the load was skipped
+        }
+
+        [Test]
+        public async Task ItemIndexViewModel_Message_Detail_Valid_Should_Pass()
+        {
+            // Arrange
+            await ViewModel.CreateAsync(new ItemModel());
+
+            // Get the item to delete
+            var first = ViewModel.Dataset.FirstOrDefault();
+            first.Name = "test";
+
+            // Make a Delete Page
+            var myPage = new Game.Views.ItemDetailPage(true);
+
+            // Act
+            var result = await ViewModel.ReadAsync(first.Id);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("test", result.Name); // Count of 0 for the load was skipped
+        }
+
+        [Test]
         public async Task ItemIndexViewModel_Message_Update_Valid_Should_Pass()
         {
             // Arrange
