@@ -138,16 +138,19 @@ namespace UnitTests.Views
         public void CharacterCreatePage_OnSliderChanged_NewValue_Should_Pass()
         {
             // Arrange
-
+            page = new CharacterCreatePage();
+            var sender = page.Content.FindByName("LevelSlider"); // create a level slider
+            var oldValue = page.ViewModel.Data.Level; // find old value
+            var e = new ValueChangedEventArgs(oldValue, 15); // changing level to 15
+            
             // Act
-            var sender = new object();
-            var e = new ValueChangedEventArgs(0, 1);
-            OnSliderChanged(sender, e);
+            page.OnSliderChanged(sender, e);
+            var newValue = page.ViewModel.Data.Level; // finding new value
 
             // Reset
 
             // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
+            Assert.Equals(newValue, 15); // checking if new value equals 15
         }
 
 
