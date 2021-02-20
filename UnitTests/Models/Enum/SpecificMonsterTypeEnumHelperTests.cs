@@ -398,5 +398,131 @@ namespace UnitTests.Models.Enum
             // Assert
             Assert.AreEqual(SpecificMonsterTypeEnum.TeachingAssistant, result);
         }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_GetMonsterTypeEnumFromSpecificMonsterTypeEnum_Unknown_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.GetMonsterTypeEnumFromSpecificMonsterTypeEnum(SpecificMonsterTypeEnum.Unknown);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(MonsterTypeEnum.Unknown, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_GetMonsterTypeEnumFromSpecificMonsterTypeEnum_AdjunctFaculty_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.GetMonsterTypeEnumFromSpecificMonsterTypeEnum(SpecificMonsterTypeEnum.AdjunctFaculty);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(MonsterTypeEnum.Faculty, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_GetMonsterTypeEnumFromSpecificMonsterTypeEnum_AssistantProfessor_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.GetMonsterTypeEnumFromSpecificMonsterTypeEnum(SpecificMonsterTypeEnum.AssistantProfessor);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(MonsterTypeEnum.Faculty, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_GetMonsterTypeEnumFromSpecificMonsterTypeEnum_AssociateProfessor_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.GetMonsterTypeEnumFromSpecificMonsterTypeEnum(SpecificMonsterTypeEnum.AssociateProfessor);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(MonsterTypeEnum.Faculty, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_GetMonsterTypeEnumFromSpecificMonsterTypeEnum_GraduationOfficeAdministrator_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.GetMonsterTypeEnumFromSpecificMonsterTypeEnum(SpecificMonsterTypeEnum.GraduationOfficeAdministrator);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(MonsterTypeEnum.Administrator, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_GetMonsterTypeEnumFromSpecificMonsterTypeEnum_HRAdministrator_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.GetMonsterTypeEnumFromSpecificMonsterTypeEnum(SpecificMonsterTypeEnum.HRAdministrator);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(MonsterTypeEnum.Administrator, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_GetMonsterTypeEnumFromSpecificMonsterTypeEnum_Professor_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.GetMonsterTypeEnumFromSpecificMonsterTypeEnum(SpecificMonsterTypeEnum.Professor);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(MonsterTypeEnum.Faculty, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_GetMonsterTypeEnumFromSpecificMonsterTypeEnum_RegistrationAdministrator_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.GetMonsterTypeEnumFromSpecificMonsterTypeEnum(SpecificMonsterTypeEnum.RegistrationAdministrator);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(MonsterTypeEnum.Administrator, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_GetMonsterTypeEnumFromSpecificMonsterTypeEnum_TeachingAssistant_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.GetMonsterTypeEnumFromSpecificMonsterTypeEnum(SpecificMonsterTypeEnum.TeachingAssistant);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(MonsterTypeEnum.Faculty, result);
+        }
     }
 }
