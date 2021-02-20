@@ -154,7 +154,7 @@ namespace Game.Models
         // Feet is a string referencing the database table
         public string Feet { get; set; } = null;
 
-        // Necklasss is a string referencing the database table
+        // Necklaces is a string referencing the database table
         public string Necklace { get; set; } = null;
 
         // PrimaryHand is a string referencing the database table
