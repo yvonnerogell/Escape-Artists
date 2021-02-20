@@ -20,7 +20,7 @@ namespace UnitTests.Views
     public class ItemDetailPageTests : ItemDetailPage
     {
         App app;
-        ItemReadPage page;
+        ItemDetailPage page;
 
         public ItemDetailPageTests() : base(true) { }
 
@@ -34,7 +34,7 @@ namespace UnitTests.Views
             app = new App();
             Application.Current = app;
 
-            page = new ItemReadPage(new GenericViewModel<ItemModel>(new ItemModel()));
+            page = new ItemDetailPage(new GenericViewModel<ItemModel>(new ItemModel()));
         }
 
         [TearDown]
@@ -58,26 +58,12 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void ItemReadPage_Update_Clicked_Default_Should_Pass()
+        public void ItemReadPage_Close_Clicked_Default_Should_Pass()
         {
             // Arrange
 
             // Act
-            page.Update_Clicked(null, null);
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-
-        [Test]
-        public void ItemReadPage_Delete_Clicked_Default_Should_Pass()
-        {
-            // Arrange
-
-            // Act
-            page.Delete_Clicked(null, null);
+            page.Close_Clicked(null, null);
 
             // Reset
 

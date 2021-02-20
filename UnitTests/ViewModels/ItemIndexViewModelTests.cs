@@ -288,6 +288,28 @@ namespace UnitTests.ViewModels
         }
 
         [Test]
+        public async Task ItemIndexViewModel_Message_Detail_Valid_Should_Pass()
+        {
+            // Arrange
+            await ViewModel.CreateAsync(new ItemModel());
+
+            // Get the item to delete
+            var first = ViewModel.Dataset.FirstOrDefault();
+            first.Name = "test";
+
+            // Make a Delete Page
+            var myPage = new Game.Views.ItemDetailPage(true);
+
+            // Act
+            var result = await ViewModel.ReadAsync(first.Id);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("test", result.Name); // Count of 0 for the load was skipped
+        }
+
+        [Test]
         public async Task ItemIndexViewModel_Message_Update_Valid_Should_Pass()
         {
             // Arrange
