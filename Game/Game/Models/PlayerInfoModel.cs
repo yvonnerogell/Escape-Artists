@@ -244,10 +244,10 @@ namespace Game.Models
         {
             var available = AbilityTracker.TryGetValue(ability, out int remaining);
             if (available == false)
-            {
+            //{
                 // does not exist
-                return false;
-            }
+            //    return false;
+            //}
 
             if (remaining < 1)
             {
