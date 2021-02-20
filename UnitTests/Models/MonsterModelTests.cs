@@ -625,6 +625,24 @@ namespace UnitTests.Models
             Assert.AreEqual(ItemTypeEnum.IndexCards, result.ItemType);
         }
 
+        [Test]
+        public void MonsterModel_DropItemBasedOnCharacterType_AdjunctFaculty_Should_Pass()
+        {
+            // Arrange
+            var data = new MonsterModel { SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty };
+
+            // Act
+
+            // create an ItemModel with Adjunct Faculty SpecificMonsterType
+            var result = data.DropItemBasedOnCharacterType(data.SpecificMonsterTypeEnum);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(null, result);
+        }
+
+
         /*
         [Test]
         public async Task MonsterModel_GetItemBonus_Default_Attack_Should_Pass()
