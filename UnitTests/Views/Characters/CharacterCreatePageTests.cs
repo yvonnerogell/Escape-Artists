@@ -117,6 +117,40 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
+        [Test]
+        public void CharacterCreatePage_OnSliderChanged_Valid_Should_Pass()
+        {
+            // Arrange
+            var sender = new object();
+            var e = new ValueChangedEventArgs(0, 1);
+            OnSliderChanged(sender, e);
+
+            // Act
+
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterCreatePage_OnSliderChanged_NewValue_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var sender = new object();
+            var e = new ValueChangedEventArgs(0, 1);
+            OnSliderChanged(sender, e);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+
         //[Test]
         //public void CharacterCreatePage_Attack_OnStepperAttackChanged_Default_Should_Pass()
         //{
