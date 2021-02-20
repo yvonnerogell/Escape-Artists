@@ -145,7 +145,7 @@ namespace UnitTests.Models
         }
 
         [Test]
-        public void MonsterModel_FormatOuput_Default_Should_Pass()
+        public void MonsterModel_FormatOutput_Default_Should_Pass()
         {
             // Arrange
             var data = new MonsterModel();
