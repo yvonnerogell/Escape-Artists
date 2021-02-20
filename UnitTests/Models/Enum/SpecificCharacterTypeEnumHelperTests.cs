@@ -432,5 +432,285 @@ namespace UnitTests.Models.Enum
             // Assert
             Assert.AreEqual(SpecificCharacterTypeEnum.SmartyPants, result);
         }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_GetCharacterTypeEnumFromSpecificCharacterTypeEnum_CoolParent_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.GetCharacterTypeEnumFromSpecificCharacterTypeEnum(SpecificCharacterTypeEnum.CoolParent);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(CharacterTypeEnum.Parent, result);
+        }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_GetCharacterTypeEnumFromSpecificCharacterTypeEnum_HelicopterParent_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.GetCharacterTypeEnumFromSpecificCharacterTypeEnum(SpecificCharacterTypeEnum.HelicopterParent);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(CharacterTypeEnum.Parent, result);
+        }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_GetCharacterTypeEnumFromSpecificCharacterTypeEnum_InternationalStudent_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.GetCharacterTypeEnumFromSpecificCharacterTypeEnum(SpecificCharacterTypeEnum.InternationalStudent);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(CharacterTypeEnum.Student, result);
+        }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_GetCharacterTypeEnumFromSpecificCharacterTypeEnum_Overachiever_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.GetCharacterTypeEnumFromSpecificCharacterTypeEnum(SpecificCharacterTypeEnum.Overachiever);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(CharacterTypeEnum.Student, result);
+        }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_GetCharacterTypeEnumFromSpecificCharacterTypeEnum_Procrastinator_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.GetCharacterTypeEnumFromSpecificCharacterTypeEnum(SpecificCharacterTypeEnum.Procrastinator);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(CharacterTypeEnum.Student, result);
+        }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_GetCharacterTypeEnumFromSpecificCharacterTypeEnum_Prodigy_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.GetCharacterTypeEnumFromSpecificCharacterTypeEnum(SpecificCharacterTypeEnum.Prodigy);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(CharacterTypeEnum.Student, result);
+        }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_GetCharacterTypeEnumFromSpecificCharacterTypeEnum_SecondCareer_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.GetCharacterTypeEnumFromSpecificCharacterTypeEnum(SpecificCharacterTypeEnum.SecondCareer);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(CharacterTypeEnum.Student, result);
+        }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_GetCharacterTypeEnumFromSpecificCharacterTypeEnum_Slacker_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.GetCharacterTypeEnumFromSpecificCharacterTypeEnum(SpecificCharacterTypeEnum.Slacker);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(CharacterTypeEnum.Student, result);
+        }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_GetCharacterTypeEnumFromSpecificCharacterTypeEnum_SmartyPants_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.GetCharacterTypeEnumFromSpecificCharacterTypeEnum(SpecificCharacterTypeEnum.SmartyPants);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(CharacterTypeEnum.Student, result);
+        }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_GetCharacterTypeEnumFromSpecificCharacterTypeEnum_Unknown_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.GetCharacterTypeEnumFromSpecificCharacterTypeEnum(SpecificCharacterTypeEnum.Unknown);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(CharacterTypeEnum.Unknown, result);
+        }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_ToAbility_SmartyPants_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.ToAbility(SpecificCharacterTypeEnum.SmartyPants);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(AbilityEnum.ExtraCredit, result);
+        }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_ToAbility_Slacker_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.ToAbility(SpecificCharacterTypeEnum.Slacker);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(AbilityEnum.Extension, result);
+        }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_ToAbility_SecondCareer_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.ToAbility(SpecificCharacterTypeEnum.SecondCareer);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(AbilityEnum.Extension, result);
+        }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_ToAbility_Prodigy_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.ToAbility(SpecificCharacterTypeEnum.Prodigy);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(AbilityEnum.ExtraCredit, result);
+        }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_ToAbility_Procrastinator_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.ToAbility(SpecificCharacterTypeEnum.Procrastinator);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(AbilityEnum.Extension, result);
+        }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_ToAbility_Overachiever_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.ToAbility(SpecificCharacterTypeEnum.Overachiever);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(AbilityEnum.FlashGenius, result);
+        }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_ToAbility_InternationalStudent_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.ToAbility(SpecificCharacterTypeEnum.InternationalStudent);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(AbilityEnum.FlashGenius, result);
+        }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_ToAbility_HelicopterParent_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.ToAbility(SpecificCharacterTypeEnum.HelicopterParent);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(AbilityEnum.Bribes, result);
+        }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_ToAbility_CoolParent_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.ToAbility(SpecificCharacterTypeEnum.CoolParent);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(AbilityEnum.PayTuition, result);
+        }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_ToAbility_Unknown_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.ToAbility(SpecificCharacterTypeEnum.Unknown);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(AbilityEnum.Unknown, result);
+        }
     }
 }
