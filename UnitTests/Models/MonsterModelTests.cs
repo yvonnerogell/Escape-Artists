@@ -693,6 +693,23 @@ namespace UnitTests.Models
             Assert.AreEqual(null, result);
         }
 
+        [Test]
+        public void MonsterModel_DropItemBasedOnCharacterType_HRAdministrator_Should_Pass()
+        {
+            // Arrange
+            var data = new MonsterModel { SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.HRAdministrator };
+
+            // Act
+
+            // create an ItemModel with HR Admin SpecificMonsterType
+            var result = data.DropItemBasedOnCharacterType(data.SpecificMonsterTypeEnum);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(ItemTypeEnum.FinancialAid, result.ItemType);
+        }
+
 
         /*
         [Test]
