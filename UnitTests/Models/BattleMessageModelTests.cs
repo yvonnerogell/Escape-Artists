@@ -240,5 +240,47 @@ namespace UnitTests.Models
             // Assert
             Assert.IsNotNull(result);
         }
+
+        [Test]
+        public void BattleMessageModel_ClearMessages_HitStatus_CriticalMiss_Should_Pass()
+        {
+            // Arrange
+            var message = new BattleMessagesModel();
+            message.HitStatus = HitStatusEnum.CriticalMiss;
+            message.PlayerType = PlayerTypeEnum.Monster;
+            message.AttackerName = "Minnie";
+            message.TargetName = "Target";
+            message.AttackStatus = "Attacking";
+            message.TurnMessage = "turn message";
+            message.TurnMessageSpecial = "turn message special";
+            message.ExperienceEarned = "experience";
+            message.LevelUpMessage = "level up";
+            message.BadCriticalMissMessage = "bad critical message";
+
+            message.DamageAmount = 10;
+            message.CurrentHealth = 45;
+
+            // Act
+            var result = message.ClearMessages();
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(result);
+            Assert.AreEqual(HitStatusEnum.Unknown, message.HitStatus);
+            Assert.AreEqual(PlayerTypeEnum.Unknown, message.PlayerType);
+            Assert.AreEqual(string.Empty, message.AttackerName);
+            Assert.AreEqual(string.Empty, message.TargetName);
+            Assert.AreEqual(string.Empty, message.AttackerName);
+            Assert.AreEqual(string.Empty, message.AttackStatus);
+            Assert.AreEqual(string.Empty, message.TurnMessage);
+            Assert.AreEqual(string.Empty, message.TurnMessageSpecial);
+            Assert.AreEqual(string.Empty, message.ExperienceEarned);
+            Assert.AreEqual(string.Empty, message.ExperienceEarned);
+            Assert.AreEqual(string.Empty, message.LevelUpMessage);
+            Assert.AreEqual(string.Empty, message.BadCriticalMissMessage);
+            Assert.AreEqual(0, message.DamageAmount);
+            Assert.AreEqual(0, message.CurrentHealth);
+        }
     }
 }
