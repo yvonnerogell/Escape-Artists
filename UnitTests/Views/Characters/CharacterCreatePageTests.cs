@@ -24,7 +24,7 @@ namespace UnitTests.Views
         App app;
         CharacterCreatePage page;
 
-        public CharacterCreatePageTests() : base() { }
+        public CharacterCreatePageTests() : base(true) { }
 
         [SetUp]
         public void Setup()
