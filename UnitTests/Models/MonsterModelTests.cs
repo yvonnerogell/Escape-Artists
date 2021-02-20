@@ -581,12 +581,31 @@ namespace UnitTests.Models
             var data = new MonsterModel();
 
             // Act
+
+            // Create ItemModel based on Default SpecificMonsterType, which is Teaching Assistant
             var result = data.DropItemBasedOnCharacterType(data.SpecificMonsterTypeEnum);
 
             // Reset
 
             // Assert
             Assert.AreEqual(ItemTypeEnum.IndexCards, result.ItemType);
+        }
+
+        [Test]
+        public void MonsterModel_DropItemBasedOnCharacterType_Unknown_Should_Fail()
+        {
+            // Arrange
+            var data = new MonsterModel{ SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.Unknown };
+
+            // Act
+
+            // create an ItemModel with Unknown SpecificMonsterType
+            var result = data.DropItemBasedOnCharacterType(data.SpecificMonsterTypeEnum);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(null, result);
         }
 
         /*
