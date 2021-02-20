@@ -727,6 +727,23 @@ namespace UnitTests.Models
             Assert.AreEqual(null, result);
         }
 
+        [Test]
+        public void MonsterModel_DropItemBasedOnCharacterType_GraduationOfficeAdministrator_Should_Pass()
+        {
+            // Arrange
+            var data = new MonsterModel { SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.GraduationOfficeAdministrator };
+
+            // Act
+
+            // create an ItemModel with Graduation OfficeAdmin SpecificMonsterType
+            var result = data.DropItemBasedOnCharacterType(data.SpecificMonsterTypeEnum);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(ItemTypeEnum.GraduationCapAndRobe, result.ItemType);
+        }
+
 
         /*
         [Test]
