@@ -149,10 +149,10 @@ namespace Game.Models
             get
             {
                 var myList = new List<string>();
-                myList.Add("Teaching Assistant");
-                myList.Add("Adjunct Faculty");
-                myList.Add("Assistant Professor");
-                myList.Add("Associate Professor");
+                myList.Add("TeachingAssistant");
+                myList.Add("AdjunctFaculty");
+                myList.Add("AssistantProfessor");
+                myList.Add("AssociateProfessor");
                 myList.Add("Professor");
                 return myList;
             }
@@ -183,9 +183,9 @@ namespace Game.Models
             get
             {
                 var myList = new List<string>();
-                myList.Add("HR Administrator");
-                myList.Add("Registration Administrator");
-                myList.Add("Graduation Office Administrator");
+                myList.Add("HRAdministrator");
+                myList.Add("RegistrationAdministrator");
+                myList.Add("GraduationOfficeAdministrator");
                 return myList;
             }
         }
