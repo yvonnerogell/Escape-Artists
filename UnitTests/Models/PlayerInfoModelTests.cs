@@ -148,7 +148,27 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual(AbilityEnum.Heal, result);
         }
-        
+
+        [Test]
+        public void PlayerInfoModel_SelectHealingAbility_Cleric_Heal_Not_Available_Should_Pass()
+        {
+            // Arrange
+            var data = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Cleric });
+            data.AbilityTracker[AbilityEnum.Heal] = 0;
+            data.AbilityTracker[AbilityEnum.Bandage] = 0;
+
+            data.CurrentHealth = 1;
+            data.MaxHealth = 100;
+
+            // Act
+            var result = data.SelectHealingAbility();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(AbilityEnum.Unknown, result);
+        }
+
         [Test]
         public void PlayerInfoModel_SelectHealingAbility_Cleric_Heal_Not_Needed_Should_Pass()
         {
