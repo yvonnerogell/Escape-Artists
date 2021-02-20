@@ -147,8 +147,11 @@ namespace Game.Models
 
                 case SpecificCharacterTypeEnum.Slacker:
                     var Calculator = new ItemModel(ItemTypeEnum.Calculator);
+                    var Skateboard = new ItemModel(ItemTypeEnum.Skateboard);
                     item.Add(Calculator);
+                    item.Add(Skateboard);
                     LeftFinger = Calculator.Id;
+                    Feet = Skateboard.Id;
                     break;
 
                 case SpecificCharacterTypeEnum.Procrastinator:
