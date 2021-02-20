@@ -15,21 +15,58 @@ namespace Game.Models
 
         // Not specified
         None = 1,
-     
+
+        #region LegacyEnumValues
+        /*
+            Leave legacy enums in for now.
+         */
+
+        // General Abilities 10 Range
+        // Heal Self
+        Bandage = 10,
+
+        // Fighter Abilities > 20 Range
+        // Buff Speed
+        Nimble = 21,
+
+        // Buff Defense
+        Toughness = 22,
+
+        // Buff Attack
+        Focus = 23,
+
+        // Cleric Abilities > 50 Range
+        // Buff Speed
+        Quick = 51,
+
+        // Buff Defense
+        Barrier = 52,
+
+        // Buff Attack
+        Curse = 53,
+
+        // Heal Self
+        Heal = 54,
+        #endregion LegacyEnumValues
+
+        /*
+            Add your enums here starting at 100 
+        */
+
         // Student can get extra credit
-        ExtraCredit = 10,
+        ExtraCredit = 110,
 
         // Student can get an extension
-        Extension = 21,
+        Extension = 121,
 
         //Student can get a flash of genius
-        FlashGenius = 22,
+        FlashGenius = 122,
 
         // Parent can give bribes
-        Bribes = 23,
+        Bribes = 123,
 
         // Parent can pay tuition
-        PayTuition = 51,
+        PayTuition = 151,
     }
 
     /// <summary>
