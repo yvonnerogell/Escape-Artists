@@ -172,6 +172,15 @@ namespace Game.Models
             // Set amount to give to be 1 below max for that level.
             ExperienceRemaining = LevelTableHelper.LevelDetailsList[Level + 1].Experience - 1;
 
+            /*
+             * TODO: Team, this is needed to keep the UT passing for the base game, your game does not need to use it.
+             */
+            // Add some base Abilities
+            foreach (var item in AbilityEnumHelper.GetListOthers)
+            {
+                AbilityTracker.Add(AbilityEnumHelper.ConvertStringToEnum(item), Level);
+            }
+
         }
 
         /// <summary>
