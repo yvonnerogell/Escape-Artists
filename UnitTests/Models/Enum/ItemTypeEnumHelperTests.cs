@@ -518,6 +518,20 @@ namespace UnitTests.Models.Enum
         }
 
         [Test]
+        public void ItemTypeEnumHelperTests_GetLocationFromItemType_Skateboard_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.GetLocationFromItemType(ItemTypeEnum.Skateboard);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(ItemLocationEnum.Feet, result);
+        }
+
+        [Test]
         public void ItemTypeEnumHelperTests_GetLocationFromItemType_Tuition_Should_Pass()
         {
             // Arrange
@@ -710,6 +724,27 @@ namespace UnitTests.Models.Enum
 
             // Act
             var result = ItemTypeEnumHelper.getRandomeNameBasedOnType(ItemTypeEnum.Tuition);
+
+            // Reset
+
+            // Assert
+            Assert.Contains(result, possibleValues);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_getRandomeNameBasedOnType_Skateboard_Should_Pass()
+        {
+            // Arrange
+            List<string> possibleValues = new List<string>();
+            possibleValues.Add("Red Skateboard");
+            possibleValues.Add("White Skateboard");
+            possibleValues.Add("Blue Skateboard");
+            possibleValues.Add("Yellow Skateboard");
+            possibleValues.Add("Pink Skateboard");
+            possibleValues.Add("Green Skateboard");
+
+            // Act
+            var result = ItemTypeEnumHelper.getRandomeNameBasedOnType(ItemTypeEnum.Skateboard);
 
             // Reset
 
@@ -975,6 +1010,20 @@ namespace UnitTests.Models.Enum
         }
 
         [Test]
+        public void ItemTypeEnumHelperTests_getDescriptionBasedOnType_Skateboard_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.getDescriptionBasedOnType(ItemTypeEnum.Skateboard);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Helps getting to classes faster.", result);
+        }
+
+        [Test]
         public void ItemTypeEnumHelperTests_getDescriptionBasedOnType_Textbooks_Should_Pass()
         {
             // Arrange
@@ -1155,6 +1204,20 @@ namespace UnitTests.Models.Enum
 
             // Assert
             Assert.AreEqual(Constants.ItemTypeIndexCardsImageURI, result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_GetImageURIFromItemType_Skateboard_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.GetImageURIFromItemType(ItemTypeEnum.Skateboard);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(Constants.ItemTypeSkateboardImageURI, result);
         }
 
         [Test]
@@ -1351,6 +1414,20 @@ namespace UnitTests.Models.Enum
 
             // Assert
             Assert.AreEqual(2, result);
+        }
+
+        [Test]
+        public void ItemTypeEnumHelperTests_GetDamageFromItemType_Skateboard_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ItemTypeEnumHelper.GetDamageFromItemType(ItemTypeEnum.Skateboard);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(10, result);
         }
 
         [Test]

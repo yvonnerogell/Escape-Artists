@@ -393,7 +393,8 @@ namespace UnitTests.Models.Enum
             // Reset
 
             // Assert
-            Assert.AreEqual(result.Count, 0);
+            Assert.AreEqual(result.Count, 1);
+            Assert.Contains(ItemTypeEnum.Skateboard, result);
         }
     }
 }
