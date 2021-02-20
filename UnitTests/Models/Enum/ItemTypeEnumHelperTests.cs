@@ -20,7 +20,7 @@ namespace UnitTests.Models.Enum
             // Reset
 
             // Assert
-            Assert.AreEqual(result.Count, 14);
+            Assert.AreEqual(result.Count, 15);
             Assert.Contains("Unknown", result);
             Assert.Contains("IndexCards", result);
             Assert.Contains("PencilEraser", result);
@@ -35,6 +35,7 @@ namespace UnitTests.Models.Enum
             Assert.Contains("Tuition", result);
             Assert.Contains("GraduationCapAndRobe", result);
             Assert.Contains("Diploma", result);
+            Assert.Contains("Skateboard", result);
         }
 
         [Test]
@@ -48,7 +49,7 @@ namespace UnitTests.Models.Enum
             // Reset
 
             // Assert
-            Assert.AreEqual(result.Count, 14);
+            Assert.AreEqual(result.Count, 15);
             Assert.Contains("Unknown", result);
             Assert.Contains("Index Cards", result);
             Assert.Contains("Pencil Eraser", result);
@@ -63,6 +64,7 @@ namespace UnitTests.Models.Enum
             Assert.Contains("Tuition", result);
             Assert.Contains("Graduation Cap and Robe", result);
             Assert.Contains("Diploma", result);
+            Assert.Contains("Skateboard", result);
         }
 
         [Test]
@@ -76,7 +78,7 @@ namespace UnitTests.Models.Enum
             // Reset
 
             // Assert
-            Assert.AreEqual(result.Count, 13);
+            Assert.AreEqual(result.Count, 14);
             Assert.Contains("Index Cards", result);
             Assert.Contains("Pencil Eraser", result);
             Assert.Contains("Textbooks", result);
@@ -90,6 +92,7 @@ namespace UnitTests.Models.Enum
             Assert.Contains("Tuition", result);
             Assert.Contains("Graduation Cap and Robe", result);
             Assert.Contains("Diploma", result);
+            Assert.Contains("Skateboard", result);
         }
 
         [Test]
