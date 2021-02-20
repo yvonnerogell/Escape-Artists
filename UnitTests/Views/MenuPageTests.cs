@@ -99,5 +99,24 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true);
         }
+
+        [Test]
+        public void MenuPage_ListViewMenu_Valid_School_Should_Pass()
+        {
+            // Arrange
+
+            var data = new HomeMenuItemModel { Id = MenuItemEnum.School, Title = "School" };
+
+            var content = (StackLayout)page.Content;
+            var listview = (ListView)content.Children.FirstOrDefault();
+
+            // Act
+            listview.SelectedItem = data;
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true);
+        }
     }
 }
