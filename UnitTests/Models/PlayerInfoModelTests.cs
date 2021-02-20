@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 
 using Game.Models;
+using System.Collections.Generic;
 
 namespace UnitTests.Models
 {
@@ -220,6 +221,22 @@ namespace UnitTests.Models
 
             // Assert
             Assert.AreEqual(AbilityEnum.Bandage, result);
+        }
+
+        [Test]
+        public void PlayerInfoModel_SelectAbilityToUse_None_Avaiable_Should_Pass()
+        {
+            // Arrange
+            var data = new PlayerInfoModel(new CharacterModel ());
+            data.AbilityTracker = new Dictionary<AbilityEnum, int>();
+
+            // Act
+            var result = data.SelectSpecialAbilityToUse();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(AbilityEnum.None, result);
         }
 
         [Test]
