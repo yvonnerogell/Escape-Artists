@@ -201,6 +201,67 @@ namespace Game.Models
 
         #region Abilities
 
+        /// <summary>
+        /// Check to see if healing would help
+        /// 
+        /// if not, return unknown
+        /// </summary>
+        /// <returns></returns>
+        public AbilityEnum SelectHealingAbility()
+        {
+            // Save the Health for when it is needed
+            // If health is 25% or less of max health, try to heal
+            if (GetCurrentHealth() < (GetMaxHealth() * .25))
+            {
+                // Try to use Heal or Bandage
+                if (IsAbilityAvailable(AbilityEnum.Heal))
+                {
+                    return AbilityEnum.Heal;
+                }
+
+                if (IsAbilityAvailable(AbilityEnum.Bandage))
+                {
+                    return AbilityEnum.Bandage;
+                }
+            }
+
+            return AbilityEnum.Unknown;
+        }
+
+        /// <summary>
+        /// Walk the Abilities and return one to use
+        /// </summary>
+        /// <param name="Attacker"></param>
+        /// <returns></returns>
+        public AbilityEnum SelectAbilityToUse()
+        {
+            // Walk the other abilities and see which can be used
+            foreach (var ability in AbilityTracker)
+            {
+                var data = ability.Key;
+
+                // Skip over Heal and Bandage because covered in healing
+                if (data == AbilityEnum.Heal)
+                {
+                    continue;
+                }
+
+                if (data == AbilityEnum.Bandage)
+                {
+                    continue;
+                }
+
+                var result = AbilityTracker.TryGetValue(data, out int remaining);
+                if (remaining > 0)
+                {
+                    // Got one so can prepare it to be used
+                    return data;
+                }
+            }
+
+            return AbilityEnum.Unknown;
+        }
+
 
         /// <summary>
         /// Returns the special ability to be used. If none is available (e.g. for Monsters, since they don't have special abilities
