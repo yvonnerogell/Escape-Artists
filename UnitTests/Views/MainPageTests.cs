@@ -92,12 +92,12 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public async Task MainPage_Navigate_Battle_Should_Pass()
+        public async Task MainPage_Navigate_ExamRoom_Should_Pass()
         {
             // Arrange
 
             // Act
-            await page.NavigateFromMenu((int)MenuItemEnum.Battle);
+            await page.NavigateFromMenu((int)MenuItemEnum.ExamRoom);
 
             // Reset
 
