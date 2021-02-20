@@ -31,7 +31,7 @@ namespace Game.Models
         /// </summary>
         public CharacterModel()
         {
-            Name = "";
+            Name = "Bobbet";
             Description = "";
             PlayerType = PlayerTypeEnum.Character;
             CharacterTypeEnum = CharacterTypeEnum.Student;
