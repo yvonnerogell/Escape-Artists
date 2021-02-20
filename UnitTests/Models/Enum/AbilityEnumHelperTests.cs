@@ -237,7 +237,7 @@ namespace UnitTests.Models.Enum
             Assert.Contains("Bribes", result);
             Assert.Contains("FlashGenius", result);
             Assert.Contains("PayTuition", result);
-            Assert.AreEqual(result.Count, 7);
+            Assert.AreEqual(result.Count, 15);
         }
 
         [Test]
@@ -258,7 +258,7 @@ namespace UnitTests.Models.Enum
             Assert.Contains("Bribes", result);
             Assert.Contains("Flash of genius", result);
             Assert.Contains("Pay tuition", result);
-            Assert.AreEqual(result.Count, 7);
+            Assert.AreEqual(result.Count, 15);
         }
     }
 }
