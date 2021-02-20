@@ -3,12 +3,19 @@ using Game.Models;
 
 namespace Game.Engine.EngineInterfaces
 {
+    /// <summary>
+    /// Battle Engine Interface
+    /// </summary>
    public interface IBattleEngineInterface
     {
-        // The Round Variable
+        /// <summary>
+        /// The Round Variable
+        /// </summary>
         IRoundEngineInterface Round { get; set; }
 
-        // Engine Settings for this round
+        /// <summary>
+        /// Engine Settings for this round
+        /// </summary>
         EngineSettingsModel EngineSettings { get;}
 
         /// <summary>

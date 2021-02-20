@@ -89,6 +89,7 @@ namespace Game.Engine.EngineBase
             * Hint: 
             * I don't have crudi monsters yet so will add 6 new ones...
             * If you have crudi monsters, then pick from the list
+
             * Consdier how you will scale the monsters up to be appropriate for the characters to fight
             * 
             */

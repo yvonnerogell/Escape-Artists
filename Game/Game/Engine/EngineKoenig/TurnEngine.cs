@@ -160,14 +160,21 @@ namespace Game.Engine.EngineKoenig
         /// <returns></returns>
         public override bool ChooseToUseAbility(PlayerInfoModel Attacker)
         {
+            // See if healing is needed.
+            EngineSettings.CurrentActionAbility = Attacker.SelectHealingAbility();
+            if (EngineSettings.CurrentActionAbility != AbilityEnum.Unknown)
+            {
+                EngineSettings.CurrentAction = ActionEnum.Ability;
+                return true;
+            }
 
             // If not needed, then role dice to see if other ability should be used
             // <30% chance
             if (DiceHelper.RollDice(1, 10) < 3)
             {
-                EngineSettings.CurrentActionAbility = Attacker.SelectSpecialAbilityToUse();
+                EngineSettings.CurrentActionAbility = Attacker.SelectAbilityToUse();
 
-                if (EngineSettings.CurrentActionAbility != AbilityEnum.None)
+                if (EngineSettings.CurrentActionAbility != AbilityEnum.Unknown)
                 {
                     // Ability can , switch to unknown to exit
                     EngineSettings.CurrentAction = ActionEnum.Ability;
@@ -398,10 +405,8 @@ namespace Game.Engine.EngineKoenig
         /// </summary>
         public override HitStatusEnum RollToHitTarget(int AttackScore, int DefenseScore)
         {
-            // 20 sided dice
             var d20 = DiceHelper.RollDice(1, 20);
 
-            // if dice roll is 1, automatic miss
             if (d20 == 1)
             {
                 EngineSettings.BattleMessagesModel.HitStatus = HitStatusEnum.Miss;
@@ -416,7 +421,6 @@ namespace Game.Engine.EngineKoenig
                 return EngineSettings.BattleMessagesModel.HitStatus;
             }
 
-            // if dice is 20, automatic hit
             if (d20 == 20)
             {
                 EngineSettings.BattleMessagesModel.AttackStatus = " rolls 20 for hit ";
@@ -430,7 +434,6 @@ namespace Game.Engine.EngineKoenig
                 return EngineSettings.BattleMessagesModel.HitStatus;
             }
 
-            // if hit score is less than defense, it's a miss
             var ToHitScore = d20 + AttackScore;
             if (ToHitScore < DefenseScore)
             {

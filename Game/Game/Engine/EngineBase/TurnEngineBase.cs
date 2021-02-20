@@ -525,7 +525,7 @@ namespace Game.Engine.EngineBase
                 var points = " points";
 
                 var experienceEarned = Target.CalculateExperienceEarned(EngineSettings.BattleMessagesModel.DamageAmount);
-
+                
                 if (experienceEarned == 1)
                 {
                     points = " point";

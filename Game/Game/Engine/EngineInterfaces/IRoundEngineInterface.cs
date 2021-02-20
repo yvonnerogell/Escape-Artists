@@ -4,9 +4,14 @@ using Game.Models;
 
 namespace Game.Engine.EngineInterfaces
 {
+    /// <summary>
+    /// Round Engine Interface
+    /// </summary>
     public interface IRoundEngineInterface
     {
-        // The turn variable
+        /// <summary>
+        /// The turn variable
+        /// </summary>
         ITurnEngineInterface Turn { get; set; }
 
         /// <summary>
@@ -112,7 +117,11 @@ namespace Game.Engine.EngineInterfaces
         /// <returns></returns>
         ItemModel SwapCharacterItem(PlayerInfoModel character, ItemLocationEnum setLocation, ItemModel PoolItem);
         
-        //bool RemoveCharacterBuffs();
+        /// <summary>
+        /// Remove Character Buffs
+        /// </summary>
+        /// <returns></returns>
+        bool RemoveCharacterBuffs();
 
         /// <summary>
         /// Who is player this round?

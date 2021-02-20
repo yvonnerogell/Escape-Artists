@@ -4,6 +4,9 @@ using Game.Models;
 
 namespace Game.Engine.EngineInterfaces
 {
+    /// <summary>
+    /// Turn Engine Interface
+    /// </summary>
     public interface ITurnEngineInterface
     {
         /// <summary>
