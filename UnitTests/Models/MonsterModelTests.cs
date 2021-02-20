@@ -659,6 +659,23 @@ namespace UnitTests.Models
             Assert.AreEqual(ItemTypeEnum.Laptop, result.ItemType);
         }
 
+        [Test]
+        public void MonsterModel_DropItemBasedOnCharacterType_AssociateProfessor_Should_Pass()
+        {
+            // Arrange
+            var data = new MonsterModel { SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AssociateProfessor };
+
+            // Act
+
+            // create an ItemModel with Associate Professor SpecificMonsterType
+            var result = data.DropItemBasedOnCharacterType(data.SpecificMonsterTypeEnum);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(ItemTypeEnum.Textbooks, result.ItemType);
+        }
+
 
         /*
         [Test]
