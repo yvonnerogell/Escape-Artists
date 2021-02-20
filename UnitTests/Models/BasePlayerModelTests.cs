@@ -35,7 +35,6 @@ namespace UnitTests.Models
             Assert.AreEqual("This is an Item", result.Name);
         }
 
-        /*
         [Test]
         public void BasePlayerModel_Get_Default_Should_Pass()
         {
@@ -65,7 +64,7 @@ namespace UnitTests.Models
             Assert.AreEqual(0, result.Attack);
             Assert.AreEqual(null, result.Head);
             Assert.AreEqual(null, result.Feet);
-            Assert.AreEqual(null, result.Necklass);
+            Assert.AreEqual(null, result.Necklace);
             Assert.AreEqual(null, result.PrimaryHand);
             Assert.AreEqual(null, result.OffHand);
             Assert.AreEqual(null, result.RightFinger);
@@ -100,7 +99,7 @@ namespace UnitTests.Models
             result.Attack = 123;
             result.Head = "head";
             result.Feet = "feet";
-            result.Necklass = "necklass";
+            result.Necklace = "necklass";
             result.PrimaryHand = "primaryhand";
             result.OffHand = "offhand";
             result.RightFinger = "rightfinger";
@@ -127,13 +126,12 @@ namespace UnitTests.Models
             Assert.AreEqual(123, result.Attack);
             Assert.AreEqual("head", result.Head);
             Assert.AreEqual("feet", result.Feet);
-            Assert.AreEqual("necklass", result.Necklass);
+            Assert.AreEqual("necklass", result.Necklace);
             Assert.AreEqual("primaryhand", result.PrimaryHand);
             Assert.AreEqual("offhand", result.OffHand);
             Assert.AreEqual("rightfinger", result.RightFinger);
             Assert.AreEqual("leftfinger", result.LeftFinger);
         }
-        */
 
         [Test]
         public void BasePlayerModel_Update_Default_Should_Pass()
@@ -424,7 +422,6 @@ namespace UnitTests.Models
             Assert.AreEqual(null, result);
         }
 
-        /*
         [Test]
         public void BasePlayerModel_GetItemByLocation_Necklass_Default_Should_Pass()
         {
@@ -432,14 +429,13 @@ namespace UnitTests.Models
             var data = new BasePlayerModel<CharacterModel>();
 
             // Act
-            var result = data.GetItemByLocation(ItemLocationEnum.Necklass);
+            var result = data.GetItemByLocation(ItemLocationEnum.Necklace);
 
             // Reset
 
             // Assert
             Assert.AreEqual(null, result);
         }
-        */
 
         [Test]
         public void BasePlayerModel_GetItemByLocation_PrimaryHand_Default_Should_Pass()
@@ -516,7 +512,6 @@ namespace UnitTests.Models
             Assert.AreEqual(null, result);
         }
 
-        /*
         [Test]
         public async Task BasePlayerModel_DropAllItems_Default_Should_Pass()
         {
@@ -529,7 +524,7 @@ namespace UnitTests.Models
             var data = new BasePlayerModel<CharacterModel>
             {
                 Head = item.Id,
-                Necklass = item.Id,
+                Necklace = item.Id,
                 PrimaryHand = item.Id,
                 OffHand = item.Id,
                 RightFinger = item.Id,
@@ -545,7 +540,6 @@ namespace UnitTests.Models
             // Assert
             Assert.IsNotNull(result);
         }
-        */
 
         [Test]
         public void BasePlayerModel_AddItem_Unknown_Should_Fail()
@@ -610,7 +604,6 @@ namespace UnitTests.Models
             Assert.AreEqual(itemOld.Id, result.Id);
         }
 
-        /*
         [Test]
         public async Task BasePlayerModel_GetItemBonus_Default_Attack_Should_Pass()
         {
@@ -630,7 +623,7 @@ namespace UnitTests.Models
 
             // Add the first item
             data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("head")).Id);
-            data.AddItem(ItemLocationEnum.Necklass, (await ItemIndexViewModel.Instance.ReadAsync("necklass")).Id);
+            data.AddItem(ItemLocationEnum.Necklace, (await ItemIndexViewModel.Instance.ReadAsync("necklass")).Id);
             data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
             data.AddItem(ItemLocationEnum.OffHand, (await ItemIndexViewModel.Instance.ReadAsync("OffHand")).Id);
             data.AddItem(ItemLocationEnum.RightFinger, (await ItemIndexViewModel.Instance.ReadAsync("RightFinger")).Id);
@@ -668,7 +661,7 @@ namespace UnitTests.Models
 
             // Add the first item
             data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("head")).Id);
-            data.AddItem(ItemLocationEnum.Necklass, (await ItemIndexViewModel.Instance.ReadAsync("necklass")).Id);
+            data.AddItem(ItemLocationEnum.Necklace, (await ItemIndexViewModel.Instance.ReadAsync("necklass")).Id);
             data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
             data.AddItem(ItemLocationEnum.OffHand, (await ItemIndexViewModel.Instance.ReadAsync("OffHand")).Id);
             data.AddItem(ItemLocationEnum.RightFinger, (await ItemIndexViewModel.Instance.ReadAsync("RightFinger")).Id);
@@ -705,7 +698,7 @@ namespace UnitTests.Models
 
             // Add the first item
             data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("head")).Id);
-            data.AddItem(ItemLocationEnum.Necklass, (await ItemIndexViewModel.Instance.ReadAsync("necklass")).Id);
+            data.AddItem(ItemLocationEnum.Necklace, (await ItemIndexViewModel.Instance.ReadAsync("necklass")).Id);
             data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
             data.AddItem(ItemLocationEnum.OffHand, (await ItemIndexViewModel.Instance.ReadAsync("OffHand")).Id);
             data.AddItem(ItemLocationEnum.RightFinger, (await ItemIndexViewModel.Instance.ReadAsync("RightFinger")).Id);
@@ -742,7 +735,7 @@ namespace UnitTests.Models
 
             // Add the first item
             data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("head")).Id);
-            data.AddItem(ItemLocationEnum.Necklass, (await ItemIndexViewModel.Instance.ReadAsync("necklass")).Id);
+            data.AddItem(ItemLocationEnum.Necklace, (await ItemIndexViewModel.Instance.ReadAsync("necklass")).Id);
             data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
             data.AddItem(ItemLocationEnum.OffHand, (await ItemIndexViewModel.Instance.ReadAsync("OffHand")).Id);
             data.AddItem(ItemLocationEnum.RightFinger, (await ItemIndexViewModel.Instance.ReadAsync("RightFinger")).Id);
@@ -780,7 +773,7 @@ namespace UnitTests.Models
 
             // Add the first item
             data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("head")).Id);
-            data.AddItem(ItemLocationEnum.Necklass, (await ItemIndexViewModel.Instance.ReadAsync("necklass")).Id);
+            data.AddItem(ItemLocationEnum.Necklace, (await ItemIndexViewModel.Instance.ReadAsync("necklass")).Id);
             data.AddItem(ItemLocationEnum.PrimaryHand, (await ItemIndexViewModel.Instance.ReadAsync("PrimaryHand")).Id);
             data.AddItem(ItemLocationEnum.OffHand, (await ItemIndexViewModel.Instance.ReadAsync("OffHand")).Id);
             data.AddItem(ItemLocationEnum.RightFinger, (await ItemIndexViewModel.Instance.ReadAsync("RightFinger")).Id);
@@ -801,7 +794,6 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual(2, result);
         }
-        */
 
         [Test]
         public async Task BasePlayerModel_GetDamageItemBonus_Default_Speed_Should_Pass()
@@ -897,7 +889,6 @@ namespace UnitTests.Models
             Assert.AreEqual("1 + 1D 1", result);
         }
 
-        /*
         [Test]
         public async Task BasePlayerModel_ItemSlotsFormatOutput_Full_Should_Pass()
         {
@@ -910,13 +901,13 @@ namespace UnitTests.Models
             var data = new BasePlayerModel<CharacterModel>
             {
                 Head = item.Id,
-                Necklass = item.Id,
+                Necklace = item.Id,
                 PrimaryHand = item.Id,
                 OffHand = item.Id,
                 RightFinger = item.Id,
                 LeftFinger = item.Id,
                 Feet = item.Id,
-                UniqueItem = item.Id,
+                //UniqueItem = item.Id,
             };
 
             // Act
@@ -936,13 +927,13 @@ namespace UnitTests.Models
             var data = new BasePlayerModel<CharacterModel>
             {
                 Head = null,
-                Necklass = null,
+                Necklace = null,
                 PrimaryHand = null,
                 OffHand = null,
                 RightFinger = null,
                 LeftFinger = null,
                 Feet = null,
-                UniqueItem = null,
+                //UniqueItem = null,
             };
 
             // Act
@@ -953,7 +944,6 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual(true, string.IsNullOrEmpty(result));
         }
-        */
 
         [Test]
         public void BasePlayerModel_LevelUpToValue_Valid_Should_Pass()
@@ -1165,7 +1155,6 @@ namespace UnitTests.Models
             Assert.AreEqual(Expected, Result, TestContext.CurrentContext.Test.Name);
         }
 
-        /*
         [Test]
         public void BasePlayerModel_BuffSpeed_Default_Should_Pass()
         {
@@ -1175,6 +1164,20 @@ namespace UnitTests.Models
             var Result = data.BuffSpeed();
 
             Assert.AreEqual(data.BuffSpeedValue, Result);
+        }
+
+        [Test]
+        public void BasePlayerModel_ClearBuff_Default_Should_Pass()
+        {
+            var data = new BasePlayerModel<CharacterModel>();
+
+            // clear the buff
+            data.ClearBuffs();
+
+            Assert.AreEqual(data.BuffHealthValue, 0);
+            Assert.AreEqual(data.BuffAttackValue, 0);
+            Assert.AreEqual(data.BuffDefenseValue, 0);
+            Assert.AreEqual(data.BuffSpeedValue, 0);
         }
 
         [Test]
@@ -1209,7 +1212,6 @@ namespace UnitTests.Models
 
             Assert.AreEqual(data.BuffAttackValue, Result);
         }
-        */
 
         [Test]
         public void BasePlayerModel_GetRange_Default_Should_Pass()
