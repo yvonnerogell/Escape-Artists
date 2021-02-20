@@ -195,6 +195,10 @@ namespace UnitTests.Views
             var item = new ItemModel { Location = ItemLocationEnum.PrimaryHand };
             await ItemIndexViewModel.Instance.CreateAsync(item);
 
+            var character = new CharacterModel();
+            character.PrimaryHand = ItemIndexViewModel.Instance.GetLocationItems(ItemLocationEnum.PrimaryHand).First().Id;
+            page.ViewModel.Data = character;
+
             // Act
             var result = page.GetItemToDisplay(ItemLocationEnum.PrimaryHand);
 
@@ -203,7 +207,7 @@ namespace UnitTests.Views
             await ItemIndexViewModel.Instance.LoadDefaultDataAsync();
 
             // Assert
-            Assert.AreEqual(2, result.Children.Count()); // Got to here, so it happened...
+            Assert.AreEqual(2, result.Children.Count());
         }
 
         [Test]
