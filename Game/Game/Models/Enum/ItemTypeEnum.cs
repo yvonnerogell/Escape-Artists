@@ -49,7 +49,10 @@ namespace Game.Models
         GraduationCapAndRobe = 60,
 
         // A diploma is the (almost) final step before graduation.
-        Diploma = 65
+        Diploma = 65,
+
+        // A skateboard to get between classes faster.
+        Skateboard = 70
     }
 
     /// <summary>
@@ -120,6 +123,10 @@ namespace Game.Models
 
                 case ItemTypeEnum.Diploma:
                     Message = "Diploma";
+                    break;
+
+                case ItemTypeEnum.Skateboard:
+                    Message = "Skateboard";
                     break;
 
                 case ItemTypeEnum.Unknown:
@@ -259,7 +266,10 @@ namespace Game.Models
                 case ItemTypeEnum.Calculator:
                     itemLocation = ItemLocationEnum.LeftFinger;
                     break;
-			}
+                case ItemTypeEnum.Skateboard:
+                    itemLocation = ItemLocationEnum.Feet;
+                    break;
+            }
 
             return itemLocation;
         }
@@ -367,6 +377,14 @@ namespace Game.Models
                     possibleNames.Add("Pink");
                     possibleNames.Add("Green");
                     break;
+                case ItemTypeEnum.Skateboard:
+                    possibleNames.Add("Red");
+                    possibleNames.Add("White");
+                    possibleNames.Add("Blue");
+                    possibleNames.Add("Yellow");
+                    possibleNames.Add("Pink");
+                    possibleNames.Add("Green");
+                    break;
             }
 
             // get length of list
@@ -429,6 +447,9 @@ namespace Game.Models
                     break;
                 case ItemTypeEnum.Calculator:
                     descriptions = "Avoid doing math in your head.";
+                    break;
+                case ItemTypeEnum.Skateboard:
+                    descriptions = "Helps getting to classes faster.";
                     break;
             }
 
@@ -494,6 +515,10 @@ namespace Game.Models
 
                 case ItemTypeEnum.Diploma:
                     ImageURI = Constants.ItemTypeDiplomaImageURI;
+                    break;
+
+                case ItemTypeEnum.Skateboard:
+                    ImageURI = Constants.ItemTypeSkateboardImageURI;
                     break;
 
                 case ItemTypeEnum.Unknown:
@@ -564,6 +589,10 @@ namespace Game.Models
 
                 case ItemTypeEnum.Diploma:
                     Damage = 1000;
+                    break;
+
+                case ItemTypeEnum.Skateboard:
+                    Damage = 10;
                     break;
 
                 case ItemTypeEnum.Unknown:
