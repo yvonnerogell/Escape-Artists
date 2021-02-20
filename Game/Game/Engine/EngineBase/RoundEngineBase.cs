@@ -60,7 +60,7 @@ namespace Game.Engine.EngineBase
             EndRound();
 
             // Remove Character Buffs
-            //RemoveCharacterBuffs();
+            RemoveCharacterBuffs();
 
             // Populate New Monsters...
             AddMonstersToRound();
@@ -89,7 +89,6 @@ namespace Game.Engine.EngineBase
             * Hint: 
             * I don't have crudi monsters yet so will add 6 new ones...
             * If you have crudi monsters, then pick from the list
-
             * Consdier how you will scale the monsters up to be appropriate for the characters to fight
             * 
             */
@@ -261,7 +260,6 @@ namespace Game.Engine.EngineBase
             // Remember the Insert order, used for Sorting
             var ListOrder = 0;
 
-            // loop through the characters list and only add the ones that are alive
             foreach (var data in EngineSettings.CharacterList)
             {
                 if (data.Alive)
@@ -277,7 +275,6 @@ namespace Game.Engine.EngineBase
                 }
             }
 
-            // loop through the monsters list and only add the ones that are alive
             foreach (var data in EngineSettings.MonsterList)
             {
                 if (data.Alive)
@@ -479,7 +476,7 @@ namespace Game.Engine.EngineBase
 
             return droppedItem;
         }
-/*
+
         /// <summary>
         /// For all characters in player list, remove their buffs
         /// </summary>
@@ -491,12 +488,11 @@ namespace Game.Engine.EngineBase
                 data.ClearBuffs();
             }
 
-            foreach (var data in EngineSettings.StudentList)
+            foreach (var data in EngineSettings.CharacterList)
             {
                 data.ClearBuffs();
             }
             return true;
         }
-*/
     }
 }
