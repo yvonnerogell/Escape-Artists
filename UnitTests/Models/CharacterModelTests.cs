@@ -956,5 +956,149 @@ namespace UnitTests.Models
             // Assert
             Assert.AreEqual("1 + 1D 1", result);
         }
+
+        [Test]
+        public async Task CharacterModel_ItemsBasedOnCharacterType_Smarty_Pants_Should_Pass()
+        {
+            // ArDefense
+            var character = new CharacterModel();
+
+            // Act
+            var result = character.ItemsBasedOnCharacterType(SpecificCharacterTypeEnum.SmartyPants);
+
+            // Reset
+
+            // Assert 
+            Assert.IsNotNull(result);
+            Assert.AreEqual(2, result.Count);
+        }
+
+        [Test]
+        public async Task CharacterModel_ItemsBasedOnCharacterType_Overachiever_Should_Pass()
+        {
+            // ArDefense
+            var character = new CharacterModel();
+
+            // Act
+            var result = character.ItemsBasedOnCharacterType(SpecificCharacterTypeEnum.Overachiever);
+
+            // Reset
+
+            // Assert 
+            Assert.IsNotNull(result);
+            Assert.AreEqual(1, result.Count);
+        }
+
+        [Test]
+        public async Task CharacterModel_ItemsBasedOnCharacterType_International_Student_Should_Pass()
+        {
+            // ArDefense
+            var character = new CharacterModel();
+
+            // Act
+            var result = character.ItemsBasedOnCharacterType(SpecificCharacterTypeEnum.InternationalStudent);
+
+            // Reset
+
+            // Assert 
+            Assert.IsNotNull(result);
+            Assert.AreEqual(1, result.Count);
+        }
+
+        [Test]
+        public async Task CharacterModel_ItemsBasedOnCharacterType_Prodigy_Should_Pass()
+        {
+            // ArDefense
+            var character = new CharacterModel();
+
+            // Act
+            var result = character.ItemsBasedOnCharacterType(SpecificCharacterTypeEnum.Prodigy);
+
+            // Reset
+
+            // Assert 
+            Assert.IsNotNull(result);
+            Assert.AreEqual(1, result.Count);
+        }
+
+        [Test]
+        public async Task CharacterModel_ItemsBasedOnCharacterType_Second_Career_Should_Pass()
+        {
+            // ArDefense
+            var character = new CharacterModel();
+
+            // Act
+            var result = character.ItemsBasedOnCharacterType(SpecificCharacterTypeEnum.SecondCareer);
+
+            // Reset
+
+            // Assert 
+            Assert.IsNotNull(result);
+            Assert.AreEqual(1, result.Count);
+        }
+
+        [Test]
+        public async Task CharacterModel_ItemsBasedOnCharacterType_Slacker_Should_Pass()
+        {
+            // ArDefense
+            var character = new CharacterModel();
+
+            // Act
+            var result = character.ItemsBasedOnCharacterType(SpecificCharacterTypeEnum.Slacker);
+
+            // Reset
+
+            // Assert 
+            Assert.IsNotNull(result);
+            Assert.AreEqual(2, result.Count);
+        }
+
+        [Test]
+        public async Task CharacterModel_ItemsBasedOnCharacterType_Procrastinator_Should_Pass()
+        {
+            // ArDefense
+            var character = new CharacterModel();
+
+            // Act
+            var result = character.ItemsBasedOnCharacterType(SpecificCharacterTypeEnum.Procrastinator);
+
+            // Reset
+
+            // Assert 
+            Assert.IsNotNull(result);
+            Assert.AreEqual(1, result.Count);
+        }
+
+        [Test]
+        public async Task CharacterModel_ItemsBasedOnCharacterType_Helicopter_Parent_Should_Pass()
+        {
+            // ArDefense
+            var character = new CharacterModel();
+
+            // Act
+            var result = character.ItemsBasedOnCharacterType(SpecificCharacterTypeEnum.HelicopterParent);
+
+            // Reset
+
+            // Assert 
+            Assert.IsNotNull(result);
+            Assert.AreEqual(1, result.Count);
+        }
+
+        [Test]
+        public async Task CharacterModel_ItemsBasedOnCharacterType_Cool_Parent_Should_Pass()
+        {
+            // ArDefense
+            var character = new CharacterModel();
+
+            // Act
+            var result = character.ItemsBasedOnCharacterType(SpecificCharacterTypeEnum.CoolParent);
+
+            // Reset
+
+            // Assert 
+            Assert.IsNotNull(result);
+            Assert.AreEqual(1, result.Count);
+        }
     }
 }
