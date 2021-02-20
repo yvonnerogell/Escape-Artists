@@ -156,7 +156,9 @@ namespace UnitTests.Models
             // Reset
 
             // Assert 
-            Assert.AreEqual(true, result.Contains("Troll"));
+            Assert.AreEqual(true, result.Contains(data.Name + " , " + data.Description + " , Difficulty : " 
+                + data.Difficulty.ToString() +" , Total Experience : " + data.ExperienceTotal +
+                " , Items : " + data.ItemSlotsFormatOutput()+ " , Damage : " + data.GetDamageTotalString));
         }
 
         /*
@@ -308,20 +310,6 @@ namespace UnitTests.Models
             Assert.AreEqual(false, result);
         }
 
-        [Test]
-        public void MonsterModel_FormatOutput_Default_Should_Pass()
-        {
-            // Arrange
-            var data = new MonsterModel();
-
-            // Act
-            var result = data.FormatOutput();
-
-            // Reset
-
-            // Assert
-            Assert.AreEqual(true, result.Contains("Troll"));
-        }
 
         [Test]
         public void MonsterModel_AddExperience_Default_Should_Pass()
