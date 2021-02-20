@@ -187,6 +187,10 @@ namespace Game.Views
         public StackLayout GetItemToDisplay(ItemLocationEnum location)
         {
             var data = ViewModel.Data.GetItemByLocation(location);
+            if (data == null)
+            {
+                return new StackLayout();
+            }
 
             // Hookup the Image Button to show the Item picture
             var ItemButton = new ImageButton

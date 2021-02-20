@@ -252,9 +252,22 @@ namespace Game.GameRules
             var RightFingerString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.Finger);
             var LeftFingerString = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.Finger);
             
-            var DefaultIndexCards = ItemIndexViewModel.Instance.GetItem("IndexCards1").Id;
+            var DefaultIndexCards = (string)null;
+            var item = ItemIndexViewModel.Instance.GetItem("IndexCards1");
+            if (item != null)
+            {
+                DefaultIndexCards = item.Id;
+            }
+
+            var DefaultTextbooks = (string)null;
+            item = ItemIndexViewModel.Instance.GetItem("Textbooks1");
+            if (item != null)
+            {
+                DefaultIndexCards = item.Id;
+            }
+
             var DefaultPencilEraser = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.PencilEraser);
-            var DefaultTextbooks = ItemIndexViewModel.Instance.GetItem("Textbooks1").Id;
+
             var DefaultNotebook = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.Notebook);
             var DefaultCalculator = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.Calculator);
             var DefaultLibraryCard = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.LibraryCard);
@@ -448,9 +461,27 @@ namespace Game.GameRules
         /// <returns></returns>
         public static List<MonsterModel> LoadData(MonsterModel temp)
         {
-            var DefaultIndexCards = ItemIndexViewModel.Instance.GetItem("IndexCards2").Id;
-            var DefaultLaptop = ItemIndexViewModel.Instance.GetItem("Laptop2").Id;
-            var DefaultTextbooks = ItemIndexViewModel.Instance.GetItem("Textbooks2").Id;
+            var DefaultIndexCards = (string)null;
+            var item = ItemIndexViewModel.Instance.GetItem("IndexCards2");
+            if (item != null)
+            {
+                DefaultIndexCards = item.Id;
+            }
+
+            var DefaultLaptop = (string)null;
+            item = ItemIndexViewModel.Instance.GetItem("Laptop2");
+            if (item != null)
+            {
+                DefaultLaptop = item.Id;
+            }
+
+            var DefaultTextbooks = (string)null;
+            item = ItemIndexViewModel.Instance.GetItem("Textbooks2");
+            if (item != null)
+            {
+                DefaultIndexCards = item.Id;
+            }
+
             var DefaultFinancialAid = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.FinancialAid);
             var DefaultGraduationCapAndRobe = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.GraduationCapAndRobe);
             //var DefaultDiploma = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.Diploma);

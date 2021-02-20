@@ -100,6 +100,8 @@ namespace Game.Models
             SpecialAbility = newData.SpecialAbility;
             AbilityUsedInCurrentRound = newData.AbilityUsedInCurrentRound;
 
+            Job = newData.Job;
+
             return true;
         }
 

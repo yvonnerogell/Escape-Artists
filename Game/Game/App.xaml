@@ -88,12 +88,12 @@
                 <Setter Property="Padding" Value="10,10,10,10" />
             </Style>
 
-            <!--<Style TargetType="ContentPage"
+            <Style TargetType="ContentPage"
                 x:Key="BlockingPanel">
                 <Setter Property="BackgroundColor" Value="{StaticResource BlockingColor}" />
                 <Setter Property="HeightRequest" Value="400" />
                 <Setter Property="WidthRequest" Value="400" />
-            </Style>-->
+            </Style>
 
             <!--Global Styles for Views-->
 
@@ -187,11 +187,11 @@
                 <Setter Property="HorizontalTextAlignment" Value="End"/>
             </Style>
 
-            <!--<Style TargetType="Label"
+            <Style TargetType="Label"
                 x:Key="MessageLargeStyle"
                 BasedOn="{StaticResource MessageStyle}">
                 <Setter Property="FontSize" Value="Large" />
-            </Style>-->            
+            </Style>            
             
             <Style TargetType="Label"
                 x:Key="CenterMessageStyle"

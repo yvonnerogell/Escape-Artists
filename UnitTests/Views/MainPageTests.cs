@@ -77,33 +77,33 @@ namespace UnitTests.Views
             Assert.IsTrue(true);
         }
 
-        [Test]
-        public async Task MainPage_Navigate_School_Should_Pass()
-        {
-            // Arrange
+        //[Test]
+        //public async Task MainPage_Navigate_Village_Should_Pass()
+        //{
+        //    // Arrange
 
-            // Act
-            await page.NavigateFromMenu((int)MenuItemEnum.School);
+        //    // Act
+        //    await page.NavigateFromMenu((int)MenuItemEnum.Village);
 
-            // Reset
+        //    // Reset
 
-            // Assert
-            Assert.IsTrue(true);
-        }
+        //    // Assert
+        //    Assert.IsTrue(true);
+        //}
 
-        [Test]
-        public async Task MainPage_Navigate_ExamRoom_Should_Pass()
-        {
-            // Arrange
+        //[Test]
+        //public async Task MainPage_Navigate_Battle_Should_Pass()
+        //{
+        //    // Arrange
 
-            // Act
-            await page.NavigateFromMenu((int)MenuItemEnum.ExamRoom);
+        //    // Act
+        //    await page.NavigateFromMenu((int)MenuItemEnum.Battle);
 
-            // Reset
+        //    // Reset
 
-            // Assert
-            Assert.IsTrue(true);
-        }
+        //    // Assert
+        //    Assert.IsTrue(true);
+        //}
 
         [Test]
         public async Task MainPage_Navigate_Game_Twice_Should_Skip()

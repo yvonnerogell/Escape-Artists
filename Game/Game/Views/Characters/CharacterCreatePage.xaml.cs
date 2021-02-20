@@ -23,7 +23,10 @@ namespace Game.Views.Characters
         //stores the newItems
         List<ItemModel> newItems = new List<ItemModel>();
 
-        //constructor
+        // Empty Constructor for UTs
+        public CharacterCreatePage(bool UnitTest) { }
+
+        // Constructor
         public CharacterCreatePage()
         {
             BindingContext = this.ViewModel.Data = new CharacterModel();
