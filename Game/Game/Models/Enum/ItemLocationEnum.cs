@@ -220,6 +220,7 @@ namespace Game.Models
                     items.Add(ItemTypeEnum.Calculator);
                     break;
                 case ItemLocationEnum.Feet:
+                    items.Add(ItemTypeEnum.Skateboard);
                     break;
             }
 
