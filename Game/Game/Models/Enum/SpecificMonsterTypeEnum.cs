@@ -281,7 +281,7 @@ namespace Game.Models
                     break;
 
                 case SpecificMonsterTypeEnum.AssociateProfessor:
-                    imageURI = Constants.SpecificMonsterTypeAssistantProfessorImageURI;
+                    imageURI = Constants.SpecificMonsterTypeAssociateProfessorImageURI;
                     break;
 
                 case SpecificMonsterTypeEnum.Professor:
