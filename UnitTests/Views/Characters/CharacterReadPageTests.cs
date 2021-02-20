@@ -143,6 +143,7 @@ namespace UnitTests.Views
         public void CharacterReadPage_AddItemsToDisplay_With_Data_Should_Remove_And_Pass()
         {
             // Arrange
+            page.ViewModel.Data.Feet = "somefeet";
 
             // Put some data into the box so it can be removed
             FlexLayout itemBox = (FlexLayout)page.Content.FindByName("ItemBox");
@@ -154,9 +155,10 @@ namespace UnitTests.Views
             page.AddItemsToDisplay();
 
             // Reset
+            page.ViewModel.Data.Feet = null;
 
             // Assert
-            Assert.AreEqual(7, itemBox.Children.Count()); // Got to here, so it happened...
+            Assert.AreEqual(7, itemBox.Children.Count()); 
         }
 
         [Test]
@@ -167,7 +169,7 @@ namespace UnitTests.Views
             await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Location = ItemLocationEnum.PrimaryHand });
 
             var character = new CharacterModel();
-            character.Head = ItemIndexViewModel.Instance.GetLocationItems(ItemLocationEnum.PrimaryHand).First().Id;
+            character.PrimaryHand = ItemIndexViewModel.Instance.GetLocationItems(ItemLocationEnum.PrimaryHand).First().Id;
             page.ViewModel.Data = character;
 
             // Act
