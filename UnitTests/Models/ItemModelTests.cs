@@ -2,6 +2,7 @@
 
 using Game.Models;
 using Game.Helpers;
+using Game;
 
 namespace UnitTests.Models
 {
@@ -23,20 +24,43 @@ namespace UnitTests.Models
         }
 
         [Test]
-        public void ItemModel_Constructor_New_Item_Should_Copy()
+        public void ItemModel_Constructor_Item_Type_Should_Pass()
         {
             // Arrange
-            var dataNew = new ItemModel();
-            dataNew.Value = 2;
-            dataNew.Id = "oldID";
+
 
             // Act
-            var result = new ItemModel(dataNew);
+            var dataNew = new ItemModel(ItemTypeEnum.Laptop);
 
             // Reset
 
             // Assert 
-            Assert.AreNotEqual("oldID", result.Id);
+            Assert.AreEqual(ItemTypeEnum.Laptop, dataNew.ItemType);
+            Assert.AreEqual(AttributeEnum.Attack, dataNew.Attribute);
+            Assert.AreEqual(ItemLocationEnum.PrimaryHand, dataNew.Location);
+            Assert.AreEqual(Constants.ItemTypeLaptopImageURI, dataNew.ImageURI);
+            Assert.AreEqual(20, dataNew.Damage);
+            Assert.AreEqual("Complete your assignments faster with a laptop.", dataNew.Description);
+        }
+
+        [Test]
+        public void ItemModel_Copy_Should_Pass()
+        {
+            // Arrange
+            var dataOriginal = new ItemModel();
+
+            // Act
+            var result = new ItemModel(dataOriginal);
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(dataOriginal.Name, result.Name);
+            Assert.AreEqual(dataOriginal.Description, result.Description);
+            Assert.AreEqual(dataOriginal.Damage, result.Damage);
+            Assert.AreEqual(dataOriginal.Value, result.Value);
+            Assert.AreEqual(dataOriginal.ImageURI, result.ImageURI);
+            Assert.AreEqual(dataOriginal.ItemType, result.ItemType);
         }
 
         [Test]
