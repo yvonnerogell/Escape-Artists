@@ -69,12 +69,18 @@ namespace Game.Views
         /// <returns></returns>
         public StackLayout LoadItem(ItemModel dropItem)
         {
+            if (dropItem == null)
+            {
+                return new StackLayout();
+            }
+
             // Hookup the Image Button to show the Item picture
             var ItemButton = new ImageButton
             {
                 Style = (Style)Application.Current.Resources["ItemImageClicked"],
                 Source = dropItem.ImageURI,
             };
+
             ItemButton.Clicked += (sender, args) => UpdateNewItem(sender, dropItem);
 
             // Add the Display Text for the item
