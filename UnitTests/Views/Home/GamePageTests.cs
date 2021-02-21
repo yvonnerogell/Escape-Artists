@@ -55,45 +55,31 @@ namespace UnitTests.Views
             Assert.IsNotNull(result);
         }
 
-        /*
         [Test]
-        public void GamePage_DungeonButton_Clicked_Default_Should_Pass()
+        public void ExamRoomButton_Clicked_Default_Should_Pass()
         {
-            // Arrange
-            // Act
-            page.DungeonButton_Clicked(null, null);
+            //Arrange
 
-            // Reset
+            //Act
+            page.ExamRoomButton_Clicked(null, null);
+            //Reset
 
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
+            //Assert
+            Assert.IsTrue(true); //Got to here, so it happened...
         }
 
         [Test]
-        public void GamePage_VillageButton_Clicked_Default_Should_Pass()
+        public void SchoolButton_Clicked_Default_Should_Pass()
         {
-            // Arrange
-            // Act
-            page.VillageButton_Clicked(null, null);
+            //Arrange
 
-            // Reset
+            //Act
+            page.SchoolButton_Clicked(null, null);
 
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-        */
+            //Reset
 
-        [Test]
-        public void GamePage_AutobattleButton_Clicked_Default_Should_Pass()
-        {
-            // Arrange
-            // Act
-            page.AutobattleButton_Clicked(null, null);
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
+            //Assert
+            Assert.IsTrue(true); //Got to here, so it happened...
         }
     }
 }
