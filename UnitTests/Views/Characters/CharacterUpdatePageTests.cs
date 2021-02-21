@@ -480,6 +480,20 @@ namespace UnitTests.Views
             Assert.AreEqual(15, GPASlider.Value);
         }
 
+        [Test]
+        public void CharacterUpdatePage_UpdateItem_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            page.UpdateItem(new ItemModel());
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // got here, so it worked
+        }
+
 
         //[Test]
         //public void CharacterUpdatePage_Attack_OnStepperValueChanged_Default_Should_Pass()
