@@ -192,7 +192,7 @@ namespace UnitTests.Views
         public async Task MonsterReadPage_GetItemToDisplay_With_Item_Should_Pass()
         {
             // Arrange
-            ItemIndexViewModel.Instance.Dataset.Clear();
+            //ItemIndexViewModel.Instance.Dataset.Clear();
 
             await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Location = ItemLocationEnum.Head });
 
