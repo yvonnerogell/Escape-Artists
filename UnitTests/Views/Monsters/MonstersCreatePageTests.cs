@@ -111,71 +111,119 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
-        //[Test]
-        //public void MonsterCreatePage_Attack_OnStepperAttackChanged_Default_Should_Pass()
-        //{
-        //    // Arrange
-        //    var data = new MonsterModel();
-        //    var ViewModel = new GenericViewModel<MonsterModel>(data);
+        [Test]
+        public void MonsterCreatePage_ShowItem_Valid_Should_Pass()
+        {
+            // Arrange
+            ItemModel item = new ItemModel();
+            
+            // Act
+            page.ShowItem(null, item);
 
-        //    page = new MonsterCreatePage(ViewModel);
-        //    double oldAttack = 0.0;
-        //    double newAttack = 1.0;
+            // Reset
 
-        //    var args = new ValueChangedEventArgs(oldAttack, newAttack);
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
 
-        //    // Act
-        //    page.Attack_OnStepperValueChanged(null, args);
+        [Test]
+        public void MonsterCreatePage_Save_Clicked_Should_Pass()
+        {
+            // Arrange
+            //ViewModel.Data = new MonsterModel();
+            page.ViewModel.Data.Name = "Professor Mike";
+            page.ViewModel.Data.Description = "loves working on projects";
+            page.ViewModel.Data.PlayerType = PlayerTypeEnum.Monster;
 
-        //    // Reset
+            Picker monsterType = (Picker) page.FindByName("MonsterTypePicker");
+            monsterType.SelectedItem = SpecificMonsterTypeEnum.Professor.ToMessage();
+            
+            // Act
+            page.Save_Clicked(monsterType, null);
 
-        //    // Assert
-        //    Assert.IsTrue(true); // Got to here, so it happened...
-        //}
+            // Reset
 
-        //[Test]
-        //public void MonsterCreatePage_Speed_OnStepperValueChanged_Default_Should_Pass()
-        //{
-        //    // ArSpeed
-        //    var data = new MonsterModel();
-        //    var ViewModel = new GenericViewModel<MonsterModel>(data);
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
 
-        //    page = new MonsterCreatePage(ViewModel);
-        //    double oldSpeed = 0.0;
-        //    double newSpeed = 1.0;
+        [Test]
+        public void MonsterCreatePage_GetItemToDisplay_Click_Button_Valid_Should_Pass()
+        {
+            // Arrange
+            ItemModel item = new ItemModel();
+            var StackItem = page.LoadItem(item);
+            var dataImage = StackItem.Children[0];
 
-        //    var args = new ValueChangedEventArgs(oldSpeed, newSpeed);
+            // Act
+            ((ImageButton)dataImage).PropagateUpClicked();
 
-        //    // Act
-        //    page.Speed_OnStepperValueChanged(null, args);
+            // Reset
 
-        //    // Reset
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
 
-        //    // Assert
-        //    Assert.IsTrue(true); // Got to here, so it happened...
-        //}
+        [Test]
+        public void MonsterCreatePage_AttackSlider_OnSliderValueChanged_Default_Should_Pass()
+        {
+            // Arrange
+            double oldValue = 0.0;
+            double newValue = 5.0;
 
-        //[Test]
-        //public void MonsterCreatePage_Defense_OnStepperDefenseChanged_Default_Should_Pass()
-        //{
-        //    // Arrange
-        //    var data = new MonsterModel();
-        //    var ViewModel = new GenericViewModel<MonsterModel>(data);
+            Slider ValueSlider = (Slider)page.FindByName("AttackSlider");
 
-        //    page = new MonsterCreatePage(ViewModel);
-        //    double oldDefense = 0.0;
-        //    double newDefense = 1.0;
+            var args = new ValueChangedEventArgs(oldValue, newValue);
 
-        //    var args = new ValueChangedEventArgs(oldDefense, newDefense);
+            // Act
+            page.OnSliderChanged(ValueSlider, args);
 
-        //    // Act
-        //    page.Defense_OnStepperValueChanged(null, args);
+            // Reset
 
-        //    // Reset
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
 
-        //    // Assert
-        //    Assert.IsTrue(true); // Got to here, so it happened...
-        //}
+        [Test]
+        public void MonsterCreatePage_DefenseSlider_OnSliderValueChanged_Default_Should_Pass()
+        {
+            // Arrange
+            double oldValue = 0.0;
+            double newValue = 5.0;
+
+            Slider ValueSlider = (Slider)page.FindByName("DefenseSlider");
+
+            var args = new ValueChangedEventArgs(oldValue, newValue);
+
+            // Act
+            page.OnSliderChanged(ValueSlider, args);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void MonsterCreatePage_SpeedSlider_OnSliderValueChanged_Default_Should_Pass()
+        {
+            // Arrange
+            double oldValue = 0.0;
+            double newValue = 5.0;
+
+            Slider ValueSlider = (Slider)page.FindByName("SpeedSlider");
+
+            var args = new ValueChangedEventArgs(oldValue, newValue);
+
+            // Act
+            page.OnSliderChanged(ValueSlider, args);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
 
         //[Test]
         //public void MonsterCreatePage_RollDice_Clicked_Default_Should_Pass()
