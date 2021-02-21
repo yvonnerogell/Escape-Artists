@@ -54,19 +54,19 @@ namespace UnitTests.Views
             Assert.IsNotNull(result);
         }
 
-        //[Test]
-        //public void MonsterIndexPage_AddMonster_Clicked_Default_Should_Pass()
-        //{
-        //    // Arrange
+        [Test]
+        public void MonsterIndexPage_AddMonster_Clicked_Default_Should_Pass()
+        {
+            // Arrange
 
-        //    // Act
-        //    page.Add_Clicked(null, null);
+            // Act
+            page.AddMonster_Clicked(null, null);
 
-        //    // Reset
+            // Reset
 
-        //    // Assert
-        //    Assert.IsTrue(true); // Got to here, so it happened...
-        //}
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
 
         [Test]
         public void MonsterIndexPage_OnBackButtonPressed_Valid_Should_Pass()
@@ -82,18 +82,15 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
-        /*
         [Test]
-        public void MonsterIndexPage_OnMonsterSelected_Clicked_Default_Should_Pass()
+        public void MonsterIndexPage_ReadMonster_Clicked_Default_Should_Pass()
         {
             // Arrange
-
-            var selectedMonster = new MonsterModel();
-
-            var selectedMonsterChangedEventArgs = new SelectedItemChangedEventArgs(selectedMonster, 0);
+            MonsterIndexViewModel ViewModel = MonsterIndexViewModel.Instance;
+            ImageButton item = new ImageButton { CommandParameter = ViewModel.Dataset[0].Id };
 
             // Act
-            page.OnItemSelected(null, selectedMonsterChangedEventArgs);
+            page.ReadMonster_Clicked(item, null);
 
             // Reset
 
@@ -102,21 +99,21 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void MonsterIndexPage_OnMonsterSelected_Clicked_Invalid_Null_Should_Fail()
+        public void MonsterIndexPage_ReadMonster_Clicked_Invalid_Null_Should_Fail()
         {
             // Arrange
 
-            var selectedMonsterChangedEventArgs = new SelectedItemChangedEventArgs(null, 0);
+            ImageButton item = new ImageButton { CommandParameter = "empty" };
 
             // Act
-            page.OnItemSelected(null, selectedMonsterChangedEventArgs);
+            page.ReadMonster_Clicked(item, null);
 
             // Reset
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-        */
+        
 
         [Test]
         public void MonsterIndexPage_OnAppearing_Valid_Should_Pass()
