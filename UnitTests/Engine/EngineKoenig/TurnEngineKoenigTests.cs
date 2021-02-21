@@ -1487,7 +1487,7 @@ namespace UnitTests.Engine.EngineKoenig
         #endregion ChooseToUseAbility
 
         #region MoveAsTurn
-        /*
+        
         [Test]
         public void TurnEngine_MoveAsTurn_Valid_Character_Should_Pass()
         {
@@ -1536,7 +1536,6 @@ namespace UnitTests.Engine.EngineKoenig
             // Assert
             Assert.AreEqual(true, result);
         }
-        */
 
         [Test]
         public void TurnEngine_MoveAsTurn_Invalid_Monster_InValid_No_Defender_Should_Fail()
@@ -1564,7 +1563,6 @@ namespace UnitTests.Engine.EngineKoenig
             Assert.AreEqual(false, result);
         }
 
-        /*
         [Test]
         public void TurnEngine_MoveAsTurn_Invalid_Monster_InValid_Defender_Not_On_Map_Should_Fail()
         {
@@ -1617,7 +1615,6 @@ namespace UnitTests.Engine.EngineKoenig
             // Assert
             Assert.AreEqual(false, result);
         }
-        */
         #endregion MoveAsTurn
     }
 }
