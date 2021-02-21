@@ -135,22 +135,72 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void CharacterCreatePage_OnSliderChanged_NewValue_Should_Pass()
+        public void CharacterCreatePage_OnSliderChanged_Default_Should_Pass()
         {
             // Arrange
             page = new CharacterCreatePage();
-            var sender = page.Content.FindByName("LevelSlider"); // create a level slider
-            var oldValue = page.ViewModel.Data.Level; // find old value
-            var e = new ValueChangedEventArgs(oldValue, 15); // changing level to 15
-            
+            int oldLevel = 0;
+            int newLevel = 15;
+
+            Slider LevelSlider = (Slider)page.FindByName("LevelSlider");
+            var args1 = new ValueChangedEventArgs(oldLevel, newLevel);
+
             // Act
-            page.OnSliderChanged(sender, e);
-            var newValue = page.ViewModel.Data.Level; // finding new value
+            page.OnSliderChanged(LevelSlider, args1);
 
             // Reset
+            int oldAttack = 0;
+            int newAttack = 5;
+
+            Slider AttackSlider = (Slider)page.FindByName("AttackSlider");
+            var args2 = new ValueChangedEventArgs(oldAttack, newAttack);
+
+            // Act
+            page.OnSliderChanged(AttackSlider, args2);
+
+            // Reset
+            int oldDefense = 0;
+            int newDefense = 5;
+
+            Slider DefenseSlider = (Slider)page.FindByName("DefenseSlider");
+            var args3 = new ValueChangedEventArgs(oldDefense, newDefense);
+
+            // Act
+            page.OnSliderChanged(DefenseSlider, args3);
+
+            // Reset
+            int oldSpeed = 0;
+            int newSpeed = 5;
+
+            Slider SpeedSlider = (Slider)page.FindByName("SpeedSlider");
+            var args4 = new ValueChangedEventArgs(oldSpeed, newSpeed);
+
+            // Act
+            page.OnSliderChanged(SpeedSlider, args4);
+
+            // Reset
+            int oldGPA = 0;
+            int newGPA = 4; // important to make this non-divisible by 5 
+
+            Slider GPASlider = (Slider)page.FindByName("GPASlider");
+            var args5 = new ValueChangedEventArgs(oldGPA, newGPA);
+
+            // Act
+            page.OnSliderChanged(GPASlider, args5);
+
+            // Reset
+            int oldGPA_1 = 0;
+            int newGPA_1 = 5; // important to make this divisible by 5 
+
+            Slider GPASlider_1 = (Slider)page.FindByName("GPASlider");
+            var args6 = new ValueChangedEventArgs(oldGPA_1, newGPA_1);
+
+            // Act
+            page.OnSliderChanged(GPASlider_1, args6);
+
 
             // Assert
-            Assert.Equals(newValue, 15); // checking if new value equals 15
+            Assert.IsTrue(true); // Got to here, so it happened...
         }
 
 
