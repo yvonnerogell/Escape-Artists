@@ -602,7 +602,7 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void CharacterCreatePage_OnSliderChanged_Default_Should_Pass()
+        public void CharacterCreatePage_OnSliderChanged_Level_Should_Pass()
         {
             // Arrange
             page = new CharacterCreatePage();
@@ -615,7 +615,14 @@ namespace UnitTests.Views
             // Act
             page.OnSliderChanged(LevelSlider, args1);
 
-            // Reset
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterCreatePage_OnSliderChanged_Attack_Should_Pass()
+        {
+            // Arrange
             int oldAttack = 0;
             int newAttack = 5;
 
@@ -625,7 +632,14 @@ namespace UnitTests.Views
             // Act
             page.OnSliderChanged(AttackSlider, args2);
 
-            // Reset
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterCreatePage_OnSliderChanged_Defense_Should_Pass()
+        {
+            // Arrange
             int oldDefense = 0;
             int newDefense = 5;
 
@@ -635,7 +649,14 @@ namespace UnitTests.Views
             // Act
             page.OnSliderChanged(DefenseSlider, args3);
 
-            // Reset
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterCreatePage_OnSliderChanged_Speed_Should_Pass()
+        {
+            // Arrange
             int oldSpeed = 0;
             int newSpeed = 5;
 
@@ -645,7 +666,14 @@ namespace UnitTests.Views
             // Act
             page.OnSliderChanged(SpeedSlider, args4);
 
-            // Reset
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterCreatePage_OnSliderChanged_GPA_Should_Pass()
+        {
+            // Arrange
             int oldGPA = 0;
             int newGPA = 4; // important to make this non-divisible by 5 
 
@@ -655,7 +683,14 @@ namespace UnitTests.Views
             // Act
             page.OnSliderChanged(GPASlider, args5);
 
-            // Reset
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterCreatePage_OnSliderChanged_GPA_1_Should_Pass()
+        {
+            // Arrange
             int oldGPA_1 = 0;
             int newGPA_1 = 5; // important to make this divisible by 5 
 
