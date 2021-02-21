@@ -359,6 +359,108 @@ namespace UnitTests.Views
             Assert.AreEqual(1, itemBox.Children.Count());
         }
 
+        [Test]
+        public void CharacterUpdatePage_LevelSlider_OnSliderValueChanged_Default_Should_Pass()
+        {
+            // Arrange
+            double oldValue = 0.0;
+            double newValue = 5.0;
+
+            Slider LevelSlider = (Slider)page.FindByName("LevelSlider");
+
+            var args = new ValueChangedEventArgs(oldValue, newValue);
+
+            // Act
+            page.OnSliderChanged(LevelSlider, args);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(newValue, LevelSlider.Value);
+        }
+
+        [Test]
+        public void CharacterUpdatePage_AttackSlider_OnSliderValueChanged_Default_Should_Pass()
+        {
+            // Arrange
+            double oldValue = 0.0;
+            double newValue = 5.0;
+
+            Slider AttackSlider = (Slider)page.FindByName("AttackSlider");
+
+            var args = new ValueChangedEventArgs(oldValue, newValue);
+
+            // Act
+            page.OnSliderChanged(AttackSlider, args);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(newValue, AttackSlider.Value);
+        }
+
+        [Test]
+        public void CharacterUpdatePage_DefenseSlider_OnSliderValueChanged_Default_Should_Pass()
+        {
+            // Arrange
+            double oldValue = 0.0;
+            double newValue = 5.0;
+
+            Slider DefenseSlider = (Slider)page.FindByName("DefenseSlider");
+
+            var args = new ValueChangedEventArgs(oldValue, newValue);
+
+            // Act
+            page.OnSliderChanged(DefenseSlider, args);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(newValue, DefenseSlider.Value);
+        }
+
+        [Test]
+        public void CharacterUpdatePage_SpeedSlider_OnSliderValueChanged_Default_Should_Pass()
+        {
+            // Arrange
+            double oldValue = 0.0;
+            double newValue = 5.0;
+
+            Slider SpeedSlider = (Slider)page.FindByName("SpeedSlider");
+
+            var args = new ValueChangedEventArgs(oldValue, newValue);
+
+            // Act
+            page.OnSliderChanged(SpeedSlider, args);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(newValue, SpeedSlider.Value);
+        }
+
+        /*
+        [Test]
+        public void CharacterUpdatePage_GPASlider_OnSliderValueChanged_Default_Should_Pass()
+        {
+            // Arrange
+            double oldValue = 0.0;
+            double newValue = 5.0;
+
+            Slider GPASlider = (Slider)page.FindByName("GPASlider");
+
+            var args = new ValueChangedEventArgs(oldValue, newValue);
+
+            // Act
+            page.OnSliderChanged(GPASlider, args);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(newValue, GPASlider.Value);
+        }
+        */
+
         //[Test]
         //public void CharacterUpdatePage_Attack_OnStepperValueChanged_Default_Should_Pass()
         //{
