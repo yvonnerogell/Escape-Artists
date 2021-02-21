@@ -439,13 +439,13 @@ namespace UnitTests.Views
             Assert.AreEqual(newValue, SpeedSlider.Value);
         }
 
-        /*
+        
         [Test]
         public void CharacterUpdatePage_GPASlider_OnSliderValueChanged_Default_Should_Pass()
         {
             // Arrange
-            double oldValue = 0.0;
-            double newValue = 5.0;
+            double oldValue = 10.0;
+            double newValue = 15.0;
 
             Slider GPASlider = (Slider)page.FindByName("GPASlider");
 
@@ -459,7 +459,27 @@ namespace UnitTests.Views
             // Assert
             Assert.AreEqual(newValue, GPASlider.Value);
         }
-        */
+
+        [Test]
+        public void CharacterUpdatePage_GPASlider_OnSliderValueChanged_12_Should_Snap_To_15_And_Pass()
+        {
+            // Arrange
+            double oldValue = 10.0;
+            double newValue = 12.0;
+
+            Slider GPASlider = (Slider)page.FindByName("GPASlider");
+
+            var args = new ValueChangedEventArgs(oldValue, newValue);
+
+            // Act
+            page.OnSliderChanged(GPASlider, args);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(15, GPASlider.Value);
+        }
+
 
         //[Test]
         //public void CharacterUpdatePage_Attack_OnStepperValueChanged_Default_Should_Pass()
