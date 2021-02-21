@@ -113,5 +113,41 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
+
+        [Test]
+        public void ScoreCreatePage_OnSliderChanged_Default_Should_Pass()
+        {
+            //Arrange
+            page.OnSliderChanged(null, null);
+
+            //Act
+
+            //Reset
+
+            //Assert
+            Assert.IsTrue(true);
+        }
+
+        [Test]
+        public void ScoreCreatePage_ScoreSlider_OnSliderChanged_Default_Should_Pass()
+        {
+            //Arrange
+            int oldValue = 1;
+            int newValue = 2;
+
+            Slider ScoreSlider = (Slider)page.FindByName("ScoreSlider");
+
+            var args = new ValueChangedEventArgs(oldValue, newValue);
+
+            //Act
+            page.OnSliderChanged(ScoreSlider, args);
+
+            //Reset
+
+            //Assert
+            Assert.IsTrue(true);
+        }
+
+        [Test] void ScoreCreatePage_Save_CLicked
     }
 }
