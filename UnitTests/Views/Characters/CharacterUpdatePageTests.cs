@@ -494,6 +494,7 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // got here, so it worked
         }
 
+        
         [Test]
         public void CharacterUpdatePage_GetItemToDisplay_Click_Button_Valid_Should_Pass()
         {
@@ -511,6 +512,7 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
+        
 
 
         //[Test]
