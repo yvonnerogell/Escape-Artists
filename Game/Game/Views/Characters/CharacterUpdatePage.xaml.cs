@@ -110,10 +110,11 @@ namespace Game.Views
             if (sender == GPASlider)
             {
                 // ensuring that the slider snaps to increments of 5
-                GPAValue.Text = newValueStr;
+                
                 if (newValue % 5 == 0)
                 {
                     GPASlider.Value = newValue;
+                    GPAValue.Text = newValueStr;
                 }
                 else
                 {
@@ -122,6 +123,7 @@ namespace Game.Views
                         newValue += 1;
                     }
                     GPASlider.Value = newValue;
+                    GPAValue.Text = String.Format("{0}", newValue); ;
                 }
             }
         }
