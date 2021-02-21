@@ -194,7 +194,7 @@ namespace UnitTests.Views
             // Arrange
             //ItemIndexViewModel.Instance.Dataset.Clear();
 
-            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Location = ItemLocationEnum.Head });
+            //await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Location = ItemLocationEnum.Head });
 
             var Monster = new MonsterModel();
             ItemModel item = ItemIndexViewModel.Instance.GetLocationItems(ItemLocationEnum.Head).First();
