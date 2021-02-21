@@ -115,20 +115,6 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void ScoreCreatePage_OnSliderChanged_Default_Should_Pass()
-        {
-            //Arrange
-            page.OnSliderChanged(null, null);
-
-            //Act
-
-            //Reset
-
-            //Assert
-            Assert.IsTrue(true);
-        }
-
-        [Test]
         public void ScoreCreatePage_ScoreSlider_OnSliderChanged_Default_Should_Pass()
         {
             //Arrange
@@ -147,7 +133,5 @@ namespace UnitTests.Views
             //Assert
             Assert.IsTrue(true);
         }
-
-        [Test] void ScoreCreatePage_Save_CLicked
     }
 }
