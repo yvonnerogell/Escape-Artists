@@ -8,6 +8,7 @@ using Game.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Mocks;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace UnitTests.Views
 {
@@ -67,14 +68,51 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void CharacterUpdatePage_Save_Clicked_Default_Should_Pass()
+        public void CharacterUpdatePage_Save_Clicked_Empty_Name_Should_Pass()
         {
             // Arrange
+            page.ViewModel.Data.Description = "Some description";
 
             // Act
             page.Save_Clicked(null, null);
 
             // Reset
+            page.ViewModel.Data.Description = null;
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterUpdatePage_Save_Clicked_Empty_Description_Should_Pass()
+        {
+            // Arrange
+            page.ViewModel.Data.Name = "Some name";
+
+            // Act
+            page.Save_Clicked(null, null);
+
+            // Reset
+            page.ViewModel.Data.Name = null;
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+
+        [Test]
+        public void CharacterUpdatePage_Save_Clicked_Filled_Name_Description_Should_Pass()
+        {
+            // Arrange
+            page.ViewModel.Data.Name = "Some name";
+            page.ViewModel.Data.Description = "Some description";
+
+            // Act
+            page.Save_Clicked(null, null);
+
+            // Reset
+            page.ViewModel.Data.Name = null;
+            page.ViewModel.Data.Description = null;
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
@@ -107,6 +145,202 @@ namespace UnitTests.Views
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public async Task CharacterUpdatePage_AddItemsToDisplay_With_Data_PrimaryHand_Should_Pass()
+        {
+            // Arrange
+            ItemIndexViewModel.Instance.Dataset.Clear();
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Location = ItemLocationEnum.PrimaryHand });
+
+            var character = new CharacterModel();
+            character.PrimaryHand = ItemIndexViewModel.Instance.GetLocationItems(ItemLocationEnum.PrimaryHand).First().Id;
+            page.ViewModel.Data = character;
+
+            // Put some data into the box so it can be removed
+            FlexLayout itemBox = (FlexLayout)page.Content.FindByName("ItemBox");
+
+            itemBox.Children.Add(new Label());
+            itemBox.Children.Add(new Label());
+
+            // Act
+            page.AddItemsToDisplay();
+
+            // Reset
+            ItemIndexViewModel.Instance.Dataset.Clear();
+            await ItemIndexViewModel.Instance.LoadDefaultDataAsync();
+
+            // Assert
+            Assert.AreEqual(1, itemBox.Children.Count());
+        }
+
+        [Test]
+        public async Task CharacterUpdatePage_AddItemsToDisplay_With_Data_Feet_Should_Pass()
+        {
+            // Arrange
+            ItemIndexViewModel.Instance.Dataset.Clear();
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Location = ItemLocationEnum.Feet });
+
+            var character = new CharacterModel();
+            character.Feet = ItemIndexViewModel.Instance.GetLocationItems(ItemLocationEnum.Feet).First().Id;
+            page.ViewModel.Data = character;
+
+            // Put some data into the box so it can be removed
+            FlexLayout itemBox = (FlexLayout)page.Content.FindByName("ItemBox");
+
+            itemBox.Children.Add(new Label());
+            itemBox.Children.Add(new Label());
+
+            // Act
+            page.AddItemsToDisplay();
+
+            // Reset
+            ItemIndexViewModel.Instance.Dataset.Clear();
+            await ItemIndexViewModel.Instance.LoadDefaultDataAsync();
+
+            // Assert
+            Assert.AreEqual(1, itemBox.Children.Count());
+        }
+
+        [Test]
+        public async Task CharacterUpdatePage_AddItemsToDisplay_With_Data_LeftFinger_Should_Pass()
+        {
+            // Arrange
+            ItemIndexViewModel.Instance.Dataset.Clear();
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Location = ItemLocationEnum.Finger });
+
+            var character = new CharacterModel();
+            character.LeftFinger = ItemIndexViewModel.Instance.GetLocationItems(ItemLocationEnum.LeftFinger).First().Id;
+            page.ViewModel.Data = character;
+
+            // Put some data into the box so it can be removed
+            FlexLayout itemBox = (FlexLayout)page.Content.FindByName("ItemBox");
+
+            itemBox.Children.Add(new Label());
+            itemBox.Children.Add(new Label());
+
+            // Act
+            page.AddItemsToDisplay();
+
+            // Reset
+            ItemIndexViewModel.Instance.Dataset.Clear();
+            await ItemIndexViewModel.Instance.LoadDefaultDataAsync();
+
+            // Assert
+            Assert.AreEqual(1, itemBox.Children.Count());
+        }
+
+        [Test]
+        public async Task CharacterUpdatePage_AddItemsToDisplay_With_Data_RightFinger_Should_Pass()
+        {
+            // Arrange
+            ItemIndexViewModel.Instance.Dataset.Clear();
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Location = ItemLocationEnum.Finger });
+
+            var character = new CharacterModel();
+            character.RightFinger = ItemIndexViewModel.Instance.GetLocationItems(ItemLocationEnum.RightFinger).First().Id;
+            page.ViewModel.Data = character;
+
+            // Put some data into the box so it can be removed
+            FlexLayout itemBox = (FlexLayout)page.Content.FindByName("ItemBox");
+
+            itemBox.Children.Add(new Label());
+            itemBox.Children.Add(new Label());
+
+            // Act
+            page.AddItemsToDisplay();
+
+            // Reset
+            ItemIndexViewModel.Instance.Dataset.Clear();
+            await ItemIndexViewModel.Instance.LoadDefaultDataAsync();
+
+            // Assert
+            Assert.AreEqual(1, itemBox.Children.Count());
+        }
+
+        [Test]
+        public async Task CharacterUpdatePage_AddItemsToDisplay_With_Data_Head_Should_Pass()
+        {
+            // Arrange
+            ItemIndexViewModel.Instance.Dataset.Clear();
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Location = ItemLocationEnum.Head });
+
+            var character = new CharacterModel();
+            character.Head = ItemIndexViewModel.Instance.GetLocationItems(ItemLocationEnum.Head).First().Id;
+            page.ViewModel.Data = character;
+
+            // Put some data into the box so it can be removed
+            FlexLayout itemBox = (FlexLayout)page.Content.FindByName("ItemBox");
+
+            itemBox.Children.Add(new Label());
+            itemBox.Children.Add(new Label());
+
+            // Act
+            page.AddItemsToDisplay();
+
+            // Reset
+            ItemIndexViewModel.Instance.Dataset.Clear();
+            await ItemIndexViewModel.Instance.LoadDefaultDataAsync();
+
+            // Assert
+            Assert.AreEqual(1, itemBox.Children.Count());
+        }
+
+        [Test]
+        public async Task CharacterUpdatePage_AddItemsToDisplay_With_Data_Necklace_Should_Pass()
+        {
+            // Arrange
+            ItemIndexViewModel.Instance.Dataset.Clear();
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Location = ItemLocationEnum.Necklace });
+
+            var character = new CharacterModel();
+            character.Necklace = ItemIndexViewModel.Instance.GetLocationItems(ItemLocationEnum.Necklace).First().Id;
+            page.ViewModel.Data = character;
+
+            // Put some data into the box so it can be removed
+            FlexLayout itemBox = (FlexLayout)page.Content.FindByName("ItemBox");
+
+            itemBox.Children.Add(new Label());
+            itemBox.Children.Add(new Label());
+
+            // Act
+            page.AddItemsToDisplay();
+
+            // Reset
+            ItemIndexViewModel.Instance.Dataset.Clear();
+            await ItemIndexViewModel.Instance.LoadDefaultDataAsync();
+
+            // Assert
+            Assert.AreEqual(1, itemBox.Children.Count());
+        }
+
+        [Test]
+        public async Task CharacterUpdatePage_AddItemsToDisplay_With_Data_OffHand_Should_Pass()
+        {
+            // Arrange
+            ItemIndexViewModel.Instance.Dataset.Clear();
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Location = ItemLocationEnum.OffHand });
+
+            var character = new CharacterModel();
+            character.OffHand = ItemIndexViewModel.Instance.GetLocationItems(ItemLocationEnum.OffHand).First().Id;
+            page.ViewModel.Data = character;
+
+            // Put some data into the box so it can be removed
+            FlexLayout itemBox = (FlexLayout)page.Content.FindByName("ItemBox");
+
+            itemBox.Children.Add(new Label());
+            itemBox.Children.Add(new Label());
+
+            // Act
+            page.AddItemsToDisplay();
+
+            // Reset
+            ItemIndexViewModel.Instance.Dataset.Clear();
+            await ItemIndexViewModel.Instance.LoadDefaultDataAsync();
+
+            // Assert
+            Assert.AreEqual(1, itemBox.Children.Count());
         }
 
         //[Test]
