@@ -272,7 +272,7 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void CharacterCreatePage_Save_Clicked_Default_Should_Pass()
+        public void CharacterCreatePage_Save_Clicked_null_Should_Pass()
         {
             // Arrange
 
@@ -286,15 +286,285 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void CharacterCreatePage_Save_Clicked_Null_Image_Should_Pass()
+        public void CharacterCreatePage_Save_Clicked_Null_Description_Should_Pass()
         {
             // Arrange
-            page.ViewModel.Data.ImageURI = null;
+            page.ViewModel.Data.Description = null;
 
             // Act
             page.Save_Clicked(null, null);
 
             // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterCreatePage_Save_Clicked_Null_Name_Should_Pass()
+        {
+            // Arrange
+            page.ViewModel.Data.Name = null;
+
+            // Act
+            page.Save_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterCreatePage_Save_Clicked_Null_Name_Description_Should_Pass()
+        {
+            // Arrange
+            page.ViewModel.Data.Name = null;
+            page.ViewModel.Data.Description = null;
+
+            // Act
+            page.Save_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterCreatePage_Save_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+            page.ViewModel.Data.Name = "Bobbet";
+            page.ViewModel.Data.Description = "testing";
+            page.ViewModel.Data.PlayerType = PlayerTypeEnum.Character;
+            Picker characterType = (Picker)page.FindByName("CharacterTypePicker");
+            characterType.SelectedItem = SpecificCharacterTypeEnum.SmartyPants.ToMessage();
+
+            // Act
+            page.Save_Clicked(characterType, null);
+
+            // Act
+            page.Save_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterCreatePage_GetItemToDisplay_Click_Button_Valid_Should_Pass()
+        {
+            // Arrange
+            ItemModel item = new ItemModel(ItemTypeEnum.Textbooks);
+            var StackItem = page.LoadItem(item.Location);
+            var dataImage = StackItem.Children[0];
+
+            // Act
+            ((ImageButton)dataImage).PropagateUpClicked();
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+        
+        [Test]
+        public void CharacterCreatePage_OnPickerSelectedIndexChanged_Slacker_Should_Pass()
+        {
+            // Arrange
+            Picker characterType = (Picker)page.FindByName("CharacterTypePicker");
+            var original = characterType.SelectedItem;
+            characterType.SelectedItem = SpecificCharacterTypeEnum.Slacker.ToMessage();
+
+            // Act
+            page.OnPickerSelectedIndexChanged(characterType, null);
+
+            // Reset
+            characterType.SelectedItem = original;
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterCreatePage_OnPickerSelectedIndexChanged_Prodigy_Should_Pass()
+        {
+            // Arrange
+            Picker characterType = (Picker)page.FindByName("CharacterTypePicker");
+            var original = characterType.SelectedItem;
+            characterType.SelectedItem = SpecificCharacterTypeEnum.Prodigy.ToMessage();
+
+            // Act
+            page.OnPickerSelectedIndexChanged(characterType, null);
+
+            // Reset
+            characterType.SelectedItem = original;
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterCreatePage_OnPickerSelectedIndexChanged_Procrastinator_Should_Pass()
+        {
+            // Arrange
+            Picker characterType = (Picker)page.FindByName("CharacterTypePicker");
+            var original = characterType.SelectedItem;
+            characterType.SelectedItem = SpecificCharacterTypeEnum.Procrastinator.ToMessage();
+
+            // Act
+            page.OnPickerSelectedIndexChanged(characterType, null);
+
+            // Reset
+            characterType.SelectedItem = original;
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterCreatePage_OnPickerSelectedIndexChanged_SecondCareer_Should_Pass()
+        {
+            // Arrange
+            Picker characterType = (Picker)page.FindByName("CharacterTypePicker");
+            var original = characterType.SelectedItem;
+            characterType.SelectedItem = SpecificCharacterTypeEnum.SecondCareer.ToMessage();
+
+            // Act
+            page.OnPickerSelectedIndexChanged(characterType, null);
+
+            // Reset
+            characterType.SelectedItem = original;
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterCreatePage_OnPickerSelectedIndexChanged_Overachiever_Should_Pass()
+        {
+            // Arrange
+            Picker characterType = (Picker)page.FindByName("CharacterTypePicker");
+            var original = characterType.SelectedItem;
+            characterType.SelectedItem = SpecificCharacterTypeEnum.Overachiever.ToMessage();
+
+            // Act
+            page.OnPickerSelectedIndexChanged(characterType, null);
+
+            // Reset
+            characterType.SelectedItem = original;
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterCreatePage_OnPickerSelectedIndexChanged_HelicopterParent_Should_Pass()
+        {
+            // Arrange
+            Picker characterType = (Picker)page.FindByName("CharacterTypePicker");
+            var original = characterType.SelectedItem;
+            characterType.SelectedItem = SpecificCharacterTypeEnum.HelicopterParent.ToMessage();
+
+            // Act
+            page.OnPickerSelectedIndexChanged(characterType, null);
+
+            // Reset
+            characterType.SelectedItem = original;
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterCreatePage_OnPickerSelectedIndexChanged_InternationalStudent_Should_Pass()
+        {
+            // Arrange
+            Picker characterType = (Picker)page.FindByName("CharacterTypePicker");
+            var original = characterType.SelectedItem;
+            characterType.SelectedItem = SpecificCharacterTypeEnum.InternationalStudent.ToMessage();
+
+            // Act
+            page.OnPickerSelectedIndexChanged(characterType, null);
+
+            // Reset
+            characterType.SelectedItem = original;
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterCreatePage_OnPickerSelectedIndexChanged_CoolParent_Should_Pass()
+        {
+            // Arrange
+            Picker characterType = (Picker)page.FindByName("CharacterTypePicker");
+            var original = characterType.SelectedItem;
+            characterType.SelectedItem = SpecificCharacterTypeEnum.CoolParent.ToMessage();
+
+            // Act
+            page.OnPickerSelectedIndexChanged(characterType, null);
+
+            // Reset
+            characterType.SelectedItem = original;
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterCreatePage_OnPickerSelectedIndexChanged_Unknown_Should_Pass()
+        {
+            // Arrange
+            Picker characterType = (Picker)page.FindByName("CharacterTypePicker");
+            var original = characterType.SelectedItem;
+            characterType.SelectedItem = SpecificCharacterTypeEnum.Unknown.ToMessage();
+
+            // Act
+            page.OnPickerSelectedIndexChanged(characterType, null);
+
+            // Reset
+            characterType.SelectedItem = original;
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterCreatePage_AddItemsToDisplay_Head_Should_Pass()
+        {
+            // Arrange
+            page.ViewModel.Data.PrimaryHand = null;
+            page.ViewModel.Data.RightFinger = null;
+            ItemModel head = new ItemModel(ItemTypeEnum.GraduationCapAndRobe);
+            page.ViewModel.Data.Head = head.Id;
+            page.newItems = new List<ItemModel> { head };
+            // Act
+            page.AddItemsToDisplay();
+
+            // Reset
+            page.ViewModel.Data = new CharacterModel();
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterCreatePage_AddItemsToDisplay_OffHand_Should_Pass()
+        {
+            // Arrange
+            page.ViewModel.Data.PrimaryHand = null;
+            page.ViewModel.Data.RightFinger = null;
+            ItemModel Offhand = new ItemModel(ItemTypeEnum.Diploma);
+            page.ViewModel.Data.OffHand = Offhand.Id;
+            page.newItems = new List<ItemModel> { Offhand };
+            // Act
+            page.AddItemsToDisplay();
+
+            // Reset
+            page.ViewModel.Data = new CharacterModel();
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
@@ -399,88 +669,6 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-
-
-        //[Test]
-        //public void CharacterCreatePage_Attack_OnStepperAttackChanged_Default_Should_Pass()
-        //{
-        //    // Arrange
-        //    var data = new CharacterModel();
-        //    var ViewModel = new GenericViewModel<CharacterModel>(data);
-
-        //    page = new CharacterCreatePage(ViewModel);
-        //    double oldAttack = 0.0;
-        //    double newAttack = 1.0;
-
-        //    var args = new ValueChangedEventArgs(oldAttack, newAttack);
-
-        //    // Act
-        //    page.Attack_OnStepperValueChanged(null, args);
-
-        //    // Reset
-
-        //    // Assert
-        //    Assert.IsTrue(true); // Got to here, so it happened...
-        //}
-
-        //[Test]
-        //public void CharacterCreatePage_Speed_OnStepperValueChanged_Default_Should_Pass()
-        //{
-        //    // ArSpeed
-        //    var data = new CharacterModel();
-        //    var ViewModel = new GenericViewModel<CharacterModel>(data);
-
-        //    page = new CharacterCreatePage(ViewModel);
-        //    double oldSpeed = 0.0;
-        //    double newSpeed = 1.0;
-
-        //    var args = new ValueChangedEventArgs(oldSpeed, newSpeed);
-
-        //    // Act
-        //    page.Speed_OnStepperValueChanged(null, args);
-
-        //    // Reset
-
-        //    // Assert
-        //    Assert.IsTrue(true); // Got to here, so it happened...
-        //}
-
-        //[Test]
-        //public void CharacterCreatePage_Defense_OnStepperDefenseChanged_Default_Should_Pass()
-        //{
-        //    // Arrange
-        //    var data = new CharacterModel();
-        //    var ViewModel = new GenericViewModel<CharacterModel>(data);
-
-        //    page = new CharacterCreatePage(ViewModel);
-        //    double oldDefense = 0.0;
-        //    double newDefense = 1.0;
-
-        //    var args = new ValueChangedEventArgs(oldDefense, newDefense);
-
-        //    // Act
-        //    page.Defense_OnStepperValueChanged(null, args);
-
-        //    // Reset
-
-        //    // Assert
-        //    Assert.IsTrue(true); // Got to here, so it happened...
-        //}
-
-        //[Test]
-        //public void CharacterCreatePage_RollDice_Clicked_Default_Should_Pass()
-        //{
-        //    // Arrange
-        //    page.ViewModel.Data = new CharacterModel();
-
-        //    // Act
-        //    page.RollDice_Clicked(null, null);
-
-        //    // Reset
-
-        //    // Assert
-        //    Assert.IsTrue(true); // Got to here, so it happened...
-        //}
 
         //[Test]
         //public void CharacterCreatePage_ClosePopup_Default_Should_Pass()
