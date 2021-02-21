@@ -21,7 +21,7 @@ namespace Game.Views.Characters
         public GenericViewModel<CharacterModel> ViewModel = new GenericViewModel<CharacterModel>();
 
         //stores the newItems
-        List<ItemModel> newItems = new List<ItemModel>();
+        public List<ItemModel> newItems = new List<ItemModel>();
 
         // Empty Constructor for UTs
         public CharacterCreatePage(bool UnitTest) { }
