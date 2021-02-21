@@ -53,19 +53,19 @@ namespace UnitTests.Views
             Assert.IsNotNull(result);
         }
 
-        //[Test]
-        //public void CharacterIndexPage_AddCharacter_Clicked_Default_Should_Pass()
-        //{
-        //    // Arrange
+        [Test]
+        public void CharacterIndexPage_AddCharacter_Clicked_Default_Should_Pass()
+        {
+            // Arrange
 
-        //    // Act
-        //    page.Add_Clicked(null, null);
+            // Act
+            page.AddCharacter_Clicked(null, null);
 
-        //    // Reset
+            // Reset
 
-        //    // Assert
-        //    Assert.IsTrue(true); // Got to here, so it happened...
-        //}
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
 
         [Test]
         public void CharacterIndexPage_OnBackButtonPressed_Valid_Should_Pass()
@@ -81,42 +81,38 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
-        /*
         [Test]
-        public void CharacterIndexPage_OnCharacterSelected_Clicked_Default_Should_Pass()
+        public void CharacterIndexPage_ReadCharacter_Clicked_Default_Should_Pass()
         {
             // Arrange
-
-            var selectedCharacter = new CharacterModel();
-
-            var selectedCharacterChangedEventArgs = new SelectedItemChangedEventArgs(selectedCharacter, 0);
+            CharacterIndexViewModel ViewModel = CharacterIndexViewModel.Instance;
+            ImageButton item = new ImageButton { CommandParameter = ViewModel.Dataset[0].Id };
 
             // Act
-            page.OnItemSelected(null, selectedCharacterChangedEventArgs);
+            page.ReadCharacter_Clicked(item, null);
 
             // Reset
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-        
+
 
         [Test]
-        public void CharacterIndexPage_OnCharacterSelected_Clicked_Invalid_Null_Should_Fail()
+        public void CharacterIndexPage_ReadCharacter_Clicked_Invalid_Null_Should_Pass()
         {
             // Arrange
 
-            var selectedCharacterChangedEventArgs = new SelectedItemChangedEventArgs(null, 0);
+            ImageButton item = new ImageButton { CommandParameter = "empty" };
 
             // Act
-            page.OnItemSelected(null, selectedCharacterChangedEventArgs);
+            page.ReadCharacter_Clicked(item, null);
 
             // Reset
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-        */
 
         [Test]
         public void CharacterIndexPage_OnAppearing_Valid_Should_Pass()
@@ -149,21 +145,5 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-
-        /*
-        [Test]
-        public void CharacterIndexPage_AddItemClicked_Valid_Should_Pass()
-        {
-            // Arrange
-            // Act
-            page.AddItem_Clicked(null, null);
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-        */
-
     }
 }
