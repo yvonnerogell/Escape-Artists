@@ -86,7 +86,7 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
-        /*
+        
         [Test]
         public void CharacterDeletePage_OnBackButtonPressed_Valid_Should_Pass()
         {
@@ -100,6 +100,6 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-        */
+        
     }
 }
