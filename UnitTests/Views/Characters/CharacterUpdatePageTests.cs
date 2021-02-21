@@ -68,6 +68,22 @@ namespace UnitTests.Views
         }
 
         [Test]
+        public void CharacterUpdatePage_Save_Clicked_Empty_Name_Description_Should_Pass()
+        {
+            // Arrange
+            page.ViewModel.Data.Name = null;
+            page.ViewModel.Data.Description = null;
+
+            // Act
+            page.Save_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
         public void CharacterUpdatePage_Save_Clicked_Empty_Name_Should_Pass()
         {
             // Arrange
