@@ -565,7 +565,7 @@ namespace UnitTests.Engine.EngineKoenig
             Assert.AreEqual(true, result);
         }
 
-        /*
+        
         [Test]
         public void TurnEngine_TakeTurn_Ability_Should_Pass()
         {
@@ -584,7 +584,7 @@ namespace UnitTests.Engine.EngineKoenig
             // Assert
             Assert.AreEqual(true, result);
         }
-        */
+        
 
         [Test]
         public void TurnEngine_TakeTurn_Move_Should_Pass()
@@ -1074,7 +1074,7 @@ namespace UnitTests.Engine.EngineKoenig
         #endregion TurnAsAttack
 
         #region UseAbility
-        /*
+        
         [Test]
         public void TurnEngine_UseAbility_InValid_Ability_Null_Should_Fail()
         {
@@ -1195,7 +1195,7 @@ namespace UnitTests.Engine.EngineKoenig
             // Assert
             Assert.AreEqual(true, result);
         }
-        */
+        
         #endregion UseAbility
 
         #region BattleSettings
@@ -1453,7 +1453,7 @@ namespace UnitTests.Engine.EngineKoenig
             Assert.AreEqual(false, result);
         }
 
-        /*
+        
         [Test]
         public void TurnEngine_ChooseToUseAbility_Valid_Roll_2_Yes_Ability_Should_Return_True()
         {
@@ -1483,7 +1483,7 @@ namespace UnitTests.Engine.EngineKoenig
             // Assert
             Assert.AreEqual(true, result);
         }
-        */
+        
         #endregion ChooseToUseAbility
 
         #region MoveAsTurn
