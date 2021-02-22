@@ -101,6 +101,21 @@ namespace UnitTests.Views
         }
 
         [Test]
+        public void ScoreCreatePage_Save_Clicked_Not_Name_Should_Pass()
+        {
+            // Arrange
+            page.ViewModel.Data.Name = "Test";
+
+            // Act
+            page.Save_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Test", page.ViewModel.Data.Name); // Got to here, so it happened...
+        }
+
+        [Test]
         public void ScoreCreatePage_OnBackButtonPressed_Valid_Should_Pass()
         {
             // Arrange

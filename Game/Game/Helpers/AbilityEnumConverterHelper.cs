@@ -62,7 +62,7 @@ namespace Game.Helpers
             if (value is string)
             {
                 // Convert the Message String to the Enum
-                var myReturn = AbilityEnumHelper.ConvertStringToEnum((string)value);
+                var myReturn = AbilityEnumHelper.ConvertMessageStringToEnum((string)value);
 
                 return myReturn;
             }

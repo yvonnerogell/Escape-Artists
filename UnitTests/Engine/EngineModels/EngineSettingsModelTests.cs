@@ -23,7 +23,6 @@ namespace UnitTests.Engine.EngineModels
             Assert.IsNotNull(result);
         }
 
-        /*
         [Test]
         public void EngineSettingsModel_Set_Get_Default_Should_Pass()
         {
@@ -84,6 +83,5 @@ namespace UnitTests.Engine.EngineModels
             Assert.AreEqual(BattleStateEnum.Unknown, result.BattleStateEnum);
 
         }
-        */
     }
 }
