@@ -307,11 +307,11 @@ namespace UnitTests.Helpers
 
         // Convert Back
         [Test]
-        public void IntEnumConvertBack_Should_Skip()
+        public void ItemLocationEnumConvertBack_Should_Skip()
         {
-            var myConverter = new IntEnumConverter();
+            var myConverter = new ItemLocationEnumConverter();
 
-            var myObject = "Bogus";
+            var myObject = ItemLocationEnum.Necklace;
             var Result = myConverter.ConvertBack(myObject, null, null, null);
             var Expected = 0;
 
