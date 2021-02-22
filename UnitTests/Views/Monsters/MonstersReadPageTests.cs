@@ -227,5 +227,36 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
+        [Test]
+        public void MonsterReadPage_CheckUniqueDrop_Valid_Should_Pass()
+        {
+            // Arrange
+            var original = page.ViewModel.Data.UniqueDropItem;
+            page.ViewModel.Data.UniqueDropItem = "FakeId";
+
+            // Act
+            page.CheckUniqueDrop();
+
+            // Reset
+            page.ViewModel.Data.UniqueDropItem = original;
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void MonsterReadPage_LoadItem_Null_Should_Pass()
+        {
+            // Arrange
+            var original = page.ViewModel.Data.UniqueDropItem;
+            page.ViewModel.Data.UniqueDropItem = "FakeId";
+
+            // Act
+            var result = page.LoadItem(null);
+
+            // Reset
+            page.ViewModel.Data.UniqueDropItem = original;
+            // Assert
+            Assert.AreEqual(result, null); // Got to here, so it happened...
+        }
     }
 }
