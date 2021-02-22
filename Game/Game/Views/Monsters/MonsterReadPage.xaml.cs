@@ -36,8 +36,24 @@ namespace Game.Views
 
             AddUniqueDropItemToDisplay();
 
+            CheckUniqueDrop();
+
             int totalDamage = GetDamageFromUniqueDropItem(ViewModel.Data.UniqueDropItem);
             DamageLabel.Text = totalDamage.ToString();
+        }
+
+        /// <summary>
+        /// Checks if item has been deleted.
+        /// </summary>
+        public void CheckUniqueDrop()
+        {
+            if (ViewModel.Data.UniqueDropItem != null)
+            {
+                if (ItemIndexViewModel.Instance.GetItem(ViewModel.Data.UniqueDropItem) == null)
+                {
+                    ViewModel.Data.UniqueDropItem = null;
+                }
+            }
         }
 
         /// <summary>
@@ -65,6 +81,11 @@ namespace Game.Views
         /// <returns></returns>
         public StackLayout LoadItem(ItemModel dropItem)
         {
+            if (dropItem == null)
+            {
+                CheckUniqueDrop();
+                return null;
+            }
             // Hookup the Image Button to show the Item picture
             var ItemButton = new ImageButton
             {
