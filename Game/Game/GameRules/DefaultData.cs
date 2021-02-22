@@ -266,13 +266,19 @@ namespace Game.GameRules
                 DefaultIndexCards = item.Id;
             }
 
+            var DefaultLaptop = (string)null;
+            item = ItemIndexViewModel.Instance.GetItem("Laptop1");
+            if (item != null)
+            {
+                DefaultIndexCards = item.Id;
+            }
+
             var DefaultPencilEraser = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.PencilEraser);
 
             var DefaultNotebook = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.Notebook);
             var DefaultCalculator = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.Calculator);
             var DefaultLibraryCard = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.LibraryCard);
             var DefaultFoodCourtCard = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.FoodCourtCard);
-            var DefaultLaptop = ItemIndexViewModel.Instance.GetItem("Laptop1").Id;
             var DefaultPrivateTutor = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.PrivateTutor);
             var DefaultTuition = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.Tuition);
 
