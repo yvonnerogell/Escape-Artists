@@ -20,7 +20,7 @@ namespace UnitTests.Helpers
         }
 
         [Test]
-        public void AbilityEnumConverterHelper_Should_Pass()
+        public void SpecificCharacterTypeEnumConverterHelper_Should_Pass()
         {
             var myConverter = new SpecificCharacterTypeEnumConverter();
 
@@ -32,7 +32,7 @@ namespace UnitTests.Helpers
         }
 
         [Test]
-        public void AbilityEnumConverterHelper_String_Should_Pass()
+        public void SpecificCharacterTypeEnumConverterHelper_String_Should_Pass()
         {
             var myConverter = new SpecificCharacterTypeEnumConverter();
 
@@ -44,7 +44,7 @@ namespace UnitTests.Helpers
         }
 
         [Test]
-        public void AbilityEnumConverterHelper_Other_Should_Skip()
+        public void SpecificCharacterTypeEnumConverterHelper_Other_Should_Skip()
         {
             var myConverter = new SpecificCharacterTypeEnumConverter();
 
@@ -57,7 +57,7 @@ namespace UnitTests.Helpers
 
         // Convert Back
         [Test]
-        public void AbilityEnumConverterHelper_ConvertBack_Should_Skip()
+        public void SpecificCharacterTypeEnumConverterHelper_ConvertBack_Should_Skip()
         {
             var myConverter = new SpecificCharacterTypeEnumConverter();
 
@@ -70,7 +70,7 @@ namespace UnitTests.Helpers
 
         // Convert Back
         [Test]
-        public void AbilityEnumConverterHelper_ConvertBack_Int_Should_Pass()
+        public void SpecificCharacterTypeEnumConverterHelper_ConvertBack_Int_Should_Pass()
         {
             var myConverter = new SpecificCharacterTypeEnumConverter();
 
@@ -83,7 +83,7 @@ namespace UnitTests.Helpers
 
         // Convert Back
         [Test]
-        public void AbilityEnumConverterHelper_ConvertBack_String_Should_Pass()
+        public void SpecificCharacterTypeEnumConverterHelper_ConvertBack_String_Should_Pass()
         {
             var myConverter = new SpecificCharacterTypeEnumConverter();
 
