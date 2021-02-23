@@ -16,6 +16,10 @@
                 VerticalOptions="Center"
                 HorizontalOptions="Center">
 
+                <StackLayout>
+                    <Button Text="Round Over (temp)!" Clicked="RoundOverButton_Clicked"/>
+                </StackLayout>
+
                 <Frame BackgroundColor="{StaticResource New_SecondaryBackgroundColor}" CornerRadius="10">
                     <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="220" WidthRequest="250">
                         <Label Text="Professor Frank gives Ray an exam." HorizontalOptions="Center"/>
@@ -44,23 +48,19 @@
 
                 </Frame>
 
-                <StackLayout HorizontalOptions="Center" Padding="70,5,70,0">
+                <Frame BackgroundColor="{StaticResource New_SecondaryBackgroundColor}" CornerRadius="10">
+                    <StackLayout  Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" MinimumHeightRequest="75" WidthRequest="250">
 
-                    <Label 
-                        Text="Battle Messages"
-                        Style="{StaticResource CenterMessageStyle}"
-                        FontSize="Micro"
-                        LineBreakMode="WordWrap"
-                        MaxLines="5"
+                        <Label 
+                            Text="Battle Messages"
+                            Style="{StaticResource CenterMessageStyle}"
+                            FontSize="Micro"
+                            LineBreakMode="WordWrap"
+                            MaxLines="5"
                         />
-
-                </StackLayout>
-
-                <StackLayout>
-                    <Button Text="Round Over (temp)!" Clicked="RoundOverButton_Clicked"/>
-                </StackLayout>
-
-
+                    </StackLayout>
+                </Frame>
+          
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
