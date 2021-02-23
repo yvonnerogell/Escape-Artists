@@ -17,7 +17,7 @@ namespace Game.Views
     /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "<Pending>")]
-    public partial class BattlePage : ContentPage
+    public partial class BattlePageOne : ContentPage
     {
         // HTML Formatting for message output box
         public HtmlWebViewSource htmlSource = new HtmlWebViewSource();
@@ -31,12 +31,12 @@ namespace Game.Views
 
         // Empty Constructor for UTs
         bool UnitTestSetting;
-        public BattlePage(bool UnitTest) { UnitTestSetting = UnitTest; }
+        public BattlePageOne(bool UnitTest) { UnitTestSetting = UnitTest; }
 
         /// <summary>
         /// Constructor
         /// </summary>
-        public BattlePage()
+        public BattlePageOne()
         {
             InitializeComponent();
 
@@ -45,6 +45,9 @@ namespace Game.Views
 
             // Set up the UI to Defaults
             BindingContext = BattleEngineViewModel.Instance;
+
+            // TODO for team: remove this once we are ready to use our own battle engine.
+            BattleEngineViewModel.Instance.SetBattleEngineToKoenig();
 
             // Create and Draw the Map
             InitializeMapGrid();
@@ -149,6 +152,17 @@ namespace Game.Views
             BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.ClearMapGrid();
 
             return true;
+        }
+
+        /// <summary>
+        /// Navigates to Battle Page 2
+        /// 
+        /// All lcoations are empty
+        /// </summary>
+        /// <returns></returns>
+        public async void SelectCharacterButton_Clicked(object sender, EventArgs e)
+        { 
+            // TODO add navigation to BattlePageTwo
         }
 
         /// <summary>

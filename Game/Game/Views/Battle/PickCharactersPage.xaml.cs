@@ -74,6 +74,18 @@ namespace Game.Views
         }
 
         /// <summary>
+        /// TODO: remove this method and corresponding toolbar item. This is only here temporarily so that we can
+        /// navigate to BattlePageOne from PickCharactersPage.
+        /// Call to open up BattlePageOne. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void OnBattlePageOne_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
+        }
+
+        /// <summary>
         /// The row selected from the list
         /// </summary>
         /// <param name="sender"></param>
@@ -128,7 +140,7 @@ namespace Game.Views
         {
             CreateEngineCharacterList();
 
-            await Navigation.PushModalAsync(new NavigationPage(new BattlePage()));
+            await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
             await Navigation.PopAsync();
         }
 
