@@ -21,7 +21,7 @@
                 </StackLayout>
 
                 <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
-                    <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="220" WidthRequest="250">
+                    <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="250" WidthRequest="250">
                         <Label Text="Professor Frank gives Ray an exam." HorizontalOptions="Center" Padding="15"/>
 
                         <StackLayout Orientation="Horizontal">
@@ -30,11 +30,14 @@
 
                         </StackLayout>
 
-                        <Button Text="Attack back!" Clicked="AttackBackButton_Clicked" CornerRadius="15" FontAttributes="Bold"  
+                        <StackLayout Margin="10">
+                            <Button Text="Attack back!" Clicked="AttackBackButton_Clicked" CornerRadius="15" FontAttributes="Bold"  
                                 TextColor="{StaticResource New_ButtonTextColor}"
                                 Margin="10"
                                 HorizontalOptions="Center"
                                 BackgroundColor="{StaticResource New_SecondaryBackgroundColor}"/>
+
+                        </StackLayout>
 
                     </StackLayout>
 
