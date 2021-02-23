@@ -294,4 +294,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\item_indexcards.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\background.png" />
+  </ItemGroup>
 </Project>
