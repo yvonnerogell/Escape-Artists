@@ -125,7 +125,7 @@
                         </StackLayout>
                     </StackLayout>
                     <StackLayout>
-                        <Button Text="Attack Back!" Clicked="AttackBackButton_Clicked"/>
+                        <Button Text="Attack!" Clicked="OnAttackButton_Clicked"/>
                     </StackLayout>
                 </StackLayout>
             </StackLayout>
