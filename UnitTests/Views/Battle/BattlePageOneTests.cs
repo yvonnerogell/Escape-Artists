@@ -13,12 +13,12 @@ using Game.ViewModels;
 namespace UnitTests.Views
 {
     [TestFixture]
-    public class BattlePageTests : BattlePageOne
+    public class BattlePageOneTests : BattlePageOne
     {
         App app;
         BattlePageOne page;
 
-        public BattlePageTests() : base(true) { }
+        public BattlePageOneTests() : base(true) { }
 
         [SetUp]
         public void Setup()
