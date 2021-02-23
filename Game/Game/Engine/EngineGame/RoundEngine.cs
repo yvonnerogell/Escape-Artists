@@ -86,7 +86,10 @@ namespace Game.Engine.EngineGame
         {
             // TODO: Teams, You need to implement your own Logic can not use mine.
 
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
+
+            // TODO: remove use of base!!
+            return base.AddMonstersToRound();
         }
 
         /// <summary>
@@ -116,7 +119,8 @@ namespace Game.Engine.EngineGame
             // In Auto Battle this happens and the characters get their items
             // When called manualy, make sure to do the character pickup before calling EndRound
 
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
+            base.PickupItemsForAllCharacters();
         }
 
         /// <summary>
@@ -138,7 +142,9 @@ namespace Game.Engine.EngineGame
 
             // Do the turn..
 
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
+
+            return base.RoundNextTurn();
         }
 
         /// <summary>
@@ -150,7 +156,9 @@ namespace Game.Engine.EngineGame
 
             // Get Next Player
 
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
+
+            return base.GetNextPlayerTurn();
         }
 
         /// <summary>
@@ -158,7 +166,8 @@ namespace Game.Engine.EngineGame
         /// </summary>
         public override List<PlayerInfoModel> RemoveDeadPlayersFromList()
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
+            return base.RemoveDeadPlayersFromList();
         }
 
         /// <summary>
@@ -168,7 +177,10 @@ namespace Game.Engine.EngineGame
         {
             // TODO Teams: Implement the order
 
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
+
+            // TODO: remove use of base!!
+            return base.OrderPlayerListByTurnOrder();
         }
 
         /// <summary>
@@ -184,7 +196,8 @@ namespace Game.Engine.EngineGame
 
             // Add the Monsters
 
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
+            return base.MakePlayerList();
         }
 
         /// <summary>
@@ -206,7 +219,9 @@ namespace Game.Engine.EngineGame
 
             // Return the next element
 
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
+            
+            return base.GetNextPlayerInList();
         }
 
         /// <summary>
@@ -219,7 +234,10 @@ namespace Game.Engine.EngineGame
 
             // I use the same logic for Auto Battle as I do for Manual Battle
 
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
+
+            // TODO: remove use of base!! 
+            return base.PickupItemsFromPool(character);
         }
 
         /// <summary>
@@ -229,7 +247,8 @@ namespace Game.Engine.EngineGame
         /// </summary>
         public override bool GetItemFromPoolIfBetter(PlayerInfoModel character, ItemLocationEnum setLocation)
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
+            return base.GetItemFromPoolIfBetter(character, setLocation);
         }
 
         /// <summary>
@@ -239,7 +258,8 @@ namespace Game.Engine.EngineGame
         /// </summary>
         public override ItemModel SwapCharacterItem(PlayerInfoModel character, ItemLocationEnum setLocation, ItemModel PoolItem)
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
+            return base.SwapCharacterItem(character, setLocation, PoolItem);
         }
 
         /// <summary>
@@ -247,7 +267,8 @@ namespace Game.Engine.EngineGame
         /// </summary>
         public override bool RemoveCharacterBuffs()
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
+            return base.RemoveCharacterBuffs();
         }
     }
 }

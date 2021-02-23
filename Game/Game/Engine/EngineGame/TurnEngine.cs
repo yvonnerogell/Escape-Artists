@@ -58,7 +58,9 @@ namespace Game.Engine.EngineGame
 
             // Reset the Action to unknown for next time
 
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
+
+            return base.TakeTurn(Attacker);
         }
 
         /// <summary>
@@ -173,7 +175,8 @@ namespace Game.Engine.EngineGame
 
             // Do Attack
 
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
+            return base.Attack(Attacker);
         }
 
         /// <summary>
@@ -181,7 +184,9 @@ namespace Game.Engine.EngineGame
         /// </summary>
         public override PlayerInfoModel AttackChoice(PlayerInfoModel data)
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
+
+            return base.AttackChoice(data);
         }
 
         /// <summary>
@@ -193,7 +198,10 @@ namespace Game.Engine.EngineGame
 
             // TODO: Teams, You need to implement your own Logic can not use mine.
 
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
+
+            // TODO: remove base!!
+            return base.SelectCharacterToAttack();
         }
 
         /// <summary>
@@ -206,8 +214,10 @@ namespace Game.Engine.EngineGame
 
             // TODO: Teams, You need to implement your own Logic can not use mine.
 
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
 
+            // TODO: remove base!!
+            return base.SelectMonsterToAttack();
         }
 
         /// <summary>
@@ -239,7 +249,9 @@ namespace Game.Engine.EngineGame
 
             // Battle Message 
 
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
+
+            return base.TurnAsAttack(Attacker, Target);
         }
 
         /// <summary>
@@ -248,7 +260,8 @@ namespace Game.Engine.EngineGame
         /// </summary>
         public override HitStatusEnum BattleSettingsOverride(PlayerInfoModel Attacker)
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
+            return base.BattleSettingsOverride(Attacker);
         }
 
         /// <summary>
@@ -258,7 +271,8 @@ namespace Game.Engine.EngineGame
         {
             // Based on the Hit Status, establish a message
 
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
+            return base.BattleSettingsOverrideHitStatusEnum(myEnum);
         }
 
         /// <summary>
@@ -266,7 +280,8 @@ namespace Game.Engine.EngineGame
         /// </summary>
         public override void ApplyDamage(PlayerInfoModel Target)
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
+            base.ApplyDamage(Target);
         }
 
         /// <summary>
@@ -274,7 +289,8 @@ namespace Game.Engine.EngineGame
         /// </summary>
         public override HitStatusEnum CalculateAttackStatus(PlayerInfoModel Attacker, PlayerInfoModel Target)
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
+            return base.CalculateAttackStatus(Attacker, Target);
         }
 
         /// <summary>
@@ -283,7 +299,8 @@ namespace Game.Engine.EngineGame
         /// </summary>
         public override bool CalculateExperience(PlayerInfoModel Attacker, PlayerInfoModel Target)
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
+            return base.CalculateExperience(Attacker, Target);
         }
 
         /// <summary>
@@ -291,7 +308,8 @@ namespace Game.Engine.EngineGame
         /// </summary>
         public override bool RemoveIfDead(PlayerInfoModel Target)
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
+            return base.RemoveIfDead(Target);
         }
 
         /// <summary>
@@ -316,7 +334,8 @@ namespace Game.Engine.EngineGame
 
             // Add the MonsterModel to the killed list
 
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
+            return base.TargetDied(Target);
         }
 
         /// <summary>
@@ -331,7 +350,8 @@ namespace Game.Engine.EngineGame
 
             // Add to ScoreModel
 
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
+            return base.DropItems(Target);
         }
 
         /// <summary>
@@ -341,7 +361,8 @@ namespace Game.Engine.EngineGame
         /// <param name="DefenseScore"></param>
         public override HitStatusEnum RollToHitTarget(int AttackScore, int DefenseScore)
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
+            return base.RollToHitTarget(AttackScore, DefenseScore);
         }
 
         /// <summary>
@@ -356,7 +377,10 @@ namespace Game.Engine.EngineGame
             // The Number drop can be Up to the Round Count, but may be less.  
             // Negative results in nothing dropped
 
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
+
+            // TODO: remove base!!
+            return base.GetRandomMonsterItemDrops(round);
         }
 
         /// <summary>
