@@ -72,6 +72,7 @@ namespace Game.Views
             
             AttackTextLabel.Text = GetAttackText(currentAttacker, currentDefender);
             GPAValueLabel.Text = GetCharacterGPA(currentCharacter);
+            HealthValueLabel.Text = GetCharacterHealth(currentCharacter);
 
             // Set the Battle Mode
             // ShowBattleMode();
@@ -144,6 +145,17 @@ namespace Game.Views
             // TODO change to pull data from BattleEngineViewModel. 
             return currentCharacter.GPA.ToString();
 		}
+
+        /// <summary>
+        /// 
+        /// Returns the GPA of the current character. 
+        /// </summary>
+        /// <returns></returns>
+        public string GetCharacterHealth(CharacterModel currentCharacter)
+        {
+            // TODO change to pull data from BattleEngineViewModel. 
+            return currentCharacter.CurrentHealth.ToString();
+        }
 
         /*
         /// <summary>
