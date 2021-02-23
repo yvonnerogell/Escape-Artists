@@ -124,6 +124,9 @@
                         />-->
                         </StackLayout>
                     </StackLayout>
+                    <StackLayout>
+                        <Button Text="Select Character" Clicked="SelectCharacterButton_Clicked"/>
+                    </StackLayout>
                 </StackLayout>
             </StackLayout>
 

@@ -155,6 +155,17 @@ namespace Game.Views
         }
 
         /// <summary>
+        /// Navigates to Battle Page 2
+        /// 
+        /// All lcoations are empty
+        /// </summary>
+        /// <returns></returns>
+        public async void SelectCharacterButton_Clicked(object sender, EventArgs e)
+        { 
+            // TODO add navigation to BattlePageTwo
+        }
+
+        /// <summary>
         /// Draw the Map Grid
         /// Add the Players to the Map
         /// 
