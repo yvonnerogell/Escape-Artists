@@ -62,11 +62,11 @@
                     <StackLayout  Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" 
                                   HorizontalOptions="Center" MinimumHeightRequest="250" WidthRequest="250" Padding="5">
 
-                        <Label x:Name="BattleMessage1Label"  Text="Battle Messages" Style="{StaticResource CenterMessageStyle}" FontSize="Micro" LineBreakMode="WordWrap" Padding="2"/>
-                        <Label x:Name="BattleMessage2Label"  Text="Battle Messages" Style="{StaticResource CenterMessageStyle}"  FontSize="Micro" LineBreakMode="WordWrap" Padding="2"/>
-                        <Label x:Name="BattleMessage3Label"  Text="Battle Messages" Style="{StaticResource CenterMessageStyle}"  FontSize="Micro" LineBreakMode="WordWrap" Padding="2"/>
-                        <Label x:Name="BattleMessage4Label"  Text="Battle Messages" Style="{StaticResource CenterMessageStyle}"  FontSize="Micro" LineBreakMode="WordWrap" Padding="2"/>
-                        <Label x:Name="BattleMessage5Label"  Text="Battle Messages" Style="{StaticResource CenterMessageStyle}"  FontSize="Micro" LineBreakMode="WordWrap" Padding="2"/>
+                        <Label x:Name="BattleMessage1Label"  Text="Battle Messages" LineBreakMode="WordWrap" Padding="2"/>
+                        <Label x:Name="BattleMessage2Label"  Text="Battle Messages" LineBreakMode="WordWrap" Padding="2"/>
+                        <Label x:Name="BattleMessage3Label"  Text="Battle Messages"  LineBreakMode="WordWrap" Padding="2"/>
+                        <Label x:Name="BattleMessage4Label"  Text="Battle Messages" LineBreakMode="WordWrap" Padding="2"/>
+                        <Label x:Name="BattleMessage5Label"  Text="Battle Messages" LineBreakMode="WordWrap" Padding="2"/>
                     </StackLayout>
                 </Frame>
           
