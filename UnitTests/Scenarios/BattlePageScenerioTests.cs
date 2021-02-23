@@ -13,7 +13,7 @@ namespace Scenario
     public class BattlePageScenarioTests
     {
         App app;
-        BattlePage page;
+        BattlePageOne page;
 
         [SetUp]
         public void Setup()
@@ -28,7 +28,7 @@ namespace Scenario
             // Choose which engine to run
             BattleEngineViewModel.Instance.SetBattleEngineToKoenig();
 
-            page = new BattlePage();
+            page = new BattlePageOne();
         }
 
         [TearDown]

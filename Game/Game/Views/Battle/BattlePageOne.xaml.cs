@@ -17,7 +17,7 @@ namespace Game.Views
     /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "<Pending>")]
-    public partial class BattlePage : ContentPage
+    public partial class BattlePageOne : ContentPage
     {
         // HTML Formatting for message output box
         public HtmlWebViewSource htmlSource = new HtmlWebViewSource();
@@ -31,12 +31,12 @@ namespace Game.Views
 
         // Empty Constructor for UTs
         bool UnitTestSetting;
-        public BattlePage(bool UnitTest) { UnitTestSetting = UnitTest; }
+        public BattlePageOne(bool UnitTest) { UnitTestSetting = UnitTest; }
 
         /// <summary>
         /// Constructor
         /// </summary>
-        public BattlePage()
+        public BattlePageOne()
         {
             InitializeComponent();
 
