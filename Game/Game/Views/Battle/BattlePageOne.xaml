@@ -45,7 +45,7 @@
 
                 <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
                     
-                    <StackLayout Style="{StaticResource HorizontalCenterStack}" HeightRequest="75" WidthRequest="250">
+                    <StackLayout Style="{StaticResource HorizontalCenterStack}" HeightRequest="75" WidthRequest="250" HorizontalOptions="Center" VerticalOptions="Center">
 
                         <Label Text="Health:" FontAttributes="Bold" FontSize="Micro" Padding="5" HorizontalOptions="Center" Style="{StaticResource LabelStyle}"/>
                         <Label Text="GPA:"  FontAttributes="Bold" FontSize="Micro" Padding="5" HorizontalOptions="Center"  Style="{StaticResource LabelStyle}"/>
