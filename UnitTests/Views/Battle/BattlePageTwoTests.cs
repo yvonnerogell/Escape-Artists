@@ -13,10 +13,10 @@ using Game.ViewModels;
 namespace UnitTests.Views
 {
     [TestFixture]
-    public class BattlePageTwoTests : BattlePageOne
+    public class BattlePageTwoTests : BattlePageTwo
     {
         App app;
-        BattlePageOne page;
+        BattlePageTwo page;
 
         public BattlePageTwoTests() : base(true) { }
 
@@ -33,7 +33,7 @@ namespace UnitTests.Views
             // For now, set the engine to the Koenig Engine, change when ready 
             BattleEngineViewModel.Instance.SetBattleEngineToKoenig();
 
-            page = new BattlePageOne();
+            page = new BattlePageTwo();
 
             // Put seed data into the system for all tests
             BattleEngineViewModel.Instance.Engine.Round.ClearLists();

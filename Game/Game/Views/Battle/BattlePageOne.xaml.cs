@@ -56,18 +56,19 @@ namespace Game.Views
             BattleEngineViewModel.Instance.Engine.StartBattle(false);
 
             // Populate the UI Map
-            DrawMapGridInitialState();
+            // DrawMapGridInitialState();
 
             // Ask the Game engine to select who goes first
             BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
 
             // Add Players to Display
-            DrawGameAttackerDefenderBoard();
+            // DrawGameAttackerDefenderBoard();
 
             // Set the Battle Mode
-            ShowBattleMode();
+            // ShowBattleMode();
         }
 
+        /*
         /// <summary>
         /// Dray the Player Boxes
         /// </summary>
@@ -104,6 +105,7 @@ namespace Game.Views
             MonsterBox.Children.Add(PlayerInfoDisplayBox(null));
 
         }
+        */
 
         /// <summary>
         /// Put the Player into a Display Box
@@ -177,6 +179,7 @@ namespace Game.Views
         }
 
 
+        /*
         /// <summary>
         /// Draw the Map Grid
         /// Add the Players to the Map
@@ -196,6 +199,7 @@ namespace Game.Views
 
             UpdateMapGrid();
         }
+        */
 
         /// <summary>
         /// Walk the current grid
@@ -278,6 +282,7 @@ namespace Game.Views
             return string.Format("MapR{0}C{1}ImageButton", data.Row, data.Column);
         }
 
+        /*
         /// <summary>
         /// Populate the Map
         /// 
@@ -309,6 +314,7 @@ namespace Game.Views
 
             return true;
         }
+        */
 
         /// <summary>
         /// Get the Frame from the Dictionary
@@ -543,6 +549,7 @@ namespace Game.Views
 
         #region BasicBattleMode
 
+        /*
         /// <summary>
         /// Draw the UI for
         ///
@@ -606,7 +613,9 @@ namespace Game.Views
 
             BattlePlayerBoxVersus.Text = "vs";
         }
+        */
 
+        /*
         /// <summary>
         /// Draws the Game Board Attacker and Defender areas to be null
         /// </summary>
@@ -623,7 +632,9 @@ namespace Game.Views
 
             BattlePlayerBoxVersus.Text = string.Empty;
         }
+        */
 
+        /*
         /// <summary>
         /// Attack Action
         /// </summary>
@@ -643,7 +654,9 @@ namespace Game.Views
         {
             await ShowBattleSettingsPage();
         }
+        */
 
+        /*
         /// <summary>
         /// Next Attack Example
         /// 
@@ -704,6 +717,7 @@ namespace Game.Views
                 return;
             }
         }
+        */
 
         /// <summary>
         /// Decide The Turn and who to Attack
@@ -730,6 +744,7 @@ namespace Game.Views
             }
         }
 
+        /*
         /// <summary>
         /// Game is over
         /// 
@@ -750,10 +765,12 @@ namespace Game.Views
 
             ShowBattleMode();
         }
+        */
         #endregion BasicBattleMode
 
         #region MessageHandelers
 
+        /*
         /// <summary>
         /// Builds up the output message
         /// </summary>
@@ -773,7 +790,9 @@ namespace Game.Views
             //htmlSource.Html = BattleEngineViewModel.Instance.Engine.BattleMessagesModel.GetHTMLFormattedTurnMessage();
             //HtmlBox.Source = HtmlBox.Source = htmlSource;
         }
+        */
 
+        /*
         /// <summary>
         ///  Clears the messages on the UX
         /// </summary>
@@ -783,6 +802,7 @@ namespace Game.Views
             htmlSource.Html = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleMessagesModel.GetHTMLBlankMessage();
             //HtmlBox.Source = htmlSource;
         }
+        */
 
         #endregion MessageHandelers
 
@@ -800,6 +820,7 @@ namespace Game.Views
             await Navigation.PopModalAsync();
         }
 
+        /*
         /// <summary>
         /// The Next Round Button
         /// </summary>
@@ -856,15 +877,19 @@ namespace Game.Views
             ShowBattleMode();
             await Navigation.PushModalAsync(new BattleSettingsPage());
         }
+        */
         #endregion PageHandelers
 
+        /*
         protected override void OnAppearing()
         {
             base.OnAppearing();
 
             ShowBattleMode();
         }
+        */
 
+        /*
         /// <summary>
         /// 
         /// Hide the differnt button states
@@ -880,7 +905,9 @@ namespace Game.Views
             MessageDisplayBox.IsVisible = false;
             BattlePlayerInfomationBox.IsVisible = false;
         }
+        */
 
+        /*
         /// <summary>
         /// Show the proper Battle Mode
         /// </summary>
@@ -905,7 +932,9 @@ namespace Game.Views
 
             ShowBattleModeUIElements();
         }
+        */
 
+        /*
         /// <summary>
         /// Control the UI Elements to display
         /// </summary>
@@ -948,7 +977,9 @@ namespace Game.Views
                     break;
             }
         }
+        */
 
+        /*
         /// <summary>
         /// Control the Map Mode or Simple
         /// </summary>
@@ -972,5 +1003,6 @@ namespace Game.Views
                     break;
             }
         }
+        */
     }
 }
