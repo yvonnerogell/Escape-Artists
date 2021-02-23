@@ -34,13 +34,15 @@
 
                 </Frame>
 
-                
+                <Frame BackgroundColor="{StaticResource New_SecondaryBackgroundColor}" CornerRadius="10">
+                    <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="75" WidthRequest="250">
 
-                <StackLayout>
-                    <Label Text="Health:"/>
-                    <Label Text="GPA:"/>
+                        <Label Text="Health:" FontAttributes="Bold" FontSize="Micro"/>
+                        <Label Text="GPA:"  FontAttributes="Bold" FontSize="Micro"/>
 
-                </StackLayout>
+                    </StackLayout>
+
+                </Frame>
 
                 <StackLayout HorizontalOptions="Center" Padding="70,5,70,0">
 
