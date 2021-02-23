@@ -75,11 +75,7 @@ namespace Game.Views
             HealthValueLabel.Text = GetCharacterHealth(currentCharacter);
 
             var messages = GetBattleMessages();
-            BattleMessage1Label.Text = messages.ElementAt(0);
-            BattleMessage2Label.Text = messages.ElementAt(1);
-            BattleMessage3Label.Text = messages.ElementAt(2);
-            BattleMessage4Label.Text = messages.ElementAt(3);
-            BattleMessage5Label.Text = messages.ElementAt(4);
+            SetBattleMessages(messages);
 
             // Set the Battle Mode
             // ShowBattleMode();
@@ -181,6 +177,20 @@ namespace Game.Views
 
             return messages;
 
+        }
+
+        /// <summary>
+        /// 
+        /// Sets the five most recent battle messages to display
+        /// </summary>
+        /// <returns></returns>
+        public void SetBattleMessages(List<string> messages)
+        {
+            BattleMessage1Label.Text = messages.ElementAt(0);
+            BattleMessage2Label.Text = messages.ElementAt(1);
+            BattleMessage3Label.Text = messages.ElementAt(2);
+            BattleMessage4Label.Text = messages.ElementAt(3);
+            BattleMessage5Label.Text = messages.ElementAt(4);
         }
 
         /*
