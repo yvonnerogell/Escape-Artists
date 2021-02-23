@@ -160,7 +160,7 @@ namespace Game.Views
         /// All lcoations are empty
         /// </summary>
         /// <returns></returns>
-        public async void SelectCharacterButton_Clicked(object sender, EventArgs e)
+        public async void AttackBackButton_Clicked(object sender, EventArgs e)
         { 
             await Navigation.PushModalAsync(new NavigationPage(new BattlePageTwo()));
         }
