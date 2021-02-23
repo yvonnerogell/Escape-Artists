@@ -34,9 +34,9 @@ namespace Game.Views
 
             BindingContext = this.ViewModel = data;
 
-            AddUniqueDropItemToDisplay();
-
             CheckUniqueDrop();
+
+            AddUniqueDropItemToDisplay();
 
             int totalDamage = GetDamageFromUniqueDropItem(ViewModel.Data.UniqueDropItem);
             DamageLabel.Text = totalDamage.ToString();
