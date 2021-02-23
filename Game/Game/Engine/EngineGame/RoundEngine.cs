@@ -89,6 +89,16 @@ namespace Game.Engine.EngineGame
             //throw new System.NotImplementedException();
 
             // TODO: remove use of base!!
+
+            /*
+            Ideas for adding monsters to round:
+            1. check what levels are in character list, maybe take it as an average of the levels. 
+            2. add in the monsters similar to base by adding in random monster, except we 
+               add them based on specific monster type. then adjust the values based on average level of monster.
+            3. if any character is on level 18+, they will need to fight the Graduation Office Administrator
+               which will hold Graduation cap and robe. 
+            */
+
             return base.AddMonstersToRound();
         }
 
@@ -144,7 +154,8 @@ namespace Game.Engine.EngineGame
 
             //throw new System.NotImplementedException();
 
-            return base.RoundNextTurn();
+            //return base.RoundNextTurn();
+            return RoundEnum.GameOver;
         }
 
         /// <summary>
