@@ -166,6 +166,18 @@ namespace Game.Views
         }
 
         /// <summary>
+        /// Navigates to Round Over Page. THis is a temporary button, will be removed once battle engine is implemented.
+        /// 
+        /// All lcoations are empty
+        /// </summary>
+        /// <returns></returns>
+        public async void RoundOverButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new RoundOverPage()));
+        }
+
+
+        /// <summary>
         /// Draw the Map Grid
         /// Add the Players to the Map
         /// 

@@ -127,6 +127,9 @@
                     <StackLayout>
                         <Button Text="Attack back!" Clicked="AttackBackButton_Clicked"/>
                     </StackLayout>
+                    <StackLayout>
+                        <Button Text="Round Over (temp)!" Clicked="RoundOverButton_Clicked"/>
+                    </StackLayout>
                 </StackLayout>
             </StackLayout>
 
