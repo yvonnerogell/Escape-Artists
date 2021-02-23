@@ -144,7 +144,8 @@ namespace Game.Engine.EngineGame
 
             //throw new System.NotImplementedException();
 
-            return base.RoundNextTurn();
+            //return base.RoundNextTurn();
+            return RoundEnum.GameOver;
         }
 
         /// <summary>
