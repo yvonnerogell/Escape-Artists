@@ -567,7 +567,7 @@ namespace UnitTests.Engine.EngineBase
             Assert.AreEqual(true, result);
         }
 
-        /*
+        
         [Test]
         public void TurnEngine_TakeTurn_Ability_Should_Pass()
         {
@@ -586,7 +586,6 @@ namespace UnitTests.Engine.EngineBase
             // Assert
             Assert.AreEqual(true, result);
         }
-        */
 
         [Test]
         public void TurnEngine_TakeTurn_Move_Should_Pass()
@@ -1076,7 +1075,7 @@ namespace UnitTests.Engine.EngineBase
         #endregion TurnAsAttack
 
         #region UseAbility
-        /*
+        
         [Test]
         public void TurnEngine_UseAbility_InValid_Ability_Null_Should_Fail()
         {
@@ -1197,7 +1196,7 @@ namespace UnitTests.Engine.EngineBase
             // Assert
             Assert.AreEqual(true, result);
         }
-        */
+        
         #endregion UseAbility
 
         #region BattleSettings
@@ -1456,7 +1455,6 @@ namespace UnitTests.Engine.EngineBase
             Assert.AreEqual(false, result);
         }
 
-        /*
         [Test]
         public void TurnEngine_ChooseToUseAbility_Valid_Roll_2_Yes_Ability_Should_Return_True()
         {
@@ -1486,11 +1484,10 @@ namespace UnitTests.Engine.EngineBase
             // Assert
             Assert.AreEqual(true, result);
         }
-        */
         #endregion ChooseToUseAbility
 
         #region MoveAsTurn
-        /*
+
         [Test]
         
         public void TurnEngine_MoveAsTurn_Valid_Character_Should_Pass()
@@ -1540,7 +1537,6 @@ namespace UnitTests.Engine.EngineBase
             // Assert
             Assert.AreEqual(true, result);
         }
-        */
 
         [Test]
         public void TurnEngine_MoveAsTurn_Invalid_Monster_InValid_No_Defender_Should_Fail()
@@ -1568,7 +1564,6 @@ namespace UnitTests.Engine.EngineBase
             Assert.AreEqual(false, result);
         }
 
-        /*
         [Test]
         public void TurnEngine_MoveAsTurn_Invalid_Monster_InValid_Defender_Not_On_Map_Should_Fail()
         {
@@ -1620,7 +1615,6 @@ namespace UnitTests.Engine.EngineBase
             // Assert
             Assert.AreEqual(false, result);
         }
-        */
         #endregion MoveAsTurn
 
         #region DetermineCriticalMissProblem
