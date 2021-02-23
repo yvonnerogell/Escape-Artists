@@ -20,9 +20,9 @@
                     <Button Text="Round Over (temp)!" Clicked="RoundOverButton_Clicked"/>
                 </StackLayout>
 
-                <Frame BackgroundColor="{StaticResource New_SecondaryBackgroundColor}" CornerRadius="10">
+                <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" >
                     <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="220" WidthRequest="250">
-                        <Label Text="Professor Frank gives Ray an exam." HorizontalOptions="Center"/>
+                        <Label Text="Professor Frank gives Ray an exam." HorizontalOptions="Center" Padding="15"/>
 
                         <StackLayout Orientation="Horizontal">
                             <Image Source="assistant_professor_monster.png"/>
@@ -30,9 +30,11 @@
 
                         </StackLayout>
 
-                        <StackLayout>
-                            <Button Text="Attack back!" Clicked="AttackBackButton_Clicked"/>
-                        </StackLayout>
+                        <Button Text="Attack back!" Clicked="AttackBackButton_Clicked" CornerRadius="15" FontAttributes="Bold"  
+                                TextColor="{StaticResource New_ButtonTextColor}"
+                                Margin="10"
+                                HorizontalOptions="Center"
+                                BackgroundColor="{StaticResource New_SecondaryBackgroundColor}"/>
 
                     </StackLayout>
 
