@@ -288,12 +288,22 @@ namespace Game.Views
             ShowModalNewRoundPage();
 		}
 
-		/// <summary>
-		/// Start next Round, returning to the battle screen
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		public void AutoAssignButton_Clicked(object sender, EventArgs e)
+        /// <summary>
+        /// Navigates to the GameOverPage. This is a temporary button until the battle engine has been implemented.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void GameOverButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new GameOverPage()));
+        }
+
+        /// <summary>
+        /// Start next Round, returning to the battle screen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void AutoAssignButton_Clicked(object sender, EventArgs e)
 		{
 			// Distribute the Items
 			BattleEngineViewModel.Instance.Engine.Round.PickupItemsForAllCharacters();

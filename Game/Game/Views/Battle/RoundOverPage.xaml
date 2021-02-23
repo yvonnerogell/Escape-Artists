@@ -57,6 +57,8 @@
 
                         <Button Clicked="CloseButton_Clicked" Text="Close"/>
 
+                        <Button Clicked="GameOverButton_Clicked" Text="Game Over! (temp)"/>
+
                     </StackLayout>
                 </ScrollView>
             </StackLayout>
