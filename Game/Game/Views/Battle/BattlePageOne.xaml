@@ -20,7 +20,7 @@
                     <Button Text="Round Over (temp)!" Clicked="RoundOverButton_Clicked"/>
                 </StackLayout>
 
-                <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" >
+                <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
                     <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="220" WidthRequest="250">
                         <Label Text="Professor Frank gives Ray an exam." HorizontalOptions="Center" Padding="15"/>
 
@@ -40,7 +40,7 @@
 
                 </Frame>
 
-                <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}">
+                <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
                     
                     <StackLayout Style="{StaticResource HorizontalCenterStack}" HeightRequest="75" WidthRequest="250">
 
@@ -51,7 +51,7 @@
 
                 </Frame>
 
-                <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}">
+                <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
                     
                     <StackLayout  Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" 
                                   HorizontalOptions="Center" HeightRequest="75" WidthRequest="250">
