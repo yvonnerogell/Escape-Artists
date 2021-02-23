@@ -16,20 +16,25 @@
                 VerticalOptions="Center"
                 HorizontalOptions="Center">
 
-                <StackLayout Style="{StaticResource VerticalCenterStack}" HorizontalOptions="Center">
-                    <Label Text="Professor Frank gives Ray an exam."/>
+                <Frame BackgroundColor="{StaticResource New_SecondaryBackgroundColor}" CornerRadius="10">
+                    <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="220" WidthRequest="250">
+                        <Label Text="Professor Frank gives Ray an exam." HorizontalOptions="Center"/>
 
-                    <StackLayout Orientation="Horizontal">
-                        <Image Source="assistant_professor_monster.png"/>
-                        <Image Source="helicopter_parent.png"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="assistant_professor_monster.png"/>
+                            <Image Source="helicopter_parent.png"/>
+
+                        </StackLayout>
+
+                        <StackLayout>
+                            <Button Text="Attack back!" Clicked="AttackBackButton_Clicked"/>
+                        </StackLayout>
 
                     </StackLayout>
 
-                    <StackLayout>
-                        <Button Text="Attack back!" Clicked="AttackBackButton_Clicked"/>
-                    </StackLayout>
+                </Frame>
 
-                </StackLayout>
+                
 
                 <StackLayout>
                     <Label Text="Health:"/>
