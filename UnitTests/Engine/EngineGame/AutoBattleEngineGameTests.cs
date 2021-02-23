@@ -87,7 +87,7 @@ namespace UnitTests.Engine.EngineGame
             Assert.AreEqual(true, result);
         }
 
-        /*
+        
         [Test]
         public async Task AutoBattleEngine_RunAutoBattle_Valid_Monsters_1_Should_Pass()
         {
@@ -121,8 +121,8 @@ namespace UnitTests.Engine.EngineGame
             Assert.AreEqual(true, result);
         }
         #endregion RunAutoBattle
-        */
-        /*
+        
+        
         #region CreateCharacterParty
         [Test]
         public async Task AutoBattleEngine_CreateCharacterParty_Valid_Characters_Should_Assign_6()
@@ -152,7 +152,7 @@ namespace UnitTests.Engine.EngineGame
             Assert.AreEqual(6, count);
             Assert.AreEqual("6", name);
         }
-        */
+        
 
         [Test]
         public void AutoBattleEngine_CreateCharacterParty_Valid_Characters_CharacterIndex_None_Should_Create_6()
