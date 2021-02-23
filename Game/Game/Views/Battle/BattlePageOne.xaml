@@ -41,22 +41,26 @@
                 </Frame>
 
                 <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}">
+                    
                     <StackLayout Style="{StaticResource HorizontalCenterStack}" HeightRequest="75" WidthRequest="250">
 
                         <Label Text="Health:" FontAttributes="Bold" FontSize="Micro" Padding="5" HorizontalOptions="Center" Style="{StaticResource LabelStyle}"/>
                         <Label Text="GPA:"  FontAttributes="Bold" FontSize="Micro" Padding="5" HorizontalOptions="Center"  Style="{StaticResource LabelStyle}"/>
-
+                        
                     </StackLayout>
 
                 </Frame>
 
-                <Frame BackgroundColor="{StaticResource New_SecondaryBackgroundColor}" CornerRadius="10">
-                    <StackLayout  Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" MinimumHeightRequest="75" WidthRequest="250">
+                <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}">
+                    
+                    <StackLayout  Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" 
+                                  HorizontalOptions="Center" HeightRequest="75" WidthRequest="250">
 
                         <Label 
                             Text="Battle Messages"
                             Style="{StaticResource CenterMessageStyle}"
                             FontSize="Micro"
+                            FontAttributes="Bold"
                             LineBreakMode="WordWrap"
                             MaxLines="5"
                         />
