@@ -50,7 +50,7 @@ namespace Game.Views
             BattleEngineViewModel.Instance.SetBattleEngineToKoenig();
 
             // Create and Draw the Map
-            InitializeMapGrid();
+            //InitializeMapGrid();
 
             // Start the Battle Engine
             BattleEngineViewModel.Instance.Engine.StartBattle(false);
@@ -65,7 +65,10 @@ namespace Game.Views
             // DrawGameAttackerDefenderBoard();
 
             // Add players to display:
-            AttackTextLabel.Text = GetAttackText();
+            // TODO: This is just hardcoded placeholders. Will need to be changed to pull data from BattleEngineViewModel
+            var currentAttacker = new PlayerInfoModel(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
+            var currentDefender = new PlayerInfoModel(new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character });
+            AttackTextLabel.Text = GetAttackText(currentAttacker, currentDefender);
 
             // Set the Battle Mode
             // ShowBattleMode();
@@ -79,12 +82,9 @@ namespace Game.Views
         /// </summary>
         /// <param name=""></param>
         /// <returns></returns>
-        public string GetAttackText()
+        public string GetAttackText(PlayerInfoModel currentAttacker, PlayerInfoModel currentDefender)
 		{
             string attackText = "";
-            // TODO: This is just hardcoded placeholders. Will need to be changed to pull data from BattleEngineViewModel
-            var currentAttacker = new PlayerInfoModel(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
-            var currentDefender = new PlayerInfoModel(new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character });
 
             if (currentAttacker.PlayerType == PlayerTypeEnum.Monster)
 			{
@@ -113,7 +113,7 @@ namespace Game.Views
                 {
                     attackText += currentAttacker.Name;
                     attackText += " studies hard for ";
-                    attackText += currentAttacker.MonsterTypeEnum.ToString();
+                    attackText += currentDefender.MonsterTypeEnum.ToString();
                     attackText += " ";
                     attackText += currentDefender.Name;
                     attackText += "'s exam.";
@@ -122,9 +122,10 @@ namespace Game.Views
                 {
                     attackText += currentAttacker.Name;
                     attackText += " fills out all forms from ";
-                    attackText += currentAttacker.MonsterTypeEnum.ToString();
+                    attackText += currentDefender.MonsterTypeEnum.ToString();
                     attackText += " ";
                     attackText += currentDefender.Name;
+                    attackText += ".";
                 }
             }
             return attackText;
@@ -169,6 +170,7 @@ namespace Game.Views
         }
         */
 
+        /*
         /// <summary>
         /// Put the Player into a Display Box
         /// </summary>
@@ -202,9 +204,11 @@ namespace Game.Views
 
             return PlayerStack;
         }
+        */
 
         #region BattleMapMode
 
+        /*
         /// <summary>
         /// Create the Initial Map Grid
         /// 
@@ -217,6 +221,7 @@ namespace Game.Views
 
             return true;
         }
+        */
 
         /// <summary>
         /// Navigates to Battle Page 2
@@ -263,6 +268,7 @@ namespace Game.Views
         }
         */
 
+        /*
         /// <summary>
         /// Walk the current grid
         /// check each cell to see if it matches the engine map
@@ -312,7 +318,9 @@ namespace Game.Views
 
             return true;
         }
+        */
 
+        /*
         /// <summary>
         /// Convert the Stack to a name for the dictionary to lookup
         /// </summary>
@@ -343,6 +351,7 @@ namespace Game.Views
             // Look up the Frame in the Dictionary
             return string.Format("MapR{0}C{1}ImageButton", data.Row, data.Column);
         }
+        */
 
         /*
         /// <summary>
@@ -378,6 +387,7 @@ namespace Game.Views
         }
         */
 
+        /*
         /// <summary>
         /// Get the Frame from the Dictionary
         /// </summary>
@@ -388,7 +398,9 @@ namespace Game.Views
             MapLocationObject.TryGetValue(name, out object data);
             return data;
         }
+        */
 
+        /*
         /// <summary>
         /// Make the Game Map Frame 
         /// Place the Character or Monster on the frame
@@ -429,7 +441,9 @@ namespace Game.Views
 
             return MapFrame;
         }
+        */
 
+        /*
         /// <summary>
         /// This add the ImageButton to the stack to kep track of
         /// </summary>
@@ -452,7 +466,9 @@ namespace Game.Views
 
             return true;
         }
+        */
 
+        /*
         /// <summary>
         /// This adds the Stack into the Dictionary to keep track of
         /// </summary>
@@ -474,7 +490,9 @@ namespace Game.Views
             MapLocationObject.Add(name, data);
             return true;
         }
+        */
 
+        /*
         /// <summary>
         /// Set the Image onto the map
         /// The Image represents the player
@@ -518,7 +536,9 @@ namespace Game.Views
 
             return data;
         }
+        */
 
+        /*
         /// <summary>
         /// Set the Background color for the tile.
         /// Monsters and Characters have different colors
@@ -546,13 +566,19 @@ namespace Game.Views
             var result = (Color)Application.Current.Resources[BattleMapBackgroundColor];
             return result;
         }
+        */
 
+        
         #region MapEvents
+        
         /// <summary>
         /// Event when an empty location is clicked on
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
+        /// 
+        
+        /*
         public bool SetSelectedEmpty(MapModelLocation data)
         {
             // TODO: Info
@@ -563,9 +589,10 @@ namespace Game.Views
              * 
              * For Mike's simple battle grammar there is no selection of action so I just return true
              */
-
+        /*
             return true;
         }
+    
 
         /// <summary>
         /// Event when a Monster is clicked on
@@ -582,18 +609,22 @@ namespace Game.Views
              * 
              * For Mike's simple battle grammar there is no selection of action so I just return true
              */
-
+        /*
             data.IsSelectedTarget = true;
             return true;
         }
+        */
 
         /// <summary>
         /// Event when a Character is clicked on
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
+        /// 
+        /*
         public bool SetSelectedCharacter(MapModelLocation data)
-        {
+        { 
+        */
             // TODO: Info
 
             /*
@@ -602,10 +633,13 @@ namespace Game.Views
              * 
              * For Mike's simple battle grammar there is no selection of action so I just return true
              */
-
+            /*
             return true;
         }
+            */
+    
         #endregion MapEvents
+    
 
         #endregion BattleMapMode
 

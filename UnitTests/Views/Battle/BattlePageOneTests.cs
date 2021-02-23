@@ -79,20 +79,35 @@ namespace UnitTests.Views
             // Assert
             Assert.IsNotNull(result);
         }
-        /*
+        
         [Test]
-        public void BattlePage_AttackButton_Clicked_Default_Should_Pass()
+        public void BattlePage_AttackBackButton_Clicked_Default_Should_Pass()
         {
             // Arrange
 
             // Act
-            page.AttackButton_Clicked(null, null);
+            page.AttackBackButton_Clicked(null, null);
 
             // Reset
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
+
+        [Test]
+        public void BattlePage_RoundOverButton_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            page.RoundOverButton_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+        /*
 
         [Test]
         public void BattlePage_ShowScoreButton_Clicked_Default_Should_Pass()
@@ -525,6 +540,70 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
+        [Test]
+        public void BattlePage_GetAttackerText_Monster_Faculty_Character_Student_Should_Pass()
+        {
+            // Arrange
+            var currentAttacker = new PlayerInfoModel(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
+            var currentDefender = new PlayerInfoModel(new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character });
+
+            // Act
+            var result = GetAttackText(currentAttacker, currentDefender);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Faculty Honkey gives Minnie an exam.", result); 
+        }
+
+        [Test]
+        public void BattlePage_GetAttackerText_Monster_Administrator_Character_Student_Should_Pass()
+        {
+            // Arrange
+            var currentAttacker = new PlayerInfoModel(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Administrator, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
+            var currentDefender = new PlayerInfoModel(new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character });
+
+            // Act
+            var result = GetAttackText(currentAttacker, currentDefender);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Administrator Honkey gives Minnie forms to fill out.", result);
+        }
+
+        [Test]
+        public void BattlePage_GetAttackerText_Attacker_Student_Monster_Defender_Faculty_Should_Pass()
+        {
+            // Arrange
+            var currentAttacker = new PlayerInfoModel(new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character });
+            var currentDefender = new PlayerInfoModel(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
+
+            // Act
+            var result = GetAttackText(currentAttacker, currentDefender);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Minnie studies hard for Faculty Honkey's exam.", result);
+        }
+
+        [Test]
+        public void BattlePage_GetAttackerText_Attacker_Student_Monster_Defender_Administrator_Should_Pass()
+        {
+            // Arrange
+            var currentAttacker = new PlayerInfoModel(new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character });
+            var currentDefender = new PlayerInfoModel(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Administrator, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
+
+            // Act
+            var result = GetAttackText(currentAttacker, currentDefender);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Minnie fills out all forms from Administrator Honkey.", result);
+        }
+
         /*
         [Test]
         public void BattlePage_GameOver_Default_Should_Pass()
@@ -541,6 +620,7 @@ namespace UnitTests.Views
         }
         */
 
+        /*
         [Test]
         public void BattlePage_SetSelectedCharacter_Default_Should_Pass()
         {
@@ -582,7 +662,9 @@ namespace UnitTests.Views
             // Assert
             Assert.AreEqual(true, result); // Got to here, so it happened...
         }
+        */
 
+        /*
         [Test]
         public void BattlePage_UpdateMapGrid_InValid_Bogus_Image_Should_Fail()
         {
@@ -616,7 +698,9 @@ namespace UnitTests.Views
             // Assert
             Assert.AreEqual(false, result); // Got to here, so it happened...
         }
+        */
 
+        /*
         [Test]
         public void BattlePage_UpdateMapGrid_InValid_Bogus_Stack_Should_Fail()
         {
@@ -644,6 +728,7 @@ namespace UnitTests.Views
             // Assert
             Assert.AreEqual(false, result); // Got to here, so it happened...
         }
+        */
 
         /*
         [Test]
@@ -710,6 +795,7 @@ namespace UnitTests.Views
         }
         */
 
+        /*
         [Test]
         public void BattleSettingsPage_MakeMapGridBox_InValid_Should_Fail()
         {
@@ -724,6 +810,7 @@ namespace UnitTests.Views
             // Assert
             Assert.AreEqual(HitStatusEnum.Default, BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.CharacterHitEnum);
         }
+        */
 
         /*
         [Test]
