@@ -214,8 +214,10 @@ namespace Game.Engine.EngineGame
 
             // TODO: Teams, You need to implement your own Logic can not use mine.
 
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
 
+            // TODO: remove base!!
+            return base.SelectMonsterToAttack();
         }
 
         /// <summary>

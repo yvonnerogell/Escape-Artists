@@ -258,7 +258,8 @@ namespace Game.Engine.EngineGame
         /// </summary>
         public override ItemModel SwapCharacterItem(PlayerInfoModel character, ItemLocationEnum setLocation, ItemModel PoolItem)
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
+            return base.SwapCharacterItem(character, setLocation, PoolItem);
         }
 
         /// <summary>
