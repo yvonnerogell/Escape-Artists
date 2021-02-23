@@ -162,7 +162,7 @@ namespace Game.Views
         /// <returns></returns>
         public async void SelectCharacterButton_Clicked(object sender, EventArgs e)
         { 
-            // TODO add navigation to BattlePageTwo
+            await Navigation.PushModalAsync(new NavigationPage(new BattlePageTwo()));
         }
 
         /// <summary>
