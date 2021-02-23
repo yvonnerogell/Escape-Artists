@@ -23,7 +23,7 @@
 
                 <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
                     <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="250" WidthRequest="250">
-                        <Label Text="Professor Frank gives Ray an exam." HorizontalOptions="Center" Padding="15"/>
+                        <Label x:Name="AttackTextLabel" HorizontalOptions="Center" Padding="15"/>
 
                         <StackLayout Orientation="Horizontal">
                             <Image Source="assistant_professor_monster.png"/>
@@ -48,8 +48,8 @@
                     
                     <StackLayout Style="{StaticResource HorizontalCenterStack}" HeightRequest="75" WidthRequest="250" HorizontalOptions="Center" VerticalOptions="Center">
 
-                        <Label Text="Health:" FontAttributes="Bold" FontSize="Micro" Padding="5" HorizontalOptions="Center" Style="{StaticResource LabelStyle}"/>
-                        <Label Text="GPA:"  FontAttributes="Bold" FontSize="Micro" Padding="5" HorizontalOptions="Center"  Style="{StaticResource LabelStyle}"/>
+                        <Label Text="Health:" FontAttributes="Bold" FontSize="Micro" Padding="20, 5, 0, 5" HorizontalOptions="Start" Style="{StaticResource LabelStyle}"/>
+                        <Label Text="GPA:"  FontAttributes="Bold" FontSize="Micro" Padding="5, 5, 20, 5" HorizontalOptions="EndAndExpand"  Style="{StaticResource LabelStyle}"/>
                         
                     </StackLayout>
 

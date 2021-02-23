@@ -90,6 +90,8 @@ namespace Game.Models
             Level = data.Level;
             Name = data.Name;
             Description = data.Description;
+            MonsterTypeEnum = data.MonsterTypeEnum;
+            CharacterTypeEnum = data.CharacterTypeEnum;
 
             // Set the Base Attributes
             Speed = data.Speed;
@@ -152,6 +154,8 @@ namespace Game.Models
             ImageURI = data.ImageURI;
             MaxHealth = data.GetMaxHealthTotal;
             CurrentHealth = data.GetCurrentHealthTotal;
+            MonsterTypeEnum = data.MonsterTypeEnum;
+            CharacterTypeEnum = data.CharacterTypeEnum;
 
             // Set the Base Attributes
             Speed = data.Speed;

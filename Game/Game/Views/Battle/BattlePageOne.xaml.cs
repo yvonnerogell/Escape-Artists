@@ -64,9 +64,115 @@ namespace Game.Views
             // Add Players to Display
             // DrawGameAttackerDefenderBoard();
 
+            // Add players to display:
+            var players = GetCurrentAttackerDefender();
+            var attackText = GetAttackText(players);
+            AttackTextLabel.Text = attackText;
+
             // Set the Battle Mode
             // ShowBattleMode();
         }
+
+        /// <summary>
+        /// Gets the current attacker and defender as a list of PlayerInfoModels. Attacker is at element 1 and defender at element 2.
+        /// TODO revise to make sure this works with our battle engine.
+        /// </summary>
+        /// <returns></returns>
+        public List<PlayerInfoModel> GetCurrentAttackerDefender()
+		{
+            Random rand = new Random();
+
+            List<PlayerInfoModel> characters = new List<PlayerInfoModel>();
+            characters.Add(new PlayerInfoModel(new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character }));
+            characters.Add(new PlayerInfoModel(new CharacterModel { Name = "Mickey", CurrentHealth = 2, GPA = 76, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character }));
+            characters.Add(new PlayerInfoModel(new CharacterModel { Name = "Goofey", CurrentHealth = 34, GPA = 98, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character }));
+            characters.Add(new PlayerInfoModel(new CharacterModel { Name = "Donald", CurrentHealth = 5, GPA = 34, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character }));
+            characters.Add(new PlayerInfoModel(new CharacterModel { Name = "Ronnie", CurrentHealth = 45, GPA = 82, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character }));
+
+            List<PlayerInfoModel> monsters = new List<PlayerInfoModel>();
+            monsters.Add(new PlayerInfoModel(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster }));
+            monsters.Add(new PlayerInfoModel(new MonsterModel { Name = "Tonkey", MonsterTypeEnum = MonsterTypeEnum.Administrator, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.GraduationOfficeAdministrator, PlayerType = PlayerTypeEnum.Monster }));
+            monsters.Add(new PlayerInfoModel(new MonsterModel { Name = "Ponkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.Professor, PlayerType = PlayerTypeEnum.Monster }));
+            monsters.Add(new PlayerInfoModel(new MonsterModel { Name = "Swonkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.TeachingAssistant, PlayerType = PlayerTypeEnum.Monster}));
+            monsters.Add(new PlayerInfoModel(new MonsterModel { Name = "Ronkey", MonsterTypeEnum = MonsterTypeEnum.Administrator, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.RegistrationAdministrator, PlayerType = PlayerTypeEnum.Monster }));
+
+            List<PlayerInfoModel> players = new List<PlayerInfoModel>();
+
+            // Select whether character or monster is attacker. 0=monster, 1=character
+            var num = rand.Next(2);
+            if (num == 0)
+			{
+                num = rand.Next(monsters.Count);
+                players.Add(monsters.ElementAt(num));
+                num = rand.Next(characters.Count);
+                players.Add(characters.ElementAt(num));
+            }
+            if (num == 1)
+			{
+                num = rand.Next(characters.Count);
+                players.Add(characters.ElementAt(num));
+                num = rand.Next(monsters.Count);
+                players.Add(monsters.ElementAt(num));
+            }
+
+            return players;
+        }
+
+        /// <summary>
+        /// 
+        /// Returns the attack text for two players. 
+        /// </summary>
+        /// <param name=""></param>
+        /// <returns></returns>
+        public string GetAttackText(List<PlayerInfoModel> players)
+		{
+            string attackText = "";
+            var currentAttacker = players.ElementAt(0);
+            var currentDefender = players.ElementAt(1);
+
+            if (currentAttacker.PlayerType == PlayerTypeEnum.Monster)
+			{
+                if (currentAttacker.MonsterTypeEnum == MonsterTypeEnum.Faculty)
+				{
+                    attackText += currentAttacker.MonsterTypeEnum.ToString();
+                    attackText += " ";
+                    attackText += currentAttacker.Name;
+                    attackText += " gives ";
+                    attackText += currentDefender.Name;
+                    attackText += " an exam.";
+                }
+                if (currentAttacker.MonsterTypeEnum == MonsterTypeEnum.Administrator)
+				{
+                    attackText += currentAttacker.MonsterTypeEnum.ToString();
+                    attackText += " ";
+                    attackText += currentAttacker.Name;
+                    attackText += " gives ";
+                    attackText += currentDefender.Name;
+                    attackText += " forms to fill out.";
+                }
+            }
+            if (currentAttacker.PlayerType == PlayerTypeEnum.Character)
+			{
+                if (currentDefender.MonsterTypeEnum == MonsterTypeEnum.Faculty)
+                {
+                    attackText += currentAttacker.Name;
+                    attackText += " studies hard for ";
+                    attackText += currentAttacker.MonsterTypeEnum.ToString();
+                    attackText += " ";
+                    attackText += currentDefender.Name;
+                    attackText += "'s exam.";
+                }
+                if (currentDefender.MonsterTypeEnum == MonsterTypeEnum.Administrator)
+                {
+                    attackText += currentAttacker.Name;
+                    attackText += " fills out all forms from ";
+                    attackText += currentAttacker.MonsterTypeEnum.ToString();
+                    attackText += " ";
+                    attackText += currentDefender.Name;
+                }
+            }
+            return attackText;
+		}
 
         /*
         /// <summary>
