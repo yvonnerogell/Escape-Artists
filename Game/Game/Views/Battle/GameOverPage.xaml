@@ -44,7 +44,9 @@
                 
                 <Button Clicked="CloseButton_Clicked" Text="Close"/>
 
-        </StackLayout>
+                <Button Clicked="YourScoreButton_Clicked" Text="Your Score"/>
+
+            </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>

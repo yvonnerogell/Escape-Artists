@@ -199,5 +199,15 @@ namespace Game.Views
         {
             await Navigation.PopModalAsync();
         }
+
+        /// <summary>
+        /// Open up the Your Score Page. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void YourScoreButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new ScorePage()));
+        }
     }
 }
