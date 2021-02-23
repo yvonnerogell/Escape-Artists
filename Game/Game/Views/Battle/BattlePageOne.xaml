@@ -63,6 +63,7 @@
                             FontAttributes="Bold"
                             LineBreakMode="WordWrap"
                             MaxLines="5"
+                            Padding="5"
                         />
                     </StackLayout>
                 </Frame>
