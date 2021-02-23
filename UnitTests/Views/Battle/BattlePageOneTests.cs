@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using System.Collections.Generic;
 
 using NUnit.Framework;
 
@@ -633,6 +634,65 @@ namespace UnitTests.Views
             // Assert
             Assert.AreEqual("15", result);
         }
+
+        [Test]
+        public void BattlePage_GetBattleMessages_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = GetBattleMessages();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Faculty Honkey gives Minnie an exam.", result[0]);
+            Assert.AreEqual("Goofey passes the exam with flying colors.", result[1]);
+            Assert.AreEqual("Administrator Frothy gives Mike forms to fill out.", result[2]);
+            Assert.AreEqual("Jocey fills out all the forms from Frothy.", result[3]);
+            Assert.AreEqual("Minnie studies hard from Professor Frank's exam.", result[4]);
+        }
+
+        /*
+        [Test]
+        public void BattlePage_SetBattleMessages_Should_Pass()
+        {
+            // Arrange
+            List<string> messages = new List<string>();
+            messages.Add("Faculty Honkey gives Minnie an exam.");
+            messages.Add("Goofey passes the exam with flying colors.");
+            messages.Add("Administrator Frothy gives Mike forms to fill out.");
+            messages.Add("Jocey fills out all the forms from Frothy.");
+            messages.Add("Minnie studies hard from Professor Frank's exam.");
+
+            // Set just some default text
+            ((Label)page.FindByName("BattleMessage1Label")).Text = "Hello" ;
+            ((Label)page.FindByName("BattleMessage2Label")).Text = "Hello";
+            ((Label)page.FindByName("BattleMessage3Label")).Text = "Hello";
+            ((Label)page.FindByName("BattleMessage4Label")).Text = "Hello";
+            ((Label)page.FindByName("BattleMessage5Label")).Text = "Hello";
+
+
+            // Act
+            SetBattleMessages(messages);
+
+            var m1 = ((Label)page.FindByName("BattleMessage1Label")).Text;
+            var m2 = ((Label)page.FindByName("BattleMessage2Label")).Text;
+            var m3 = ((Label)page.FindByName("BattleMessage3Label")).Text;
+            var m4 = ((Label)page.FindByName("BattleMessage4Label")).Text;
+            var m5 = ((Label)page.FindByName("BattleMessage5Label")).Text;
+
+            // Reset
+
+
+            // Assert
+            Assert.AreEqual("Faculty Honkey gives Minnie an exam.", m1);
+            Assert.AreEqual("Goofey passes the exam with flying colors.", m2);
+            Assert.AreEqual("Administrator Frothy gives Mike forms to fill out.", m3);
+            Assert.AreEqual("Jocey fills out all the forms from Frothy.", m4);
+            Assert.AreEqual("Minnie studies hard from Professor Frank's exam.", m5);
+        }
+        */
 
         /*
         [Test]
