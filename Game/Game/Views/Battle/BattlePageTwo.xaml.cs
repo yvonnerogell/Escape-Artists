@@ -160,9 +160,9 @@ namespace Game.Views
         /// All lcoations are empty
         /// </summary>
         /// <returns></returns>
-        public async void SelectCharacterButton_Clicked(object sender, EventArgs e)
+        public async void AttackBackButton_Clicked(object sender, EventArgs e)
         { 
-            // TODO add navigation to BattlePageTwo
+            // TODO add navigation to BattlePageOne
         }
 
         /// <summary>
