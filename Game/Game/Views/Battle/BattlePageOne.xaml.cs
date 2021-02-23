@@ -46,6 +46,9 @@ namespace Game.Views
             // Set up the UI to Defaults
             BindingContext = BattleEngineViewModel.Instance;
 
+            // TODO for team: remove this once we are ready to use our own battle engine.
+            BattleEngineViewModel.Instance.SetBattleEngineToKoenig();
+
             // Create and Draw the Map
             InitializeMapGrid();
 

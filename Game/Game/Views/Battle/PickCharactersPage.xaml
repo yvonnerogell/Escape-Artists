@@ -8,6 +8,10 @@
              x:Class="Game.Views.PickCharactersPage"
              Title="{Binding Title}">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="BattlePageOne" Clicked="OnBattlePageOne_Clicked" IconImageSource="icon_cancel.png"/>
+    </ContentPage.ToolbarItems>
+
     <ContentPage.Content>
         <ScrollView VerticalScrollBarVisibility="Never">
             <StackLayout Style="{StaticResource OuterBoxStack}">
