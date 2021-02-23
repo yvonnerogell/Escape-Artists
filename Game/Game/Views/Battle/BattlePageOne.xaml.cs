@@ -66,9 +66,12 @@ namespace Game.Views
 
             // Add players to display:
             // TODO: This is just hardcoded placeholders. Will need to be changed to pull data from BattleEngineViewModel
+            var currentCharacter = new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character };
             var currentAttacker = new PlayerInfoModel(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
-            var currentDefender = new PlayerInfoModel(new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character });
+            var currentDefender = new PlayerInfoModel(currentCharacter);
+            
             AttackTextLabel.Text = GetAttackText(currentAttacker, currentDefender);
+            GPAValueLabel.Text = GetCharacterGPA(currentCharacter);
 
             // Set the Battle Mode
             // ShowBattleMode();
@@ -129,6 +132,17 @@ namespace Game.Views
                 }
             }
             return attackText;
+		}
+
+        /// <summary>
+        /// 
+        /// Returns the GPA of the current character. 
+        /// </summary>
+        /// <returns></returns>
+        public string GetCharacterGPA(CharacterModel currentCharacter)
+		{
+            // TODO change to pull data from BattleEngineViewModel. 
+            return currentCharacter.GPA.ToString();
 		}
 
         /*
