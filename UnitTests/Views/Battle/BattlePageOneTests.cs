@@ -604,6 +604,36 @@ namespace UnitTests.Views
             Assert.AreEqual("Minnie fills out all forms from Administrator Honkey.", result);
         }
 
+        [Test]
+        public void BattlePage_GetCharacterGPA_67_Should_Pass()
+        {
+            // Arrange
+            var currentCharacter = new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character };
+
+            // Act
+            var result = GetCharacterGPA(currentCharacter);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("67", result);
+        }
+
+        [Test]
+        public void BattlePage_GetCharacterHealth_15_Should_Pass()
+        {
+            // Arrange
+            var currentCharacter = new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character };
+
+            // Act
+            var result = GetCharacterHealth(currentCharacter);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("15", result);
+        }
+
         /*
         [Test]
         public void BattlePage_GameOver_Default_Should_Pass()
