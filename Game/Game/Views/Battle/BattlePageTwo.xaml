@@ -23,19 +23,19 @@
                         <StackLayout Orientation="Horizontal">
 
                             <ImageButton
-                            Source="{x:Static local:Constants.SpecificCharacterTypeDefaultImageURI}"
+                            Source="{Binding Source=BattleEngineViewModel.GetCharacterList}"
                             HorizontalOptions="EndAndExpand"
                             Style="{StaticResource GamePageMenuImageButton}"/>
                             <Button Opacity="0" Clicked="Character1_Clicked"/>
 
                             <ImageButton
-                            Source="{x:Static local:Constants.SpecificCharacterTypeDefaultImageURI}"
+                            Source="{Binding Source=BattleEngineViewModel.GetCharacterList}"
                             HorizontalOptions="EndAndExpand"
                             Style="{StaticResource GamePageMenuImageButton}"/>
                             <Button Opacity="0" Clicked="Character2_Clicked"/>
 
                             <ImageButton
-                            Source="{x:Static local:Constants.SpecificCharacterTypeDefaultImageURI}"
+                            Source="{Binding Source=BattleEngineViewModel.GetCharacterList}"
                             HorizontalOptions="EndAndExpand"
                             Style="{StaticResource GamePageMenuImageButton}"/>
                             <Button Opacity="0" Clicked="Character3_Clicked"/>
@@ -50,19 +50,19 @@
                         <StackLayout Orientation="Horizontal">
 
                             <ImageButton
-                                Source="{x:Static local:Constants.SpecificMonsterTypeDefaultImageURI}"
+                                Source="{Binding Source=BattleEngineViewModel.GetMonsterList}"
                                 HorizontalOptions="EndAndExpand"
                                 Style="{StaticResource GamePageMenuImageButton}"/>
                             <Button Opacity="0" Clicked="Monster1_Clicked"/>
 
                             <ImageButton
-                                Source="{x:Static local:Constants.SpecificMonsterTypeDefaultImageURI}"
+                                Source="{Binding Source=BattleEngineViewModel.GetMonsterList}"
                                 HorizontalOptions="EndAndExpand"
                                 Style="{StaticResource GamePageMenuImageButton}"/>
                             <Button Opacity="0" Clicked="Monster2_Clicked"/>
 
                             <ImageButton
-                                Source="{x:Static local:Constants.SpecificMonsterTypeDefaultImageURI}"
+                                Source="{Binding Source=BattleEngineViewModel.GetMonsterList}"
                                 HorizontalOptions="EndAndExpand"
                                 Style="{StaticResource GamePageMenuImageButton}"/>
                             <Button Opacity="0" Clicked="Monster3_Clicked"/>
