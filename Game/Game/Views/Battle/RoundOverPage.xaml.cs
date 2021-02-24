@@ -220,6 +220,24 @@ namespace Game.Views
         }
 
         /// <summary>
+        /// Add the Dropped Items to the Display
+        /// </summary>
+        public void DrawSelectedStubItems(List<ItemModel> items)
+        {
+            // Clear and Populate the Dropped Items
+            var FlexList = ItemListSelectedFrame.Children.ToList();
+            foreach (var data in FlexList)
+            {
+                ItemListSelectedFrame.Children.Remove(data);
+            }
+
+            foreach (var data in items)
+            {
+                ItemListSelectedFrame.Children.Add(GetItemToDisplay(data));
+            }
+        }
+
+        /// <summary>
         /// Look up the Item to Display
         /// </summary>
         /// <param name="location"></param>
@@ -403,6 +421,7 @@ namespace Game.Views
         /// <param name="e"></param>
         public void AutoAssignButton_Clicked(object sender, EventArgs e)
 		{
+            List<ItemModel> selectedItems = new List<ItemModel>();
             if (UseStubData)
 			{
                 var characters = GetCharacterStubList();
@@ -411,50 +430,78 @@ namespace Game.Views
                 for (var i = 0; i < characters.Count; ++i)
 				{
                     var character = characters.ElementAt(i);
-                    if (character.Feet != null)
+                    if (character.Feet == null || character.Feet == "None")
 					{
-                        var item = FindItemForLocation(character.Feet, items);
+                        var item = FindItemForLocation(ItemLocationEnum.Feet, items);
                         if (item != null)
 						{
                             character.Feet = item.ToString();
-						}
+                            selectedItems.Add(item);
+                            items.Remove(item);
+                        }
 					}
-                    if (character.Head != null)
+                    else if (character.Head == null || character.Head == "None")
                     {
-                        var item = FindItemForLocation(character.Head, items);
+                        var item = FindItemForLocation(ItemLocationEnum.Head, items);
                         if (item != null)
                         {
                             character.Head = item.ToString();
+                            selectedItems.Add(item);
+                            items.Remove(item);
                         }
                     }
-                    if (character.LeftFinger != null)
+                    else if (character.LeftFinger == null || character.LeftFinger == "None")
                     {
-                        var item = FindItemForLocation(character.LeftFinger, items);
+                        var item = FindItemForLocation(ItemLocationEnum.LeftFinger, items);
                         if (item != null)
                         {
-                            character.LeftFinger = item.ToString();
+                            character.LeftFinger = item.ToString(); 
+                            selectedItems.Add(item);
+                            items.Remove(item);
                         }
                     }
-                    if (character.Necklace != null)
+                    else if (character.Necklace == null || character.Necklace == "None")
                     {
-                        var item = FindItemForLocation(character.Necklace, items);
+                        var item = FindItemForLocation(ItemLocationEnum.Necklace, items);
                         if (item != null)
                         {
                             character.Necklace = item.ToString();
+                            selectedItems.Add(item);
+                            items.Remove(item);
                         }
                     }
-                    if (character.OffHand != null)
+                    else if (character.OffHand == null || character.OffHand == "None")
                     {
-                        var item = FindItemForLocation(character.OffHand, items);
+                        var item = FindItemForLocation(ItemLocationEnum.OffHand, items);
                         if (item != null)
                         {
                             character.OffHand = item.ToString();
+                            selectedItems.Add(item);
+                            items.Remove(item);
                         }
                     }
-
+                    else if (character.PrimaryHand == null || character.PrimaryHand == "None")
+                    {
+                        var item = FindItemForLocation(ItemLocationEnum.PrimaryHand, items);
+                        if (item != null)
+                        {
+                            character.PrimaryHand = item.ToString();
+                            selectedItems.Add(item); 
+                            items.Remove(item);
+                        }
+                    }
+                    else if (character.RightFinger == null || character.RightFinger == "None")
+                    {
+                        var item = FindItemForLocation(ItemLocationEnum.RightFinger, items);
+                        if (item != null)
+                        {
+                            character.RightFinger = item.ToString();
+                            selectedItems.Add(item);
+                            items.Remove(item);
+                        }
+                    }
                 }
-
-
+                DrawSelectedStubItems(selectedItems);
             }
 
             // TODO: Revisit this method once our battle engine is up and running to make
@@ -463,11 +510,9 @@ namespace Game.Views
 			{
                 // Distribute the Items
                 BattleEngineViewModel.Instance.Engine.Round.PickupItemsForAllCharacters();
+                // Show what was picked up
+                DrawItemLists();
             }
-			
-
-            // Show what was picked up
-            DrawItemLists();
         }
 
         /// <summary>
@@ -476,11 +521,11 @@ namespace Game.Views
         /// <param name="location"></param>
         /// <param name="items"></param>
         /// <returns></returns>
-        public ItemModel FindItemForLocation(string location, List<ItemModel> items)
+        public ItemModel FindItemForLocation(ItemLocationEnum location, List<ItemModel> items)
 		{
             foreach (var item in items)
 			{
-                if (item.Location.ToString() == location)
+                if (item.Location.ToString() == location.ToString())
 				{
                     return item;
 				}
