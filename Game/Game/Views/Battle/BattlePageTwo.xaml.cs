@@ -50,24 +50,25 @@ namespace Game.Views
             BattleEngineViewModel.Instance.SetBattleEngineToKoenig();
 
             // Create and Draw the Map
-            InitializeMapGrid();
+           // InitializeMapGrid();
 
             // Start the Battle Engine
             BattleEngineViewModel.Instance.Engine.StartBattle(false);
 
             // Populate the UI Map
-            DrawMapGridInitialState();
+            // DrawMapGridInitialState();
 
             // Ask the Game engine to select who goes first
             BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
 
             // Add Players to Display
-            DrawGameAttackerDefenderBoard();
+            // DrawGameAttackerDefenderBoard();
 
             // Set the Battle Mode
-            ShowBattleMode();
+            // ShowBattleMode();
         }
 
+        /*
         /// <summary>
         /// Dray the Player Boxes
         /// </summary>
@@ -153,6 +154,7 @@ namespace Game.Views
 
             return true;
         }
+        */
 
         /// <summary>
         /// Navigates to Battle Page 2
@@ -161,10 +163,11 @@ namespace Game.Views
         /// </summary>
         /// <returns></returns>
         public async void OnAttackButton_Clicked(object sender, EventArgs e)
-        { 
-            // TODO add navigation to BattlePageOne
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
         }
 
+        /*
         /// <summary>
         /// Draw the Map Grid
         /// Add the Players to the Map
@@ -466,6 +469,7 @@ namespace Game.Views
             var result = (Color)Application.Current.Resources[BattleMapBackgroundColor];
             return result;
         }
+        */
 
         #region MapEvents
         /// <summary>
@@ -473,8 +477,9 @@ namespace Game.Views
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public bool SetSelectedEmpty(MapModelLocation data)
-        {
+        /// 
+       // public bool SetSelectedEmpty(MapModelLocation data)
+       // {
             // TODO: Info
 
             /*
@@ -484,16 +489,16 @@ namespace Game.Views
              * For Mike's simple battle grammar there is no selection of action so I just return true
              */
 
-            return true;
-        }
+       //     return true;
+       // }
 
         /// <summary>
         /// Event when a Monster is clicked on
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public bool SetSelectedMonster(MapModelLocation data)
-        {
+     //   public bool SetSelectedMonster(MapModelLocation data)
+       // {
             // TODO: Info
 
             /*
@@ -503,17 +508,17 @@ namespace Game.Views
              * For Mike's simple battle grammar there is no selection of action so I just return true
              */
 
-            data.IsSelectedTarget = true;
-            return true;
-        }
+       //     data.IsSelectedTarget = true;
+         //   return true;
+       // }
 
         /// <summary>
         /// Event when a Character is clicked on
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public bool SetSelectedCharacter(MapModelLocation data)
-        {
+     //   public bool SetSelectedCharacter(MapModelLocation data)
+      //  {
             // TODO: Info
 
             /*
@@ -523,14 +528,15 @@ namespace Game.Views
              * For Mike's simple battle grammar there is no selection of action so I just return true
              */
 
-            return true;
-        }
+       //     return true;
+     //   }
         #endregion MapEvents
 
-        #endregion BattleMapMode
+      //  #endregion BattleMapMode
 
         #region BasicBattleMode
 
+        /*
         /// <summary>
         /// Draw the UI for
         ///
@@ -551,6 +557,9 @@ namespace Game.Views
             // Show the Attacker and Defender
             DrawGameBoardAttackerDefenderSection();
         }
+        */
+
+        /*
 
         /// <summary>
         /// Draws the Game Board Attacker and Defender
@@ -611,7 +620,9 @@ namespace Game.Views
 
             BattlePlayerBoxVersus.Text = string.Empty;
         }
+        */
 
+        /*
         /// <summary>
         /// Attack Action
         /// </summary>
@@ -621,7 +632,9 @@ namespace Game.Views
         {
             NextAttackExample();
         }
+        */
 
+        /*
         /// <summary>
         /// Settings Page
         /// </summary>
@@ -631,7 +644,9 @@ namespace Game.Views
         {
             await ShowBattleSettingsPage();
         }
+        */
 
+        /*
         /// <summary>
         /// Next Attack Example
         /// 
@@ -692,7 +707,9 @@ namespace Game.Views
                 return;
             }
         }
+        */
 
+        /*
         /// <summary>
         /// Decide The Turn and who to Attack
         /// </summary>
@@ -717,7 +734,9 @@ namespace Game.Views
                     break;
             }
         }
+        */
 
+        /*
         /// <summary>
         /// Game is over
         /// 
@@ -738,10 +757,12 @@ namespace Game.Views
 
             ShowBattleMode();
         }
+        */
         #endregion BasicBattleMode
 
         #region MessageHandelers
 
+        /*
         /// <summary>
         /// Builds up the output message
         /// </summary>
@@ -761,7 +782,9 @@ namespace Game.Views
             //htmlSource.Html = BattleEngineViewModel.Instance.Engine.BattleMessagesModel.GetHTMLFormattedTurnMessage();
             //HtmlBox.Source = HtmlBox.Source = htmlSource;
         }
+        */
 
+        /*
         /// <summary>
         ///  Clears the messages on the UX
         /// </summary>
@@ -771,6 +794,7 @@ namespace Game.Views
             htmlSource.Html = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleMessagesModel.GetHTMLBlankMessage();
             //HtmlBox.Source = htmlSource;
         }
+        */
 
         #endregion MessageHandelers
 
@@ -788,6 +812,7 @@ namespace Game.Views
             await Navigation.PopModalAsync();
         }
 
+        /*
         /// <summary>
         /// The Next Round Button
         /// </summary>
@@ -799,7 +824,9 @@ namespace Game.Views
             ShowBattleMode();
             await Navigation.PushModalAsync(new NewRoundPage());
         }
+        */
 
+        /*
         /// <summary>
         /// The Start Button
         /// </summary>
@@ -844,15 +871,19 @@ namespace Game.Views
             ShowBattleMode();
             await Navigation.PushModalAsync(new BattleSettingsPage());
         }
+        */
         #endregion PageHandelers
 
+        /*
         protected override void OnAppearing()
         {
             base.OnAppearing();
 
             ShowBattleMode();
         }
+        */
 
+        /*
         /// <summary>
         /// 
         /// Hide the differnt button states
@@ -869,6 +900,7 @@ namespace Game.Views
             BattlePlayerInfomationBox.IsVisible = false;
         }
 
+        
         /// <summary>
         /// Show the proper Battle Mode
         /// </summary>
@@ -936,7 +968,9 @@ namespace Game.Views
                     break;
             }
         }
+        */
 
+        /*
         /// <summary>
         /// Control the Map Mode or Simple
         /// </summary>
@@ -960,5 +994,6 @@ namespace Game.Views
                     break;
             }
         }
+        */
     }
 }
