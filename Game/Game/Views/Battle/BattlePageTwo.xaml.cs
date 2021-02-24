@@ -63,12 +63,8 @@ namespace Game.Views
             // Ask the Game engine to select who goes first
             BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
 
-            // Identifying elements of the BattlePage
-            var currentCharacters = new List<CharacterModel>();
-            var currentMonsters = new List<MonsterModel>();
             
             currentMonsters.Add(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
-            currentCharacters.Add(new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character});
             
             var currentAttacker = new PlayerInfoModel(currentMonsters[0]);
             var currentDefender = new PlayerInfoModel(currentCharacters[0]);
