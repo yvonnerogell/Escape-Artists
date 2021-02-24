@@ -109,6 +109,7 @@ namespace Game.Engine.EngineGame
              * 
              */
 
+
             // If the Monster the calculate the options
             if (Attacker.PlayerType == PlayerTypeEnum.Monster)
             {
@@ -201,6 +202,14 @@ namespace Game.Engine.EngineGame
             //throw new System.NotImplementedException();
 
             // TODO: remove base!!
+
+            /*
+            Instead of taking the first available character, we chose the weakest or strongest.
+            1. roll dice between 0 or 1. 
+            2. if 0 we attack the weakest character
+            3. if 1 we attack the strongest character
+            */
+
             return base.SelectCharacterToAttack();
         }
 
