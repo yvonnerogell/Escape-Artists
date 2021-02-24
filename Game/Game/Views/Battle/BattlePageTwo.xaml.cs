@@ -101,6 +101,18 @@ namespace Game.Views
             await Navigation.PopModalAsync();
         }
 
+        public async void Monster2_Clicked(object sender, EventArgs e)
+        {
+            ViewModel.Data.PartyMonsterList.Add(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
+            await Navigation.PopModalAsync();
+        }
+
+        public async void Monster3_Clicked(object sender, EventArgs e)
+        {
+            ViewModel.Data.PartyMonsterList.Add(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
+            await Navigation.PopModalAsync();
+        }
+
         /*
         /// <summary>
         /// Dray the Player Boxes
