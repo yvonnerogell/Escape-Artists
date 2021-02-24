@@ -20,6 +20,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\Battle\BattleGridPage.xaml.cs">
+      <DependentUpon>BattleGridPage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Battle\BattlePageTwo.xaml.cs">
       <DependentUpon>BattlePageTwo.xaml</DependentUpon>
     </Compile>

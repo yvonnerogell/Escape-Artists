@@ -86,6 +86,18 @@ namespace Game.Views
         }
 
         /// <summary>
+        /// TODO: remove this method and corresponding toolbar item. This is only here temporarily so that we can
+        /// navigate to BattleGridPage from PickCharactersPage.
+        /// Call to open up BattlePageOne. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void OnBattleGridPage_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new BattleGridPage()));
+        }
+
+        /// <summary>
         /// The row selected from the list
         /// </summary>
         /// <param name="sender"></param>
