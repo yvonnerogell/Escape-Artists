@@ -208,7 +208,7 @@ namespace Game.GameRules
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
-                    Id = "Mastersdiploma1"
+                    Id = "Mastersdiploma1",
                     Name = "Master's " + ItemTypeEnum.Diploma.ToMessage(),
                     Description = "A diploma is the (almost) final step before graduation.",
                     ItemType = ItemTypeEnum.Diploma,
