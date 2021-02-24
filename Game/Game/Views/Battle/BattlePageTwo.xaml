@@ -42,6 +42,28 @@
 
                         </StackLayout>
 
+                        <StackLayout Orientation="Horizontal">
+
+                            <ImageButton
+                            Source="{x:Static local:Constants.SpecificMonsterTypeDefaultImageURI}"
+                            HorizontalOptions="EndAndExpand"
+                            Style="{StaticResource GamePageMenuImageButton}"/>
+                            <Button Opacity="0" Clicked="Monster1_Clicked"/>
+
+                            <ImageButton
+                            Source="{x:Static local:Constants.SpecificMonsterTypeDefaultImageURI}"
+                            HorizontalOptions="EndAndExpand"
+                            Style="{StaticResource GamePageMenuImageButton}"/>
+                            <Button Opacity="0" Clicked="Monster2_Clicked"/>
+
+                            <ImageButton
+                            Source="{x:Static local:Constants.SpecificMonsterTypeDefaultImageURI}"
+                            HorizontalOptions="EndAndExpand"
+                            Style="{StaticResource GamePageMenuImageButton}"/>
+                            <Button Opacity="0" Clicked="Monster3_Clicked"/>
+
+                        </StackLayout>
+
                         <StackLayout Margin="10">
                             <Button Text="Attack!" Clicked="OnAttackButton_Clicked" CornerRadius="15" FontAttributes="Bold"  
                                 TextColor="{StaticResource New_ButtonTextColor}"
