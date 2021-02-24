@@ -109,7 +109,6 @@ namespace Game.Engine.EngineGame
              * 
              */
 
-
             // If the Monster the calculate the options
             if (Attacker.PlayerType == PlayerTypeEnum.Monster)
             {
@@ -397,6 +396,14 @@ namespace Game.Engine.EngineGame
             //throw new System.NotImplementedException();
 
             // TODO: remove base!!
+
+            /*
+            Once monster is killed for the round, they will drop their item. 
+                1. find which monsters were killed
+                2. see if they have drop item
+                3. move that item to the list. make a copy of it. 
+            */
+
             return base.GetRandomMonsterItemDrops(round);
         }
 
