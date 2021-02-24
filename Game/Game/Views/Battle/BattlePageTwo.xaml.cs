@@ -64,10 +64,10 @@ namespace Game.Views
             BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
 
             
-            currentMonsters.Add(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
+            //var currentAttacker = ;
+            //var currentDefender = null;
             
-            var currentAttacker = new PlayerInfoModel(currentMonsters[0]);
-            var currentDefender = new PlayerInfoModel(currentCharacters[0]);
+            
             // Add Players to DisplayViewModel.Data.PlayerType = PlayerTypeEnum.Character;
             // DrawGameAttackerDefenderBoard();
 
@@ -75,9 +75,29 @@ namespace Game.Views
             // ShowBattleMode();
         }
 
+        // Adding characters by clicking on their images
         public async void Character1_Clicked(object sender, EventArgs e)
         {
             ViewModel.Data.PartyCharacterList.Add(new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character });
+            await Navigation.PopModalAsync();
+        }
+
+        public async void Character2_Clicked(object sender, EventArgs e)
+        {
+            ViewModel.Data.PartyCharacterList.Add(new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character });
+            await Navigation.PopModalAsync();
+        }
+
+        public async void Character3_Clicked(object sender, EventArgs e)
+        {
+            ViewModel.Data.PartyCharacterList.Add(new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character });
+            await Navigation.PopModalAsync();
+        }
+
+        // Adding monsters by clicking on their images
+        public async void Monster1_Clicked(object sender, EventArgs e)
+        {
+            ViewModel.Data.PartyCharacterList.Add(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
             await Navigation.PopModalAsync();
         }
 
