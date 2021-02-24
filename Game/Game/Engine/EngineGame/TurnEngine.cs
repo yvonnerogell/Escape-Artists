@@ -226,6 +226,14 @@ namespace Game.Engine.EngineGame
             //throw new System.NotImplementedException();
 
             // TODO: remove base!!
+
+            /*
+            Instead of taking the first available monster, we chose the weakest or strongest.
+            1. roll dice between 0 or 1. 
+            2. if 0 we attack the weakest monster
+            3. if 1 we attack the strongest monster
+            */
+
             return base.SelectMonsterToAttack();
         }
 
