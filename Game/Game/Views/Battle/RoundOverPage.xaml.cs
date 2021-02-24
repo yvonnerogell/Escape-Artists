@@ -438,9 +438,10 @@ namespace Game.Views
                             character.Feet = item.ToString();
                             selectedItems.Add(item);
                             items.Remove(item);
+                            continue;
                         }
 					}
-                    else if (character.Head == null || character.Head == "None")
+                    if (character.Head == null || character.Head == "None")
                     {
                         var item = FindItemForLocation(ItemLocationEnum.Head, items);
                         if (item != null)
@@ -448,9 +449,10 @@ namespace Game.Views
                             character.Head = item.ToString();
                             selectedItems.Add(item);
                             items.Remove(item);
+                            continue;
                         }
                     }
-                    else if (character.LeftFinger == null || character.LeftFinger == "None")
+                    if (character.LeftFinger == null || character.LeftFinger == "None")
                     {
                         var item = FindItemForLocation(ItemLocationEnum.LeftFinger, items);
                         if (item != null)
@@ -458,9 +460,10 @@ namespace Game.Views
                             character.LeftFinger = item.ToString(); 
                             selectedItems.Add(item);
                             items.Remove(item);
+                            continue;
                         }
                     }
-                    else if (character.Necklace == null || character.Necklace == "None")
+                    if (character.Necklace == null || character.Necklace == "None")
                     {
                         var item = FindItemForLocation(ItemLocationEnum.Necklace, items);
                         if (item != null)
@@ -468,9 +471,10 @@ namespace Game.Views
                             character.Necklace = item.ToString();
                             selectedItems.Add(item);
                             items.Remove(item);
+                            continue;
                         }
                     }
-                    else if (character.OffHand == null || character.OffHand == "None")
+                    if (character.OffHand == null || character.OffHand == "None")
                     {
                         var item = FindItemForLocation(ItemLocationEnum.OffHand, items);
                         if (item != null)
@@ -478,9 +482,10 @@ namespace Game.Views
                             character.OffHand = item.ToString();
                             selectedItems.Add(item);
                             items.Remove(item);
+                            continue;
                         }
                     }
-                    else if (character.PrimaryHand == null || character.PrimaryHand == "None")
+                    if (character.PrimaryHand == null || character.PrimaryHand == "None")
                     {
                         var item = FindItemForLocation(ItemLocationEnum.PrimaryHand, items);
                         if (item != null)
@@ -488,9 +493,10 @@ namespace Game.Views
                             character.PrimaryHand = item.ToString();
                             selectedItems.Add(item); 
                             items.Remove(item);
+                            continue;
                         }
                     }
-                    else if (character.RightFinger == null || character.RightFinger == "None")
+                    if (character.RightFinger == null || character.RightFinger == "None")
                     {
                         var item = FindItemForLocation(ItemLocationEnum.RightFinger, items);
                         if (item != null)
@@ -498,6 +504,7 @@ namespace Game.Views
                             character.RightFinger = item.ToString();
                             selectedItems.Add(item);
                             items.Remove(item);
+                            continue;
                         }
                     }
                 }
