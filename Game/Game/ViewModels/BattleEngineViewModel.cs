@@ -66,6 +66,9 @@ namespace Game.ViewModels
         // Hold the Proposed List of Characters for the Battle to Use
         public ObservableCollection<CharacterModel> PartyCharacterList { get; set; } = new ObservableCollection<CharacterModel>();
 
+        // Hold the Proposed List of Monsters for the Battle to Use
+        public ObservableCollection<MonsterModel> PartyMonsterList { get; set; } = new ObservableCollection<MonsterModel>();
+
         //// Hold the View Model to the CharacterIndexViewModel
         //public CharacterIndexViewModel DatabaseCharacterViewModel = CharacterIndexViewModel.Instance;
 
