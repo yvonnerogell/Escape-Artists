@@ -46,7 +46,7 @@
 
                 <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
                     <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="250" WidthRequest="250">
-                        <Label x:Name="SelectCharacter" Text="Select Who to Attack" HorizontalOptions="Center" Padding="15"/>
+                        <Label x:Name="SelectMonster" Text="Select Who to Attack" HorizontalOptions="Center" Padding="15"/>
                         <StackLayout Orientation="Horizontal">
 
                             <ImageButton
