@@ -18,11 +18,27 @@
 
                 <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
                     <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="250" WidthRequest="250">
-                        <Label x:Name="AttackTextLabel" HorizontalOptions="Center" Padding="15"/>
+                        <Label x:Name="SelectCharacter" Text="Select a Character" HorizontalOptions="Center" Padding="15"/>
 
                         <StackLayout Orientation="Horizontal">
-                            <Image Source="assistant_professor_monster.png"/>
-                            <Image Source="helicopter_parent.png"/>
+
+                            <ImageButton
+                            Source="SmartyPants.png"
+                            HorizontalOptions="EndAndExpand"
+                            Style="{StaticResource GamePageMenuImageButton}"/>
+                            <Button Opacity="0" Clicked="Character1_Clicked"/>
+
+                            <ImageButton
+                            Source="Prodigy.png"
+                            HorizontalOptions="EndAndExpand"
+                            Style="{StaticResource GamePageMenuImageButton}"/>
+                            <Button Opacity="0" Clicked="Character2_Clicked"/>
+
+                            <ImageButton
+                            Source="HelicopterParent.png"
+                            HorizontalOptions="EndAndExpand"
+                            Style="{StaticResource GamePageMenuImageButton}"/>
+                            <Button Opacity="0" Clicked="Character3_Clicked"/>
 
                         </StackLayout>
 

@@ -28,6 +28,8 @@ namespace Game.Views
         // Hold the Map Objects, for easy access to update them
         public Dictionary<string, object> MapLocationObject = new Dictionary<string, object>();
 
+        // Add viewModel
+        public GenericViewModel<BattleEngineViewModel> ViewModel = new GenericViewModel<BattleEngineViewModel>();
 
         // Empty Constructor for UTs
         bool UnitTestSetting;
@@ -61,11 +63,26 @@ namespace Game.Views
             // Ask the Game engine to select who goes first
             BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
 
-            // Add Players to Display
+            // Identifying elements of the BattlePage
+            var currentCharacters = new List<CharacterModel>();
+            var currentMonsters = new List<MonsterModel>();
+            
+            currentMonsters.Add(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
+            currentCharacters.Add(new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character});
+            
+            var currentAttacker = new PlayerInfoModel(currentMonsters[0]);
+            var currentDefender = new PlayerInfoModel(currentCharacters[0]);
+            // Add Players to DisplayViewModel.Data.PlayerType = PlayerTypeEnum.Character;
             // DrawGameAttackerDefenderBoard();
 
             // Set the Battle Mode
             // ShowBattleMode();
+        }
+
+        public async void Character1_Clicked(object sender, EventArgs e)
+        {
+            ViewModel.Data.PlayerType = PlayerTypeEnum.Character;
+            await Navigation.PopModalAsync();
         }
 
         /*
