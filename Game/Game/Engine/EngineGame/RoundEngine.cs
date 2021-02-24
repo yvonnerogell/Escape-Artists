@@ -248,6 +248,18 @@ namespace Game.Engine.EngineGame
             //throw new System.NotImplementedException();
 
             // TODO: remove use of base!! 
+            /*
+            We will be implementing different logic depending on Auto Battle and Manual Battle. 
+            Auto Battle:
+                1. same idea as current auto battle, except parents cannot pickup item for head and feet
+
+            Manual Battle:
+                1. only load the items for character if they can hold it. Parents cannot load head or feet
+                2. then player picks it up. 
+                3. create a method to load the drop down list. 
+
+            We will have a button for auto assign based on auto battle on manual battle. 
+            */
             return base.PickupItemsFromPool(character);
         }
 
