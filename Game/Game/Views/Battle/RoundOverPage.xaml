@@ -25,16 +25,18 @@
                         </StackLayout>
 
                         <Label Text="Characters" Style="{StaticResource MessageStyle}"/>
-                        <FlexLayout x:Name="CharacterListFrame"
+                            <FlexLayout x:Name="CharacterListFrame"
+                                    JustifyContent="Start"
+                                    AlignContent="Start"
+                                    Wrap="Wrap"/>
+
+                        <Label Text="Graduates" Style="{StaticResource MessageStyle}"/>
+                        <FlexLayout x:Name="GraduatesListFrame"
                                     JustifyContent="Start"
                                     AlignContent="Start"
                                     Wrap="Wrap"/>
 
                         <Label Text="Items Found" Style="{StaticResource MessageStyle}"/>
-                        <StackLayout Style="{StaticResource HorizontalStack}">
-                            <Label Text="Found : " Style="{StaticResource LabelStyle}"/>
-                            <Label Text="0" x:Name="TotalFound" Style="{StaticResource ValueStyle}"/>
-                        </StackLayout>
                         <FlexLayout x:Name="ItemListFoundFrame"
                                     JustifyContent="Start"
                                     AlignContent="Start"
