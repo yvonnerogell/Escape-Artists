@@ -139,6 +139,20 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
+        [Test]
+        public void BattleGridPage_StartBattle_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            page.StartBattle_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
         /*
         [Test]
         public void BattlePage_StartButton_Clicked_Default_Should_Pass()
@@ -367,7 +381,7 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
         */
-
+        /*
         [Test]
         public void BattlePage_SetAttackerAndDefender_Character_vs_Monster_Should_Pass()
         {
