@@ -81,7 +81,7 @@ namespace Game.Views
 
         public async void Character1_Clicked(object sender, EventArgs e)
         {
-            ViewModel.Data.PlayerType = PlayerTypeEnum.Character;
+            ViewModel.Data.PartyCharacterList.Add(new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character });
             await Navigation.PopModalAsync();
         }
 
