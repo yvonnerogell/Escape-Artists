@@ -412,7 +412,7 @@ namespace Game.GameRules
                 new CharacterModel {
                     Name = "Emily",
                     Description = "Only if they hadn't released the new GoT season...",
-                    Level = 1,
+                    Level = 20,
                     GPA = 60,
                     CharacterTypeEnum = CharacterTypeEnum.Student,
                     SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.Procrastinator,

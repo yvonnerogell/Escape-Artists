@@ -36,6 +36,8 @@ namespace Game.Views
 
             DrawCharacterList();
 
+            DrawGraduatesList();
+
             DrawItemLists();
         }
 
@@ -58,9 +60,11 @@ namespace Game.Views
 
                 for (var i = 0; i < 7; ++i)
 				{
-                    CharacterListFrame.Children.Add(CreatePlayerDisplayBox(new PlayerInfoModel(characters.ElementAt(i))));
+                    if (characters.ElementAt(i).Level != 20)
+					{
+                        CharacterListFrame.Children.Add(CreatePlayerDisplayBox(new PlayerInfoModel(characters.ElementAt(i))));
+                    }   
                 }
-
 			}
 
             if (!UseStubData)
@@ -68,7 +72,45 @@ namespace Game.Views
                 // Draw the Characters
                 foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
                 {
+                    // TODO: add logic to exclude graduates
                     CharacterListFrame.Children.Add(CreatePlayerDisplayBox(data));
+                }
+            }
+        }
+
+        /// <summary>
+        /// Clear and Add the characters that graduates
+        /// </summary>
+        public void DrawGraduatesList()
+        {
+            // Clear and Populate the Characters Remaining
+            var FlexList = CharacterListFrame.Children.ToList();
+            foreach (var data in FlexList)
+            {
+                GraduatesListFrame.Children.Remove(data);
+            }
+
+            if (UseStubData)
+            {
+                List<CharacterModel> characters = new List<CharacterModel>();
+                characters = DefaultData.LoadData(new CharacterModel());
+
+                foreach (var data in characters)
+                {
+                    if (data.Level == 20)
+					{
+                        GraduatesListFrame.Children.Add(CreatePlayerDisplayBox(new PlayerInfoModel(data)));
+                    }
+                }
+            }
+
+            if (!UseStubData)
+            {
+                // Draw the Characters
+                foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
+                {
+                    // TODO: Add logic here to only display characters that have reached level 20. 
+                    GraduatesListFrame.Children.Add(CreatePlayerDisplayBox(data));
                 }
 
             }
