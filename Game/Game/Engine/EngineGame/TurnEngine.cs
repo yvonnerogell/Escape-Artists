@@ -109,6 +109,23 @@ namespace Game.Engine.EngineGame
              * 
              */
 
+            /*
+            Auto and Manual are differently implmented.
+            Auto Battle 
+                1. change up the monster move based on monster type. 
+                    * professors can move faster (2-3 blocks)
+                    * admin can only move (1-2 blocks)
+                2. change up the character move based on character type.
+                    * students can move faster (2-3 blocks)
+                    * admin can only move (1-2 blocks)
+
+            Manual Battle
+                1. character selects move as action for specific player 
+                2. the blocks they can move will be highlighted in color.
+                3. player clicks on the highlighted color moves the character to that block
+                              
+             */
+
             // If the Monster the calculate the options
             if (Attacker.PlayerType == PlayerTypeEnum.Monster)
             {
