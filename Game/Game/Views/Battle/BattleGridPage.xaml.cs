@@ -81,6 +81,17 @@ namespace Game.Views
         }
 
         /// <summary>
+        /// Takes the game to BattlePageOne when clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void ExitBattle_Clicked(object sender, EventArgs e)
+        {
+            // TODO: make sure the AutoBattlePage is the right option here
+            await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
+        }
+
+        /// <summary>
         /// Takes the game to AutoBattlePage
         /// </summary>
         /// <param name="sender"></param>
