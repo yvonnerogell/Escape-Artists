@@ -51,11 +51,28 @@ namespace Game.Views
                 CharacterListFrame.Children.Remove(data);
             }
 
-            // Draw the Characters
-            foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
-            {
-                CharacterListFrame.Children.Add(CreatePlayerDisplayBox(data));
+            if (UseStubData)
+			{
+                List<CharacterModel> characters = new List<CharacterModel>();
+                characters = DefaultData.LoadData(new CharacterModel());
+
+                for (var i = 0; i < 7; ++i)
+				{
+                    CharacterListFrame.Children.Add(CreatePlayerDisplayBox(new PlayerInfoModel(characters.ElementAt(i))));
+                }
+
+			}
+
+            if (!UseStubData)
+			{
+                // Draw the Characters
+                foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
+                {
+                    CharacterListFrame.Children.Add(CreatePlayerDisplayBox(data));
+                }
+
             }
+
         }
 
         /// <summary>
