@@ -4,6 +4,8 @@ using System;
 using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Collections.Generic;
+using Game.GameRules;
 
 namespace Game.Views
 {
@@ -13,6 +15,9 @@ namespace Game.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class RoundOverPage: ContentPage
 	{
+        // Variable indicating if stub data should be used. Set this to false when our battle engine is being used.
+        public bool UseStubData = true;
+
 		/// <summary>
 		/// Constructor
 		/// </summary>
@@ -75,6 +80,7 @@ namespace Game.Views
         /// </summary>
         public void DrawDroppedItems()
         {
+
             // Clear and Populate the Dropped Items
             var FlexList = ItemListFoundFrame.Children.ToList();
             foreach (var data in FlexList)
@@ -82,9 +88,23 @@ namespace Game.Views
                 ItemListFoundFrame.Children.Remove(data);
             }
 
-            foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Distinct())
+            if (UseStubData)
             {
-                ItemListFoundFrame.Children.Add(GetItemToDisplay(data));
+                List<ItemModel> items = new List<ItemModel>();
+                items = DefaultData.LoadData(new ItemModel());
+
+                for (var i = 0; i < 5; ++i)
+				{
+                    ItemListFoundFrame.Children.Add(GetItemToDisplay(items.ElementAt(i)));
+                }
+            }
+
+            if (!UseStubData)
+			{
+                foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Distinct())
+                {
+                    ItemListFoundFrame.Children.Add(GetItemToDisplay(data));
+                }
             }
         }
 

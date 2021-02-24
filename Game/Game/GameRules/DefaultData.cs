@@ -52,6 +52,7 @@ namespace Game.GameRules
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
+                    Id = "PencilEraser1",
                     Name = "Blue " + ItemTypeEnum.PencilEraser.ToMessage(),
                     Description = "Forget about your mistakes.",
                     ItemType = ItemTypeEnum.PencilEraser,
@@ -87,6 +88,7 @@ namespace Game.GameRules
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
+                    Id = "Notebooks1",
                     Name = "Pink " + ItemTypeEnum.Notebook.ToMessage(),
                     Description = "Keep track of the most crucial things to know.",
                     ItemType = ItemTypeEnum.Notebook,
@@ -98,6 +100,7 @@ namespace Game.GameRules
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
+                    Id = "Calculator1",
                     Name = "Graphing " + ItemTypeEnum.Calculator.ToMessage(),
                     Description = "Avoid doing math in your head.",
                     ItemType = ItemTypeEnum.Calculator,
@@ -109,6 +112,7 @@ namespace Game.GameRules
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
+                    Id = "Librarycard1",
                     Name = "Student " + ItemTypeEnum.LibraryCard.ToMessage(),
                     Description = "Get your textbooks for free.",
                     ItemType = ItemTypeEnum.LibraryCard,
@@ -120,6 +124,7 @@ namespace Game.GameRules
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
+                    Id = "Foodcourtcard1",
                     Name = "Student " + ItemTypeEnum.FoodCourtCard.ToMessage(),
                     Description = "Don’t run out of fuel.",
                     ItemType = ItemTypeEnum.FoodCourtCard,
@@ -155,6 +160,7 @@ namespace Game.GameRules
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
+                    Id = "privatetutor1",
                     Name = "Math " + ItemTypeEnum.PrivateTutor.ToMessage(),
                     Description = "Get expert homework help.",
                     ItemType = ItemTypeEnum.PrivateTutor,
@@ -166,6 +172,7 @@ namespace Game.GameRules
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
+                    Id = "FinancialAid1",
                     Name = "Undergraduate " + ItemTypeEnum.FinancialAid.ToMessage(),
                     Description = "Get some financial help.",
                     ItemType = ItemTypeEnum.FinancialAid,
@@ -177,6 +184,7 @@ namespace Game.GameRules
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
+                    Id = "Tuition1",
                     Name = "Sprint quarter " + ItemTypeEnum.Tuition.ToMessage(),
                     Description = "Pay your way through college.",
                     ItemType = ItemTypeEnum.Tuition,
@@ -188,6 +196,7 @@ namespace Game.GameRules
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
+                    Id = "Graduationcapandrobe1",
                     Name = "Master's " + ItemTypeEnum.GraduationCapAndRobe.ToMessage(),
                     Description = "The cap will help you feel closer to graduation.",
                     ItemType = ItemTypeEnum.GraduationCapAndRobe,
@@ -199,6 +208,7 @@ namespace Game.GameRules
                     Attribute = AttributeEnum.Attack
                 },
                 new ItemModel {
+                    Id = "Mastersdiploma1"
                     Name = "Master's " + ItemTypeEnum.Diploma.ToMessage(),
                     Description = "A diploma is the (almost) final step before graduation.",
                     ItemType = ItemTypeEnum.Diploma,

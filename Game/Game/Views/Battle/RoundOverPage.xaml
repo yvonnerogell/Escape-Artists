@@ -17,7 +17,7 @@
 
                 <ScrollView x:Name="ScrollView">
 
-                    <StackLayout Style="{StaticResource VerticalStack}">
+                    <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="Center">
 
                         <StackLayout Style="{StaticResource HorizontalStack}">
                             <Label Text="Round : " Style="{StaticResource MessageStyle}"/>
