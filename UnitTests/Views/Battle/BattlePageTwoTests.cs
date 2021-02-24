@@ -170,19 +170,19 @@ namespace UnitTests.Views
         */
 
 
-        [Test]
-        public void BattlePage_ClearMessages_Default_Should_Pass()
-        {
+       // [Test]
+        //public void BattlePage_ClearMessages_Default_Should_Pass()
+        //{
             // Arrange
 
             // Act
-            page.ClearMessages();
+          //  page.ClearMessages();
 
             // Reset
 
             // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
+            //Assert.IsTrue(true); // Got to here, so it happened...
+        //}
 
         /*
         [Test]
@@ -215,76 +215,76 @@ namespace UnitTests.Views
         }
         */
 
-        [Test]
-        public void BattlePage_DrawGameBoardAttackerDefender_CurrentAttacker_Null_CurrentDefender_Null_Should_Pass()
-        {
+       // [Test]
+       // public void BattlePage_DrawGameBoardAttackerDefender_CurrentAttacker_Null_CurrentDefender_Null_Should_Pass()
+        //{
             // Arrange
-            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
-            BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(null);
+          //  BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
+            //BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(null);
 
             // Act
-            page.DrawGameAttackerDefenderBoard();
+            //page.DrawGameAttackerDefenderBoard();
 
             // Reset
 
             // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
+            //Assert.IsTrue(true); // Got to here, so it happened...
+       // }
 
-        [Test]
-        public void BattlePage_DrawGameBoardAttackerDefender_CurrentAttacker_InValid_Null_Should_Pass()
-        {
+      //  [Test]
+       // public void BattlePage_DrawGameBoardAttackerDefender_CurrentAttacker_InValid_Null_Should_Pass()
+       // {
             // Arrange
 
-            var PlayerInfo = new PlayerInfoModel(new CharacterModel());
+         //   var PlayerInfo = new PlayerInfoModel(new CharacterModel());
 
-            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(PlayerInfo);
-            BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(null);
+           // BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(PlayerInfo);
+        //    BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(null);
 
             // Act
-            page.DrawGameAttackerDefenderBoard();
+      //      page.DrawGameAttackerDefenderBoard();
 
             // Reset
 
             // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
+        //    Assert.IsTrue(true); // Got to here, so it happened...
+        //}
 
-        [Test]
-        public void BattlePage_DrawGameBoardAttackerDefender_CurrentDefender_InValid_Null_Should_Pass()
-        {
+      //  [Test]
+       // public void BattlePage_DrawGameBoardAttackerDefender_CurrentDefender_InValid_Null_Should_Pass()
+        //{
             // Arrange
 
-            var PlayerInfo = new PlayerInfoModel(new CharacterModel());
+          //  var PlayerInfo = new PlayerInfoModel(new CharacterModel());
 
-            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
-            BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(PlayerInfo);
+            //BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
+            //BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(PlayerInfo);
 
             // Act
-            page.DrawGameAttackerDefenderBoard();
+            //page.DrawGameAttackerDefenderBoard();
 
             // Reset
 
             // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
+            //Assert.IsTrue(true); // Got to here, so it happened...
+        //}
 
-        [Test]
-        public void BattlePage_DrawGameBoardAttackerDefender_CurrentDefender_Valid_Should_Pass()
-        {
+      //  [Test]
+     //   public void BattlePage_DrawGameBoardAttackerDefender_CurrentDefender_Valid_Should_Pass()
+       // {
             // Arrange
 
-            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(new PlayerInfoModel(new CharacterModel()));
-            BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(new PlayerInfoModel(new CharacterModel { Alive = false }));
+         //   BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(new PlayerInfoModel(new CharacterModel()));
+           // BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(new PlayerInfoModel(new CharacterModel { Alive = false }));
 
             // Act
-            page.DrawGameAttackerDefenderBoard();
+        //    page.DrawGameAttackerDefenderBoard();
 
             // Reset
 
             // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
+         //   Assert.IsTrue(true); // Got to here, so it happened...
+       // }
 
         /*
         [Test]
