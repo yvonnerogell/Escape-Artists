@@ -39,30 +39,36 @@
                             HorizontalOptions="EndAndExpand"
                             Style="{StaticResource GamePageMenuImageButton}"/>
                             <Button Opacity="0" Clicked="Character3_Clicked"/>
-
+                            
                         </StackLayout>
+                    </StackLayout>
+                </Frame>
 
+                <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
+                    <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="250" WidthRequest="250">
+                        <Label x:Name="SelectCharacter" Text="Select Who to Attack" HorizontalOptions="Center" Padding="15"/>
                         <StackLayout Orientation="Horizontal">
 
                             <ImageButton
-                            Source="{x:Static local:Constants.SpecificMonsterTypeDefaultImageURI}"
-                            HorizontalOptions="EndAndExpand"
-                            Style="{StaticResource GamePageMenuImageButton}"/>
+                                Source="{x:Static local:Constants.SpecificMonsterTypeDefaultImageURI}"
+                                HorizontalOptions="EndAndExpand"
+                                Style="{StaticResource GamePageMenuImageButton}"/>
                             <Button Opacity="0" Clicked="Monster1_Clicked"/>
 
                             <ImageButton
-                            Source="{x:Static local:Constants.SpecificMonsterTypeDefaultImageURI}"
-                            HorizontalOptions="EndAndExpand"
-                            Style="{StaticResource GamePageMenuImageButton}"/>
+                                Source="{x:Static local:Constants.SpecificMonsterTypeDefaultImageURI}"
+                                HorizontalOptions="EndAndExpand"
+                                Style="{StaticResource GamePageMenuImageButton}"/>
                             <Button Opacity="0" Clicked="Monster2_Clicked"/>
 
                             <ImageButton
-                            Source="{x:Static local:Constants.SpecificMonsterTypeDefaultImageURI}"
-                            HorizontalOptions="EndAndExpand"
-                            Style="{StaticResource GamePageMenuImageButton}"/>
+                                Source="{x:Static local:Constants.SpecificMonsterTypeDefaultImageURI}"
+                                HorizontalOptions="EndAndExpand"
+                                Style="{StaticResource GamePageMenuImageButton}"/>
                             <Button Opacity="0" Clicked="Monster3_Clicked"/>
 
                         </StackLayout>
+
 
                         <StackLayout Margin="10">
                             <Button Text="Attack!" Clicked="OnAttackButton_Clicked" CornerRadius="15" FontAttributes="Bold"  
@@ -70,40 +76,38 @@
                                 Margin="10"
                                 HorizontalOptions="Center"
                                 BackgroundColor="{StaticResource New_SecondaryBackgroundColor}"/>
-
                         </StackLayout>
-
                     </StackLayout>
-
                 </Frame>
 
                 <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
 
-                    <StackLayout Style="{StaticResource HorizontalCenterStack}" HeightRequest="75" WidthRequest="250" HorizontalOptions="Center" VerticalOptions="Center">
-
-                        <Label x:Name="HealthTextLabel" Text="Health: " FontAttributes="Bold" FontSize="Micro" Padding="20, 5, 0, 5" HorizontalOptions="Start" Style="{StaticResource LabelStyle}"/>
-                        <Label x:Name="HealthValueLabel"  Text="Health:" FontAttributes="Bold" FontSize="Micro" Padding="20, 5, 0, 5" HorizontalOptions="Start" Style="{StaticResource LabelStyle}"/>
-                        <Label x:Name="GPATextLabel" Text="GPA: "  FontAttributes="Bold" FontSize="Micro" Padding="5, 5, 20, 5" HorizontalOptions="EndAndExpand"  Style="{StaticResource LabelStyle}"/>
-                        <Label x:Name="GPAValueLabel" Text="GPA: "  FontAttributes="Bold" FontSize="Micro" Padding="5, 5, 20, 5" HorizontalOptions="End"  Style="{StaticResource LabelStyle}"/>
-
-                    </StackLayout>
-
-                </Frame>
-
-                <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
-
-                    <StackLayout  Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" 
+                            <StackLayout  Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" 
                                   HorizontalOptions="Center" MinimumHeightRequest="250" WidthRequest="250" Padding="5">
 
-                        <Label x:Name="BattleMessage1Label"  Text="Battle Messages" LineBreakMode="WordWrap" Padding="2"/>
-                        <Label x:Name="BattleMessage2Label"  Text="Battle Messages" LineBreakMode="WordWrap" Padding="2"/>
-                        <Label x:Name="BattleMessage3Label"  Text="Battle Messages"  LineBreakMode="WordWrap" Padding="2"/>
-                        <Label x:Name="BattleMessage4Label"  Text="Battle Messages" LineBreakMode="WordWrap" Padding="2"/>
-                        <Label x:Name="BattleMessage5Label"  Text="Battle Messages" LineBreakMode="WordWrap" Padding="2"/>
-                    </StackLayout>
-                </Frame>
+                                <Label x:Name="BattleMessage1Label"  Text="Battle Messages" LineBreakMode="WordWrap" Padding="2"/>
+                                <Label x:Name="BattleMessage2Label"  Text="Battle Messages" LineBreakMode="WordWrap" Padding="2"/>
+                                <Label x:Name="BattleMessage3Label"  Text="Battle Messages"  LineBreakMode="WordWrap" Padding="2"/>
+                                <Label x:Name="BattleMessage4Label"  Text="Battle Messages" LineBreakMode="WordWrap" Padding="2"/>
+                                <Label x:Name="BattleMessage5Label"  Text="Battle Messages" LineBreakMode="WordWrap" Padding="2"/>
+                            </StackLayout>
+                        </Frame>
 
-            </StackLayout>
-        </ScrollView>
+
+                        <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
+
+                            <StackLayout Style="{StaticResource HorizontalCenterStack}" HeightRequest="75" WidthRequest="250" HorizontalOptions="Center" VerticalOptions="Center">
+
+                                <Label x:Name="HealthTextLabel" Text="Health: " FontAttributes="Bold" FontSize="Micro" Padding="20, 5, 0, 5" HorizontalOptions="Start" Style="{StaticResource LabelStyle}"/>
+                                <Label x:Name="HealthValueLabel"  Text="Health:" FontAttributes="Bold" FontSize="Micro" Padding="20, 5, 0, 5" HorizontalOptions="Start" Style="{StaticResource LabelStyle}"/>
+                                <Label x:Name="GPATextLabel" Text="GPA: "  FontAttributes="Bold" FontSize="Micro" Padding="5, 5, 20, 5" HorizontalOptions="EndAndExpand"  Style="{StaticResource LabelStyle}"/>
+                                <Label x:Name="GPAValueLabel" Text="GPA: "  FontAttributes="Bold" FontSize="Micro" Padding="5, 5, 20, 5" HorizontalOptions="End"  Style="{StaticResource LabelStyle}"/>
+
+                            </StackLayout>
+
+                        </Frame>
+                </StackLayout>
+            
+            </ScrollView>
     </ContentPage.Content>
 </ContentPage>
