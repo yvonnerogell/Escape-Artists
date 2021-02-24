@@ -17,6 +17,8 @@ namespace Game.Views
 	{
         // Variable indicating if stub data should be used. Set this to false when our battle engine is being used.
         public bool UseStubData = true;
+        public static int NUM_ITEMS = 5;
+        public static int NUM_CHARACTERS = 7;
 
 		/// <summary>
 		/// Constructor
@@ -24,6 +26,8 @@ namespace Game.Views
 		public RoundOverPage()
         {
             InitializeComponent();
+
+            // SetUp();
 
             // Update the Round Count
             TotalRound.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.RoundCount.ToString();
@@ -55,15 +59,11 @@ namespace Game.Views
 
             if (UseStubData)
 			{
-                List<CharacterModel> characters = new List<CharacterModel>();
-                characters = DefaultData.LoadData(new CharacterModel());
-
-                for (var i = 0; i < 7; ++i)
+                var characters = GetCharacterStubList();
+                
+                for (var i = 0; i < characters.Count; ++i)
 				{
-                    if (characters.ElementAt(i).Level != 20)
-					{
-                        CharacterListFrame.Children.Add(CreatePlayerDisplayBox(new PlayerInfoModel(characters.ElementAt(i))));
-                    }   
+                    CharacterListFrame.Children.Add(CreatePlayerDisplayBox(new PlayerInfoModel(characters.ElementAt(i))));
                 }
 			}
 
@@ -76,6 +76,25 @@ namespace Game.Views
                     CharacterListFrame.Children.Add(CreatePlayerDisplayBox(data));
                 }
             }
+        }
+
+        /// <summary>
+        /// Helper method to get a default character stub list.
+        /// </summary>
+        /// <returns></returns>
+        public List<CharacterModel> GetCharacterStubList()
+		{
+            List<CharacterModel> characters = DefaultData.LoadData(new CharacterModel());
+            List<CharacterModel> result = new List<CharacterModel>();
+
+            for (var i = 0; i < NUM_CHARACTERS; ++i)
+            {
+                if (characters.ElementAt(i).Level != 20)
+                {
+                    result.Add(characters.ElementAt(i));
+                }
+            }
+            return result;
         }
 
         /// <summary>
@@ -149,10 +168,9 @@ namespace Game.Views
 
             if (UseStubData)
             {
-                List<ItemModel> items = new List<ItemModel>();
-                items = DefaultData.LoadData(new ItemModel());
+                List<ItemModel> items = GetItemStubList();
 
-                for (var i = 0; i < 5; ++i)
+                for (var i = 0; i < items.Count; ++i)
 				{
                     ItemListFoundFrame.Children.Add(GetItemToDisplay(items.ElementAt(i)));
                 }
@@ -165,6 +183,22 @@ namespace Game.Views
                     ItemListFoundFrame.Children.Add(GetItemToDisplay(data));
                 }
             }
+        }
+
+        /// <summary>
+        /// Helper method to get a default character stub list.
+        /// </summary>
+        /// <returns></returns>
+        public List<ItemModel> GetItemStubList()
+        {
+            List<ItemModel> items = DefaultData.LoadData(new ItemModel());
+            List<ItemModel> result = new List<ItemModel>();
+
+            for (var i = 0; i < NUM_ITEMS; ++i)
+            {
+                result.Add(items.ElementAt(i));
+            }
+            return result;
         }
 
         /// <summary>
@@ -369,12 +403,90 @@ namespace Game.Views
         /// <param name="e"></param>
         public void AutoAssignButton_Clicked(object sender, EventArgs e)
 		{
-			// Distribute the Items
-			BattleEngineViewModel.Instance.Engine.Round.PickupItemsForAllCharacters();
+            if (UseStubData)
+			{
+                var characters = GetCharacterStubList();
+                var items = GetItemStubList();
+
+                for (var i = 0; i < characters.Count; ++i)
+				{
+                    var character = characters.ElementAt(i);
+                    if (character.Feet != null)
+					{
+                        var item = FindItemForLocation(character.Feet, items);
+                        if (item != null)
+						{
+                            character.Feet = item.ToString();
+						}
+					}
+                    if (character.Head != null)
+                    {
+                        var item = FindItemForLocation(character.Head, items);
+                        if (item != null)
+                        {
+                            character.Head = item.ToString();
+                        }
+                    }
+                    if (character.LeftFinger != null)
+                    {
+                        var item = FindItemForLocation(character.LeftFinger, items);
+                        if (item != null)
+                        {
+                            character.LeftFinger = item.ToString();
+                        }
+                    }
+                    if (character.Necklace != null)
+                    {
+                        var item = FindItemForLocation(character.Necklace, items);
+                        if (item != null)
+                        {
+                            character.Necklace = item.ToString();
+                        }
+                    }
+                    if (character.OffHand != null)
+                    {
+                        var item = FindItemForLocation(character.OffHand, items);
+                        if (item != null)
+                        {
+                            character.OffHand = item.ToString();
+                        }
+                    }
+
+                }
+
+
+            }
+
+            // TODO: Revisit this method once our battle engine is up and running to make
+            // sure PickupItemsForAllCharacters works with our business logic
+            if (!UseStubData)
+			{
+                // Distribute the Items
+                BattleEngineViewModel.Instance.Engine.Round.PickupItemsForAllCharacters();
+            }
+			
 
             // Show what was picked up
             DrawItemLists();
         }
+
+        /// <summary>
+        /// Finds an item suitable for a given location
+        /// </summary>
+        /// <param name="location"></param>
+        /// <param name="items"></param>
+        /// <returns></returns>
+        public ItemModel FindItemForLocation(string location, List<ItemModel> items)
+		{
+            foreach (var item in items)
+			{
+                if (item.Location.ToString() == location)
+				{
+                    return item;
+				}
+			}
+            return null;
+		}
 
         /// <summary>
         /// Show the Page for New Round
