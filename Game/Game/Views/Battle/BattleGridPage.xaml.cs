@@ -66,74 +66,85 @@ namespace Game.Views
 
             // Add players to display:
             // TODO: This is just hardcoded placeholders. Will need to be changed to pull data from BattleEngineViewModel
-            var currentCharacter = new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character };
-            var currentAttacker = new PlayerInfoModel(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
-            var currentDefender = new PlayerInfoModel(currentCharacter);
-            
-            GPAValueLabel.Text = GetCharacterGPA(currentCharacter);
-            HealthValueLabel.Text = GetCharacterHealth(currentCharacter);
+            //var currentCharacter = new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character };
+            //var currentAttacker = new PlayerInfoModel(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
+            //var currentDefender = new PlayerInfoModel(currentCharacter);
 
-            var messages = GetBattleMessages();
-            SetBattleMessages(messages);
+            //GPAValueLabel.Text = GetCharacterGPA(currentCharacter);
+            //HealthValueLabel.Text = GetCharacterHealth(currentCharacter);
+
+            //var messages = GetBattleMessages();
+            //SetBattleMessages(messages);
 
             // Set the Battle Mode
             // ShowBattleMode();
         }
 
         /// <summary>
-        /// 
-        /// Returns the GPA of the current character. 
+        /// Takes the game to BattlePageOne
         /// </summary>
-        /// <returns></returns>
-        public string GetCharacterGPA(CharacterModel currentCharacter)
-		{
-            // TODO change to pull data from BattleEngineViewModel. 
-            return currentCharacter.GPA.ToString();
-		}
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void StartBattle_Clicked(object sender, EventArgs e)
+        {
+            // TODO: make sure the AutoBattlePage is the right option here
+            await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
+        }
 
         /// <summary>
         /// 
         /// Returns the GPA of the current character. 
         /// </summary>
         /// <returns></returns>
-        public string GetCharacterHealth(CharacterModel currentCharacter)
-        {
-            // TODO change to pull data from BattleEngineViewModel. 
-            return currentCharacter.CurrentHealth.ToString();
-        }
+        // public string GetCharacterGPA(CharacterModel currentCharacter)
+        //	{
+        // TODO change to pull data from BattleEngineViewModel. 
+        //      return currentCharacter.GPA.ToString();
+        // }
+
+        /// <summary>
+        /// 
+        /// Returns the GPA of the current character. 
+        /// </summary>
+        /// <returns></returns>
+        //  public string GetCharacterHealth(CharacterModel currentCharacter)
+        //  {
+        // TODO change to pull data from BattleEngineViewModel. 
+        //      return currentCharacter.CurrentHealth.ToString();
+        // }
 
         /// <summary>
         /// 
         /// Returns the five most recent battle messages to display
         /// </summary>
         /// <returns></returns>
-        public List<string> GetBattleMessages()
-        {
-            // TODO change to pull data from BattleEngineViewModel. 
-            List<String> messages = new List<string>();
-            messages.Add("Faculty Honkey gives Minnie an exam.");
-            messages.Add("Goofey passes the exam with flying colors.");
-            messages.Add("Administrator Frothy gives Mike forms to fill out.");
-            messages.Add("Jocey fills out all the forms from Frothy.");
-            messages.Add("Minnie studies hard from Professor Frank's exam.");
+        //    public List<string> GetBattleMessages()
+        //  {
+        // TODO change to pull data from BattleEngineViewModel. 
+        //List<String> messages = new List<string>();
+        //messages.Add("Faculty Honkey gives Minnie an exam.");
+        //messages.Add("Goofey passes the exam with flying colors.");
+        //messages.Add("Administrator Frothy gives Mike forms to fill out.");
+        //messages.Add("Jocey fills out all the forms from Frothy.");
+        //messages.Add("Minnie studies hard from Professor Frank's exam.");
 
-            return messages;
+        //  return messages;
 
-        }
+        // }
 
         /// <summary>
         /// 
         /// Sets the five most recent battle messages to display
         /// </summary>
         /// <returns></returns>
-        public void SetBattleMessages(List<string> messages)
-        {
-            BattleMessage1Label.Text = messages.ElementAt(0);
-            BattleMessage2Label.Text = messages.ElementAt(1);
-            BattleMessage3Label.Text = messages.ElementAt(2);
-            BattleMessage4Label.Text = messages.ElementAt(3);
-            BattleMessage5Label.Text = messages.ElementAt(4);
-        }
+        //  public void SetBattleMessages(List<string> messages)
+        // {
+        //    BattleMessage1Label.Text = messages.ElementAt(0);
+        //   BattleMessage2Label.Text = messages.ElementAt(1);
+        //   BattleMessage3Label.Text = messages.ElementAt(2);
+        //   BattleMessage4Label.Text = messages.ElementAt(3);
+        //   BattleMessage5Label.Text = messages.ElementAt(4);
+        // }
 
         /*
         /// <summary>
