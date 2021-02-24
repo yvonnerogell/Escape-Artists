@@ -97,7 +97,7 @@ namespace Game.Views
         // Adding monsters by clicking on their images
         public async void Monster1_Clicked(object sender, EventArgs e)
         {
-            ViewModel.Data.PartyCharacterList.Add(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
+            ViewModel.Data.PartyMonsterList.Add(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
             await Navigation.PopModalAsync();
         }
 
