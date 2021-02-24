@@ -208,13 +208,6 @@ namespace Game.Engine.EngineKoenig
             // Select first in the list
 
             // TODO: Teams, You need to implement your own Logic can not use mine.
-
-            /*
-            Instead of taking the first available character, we chose the weakest or strongest.
-            1. roll dice between 0 or 1. 
-            2. if 0 we attack the weakest character
-            3. if 1 we attack the strongest character
-            */
             var Defender = EngineSettings.PlayerList
                 .Where(m => m.Alive && m.PlayerType == PlayerTypeEnum.Character)
                 .OrderBy(m => m.ListOrder).FirstOrDefault();
