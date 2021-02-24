@@ -2,10 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Game.Views.BattleGridPage"
+             Title="BattleBoard"
              BackgroundImageSource="background.png">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Exit" Clicked="ExitButton_Clicked" IconImageSource="icon_cancel.png"/>
+        <ToolbarItem Text="Update" Clicked="UpdateButton_Clicked" IconImageSource="Edit - 1.png"/>
+        <ToolbarItem Text="Exit" Clicked="ExitButton_Clicked" IconImageSource="Cancel - 1.png"/>
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
@@ -17,45 +19,49 @@
                 VerticalOptions="Center"
                 HorizontalOptions="Center">
 
-                <StackLayout>
-                    <Button Text="Round Over (temp)!" Clicked="RoundOverButton_Clicked"/>
-                </StackLayout>
+                <Image Source="{Binding Source=BattleEngineViewModel.GetCharacterList}"/>
+                <Image Source="{Binding Source=BattleEngineViewModel.GetCharacterList}"/>
+                <Image Source="{Binding Source=BattleEngineViewModel.GetCharacterList}"/>
+                <Image Source="{Binding Source=BattleEngineViewModel.GetCharacterList}"/>
+                <Image Source="{Binding Source=BattleEngineViewModel.GetCharacterList}"/>
+         
+                <Grid RowSpacing="3" ColumnSpacing="0" HorizontalOptions="CenterAndExpand">
 
-                <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
-                    <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="250" WidthRequest="250">
-                        <Label Text="Grid placeholder" HorizontalOptions="Center" Padding="15"/>
+                    <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    </Grid.ColumnDefinitions>
 
-                    </StackLayout>
+                    <BoxView Grid.Row="0" Grid.Column="0" WidthRequest="10" HeightRequest="10"/>
+                    <BoxView Grid.Row="0" Grid.Column="1" WidthRequest="10" HeightRequest="10"/>
+                    <BoxView Grid.Row="0" Grid.Column="2" WidthRequest="10" HeightRequest="10"/>
+                    <BoxView Grid.Row="0" Grid.Column="3" WidthRequest="10" HeightRequest="10"/>
+                    <BoxView Grid.Row="0" Grid.Column="4" WidthRequest="10" HeightRequest="10"/>
+                    <BoxView Grid.Row="1" Grid.Column="0" WidthRequest="10" HeightRequest="10"/>
+                    <BoxView Grid.Row="1" Grid.Column="1" WidthRequest="10" HeightRequest="10"/>
+                    <BoxView Grid.Row="1" Grid.Column="2" WidthRequest="10" HeightRequest="10"/>
+                    <BoxView Grid.Row="1" Grid.Column="3" WidthRequest="10" HeightRequest="10"/>
+                    <BoxView Grid.Row="1" Grid.Column="4" WidthRequest="10" HeightRequest="10"/>
+                    <BoxView Grid.Row="2" Grid.Column="0" WidthRequest="10" HeightRequest="10"/>
+                    <BoxView Grid.Row="2" Grid.Column="1" WidthRequest="10" HeightRequest="10"/>
+                    <BoxView Grid.Row="2" Grid.Column="2" WidthRequest="10" HeightRequest="10"/>
+                    <BoxView Grid.Row="2" Grid.Column="3" WidthRequest="10" HeightRequest="10"/>
+                    <BoxView Grid.Row="2" Grid.Column="4" WidthRequest="10" HeightRequest="10"/>
+                    <BoxView Grid.Row="3" Grid.Column="0" WidthRequest="10" HeightRequest="10"/>
+                    <BoxView Grid.Row="3" Grid.Column="1" WidthRequest="10" HeightRequest="10"/>
+                    <BoxView Grid.Row="3" Grid.Column="2" WidthRequest="10" HeightRequest="10"/>
+                    <BoxView Grid.Row="3" Grid.Column="3" WidthRequest="10" HeightRequest="10"/>
+                    <BoxView Grid.Row="3" Grid.Column="4" WidthRequest="10" HeightRequest="10"/>
+                </Grid>
 
-                </Frame>
+                <Image Source="{Binding Source=BattleEngineViewModel.GetMonsterList}"/>
+                <Image Source="{Binding Source=BattleEngineViewModel.GetMonsterList}"/>
+                <Image Source="{Binding Source=BattleEngineViewModel.GetMonsterList}"/>
+                <Image Source="{Binding Source=BattleEngineViewModel.GetMonsterList}"/>
+                <Image Source="{Binding Source=BattleEngineViewModel.GetMonsterList}"/>
 
-                <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
-                    
-                    <StackLayout Style="{StaticResource HorizontalCenterStack}" HeightRequest="75" WidthRequest="250" HorizontalOptions="Center" VerticalOptions="Center">
-
-                        <Label x:Name="HealthTextLabel" Text="Health: " FontAttributes="Bold" FontSize="Micro" Padding="20, 5, 0, 5" HorizontalOptions="Start" Style="{StaticResource LabelStyle}"/>
-                        <Label x:Name="HealthValueLabel"  Text="Health:" FontAttributes="Bold" FontSize="Micro" Padding="20, 5, 0, 5" HorizontalOptions="Start" Style="{StaticResource LabelStyle}"/>
-                        <Label x:Name="GPATextLabel" Text="GPA: "  FontAttributes="Bold" FontSize="Micro" Padding="5, 5, 20, 5" HorizontalOptions="EndAndExpand"  Style="{StaticResource LabelStyle}"/>
-                        <Label x:Name="GPAValueLabel" Text="GPA: "  FontAttributes="Bold" FontSize="Micro" Padding="5, 5, 20, 5" HorizontalOptions="End"  Style="{StaticResource LabelStyle}"/>
-                        
-                    </StackLayout>
-
-                </Frame>
-
-                <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
-
-                    <StackLayout  Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" 
-                                  HorizontalOptions="Center" MinimumHeightRequest="250" WidthRequest="250" Padding="5">
-
-                        <Label x:Name="BattleMessage1Label"  Text="Battle Messages" LineBreakMode="WordWrap" Padding="2"/>
-                        <Label x:Name="BattleMessage2Label"  Text="Battle Messages" LineBreakMode="WordWrap" Padding="2"/>
-                        <Label x:Name="BattleMessage3Label"  Text="Battle Messages"  LineBreakMode="WordWrap" Padding="2"/>
-                        <Label x:Name="BattleMessage4Label"  Text="Battle Messages" LineBreakMode="WordWrap" Padding="2"/>
-                        <Label x:Name="BattleMessage5Label"  Text="Battle Messages" LineBreakMode="WordWrap" Padding="2"/>
-                    </StackLayout>
-                </Frame>
-          
+                <Button Text="Start Battle" Clicked="StartBattle_Clicked"/>
             </StackLayout>
+
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
