@@ -117,7 +117,7 @@ namespace Game.Engine.EngineGame
                     * admin can only move (1-2 blocks)
                 2. change up the character move based on character type.
                     * students can move faster (2-3 blocks)
-                    * admin can only move (1-2 blocks)
+                    * parents can only move (1-2 blocks)
 
             Manual Battle
                 1. character selects move as action for specific player 
