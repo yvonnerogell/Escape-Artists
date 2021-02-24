@@ -113,6 +113,7 @@ namespace Game.Engine.EngineKoenig
              * 
              */
 
+
             if (Attacker.PlayerType == PlayerTypeEnum.Monster)
             {
                 // For Attack, Choose Who
