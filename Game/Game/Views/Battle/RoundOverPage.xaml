@@ -45,10 +45,6 @@
                         <Button Clicked="AutoAssignButton_Clicked" Text="Assign Items"/>
 
                         <Label Text="Items Selected" Style="{StaticResource MessageStyle}"/>
-                        <StackLayout Style="{StaticResource HorizontalStack}">
-                            <Label Text="Selected : " Style="{StaticResource LabelStyle}"/>
-                            <Label Text="0" x:Name="TotalSelected" Style="{StaticResource ValueStyle}"/>
-                        </StackLayout>
                         <FlexLayout x:Name="ItemListSelectedFrame"
                                     JustifyContent="Start"
                                     AlignContent="Start"
