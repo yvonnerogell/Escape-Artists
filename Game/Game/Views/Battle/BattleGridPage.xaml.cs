@@ -81,28 +81,6 @@ namespace Game.Views
         }
 
         /// <summary>
-        /// Takes the game to BattlePageOne when clicked
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public async void ExitBattle_Clicked(object sender, EventArgs e)
-        {
-            // TODO: make sure the AutoBattlePage is the right option here
-            await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
-        }
-
-        /// <summary>
-        /// Takes the game to AutoBattlePage
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public async void StartBattle_Clicked(object sender, EventArgs e)
-        {
-            // TODO: make sure the AutoBattlePage is the right option here
-            await Navigation.PushModalAsync(new NavigationPage(new AutoBattlePage()));
-        }
-
-        /// <summary>
         /// 
         /// Returns the GPA of the current character. 
         /// </summary>
@@ -931,16 +909,48 @@ namespace Game.Views
         #region PageHandelers
 
         /// <summary>
+        /// Takes the game to BattlePageOne when clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void ExitButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void UpdateButton_Clicked(object sender, EventArgs e)
+        {
+            // TODO: not sure what the update should do here; below is a placeholder
+            await Navigation.PushModalAsync(new NavigationPage(new AutoBattlePage()));
+        }
+
+        /// <summary>
+        /// Takes the game to AutoBattlePage
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void StartBattle_Clicked(object sender, EventArgs e)
+        {
+            // TODO: make sure the AutoBattlePage is the right option here
+            await Navigation.PushModalAsync(new NavigationPage(new AutoBattlePage()));
+        }
+
+        /// <summary>
         /// Battle Over, so Exit Button
         /// Need to show this for the user to click on.
         /// The Quit does a prompt, exit just exits
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public async void ExitButton_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PopModalAsync();
-        }
+        // public async void ExitButton_Clicked(object sender, EventArgs e)
+        //{
+        //    await Navigation.PopModalAsync();
+        // }
 
         /*
         /// <summary>
