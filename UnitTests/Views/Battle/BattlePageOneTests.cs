@@ -609,7 +609,7 @@ namespace UnitTests.Views
         public void BattlePage_GetCharacterGPA_67_Should_Pass()
         {
             // Arrange
-            var currentCharacter = new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character };
+            var currentCharacter = new PlayerInfoModel (new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character });
 
             // Act
             var result = GetCharacterGPA(currentCharacter);
@@ -624,7 +624,7 @@ namespace UnitTests.Views
         public void BattlePage_GetCharacterHealth_15_Should_Pass()
         {
             // Arrange
-            var currentCharacter = new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character };
+            var currentCharacter = new PlayerInfoModel( new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character });
 
             // Act
             var result = GetCharacterHealth(currentCharacter);
