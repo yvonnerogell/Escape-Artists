@@ -31,9 +31,10 @@ namespace Game.Views
         /// Monster
         /// Item
         /// </summary>
+        
         public void DrawOutput()
         {
-
+            /*
             // Draw the Characters
             foreach (var data in EngineViewModel.Engine.EngineSettings.BattleScore.CharacterModelDeathList)
             {
@@ -55,8 +56,10 @@ namespace Game.Views
             // Update Values in the UI
             TotalKilled.Text = EngineViewModel.Engine.EngineSettings.BattleScore.MonsterModelDeathList.Count().ToString();
             TotalCollected.Text = EngineViewModel.Engine.EngineSettings.BattleScore.ItemModelDropList.Count().ToString();
+            */
             TotalScore.Text = EngineViewModel.Engine.EngineSettings.BattleScore.ExperienceGainedTotal.ToString();
         }
+        
 
         /// <summary>
         /// Return a stack layout for the Characters
