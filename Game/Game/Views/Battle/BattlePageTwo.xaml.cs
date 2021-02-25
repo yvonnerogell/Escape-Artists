@@ -78,19 +78,19 @@ namespace Game.Views
         // Adding characters by clicking on their images
         public async void Character1_Clicked(object sender, EventArgs e)
         {
-            ViewModel.Data.PartyCharacterList.Add(new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character, ImageURI="smarty_pants_character.png" });
+            ViewModel.Data.PartyCharacterList.Add(new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character, SpecificCharacterTypeEnum= SpecificCharacterTypeEnum.SmartyPants });
             await Navigation.PopModalAsync();
         }
 
         public async void Character2_Clicked(object sender, EventArgs e)
         {
-            ViewModel.Data.PartyCharacterList.Add(new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character });
+            ViewModel.Data.PartyCharacterList.Add(new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character, SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.SmartyPants});
             await Navigation.PopModalAsync();
         }
 
         public async void Character3_Clicked(object sender, EventArgs e)
         {
-            ViewModel.Data.PartyCharacterList.Add(new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character });
+            ViewModel.Data.PartyCharacterList.Add(new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character, SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.Slacker });
             await Navigation.PopModalAsync();
         }
 
