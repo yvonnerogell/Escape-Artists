@@ -413,8 +413,15 @@ namespace Game.Views
             var itemLocation = ItemTypeEnumHelper.GetLocationFromItemType(item.ItemType);
             player = AddItemToCharacter(player, itemLocation, item);
 
+            // Remove item from dropped list and add to selected item list. 
+            var itemIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.FindIndex(i => i.Id == (string)itemId);
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.RemoveAt(itemIndex);
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelSelectList.Add(item);
+
             // Add updated player back to view model
             BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(player);
+
+            DrawItemLists();
 
             PopupLoadingView.IsVisible = false;
         }
