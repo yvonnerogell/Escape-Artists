@@ -125,10 +125,7 @@ namespace Game.Views
 
             for (var i = 0; i < NUM_CHARACTERS; ++i)
             {
-                if (characters.ElementAt(i).Level != 20)
-                {
-                    result.Add(characters.ElementAt(i));
-                }
+                result.Add(characters.ElementAt(i));
             }
             return result;
         }
