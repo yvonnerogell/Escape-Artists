@@ -25,8 +25,8 @@
                         </StackLayout>
 
                         <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
-                            <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="250" WidthRequest="250">
-                                <Label Text="Characters" Style="{StaticResource MessageStyle}" Padding="10" HorizontalTextAlignment="Center"/>
+                            <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" MinimumHeightRequest="250" WidthRequest="250">
+                                <Label Text="Characters" Style="{StaticResource MessageStyle}" Padding="10" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
                                 <FlexLayout x:Name="CharacterListFrame"
                                     JustifyContent="Center"
                                     AlignContent="Center"
