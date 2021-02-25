@@ -300,7 +300,7 @@ namespace Game.GameRules
                     Description = "My IQ is bigger than your height in centimeters!",
                     CharacterTypeEnum = CharacterTypeEnum.Student,
                     SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.SmartyPants,
-                    Level = 1,
+                    Level = 20,
                     GPA = 80,
                     MaxHealth = 100,
                     ImageURI = Constants.SpecificCharacterTypeSmartyPantsImageURI,

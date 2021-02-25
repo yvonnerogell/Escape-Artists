@@ -16,7 +16,7 @@ namespace Game.Views
 	public partial class RoundOverPage: ContentPage
 	{
         // Variable indicating if stub data should be used. Set this to false when our battle engine is being used.
-        public bool UseStubData = true;
+        public bool UseStubData = false;
         public static int NUM_ITEMS = 5;
         public static int NUM_CHARACTERS = 7;
 
@@ -36,7 +36,7 @@ namespace Game.Views
             // TotalFound.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Count().ToString();
 
             // Update the Selected Number, this gets updated later when selected refresh happens
-           // TotalSelected.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelSelectList.Count().ToString();
+            // TotalSelected.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelSelectList.Count().ToString();
 
             DrawCharacterList();
 
@@ -57,44 +57,15 @@ namespace Game.Views
                 CharacterListFrame.Children.Remove(data);
             }
 
-            if (UseStubData)
-			{
-                var characters = GetCharacterStubList();
-                
-                for (var i = 0; i < characters.Count; ++i)
+            // Draw the Characters
+            foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
+            {
+                if (data.Level != 20)
 				{
-                    CharacterListFrame.Children.Add(CreatePlayerDisplayBox(new PlayerInfoModel(characters.ElementAt(i))));
-                }
-			}
-
-            if (!UseStubData)
-			{
-                // Draw the Characters
-                foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
-                {
-                    // TODO: add logic to exclude graduates
                     CharacterListFrame.Children.Add(CreatePlayerDisplayBox(data));
                 }
+                
             }
-        }
-
-        /// <summary>
-        /// Helper method to get a default character stub list.
-        /// </summary>
-        /// <returns></returns>
-        public List<CharacterModel> GetCharacterStubList()
-		{
-            List<CharacterModel> characters = DefaultData.LoadData(new CharacterModel());
-            List<CharacterModel> result = new List<CharacterModel>();
-
-            for (var i = 0; i < NUM_CHARACTERS; ++i)
-            {
-                if (characters.ElementAt(i).Level != 20)
-                {
-                    result.Add(characters.ElementAt(i));
-                }
-            }
-            return result;
         }
 
         /// <summary>
@@ -103,37 +74,20 @@ namespace Game.Views
         public void DrawGraduatesList()
         {
             // Clear and Populate the Characters Remaining
-            var FlexList = CharacterListFrame.Children.ToList();
+            var FlexList = GraduatesListFrame.Children.ToList();
             foreach (var data in FlexList)
             {
                 GraduatesListFrame.Children.Remove(data);
             }
 
-            if (UseStubData)
+            // Draw the Characters
+            foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
             {
-                List<CharacterModel> characters = new List<CharacterModel>();
-                characters = DefaultData.LoadData(new CharacterModel());
-
-                foreach (var data in characters)
-                {
-                    if (data.Level == 20)
-					{
-                        GraduatesListFrame.Children.Add(CreatePlayerDisplayBox(new PlayerInfoModel(data)));
-                    }
-                }
-            }
-
-            if (!UseStubData)
-            {
-                // Draw the Characters
-                foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
-                {
-                    // TODO: Add logic here to only display characters that have reached level 20. 
+                if (data.Level == 20)
+				{
                     GraduatesListFrame.Children.Add(CreatePlayerDisplayBox(data));
                 }
-
             }
-
         }
 
         /// <summary>
@@ -166,40 +120,12 @@ namespace Game.Views
                 ItemListFoundFrame.Children.Remove(data);
             }
 
-            if (UseStubData)
+            foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Distinct())
             {
-                List<ItemModel> items = GetItemStubList();
-
-                for (var i = 0; i < items.Count; ++i)
-				{
-                    ItemListFoundFrame.Children.Add(GetItemToDisplay(items.ElementAt(i)));
-                }
-            }
-
-            if (!UseStubData)
-			{
-                foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Distinct())
-                {
-                    ItemListFoundFrame.Children.Add(GetItemToDisplay(data));
-                }
+                ItemListFoundFrame.Children.Add(GetItemToDisplay(data));
             }
         }
 
-        /// <summary>
-        /// Helper method to get a default character stub list.
-        /// </summary>
-        /// <returns></returns>
-        public List<ItemModel> GetItemStubList()
-        {
-            List<ItemModel> items = DefaultData.LoadData(new ItemModel());
-            List<ItemModel> result = new List<ItemModel>();
-
-            for (var i = 0; i < NUM_ITEMS; ++i)
-            {
-                result.Add(items.ElementAt(i));
-            }
-            return result;
-        }
 
         /// <summary>
         /// Add the Dropped Items to the Display
@@ -219,23 +145,6 @@ namespace Game.Views
             }
         }
 
-        /// <summary>
-        /// Add the Dropped Items to the Display
-        /// </summary>
-        public void DrawSelectedStubItems(List<ItemModel> items)
-        {
-            // Clear and Populate the Dropped Items
-            var FlexList = ItemListSelectedFrame.Children.ToList();
-            foreach (var data in FlexList)
-            {
-                ItemListSelectedFrame.Children.Remove(data);
-            }
-
-            foreach (var data in items)
-            {
-                ItemListSelectedFrame.Children.Add(GetItemToDisplay(data));
-            }
-        }
 
         /// <summary>
         /// Look up the Item to Display
@@ -283,7 +192,7 @@ namespace Game.Views
             // Put the Image Button and Text inside a layout
             var ItemStack = new StackLayout
             {
-                Padding = 3,
+                Padding = 1,
                 Style = (Style)Application.Current.Resources["ItemImageBox"],
                 HorizontalOptions = LayoutOptions.Center,
                 Children = {
@@ -432,105 +341,10 @@ namespace Game.Views
         /// <param name="e"></param>
         public void AutoAssignButton_Clicked(object sender, EventArgs e)
 		{
-            List<ItemModel> selectedItems = new List<ItemModel>();
-            if (UseStubData)
-			{
-                var characters = GetCharacterStubList();
-                var items = GetItemStubList();
-
-                for (var i = 0; i < characters.Count; ++i)
-				{
-                    var character = characters.ElementAt(i);
-                    if (character.Feet == null || character.Feet == "None")
-					{
-                        var item = FindItemForLocation(ItemLocationEnum.Feet, items);
-                        if (item != null)
-						{
-                            character.Feet = item.ToString();
-                            selectedItems.Add(item);
-                            items.Remove(item);
-                            continue;
-                        }
-					}
-                    if (character.Head == null || character.Head == "None")
-                    {
-                        var item = FindItemForLocation(ItemLocationEnum.Head, items);
-                        if (item != null)
-                        {
-                            character.Head = item.ToString();
-                            selectedItems.Add(item);
-                            items.Remove(item);
-                            continue;
-                        }
-                    }
-                    if (character.LeftFinger == null || character.LeftFinger == "None")
-                    {
-                        var item = FindItemForLocation(ItemLocationEnum.LeftFinger, items);
-                        if (item != null)
-                        {
-                            character.LeftFinger = item.ToString(); 
-                            selectedItems.Add(item);
-                            items.Remove(item);
-                            continue;
-                        }
-                    }
-                    if (character.Necklace == null || character.Necklace == "None")
-                    {
-                        var item = FindItemForLocation(ItemLocationEnum.Necklace, items);
-                        if (item != null)
-                        {
-                            character.Necklace = item.ToString();
-                            selectedItems.Add(item);
-                            items.Remove(item);
-                            continue;
-                        }
-                    }
-                    if (character.OffHand == null || character.OffHand == "None")
-                    {
-                        var item = FindItemForLocation(ItemLocationEnum.OffHand, items);
-                        if (item != null)
-                        {
-                            character.OffHand = item.ToString();
-                            selectedItems.Add(item);
-                            items.Remove(item);
-                            continue;
-                        }
-                    }
-                    if (character.PrimaryHand == null || character.PrimaryHand == "None")
-                    {
-                        var item = FindItemForLocation(ItemLocationEnum.PrimaryHand, items);
-                        if (item != null)
-                        {
-                            character.PrimaryHand = item.ToString();
-                            selectedItems.Add(item); 
-                            items.Remove(item);
-                            continue;
-                        }
-                    }
-                    if (character.RightFinger == null || character.RightFinger == "None")
-                    {
-                        var item = FindItemForLocation(ItemLocationEnum.RightFinger, items);
-                        if (item != null)
-                        {
-                            character.RightFinger = item.ToString();
-                            selectedItems.Add(item);
-                            items.Remove(item);
-                            continue;
-                        }
-                    }
-                }
-                DrawSelectedStubItems(selectedItems);
-            }
-
-            // TODO: Revisit this method once our battle engine is up and running to make
-            // sure PickupItemsForAllCharacters works with our business logic
-            if (!UseStubData)
-			{
-                // Distribute the Items
-                BattleEngineViewModel.Instance.Engine.Round.PickupItemsForAllCharacters();
-                // Show what was picked up
-                DrawItemLists();
-            }
+            // Distribute the Items
+            BattleEngineViewModel.Instance.Engine.Round.PickupItemsForAllCharacters();
+            // Show what was picked up
+            DrawItemLists();
         }
 
         /// <summary>
@@ -561,6 +375,5 @@ namespace Game.Views
         {
             await Navigation.PopModalAsync();
         }
-
     }
 }

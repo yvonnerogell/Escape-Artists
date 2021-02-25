@@ -1,11 +1,13 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Collections.Generic;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using Game.Models;
 using Game.ViewModels;
+using Game.GameRules;
 using System.Linq;
 
 namespace Game.Views
@@ -27,6 +29,9 @@ namespace Game.Views
     public partial class PickCharactersPage : ContentPage
     {
 
+        public static int NUM_CHARACTERS = 7;
+        public static int NUM_ITEMS = 5;
+
         // Empty Constructor for UTs
         public PickCharactersPage(bool UnitTest) { }
 
@@ -45,7 +50,84 @@ namespace Game.Views
             // Clear the Database List and the Party List to start
             BattleEngineViewModel.Instance.PartyCharacterList.Clear();
 
+            // Setting up the BattleEngineViewModel with default data to use for testing
+            // TODO: Comment this out when ready to use the real battle engine
+            // Melissa, you can change the character list as the user is selecting the characters for the game.
+            SetUpStubData();
+
+
             UpdateNextButtonState();
+        }
+
+        public bool SetUpStubData()
+		{
+            // Add characters to state machine
+            var characters = GetCharacterStubList();
+            AddStubCharactersToBattleEngineViewModel(characters);
+
+            // Add items to state machine
+            var itemsDropped = GetItemStubList();
+            AddStubItemsToBattleEngineViewModel(itemsDropped);
+
+            return true;
+        }
+
+        /// <summary>
+        /// Helper method to get a default character stub list.
+        /// </summary>
+        /// <returns></returns>
+        public List<ItemModel> GetItemStubList()
+        {
+            List<ItemModel> items = DefaultData.LoadData(new ItemModel());
+            List<ItemModel> result = new List<ItemModel>();
+
+            for (var i = 0; i < NUM_ITEMS; ++i)
+            {
+                result.Add(items.ElementAt(i));
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Add stub characters to battle engine view model.
+        /// </summary>
+        /// <returns></returns>
+        public bool AddStubItemsToBattleEngineViewModel(List<ItemModel> items)
+        {
+            foreach (var item in items)
+            {
+                BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Add(item);
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Add stub characters to battle engine view model.
+        /// </summary>
+        /// <returns></returns>
+        public bool AddStubCharactersToBattleEngineViewModel(List<CharacterModel> characters)
+		{
+            foreach (var character in characters)
+			{
+                BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(character));
+            }
+            return true;
+		}
+
+        /// <summary>
+        /// Helper method to get a default character stub list.
+        /// </summary>
+        /// <returns></returns>
+        public List<CharacterModel> GetCharacterStubList()
+        {
+            List<CharacterModel> characters = DefaultData.LoadData(new CharacterModel());
+            List<CharacterModel> result = new List<CharacterModel>();
+
+            for (var i = 0; i < NUM_CHARACTERS; ++i)
+            {
+                result.Add(characters.ElementAt(i));
+            }
+            return result;
         }
 
         /// <summary>
