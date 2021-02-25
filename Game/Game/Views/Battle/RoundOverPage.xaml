@@ -24,11 +24,15 @@
                             <Label Text="0" x:Name="TotalRound" Style="{StaticResource MessageStyle}"/>
                         </StackLayout>
 
-                        <Label Text="Characters" Style="{StaticResource MessageStyle}"/>
-                            <FlexLayout x:Name="CharacterListFrame"
+                        <Frame BackgroundColor="Pink" Padding="2" BorderColor="Black" CornerRadius="30">
+                            <StackLayout>
+                                <Label Text="Characters" Style="{StaticResource MessageStyle}"/>
+                                <FlexLayout x:Name="CharacterListFrame"
                                     JustifyContent="Start"
                                     AlignContent="Start"
                                     Wrap="Wrap"/>
+                            </StackLayout>
+                        </Frame>
 
                         <Label Text="Graduates" Style="{StaticResource MessageStyle}"/>
                         <FlexLayout x:Name="GraduatesListFrame"
