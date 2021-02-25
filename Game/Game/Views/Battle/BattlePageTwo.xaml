@@ -23,7 +23,7 @@
                         <StackLayout Orientation="Horizontal">
 
                             <ImageButton
-                            Source="{Binding Source=BattleEngineViewModel.GetCharacterList}"
+                            Source="smarty_pants_character.png"
                             HorizontalOptions="EndAndExpand"
                             Style="{StaticResource GamePageMenuImageButton}"/>
                             <Button Opacity="0" Clicked="Character1_Clicked"/>
