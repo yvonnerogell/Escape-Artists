@@ -116,7 +116,10 @@ namespace Game.Views
         public async void AttackButton_Clicked(object sender, EventArgs e)
         {
             // TODO: make sure the AutoBattlePage is the right option here
-            await Navigation.PushModalAsync(new NavigationPage(new RoundOverPage()));
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.RoundOver;
+           
+            await Navigation.PushModalAsync(new NavigationPage(new ScorePage()));
+            
         }
 
 
