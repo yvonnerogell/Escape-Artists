@@ -47,6 +47,10 @@ namespace Game.Models
         // Only use Get only, set will be done by the Add feature.
         public string CharacterAtDeathList { get; set; } = string.Empty;
 
+        // All of the characters graduated and their stats. 
+        // Only use Get only, set will be done by the Add feature.
+        public string GraduateList { get; set; } = string.Empty;
+
         // All of the monsters killed and their stats. 
         // Only use Get only, set will be done by the Add feature.
         public string MonstersKilledList { get; set; } = string.Empty;
@@ -58,6 +62,10 @@ namespace Game.Models
         // Add Characters to the List for Score, New Round, and Easier testing
         [Ignore]
         public List<PlayerInfoModel> CharacterModelDeathList { get; set; } = new List<PlayerInfoModel>();
+
+        // Add Graduated Characters to the List for Score, New Round, and Easier testing
+        [Ignore]
+        public List<PlayerInfoModel> GraduateModelList { get; set; } = new List<PlayerInfoModel>();
 
         // Add Monsters to the List for Score, New Round, and Easier testing
         [Ignore]
