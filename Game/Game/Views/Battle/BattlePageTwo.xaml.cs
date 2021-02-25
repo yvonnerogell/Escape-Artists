@@ -94,6 +94,22 @@ namespace Game.Views
             await Navigation.PopModalAsync();
         }
 
+        // Adding items by clicking on their images
+        public async void Item1_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync();
+        }
+
+        public async void Item2_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync();
+        }
+
+        public async void Item3_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync();
+        }
+
         // Adding monsters by clicking on their images
         public async void Monster1_Clicked(object sender, EventArgs e)
         {
