@@ -116,7 +116,7 @@ namespace Game.Views
         public async void AttackButton_Clicked(object sender, EventArgs e)
         {
             // TODO: make sure the AutoBattlePage is the right option here
-            await Navigation.PushModalAsync(new NavigationPage(new AutoBattlePage()));
+            await Navigation.PushModalAsync(new NavigationPage(new RoundOverPage()));
         }
 
 

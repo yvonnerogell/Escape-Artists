@@ -71,7 +71,7 @@
 
 
                         <StackLayout Margin="10">
-                            <Button Text="Attack!" Clicked="OnAttackButton_Clicked" CornerRadius="15" FontAttributes="Bold"  
+                            <Button Text="Attack!" Clicked="AttackButton_Clicked" CornerRadius="15" FontAttributes="Bold"  
                                 TextColor="{StaticResource New_ButtonTextColor}"
                                 Margin="10"
                                 HorizontalOptions="Center"
