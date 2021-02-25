@@ -290,6 +290,7 @@ namespace Game.Views
             List<PlayerInfoModel> allCharacters = BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList;
             List<string> charactersForItem = GetCharacterWhoCanAcceptItem(allCharacters, data);
             AssignItemPicker.ItemsSource = charactersForItem;
+            AssignItemPicker.SelectedIndex = 0;
 
             return true;
         }
@@ -400,9 +401,57 @@ namespace Game.Views
         public void PopupSaveButton_Clicked(object sender, EventArgs e)
         {
             var itemId = ((Button)sender).CommandParameter;
-            // TODO need to save the assigned item?
+            var characterName = AssignItemPicker.SelectedItem.ToString();
+            var character = CharacterIndexViewModel.Instance.GetCharacterByName(characterName);
+            PlayerInfoModel player = new PlayerInfoModel(character);
+
+            var characterFoundIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FindIndex(c => c.Name == player.Name);
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.RemoveAt(characterFoundIndex);
+
+            // Add item to character
+            var item = ItemIndexViewModel.Instance.GetItem((string)itemId);
+            var itemLocation = ItemTypeEnumHelper.GetLocationFromItemType(item.ItemType);
+            player = AddItemToCharacter(player, itemLocation, item);
+
+            // Add updated player back to view model
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(player);
+
             PopupLoadingView.IsVisible = false;
         }
+
+        public PlayerInfoModel AddItemToCharacter(PlayerInfoModel player, ItemLocationEnum location, ItemModel item)
+		{
+            if (ItemLocationEnum.Feet == location)
+			{
+                player.Feet = item.Id;
+			}
+            if (ItemLocationEnum.Head == location)
+            {
+                player.Head = item.Id;
+            }
+            if (ItemLocationEnum.LeftFinger == location)
+            {
+                player.LeftFinger = item.Id;
+            }
+            if (ItemLocationEnum.Necklace == location)
+            {
+                player.Necklace = item.Id;
+            }
+            if (ItemLocationEnum.OffHand == location)
+            {
+                player.OffHand = item.Id;
+            }
+            if (ItemLocationEnum.PrimaryHand == location)
+            {
+                player.PrimaryHand = item.Id;
+            }
+            if (ItemLocationEnum.RightFinger == location)
+            {
+                player.RightFinger = item.Id;
+            }
+
+            return player;
+		}
 
         /// <summary>
         /// Closes the Round Over Popup

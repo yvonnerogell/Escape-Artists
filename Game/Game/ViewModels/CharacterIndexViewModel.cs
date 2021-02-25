@@ -141,6 +141,28 @@ namespace Game.ViewModels
         }
 
         /// <summary>
+        /// Takes an character model string name and looks it up and returns the character
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public CharacterModel GetCharacterByName(string name)
+        {
+            if (string.IsNullOrEmpty(name))
+            {
+                return null;
+            }
+
+            // Item myData = DataStore.GetAsync_Item(ItemID).GetAwaiter().GetResult();
+            CharacterModel myData = Dataset.Where(a => a.Name.Equals(name)).FirstOrDefault();
+            if (myData == null)
+            {
+                return null;
+            }
+
+            return myData;
+        }
+
+        /// <summary>
         /// Load the Default Data
         /// </summary>
         /// <returns></returns>
