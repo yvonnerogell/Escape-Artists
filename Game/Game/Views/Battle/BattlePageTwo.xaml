@@ -17,7 +17,7 @@
                 HorizontalOptions="Center">
 
                 <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
-                    <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="250" WidthRequest="250">
+                    <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="250" WidthRequest="750">
                         <Label x:Name="SelectCharacter" Text="Select a Character" HorizontalOptions="Center" Padding="15"/>
 
                         <StackLayout Orientation="Horizontal">
@@ -29,13 +29,13 @@
                             <Button Opacity="0" Clicked="Character1_Clicked"/>
 
                             <ImageButton
-                            Source="{Binding Source=BattleEngineViewModel.GetCharacterList}"
+                            Source="coolparent.png"
                             HorizontalOptions="EndAndExpand"
                             Style="{StaticResource GamePageMenuImageButton}"/>
                             <Button Opacity="0" Clicked="Character2_Clicked"/>
 
                             <ImageButton
-                            Source="{Binding Source=BattleEngineViewModel.GetCharacterList}"
+                            Source="international_student.png"
                             HorizontalOptions="EndAndExpand"
                             Style="{StaticResource GamePageMenuImageButton}"/>
                             <Button Opacity="0" Clicked="Character3_Clicked"/>
@@ -45,24 +45,24 @@
                 </Frame>
 
                 <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
-                    <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="250" WidthRequest="250">
+                    <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="250" WidthRequest="750">
                         <Label x:Name="SelectMonster" Text="Select Who to Attack" HorizontalOptions="Center" Padding="15"/>
                         <StackLayout Orientation="Horizontal">
 
                             <ImageButton
-                                Source="{Binding Source=BattleEngineViewModel.GetMonsterList}"
+                                Source="assistant_professor_monster.png"
                                 HorizontalOptions="EndAndExpand"
                                 Style="{StaticResource GamePageMenuImageButton}"/>
                             <Button Opacity="0" Clicked="Monster1_Clicked"/>
 
                             <ImageButton
-                                Source="{Binding Source=BattleEngineViewModel.GetMonsterList}"
+                                Source="grad_office_monster.png"
                                 HorizontalOptions="EndAndExpand"
                                 Style="{StaticResource GamePageMenuImageButton}"/>
                             <Button Opacity="0" Clicked="Monster2_Clicked"/>
 
                             <ImageButton
-                                Source="{Binding Source=BattleEngineViewModel.GetMonsterList}"
+                                Source="associate_professor_monster.png"
                                 HorizontalOptions="EndAndExpand"
                                 Style="{StaticResource GamePageMenuImageButton}"/>
                             <Button Opacity="0" Clicked="Monster3_Clicked"/>
