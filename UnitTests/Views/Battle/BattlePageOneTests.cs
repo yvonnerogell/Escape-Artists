@@ -653,7 +653,7 @@ namespace UnitTests.Views
             Assert.AreEqual("Minnie studies hard from Professor Frank's exam.", result[4]);
         }
 
-        /*
+        
         [Test]
         public void BattlePage_SetBattleMessages_Should_Pass()
         {
@@ -665,16 +665,8 @@ namespace UnitTests.Views
             messages.Add("Jocey fills out all the forms from Frothy.");
             messages.Add("Minnie studies hard from Professor Frank's exam.");
 
-            // Set just some default text
-            ((Label)page.FindByName("BattleMessage1Label")).Text = "Hello" ;
-            ((Label)page.FindByName("BattleMessage2Label")).Text = "Hello";
-            ((Label)page.FindByName("BattleMessage3Label")).Text = "Hello";
-            ((Label)page.FindByName("BattleMessage4Label")).Text = "Hello";
-            ((Label)page.FindByName("BattleMessage5Label")).Text = "Hello";
-
-
             // Act
-            SetBattleMessages(messages);
+            page.SetBattleMessages(messages);
 
             var m1 = ((Label)page.FindByName("BattleMessage1Label")).Text;
             var m2 = ((Label)page.FindByName("BattleMessage2Label")).Text;
@@ -692,7 +684,7 @@ namespace UnitTests.Views
             Assert.AreEqual("Jocey fills out all the forms from Frothy.", m4);
             Assert.AreEqual("Minnie studies hard from Professor Frank's exam.", m5);
         }
-        */
+        
 
         /*
         [Test]
