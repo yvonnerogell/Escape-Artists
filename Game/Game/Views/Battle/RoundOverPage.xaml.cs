@@ -285,8 +285,24 @@ namespace Game.Views
 
             // Set command parameter so that popup knows which item it is displaying
             PopupSaveButton.CommandParameter = data.Id;
+
+            // Figure out which characters can be assigned this item and display that list in the picker. 
+            List<PlayerInfoModel> allCharacters = BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList;
+            List<string> charactersForItem = GetCharacterWhoCanAcceptItem(allCharacters, data);
+            AssignItemPicker.ItemsSource = charactersForItem;
+
             return true;
         }
+
+        public List<string> GetCharacterWhoCanAcceptItem(List<PlayerInfoModel> characters, ItemModel item)
+		{
+            List<string> result = new List<string>();
+
+            // TODO: replace with actual character names :)
+            result.Add("Hello");
+
+            return result;
+		}
 
         /// <summary>
         /// Close the popup
