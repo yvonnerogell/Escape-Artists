@@ -46,6 +46,34 @@
 
                 <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
                     <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="250" WidthRequest="750">
+                        <Label x:Name="SelectItem" Text="Select Items" HorizontalOptions="Center" Padding="15"/>
+
+                        <StackLayout Orientation="Horizontal">
+
+                            <ImageButton
+                            Source="item_pencil.png"
+                            HorizontalOptions="EndAndExpand"
+                            Style="{StaticResource GamePageMenuImageButton}"/>
+                            <Button Opacity="0" Clicked="Item1_Clicked"/>
+
+                            <ImageButton
+                            Source="item_eraser.png"
+                            HorizontalOptions="EndAndExpand"
+                            Style="{StaticResource GamePageMenuImageButton}"/>
+                            <Button Opacity="0" Clicked="Item2_Clicked"/>
+
+                            <ImageButton
+                            Source="item_skateboard.png"
+                            HorizontalOptions="EndAndExpand"
+                            Style="{StaticResource GamePageMenuImageButton}"/>
+                            <Button Opacity="0" Clicked="Item3_Clicked"/>
+
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+
+                <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
+                    <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="250" WidthRequest="750">
                         <Label x:Name="SelectMonster" Text="Select Who to Attack" HorizontalOptions="Center" Padding="15"/>
                         <StackLayout Orientation="Horizontal">
 
