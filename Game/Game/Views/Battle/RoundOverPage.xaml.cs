@@ -36,8 +36,10 @@ namespace Game.Views
             // TotalFound.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Count().ToString();
 
             // Update the Selected Number, this gets updated later when selected refresh happens
-           // TotalSelected.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelSelectList.Count().ToString();
+            // TotalSelected.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelSelectList.Count().ToString();
 
+            // Will move this section to PickCharactersPage.xaml.cs so that we can use same data all over. 
+            // BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new CharacterModel() { Name = "Minnie", Level = 6});
             DrawCharacterList();
 
             DrawGraduatesList();
