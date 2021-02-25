@@ -52,8 +52,14 @@ namespace Game.Views
             // Create and Draw the Map
             //InitializeMapGrid();
 
+            // TODO: Remoev this once we move to real battle engine
+            List<ItemModel> droppedItems = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList;
+
             // Start the Battle Engine
             BattleEngineViewModel.Instance.Engine.StartBattle(false);
+
+            // TODO remove once we use real engine. This is just reassigning items for testing pruposes. 
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList = droppedItems;
 
             // Populate the UI Map
             // DrawMapGridInitialState();
