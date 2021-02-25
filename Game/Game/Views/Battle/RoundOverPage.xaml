@@ -100,42 +100,40 @@
                         HeightRequest="300"
                         >
 
-                        <Frame 
+                    <Frame 
                              BorderColor="{StaticResource TriciaryTextColor}" Padding="1">
 
-                            <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand" Padding="2">
-                                <Image x:Name="PopupItemImage" Style="{StaticResource ImageLargeStyle}" Margin="5"/>
+                        <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand" Padding="2">
+                            <Image x:Name="PopupItemImage" Style="{StaticResource ImageLargeStyle}" Margin="5"/>
 
-                                <Label x:Name="PopupItemName" Style="{StaticResource PopupItemTextStyle}" MaxLines="2" LineBreakMode="WordWrap" Margin="5"/>
-                                <Label x:Name="PopupItemDescription" Style="{StaticResource PopupItemTextStyle}" MaxLines="2" LineBreakMode="WordWrap" Margin="5" />
+                            <Label x:Name="PopupItemName" Style="{StaticResource PopupItemTextStyle}" MaxLines="2" LineBreakMode="WordWrap" Margin="5"/>
+                            <Label x:Name="PopupItemDescription" Style="{StaticResource PopupItemTextStyle}" MaxLines="2" LineBreakMode="WordWrap" Margin="5" />
 
-                                <StackLayout Style="{StaticResource HorizontalStack}" Margin="5">
-                                    <Label Text="Location : " Style="{StaticResource LabelStyle}" />
-                                    <Label x:Name="PopupItemLocation" Style="{StaticResource ValueStyle}" />
-                                </StackLayout>
-
-                                <StackLayout Style="{StaticResource HorizontalStack}" Margin="5">
-                                    <Label x:Name="PopupItemAttribute" Style="{StaticResource LabelStyle}" />
-                                    <Label x:Name="PopupItemValue" Style="{StaticResource ValueStyle}" />
-                                </StackLayout>
-
-                                <Label Text="Assign Item To: " Margin="5"/>
-                                <Picker x:Name="AssignItemPicker" SelectedItem="Assign Item To" Margin="5" />
-
-                                <Button x:Name="PopupSaveButton" 
-                                Clicked="PopupSaveButton_Clicked" 
-                                Text="Save"
-                                    Margin="10"/>
-
-                                <Button x:Name="PopupCloseButton" 
-                                Clicked="ClosePopup_Clicked" 
-                                Text="Close"
-                                    Margin="10"/>
-
-
+                            <StackLayout Style="{StaticResource HorizontalStack}" Margin="5">
+                                <Label Text="Location : " Style="{StaticResource LabelStyle}" />
+                                <Label x:Name="PopupItemLocation" Style="{StaticResource ValueStyle}" />
                             </StackLayout>
-                        </Frame>
 
+                            <StackLayout Style="{StaticResource HorizontalStack}" Margin="5">
+                                <Label x:Name="PopupItemAttribute" Style="{StaticResource LabelStyle}" />
+                                <Label x:Name="PopupItemValue" Style="{StaticResource ValueStyle}" />
+                            </StackLayout>
+
+                            <Label Text="Assign Item To: " Margin="5"/>
+                            <Picker x:Name="AssignItemPicker" SelectedItem="Assign Item To" Margin="5" />
+
+                            <Button x:Name="PopupSaveButton" 
+                                    Clicked="PopupSaveButton_Clicked" 
+                                    Text="Save"
+                                    Margin="10"/>
+
+                            <Button x:Name="PopupCloseButton" 
+                                    Clicked="ClosePopup_Clicked" 
+                                    Text="Close"
+                                    Margin="10"/>
+
+                        </StackLayout>
+                    </Frame>
                 </StackLayout>
             </StackLayout>
 
