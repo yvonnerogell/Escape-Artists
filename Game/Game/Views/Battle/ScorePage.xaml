@@ -15,8 +15,7 @@
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 Spacing="10">
-                
-                <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
+                <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10" HorizontalOptions="Center">
                     <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" HeightRequest="50" WidthRequest="250">
                         <StackLayout Style="{StaticResource HorizontalStack}"
                                  HorizontalOptions="Center">
@@ -26,56 +25,56 @@
                     </StackLayout>
                 </Frame>
 
-                <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
-                    <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" HeightRequest="200" WidthRequest="250">
+                <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10" HorizontalOptions="Center">
+                    <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" MinimumHeightRequest="250" WidthRequest="250">
                         <Label Text="Characters" Style="{StaticResource MessageStyle}" HorizontalOptions="Center"/>
                         <FlexLayout x:Name="CharacterListFrame"
-                                    JustifyContent="Start"
-                                    AlignContent="Start"
+                                    JustifyContent="Center"
+                                    AlignContent="Center"
                                     Wrap="Wrap"/>
                     </StackLayout>
                 </Frame>
-
-                <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
-                    <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" HeightRequest="200" WidthRequest="250">
+                <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10" HorizontalOptions="Center">
+                    <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" MinimumHeightRequest="250" WidthRequest="250">
                         <Label Text="Graduates" Style="{StaticResource MessageStyle}" HorizontalOptions="Center"/>
+                        <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center">
+                            <Label Text="Graduated : " Style="{StaticResource LabelStyle}"/>
+                            <Label Text="0" x:Name="TotalGraduated" Style="{StaticResource ValueStyle}"/>
+                        </StackLayout>
                         <FlexLayout x:Name="GraduateListFrame"
-                                    JustifyContent="Start"
-                                    AlignContent="Start"
+                                    JustifyContent="Center"
+                                    AlignContent="Center"
                                     Wrap="Wrap"/>
                     </StackLayout>
                 </Frame>
-                
-                <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
-                    <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" HeightRequest="200" WidthRequest="250">
+                <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10" HorizontalOptions="Center">
+                    <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" MinimumHeightRequest="250" WidthRequest="250">
                         <Label Text="Monsters" Style="{StaticResource MessageStyle}" HorizontalOptions="Center"/>
                         <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center">
                             <Label Text="Killed : " Style="{StaticResource LabelStyle}"/>
                             <Label Text="0" x:Name="TotalKilled" Style="{StaticResource ValueStyle}"/>
                         </StackLayout>
                         <FlexLayout x:Name="MonsterListFrame"
-                                    JustifyContent="Start"
-                                    AlignContent="Start"
+                                    JustifyContent="Center"
+                                    AlignContent="Center"
                                     Wrap="Wrap"/>
                     </StackLayout>
                 </Frame>
-
-                <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
-                    <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" HeightRequest="200" WidthRequest="250">
+                <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10" HorizontalOptions="Center">
+                    <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" MinimumHeightRequest="250" WidthRequest="250">
                         <Label Text="Items" Style="{StaticResource MessageStyle}" HorizontalOptions="Center"/>
                         <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center">
                             <Label Text="Collected : " Style="{StaticResource LabelStyle}"/>
                             <Label Text="0" x:Name="TotalCollected" Style="{StaticResource ValueStyle}"/>
                         </StackLayout>
                         <FlexLayout x:Name="ItemListFrame"
-                                    JustifyContent="Start"
-                                    AlignContent="Start"
+                                    JustifyContent="Center"
+                                    AlignContent="Center"
                                     Wrap="Wrap"/>
                     </StackLayout>
                 </Frame>
-
-                <Frame  BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10" HorizontalOptions="Center">
-                    <StackLayout  Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" MinimumHeightRequest="250" WidthRequest="250">
+                <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10" HorizontalOptions="Center">
+                    <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" MinimumHeightRequest="50" WidthRequest="250">
                         <Button Clicked="CloseButton_Clicked" Text="Close" Padding="2" Margin="2"/>
                     </StackLayout>
                 </Frame>

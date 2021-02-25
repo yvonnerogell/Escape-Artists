@@ -1,6 +1,8 @@
-﻿using Game.Models;
+﻿using Game.GameRules;
+using Game.Models;
 using Game.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -16,13 +18,136 @@ namespace Game.Views
         // This uses the Instance so it can be shared with other Battle Pages as needed
         public BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
 
+        // TODO remove these if we aren't using stubbing
+        public static int NUM_CHARACTERS = 4;
+        public static int NUM_ITEMS = 5;
+        public static int NUM_GRADUATES = 3;
+        public static int NUM_MONSTERS = 4;
+
         /// <summary>
         /// Constructor
         /// </summary>
         public ScorePage ()
         {
             InitializeComponent();
+
+            // Setting up the BattleEngineViewModel with default data to use for testing
+            // TODO: Comment this out when ready to use the real battle engine
+            SetUpStubData();
+
+
             DrawOutput();
+        }
+
+        /// <summary>
+        /// Used to test page with fake data
+        /// </summary>
+        /// <returns></returns>
+        public bool SetUpStubData()
+        {
+            // Add characters to state machine
+            var characters = GetCharacterStubList();
+            AddStubCharactersToBattleEngineViewModel(characters);
+
+            // Add Graduated Characters to state machine
+            var graduatedCharacters = GetGraduatsStubList();
+            AddStubGraduatesToBattleEngineViewModel(graduatedCharacters);
+
+            // Add Monsters killed to state machine
+            var monsters = GetMonstersStubList();
+            AddStubMonstersToBattleEngineViewModel(monsters);
+
+            return true;
+        }
+
+        /// <summary>
+        /// Helper method to get a default character stub list.
+        /// </summary>
+        /// <returns></returns>
+        public List<CharacterModel> GetCharacterStubList()
+        {
+            List<CharacterModel> characters = DefaultData.LoadData(new CharacterModel());
+            List<CharacterModel> result = new List<CharacterModel>();
+
+            for (var i = 0; i < NUM_CHARACTERS; ++i)
+            {
+                result.Add(characters.ElementAt(i));
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Helper method to get a graduated character stub list.
+        /// </summary>
+        /// <returns></returns>
+        public List<CharacterModel> GetGraduatsStubList()
+        {
+            List<CharacterModel> characters = DefaultData.LoadData(new CharacterModel());
+            List<CharacterModel> result = new List<CharacterModel>();
+
+            for (var i = 0; i < NUM_GRADUATES; ++i)
+            {
+                result.Add(characters.ElementAt(i));
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Helper method to get a monster stub list.
+        /// </summary>
+        /// <returns></returns>
+        public List<MonsterModel> GetMonstersStubList()
+        {
+            List<MonsterModel> characters = DefaultData.LoadData(new MonsterModel());
+            List<MonsterModel> result = new List<MonsterModel>();
+
+            for (var i = 0; i < NUM_MONSTERS; ++i)
+            {
+                result.Add(characters.ElementAt(i));
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Add stub characters to battle engine view model.
+        /// </summary>
+        /// <returns></returns>
+        public bool AddStubCharactersToBattleEngineViewModel(List<CharacterModel> characters)
+        {
+            foreach (var character in characters)
+            {
+                EngineViewModel.Engine.EngineSettings.BattleScore.CharacterModelDeathList.Add(new PlayerInfoModel(character));
+                //BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(character));
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Add stub graduated characters to battle engine view model.
+        /// </summary>
+        /// <returns></returns>
+        public bool AddStubGraduatesToBattleEngineViewModel(List<CharacterModel> graduates)
+        {
+            foreach (var graduate in graduates)
+            {
+                EngineViewModel.Engine.EngineSettings.BattleScore.GraduateModelList.Add(new PlayerInfoModel(graduate));
+                //BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(character));
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// Add stub monsters to battle engine view model.
+        /// </summary>
+        /// <returns></returns>
+        public bool AddStubMonstersToBattleEngineViewModel(List<MonsterModel> monsters)
+        {
+            foreach (var monster in monsters)
+            {
+                EngineViewModel.Engine.EngineSettings.BattleScore.MonsterModelDeathList.Add(new PlayerInfoModel(monster));
+                //BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(character));
+            }
+            return true;
         }
 
         /// <summary>
@@ -40,6 +165,12 @@ namespace Game.Views
                 CharacterListFrame.Children.Add(CreateCharacterDisplayBox(data));
             }
 
+            // Draw the Characters
+            foreach (var data in EngineViewModel.Engine.EngineSettings.BattleScore.GraduateModelList)
+            {
+                GraduateListFrame.Children.Add(CreateCharacterDisplayBox(data));
+            }
+
             // Draw the Monsters
             foreach (var data in EngineViewModel.Engine.EngineSettings.BattleScore.MonsterModelDeathList.Distinct())
             {
@@ -53,6 +184,7 @@ namespace Game.Views
             }
 
             // Update Values in the UI
+            TotalGraduated.Text = EngineViewModel.Engine.EngineSettings.BattleScore.GraduateModelList.Count().ToString();
             TotalKilled.Text = EngineViewModel.Engine.EngineSettings.BattleScore.MonsterModelDeathList.Count().ToString();
             TotalCollected.Text = EngineViewModel.Engine.EngineSettings.BattleScore.ItemModelDropList.Count().ToString();
             TotalScore.Text = EngineViewModel.Engine.EngineSettings.BattleScore.ExperienceGainedTotal.ToString();
