@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Game.Views.GameOverPage"
+             BackgroundImageSource="background.png"
              Title="Game Over">
 
     <ContentPage.Content>
@@ -15,26 +16,32 @@
                 VerticalOptions="Center"
                 Spacing="10">
 
-                <StackLayout>
-                    <Label Text="Thank you for playing!" 
+                <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
+                    <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" HeightRequest="175" WidthRequest="250">
+                        <StackLayout>
+                            <Label></Label>
+                        </StackLayout>
+                        
+                        <StackLayout>
+                            <Label Text="Thank you for playing!" 
                            Style="{StaticResource HeaderStyle}"
                            HorizontalOptions="Center"/>
 
-                    <StackLayout>
-                        <Label></Label>
-                    </StackLayout>
+                            <StackLayout>
+                                <Label></Label>
+                            </StackLayout>
 
-                    <StackLayout Style="{StaticResource HorizontalStack}"
+                            <StackLayout Style="{StaticResource HorizontalStack}"
                                  HorizontalOptions="Center">
-                        <Label Text="Score : " Style="{StaticResource MessageStyle}"/>
-                        <Label Text="0" x:Name="TotalScore" Style="{StaticResource MessageStyle}"/>
-                    </StackLayout>
+                                <Label Text="Score : " Style="{StaticResource MessageStyle}"/>
+                                <Label Text="0" x:Name="TotalScore" Style="{StaticResource MessageStyle}"/>
+                            </StackLayout>
 
-                    <StackLayout>
-                        <Label></Label>
-                    </StackLayout>
+                            <StackLayout>
+                                <Label></Label>
+                            </StackLayout>
 
-                    <!--
+                            <!--
 
                     <Label Text="Characters" Style="{StaticResource MessageStyle}"/>
                     <FlexLayout x:Name="CharacterListFrame"
@@ -63,10 +70,25 @@
                                         Wrap="Wrap"/>
                     -->
 
-                    <Button Clicked="YourScoreButton_Clicked" Text="Score Details"/>
-                    <Button Clicked="CloseButton_Clicked" Text="Exit"/>
+                        </StackLayout>
 
-                </StackLayout>
+                    </StackLayout>
+
+                </Frame>
+
+                <Frame  BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10" HorizontalOptions="Center">
+                    <StackLayout  Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" MinimumHeightRequest="250" WidthRequest="250">
+                        <Button Clicked="YourScoreButton_Clicked" Text="Score Details" Padding="2" Margin="2"/>
+                    </StackLayout>
+                </Frame>
+
+                <Frame  BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10" HorizontalOptions="Center">
+                    <StackLayout  Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" MinimumHeightRequest="250" WidthRequest="250">
+                        <Button Clicked="CloseButton_Clicked" Text="Exit" Padding="2" Margin="2"/>
+                    </StackLayout>
+                </Frame>
+
+
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
