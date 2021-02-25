@@ -489,18 +489,6 @@ namespace Game.Views
             await Navigation.PushModalAsync(new NavigationPage(new GameOverPage()));
         }
 
-        /// <summary>
-        /// Start next Round, returning to the battle screen
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public void AutoAssignButton_Clicked(object sender, EventArgs e)
-		{
-            // Distribute the Items
-            BattleEngineViewModel.Instance.Engine.Round.PickupItemsForAllCharacters();
-            // Show what was picked up
-            DrawItemLists();
-        }
 
         /// <summary>
         /// Finds an item suitable for a given location

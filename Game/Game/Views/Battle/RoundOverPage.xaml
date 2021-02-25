@@ -56,13 +56,6 @@
                             </StackLayout>
                         </Frame>
 
-                        <Frame  BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10" HorizontalOptions="Center">
-                            <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" MinimumHeightRequest="250" WidthRequest="250">
-                                <Button Clicked="AutoAssignButton_Clicked" Text="Randomly Assign Items"/>
-                            </StackLayout>
-                            
-                        </Frame>
-
                         <Label Text="Items Selected" Style="{StaticResource MessageStyle}" Padding="10" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
                         <FlexLayout x:Name="ItemListSelectedFrame"
                             JustifyContent="Center"
