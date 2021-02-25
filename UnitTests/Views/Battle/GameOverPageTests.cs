@@ -19,7 +19,7 @@ namespace UnitTests.Views
     public class GameOverPageTests
     {
         App app;
-        ScorePage page;
+        GameOverPage page;
 
         [SetUp]
         public void Setup()
@@ -34,7 +34,7 @@ namespace UnitTests.Views
             // For now, set the engine to the Koenig Engine, change when ready 
             BattleEngineViewModel.Instance.SetBattleEngineToKoenig();
 
-            page = new ScorePage();
+            page = new GameOverPage();
         }
 
         [TearDown]
@@ -44,7 +44,7 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void ScorePage_Constructor_Default_Should_Pass()
+        public void GameOverPage_Constructor_Default_Should_Pass()
         {
             // Arrange
 
@@ -58,7 +58,7 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void ScorePage_CloseButton_Clicked_Default_Should_Pass()
+        public void GameOverPage_CloseButton_Clicked_Default_Should_Pass()
         {
             // Arrange
 
@@ -72,7 +72,21 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void ScorePage_CreateCharacterBox_Default_Should_Pass()
+        public void GameOverPage_YourScoreButton_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            page.YourScoreButton_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void GameOverPage_CreateCharacterBox_Default_Should_Pass()
         {
             // Arrange
             var data = new PlayerInfoModel(new CharacterModel());
@@ -87,7 +101,7 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void ScorePage_CreateCharacterBox_Null_Should_Pass()
+        public void GameOverPage_CreateCharacterBox_Null_Should_Pass()
         {
             // Arrange
 
@@ -101,7 +115,7 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void ScorePage_CreateMonsterBox_Default_Should_Pass()
+        public void GameOverPage_CreateMonsterBox_Default_Should_Pass()
         {
             // Arrange
             var data = new PlayerInfoModel(new MonsterModel());
@@ -116,7 +130,7 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void ScorePage_CreateMonsterBox_Null_Should_Pass()
+        public void GameOverPage_CreateMonsterBox_Null_Should_Pass()
         {
             // Arrange
 
@@ -130,7 +144,7 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void ScorePage_CreateItemBox_Default_Should_Pass()
+        public void GameOverPage_CreateItemBox_Default_Should_Pass()
         {
             // Arrange
             var data = new ItemModel();
@@ -145,7 +159,7 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void ScorePage_CreateItemBox_Null_Should_Pass()
+        public void GameOverPage_CreateItemBox_Null_Should_Pass()
         {
             // Arrange
 
@@ -159,7 +173,7 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void ScorePage__Default_Should_Pass()
+        public void GameOverPage__Default_Should_Pass()
         {
             // Arrange
 
