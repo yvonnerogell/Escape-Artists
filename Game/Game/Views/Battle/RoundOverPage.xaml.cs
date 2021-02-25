@@ -16,7 +16,7 @@ namespace Game.Views
 	public partial class RoundOverPage: ContentPage
 	{
         // Variable indicating if stub data should be used. Set this to false when our battle engine is being used.
-        public bool UseStubData = true;
+        public bool UseStubData = false;
         public static int NUM_ITEMS = 5;
         public static int NUM_CHARACTERS = 7;
 
