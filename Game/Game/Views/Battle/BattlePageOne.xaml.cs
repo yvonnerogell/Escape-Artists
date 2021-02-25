@@ -64,8 +64,10 @@ namespace Game.Views
             // Populate the UI Map
             // DrawMapGridInitialState();
 
-            
+
             // Ask the Game engine to select who goes first
+            // BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
+
             // TODO chnage this once we have our battle implemented
             BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.ElementAt(0));
             BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.ElementAt(0));

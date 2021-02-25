@@ -31,6 +31,7 @@ namespace Game.Views
 
         public static int NUM_CHARACTERS = 7;
         public static int NUM_ITEMS = 5;
+        public static int NUM_MONSTERS = 6;
 
         // Empty Constructor for UTs
         public PickCharactersPage(bool UnitTest) { }
@@ -73,6 +74,9 @@ namespace Game.Views
             var itemsDropped = GetItemStubList();
             AddStubItemsToBattleEngineViewModel(itemsDropped);
 
+            var monsters = GetMonsterStubList();
+            AddStubMonstersToBattleEngineViewModel(monsters);
+
             return true;
         }
 
@@ -91,6 +95,36 @@ namespace Game.Views
             }
             return result;
         }
+
+        /// <summary>
+        /// Helper method to get a default monster stub list.
+        /// </summary>
+        /// <returns></returns>
+        public List<MonsterModel> GetMonsterStubList()
+        {
+            List<MonsterModel> monsters = DefaultData.LoadData(new MonsterModel());
+            List<MonsterModel> result = new List<MonsterModel>();
+
+            for (var i = 0; i < NUM_MONSTERS; ++i)
+            {
+                result.Add(monsters.ElementAt(i));
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Add stub monsters to battle engine view model.
+        /// </summary>
+        /// <returns></returns>
+        public bool AddStubMonstersToBattleEngineViewModel(List<MonsterModel> monsters)
+        {
+            foreach (var monster in monsters)
+            {
+                BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Add(new PlayerInfoModel(monster));
+            }
+            return true;
+        }
+
 
         /// <summary>
         /// Add stub characters to battle engine view model.
