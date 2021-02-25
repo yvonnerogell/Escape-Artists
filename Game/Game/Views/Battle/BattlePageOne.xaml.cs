@@ -64,18 +64,31 @@ namespace Game.Views
             // Populate the UI Map
             // DrawMapGridInitialState();
 
+            
             // Ask the Game engine to select who goes first
-            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
+            // TODO chnage this once we have our battle implemented
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.ElementAt(0));
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.ElementAt(0));
 
             // Add Players to Display
             // DrawGameAttackerDefenderBoard();
 
             // Add players to display:
             // TODO: This is just hardcoded placeholders. Will need to be changed to pull data from BattleEngineViewModel
-            var currentCharacter = new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character };
-            var currentAttacker = new PlayerInfoModel(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
-            var currentDefender = new PlayerInfoModel(currentCharacter);
-            
+
+            var currentAttacker = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker; // new PlayerInfoModel(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
+            var currentDefender = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender; // new PlayerInfoModel(currentCharacter);
+            PlayerInfoModel currentCharacter;
+
+            if (currentAttacker.CharacterTypeEnum == CharacterTypeEnum.Parent || currentAttacker.CharacterTypeEnum ==CharacterTypeEnum.Student)
+			{
+                currentCharacter = currentAttacker;
+            }
+			else
+			{
+                currentCharacter = currentDefender;
+			}
+
             AttackTextLabel.Text = GetAttackText(currentAttacker, currentDefender);
             GPAValueLabel.Text = GetCharacterGPA(currentCharacter);
             HealthValueLabel.Text = GetCharacterHealth(currentCharacter);
@@ -85,6 +98,7 @@ namespace Game.Views
 
             // Set the Battle Mode
             // ShowBattleMode();
+            
         }
 
         /// <summary>
@@ -149,7 +163,7 @@ namespace Game.Views
         /// Returns the GPA of the current character. 
         /// </summary>
         /// <returns></returns>
-        public string GetCharacterGPA(CharacterModel currentCharacter)
+        public string GetCharacterGPA(PlayerInfoModel currentCharacter)
 		{
             // TODO change to pull data from BattleEngineViewModel. 
             return currentCharacter.GPA.ToString();
@@ -160,7 +174,7 @@ namespace Game.Views
         /// Returns the GPA of the current character. 
         /// </summary>
         /// <returns></returns>
-        public string GetCharacterHealth(CharacterModel currentCharacter)
+        public string GetCharacterHealth(PlayerInfoModel currentCharacter)
         {
             // TODO change to pull data from BattleEngineViewModel. 
             return currentCharacter.CurrentHealth.ToString();
