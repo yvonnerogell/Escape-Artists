@@ -60,8 +60,11 @@ namespace Game.Views
             // Draw the Characters
             foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
             {
-                // TODO: add logic to exclude graduates
-                CharacterListFrame.Children.Add(CreatePlayerDisplayBox(data));
+                if (data.Level != 20)
+				{
+                    CharacterListFrame.Children.Add(CreatePlayerDisplayBox(data));
+                }
+                
             }
         }
 
@@ -71,7 +74,7 @@ namespace Game.Views
         public void DrawGraduatesList()
         {
             // Clear and Populate the Characters Remaining
-            var FlexList = CharacterListFrame.Children.ToList();
+            var FlexList = GraduatesListFrame.Children.ToList();
             foreach (var data in FlexList)
             {
                 GraduatesListFrame.Children.Remove(data);
@@ -80,10 +83,11 @@ namespace Game.Views
             // Draw the Characters
             foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
             {
-                // TODO: Add logic here to only display characters that have reached level 20. 
-                GraduatesListFrame.Children.Add(CreatePlayerDisplayBox(data));
+                if (data.Level == 20)
+				{
+                    GraduatesListFrame.Children.Add(CreatePlayerDisplayBox(data));
+                }
             }
-
         }
 
         /// <summary>
