@@ -139,6 +139,48 @@ namespace UnitTests.Views
         }
 
         [Test]
+        public void BattlePageTwo_Item1_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            page.Item1_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void BattlePageTwo_Item2_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            page.Item2_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void BattlePageTwo_Item3_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            page.Item3_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
         public void BattlePageTwo_Monster1_Clicked_Default_Should_Pass()
         {
             // Arrange
