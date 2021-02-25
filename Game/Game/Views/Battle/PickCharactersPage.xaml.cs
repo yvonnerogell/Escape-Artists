@@ -60,6 +60,10 @@ namespace Game.Views
             UpdateNextButtonState();
         }
 
+        /// <summary>
+        /// Used to test page with fake data
+        /// </summary>
+        /// <returns></returns>
         public bool SetUpStubData()
 		{
             // Add characters to state machine

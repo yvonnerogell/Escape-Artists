@@ -5,18 +5,18 @@
              >
 
     <ContentPage.Content>
-        <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand">
-            <StackLayout Style="{StaticResource CardImageTextBox}">
+        <StackLayout >
 
-                <ImageButton
-                        Source="item.png"
-                        Style="{StaticResource ImageLargeStyle}"
-                        Clicked="AutobattleButton_Clicked"/>
+            <Button ImageSource="autobattle_background.png"
+                    Clicked="AutobattleButton_Clicked"
+                    WidthRequest="500"
+                    HeightRequest="200"
+                    BorderWidth="0"/>
 
-                <Label 
-                        Text="Begin Battle"
-                        Style="{StaticResource CenterMessageStyle}"/>
-            </StackLayout>
+            <Label Text="Auto Battle" 
+                Style="{StaticResource HeaderStyle}"
+                HorizontalOptions="CenterAndExpand"/>
+
 
             <StackLayout Style="{StaticResource CardImageTextBox}">
 
@@ -39,6 +39,7 @@
                         Style="{StaticResource ImageLargeStyle}"></Image>
 
             </StackLayout>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
