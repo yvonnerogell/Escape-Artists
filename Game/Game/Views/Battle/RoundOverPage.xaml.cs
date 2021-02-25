@@ -384,18 +384,29 @@ namespace Game.Views
 		{
 			PopupLoadingView.IsVisible = false;
 		}
-		
-		/// <summary>
-		/// Closes the Round Over Popup
+
+        /// <summary>
+        /// Save the assigned item and close the popup
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void PopupSaveButton_Clicked(object sender, EventArgs e)
+        {
+            // TODO need to save the assigned item?
+            PopupLoadingView.IsVisible = false;
+        }
+
+        /// <summary>
+        /// Closes the Round Over Popup
         /// 
         /// Launches the Next Round Popup
         /// 
         /// Resets the Game Round
         /// 
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		public void CloseButton_Clicked(object sender, EventArgs e)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void CloseButton_Clicked(object sender, EventArgs e)
 		{
             // Reset to a new Round
             BattleEngineViewModel.Instance.Engine.Round.NewRound();
