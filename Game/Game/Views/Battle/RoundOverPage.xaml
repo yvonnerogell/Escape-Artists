@@ -34,11 +34,17 @@
                             </StackLayout>
                         </Frame>
 
-                        <Label Text="Graduates" Style="{StaticResource MessageStyle}"/>
-                        <FlexLayout x:Name="GraduatesListFrame"
-                                    JustifyContent="Start"
-                                    AlignContent="Start"
+                        <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
+                            <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" MinimumHeightRequest="250" WidthRequest="250">
+                                <Label Text="Graduates" Style="{StaticResource MessageStyle}" Padding="10" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+                                <FlexLayout x:Name="GraduatesListFrame"
+                                    JustifyContent="Center"
+                                    AlignContent="Center"
                                     Wrap="Wrap"/>
+
+                            </StackLayout>
+                        </Frame>
+
 
                         <Label Text="Items Found" Style="{StaticResource MessageStyle}"/>
                         <FlexLayout x:Name="ItemListFoundFrame"
