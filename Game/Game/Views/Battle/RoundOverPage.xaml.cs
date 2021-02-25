@@ -180,7 +180,8 @@ namespace Game.Views
             var ItemButton = new ImageButton
             {
                 Style = (Style)Application.Current.Resources["ImageLargeStyle"],
-                Source = data.ImageURI
+                Source = data.ImageURI,
+                CommandParameter = item.Id
             };
 
             if (ClickableButton)
@@ -281,6 +282,9 @@ namespace Game.Views
             PopupItemLocation.Text = data.Location.ToMessage();
             PopupItemAttribute.Text = data.Attribute.ToMessage();
             PopupItemValue.Text = " + " + data.Value.ToString();
+
+            // Set command parameter so that popup knows which item it is displaying
+            PopupSaveButton.CommandParameter = data.Id;
             return true;
         }
 
@@ -301,6 +305,7 @@ namespace Game.Views
         /// <param name="e"></param>
         public void PopupSaveButton_Clicked(object sender, EventArgs e)
         {
+            var itemId = ((Button)sender).CommandParameter;
             // TODO need to save the assigned item?
             PopupLoadingView.IsVisible = false;
         }
