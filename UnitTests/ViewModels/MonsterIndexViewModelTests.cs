@@ -279,5 +279,60 @@ namespace UnitTests.ViewModels
             // Assert
             Assert.AreEqual(2, countAfter); // Count of 0 for the load was skipped
         }
+
+        [Test]
+        public async Task MonsterIndexViewModel_GetTypeMonsters_Valid_Should_Pass()
+        {
+            // Arrange
+            await ViewModel.CreateAsync(new MonsterModel {
+                SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.GraduationOfficeAdministrator,
+                Name = "Testing_GetTypeMonsters"});
+
+            // Act
+            var result = ViewModel.GetTypeMonsters(SpecificMonsterTypeEnum.GraduationOfficeAdministrator);
+
+            // Reset
+            
+            // Assert
+            Assert.IsTrue(result.Count > 0); // Count of 1 for the load 
+        }
+
+        [Test]
+        public async Task MonsterIndexViewModel_GetDefaultMonster_Valid_Should_Pass()
+        {
+            // Arrange
+            await ViewModel.CreateAsync(new MonsterModel
+            {
+                SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.GraduationOfficeAdministrator,
+                Name = "Testing_GetDefaultMonster"
+            });
+
+            // Act
+            var result = ViewModel.GetDefaultMonster(SpecificMonsterTypeEnum.GraduationOfficeAdministrator);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(result.SpecificMonsterTypeEnum, SpecificMonsterTypeEnum.GraduationOfficeAdministrator); 
+        }
+
+        [Test]
+        public async Task MonsterIndexViewModel_GetDefaultMonsterId_Valid_Should_Pass()
+        {
+            // Arrange
+            await ViewModel.CreateAsync(new MonsterModel
+            {
+                SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.GraduationOfficeAdministrator,
+                Name = "Testing_GetDefaultMonster"
+            });
+
+            // Act
+            string result = ViewModel.GetDefaultMonsterId(SpecificMonsterTypeEnum.GraduationOfficeAdministrator);
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
     }
 }
