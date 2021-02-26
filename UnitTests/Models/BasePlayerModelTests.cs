@@ -164,6 +164,64 @@ namespace UnitTests.Models
         }
 
         [Test]
+        public void BasePlayerModel_GetAttackLevelBonus_Max_Should_Pass()
+        {
+            // Arrange
+            var data = new BasePlayerModel<CharacterModel>();
+
+            var original = data.Level;
+            data.Level = 50;
+
+            // Act
+            var result = data.GetAttackLevelBonus;
+
+            // Reset
+            data.Level = original;
+
+            // Assert
+            Assert.AreEqual(0, result);
+        }
+
+        [Test]
+        public void BasePlayerModel_GetDefenseLevelBonus_Max_Should_Pass()
+        {
+            // Arrange
+            var data = new BasePlayerModel<CharacterModel>();
+
+            var original = data.Level;
+            data.Level = 50;
+
+            // Act
+            var result = data.GetDefenseLevelBonus;
+
+            // Reset
+            data.Level = original;
+
+            // Assert
+            Assert.AreEqual(0, result);
+        }
+
+        [Test]
+        public void BasePlayerModel_GetSpeedLevelBonus_Max_Should_Pass()
+        {
+            // Arrange
+            var data = new BasePlayerModel<CharacterModel>();
+
+            var original = data.Level;
+            data.Level = 50;
+
+            // Act
+            var result = data.GetSpeedLevelBonus;
+
+            // Reset
+            data.Level = original;
+
+            // Assert
+            Assert.AreEqual(0, result);
+        }
+
+
+        [Test]
         public void BasePlayerModel_GetDefense_Default_Should_Pass()
         {
             // Arrange
