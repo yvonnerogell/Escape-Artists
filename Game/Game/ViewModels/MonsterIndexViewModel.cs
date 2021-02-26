@@ -151,8 +151,8 @@ namespace Game.ViewModels
         }
 
         /// <summary>
-        /// Get the ID of the Default Item for the Location
-        /// The Default item is the first Item in the List
+        /// Get the ID of the Default Monster for the Specific Monster Type
+        /// The Default monster is the first Monster in the List
         /// </summary>
         /// <param name="location"></param>
         /// <returns></returns>
@@ -168,7 +168,7 @@ namespace Game.ViewModels
         }
 
         /// <summary>
-        /// Get the First item of the location from the list
+        /// Get the First monster of the specific monster type from the list
         /// </summary>
         /// <param name="location"></param>
         /// <returns></returns>
@@ -186,7 +186,7 @@ namespace Game.ViewModels
         }
 
         /// <summary>
-        /// Get all the items for a set location
+        /// Get all the monsters for a set specific monster type
         /// </summary>
         /// <param name="location"></param>
         /// <returns></returns>
