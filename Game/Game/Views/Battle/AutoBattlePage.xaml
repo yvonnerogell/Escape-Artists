@@ -34,7 +34,7 @@
 
                 <Image
                         x:Name="AutobattleImage"
-                        Source="elf1_a.gif"
+                        Source="running.gif"
                         IsAnimationPlaying="True"
                         Style="{StaticResource ImageLargeStyle}"></Image>
 

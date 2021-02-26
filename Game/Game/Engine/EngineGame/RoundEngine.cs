@@ -219,8 +219,8 @@ namespace Game.Engine.EngineGame
 
             //throw new System.NotImplementedException();
 
-            //return base.RoundNextTurn();
-            return RoundEnum.GameOver;
+            return base.RoundNextTurn();
+            //return RoundEnum.GameOver;
         }
 
         /// <summary>
@@ -325,6 +325,28 @@ namespace Game.Engine.EngineGame
 
             We will have a button for auto assign based on auto battle on manual battle. 
             */
+            
+            if (EngineSettings.BattleScore.AutoBattle)
+            {
+                GetItemFromPoolIfBetter(character, ItemLocationEnum.Necklace);
+                GetItemFromPoolIfBetter(character, ItemLocationEnum.PrimaryHand);
+                GetItemFromPoolIfBetter(character, ItemLocationEnum.OffHand);
+                GetItemFromPoolIfBetter(character, ItemLocationEnum.RightFinger);
+                GetItemFromPoolIfBetter(character, ItemLocationEnum.LeftFinger);
+
+
+
+                // Have the character, walk the items in the pool, and decide if any are better than current one.
+                if (character.CharacterTypeEnum == CharacterTypeEnum.Student)
+                {
+                    GetItemFromPoolIfBetter(character, ItemLocationEnum.Head);
+                    GetItemFromPoolIfBetter(character, ItemLocationEnum.Feet);
+                }
+
+                return true;
+            }
+
+            // if manual play
             return base.PickupItemsFromPool(character);
         }
 

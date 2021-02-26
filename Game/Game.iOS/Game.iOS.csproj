@@ -300,4 +300,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\autobattle_background.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\running.gif" />
+  </ItemGroup>
 </Project>
