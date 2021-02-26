@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Game.Engine.EngineBase;
 using Game.Engine.EngineInterfaces;
 using Game.Engine.EngineModels;
+using Game.GameRules;
 using Game.Models;
 
 namespace Game.Engine.EngineGame
@@ -84,11 +87,11 @@ namespace Game.Engine.EngineGame
         /// <returns></returns>
         public override int AddMonstersToRound()
         {
-            // TODO: Teams, You need to implement your own Logic can not use mine.
-
+            // Teams, You need to implement your own Logic can not use mine.
+            
+            //return base.AddMonstersToRound();
+            
             //throw new System.NotImplementedException();
-
-            // TODO: remove use of base!!
 
             /*
             Ideas for adding monsters to round:
@@ -99,7 +102,56 @@ namespace Game.Engine.EngineGame
                which will hold Graduation cap and robe. 
             */
 
-            return base.AddMonstersToRound();
+            int TargetLevel = 1;
+            bool ContainHighLevelCharacter = false;
+            if (EngineSettings.CharacterList.Count() > 0)
+            {
+                // Get the average
+                TargetLevel = Convert.ToInt32(EngineSettings.CharacterList.Average(m => m.Level));
+
+                // if character list contains level higher than 17
+                if (EngineSettings.CharacterList.Find(m => (m.Level > 17)) != null)
+                {
+                    ContainHighLevelCharacter = true;
+                    // Add graduate monster
+                    EngineSettings.MaxNumberPartyMonsters--;
+                }
+                
+            }
+
+
+            for (var i = 0; i < EngineSettings.MaxNumberPartyMonsters; i++)
+            {
+                var data = RandomPlayerHelper.GetRandomMonster(TargetLevel, EngineSettings.BattleSettingsModel.AllowMonsterItems);
+
+                // Help identify which Monster it is
+                data.Name += " " + EngineSettings.MonsterList.Count() + 1;
+
+                EngineSettings.MonsterList.Add(new PlayerInfoModel(data));
+            }
+
+            if (ContainHighLevelCharacter)
+            {
+                MonsterModel BigBoss = ViewModels.MonsterIndexViewModel.Instance.GetDefaultMonster(SpecificMonsterTypeEnum.GraduationOfficeAdministrator);
+                if (BigBoss == null)
+                {
+                    var Item = ViewModels.ItemIndexViewModel.Instance.GetDefaultItemTypeItem(ItemTypeEnum.GraduationCapAndRobe);
+                    BigBoss = new MonsterModel{ 
+                        PlayerType = PlayerTypeEnum.Monster,
+                        MonsterTypeEnum = MonsterTypeEnum.Administrator,
+                        SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.GraduationOfficeAdministrator,
+                        Name = "Mr. Smith",
+                        Description = "You have graduated!!!",
+                        Attack = 8,
+                        Difficulty = DifficultyEnum.Difficult,
+                        UniqueDropItem = Item.Id,
+                        ImageURI = Constants.SpecificMonsterTypeGraduationOfficeAdministratorImageURI};
+                }
+
+                EngineSettings.MonsterList.Add(new PlayerInfoModel(BigBoss));
+            }
+
+            return EngineSettings.MonsterList.Count();
         }
 
         /// <summary>
