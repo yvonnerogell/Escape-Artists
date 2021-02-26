@@ -75,10 +75,12 @@ namespace UnitTests.Models
             Assert.AreEqual(string.Empty, result.CharacterAtDeathList);
             Assert.AreEqual(string.Empty, result.MonstersKilledList);
             Assert.AreEqual(string.Empty, result.ItemsDroppedList);
+            Assert.AreEqual(string.Empty, result.GraduateList);
 
             Assert.AreEqual(0, result.ItemModelDropList.Count());
             Assert.AreEqual(0, result.MonsterModelDeathList.Count());
             Assert.AreEqual(0, result.CharacterModelDeathList.Count());
+            Assert.AreEqual(0, result.GraduateModelList.Count());
         }
 
         [Test]
@@ -104,6 +106,7 @@ namespace UnitTests.Models
             result.MonsterModelDeathList = new List<PlayerInfoModel> { new PlayerInfoModel(new MonsterModel()) };
             result.CharacterModelDeathList = new List<PlayerInfoModel> { new PlayerInfoModel(new CharacterModel()) };
             result.ItemModelSelectList = new List<ItemModel> { new ItemModel { Name = "Item" } };
+            result.GraduateModelList = new List<PlayerInfoModel> { new PlayerInfoModel(new CharacterModel()) };
 
             // Reset
 
