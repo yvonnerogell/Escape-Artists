@@ -54,7 +54,7 @@ namespace UnitTests.Views
             //BattleEngineViewModel.Instance.Engine.Round.ClearLists();
 
             //Start the Engine in AutoBattle Mode
-            //BattleEngineViewModel.Instance.Engine.StartBattle(false);
+            BattleEngineViewModel.Instance.Engine.StartBattle(false);
 
         }
 
