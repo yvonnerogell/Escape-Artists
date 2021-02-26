@@ -9,6 +9,7 @@ using Game;
 using Game.Views;
 using Game.Models;
 using Game.ViewModels;
+using Game.GameRules;
 
 namespace UnitTests.Views
 {
@@ -33,6 +34,20 @@ namespace UnitTests.Views
             // For now, set the engine to the Koenig Engine, change when ready 
             BattleEngineViewModel.Instance.SetBattleEngineToKoenig();
 
+            var characters = DefaultData.LoadData(new CharacterModel());
+
+            foreach (var character in characters)
+            {
+                BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(character));
+            }
+
+            var monsters = DefaultData.LoadData(new MonsterModel());
+
+            foreach (var monster in monsters)
+            {
+                BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Add(new PlayerInfoModel(monster));
+            }
+
             page = new BattlePageTwo();
 
             // Put seed data into the system for all tests
@@ -41,9 +56,6 @@ namespace UnitTests.Views
             //Start the Engine in AutoBattle Mode
             BattleEngineViewModel.Instance.Engine.StartBattle(false);
 
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(new CharacterModel()));
-            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Add(new PlayerInfoModel(new MonsterModel()));
-            BattleEngineViewModel.Instance.Engine.Round.MakePlayerList();
         }
 
         [TearDown]
