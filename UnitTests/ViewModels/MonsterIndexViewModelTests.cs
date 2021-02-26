@@ -334,5 +334,50 @@ namespace UnitTests.ViewModels
             // Assert
             Assert.IsNotNull(result);
         }
+
+        [Test]
+        public void MonsterIndexViewModel_GetTypeMonsters_Null_Should_Pass()
+        {
+            // Arrange
+            ViewModel.Dataset.Clear();
+
+            // Act
+            var result = ViewModel.GetTypeMonsters(SpecificMonsterTypeEnum.GraduationOfficeAdministrator);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(result.Count == 0); // Count of 1 for the load 
+        }
+
+        [Test]
+        public void MonsterIndexViewModel_GetDefaultMonster_Null_Should_Pass()
+        {
+            // Arrange
+            ViewModel.Dataset.Clear();
+
+            // Act
+            var result = ViewModel.GetDefaultMonster(SpecificMonsterTypeEnum.GraduationOfficeAdministrator);
+
+            // Reset
+
+            // Assert
+            Assert.IsNull(result);
+        }
+
+        [Test]
+        public void MonsterIndexViewModel_GetDefaultMonsterId_Null_Should_Pass()
+        {
+            // Arrange
+            ViewModel.Dataset.Clear();
+
+            // Act
+            string result = ViewModel.GetDefaultMonsterId(SpecificMonsterTypeEnum.GraduationOfficeAdministrator);
+
+            // Reset
+
+            // Assert
+            Assert.IsNull(result);
+        }
     }
 }
