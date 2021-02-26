@@ -109,6 +109,9 @@ namespace Game.Engine.EngineGame
 
             int TargetLevel = 1;
             bool ContainHighLevelCharacter = false;
+            int MaxParty = EngineSettings.MaxNumberPartyMonsters;
+
+            // get the average level of characters
             if (EngineSettings.CharacterList.Count() > 0)
             {
                 // Get the average
@@ -119,13 +122,13 @@ namespace Game.Engine.EngineGame
                 {
                     ContainHighLevelCharacter = true;
                     // Add graduate monster
-                    EngineSettings.MaxNumberPartyMonsters--;
+                    MaxParty--;
                 }
                 
             }
 
-
-            for (var i = 0; i < EngineSettings.MaxNumberPartyMonsters; i++)
+            // load the monsters list
+            for (var i = 0; i < MaxParty; i++)
             {
                 var data = RandomPlayerHelper.GetRandomMonster(TargetLevel, EngineSettings.BattleSettingsModel.AllowMonsterItems);
 
@@ -135,6 +138,8 @@ namespace Game.Engine.EngineGame
                 EngineSettings.MonsterList.Add(new PlayerInfoModel(data));
             }
 
+            // if the character contains level higher than 17+ then we add a big boss monster
+            // if player beats this monster the student will graduate! 
             if (ContainHighLevelCharacter)
             {
                 MonsterModel BigBoss = ViewModels.MonsterIndexViewModel.Instance.GetDefaultMonster(SpecificMonsterTypeEnum.GraduationOfficeAdministrator);
@@ -154,6 +159,8 @@ namespace Game.Engine.EngineGame
                 }
 
                 EngineSettings.MonsterList.Add(new PlayerInfoModel(BigBoss));
+                // Add MaxNumberPartyMonster back.
+                MaxParty++;
             }
 
             return EngineSettings.MonsterList.Count();
