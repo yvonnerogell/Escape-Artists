@@ -6,6 +6,7 @@ using SQLite;
 using Game.GameRules;
 using Game.Helpers;
 using Game.ViewModels;
+using System.Linq;
 
 namespace Game.Models
 {
@@ -178,7 +179,10 @@ namespace Game.Models
         #region Attack        
         [Ignore]
         // Return the attack value
-        public int GetAttackLevelBonus { get { return LevelTableHelper.LevelDetailsList[Level].Attack; } }
+        public int GetAttackLevelBonus { get {
+                var result = LevelTableHelper.LevelDetailsList.ElementAtOrDefault(Level) ?? LevelTableHelper.LevelDetailsList.Last();
+                //return LevelTableHelper.LevelDetailsList[Level].Attack; 
+                return result.Attack; } }
 
         [Ignore]
         // Return the Attack with Item Bonus
@@ -217,7 +221,10 @@ namespace Game.Models
         #region Defense
         [Ignore]
         // Return the Defense value
-        public int GetDefenseLevelBonus { get { return LevelTableHelper.LevelDetailsList[Level].Defense; } }
+        public int GetDefenseLevelBonus { get {
+                var result = LevelTableHelper.LevelDetailsList.ElementAtOrDefault(Level) ?? LevelTableHelper.LevelDetailsList.Last();
+                //return LevelTableHelper.LevelDetailsList[Level].Defense; 
+                return result.Defense; } }
 
         [Ignore]
         // Return the Defense with Item Bonus
@@ -259,7 +266,10 @@ namespace Game.Models
         #region Speed
         [Ignore]
         // Return the Speed value
-        public int GetSpeedLevelBonus { get { return LevelTableHelper.LevelDetailsList[Level].Speed; } }
+        public int GetSpeedLevelBonus { get {
+                var result = LevelTableHelper.LevelDetailsList.ElementAtOrDefault(Level) ?? LevelTableHelper.LevelDetailsList.Last();
+                //return LevelTableHelper.LevelDetailsList[Level].Speed; 
+                return result.Speed; }}
 
         [Ignore]
         // Return the Speed with Item Bonus

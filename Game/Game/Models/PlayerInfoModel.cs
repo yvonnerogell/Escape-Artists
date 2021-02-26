@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-
+using System.Linq;
 using Game.GameRules;
 
 namespace Game.Models
@@ -182,7 +182,8 @@ namespace Game.Models
             Guid = System.Guid.NewGuid().ToString();
 
             // Set amount to give to be 1 below max for that level.
-            ExperienceRemaining = LevelTableHelper.LevelDetailsList[Level + 1].Experience - 1;
+            var LevelData = LevelTableHelper.LevelDetailsList.ElementAtOrDefault(Level + 1) ?? LevelTableHelper.LevelDetailsList.Last();
+            ExperienceRemaining = LevelData.Experience - 1;
 
             /*
              * TODO: Team, this is needed to keep the UT passing for the base game, your game does not need to use it.
