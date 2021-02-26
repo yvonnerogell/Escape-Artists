@@ -89,26 +89,153 @@ namespace UnitTests.Views
         }
 
         [Test]
+        public void RoundOverPage_AddItemToCharacter_Feet_Default_Should_Pass()
+        {
+            // Arrange
+            var item = new ItemModel { Id = "item id" };
+            var player = new PlayerInfoModel();
+            var location = ItemLocationEnum.Feet;
+
+            // Act
+            page.AddItemToCharacter(player, location, item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("item id", player.Feet);
+        }
+
+        [Test]
+        public void RoundOverPage_AddItemToCharacter_Head_Default_Should_Pass()
+        {
+            // Arrange
+            var item = new ItemModel { Id = "item id" };
+            var player = new PlayerInfoModel();
+            var location = ItemLocationEnum.Head;
+
+            // Act
+            page.AddItemToCharacter(player, location, item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("item id", player.Head);
+        }
+
+        [Test]
+        public void RoundOverPage_AddItemToCharacter_Necklace_Default_Should_Pass()
+        {
+            // Arrange
+            var item = new ItemModel { Id = "item id" };
+            var player = new PlayerInfoModel();
+            var location = ItemLocationEnum.Necklace;
+
+            // Act
+            page.AddItemToCharacter(player, location, item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("item id", player.Necklace);
+        }
+
+        [Test]
+        public void RoundOverPage_AddItemToCharacter_LeftFinger_Default_Should_Pass()
+        {
+            // Arrange
+            var item = new ItemModel { Id = "item id" };
+            var player = new PlayerInfoModel();
+            var location = ItemLocationEnum.LeftFinger;
+
+            // Act
+            page.AddItemToCharacter(player, location, item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("item id", player.LeftFinger);
+        }
+
+        [Test]
+        public void RoundOverPage_AddItemToCharacter_Offhand_Default_Should_Pass()
+        {
+            // Arrange
+            var item = new ItemModel { Id = "item id" };
+            var player = new PlayerInfoModel();
+            var location = ItemLocationEnum.OffHand;
+
+            // Act
+            page.AddItemToCharacter(player, location, item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("item id", player.OffHand);
+        }
+
+        [Test]
+        public void RoundOverPage_AddItemToCharacter_PrimaryHand_Default_Should_Pass()
+        {
+            // Arrange
+            var item = new ItemModel { Id = "item id" };
+            var player = new PlayerInfoModel();
+            var location = ItemLocationEnum.PrimaryHand;
+
+            // Act
+            page.AddItemToCharacter(player, location, item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("item id", player.PrimaryHand);
+        }
+
+        [Test]
+        public void RoundOverPage_AddItemToCharacter_RightFinger_Default_Should_Pass()
+        {
+            // Arrange
+            var item = new ItemModel { Id = "item id" };
+            var player = new PlayerInfoModel();
+            var location = ItemLocationEnum.RightFinger;
+
+            // Act
+            page.AddItemToCharacter(player, location, item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("item id", player.RightFinger);
+        }
+
+        [Test]
+        public void RoundOverPage_AddItemToCharacter_Unknown_Default_Should_Pass()
+        {
+            // Arrange
+            var item = new ItemModel { Id = "item id" };
+            var player = new PlayerInfoModel();
+            var location = ItemLocationEnum.Unknown;
+
+            // Act
+            page.AddItemToCharacter(player, location, item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(null, player.Feet);
+            Assert.AreEqual(null, player.Head);
+            Assert.AreEqual(null, player.LeftFinger);
+            Assert.AreEqual(null, player.Necklace);
+            Assert.AreEqual(null, player.OffHand);
+            Assert.AreEqual(null, player.PrimaryHand);
+            Assert.AreEqual(null, player.RightFinger);
+        }
+
+        [Test]
         public void RoundOverPage_GameOverButton_Clicked_Default_Should_Pass()
         {
             // Arrange
             // Act
             page.GameOverButton_Clicked(null, null);
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-
-
-        /*
-        [Test]
-        public void RoundOverPage_ShowPopup_Default_Should_Pass()
-        {
-            // Arrange
-            // Act
-            page.ShowPopup(new ItemModel());
 
             // Reset
 
@@ -125,64 +252,18 @@ namespace UnitTests.Views
 
             // Reset
 
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-
-        [Test]
-        public void RoundOverPage_GetItemToDisplay_Null_Should_Pass()
-        {
-            // Arrange
-            // Act
-            page.GetItemToDisplay(null);
-
-            // Reset
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
-        [Test]
-        public void RoundOverPage_GetItemToDisplay_InValid_Id_Should_Pass()
-        {
-            // Arrange
-            // Act
-            page.GetItemToDisplay(new ItemModel { Id = "" });
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-
-        [Test]
-        public async Task RoundOverPage_GetItemToDisplay_Valid_Should_Pass()
-        {
-            // Arrange
-            var data = new ItemModel { Name = "Mike" };
-            await ItemIndexViewModel.Instance.CreateAsync(data);
-
-            // Act
-            page.GetItemToDisplay(data);
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-
+        /*
         [Test]
         public void RoundOverPage_DrawCharacterList_Valid_Should_Pass()
         {
             // Arrange
 
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.CharacterModelDeathList.Add(new PlayerInfoModel(new CharacterModel()));
-
-            // Draw the Monsters
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.MonsterModelDeathList.Add(new PlayerInfoModel(new CharacterModel()));
-
-            // Do it two times
-            page.DrawCharacterList();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(new CharacterModel()));
 
             // Act
             page.DrawCharacterList();
@@ -192,6 +273,24 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
+        */
+
+        /*
+        [Test]
+        public void RoundOverPage_DrawGraduatesList_Valid_Should_Pass()
+        {
+            // Arrange
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(new CharacterModel()));
+
+            // Act
+            page.DrawCharacterList();
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+        */
 
         [Test]
         public void RoundOverPage_DrawDroppedItems_Valid_Should_Pass()
@@ -254,6 +353,69 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
+
+
+        /*
+        [Test]
+        public void RoundOverPage_ShowPopup_Default_Should_Pass()
+        {
+            // Arrange
+            // Act
+            page.ShowPopup(new ItemModel());
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+
+
+        [Test]
+        public void RoundOverPage_GetItemToDisplay_Null_Should_Pass()
+        {
+            // Arrange
+            // Act
+            page.GetItemToDisplay(null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void RoundOverPage_GetItemToDisplay_InValid_Id_Should_Pass()
+        {
+            // Arrange
+            // Act
+            page.GetItemToDisplay(new ItemModel { Id = "" });
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public async Task RoundOverPage_GetItemToDisplay_Valid_Should_Pass()
+        {
+            // Arrange
+            var data = new ItemModel { Name = "Mike" };
+            await ItemIndexViewModel.Instance.CreateAsync(data);
+
+            // Act
+            page.GetItemToDisplay(data);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+
+
+
 
         [Test]
         public void RoundOverPage_GetItemToDisplay_Click_Button_Valid_Should_Pass()
