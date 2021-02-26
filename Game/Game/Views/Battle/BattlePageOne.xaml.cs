@@ -76,11 +76,9 @@ namespace Game.Views
             // Add Players to Display
             // DrawGameAttackerDefenderBoard();
 
-            // Add players to display:
-            // TODO: This is just hardcoded placeholders. Will need to be changed to pull data from BattleEngineViewModel
 
-            var currentAttacker = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker; // new PlayerInfoModel(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
-            var currentDefender = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender; // new PlayerInfoModel(currentCharacter);
+            var currentAttacker = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker; 
+            var currentDefender = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender;
             PlayerInfoModel currentCharacter;
 
             if (currentAttacker.CharacterTypeEnum == CharacterTypeEnum.Parent || currentAttacker.CharacterTypeEnum ==CharacterTypeEnum.Student)
