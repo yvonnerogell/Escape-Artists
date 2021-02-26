@@ -258,5 +258,62 @@ namespace UnitTests.ViewModels
             // Assert
             Assert.AreEqual(2, countAfter); // Count of 0 for the load was skipped
         }
+
+        [Test]
+        public async Task CharacterIndexViewModel_GetCharacterByName_Should_Pass()
+        {
+            // Arrange
+
+            // Add Characters into the list Z ordered
+            await ViewModel.CreateAsync(new CharacterModel { Name = "Minnie" });
+            await ViewModel.CreateAsync(new CharacterModel { Name = "Mickey" });
+            await ViewModel.CreateAsync(new CharacterModel { Name = "Goofey" });
+
+            // Act
+            var result = ViewModel.GetCharacterByName("Goofey");
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Goofey", result.Name); // Count of 0 for the load was skipped
+        }
+
+        [Test]
+        public async Task CharacterIndexViewModel_GetCharacterByName_Null_Should_Pass()
+        {
+            // Arrange
+
+            // Add Characters into the list Z ordered
+            await ViewModel.CreateAsync(new CharacterModel { Name = "Minnie" });
+            await ViewModel.CreateAsync(new CharacterModel { Name = "Mickey" });
+            await ViewModel.CreateAsync(new CharacterModel { Name = "Goofey" });
+
+            // Act
+            var result = ViewModel.GetCharacterByName(null);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(null, result); // Count of 0 for the load was skipped
+        }
+
+        [Test]
+        public async Task CharacterIndexViewModel_GetCharacterByName_Name_Does_Not_Exist_Should_Pass()
+        {
+            // Arrange
+
+            // Add Characters into the list Z ordered
+            await ViewModel.CreateAsync(new CharacterModel { Name = "Minnie" });
+            await ViewModel.CreateAsync(new CharacterModel { Name = "Mickey" });
+            await ViewModel.CreateAsync(new CharacterModel { Name = "Goofey" });
+
+            // Act
+            var result = ViewModel.GetCharacterByName("Donald");
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(null, result); // Count of 0 for the load was skipped
+        }
     }
 }
