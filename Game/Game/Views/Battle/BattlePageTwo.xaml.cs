@@ -78,18 +78,33 @@ namespace Game.Views
         // Adding characters by clicking on their images
         public async void Character1_Clicked(object sender, EventArgs e)
         {
+            if (ViewModel.Data.PartyCharacterList == null)
+            {
+                return;
+            }
+
             ViewModel.Data.PartyCharacterList.Add(new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character, SpecificCharacterTypeEnum= SpecificCharacterTypeEnum.SmartyPants });
             await Navigation.PopModalAsync();
         }
 
         public async void Character2_Clicked(object sender, EventArgs e)
         {
+            if (ViewModel.Data.PartyCharacterList == null)
+            {
+                return;
+            }
+
             ViewModel.Data.PartyCharacterList.Add(new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character, SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.SmartyPants});
             await Navigation.PopModalAsync();
         }
 
         public async void Character3_Clicked(object sender, EventArgs e)
         {
+            if (ViewModel.Data.PartyCharacterList == null)
+            {
+                return;
+            }
+
             ViewModel.Data.PartyCharacterList.Add(new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character, SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.Slacker });
             await Navigation.PopModalAsync();
         }
@@ -113,18 +128,33 @@ namespace Game.Views
         // Adding monsters by clicking on their images
         public async void Monster1_Clicked(object sender, EventArgs e)
         {
+            if (ViewModel.Data.PartyMonsterList == null)
+            {
+                return;
+            }
+
             ViewModel.Data.PartyMonsterList.Add(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
             await Navigation.PopModalAsync();
         }
 
         public async void Monster2_Clicked(object sender, EventArgs e)
         {
+            if (ViewModel.Data.PartyMonsterList == null)
+            {
+                return;
+            }
+
             ViewModel.Data.PartyMonsterList.Add(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
             await Navigation.PopModalAsync();
         }
 
         public async void Monster3_Clicked(object sender, EventArgs e)
         {
+            if (ViewModel.Data.PartyMonsterList == null)
+            {
+                return;
+            }
+
             ViewModel.Data.PartyMonsterList.Add(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
             await Navigation.PopModalAsync();
         }
