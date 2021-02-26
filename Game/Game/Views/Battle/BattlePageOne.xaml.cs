@@ -70,36 +70,39 @@ namespace Game.Views
             // BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
 
             // TODO chnage this once we have our battle implemented
-            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.ElementAt(0));
-            BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.ElementAt(0));
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FirstOrDefault());
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.FirstOrDefault());
 
             // Add Players to Display
             // DrawGameAttackerDefenderBoard();
 
 
-            var currentAttacker = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker; 
+            var currentAttacker = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker;
             var currentDefender = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender;
             PlayerInfoModel currentCharacter;
 
-            if (currentAttacker.CharacterTypeEnum == CharacterTypeEnum.Parent || currentAttacker.CharacterTypeEnum ==CharacterTypeEnum.Student)
-			{
-                currentCharacter = currentAttacker;
-            }
-			else
-			{
-                currentCharacter = currentDefender;
-			}
+            if (currentAttacker != null)
+            {
+                if (currentAttacker.CharacterTypeEnum == CharacterTypeEnum.Parent || currentAttacker.CharacterTypeEnum == CharacterTypeEnum.Student)
+                {
+                    currentCharacter = currentAttacker;
+                }
+                else
+                {
+                    currentCharacter = currentDefender;
+                }
 
-            AttackTextLabel.Text = GetAttackText(currentAttacker, currentDefender);
-            GPAValueLabel.Text = GetCharacterGPA(currentCharacter);
-            HealthValueLabel.Text = GetCharacterHealth(currentCharacter);
+                AttackTextLabel.Text = GetAttackText(currentAttacker, currentDefender);
+                GPAValueLabel.Text = GetCharacterGPA(currentCharacter);
+                HealthValueLabel.Text = GetCharacterHealth(currentCharacter);
+            }
 
             var messages = GetBattleMessages();
             SetBattleMessages(messages);
 
             // Set the Battle Mode
             // ShowBattleMode();
-            
+
         }
 
         /// <summary>
@@ -111,13 +114,13 @@ namespace Game.Views
         /// <param name=""></param>
         /// <returns></returns>
         public string GetAttackText(PlayerInfoModel currentAttacker, PlayerInfoModel currentDefender)
-		{
+        {
             string attackText = "";
 
             if (currentAttacker.PlayerType == PlayerTypeEnum.Monster)
-			{
+            {
                 if (currentAttacker.MonsterTypeEnum == MonsterTypeEnum.Faculty)
-				{
+                {
                     attackText += currentAttacker.MonsterTypeEnum.ToString();
                     attackText += " ";
                     attackText += currentAttacker.Name;
@@ -126,7 +129,7 @@ namespace Game.Views
                     attackText += " an exam.";
                 }
                 if (currentAttacker.MonsterTypeEnum == MonsterTypeEnum.Administrator)
-				{
+                {
                     attackText += currentAttacker.MonsterTypeEnum.ToString();
                     attackText += " ";
                     attackText += currentAttacker.Name;
@@ -136,7 +139,7 @@ namespace Game.Views
                 }
             }
             if (currentAttacker.PlayerType == PlayerTypeEnum.Character)
-			{
+            {
                 if (currentDefender.MonsterTypeEnum == MonsterTypeEnum.Faculty)
                 {
                     attackText += currentAttacker.Name;
@@ -157,7 +160,7 @@ namespace Game.Views
                 }
             }
             return attackText;
-		}
+        }
 
         /// <summary>
         /// 
@@ -165,10 +168,10 @@ namespace Game.Views
         /// </summary>
         /// <returns></returns>
         public string GetCharacterGPA(PlayerInfoModel currentCharacter)
-		{
+        {
             // TODO change to pull data from BattleEngineViewModel. 
             return currentCharacter.GPA.ToString();
-		}
+        }
 
         /// <summary>
         /// 
@@ -313,7 +316,7 @@ namespace Game.Views
         /// </summary>
         /// <returns></returns>
         public async void AttackBackButton_Clicked(object sender, EventArgs e)
-        { 
+        {
             await Navigation.PushModalAsync(new NavigationPage(new BattlePageTwo()));
         }
 
@@ -651,16 +654,16 @@ namespace Game.Views
         }
         */
 
-        
+
         #region MapEvents
-        
+
         /// <summary>
         /// Event when an empty location is clicked on
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
         /// 
-        
+
         /*
         public bool SetSelectedEmpty(MapModelLocation data)
         {
@@ -708,21 +711,21 @@ namespace Game.Views
         public bool SetSelectedCharacter(MapModelLocation data)
         { 
         */
-            // TODO: Info
+        // TODO: Info
 
-            /*
-             * This gets called when the characters is clicked on
-             * Usefull if you want to select the character and then set state or do something
-             * 
-             * For Mike's simple battle grammar there is no selection of action so I just return true
-             */
-            /*
-            return true;
-        }
-            */
-    
+        /*
+         * This gets called when the characters is clicked on
+         * Usefull if you want to select the character and then set state or do something
+         * 
+         * For Mike's simple battle grammar there is no selection of action so I just return true
+         */
+        /*
+        return true;
+    }
+        */
+
         #endregion MapEvents
-    
+
 
         #endregion BattleMapMode
 
