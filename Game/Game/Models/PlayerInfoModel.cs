@@ -28,6 +28,15 @@ namespace Game.Models
         // Indicates whether ability has been used in current round
         public bool AbilityUsedInCurrentRound { get; set; } = false;
 
+        // SpecificCharacterTypeEnum for this Character (e.g. Procrastinator, Helicopter Parent, etc.)
+        public SpecificCharacterTypeEnum SpecificCharacterTypeEnum { get; set; }
+
+        // Variable indicating if Character has graduated or not (i.e. reached level 20)
+        public bool Graduated { get; set; } = false;
+
+        // The specific monster type for this monster
+        public SpecificMonsterTypeEnum SpecificMonsterTypeEnum { get; set; }
+
         /// <summary>
         /// Default Constructor
         /// </summary>
@@ -74,6 +83,12 @@ namespace Game.Models
             AbilityTracker = data.AbilityTracker;
 
             GPA = data.GPA;
+
+            SpecificCharacterTypeEnum = data.SpecificCharacterTypeEnum;
+
+            SpecificMonsterTypeEnum = data.SpecificMonsterTypeEnum;
+
+            Graduated = data.Graduated;
         }
 
         /// <summary>
@@ -125,6 +140,10 @@ namespace Game.Models
             GPA = data.GPA;
 
             AbilityUsedInCurrentRound = data.AbilityUsedInCurrentRound;
+
+            Graduated = data.Graduated;
+
+            SpecificCharacterTypeEnum = data.SpecificCharacterTypeEnum;
 
             /*
                 TODO: Team, this is needed to keep the UT passing for the base game, your game does not need to use it.
@@ -184,6 +203,8 @@ namespace Game.Models
             // Set amount to give to be 1 below max for that level.
             var LevelData = LevelTableHelper.LevelDetailsList.ElementAtOrDefault(Level + 1) ?? LevelTableHelper.LevelDetailsList.Last();
             ExperienceRemaining = LevelData.Experience - 1;
+
+            SpecificMonsterTypeEnum = data.SpecificMonsterTypeEnum;
 
             /*
              * TODO: Team, this is needed to keep the UT passing for the base game, your game does not need to use it.
