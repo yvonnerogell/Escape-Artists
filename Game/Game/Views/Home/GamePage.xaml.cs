@@ -47,5 +47,15 @@ namespace Game.Views
 		{
 			await Navigation.PushAsync(new AutoBattlePage());
 		}
+
+		/// <summary>
+		/// Jump to the Game Settings
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		public async void GameSettingButton_Clicked(object sender, EventArgs e)
+		{
+			await Navigation.PushModalAsync(new NavigationPage(new BattleSettingsPage()));
+		}
 	}
 }
