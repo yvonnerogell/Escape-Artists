@@ -75,14 +75,6 @@ namespace UnitTests.Engine.EngineGame
         public void RoundEngine_AddMonstersToRound_Valid_HighLevelCharacter_Should_Pass()
         {
             // Arrange
-            
-            var ContainHighLevelCharacter = (Engine.EngineSettings.CharacterList.Find(m => (m.Level > 17)) != null);
-            if (!ContainHighLevelCharacter)
-            {
-                Engine.EngineSettings.CharacterList.FirstOrDefault().Level = 18;
-            }
-            
-            // Act
             var data = new CharacterModel { Level = 1, MaxHealth = 10 };
 
             Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(data));
@@ -94,6 +86,7 @@ namespace UnitTests.Engine.EngineGame
             data = new CharacterModel { Level = 18, MaxHealth = 10 };
             Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(data));
 
+            // Act
             Engine.Round.AddMonstersToRound();
 
             var result = Engine.EngineSettings.MonsterList.Find(m => m.SpecificMonsterTypeEnum == SpecificMonsterTypeEnum.GraduationOfficeAdministrator);
@@ -106,8 +99,39 @@ namespace UnitTests.Engine.EngineGame
             // Assert
             Assert.IsNotNull(result);
         }
-        
-        
+
+        [Test]
+        public void RoundEngine_AddMonstersToRound_Valid_HighLevelCharacter_EmptyMonster_Should_Pass()
+        {
+            // Arrange
+            var data = new CharacterModel { Level = 1, MaxHealth = 10 };
+
+            Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(data));
+            Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(data));
+            Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(data));
+            Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(data));
+            Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(data));
+
+            data = new CharacterModel { Level = 18, MaxHealth = 10 };
+            Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(data));
+
+            // Act
+            MonsterIndexViewModel.Instance.Dataset.Clear();
+
+            Engine.Round.AddMonstersToRound();
+
+            var result = Engine.EngineSettings.MonsterList.Find(m => m.SpecificMonsterTypeEnum == SpecificMonsterTypeEnum.GraduationOfficeAdministrator);
+
+            // Reset
+            MonsterIndexViewModel.Instance.ForceDataRefresh();
+            CharacterIndexViewModel.Instance.ForceDataRefresh();
+            //Engine.EngineSettings.MonsterList = null;
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.AreEqual(result.Name, "Mr. Smith");
+        }
+
         #endregion AddMonstersToRound
 
     }
