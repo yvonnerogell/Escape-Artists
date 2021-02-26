@@ -92,9 +92,9 @@ namespace Game.Engine.EngineGame
         /// <returns></returns>
         public override int AddMonstersToRound()
         {
-            // TODO: Teams, You need to implement your own Logic can not use mine.
+            // Teams, You need to implement your own Logic can not use mine.
             
-            return base.AddMonstersToRound();
+            //return base.AddMonstersToRound();
             
             //throw new System.NotImplementedException();
 
@@ -107,7 +107,6 @@ namespace Game.Engine.EngineGame
                which will hold Graduation cap and robe. 
             */
 
-            /*
             int TargetLevel = 1;
             bool ContainHighLevelCharacter = false;
             if (EngineSettings.CharacterList.Count() > 0)
@@ -158,7 +157,7 @@ namespace Game.Engine.EngineGame
             }
 
             return EngineSettings.MonsterList.Count();
-            */
+            
         }
 
         /// <summary>
