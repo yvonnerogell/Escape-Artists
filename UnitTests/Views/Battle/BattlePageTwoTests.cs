@@ -51,10 +51,10 @@ namespace UnitTests.Views
             page = new BattlePageTwo();
 
             // Put seed data into the system for all tests
-            BattleEngineViewModel.Instance.Engine.Round.ClearLists();
+            //BattleEngineViewModel.Instance.Engine.Round.ClearLists();
 
             //Start the Engine in AutoBattle Mode
-            BattleEngineViewModel.Instance.Engine.StartBattle(false);
+            //BattleEngineViewModel.Instance.Engine.StartBattle(false);
 
         }
 

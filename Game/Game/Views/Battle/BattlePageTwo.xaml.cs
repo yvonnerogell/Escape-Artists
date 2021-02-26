@@ -55,7 +55,7 @@ namespace Game.Views
            // InitializeMapGrid();
 
             // Start the Battle Engine
-            BattleEngineViewModel.Instance.Engine.StartBattle(false);
+            // BattleEngineViewModel.Instance.Engine.StartBattle(false);
 
             // Populate the UI Map
             // DrawMapGridInitialState();
