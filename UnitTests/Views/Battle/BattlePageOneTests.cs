@@ -583,7 +583,7 @@ namespace UnitTests.Views
         }
         */
 
-        /*
+        
         [Test]
         public void BattlePage_SetAttackerAndDefender_Character_vs_Monster_Should_Pass()
         {
@@ -640,9 +640,9 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-        */
+        
 
-        /*
+        
         [Test]
         public void BattlePage_SetAttackerAndDefender_Monster_vs_Character_Should_Pass()
         {
@@ -700,9 +700,9 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-        */
+        
 
-        /*
+        
         [Test]
         public void BattlePage_SetAttackerAndDefender_Character_vs_Unknown_Should_Pass()
         {
@@ -760,7 +760,7 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-        */
+        
 
         [Test]
         public void BattlePage_GetAttackerText_Monster_Faculty_Character_Student_Should_Pass()
