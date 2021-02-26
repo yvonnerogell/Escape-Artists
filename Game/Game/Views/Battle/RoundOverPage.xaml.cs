@@ -20,10 +20,14 @@ namespace Game.Views
         public static int NUM_ITEMS = 5;
         public static int NUM_CHARACTERS = 7;
 
-		/// <summary>
-		/// Constructor
-		/// </summary>
-		public RoundOverPage()
+        // Empty Constructor for UTs
+        bool UnitTestSetting;
+        public RoundOverPage(bool UnitTest) { UnitTestSetting = UnitTest; }
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public RoundOverPage()
         {
             InitializeComponent();
 
