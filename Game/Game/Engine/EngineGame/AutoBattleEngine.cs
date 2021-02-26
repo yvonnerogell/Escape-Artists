@@ -32,19 +32,23 @@ namespace Game.Engine.EngineGame
         /// <summary>
         /// Define the Battle variable 
         /// </summary>
-        public new IBattleEngineInterface Battle
-        {
-            get
-            {
-                if (base.Battle == null)
-                {
-                    base.Battle = new BattleEngine();
-                }
-                return base.Battle;
-            }
-            set { base.Battle = Battle; }
-        }
+        //public new IBattleEngineInterface Battle
+        //{
+        //    get
+        //    {
+        //        if (base.Battle == null)
+        //        {
+        //            base.Battle = new BattleEngine();
+        //        }
+        //        return base.Battle;
+        //    }
+        //    set { base.Battle = Battle; }
+        //}
 
+        public AutoBattleEngine()
+        {
+            Battle = new BattleEngine();
+        }
         /// <summary>
         /// Create character list and monster list
         /// </summary>
