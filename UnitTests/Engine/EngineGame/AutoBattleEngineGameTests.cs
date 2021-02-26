@@ -33,7 +33,7 @@ namespace UnitTests.Engine.EngineGame
             AutoBattleEngine.Battle.Round.Turn = new TurnEngine();
 
             // Remove this comment when the Battle engine is ready to go...
-            // AutoBattleEngine.Battle.StartBattle(true);   // Clear the Engine
+            AutoBattleEngine.Battle.StartBattle(true);   // Clear the Engine
         }
 
         [TearDown]
