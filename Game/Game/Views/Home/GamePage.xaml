@@ -79,6 +79,31 @@
 
                     </Grid>
                 </StackLayout>
+
+                <StackLayout Style="{StaticResource GamePageMenuBox}" Orientation="Vertical">
+
+                    <Grid RowSpacing="3" ColumnSpacing="0" HorizontalOptions="CenterAndExpand">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Row="0" Grid.Column="0"
+                               HorizontalOptions="StartAndExpand"
+                               Text="Battle Settings"
+                               Style="{StaticResource CenterMessageMediumStyle}"/>
+
+
+                        <ImageButton Grid.Row="0" Grid.Column="1"
+                            Source="{x:Static local:Constants.SpecificMonsterTypeDefaultImageURI}"
+                            HorizontalOptions="EndAndExpand"
+                            Style="{StaticResource GamePageMenuImageButton}"/>
+
+                        <Button Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="0" Opacity="0" Clicked="GameSettingButton_Clicked"/>
+                    </Grid>
+
+                </StackLayout>
+
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
