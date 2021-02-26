@@ -738,5 +738,50 @@ namespace UnitTests.ViewModels
             // Assert
             Assert.AreNotEqual(null, result);  // Update returned Pass
         }
+
+        [Test]
+        public void ItemIndexViewModel_GetItemTypeItems_Null_Should_Pass()
+        {
+            // Arrange
+            ViewModel.Dataset.Clear();
+
+            // Act
+            var result = ViewModel.GetItemTypeItems(ItemTypeEnum.Calculator);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(result.Count == 0); // Count of 1 for the load 
+        }
+
+        [Test]
+        public void ItemIndexViewModel_GetDefaultItemTypeItem_Null_Should_Pass()
+        {
+            // Arrange
+            ViewModel.Dataset.Clear();
+
+            // Act
+            var result = ViewModel.GetDefaultItemTypeItem(ItemTypeEnum.Calculator);
+
+            // Reset
+
+            // Assert
+            Assert.IsNull(result);
+        }
+
+        [Test]
+        public void ItemIndexViewModel_GetDefaultItemTypeItemId_Null_Should_Pass()
+        {
+            // Arrange
+            ViewModel.Dataset.Clear();
+
+            // Act
+            string result = ViewModel.GetDefaultItemTypeItemId(ItemTypeEnum.Calculator);
+
+            // Reset
+
+            // Assert
+            Assert.IsNull(result);
+        }
     }
 }
