@@ -55,8 +55,9 @@ namespace Game.Views
             // TODO: Remoev this once we move to real battle engine
             List<ItemModel> droppedItems = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList;
 
+            // TODO: This should be moved to RoundStart page
             // Start the Battle Engine
-            BattleEngineViewModel.Instance.Engine.StartBattle(false);
+            //BattleEngineViewModel.Instance.Engine.StartBattle(false);
 
             // TODO remove once we use real engine. This is just reassigning items for testing pruposes. 
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList = droppedItems;
@@ -949,6 +950,7 @@ namespace Game.Views
         #endregion BasicBattleMode
 
         #region MessageHandelers
+
 
         /*
         /// <summary>
