@@ -320,6 +320,551 @@ namespace UnitTests.Views
         }
 
 
+        [Test]
+        public void RoundOverPage_GetCharacterWhoCanAcceptItem_Feet_Null_Parent_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel> { new PlayerInfoModel(new CharacterModel { Level = 1, Feet = null, CharacterTypeEnum = CharacterTypeEnum.Parent }) };
+            var item = new ItemModel { Location = ItemLocationEnum.Feet };
+
+            // Act
+            var result = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(0, result.Count); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void RoundOverPage_GetCharacterWhoCanAcceptItem_Feet_None_Student_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel> { new PlayerInfoModel(new CharacterModel { Level = 1, Feet = "None", CharacterTypeEnum = CharacterTypeEnum.Student }) };
+            var item = new ItemModel { Location = ItemLocationEnum.Feet };
+
+            // Act
+            var result = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(1, result.Count); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void RoundOverPage_GetCharacterWhoCanAcceptItem_Feet_Null_Student_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel> { new PlayerInfoModel(new CharacterModel { Level = 1, Feet = null, CharacterTypeEnum = CharacterTypeEnum.Student }) };
+            var item = new ItemModel { Location = ItemLocationEnum.Feet };
+
+            // Act
+            var result = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(1, result.Count); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void RoundOverPage_GetCharacterWhoCanAcceptItem_Feet_None_Parent_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel> { new PlayerInfoModel(new CharacterModel { Level = 1, Feet = "None", CharacterTypeEnum = CharacterTypeEnum.Parent }) };
+            var item = new ItemModel { Location = ItemLocationEnum.Feet };
+
+            // Act
+            var result = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(0, result.Count); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void RoundOverPage_GetCharacterWhoCanAcceptItem_Feet_None_No_Item_Match_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel> { new PlayerInfoModel(new CharacterModel { Level = 1, Feet = "None", CharacterTypeEnum = CharacterTypeEnum.Parent }) };
+            var item = new ItemModel { Location = ItemLocationEnum.Head };
+
+            // Act
+            var result = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(0, result.Count); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void RoundOverPage_GetCharacterWhoCanAcceptItem_Head_Null_Parent_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel> { new PlayerInfoModel(new CharacterModel { Level = 1, Head = null, CharacterTypeEnum = CharacterTypeEnum.Parent, Feet = "feet" }) };
+            var item = new ItemModel { Location = ItemLocationEnum.Head };
+
+            // Act
+            var result = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(0, result.Count); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void RoundOverPage_GetCharacterWhoCanAcceptItem_Head_None_Student_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel> { new PlayerInfoModel(new CharacterModel { Level = 1, Head = "None", CharacterTypeEnum = CharacterTypeEnum.Student, Feet = "feet" }) };
+            var item = new ItemModel { Location = ItemLocationEnum.Head };
+
+            // Act
+            var result = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(1, result.Count); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void RoundOverPage_GetCharacterWhoCanAcceptItem_Head_Null_Student_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel> { new PlayerInfoModel(new CharacterModel { Level = 1, Head = null, CharacterTypeEnum = CharacterTypeEnum.Student }) };
+            var item = new ItemModel { Location = ItemLocationEnum.Head };
+
+            // Act
+            var result = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(1, result.Count); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void RoundOverPage_GetCharacterWhoCanAcceptItem_Head_None_Parent_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel> { new PlayerInfoModel(new CharacterModel { Level = 1, Head = "None", CharacterTypeEnum = CharacterTypeEnum.Parent }) };
+            var item = new ItemModel { Location = ItemLocationEnum.Head };
+
+            // Act
+            var result = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(0, result.Count); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void RoundOverPage_GetCharacterWhoCanAcceptItem_Head_None_Item_No_Match_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel> { new PlayerInfoModel(new CharacterModel { Level = 1, Head = "None", CharacterTypeEnum = CharacterTypeEnum.Parent }) };
+            var item = new ItemModel { Location = ItemLocationEnum.Feet };
+
+            // Act
+            var result = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(0, result.Count); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void RoundOverPage_GetCharacterWhoCanAcceptItem_LeftFinger_Null_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel> { new PlayerInfoModel(new CharacterModel {
+                Level = 1,
+                LeftFinger = null,
+                CharacterTypeEnum = CharacterTypeEnum.Parent,
+                Feet = "feet",
+                OffHand = "offhand",
+                Necklace = "necklace",
+                RightFinger = "rigth finger",
+                PrimaryHand = "primary hand",
+                Head = "head"}) };
+            var item = new ItemModel { Location = ItemLocationEnum.LeftFinger };
+
+            // Act
+            var result = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(1, result.Count); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void RoundOverPage_GetCharacterWhoCanAcceptItem_LeftFinger_None_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel> { new PlayerInfoModel(new CharacterModel {
+                Level = 1,
+                LeftFinger = "None",
+                CharacterTypeEnum = CharacterTypeEnum.Student,
+                Feet = "feet",
+                OffHand = "offhand",
+                Necklace = "necklace",
+                RightFinger = "rigth finger",
+                PrimaryHand = "primary hand",
+                Head = "head"}) };
+            var item = new ItemModel { Location = ItemLocationEnum.LeftFinger };
+
+            // Act
+            var result = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(1, result.Count); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void RoundOverPage_GetCharacterWhoCanAcceptItem_LeftFinger_None_Item_No_Match_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel> { new PlayerInfoModel(new CharacterModel {
+                Level = 1,
+                LeftFinger = "None",
+                CharacterTypeEnum = CharacterTypeEnum.Student,
+                Feet = "feet",
+                OffHand = "offhand",
+                Necklace = "necklace",
+                RightFinger = "rigth finger",
+                PrimaryHand = "primary hand",
+                Head = "head"}) };
+            var item = new ItemModel { Location = ItemLocationEnum.PrimaryHand };
+
+            // Act
+            var result = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(0, result.Count); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void RoundOverPage_GetCharacterWhoCanAcceptItem_Necklace_Null_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel> { new PlayerInfoModel(new CharacterModel {
+                Level = 1, Necklace = null,
+                CharacterTypeEnum = CharacterTypeEnum.Student,
+                Feet = "feet",
+                OffHand = "offhand",
+                PrimaryHand = "primary hand",
+                RightFinger = "rigth finger",
+                LeftFinger = "left finger",
+                Head = "head"}) };
+            var item = new ItemModel { Location = ItemLocationEnum.Necklace };
+
+            // Act
+            var result = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(1, result.Count); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void RoundOverPage_GetCharacterWhoCanAcceptItem_Necklace_None_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel> { new PlayerInfoModel(new CharacterModel {
+                Level = 1, Necklace = "None",
+                CharacterTypeEnum = CharacterTypeEnum.Parent,
+                Feet = "feet",
+                OffHand = "offhand",
+                PrimaryHand = "primary hand",
+                RightFinger = "rigth finger",
+                LeftFinger = "left finger",
+                Head = "head"}) };
+            var item = new ItemModel { Location = ItemLocationEnum.Necklace };
+
+            // Act
+            var result = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(1, result.Count); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void RoundOverPage_GetCharacterWhoCanAcceptItem_Necklace_None_Item_No_Match_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel> { new PlayerInfoModel(new CharacterModel {
+                Level = 1, Necklace = "None",
+                CharacterTypeEnum = CharacterTypeEnum.Parent,
+                Feet = "feet",
+                OffHand = "offhand",
+                PrimaryHand = "primary hand",
+                RightFinger = "rigth finger",
+                LeftFinger = "left finger",
+                Head = "head"}) };
+            var item = new ItemModel { Location = ItemLocationEnum.PrimaryHand };
+
+            // Act
+            var result = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(0, result.Count); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void RoundOverPage_GetCharacterWhoCanAcceptItem_Offhand_Null_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel> { new PlayerInfoModel(new CharacterModel {
+                Level = 1, OffHand = null,
+                CharacterTypeEnum = CharacterTypeEnum.Parent,
+                Feet = "feet",
+                Necklace = "necklace",
+                PrimaryHand = "primary hand",
+                RightFinger = "rigth finger",
+                LeftFinger = "left finger",
+                Head = "head"}) };
+            var item = new ItemModel { Location = ItemLocationEnum.OffHand };
+
+            // Act
+            var result = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(1, result.Count); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void RoundOverPage_GetCharacterWhoCanAcceptItem_Offhand_None_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel> { new PlayerInfoModel(new CharacterModel {
+                Level = 1, OffHand = "None",
+                CharacterTypeEnum = CharacterTypeEnum.Student,
+                Feet = "feet",
+                Necklace = "necklace",
+                PrimaryHand = "primary hand",
+                RightFinger = "rigth finger",
+                LeftFinger = "left finger",
+                Head = "head"}) };
+            var item = new ItemModel { Location = ItemLocationEnum.OffHand };
+
+            // Act
+            var result = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(1, result.Count); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void RoundOverPage_GetCharacterWhoCanAcceptItem_Offhand_None_Item_No_Match_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel> { new PlayerInfoModel(new CharacterModel {
+                Level = 1, OffHand = "None",
+                CharacterTypeEnum = CharacterTypeEnum.Student,
+                Feet = "feet",
+                Necklace = "necklace",
+                PrimaryHand = "primary hand",
+                RightFinger = "rigth finger",
+                LeftFinger = "left finger",
+                Head = "head"}) };
+            var item = new ItemModel { Location = ItemLocationEnum.Head };
+
+            // Act
+            var result = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(0, result.Count); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void RoundOverPage_GetCharacterWhoCanAcceptItem_PrimaryHand_Null_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel> { new PlayerInfoModel(new CharacterModel {
+                Level = 1, PrimaryHand = null,
+                CharacterTypeEnum = CharacterTypeEnum.Student,
+                Feet = "feet",
+                OffHand = "offhand",
+                Necklace = "primary hand",
+                RightFinger = "rigth finger",
+                LeftFinger = "left finger",
+                Head = "head"}) };
+            var item = new ItemModel { Location = ItemLocationEnum.PrimaryHand };
+
+            // Act
+            var result = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(1, result.Count); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void RoundOverPage_GetCharacterWhoCanAcceptItem_PrimaryHand_None_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel> { new PlayerInfoModel(new CharacterModel {
+                Level = 1, PrimaryHand = "None",
+                CharacterTypeEnum = CharacterTypeEnum.Parent,
+                Feet = "feet",
+                OffHand = "offhand",
+                Necklace = "primary hand",
+                RightFinger = "rigth finger",
+                LeftFinger = "left finger",
+                Head = "head"}) };
+            var item = new ItemModel { Location = ItemLocationEnum.PrimaryHand };
+
+            // Act
+            var result = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(1, result.Count); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void RoundOverPage_GetCharacterWhoCanAcceptItem_PrimaryHand_None_Item_No_MatchShould_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel> { new PlayerInfoModel(new CharacterModel {
+                Level = 1, PrimaryHand = "None",
+                CharacterTypeEnum = CharacterTypeEnum.Parent,
+                Feet = "feet",
+                OffHand = "offhand",
+                Necklace = "primary hand",
+                RightFinger = "rigth finger",
+                LeftFinger = "left finger",
+                Head = "head"}) };
+            var item = new ItemModel { Location = ItemLocationEnum.OffHand };
+
+            // Act
+            var result = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(0, result.Count); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void RoundOverPage_GetCharacterWhoCanAcceptItem_RightFinger_Null_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel> { new PlayerInfoModel(new CharacterModel {
+                Level = 1, RightFinger = null,
+                CharacterTypeEnum = CharacterTypeEnum.Student,
+                Feet = "feet",
+                OffHand = "offhand",
+                PrimaryHand = "primary hand",
+                Necklace = "necklace",
+                LeftFinger = "left finger",
+                Head = "head"}) };
+            var item = new ItemModel { Location = ItemLocationEnum.RightFinger };
+
+            // Act
+            var result = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(1, result.Count); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void RoundOverPage_GetCharacterWhoCanAcceptItem_RightFinger_None_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel> { new PlayerInfoModel(new CharacterModel {
+                Level = 1, RightFinger = "None",
+                CharacterTypeEnum = CharacterTypeEnum.Parent,
+                Feet = "feet",
+                OffHand = "offhand",
+                PrimaryHand = "primary hand",
+                Necklace = "necklace",
+                LeftFinger = "left finger",
+                Head = "head"}) };
+            var item = new ItemModel { Location = ItemLocationEnum.RightFinger };
+
+            // Act
+            var result = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(1, result.Count); // Got to here, so it happened...
+        }
+
+
+        [Test]
+        public void RoundOverPage_GetCharacterWhoCanAcceptItem_RightFinger_None_Item_No_Match_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel> { new PlayerInfoModel(new CharacterModel {
+                Level = 1, RightFinger = "None",
+                CharacterTypeEnum = CharacterTypeEnum.Parent,
+                Feet = "feet",
+                OffHand = "offhand",
+                PrimaryHand = "primary hand",
+                Necklace = "necklace",
+                LeftFinger = "left finger",
+                Head = "head"}) };
+            var item = new ItemModel { Location = ItemLocationEnum.LeftFinger };
+
+            // Act
+            var result = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(0, result.Count); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void RoundOverPage_GetCharacterWhoCanAcceptItem_None_Available_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel> { new PlayerInfoModel(new CharacterModel {
+                Level = 1, Feet = "None",
+                CharacterTypeEnum = CharacterTypeEnum.Parent,
+                Head = "head", PrimaryHand = "primary hand", OffHand = "off hand", Necklace = "necklace",
+                RightFinger = "right finger", LeftFinger = "left finger"
+            }) };
+            var item = new ItemModel { Location = ItemLocationEnum.RightFinger };
+
+            // Act
+            var result = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(0, result.Count); // Got to here, so it happened...
+        }
+
 
 
         /*
