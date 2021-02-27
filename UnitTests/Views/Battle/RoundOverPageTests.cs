@@ -62,7 +62,7 @@ namespace UnitTests.Views
 
 
         [Test]
-        public void RoundOverPage_NextButton_Clicked_Default_Should_Pass()
+        public void RoundOverPage_CloseButton_Clicked_Default_Should_Pass()
         {
             // Arrange
             // Act
@@ -257,18 +257,92 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
+        [Test]
+        public void RoundOverPage_FindItemForLocation_Item_Location_Matches_Should_Pass()
+        {
+            // Arrange
+            var location = ItemLocationEnum.Necklace;
+            var item1 = new ItemModel { Location = ItemLocationEnum.Necklace };
+            var item2 = new ItemModel { Location = ItemLocationEnum.Feet };
+            var items = new List<ItemModel>
+            {
+                item1,
+                item2
+            };
+
+            // Act
+            var result = page.FindItemForLocation(location, items);
+
+            // Reset
+
+
+            // Assert
+            Assert.AreEqual(item1, result); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void RoundOverPage_FindItemForLocation_Item_Location_No_Match_Should_Pass()
+        {
+            // Arrange
+            var location = ItemLocationEnum.Head;
+            var item1 = new ItemModel { Location = ItemLocationEnum.Necklace };
+            var item2 = new ItemModel { Location = ItemLocationEnum.Feet };
+            var items = new List<ItemModel>
+            {
+                item1,
+                item2
+            };
+
+            // Act
+            var result = page.FindItemForLocation(location, items);
+
+            // Reset
+
+
+            // Assert
+            Assert.AreEqual(null, result); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void RoundOverPage_GetCharacterWhoCanAcceptItem_Graduate_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel> { new PlayerInfoModel(new CharacterModel { Level = 20 }) };
+            var item = new ItemModel { Location = ItemLocationEnum.Necklace };
+
+            // Act
+            var result = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(0, result.Count); // Got to here, so it happened...
+        }
+
+
+
+
         /*
         [Test]
         public void RoundOverPage_DrawCharacterList_Valid_Should_Pass()
         {
             // Arrange
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(new CharacterModel { Level = 1}));
+            ((FlexLayout)page.FindByName("CharacterListFrame")).Children.Add(new Label());
+            ((FlexLayout)page.FindByName("CharacterListFrame")).Children.Add(new Label());
+            ((FlexLayout)page.FindByName("CharacterListFrame")).Children.Add(new Label());
 
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(new CharacterModel()));
-
-            // Act
+            // Act - draw it twice
             page.DrawCharacterList();
 
             // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList = null;
+            var flexList = ((FlexLayout)page.FindByName("CharacterListFrame")).Children.ToList();
+            foreach (var data in flexList)
+			{
+                ((FlexLayout)page.FindByName("CharacterListFrame")).Children.Remove(data);
+
+            }
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
@@ -292,6 +366,7 @@ namespace UnitTests.Views
         }
         */
 
+        /*
         [Test]
         public void RoundOverPage_DrawDroppedItems_Valid_Should_Pass()
         {
@@ -311,6 +386,7 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
+        
 
         [Test]
         public void RoundOverPage_DrawItemLists_Valid_Should_Pass()
@@ -353,7 +429,7 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-
+        */
 
         /*
         [Test]
