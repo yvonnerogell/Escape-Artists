@@ -257,7 +257,55 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
-        
+        [Test]
+        public void RoundOverPage_FindItemForLocation_Item_Location_Matches_Should_Pass()
+        {
+            // Arrange
+            var location = ItemLocationEnum.Necklace;
+            var item1 = new ItemModel { Location = ItemLocationEnum.Necklace };
+            var item2 = new ItemModel { Location = ItemLocationEnum.Feet };
+            var items = new List<ItemModel>
+            {
+                item1,
+                item2
+            };
+
+            // Act
+            var result = page.FindItemForLocation(location, items);
+
+            // Reset
+
+
+            // Assert
+            Assert.AreEqual(item1, result); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void RoundOverPage_FindItemForLocation_Item_Location_No_Match_Should_Pass()
+        {
+            // Arrange
+            var location = ItemLocationEnum.Head;
+            var item1 = new ItemModel { Location = ItemLocationEnum.Necklace };
+            var item2 = new ItemModel { Location = ItemLocationEnum.Feet };
+            var items = new List<ItemModel>
+            {
+                item1,
+                item2
+            };
+
+            // Act
+            var result = page.FindItemForLocation(location, items);
+
+            // Reset
+
+
+            // Assert
+            Assert.AreEqual(null, result); // Got to here, so it happened...
+        }
+
+
+
+
         /*
         [Test]
         public void RoundOverPage_DrawCharacterList_Valid_Should_Pass()
