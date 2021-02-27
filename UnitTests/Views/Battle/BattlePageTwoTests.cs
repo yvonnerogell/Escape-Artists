@@ -64,7 +64,7 @@ namespace UnitTests.Views
             Application.Current = null;
         }
 
-        /*
+        
         [Test]
         public void BattlePage_OnAppearing_Should_Pass()
         {
@@ -78,9 +78,9 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-        */
 
-        /*
+
+
         [Test]
         public void BattlePage_Constructor_Default_Should_Pass()
         {
@@ -235,7 +235,7 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
-        */
+
         /*
         [Test]
         public void BattlePage_ShowScoreButton_Clicked_Default_Should_Pass()
