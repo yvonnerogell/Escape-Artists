@@ -631,7 +631,17 @@ namespace Game.Engine.EngineBase
 
             // I feel generous, even when characters die, random drops happen :-)
             // If Random drops are enabled, then add some....
-            myItemList.AddRange(GetRandomMonsterItemDrops(EngineSettings.BattleScore.RoundCount));
+            
+            // add item only if is not null
+            foreach (ItemModel item in GetRandomMonsterItemDrops(EngineSettings.BattleScore.RoundCount))
+            {
+                if (item != null)
+                {
+                    myItemList.Add(item);
+                }
+            }
+            
+            //myItemList.AddRange(GetRandomMonsterItemDrops(EngineSettings.BattleScore.RoundCount));
 
             // Add to ScoreModel
             foreach (var ItemModel in myItemList)

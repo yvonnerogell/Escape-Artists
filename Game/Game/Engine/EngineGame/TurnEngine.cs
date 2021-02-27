@@ -6,6 +6,7 @@ using Game.Engine.EngineModels;
 using Game.Engine.EngineBase;
 using System.Linq;
 using Game.Helpers;
+using Game.ViewModels;
 
 namespace Game.Engine.EngineGame
 {
@@ -452,16 +453,15 @@ namespace Game.Engine.EngineGame
         /// </summary>
         public override List<ItemModel> GetRandomMonsterItemDrops(int round)
         {
-            // TODO: Teams, You need to implement your own modification to the Logic cannot use mine as is.
+            // Teams, You need to implement your own modification to the Logic cannot use mine as is.
 
             // You decide how to drop monster items, level, etc.
 
             // The Number drop can be Up to the Round Count, but may be less.  
             // Negative results in nothing dropped
 
+            //return base.GetRandomMonsterItemDrops(round);
             //throw new System.NotImplementedException();
-
-            // TODO: remove base!!
 
             /*
             Once monster is killed for the round, they will drop their item. 
@@ -470,7 +470,16 @@ namespace Game.Engine.EngineGame
                 3. move that item to the list. make a copy of it. 
             */
 
-            return base.GetRandomMonsterItemDrops(round);
+            List<PlayerInfoModel> DeadMonster = EngineSettings.BattleScore.MonsterModelDeathList;
+            var result = new List<ItemModel>();
+
+            foreach (PlayerInfoModel monster in DeadMonster)
+            {
+                var data = ItemIndexViewModel.Instance.GetItem(monster.UniqueDropItem);
+                result.Add(data);
+            }
+
+            return result;
         }
 
         /// <summary>
