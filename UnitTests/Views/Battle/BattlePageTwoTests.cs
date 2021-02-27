@@ -51,10 +51,10 @@ namespace UnitTests.Views
             page = new BattlePageTwo();
 
             // Put seed data into the system for all tests
-            //BattleEngineViewModel.Instance.Engine.Round.ClearLists();
+            BattleEngineViewModel.Instance.Engine.Round.ClearLists();
 
             //Start the Engine in AutoBattle Mode
-            BattleEngineViewModel.Instance.Engine.StartBattle(false);
+            //BattleEngineViewModel.Instance.Engine.StartBattle(false);
 
         }
 
@@ -64,9 +64,9 @@ namespace UnitTests.Views
             Application.Current = null;
         }
 
-        
+
         [Test]
-        public void BattlePage_OnAppearing_Should_Pass()
+        public void BattlePageTwo_OnAppearing_Should_Pass()
         {
             // Get the current valute
 
@@ -82,7 +82,7 @@ namespace UnitTests.Views
 
 
         [Test]
-        public void BattlePage_Constructor_Default_Should_Pass()
+        public void BattlePageTwo_Constructor_Default_Should_Pass()
         {
             // Arrange
 
@@ -96,7 +96,7 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void BattlePage_AttackButton_Clicked_Default_Should_Pass()
+        public void BattlePageTwo_AttackButton_Clicked_Default_Should_Pass()
         {
             // Arrange
 
@@ -129,7 +129,7 @@ namespace UnitTests.Views
             // Arrange
 
             // Act
-            page.Character2_Clicked(null, null);
+           page.Character2_Clicked(null, null);
 
             // Reset
 
