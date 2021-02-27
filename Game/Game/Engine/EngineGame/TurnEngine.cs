@@ -274,6 +274,32 @@ namespace Game.Engine.EngineGame
             3. if 2 we attack the strongest monster
             */
 
+            if (EngineSettings.PlayerList == null)
+            {
+                return null;
+            }
+
+            if (EngineSettings.PlayerList.Count < 1)
+            {
+                return null;
+            }
+
+            // roll dice
+            var d2 = DiceHelper.RollDice(1, 2);
+            PlayerInfoModel Defender = null;
+
+            if (d2 == 1)
+            {
+                Defender = EngineSettings.PlayerList
+                .Where(m => m.Alive && m.PlayerType == PlayerTypeEnum.Monster)
+                .OrderBy(m => m.Level).FirstOrDefault();
+            }
+
+            Defender = EngineSettings.PlayerList
+                .Where(m => m.Alive && m.PlayerType == PlayerTypeEnum.Monster)
+                .OrderBy(m => m.Level).LastOrDefault();
+
+            return Defender;
         }
 
         /// <summary>
