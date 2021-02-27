@@ -134,5 +134,48 @@ namespace UnitTests.Engine.EngineGame
 
         #endregion AddMonstersToRound
 
+        
+        #region PickupItemsFromPool
+        [Test]
+        public void RoundEngine_PickupItemsFromPool_Auto_Valid_Default_Should_Pass()
+        {
+            // Arrange
+            PlayerInfoModel easyCharacter = new PlayerInfoModel( new CharacterModel());
+            
+            // Act
+
+            //Engine.EngineSettings.ItemPool.Add()
+
+            bool result = Engine.Round.PickupItemsFromPool(easyCharacter);
+
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void RoundEngine_PickupItemsFromPool_Manual_Valid_Default_Should_Pass()
+        {
+            // Arrange
+            PlayerInfoModel easyCharacter = new PlayerInfoModel(new CharacterModel());
+            Engine.EngineSettings.BattleScore.AutoBattle = false;
+            // Act
+
+            //Engine.EngineSettings.ItemPool.Add()
+
+            bool result = Engine.Round.PickupItemsFromPool(easyCharacter);
+
+
+            // Reset
+            Engine.EngineSettings.BattleScore.AutoBattle = true;
+
+            // Assert
+            Assert.IsTrue(result);
+        }
+
+        #endregion PickupItemsFromPool
+
     }
 }
