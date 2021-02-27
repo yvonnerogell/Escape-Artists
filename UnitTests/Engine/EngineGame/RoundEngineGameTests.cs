@@ -177,5 +177,28 @@ namespace UnitTests.Engine.EngineGame
 
         #endregion PickupItemsFromPool
 
+
+        #region SwapCharacterItem
+
+        [Test]
+        public void RoundEngine_SwapCharacterItem_Default_Should_Pass()
+        {
+            // Arrange
+            PlayerInfoModel easyCharacter = new PlayerInfoModel(new CharacterModel());
+            ItemModel testItem = new ItemModel(ItemTypeEnum.GraduationCapAndRobe);
+
+            // Act
+
+            //Engine.EngineSettings.ItemPool.Add()
+            
+            var result = Engine.Round.SwapCharacterItem(easyCharacter, ItemLocationEnum.Head, testItem);
+            // Reset
+
+            // Assert
+            // should return null since there's no items on the head to basic character model
+            Assert.IsNull(result);
+        }
+
+        #endregion SwapCharacterItem
     }
 }
