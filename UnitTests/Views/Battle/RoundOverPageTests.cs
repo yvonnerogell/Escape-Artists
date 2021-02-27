@@ -303,6 +303,22 @@ namespace UnitTests.Views
             Assert.AreEqual(null, result); // Got to here, so it happened...
         }
 
+        [Test]
+        public void RoundOverPage_GetCharacterWhoCanAcceptItem_Graduate_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel> { new PlayerInfoModel(new CharacterModel { Level = 20 }) };
+            var item = new ItemModel { Location = ItemLocationEnum.Necklace };
+
+            // Act
+            var result = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(0, result.Count); // Got to here, so it happened...
+        }
+
 
 
 
