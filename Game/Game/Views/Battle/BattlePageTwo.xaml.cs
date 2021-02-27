@@ -136,7 +136,7 @@ namespace Game.Views
             // TODO: make sure the AutoBattlePage is the right option here
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.RoundOver;
            
-            await Navigation.PushModalAsync(new NavigationPage(new ScorePage()));
+            await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
             
         }
 
