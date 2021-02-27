@@ -128,34 +128,21 @@ namespace Game.Views
         // Adding monsters by clicking on their images
         public async void Monster1_Clicked(object sender, EventArgs e)
         {
-            if (ViewModel.Data.PartyMonsterList == null)
-            {
-                return;
-            }
-
-            ViewModel.Data.PartyMonsterList.Add(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Add(new PlayerInfoModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
             await Navigation.PopModalAsync();
         }
 
         public async void Monster2_Clicked(object sender, EventArgs e)
         {
-            if (ViewModel.Data.PartyMonsterList == null)
-            {
-                return;
-            }
 
-            ViewModel.Data.PartyMonsterList.Add(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Add(new PlayerInfoModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
             await Navigation.PopModalAsync();
         }
 
         public async void Monster3_Clicked(object sender, EventArgs e)
         {
-            if (ViewModel.Data.PartyMonsterList == null)
-            {
-                return;
-            }
 
-            ViewModel.Data.PartyMonsterList.Add(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Add(new PlayerInfoModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
             await Navigation.PopModalAsync();
         }
 
