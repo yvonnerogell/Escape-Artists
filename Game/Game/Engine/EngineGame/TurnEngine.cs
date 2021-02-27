@@ -4,6 +4,8 @@ using Game.Models;
 using Game.Engine.EngineInterfaces;
 using Game.Engine.EngineModels;
 using Game.Engine.EngineBase;
+using System.Linq;
+using Game.Helpers;
 
 namespace Game.Engine.EngineGame
 {
@@ -213,20 +215,44 @@ namespace Game.Engine.EngineGame
         {
             // Select first in the list
 
-            // TODO: Teams, You need to implement your own Logic can not use mine.
+            // Teams, You need to implement your own Logic can not use mine.
+            //return base.SelectCharacterToAttack();
 
             //throw new System.NotImplementedException();
 
-            // TODO: remove base!!
-
             /*
             Instead of taking the first available character, we chose the weakest or strongest.
-            1. roll dice between 0 or 1. 
-            2. if 0 we attack the weakest character
-            3. if 1 we attack the strongest character
+            1. roll dice between 1 or 2. 
+            2. if 1 we attack the weakest character
+            3. if 2 we attack the strongest character
             */
 
-            return base.SelectCharacterToAttack();
+            if (EngineSettings.PlayerList == null)
+            {
+                return null;
+            }
+
+            if (EngineSettings.PlayerList.Count < 1)
+            {
+                return null;
+            }
+
+            // roll dice
+            var d2 = DiceHelper.RollDice(1, 2);
+            PlayerInfoModel Defender = null;
+
+            if (d2 == 1)
+            {
+                Defender = EngineSettings.PlayerList
+                .Where(m => m.Alive && m.PlayerType == PlayerTypeEnum.Character)
+                .OrderBy(m => m.Level).FirstOrDefault();
+            }
+
+            Defender = EngineSettings.PlayerList
+                .Where(m => m.Alive && m.PlayerType == PlayerTypeEnum.Character)
+                .OrderBy(m => m.Level).LastOrDefault();
+
+            return Defender;
         }
 
         /// <summary>
@@ -237,20 +263,17 @@ namespace Game.Engine.EngineGame
             // Select first one to hit in the list for now...
             // Attack the Weakness (lowest HP) MonsterModel first 
 
-            // TODO: Teams, You need to implement your own Logic can not use mine.
-
+            // Teams, You need to implement your own Logic can not use mine.
+            return base.SelectMonsterToAttack();
             //throw new System.NotImplementedException();
-
-            // TODO: remove base!!
 
             /*
             Instead of taking the first available monster, we chose the weakest or strongest.
-            1. roll dice between 0 or 1. 
-            2. if 0 we attack the weakest monster
-            3. if 1 we attack the strongest monster
+            1. roll dice between 1 or 2. 
+            2. if 1 we attack the weakest monster
+            3. if 2 we attack the strongest monster
             */
 
-            return base.SelectMonsterToAttack();
         }
 
         /// <summary>
