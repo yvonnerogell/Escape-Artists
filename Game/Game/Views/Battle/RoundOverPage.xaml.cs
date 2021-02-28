@@ -17,8 +17,6 @@ namespace Game.Views
 	{
         // Variable indicating if stub data should be used. Set this to false when our battle engine is being used.
         public bool UseStubData = false;
-        public static int NUM_ITEMS = 5;
-        public static int NUM_CHARACTERS = 7;
 
         // Empty Constructor for UTs
         bool UnitTestSetting;
