@@ -68,7 +68,8 @@ namespace UnitTests.Views
             // Act
             page.CloseButton_Clicked(null, null);
 
-            // Reset
+            // Reset monster list because closebutton calls new round, which adds monsters. 
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
@@ -872,7 +873,9 @@ namespace UnitTests.Views
         public void RoundOverPage_DrawCharacterList_Valid_Should_Pass()
         {
             // Arrange
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(new CharacterModel { Level = 1}));
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList = null;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList = new List<PlayerInfoModel>();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(new CharacterModel { Level = 1, Name = "Name", ImageURI="squid.jpg"}));
             ((FlexLayout)page.FindByName("CharacterListFrame")).Children.Add(new Label());
             ((FlexLayout)page.FindByName("CharacterListFrame")).Children.Add(new Label());
             ((FlexLayout)page.FindByName("CharacterListFrame")).Children.Add(new Label());
@@ -893,6 +896,7 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
         */
+        
 
         /*
         [Test]
