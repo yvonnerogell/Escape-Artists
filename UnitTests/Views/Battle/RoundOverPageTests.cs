@@ -917,6 +917,19 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
+        [Test]
+        public void RoundOverPage_ShowPopup_Default_Should_Pass()
+        {
+            // Arrange
+            // Act
+            page.ShowPopup(new ItemModel());
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
 
 
         /*
@@ -1032,18 +1045,7 @@ namespace UnitTests.Views
         */
 
         /*
-        [Test]
-        public void RoundOverPage_ShowPopup_Default_Should_Pass()
-        {
-            // Arrange
-            // Act
-            page.ShowPopup(new ItemModel());
 
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
 
 
 
