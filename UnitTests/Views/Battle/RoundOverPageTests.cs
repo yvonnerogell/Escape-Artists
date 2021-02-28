@@ -875,6 +875,48 @@ namespace UnitTests.Views
             Assert.AreEqual(0, result.Count); // Got to here, so it happened...
         }
 
+        [Test]
+        public void RoundOverPage_GetItemToDisplay_Null_Should_Pass()
+        {
+            // Arrange
+            // Act
+            page.GetItemToDisplay(null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void RoundOverPage_GetItemToDisplay_InValid_Id_Should_Pass()
+        {
+            // Arrange
+            // Act
+            page.GetItemToDisplay(new ItemModel { Id = "" });
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public async Task RoundOverPage_GetItemToDisplay_Valid_Should_Pass()
+        {
+            // Arrange
+            var data = new ItemModel { Name = "Mike" };
+            await ItemIndexViewModel.Instance.CreateAsync(data);
+
+            // Act
+            page.GetItemToDisplay(data);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
 
 
         /*
@@ -905,7 +947,7 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
         */
-        
+
 
         /*
         [Test]
@@ -1005,47 +1047,7 @@ namespace UnitTests.Views
 
 
 
-        [Test]
-        public void RoundOverPage_GetItemToDisplay_Null_Should_Pass()
-        {
-            // Arrange
-            // Act
-            page.GetItemToDisplay(null);
 
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-
-        [Test]
-        public void RoundOverPage_GetItemToDisplay_InValid_Id_Should_Pass()
-        {
-            // Arrange
-            // Act
-            page.GetItemToDisplay(new ItemModel { Id = "" });
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-
-        [Test]
-        public async Task RoundOverPage_GetItemToDisplay_Valid_Should_Pass()
-        {
-            // Arrange
-            var data = new ItemModel { Name = "Mike" };
-            await ItemIndexViewModel.Instance.CreateAsync(data);
-
-            // Act
-            page.GetItemToDisplay(data);
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
 
 
 
