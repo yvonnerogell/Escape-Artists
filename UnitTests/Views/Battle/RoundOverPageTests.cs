@@ -469,7 +469,16 @@ namespace UnitTests.Views
         public void RoundOverPage_GetCharacterWhoCanAcceptItem_Head_None_Item_No_Match_Should_Pass()
         {
             // Arrange
-            var characters = new List<PlayerInfoModel> { new PlayerInfoModel(new CharacterModel { Level = 1, Head = "None", CharacterTypeEnum = CharacterTypeEnum.Parent }) };
+            var characters = new List<PlayerInfoModel> { new PlayerInfoModel(new CharacterModel { 
+                Level = 1, 
+                Head = "None", 
+                CharacterTypeEnum = CharacterTypeEnum.Student,
+                Feet = "feet",
+                OffHand = "offhand",
+                Necklace = "necklace",
+                RightFinger = "rigth finger",
+                PrimaryHand = "primary hand", 
+                LeftFinger = "left"}) };
             var item = new ItemModel { Location = ItemLocationEnum.Feet };
 
             // Act
