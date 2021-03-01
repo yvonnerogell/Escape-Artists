@@ -11,7 +11,7 @@
     <!-- These are temporary buttons that will need to get deleted once the RoundStart page is set up.-->
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="BattlePageOne" Clicked="OnBattlePageOne_Clicked" IconImageSource="icon_cancel.png"/>
-        <ToolbarItem Text="BattlePageOne" Clicked="OnBattleGridPage_Clicked" IconImageSource="icon_add.png"/>
+        <ToolbarItem Text="Battle Grid" Clicked="OnBattleGridPage_Clicked" IconImageSource="icon_add.png"/>
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
