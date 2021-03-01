@@ -1075,7 +1075,25 @@ namespace UnitTests.Views
 
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-        
+
+
+        [Test]
+        public void RoundOverPage_GetItemToDisplay_Click_Button_Valid_Should_Pass()
+        {
+            // Arrange
+            var item = ItemIndexViewModel.Instance.GetDefaultItem(ItemLocationEnum.PrimaryHand);
+            var StackItem = page.GetItemToDisplay(item);
+            var dataImage = StackItem.Children[0];
+
+            // Act
+            ((ImageButton)dataImage).PropagateUpClicked();
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
         /*
         [Test]
         public void RoundOverPage_DrawItemLists_Valid_Should_Pass()
@@ -1091,37 +1109,6 @@ namespace UnitTests.Views
 
             // Act  BattleEngineViewModel.Instance.Engine.EngineSettings.
             page.DrawItemLists();
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-
-
-        */
-
-        /*
-
-
-
-
-
-
-
-
-
-
-        [Test]
-        public void RoundOverPage_GetItemToDisplay_Click_Button_Valid_Should_Pass()
-        {
-            // Arrange
-            var item = ItemIndexViewModel.Instance.GetDefaultItem(ItemLocationEnum.PrimaryHand);
-            var StackItem = page.GetItemToDisplay(item);
-            var dataImage = StackItem.Children[0];
-
-            // Act
-            ((ImageButton)dataImage).PropagateUpClicked();
 
             // Reset
 
