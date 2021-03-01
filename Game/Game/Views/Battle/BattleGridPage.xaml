@@ -31,26 +31,26 @@
                     <ColumnDefinition Width="200"/>
                     </Grid.ColumnDefinitions>
 
-                    <BoxView Grid.Row="0" Grid.Column="0" WidthRequest="10" HeightRequest="10"/>
-                    <BoxView Grid.Row="0" Grid.Column="1" WidthRequest="10" HeightRequest="10"/>
-                    <BoxView Grid.Row="0" Grid.Column="2" WidthRequest="10" HeightRequest="10"/>
-                    <BoxView Grid.Row="0" Grid.Column="3" WidthRequest="10" HeightRequest="10"/>
-                    <BoxView Grid.Row="0" Grid.Column="4" WidthRequest="10" HeightRequest="10"/>
-                    <BoxView Grid.Row="1" Grid.Column="0" WidthRequest="10" HeightRequest="10"/>
-                    <BoxView Grid.Row="1" Grid.Column="1" WidthRequest="10" HeightRequest="10"/>
-                    <BoxView Grid.Row="1" Grid.Column="2" WidthRequest="10" HeightRequest="10"/>
-                    <BoxView Grid.Row="1" Grid.Column="3" WidthRequest="10" HeightRequest="10"/>
-                    <BoxView Grid.Row="1" Grid.Column="4" WidthRequest="10" HeightRequest="10"/>
-                    <BoxView Grid.Row="2" Grid.Column="0" WidthRequest="10" HeightRequest="10"/>
-                    <BoxView Grid.Row="2" Grid.Column="1" WidthRequest="10" HeightRequest="10"/>
-                    <BoxView Grid.Row="2" Grid.Column="2" WidthRequest="10" HeightRequest="10"/>
-                    <BoxView Grid.Row="2" Grid.Column="3" WidthRequest="10" HeightRequest="10"/>
-                    <BoxView Grid.Row="2" Grid.Column="4" WidthRequest="10" HeightRequest="10"/>
-                    <BoxView Grid.Row="3" Grid.Column="0" WidthRequest="10" HeightRequest="10"/>
-                    <BoxView Grid.Row="3" Grid.Column="1" WidthRequest="10" HeightRequest="10"/>
-                    <BoxView Grid.Row="3" Grid.Column="2" WidthRequest="10" HeightRequest="10"/>
-                    <BoxView Grid.Row="3" Grid.Column="3" WidthRequest="10" HeightRequest="10"/>
-                    <BoxView Grid.Row="3" Grid.Column="4" WidthRequest="10" HeightRequest="10"/>
+                    <BoxView Grid.Row="0" Grid.Column="0" WidthRequest="10" HeightRequest="100" Margin="10" Color="ForestGreen"/>
+                    <BoxView Grid.Row="0" Grid.Column="1" WidthRequest="10" HeightRequest="100" Margin="10" Color="ForestGreen"/>
+                    <BoxView Grid.Row="0" Grid.Column="2" WidthRequest="10" HeightRequest="100" Margin="10" Color="ForestGreen"/>
+                    <BoxView Grid.Row="0" Grid.Column="3" WidthRequest="10" HeightRequest="100" Margin="10" Color="ForestGreen"/>
+                    <BoxView Grid.Row="0" Grid.Column="4" WidthRequest="10" HeightRequest="100" Margin="10" Color="ForestGreen"/>
+                    <BoxView Grid.Row="1" Grid.Column="0" WidthRequest="10" HeightRequest="100" Margin="10" Color="ForestGreen"/>
+                    <BoxView Grid.Row="1" Grid.Column="1" WidthRequest="10" HeightRequest="100" Margin="10" Color="ForestGreen"/>
+                    <BoxView Grid.Row="1" Grid.Column="2" WidthRequest="10" HeightRequest="100" Margin="10" Color="ForestGreen"/>
+                    <BoxView Grid.Row="1" Grid.Column="3" WidthRequest="10" HeightRequest="100" Margin="10" Color="ForestGreen"/>
+                    <BoxView Grid.Row="1" Grid.Column="4" WidthRequest="10" HeightRequest="100" Margin="10" Color="ForestGreen"/>
+                    <BoxView Grid.Row="2" Grid.Column="0" WidthRequest="10" HeightRequest="100" Margin="10" Color="ForestGreen"/>
+                    <BoxView Grid.Row="2" Grid.Column="1" WidthRequest="10" HeightRequest="100" Margin="10" Color="ForestGreen"/>
+                    <BoxView Grid.Row="2" Grid.Column="2" WidthRequest="10" HeightRequest="100" Margin="10" Color="ForestGreen"/>
+                    <BoxView Grid.Row="2" Grid.Column="3" WidthRequest="10" HeightRequest="100" Margin="10" Color="ForestGreen"/>
+                    <BoxView Grid.Row="2" Grid.Column="4" WidthRequest="10" HeightRequest="100" Margin="10" Color="ForestGreen"/>
+                    <BoxView Grid.Row="3" Grid.Column="0" WidthRequest="10" HeightRequest="100" Margin="10" Color="ForestGreen"/>
+                    <BoxView Grid.Row="3" Grid.Column="1" WidthRequest="10" HeightRequest="100" Margin="10" Color="ForestGreen"/>
+                    <BoxView Grid.Row="3" Grid.Column="2" WidthRequest="10" HeightRequest="100" Margin="10" Color="ForestGreen"/>
+                    <BoxView Grid.Row="3" Grid.Column="3" WidthRequest="10" HeightRequest="100" Margin="10" Color="ForestGreen"/>
+                    <BoxView Grid.Row="3" Grid.Column="4" WidthRequest="10" HeightRequest="100" Margin="10" Color="ForestGreen"/>
                 </Grid>
 
                 <Image Source="{Binding Source=BattleEngineViewModel.GetMonsterList}"/>
