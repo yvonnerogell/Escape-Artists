@@ -1017,25 +1017,34 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-        
 
-
-        /*
         [Test]
         public void RoundOverPage_DrawGraduatesList_Valid_Should_Pass()
         {
             // Arrange
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(new CharacterModel()));
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(new CharacterModel { Level = 20, Name = "Name", ImageURI = "squid.jpg" }));
+            ((FlexLayout)page.FindByName("GraduatesListFrame")).Children.Add(new Label());
+            ((FlexLayout)page.FindByName("GraduatesListFrame")).Children.Add(new Label());
+            ((FlexLayout)page.FindByName("GraduatesListFrame")).Children.Add(new Label());
 
             // Act
-            page.DrawCharacterList();
+            page.DrawGraduatesList();
+
+            page.DrawGraduatesList();
 
             // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
+            var flexList = ((FlexLayout)page.FindByName("GraduatesListFrame")).Children.ToList();
+            foreach (var data in flexList)
+            {
+                ((FlexLayout)page.FindByName("GraduatesListFrame")).Children.Remove(data);
+
+            }
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-        */
 
         /*
         [Test]
