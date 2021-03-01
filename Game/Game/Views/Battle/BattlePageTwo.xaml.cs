@@ -216,6 +216,7 @@ namespace Game.Views
             // Set command parameter so that popup knows which item it is displaying
             PopupSaveButton.CommandParameter = data.Name;
 
+            DrawSelectedCharacters();
             return true;
         }
 
@@ -244,7 +245,7 @@ namespace Game.Views
             BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.RemoveAt(characterFoundIndex);
 
             // Add updated player back to view model
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(player);
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.CharacterSelectList.Add(player);
 
             DrawCharacterList();
 
@@ -275,61 +276,29 @@ namespace Game.Views
             }
         }
 
-        // Adding characters by clicking on their images
-        public async void Character1_Clicked(object sender, EventArgs e)
+        /// <summary>
+        /// Add Characters to the Display
+        /// </summary>
+        public void DrawSelectedCharacters()
         {
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character, SpecificCharacterTypeEnum= SpecificCharacterTypeEnum.SmartyPants });
-            await Navigation.PopModalAsync();
+      
+            var FlexList = CharacterListSelectedFrame.Children.ToList();
+            foreach (var data in FlexList)
+            {
+                CharacterListSelectedFrame.Children.Remove(data);
+            }
+
+            foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
+            {
+                
+               CharacterListSelectedFrame.Children.Add(GetCharacterToDisplay(data));
+            }
         }
 
-        public async void Character2_Clicked(object sender, EventArgs e)
-        {
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character, SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.SmartyPants});
-            await Navigation.PopModalAsync();
-        }
 
-        public async void Character3_Clicked(object sender, EventArgs e)
-        {
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character, SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.Slacker });
-            await Navigation.PopModalAsync();
-        }
+        
 
-        // Adding items by clicking on their images
-        public async void Item1_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PopModalAsync();
-        }
-
-        public async void Item2_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PopModalAsync();
-        }
-
-        public async void Item3_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PopModalAsync();
-        }
-
-        // Adding monsters by clicking on their images
-        public async void Monster1_Clicked(object sender, EventArgs e)
-        {
-            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Add(new PlayerInfoModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
-            await Navigation.PopModalAsync();
-        }
-
-        public async void Monster2_Clicked(object sender, EventArgs e)
-        {
-
-            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Add(new PlayerInfoModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
-            await Navigation.PopModalAsync();
-        }
-
-        public async void Monster3_Clicked(object sender, EventArgs e)
-        {
-
-            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Add(new PlayerInfoModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
-            await Navigation.PopModalAsync();
-        }
+        
 
         public async void AttackButton_Clicked(object sender, EventArgs e)
         {
