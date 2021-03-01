@@ -182,7 +182,7 @@ namespace Game.Views
             if (ClickableButton)
             {
                 // Add a event to the user can click the item and see more
-                CharacterButton.Clicked += (sender, args) => ShowPopup(data);
+                CharacterButton.Clicked += (sender, args) => ShowPopupCharacter(data);
             }
 
             // Put the Image Button and Text inside a layout
@@ -204,9 +204,9 @@ namespace Game.Views
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public bool ShowPopup(CharacterModel data)
+        public bool ShowPopupCharacter(CharacterModel data)
         {
-            PopupLoadingView.IsVisible = true;
+            PopupLoadingViewCharacter.IsVisible = true;
             PopupCharacterImage.Source = data.ImageURI;
 
             PopupCharacterName.Text = data.Name;
@@ -214,7 +214,7 @@ namespace Game.Views
             PopupCharacterGPA.Text = data.GPA.ToString();
 
             // Set command parameter so that popup knows which item it is displaying
-            PopupSaveButton.CommandParameter = data.Name;
+            PopupSaveButtonCharacter.CommandParameter = data.Name;
 
            
             return true;
@@ -225,9 +225,9 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void ClosePopup_Clicked(object sender, EventArgs e)
+        public void ClosePopupCharacter_Clicked(object sender, EventArgs e)
         {
-            PopupLoadingView.IsVisible = false;
+            PopupLoadingViewCharacter.IsVisible = false;
         }
 
         /// <summary>
@@ -235,7 +235,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void PopupSaveButton_Clicked(object sender, EventArgs e)
+        public void PopupSaveButtonCharacter_Clicked(object sender, EventArgs e)
         {
             var characterName = ((Button)sender).CommandParameter.ToString();
             var character = CharacterIndexViewModel.Instance.GetCharacterByName(characterName);
@@ -250,7 +250,7 @@ namespace Game.Views
             DrawCharacterList();
             DrawSelectedCharacters();
 
-            PopupLoadingView.IsVisible = false;
+            PopupLoadingViewCharacter.IsVisible = false;
         }
 
         /// <summary>
@@ -296,10 +296,312 @@ namespace Game.Views
             }
         }
 
+        /// <summary>
+        /// Draw the List of Items
+        /// 
+        /// The Ones Dropped
+        /// 
+        /// The Ones Selected
+        /// 
+        /// </summary>
+        public void DrawItemLists()
+        {
+            DrawDroppedItems();
+            DrawSelectedItems();
 
-        
+            // Only need to update the selected, the Dropped is set in the constructor
+            //TotalSelected.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelSelectList.Count().ToString();
+        }
 
-        
+        /// <summary>
+        /// Add the Dropped Items to the Display
+        /// </summary>
+        public void DrawDroppedItems()
+        {
+
+            // Clear and Populate the Dropped Items
+            var FlexList = ItemListFoundFrame.Children.ToList();
+            foreach (var data in FlexList)
+            {
+                ItemListFoundFrame.Children.Remove(data);
+            }
+
+            foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Distinct())
+            {
+                ItemListFoundFrame.Children.Add(GetItemToDisplay(data));
+            }
+        }
+
+
+        /// <summary>
+        /// Add the Dropped Items to the Display
+        /// </summary>
+        public void DrawSelectedItems()
+        {
+            // Clear and Populate the Dropped Items
+            var FlexList = ItemListSelectedFrame.Children.ToList();
+            foreach (var data in FlexList)
+            {
+                ItemListSelectedFrame.Children.Remove(data);
+            }
+
+            foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelSelectList)
+            {
+                ItemListSelectedFrame.Children.Add(GetItemToDisplay(data));
+            }
+        }
+
+
+        /// <summary>
+        /// Look up the Item to Display
+        /// </summary>
+        /// <param name="location"></param>
+        /// <returns></returns>
+        public StackLayout GetItemToDisplay(ItemModel item)
+        {
+            if (item == null)
+            {
+                return new StackLayout();
+            }
+
+            if (string.IsNullOrEmpty(item.Id))
+            {
+                return new StackLayout();
+            }
+
+            // Defualt Image is the Plus
+            var ClickableButton = true;
+
+            var data = ItemIndexViewModel.Instance.GetItem(item.Id);
+            if (data == null)
+            {
+                // Show the Default Icon for the Location
+                data = new ItemModel { Name = "Unknown", ImageURI = "icon_cancel.png" };
+
+                // Turn off click action
+                ClickableButton = false;
+            }
+
+            // Hookup the Image Button to show the Item picture
+            var ItemButton = new ImageButton
+            {
+                Style = (Style)Application.Current.Resources["ImageLargeStyle"],
+                Source = data.ImageURI,
+                CommandParameter = item.Id
+            };
+
+            if (ClickableButton)
+            {
+                // Add a event to the user can click the item and see more
+                ItemButton.Clicked += (sender, args) => ShowPopupItem(data);
+            }
+
+            // Put the Image Button and Text inside a layout
+            var ItemStack = new StackLayout
+            {
+                Padding = 1,
+                Style = (Style)Application.Current.Resources["ItemImageBox"],
+                HorizontalOptions = LayoutOptions.Center,
+                Children = {
+                    ItemButton,
+                },
+            };
+
+            return ItemStack;
+        }
+
+        /// <summary>
+        /// Show the Popup for the Item
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public bool ShowPopupItem(ItemModel data)
+        {
+            PopupLoadingViewCharacter.IsVisible = true;
+            PopupItemImage.Source = data.ImageURI;
+
+            PopupItemName.Text = data.Name;
+            PopupItemDescription.Text = data.Description;
+            PopupItemLocation.Text = data.Location.ToMessage();
+            PopupItemAttribute.Text = data.Attribute.ToMessage();
+            PopupItemValue.Text = " + " + data.Value.ToString();
+
+            // Set command parameter so that popup knows which item it is displaying
+            PopupSaveButtonCharacter.CommandParameter = data.Id;
+
+            // Figure out which characters can be assigned this item and display that list in the picker. 
+            List<PlayerInfoModel> allCharacters = BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList;
+            List<string> charactersForItem = GetCharacterWhoCanAcceptItem(allCharacters, data);
+            AssignItemPicker.ItemsSource = charactersForItem;
+            AssignItemPicker.SelectedIndex = 0;
+
+            return true;
+        }
+
+        /// <summary>
+        /// Find the characters who can accept the item
+        /// </summary>
+        /// <param name="characters"></param>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        public List<string> GetCharacterWhoCanAcceptItem(List<PlayerInfoModel> characters, ItemModel item)
+        {
+            List<string> result = new List<string>();
+
+            foreach (var character in characters)
+            {
+                // exclude any graduates
+                if (character.Level == 20)
+                {
+                    continue;
+                }
+                if (character.Feet == null || character.Feet == "None")
+                {
+                    // Parents don't have feet
+                    if (character.CharacterTypeEnum == CharacterTypeEnum.Parent)
+                    {
+                        continue;
+                    }
+                    if (item.Location.ToString() == ItemLocationEnum.Feet.ToString())
+                    {
+                        result.Add(character.Name);
+                        continue;
+                    }
+                }
+                if (character.Head == null || character.Head == "None")
+                {
+                    // Parents don't have heads in this game..
+                    if (character.CharacterTypeEnum == CharacterTypeEnum.Parent)
+                    {
+                        continue;
+                    }
+                    if (item.Location.ToString() == ItemLocationEnum.Head.ToString())
+                    {
+                        result.Add(character.Name);
+                        continue;
+                    }
+                }
+                if (character.LeftFinger == null || character.LeftFinger == "None")
+                {
+                    if (item.Location.ToString() == ItemLocationEnum.LeftFinger.ToString())
+                    {
+                        result.Add(character.Name);
+                        continue;
+                    }
+                }
+                if (character.Necklace == null || character.Necklace == "None")
+                {
+                    if (item.Location.ToString() == ItemLocationEnum.Necklace.ToString())
+                    {
+                        result.Add(character.Name);
+                        continue;
+                    }
+                }
+                if (character.OffHand == null || character.OffHand == "None")
+                {
+                    if (item.Location.ToString() == ItemLocationEnum.OffHand.ToString())
+                    {
+                        result.Add(character.Name);
+                        continue;
+                    }
+                }
+                if (character.PrimaryHand == null || character.PrimaryHand == "None")
+                {
+                    if (item.Location.ToString() == ItemLocationEnum.PrimaryHand.ToString())
+                    {
+                        result.Add(character.Name);
+                        continue;
+                    }
+                }
+                if (character.RightFinger == null || character.RightFinger == "None")
+                {
+                    if (item.Location.ToString() == ItemLocationEnum.RightFinger.ToString())
+                    {
+                        result.Add(character.Name);
+                        continue;
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        /// Close the popup
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void ClosePopupItem_Clicked(object sender, EventArgs e)
+        {
+            PopupLoadingViewItem.IsVisible = false;
+        }
+
+        /// <summary>
+        /// Save the assigned item and close the popup
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void PopupSaveButtonItem_Clicked(object sender, EventArgs e)
+        {
+            var itemId = ((Button)sender).CommandParameter;
+            var characterName = AssignItemPicker.SelectedItem.ToString();
+            var character = CharacterIndexViewModel.Instance.GetCharacterByName(characterName);
+            PlayerInfoModel player = new PlayerInfoModel(character);
+
+            var characterFoundIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FindIndex(c => c.Name == player.Name);
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.RemoveAt(characterFoundIndex);
+
+            // Add item to character
+            var item = ItemIndexViewModel.Instance.GetItem((string)itemId);
+            var itemLocation = ItemTypeEnumHelper.GetLocationFromItemType(item.ItemType);
+            player = AddItemToCharacter(player, itemLocation, item);
+
+            // Remove item from dropped list and add to selected item list. 
+            var itemIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.FindIndex(i => i.Id == (string)itemId);
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.RemoveAt(itemIndex);
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelSelectList.Add(item);
+
+            // Add updated player back to view model
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(player);
+
+            DrawItemLists();
+
+            PopupLoadingViewItem.IsVisible = false;
+        }
+
+        public PlayerInfoModel AddItemToCharacter(PlayerInfoModel player, ItemLocationEnum location, ItemModel item)
+        {
+            if (ItemLocationEnum.Feet == location)
+            {
+                player.Feet = item.Id;
+            }
+            if (ItemLocationEnum.Head == location)
+            {
+                player.Head = item.Id;
+            }
+            if (ItemLocationEnum.LeftFinger == location)
+            {
+                player.LeftFinger = item.Id;
+            }
+            if (ItemLocationEnum.Necklace == location)
+            {
+                player.Necklace = item.Id;
+            }
+            if (ItemLocationEnum.OffHand == location)
+            {
+                player.OffHand = item.Id;
+            }
+            if (ItemLocationEnum.PrimaryHand == location)
+            {
+                player.PrimaryHand = item.Id;
+            }
+            if (ItemLocationEnum.RightFinger == location)
+            {
+                player.RightFinger = item.Id;
+            }
+
+            return player;
+        }
+
 
         public async void AttackButton_Clicked(object sender, EventArgs e)
         {

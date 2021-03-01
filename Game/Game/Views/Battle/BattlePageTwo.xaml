@@ -62,9 +62,9 @@
                     </Frame>
                 </Grid>
 
-                <!--The Item Popup-->
+                <!--The Character Popup-->
                 <StackLayout 
-                        x:Name="PopupLoadingView" 
+                        x:Name="PopupLoadingViewCharacter" 
                         BackgroundColor="{StaticResource PageBackgroundColor}" 
                         IsVisible="false" 
                         AbsoluteLayout.LayoutBounds=".5, .5,.5,.5" 
@@ -87,13 +87,13 @@
                                 <Label x:Name="PopupCharacterHealth" Style="{StaticResource PopupItemTextStyle}" MaxLines="2" LineBreakMode="WordWrap" Margin="5" />
                                 <Label x:Name="PopupCharacterGPA" Style="{StaticResource PopupItemTextStyle}" MaxLines="2" LineBreakMode="WordWrap" Margin="5" />
 
-                                <Button x:Name="PopupSaveButton" 
-                                            Clicked="PopupSaveButton_Clicked" 
+                                <Button x:Name="PopupSaveButtonCharacter" 
+                                            Clicked="PopupSaveButtonCharacter_Clicked" 
                                             Text="Save"
                                             Margin="10"/>
 
-                                <Button x:Name="PopupCloseButton" 
-                                            Clicked="ClosePopup_Clicked" 
+                                <Button x:Name="PopupCloseButtonCharacter" 
+                                            Clicked="ClosePopupCharacter_Clicked" 
                                             Text="Close"
                                             Margin="10"/>
 
@@ -101,10 +101,61 @@
                         </Frame>
                     </StackLayout>
                 </StackLayout>
+          
+            
+            <!--The Item Popup-->
+            <StackLayout 
+                    x:Name="PopupLoadingViewItem" 
+                    BackgroundColor="{StaticResource PageBackgroundColor}" 
+                    IsVisible="false" 
+                    AbsoluteLayout.LayoutBounds=".5, .5,.5,.5" 
+                    AbsoluteLayout.LayoutFlags="All">
+
+                <StackLayout 
+                        VerticalOptions="CenterAndExpand" 
+                        HorizontalOptions="CenterAndExpand"
+                        WidthRequest="300"
+                        HeightRequest="300"
+                        >
+
+                    <Frame 
+                             BorderColor="{StaticResource TriciaryTextColor}" Padding="1">
+
+                        <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand" Padding="2">
+                            <Image x:Name="PopupItemImage" Style="{StaticResource ImageLargeStyle}" Margin="5"/>
+
+                            <Label x:Name="PopupItemName" Style="{StaticResource PopupItemTextStyle}" MaxLines="2" LineBreakMode="WordWrap" Margin="5"/>
+                            <Label x:Name="PopupItemDescription" Style="{StaticResource PopupItemTextStyle}" MaxLines="2" LineBreakMode="WordWrap" Margin="5" />
+
+                            <StackLayout Style="{StaticResource HorizontalStack}" Margin="5">
+                                <Label Text="Location : " Style="{StaticResource LabelStyle}" />
+                                <Label x:Name="PopupItemLocation" Style="{StaticResource ValueStyle}" />
+                            </StackLayout>
+
+                            <StackLayout Style="{StaticResource HorizontalStack}" Margin="5">
+                                <Label x:Name="PopupItemAttribute" Style="{StaticResource LabelStyle}" />
+                                <Label x:Name="PopupItemValue" Style="{StaticResource ValueStyle}" />
+                            </StackLayout>
+
+                            <Label Text="Assign Item To: " Margin="5"/>
+                            <Picker x:Name="AssignItemPicker" SelectedItem="Assign Item To" Margin="5" />
+
+                            <Button x:Name="PopupSaveButtonItem" 
+                                    Clicked="PopupSaveButtonItem_Clicked" 
+                                    Text="Save"
+                                    Margin="10"/>
+
+                            <Button x:Name="PopupCloseButtonItem" 
+                                    Clicked="ClosePopupItem_Clicked" 
+                                    Text="Close"
+                                    Margin="10"/>
+
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
             </StackLayout>
 
-
-
+            </StackLayout>
 
         </ScrollView>
     </ContentPage.Content>
