@@ -256,12 +256,11 @@ namespace UnitTests.Views
             var result = new BattlePageOne();
 
             // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
 
             // Assert
             Assert.AreEqual(attacker, BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker);
-
-            // Reset - have to reset here because needed to assert that current attacker was null
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = currentAttacker;
         }
 
         [Test]
