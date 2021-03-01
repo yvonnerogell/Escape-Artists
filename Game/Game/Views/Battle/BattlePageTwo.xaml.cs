@@ -215,7 +215,7 @@ namespace Game.Views
             PopupCharacterGPA.Text = data.GPA.ToString();
 
             // Set command parameter so that popup knows which item it is displaying
-            PopupSaveButton.CommandParameter = data.Id;
+            PopupSaveButton.CommandParameter = data.Name;
 
             return true;
         }
