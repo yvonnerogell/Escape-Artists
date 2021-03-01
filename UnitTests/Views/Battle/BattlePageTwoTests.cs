@@ -109,130 +109,54 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
+
         [Test]
-        public void BattlePageTwo_Character1_Clicked_Default_Should_Pass()
+        public void BattlePage_GetBattleMessages_Should_Pass()
         {
             // Arrange
 
             // Act
-            page.Character1_Clicked(null, null);
+            var result = page.GetBattleMessages();
 
             // Reset
 
             // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
+            Assert.AreEqual("Faculty Honkey gives Minnie an exam.", result[0]);
+            Assert.AreEqual("Goofey passes the exam with flying colors.", result[1]);
+            Assert.AreEqual("Administrator Frothy gives Mike forms to fill out.", result[2]);
+            Assert.AreEqual("Jocey fills out all the forms from Frothy.", result[3]);
+            Assert.AreEqual("Minnie studies hard from Professor Frank's exam.", result[4]);
         }
 
         [Test]
-        public void BattlePageTwo_Character2_Clicked_Default_Should_Pass()
+        public void BattlePage_SetBattleMessages_Should_Pass()
         {
             // Arrange
+            List<string> messages = new List<string>();
+            messages.Add("Faculty Honkey gives Minnie an exam.");
+            messages.Add("Goofey passes the exam with flying colors.");
+            messages.Add("Administrator Frothy gives Mike forms to fill out.");
+            messages.Add("Jocey fills out all the forms from Frothy.");
+            messages.Add("Minnie studies hard from Professor Frank's exam.");
 
             // Act
-           page.Character2_Clicked(null, null);
+            page.SetBattleMessages(messages);
+
+            var m1 = ((Label)page.FindByName("BattleMessage1Label")).Text;
+            var m2 = ((Label)page.FindByName("BattleMessage2Label")).Text;
+            var m3 = ((Label)page.FindByName("BattleMessage3Label")).Text;
+            var m4 = ((Label)page.FindByName("BattleMessage4Label")).Text;
+            var m5 = ((Label)page.FindByName("BattleMessage5Label")).Text;
 
             // Reset
 
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-
-        [Test]
-        public void BattlePageTwo_Character3_Clicked_Default_Should_Pass()
-        {
-            // Arrange
-
-            // Act
-            page.Character3_Clicked(null, null);
-
-            // Reset
 
             // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-
-        [Test]
-        public void BattlePageTwo_Item1_Clicked_Default_Should_Pass()
-        {
-            // Arrange
-
-            // Act
-            page.Item1_Clicked(null, null);
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-
-        [Test]
-        public void BattlePageTwo_Item2_Clicked_Default_Should_Pass()
-        {
-            // Arrange
-
-            // Act
-            page.Item2_Clicked(null, null);
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-
-        [Test]
-        public void BattlePageTwo_Item3_Clicked_Default_Should_Pass()
-        {
-            // Arrange
-
-            // Act
-            page.Item3_Clicked(null, null);
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-
-        [Test]
-        public void BattlePageTwo_Monster1_Clicked_Default_Should_Pass()
-        {
-            // Arrange
-
-            // Act
-            page.Monster1_Clicked(null, null);
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-
-        [Test]
-        public void BattlePageTwo_Monster2_Clicked_Default_Should_Pass()
-        {
-            // Arrange
-
-            // Act
-            page.Monster2_Clicked(null, null);
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-
-        [Test]
-        public void BattlePageTwo_Monster3_Clicked_Default_Should_Pass()
-        {
-            // Arrange
-
-            // Act
-            page.Monster3_Clicked(null, null);
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
+            Assert.AreEqual("Faculty Honkey gives Minnie an exam.", m1);
+            Assert.AreEqual("Goofey passes the exam with flying colors.", m2);
+            Assert.AreEqual("Administrator Frothy gives Mike forms to fill out.", m3);
+            Assert.AreEqual("Jocey fills out all the forms from Frothy.", m4);
+            Assert.AreEqual("Minnie studies hard from Professor Frank's exam.", m5);
         }
 
 

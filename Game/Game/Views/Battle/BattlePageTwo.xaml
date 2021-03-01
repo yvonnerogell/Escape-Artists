@@ -39,8 +39,8 @@
                     <StackLayout 
                         VerticalOptions="CenterAndExpand" 
                         HorizontalOptions="CenterAndExpand"
-                        WidthRequest="300"
-                        HeightRequest="300"
+                        WidthRequest="400"
+                        HeightRequest="400"
                         >
 
                         <Frame 
@@ -50,9 +50,9 @@
                                 <Image x:Name="PopupCharacterImage" Style="{StaticResource ImageLargeStyle}" Margin="5"/>
 
                                 <Label x:Name="PopupCharacterName" Style="{StaticResource PopupItemTextStyle}" MaxLines="2" LineBreakMode="WordWrap" Margin="5"/>
-                                <Label x:Name="HealthTextLabel" Text="Health: " FontAttributes="Bold" FontSize="Micro" Padding="20, 5, 0, 5" HorizontalOptions="Start" Style="{StaticResource LabelStyle}"/>
+                                <Label x:Name="HealthTextLabel" Text="Health: " FontAttributes="Bold" FontSize="Micro" HorizontalOptions="Start" Style="{StaticResource LabelStyle}"/>
                                 <Label x:Name="PopupCharacterHealth" Style="{StaticResource PopupItemTextStyle}" MaxLines="2" LineBreakMode="WordWrap" Margin="5" />
-                                <Label x:Name="GPATextLabel" Text="GPA: "  FontAttributes="Bold" FontSize="Micro" Padding="5, 5, 20, 5" HorizontalOptions="EndAndExpand"  Style="{StaticResource LabelStyle}"/>
+                                <Label x:Name="GPATextLabel" Text="GPA: "  FontAttributes="Bold" FontSize="Micro" HorizontalOptions="EndAndExpand"  Style="{StaticResource LabelStyle}"/>
                                 <Label x:Name="PopupCharacterGPA" Style="{StaticResource PopupItemTextStyle}" MaxLines="2" LineBreakMode="WordWrap" Margin="5" />
 
                                 <Button x:Name="PopupSaveButtonCharacter" 
@@ -94,8 +94,8 @@
                     <StackLayout 
                         VerticalOptions="CenterAndExpand" 
                         HorizontalOptions="CenterAndExpand"
-                        WidthRequest="300"
-                        HeightRequest="300"
+                        WidthRequest="400"
+                        HeightRequest="400"
                         >
 
                         <Frame 
@@ -184,8 +184,8 @@
                         <StackLayout 
                         VerticalOptions="CenterAndExpand" 
                         HorizontalOptions="CenterAndExpand"
-                        WidthRequest="300"
-                        HeightRequest="300"
+                        WidthRequest="400"
+                        HeightRequest="400"
                         >
 
                             <Frame 
