@@ -210,7 +210,6 @@ namespace Game.Views
             PopupCharacterImage.Source = data.ImageURI;
 
             PopupCharacterName.Text = data.Name;
-            PopupCharacterDescription.Text = data.Description;
             PopupCharacterHealth.Text = data.CurrentHealth.ToString();
             PopupCharacterGPA.Text = data.GPA.ToString();
 

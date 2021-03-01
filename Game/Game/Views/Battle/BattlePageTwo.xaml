@@ -50,7 +50,6 @@
                                 <Image x:Name="PopupCharacterImage" Style="{StaticResource ImageLargeStyle}" Margin="5"/>
 
                                 <Label x:Name="PopupCharacterName" Style="{StaticResource PopupItemTextStyle}" MaxLines="2" LineBreakMode="WordWrap" Margin="5"/>
-                                <Label x:Name="PopupCharacterDescription" Style="{StaticResource PopupItemTextStyle}" MaxLines="2" LineBreakMode="WordWrap" Margin="5" />
                                 <Label x:Name="PopupCharacterHealth" Style="{StaticResource PopupItemTextStyle}" MaxLines="2" LineBreakMode="WordWrap" Margin="5" />
                                 <Label x:Name="PopupCharacterGPA" Style="{StaticResource PopupItemTextStyle}" MaxLines="2" LineBreakMode="WordWrap" Margin="5" />
 
