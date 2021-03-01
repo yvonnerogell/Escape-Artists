@@ -247,6 +247,17 @@ namespace Game.Engine.EngineGame
         }
 
         /// <summary>
+        /// Remove Graduated and Dead Players from the List
+        /// </summary>
+        public List<PlayerInfoModel> RemoveGraduatedandDeadPlayersFromList()
+        {
+            // if player has graduated, then we can remove them
+            // all players have Graduated as false to default
+            EngineSettings.PlayerList = EngineSettings.PlayerList.Where(m => (m.Alive == true && m.Graduated == false)).ToList();
+            return EngineSettings.PlayerList;
+        }
+
+        /// <summary>
         /// Order the Players in Turn Sequence
         /// </summary>
         public override List<PlayerInfoModel> OrderPlayerListByTurnOrder()

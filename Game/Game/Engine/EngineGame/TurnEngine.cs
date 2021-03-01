@@ -7,6 +7,7 @@ using Game.Engine.EngineBase;
 using System.Linq;
 using Game.Helpers;
 using Game.ViewModels;
+using System.Diagnostics;
 
 namespace Game.Engine.EngineGame
 {
@@ -334,7 +335,73 @@ namespace Game.Engine.EngineGame
 
             //throw new System.NotImplementedException();
 
-            return base.TurnAsAttack(Attacker, Target);
+            //return base.TurnAsAttack(Attacker, Target);
+
+            if (Attacker == null)
+            {
+                return false;
+            }
+
+            if (Target == null)
+            {
+                return false;
+            }
+
+            // Set Messages to empty
+            EngineSettings.BattleMessagesModel.ClearMessages();
+
+            // Do the Attack
+            CalculateAttackStatus(Attacker, Target);
+
+            // See if the Battle Settings Overrides the Roll
+            EngineSettings.BattleMessagesModel.HitStatus = BattleSettingsOverride(Attacker);
+
+            switch (EngineSettings.BattleMessagesModel.HitStatus)
+            {
+                case HitStatusEnum.Miss:
+                    // It's a Miss
+
+                    break;
+
+                case HitStatusEnum.CriticalMiss:
+                    // It's a Critical Miss, so Bad things may happen
+                    DetermineCriticalMissProblem(Attacker);
+
+                    break;
+
+                case HitStatusEnum.CriticalHit:
+                case HitStatusEnum.Hit:
+                    // It's a Hit
+
+                    //Calculate Damage
+                    EngineSettings.BattleMessagesModel.DamageAmount = Attacker.GetDamageRollValue();
+
+                    // If critical Hit, double the damage
+                    if (EngineSettings.BattleMessagesModel.HitStatus == HitStatusEnum.CriticalHit)
+                    {
+                        EngineSettings.BattleMessagesModel.DamageAmount *= 2;
+                    }
+
+                    // Apply the Damage
+                    ApplyDamage(Target);
+
+                    EngineSettings.BattleMessagesModel.TurnMessageSpecial = EngineSettings.BattleMessagesModel.GetCurrentHealthMessage();
+
+                    // Check if Dead and Remove
+                    RemoveIfDead(Target);
+
+                    // If it is a character apply the experience earned
+                    CalculateExperience(Attacker, Target);
+
+                    // TODO: call RemoveIfGraduated(Target);
+
+                    break;
+            }
+
+            EngineSettings.BattleMessagesModel.TurnMessage = Attacker.Name + EngineSettings.BattleMessagesModel.AttackStatus + Target.Name + EngineSettings.BattleMessagesModel.TurnMessageSpecial + EngineSettings.BattleMessagesModel.ExperienceEarned;
+            Debug.WriteLine(EngineSettings.BattleMessagesModel.TurnMessage);
+
+            return true;
         }
 
         /// <summary>
@@ -360,9 +427,11 @@ namespace Game.Engine.EngineGame
 
         /// <summary>
         /// Apply the Damage to the Target
+        /// Also target is dead if health <= 0
         /// </summary>
         public override void ApplyDamage(PlayerInfoModel Target)
         {
+            //apply the damage to target, if target is less than 0, cause death
             //throw new System.NotImplementedException();
             base.ApplyDamage(Target);
         }
@@ -383,7 +452,34 @@ namespace Game.Engine.EngineGame
         public override bool CalculateExperience(PlayerInfoModel Attacker, PlayerInfoModel Target)
         {
             //throw new System.NotImplementedException();
-            return base.CalculateExperience(Attacker, Target);
+            //return base.CalculateExperience(Attacker, Target);
+            if (Attacker.PlayerType == PlayerTypeEnum.Character)
+            {
+                var points = " points";
+
+                var experienceEarned = Target.CalculateExperienceEarned(EngineSettings.BattleMessagesModel.DamageAmount);
+
+                if (experienceEarned == 1)
+                {
+                    points = " point";
+                }
+
+                EngineSettings.BattleMessagesModel.ExperienceEarned = " Earned " + experienceEarned + points;
+
+                var LevelUp = Attacker.AddExperience(experienceEarned);
+                if (LevelUp)
+                {
+                    EngineSettings.BattleMessagesModel.LevelUpMessage = Attacker.Name + " is now Level " + Attacker.Level + " With Health Max of " + Attacker.GetMaxHealthTotal;
+                    Debug.WriteLine(EngineSettings.BattleMessagesModel.LevelUpMessage);
+                }
+
+                // TODO: check if level is above 20. 
+
+                // Add Experinece to the Score
+                EngineSettings.BattleScore.ExperienceGainedTotal += experienceEarned;
+            }
+
+            return true;
         }
 
         /// <summary>
@@ -393,6 +489,51 @@ namespace Game.Engine.EngineGame
         {
             //throw new System.NotImplementedException();
             return base.RemoveIfDead(Target);
+        }
+
+        /// <summary>
+        /// If Graduated process Target Graduated
+        /// </summary>
+        /// <param name="Target"></param>
+        public bool RemoveIfGraduated(PlayerInfoModel Target)
+        {
+            // Check for alive
+            if (Target.Graduated == true && Target.PlayerType == PlayerTypeEnum.Character)
+            {
+                TargetGraduated(Target);
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Target Graduated
+        /// 
+        /// Process for graduation...
+        /// </summary>
+        /// <param name="Target"></param>
+        public virtual bool TargetGraduated(PlayerInfoModel Character)
+        {
+            bool found;
+
+            // Mark Status in output
+            EngineSettings.BattleMessagesModel.TurnMessageSpecial = " and causes graduation! ";
+
+            // Removing the 
+            EngineSettings.MapModel.RemovePlayerFromMap(Character);
+
+            // Add the Character to the killed list
+            EngineSettings.BattleScore.GraduateList += Character.FormatOutput() + "\n";
+
+            EngineSettings.BattleScore.GraduateModelList.Add(Character);
+
+            //DropItems(Target);
+
+            found = EngineSettings.CharacterList.Remove(EngineSettings.CharacterList.Find(m => m.Guid.Equals(Character.Guid)));
+            found = EngineSettings.PlayerList.Remove(EngineSettings.PlayerList.Find(m => m.Guid.Equals(Character.Guid)));
+
+            return true;
         }
 
         /// <summary>
