@@ -930,6 +930,41 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
+        [Test]
+        public async Task RoundOverPage_PopupSaveButton_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Arrange character
+            CharacterModel character = new CharacterModel { Name = "Character 1" };
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(character));
+            await CharacterIndexViewModel.Instance.CreateAsync(character);
+
+            // Arrange item
+            ItemModel item = new ItemModel { Id = "item id", ItemType = ItemTypeEnum.Notebook };
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Add(item);
+            await ItemIndexViewModel.Instance.CreateAsync(item);
+
+            Button button = new Button();
+            button.CommandParameter = "item id";
+            ((Picker)page.FindByName("AssignItemPicker")).SelectedItem = "Character 1";
+
+
+            // Act
+            page.PopupSaveButton_Clicked(button, null);
+
+            // Reset
+            await CharacterIndexViewModel.Instance.DeleteAsync(character);
+            await ItemIndexViewModel.Instance.DeleteAsync(item);
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelSelectList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
 
 
         /*
