@@ -216,7 +216,7 @@ namespace Game.Views
             // Set command parameter so that popup knows which item it is displaying
             PopupSaveButton.CommandParameter = data.Name;
 
-            DrawSelectedCharacters();
+           
             return true;
         }
 
@@ -248,6 +248,7 @@ namespace Game.Views
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.CharacterSelectList.Add(player);
 
             DrawCharacterList();
+            DrawSelectedCharacters();
 
             PopupLoadingView.IsVisible = false;
         }
@@ -288,7 +289,7 @@ namespace Game.Views
                 CharacterListSelectedFrame.Children.Remove(data);
             }
 
-            foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
+            foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.CharacterSelectList)
             {
                 
                CharacterListSelectedFrame.Children.Add(GetCharacterToDisplay(data));
