@@ -12,6 +12,7 @@ using Game.ViewModels;
 
 namespace Game.Views
 {
+
     /// <summary>
     /// The Main Game Page
     /// </summary>
@@ -51,8 +52,10 @@ namespace Game.Views
             // TODO for team: remove this once we are ready to use our own battle engine.
             BattleEngineViewModel.Instance.SetBattleEngineToKoenig();
 
+            DrawCharacterList();
+
             // Create and Draw the Map
-           // InitializeMapGrid();
+            // InitializeMapGrid();
 
             // Start the Battle Engine
             // BattleEngineViewModel.Instance.Engine.StartBattle(false);
@@ -73,6 +76,203 @@ namespace Game.Views
 
             // Set the Battle Mode
             // ShowBattleMode();
+        }
+
+        /// <summary>
+        /// Return a stack layout with the Player information inside
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public StackLayout CreatePlayerDisplayBox(PlayerInfoModel data)
+        {
+            if (data == null)
+            {
+                data = new PlayerInfoModel();
+            }
+
+            // Hookup the image
+            var PlayerImage = new Image
+            {
+                Style = (Style)Application.Current.Resources["ImageBattleLargeStyle"],
+                Source = data.ImageURI
+            };
+
+            // Add the Level
+            var PlayerLevelLabel = new Label
+            {
+                Text = "Level : " + data.Level,
+                Style = (Style)Application.Current.Resources["ValueStyleMicro"],
+                HorizontalOptions = LayoutOptions.Center,
+                HorizontalTextAlignment = TextAlignment.Center,
+                Padding = 0,
+                LineBreakMode = LineBreakMode.TailTruncation,
+                CharacterSpacing = 1,
+                LineHeight = 1,
+                MaxLines = 1,
+            };
+
+            var PlayerNameLabel = new Label()
+            {
+                Text = data.Name,
+                Style = (Style)Application.Current.Resources["ValueStyle"],
+                HorizontalOptions = LayoutOptions.Center,
+                HorizontalTextAlignment = TextAlignment.Center,
+                Padding = 0,
+                LineBreakMode = LineBreakMode.TailTruncation,
+                CharacterSpacing = 1,
+                LineHeight = 1,
+                MaxLines = 1,
+            };
+
+            // Put the Image Button and Text inside a layout
+            var PlayerStack = new StackLayout
+            {
+                Style = (Style)Application.Current.Resources["PlayerInfoBox"],
+                HorizontalOptions = LayoutOptions.Center,
+                Padding = 0,
+                Spacing = 0,
+                Children = {
+                    PlayerImage,
+                    PlayerNameLabel,
+                    PlayerLevelLabel,
+                },
+            };
+
+            return PlayerStack;
+        }
+
+        /// <summary>
+        /// Look up the Item to Display
+        /// </summary>
+        /// <param name="location"></param>
+        /// <returns></returns>
+        public StackLayout GetItemToDisplay(CharacterModel character)
+        {
+            if (character == null)
+            {
+                return new StackLayout();
+            }
+
+            if (string.IsNullOrEmpty(character.Id))
+            {
+                return new StackLayout();
+            }
+
+            // Defualt Image is the Plus
+            var ClickableButton = true;
+
+            var data = CharacterIndexViewModel.Instance.GetCharacterByName(character.Name);
+            if (data == null)
+            {
+                // Show the Default Icon for the Location
+                data = new CharacterModel { Name = "Unknown", ImageURI = "icon_cancel.png" };
+
+                // Turn off click action
+                ClickableButton = false;
+            }
+
+            // Hookup the Image Button to show the Item picture
+            var CharacterButton = new ImageButton
+            {
+                Style = (Style)Application.Current.Resources["ImageLargeStyle"],
+                Source = data.ImageURI,
+                CommandParameter = character.Id
+            };
+
+            if (ClickableButton)
+            {
+                // Add a event to the user can click the item and see more
+                CharacterButton.Clicked += (sender, args) => ShowPopup(data);
+            }
+
+            // Put the Image Button and Text inside a layout
+            var ItemStack = new StackLayout
+            {
+                Padding = 1,
+                Style = (Style)Application.Current.Resources["CharacterImageBox"],
+                HorizontalOptions = LayoutOptions.Center,
+                Children = {
+                    CharacterButton,
+                },
+            };
+
+            return ItemStack;
+        }
+
+        /// <summary>
+        /// Show the Popup for the Item
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public bool ShowPopup(CharacterModel data)
+        {
+            PopupLoadingView.IsVisible = true;
+            PopupCharacterImage.Source = data.ImageURI;
+
+            PopupCharacterName.Text = data.Name;
+            PopupCharacterDescription.Text = data.Description;
+            PopupCharacterHealth.Text = data.CurrentHealth.ToString();
+            PopupCharacterGPA.Text = data.GPA.ToString();
+
+            // Set command parameter so that popup knows which item it is displaying
+            PopupSaveButton.CommandParameter = data.Id;
+
+            return true;
+        }
+
+        /// <summary>
+        /// Close the popup
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void ClosePopup_Clicked(object sender, EventArgs e)
+        {
+            PopupLoadingView.IsVisible = false;
+        }
+
+        /// <summary>
+        /// Save the assigned item and close the popup
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void PopupSaveButton_Clicked(object sender, EventArgs e)
+        {
+            var characterName = ((Button)sender).CommandParameter.ToString();
+            var character = CharacterIndexViewModel.Instance.GetCharacterByName(characterName);
+            PlayerInfoModel player = new PlayerInfoModel(character);
+
+            var characterFoundIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FindIndex(c => c.Name == player.Name);
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.RemoveAt(characterFoundIndex);
+
+            // Add updated player back to view model
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(player);
+
+            DrawCharacterList();
+
+            PopupLoadingView.IsVisible = false;
+        }
+
+        /// <summary>
+        /// Clear and Add the Characters that survived
+        /// </summary>
+        public void DrawCharacterList()
+        {
+            // Clear and Populate the Characters Remaining
+            var FlexList = CharacterListFrame.Children.ToList();
+            foreach (var data in FlexList)
+            {
+                CharacterListFrame.Children.Remove(data);
+            }
+
+            // Draw the Characters
+            foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
+            {
+                if (data.Level != 20)
+                {
+                    CharacterListFrame.Children.Add(CreatePlayerDisplayBox(data));
+                }
+
+            }
         }
 
         // Adding characters by clicking on their images
