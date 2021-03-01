@@ -450,7 +450,32 @@ namespace Game.Engine.EngineGame
         public override bool CalculateExperience(PlayerInfoModel Attacker, PlayerInfoModel Target)
         {
             //throw new System.NotImplementedException();
-            return base.CalculateExperience(Attacker, Target);
+            //return base.CalculateExperience(Attacker, Target);
+            if (Attacker.PlayerType == PlayerTypeEnum.Character)
+            {
+                var points = " points";
+
+                var experienceEarned = Target.CalculateExperienceEarned(EngineSettings.BattleMessagesModel.DamageAmount);
+
+                if (experienceEarned == 1)
+                {
+                    points = " point";
+                }
+
+                EngineSettings.BattleMessagesModel.ExperienceEarned = " Earned " + experienceEarned + points;
+
+                var LevelUp = Attacker.AddExperience(experienceEarned);
+                if (LevelUp)
+                {
+                    EngineSettings.BattleMessagesModel.LevelUpMessage = Attacker.Name + " is now Level " + Attacker.Level + " With Health Max of " + Attacker.GetMaxHealthTotal;
+                    Debug.WriteLine(EngineSettings.BattleMessagesModel.LevelUpMessage);
+                }
+
+                // Add Experinece to the Score
+                EngineSettings.BattleScore.ExperienceGainedTotal += experienceEarned;
+            }
+
+            return true;
         }
 
         /// <summary>
