@@ -146,7 +146,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="location"></param>
         /// <returns></returns>
-        public StackLayout GetItemToDisplay(CharacterModel character)
+        public StackLayout GetCharacterToDisplay(PlayerInfoModel character)
         {
             if (character == null)
             {
@@ -176,7 +176,7 @@ namespace Game.Views
             {
                 Style = (Style)Application.Current.Resources["ImageLargeStyle"],
                 Source = data.ImageURI,
-                CommandParameter = character.Id
+                CommandParameter = character.Name
             };
 
             if (ClickableButton)
@@ -189,7 +189,7 @@ namespace Game.Views
             var ItemStack = new StackLayout
             {
                 Padding = 1,
-                Style = (Style)Application.Current.Resources["CharacterImageBox"],
+                Style = (Style)Application.Current.Resources["ItemImageBox"],
                 HorizontalOptions = LayoutOptions.Center,
                 Children = {
                     CharacterButton,
@@ -269,7 +269,8 @@ namespace Game.Views
             {
                 if (data.Level != 20)
                 {
-                    CharacterListFrame.Children.Add(CreatePlayerDisplayBox(data));
+                    //CharacterListFrame.Children.Add(CreatePlayerDisplayBox(data));
+                    CharacterListFrame.Children.Add(GetCharacterToDisplay(data));
                 }
 
             }

@@ -18,22 +18,18 @@
 
                 <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
                     <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="250" WidthRequest="750">
-                        <Label x:Name="SelectCharacter" Text="Select a Character" HorizontalOptions="Center" Padding="15"/>
-
-                        <StackLayout Orientation="Horizontal">
-
-                            <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10" HorizontalOptions="Center">
-                                <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" MinimumHeightRequest="250" WidthRequest="250">
-                                    <Label Text="Characters" Style="{StaticResource MessageStyle}" Padding="10" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
-                                    <FlexLayout x:Name="CharacterListFrame"
+                        <Label Text="Select a Character" Style="{StaticResource MessageStyle}" Padding="10" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+                        <FlexLayout x:Name="CharacterListFrame"
                                     JustifyContent="Center"
                                     AlignContent="Center"
                                     Wrap="Wrap"/>
-                                </StackLayout>
+
+                        <StackLayout Orientation="Horizontal"/>
+                    </StackLayout>
                 </Frame>
 
                 <!--The Item Popup-->
-                    <StackLayout 
+                <StackLayout 
                         x:Name="PopupLoadingView" 
                         BackgroundColor="{StaticResource PageBackgroundColor}" 
                         IsVisible="false" 
@@ -47,140 +43,36 @@
                         HeightRequest="300"
                         >
 
-                      <Frame 
+                        <Frame 
                              BorderColor="{StaticResource TriciaryTextColor}" Padding="1">
 
-                                        <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand" Padding="2">
-                                            <Image x:Name="PopupCharacterImage" Style="{StaticResource ImageLargeStyle}" Margin="5"/>
+                            <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand" Padding="2">
+                                <Image x:Name="PopupCharacterImage" Style="{StaticResource ImageLargeStyle}" Margin="5"/>
 
-                                            <Label x:Name="PopupCharacterName" Style="{StaticResource PopupItemTextStyle}" MaxLines="2" LineBreakMode="WordWrap" Margin="5"/>
-                                            <Label x:Name="PopupCharacterDescription" Style="{StaticResource PopupItemTextStyle}" MaxLines="2" LineBreakMode="WordWrap" Margin="5" />
-                                            <Label x:Name="PopupCharacterHealth" Style="{StaticResource PopupItemTextStyle}" MaxLines="2" LineBreakMode="WordWrap" Margin="5" />
-                                            <Label x:Name="PopupCharacterGPA" Style="{StaticResource PopupItemTextStyle}" MaxLines="2" LineBreakMode="WordWrap" Margin="5" />
+                                <Label x:Name="PopupCharacterName" Style="{StaticResource PopupItemTextStyle}" MaxLines="2" LineBreakMode="WordWrap" Margin="5"/>
+                                <Label x:Name="PopupCharacterDescription" Style="{StaticResource PopupItemTextStyle}" MaxLines="2" LineBreakMode="WordWrap" Margin="5" />
+                                <Label x:Name="PopupCharacterHealth" Style="{StaticResource PopupItemTextStyle}" MaxLines="2" LineBreakMode="WordWrap" Margin="5" />
+                                <Label x:Name="PopupCharacterGPA" Style="{StaticResource PopupItemTextStyle}" MaxLines="2" LineBreakMode="WordWrap" Margin="5" />
 
-                                        <Button x:Name="PopupSaveButton" 
+                                <Button x:Name="PopupSaveButton" 
                                             Clicked="PopupSaveButton_Clicked" 
                                             Text="Save"
                                             Margin="10"/>
 
-                                        <Button x:Name="PopupCloseButton" 
+                                <Button x:Name="PopupCloseButton" 
                                             Clicked="ClosePopup_Clicked" 
                                             Text="Close"
-                                            Margin="10"/>   
-
-                                        </StackLayout>
-                        </Frame>
-                                </StackLayout>
-                            </StackLayout>
-
-                            <ImageButton
-                            Source="coolparent.png"
-                            HorizontalOptions="EndAndExpand"
-                            Style="{StaticResource GamePageMenuImageButton}"/>
-                            <Button Opacity="0" Clicked="Character2_Clicked"/>
-
-                            <ImageButton
-                            Source="international_student.png"
-                            HorizontalOptions="EndAndExpand"
-                            Style="{StaticResource GamePageMenuImageButton}"/>
-                            <Button Opacity="0" Clicked="Character3_Clicked"/>
-                            
-                        </StackLayout>
-                    </StackLayout>
-                </Frame>
-
-                <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
-                    <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="250" WidthRequest="750">
-                        <Label x:Name="SelectItem" Text="Select Items" HorizontalOptions="Center" Padding="15"/>
-
-                        <StackLayout Orientation="Horizontal">
-
-                            <ImageButton
-                            Source="item_pencil.png"
-                            HorizontalOptions="EndAndExpand"
-                            Style="{StaticResource GamePageMenuImageButton}"/>
-                            <Button Opacity="0" Clicked="Item1_Clicked"/>
-
-                            <ImageButton
-                            Source="item_eraser.png"
-                            HorizontalOptions="EndAndExpand"
-                            Style="{StaticResource GamePageMenuImageButton}"/>
-                            <Button Opacity="0" Clicked="Item2_Clicked"/>
-
-                            <ImageButton
-                            Source="item_skateboard.png"
-                            HorizontalOptions="EndAndExpand"
-                            Style="{StaticResource GamePageMenuImageButton}"/>
-                            <Button Opacity="0" Clicked="Item3_Clicked"/>
-
-                        </StackLayout>
-                    </StackLayout>
-                </Frame>
-
-                <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
-                    <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="250" WidthRequest="750">
-                        <Label x:Name="SelectMonster" Text="Select Who to Attack" HorizontalOptions="Center" Padding="15"/>
-                        <StackLayout Orientation="Horizontal">
-
-                            <ImageButton
-                                Source="assistant_professor_monster.png"
-                                HorizontalOptions="EndAndExpand"
-                                Style="{StaticResource GamePageMenuImageButton}"/>
-                            <Button Opacity="0" Clicked="Monster1_Clicked"/>
-
-                            <ImageButton
-                                Source="grad_office_monster.png"
-                                HorizontalOptions="EndAndExpand"
-                                Style="{StaticResource GamePageMenuImageButton}"/>
-                            <Button Opacity="0" Clicked="Monster2_Clicked"/>
-
-                            <ImageButton
-                                Source="associate_professor_monster.png"
-                                HorizontalOptions="EndAndExpand"
-                                Style="{StaticResource GamePageMenuImageButton}"/>
-                            <Button Opacity="0" Clicked="Monster3_Clicked"/>
-
-                        </StackLayout>
-
-
-                        <StackLayout Margin="10">
-                            <Button Text="Attack!" Clicked="AttackButton_Clicked" CornerRadius="15" FontAttributes="Bold"  
-                                TextColor="{StaticResource New_ButtonTextColor}"
-                                Margin="10"
-                                HorizontalOptions="Center"
-                                BackgroundColor="{StaticResource New_SecondaryBackgroundColor}"/>
-                        </StackLayout>
-                    </StackLayout>
-                </Frame>
-
-                <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
-
-                            <StackLayout  Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" 
-                                  HorizontalOptions="Center" MinimumHeightRequest="250" WidthRequest="250" Padding="5">
-
-                                <Label x:Name="BattleMessage1Label"  Text="Battle Messages" LineBreakMode="WordWrap" Padding="2"/>
-                                <Label x:Name="BattleMessage2Label"  Text="Battle Messages" LineBreakMode="WordWrap" Padding="2"/>
-                                <Label x:Name="BattleMessage3Label"  Text="Battle Messages"  LineBreakMode="WordWrap" Padding="2"/>
-                                <Label x:Name="BattleMessage4Label"  Text="Battle Messages" LineBreakMode="WordWrap" Padding="2"/>
-                                <Label x:Name="BattleMessage5Label"  Text="Battle Messages" LineBreakMode="WordWrap" Padding="2"/>
-                            </StackLayout>
-                        </Frame>
-
-
-                        <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
-
-                            <StackLayout Style="{StaticResource HorizontalCenterStack}" HeightRequest="75" WidthRequest="250" HorizontalOptions="Center" VerticalOptions="Center">
-
-                                <Label x:Name="HealthTextLabel" Text="Health: " FontAttributes="Bold" FontSize="Micro" Padding="20, 5, 0, 5" HorizontalOptions="Start" Style="{StaticResource LabelStyle}"/>
-                                <Label x:Name="HealthValueLabel"  Text="Health:" FontAttributes="Bold" FontSize="Micro" Padding="20, 5, 0, 5" HorizontalOptions="Start" Style="{StaticResource LabelStyle}"/>
-                                <Label x:Name="GPATextLabel" Text="GPA: "  FontAttributes="Bold" FontSize="Micro" Padding="5, 5, 20, 5" HorizontalOptions="EndAndExpand"  Style="{StaticResource LabelStyle}"/>
-                                <Label x:Name="GPAValueLabel" Text="GPA: "  FontAttributes="Bold" FontSize="Micro" Padding="5, 5, 20, 5" HorizontalOptions="End"  Style="{StaticResource LabelStyle}"/>
+                                            Margin="10"/>
 
                             </StackLayout>
-
                         </Frame>
+                    </StackLayout>
                 </StackLayout>
-            
-            </ScrollView>
+            </StackLayout>
+
+
+
+
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
