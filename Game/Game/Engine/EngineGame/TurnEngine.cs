@@ -393,6 +393,8 @@ namespace Game.Engine.EngineGame
                     // If it is a character apply the experience earned
                     CalculateExperience(Attacker, Target);
 
+                    // TODO: call RemoveIfGraduated(Target);
+
                     break;
             }
 
@@ -470,6 +472,8 @@ namespace Game.Engine.EngineGame
                     EngineSettings.BattleMessagesModel.LevelUpMessage = Attacker.Name + " is now Level " + Attacker.Level + " With Health Max of " + Attacker.GetMaxHealthTotal;
                     Debug.WriteLine(EngineSettings.BattleMessagesModel.LevelUpMessage);
                 }
+
+                // TODO: check if level is above 20. 
 
                 // Add Experinece to the Score
                 EngineSettings.BattleScore.ExperienceGainedTotal += experienceEarned;

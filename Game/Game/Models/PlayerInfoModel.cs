@@ -411,5 +411,13 @@ namespace Game.Models
         }
         #endregion Abilities
 
+        #region Graduation
+
+        // TODO: add method to check experience point of player
+        // once above 20 for character and hold cap they can graduate. 
+        // parents do not graduate
+
+        #endregion Graduation
+
     }
 }
