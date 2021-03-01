@@ -200,5 +200,27 @@ namespace Game.ViewModels
             return data;
         }
 
+        /// <summary>
+        /// Takes a monster model string name and looks it up and returns the character
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public MonsterModel GetMonsterByName(string name)
+        {
+            if (string.IsNullOrEmpty(name))
+            {
+                return null;
+            }
+
+            // Item myData = DataStore.GetAsync_Item(ItemID).GetAwaiter().GetResult();
+            MonsterModel myData = Dataset.Where(a => a.Name.Equals(name)).FirstOrDefault();
+            if (myData == null)
+            {
+                return null;
+            }
+
+            return myData;
+        }
+
     }
 }

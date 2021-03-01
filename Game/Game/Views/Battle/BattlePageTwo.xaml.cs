@@ -605,14 +605,14 @@ namespace Game.Views
         /// </summary>
         /// <param name="location"></param>
         /// <returns></returns>
-        public StackLayout GetMonsterToDisplay(PlayerInfoModel Monster)
+        public StackLayout GetMonsterToDisplay(PlayerInfoModel monster)
         {
-            if (Monster == null)
+            if (monster == null)
             {
                 return new StackLayout();
             }
 
-            if (string.IsNullOrEmpty(Monster.Id))
+            if (string.IsNullOrEmpty(monster.Id))
             {
                 return new StackLayout();
             }
@@ -620,7 +620,7 @@ namespace Game.Views
             // Defualt Image is the Plus
             var ClickableButton = true;
 
-            var data = MonsterIndexViewModel.Instance.GetMonsterByName(Monster.Name);
+            var data = MonsterIndexViewModel.Instance.GetDefaultMonster(monster.SpecificMonsterTypeEnum);
             if (data == null)
             {
                 // Show the Default Icon for the Location
@@ -635,7 +635,7 @@ namespace Game.Views
             {
                 Style = (Style)Application.Current.Resources["ImageLargeStyle"],
                 Source = data.ImageURI,
-                CommandParameter = Monster.Name
+                CommandParameter = monster.Name
             };
 
             if (ClickableButton)
@@ -671,7 +671,7 @@ namespace Game.Views
             PopupMonsterName.Text = data.Name;
 
             // Set command parameter so that popup knows which item it is displaying
-            PopupSaveButtonMonster.CommandParameter = data.Id;
+            PopupSaveButtonMonster.CommandParameter = data.Name;
 
 
             return true;
@@ -694,8 +694,8 @@ namespace Game.Views
         /// <param name="e"></param>
         public void PopupSaveButtonMonster_Clicked(object sender, EventArgs e)
         {
-            var monsterID = ((Button)sender).CommandParameter;
-            var monster = MonsterIndexViewModel.Instance.GetDefaultMonsterId(monsterID);
+            var monsterName = ((Button)sender).CommandParameter.ToString();
+            var monster = MonsterIndexViewModel.Instance.GetMonsterByName(monsterName);
             PlayerInfoModel player = new PlayerInfoModel(monster);
 
             var MonsterFoundIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.FindIndex(c => c.Name == player.Name);
