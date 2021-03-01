@@ -270,7 +270,6 @@ namespace Game.Views
             {
                 if (data.Level != 20)
                 {
-                    //CharacterListFrame.Children.Add(CreatePlayerDisplayBox(data));
                     CharacterListFrame.Children.Add(GetCharacterToDisplay(data));
                 }
 
@@ -291,8 +290,7 @@ namespace Game.Views
 
             foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.CharacterSelectList)
             {
-                
-               CharacterListSelectedFrame.Children.Add(GetCharacterToDisplay(data));
+                CharacterListSelectedFrame.Children.Add(CreatePlayerDisplayBox(data));
             }
         }
 
@@ -318,7 +316,6 @@ namespace Game.Views
         /// </summary>
         public void DrawDroppedItems()
         {
-
             // Clear and Populate the Dropped Items
             var FlexList = ItemListFoundFrame.Children.ToList();
             foreach (var data in FlexList)
@@ -327,6 +324,7 @@ namespace Game.Views
             }
 
             foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Distinct())
+
             {
                 ItemListFoundFrame.Children.Add(GetItemToDisplay(data));
             }
@@ -417,7 +415,7 @@ namespace Game.Views
         /// <returns></returns>
         public bool ShowPopupItem(ItemModel data)
         {
-            PopupLoadingViewCharacter.IsVisible = true;
+            PopupLoadingViewItem.IsVisible = true;
             PopupItemImage.Source = data.ImageURI;
 
             PopupItemName.Text = data.Name;
@@ -430,7 +428,7 @@ namespace Game.Views
             PopupSaveButtonCharacter.CommandParameter = data.Id;
 
             // Figure out which characters can be assigned this item and display that list in the picker. 
-            List<PlayerInfoModel> allCharacters = BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList;
+            List<PlayerInfoModel> allCharacters = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.CharacterSelectList;
             List<string> charactersForItem = GetCharacterWhoCanAcceptItem(allCharacters, data);
             AssignItemPicker.ItemsSource = charactersForItem;
             AssignItemPicker.SelectedIndex = 0;
