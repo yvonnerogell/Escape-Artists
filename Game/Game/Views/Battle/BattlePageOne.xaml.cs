@@ -121,7 +121,7 @@ namespace Game.Views
             {
                 if (currentAttacker.MonsterTypeEnum == MonsterTypeEnum.Faculty)
                 {
-                    attackText += currentAttacker.MonsterTypeEnum.ToString();
+                    attackText += currentAttacker.SpecificMonsterTypeEnum.ToMessage();
                     attackText += " ";
                     attackText += currentAttacker.Name;
                     attackText += " gives ";
@@ -130,7 +130,7 @@ namespace Game.Views
                 }
                 if (currentAttacker.MonsterTypeEnum == MonsterTypeEnum.Administrator)
                 {
-                    attackText += currentAttacker.MonsterTypeEnum.ToString();
+                    attackText += currentAttacker.SpecificMonsterTypeEnum.ToMessage();
                     attackText += " ";
                     attackText += currentAttacker.Name;
                     attackText += " gives ";
@@ -144,7 +144,7 @@ namespace Game.Views
                 {
                     attackText += currentAttacker.Name;
                     attackText += " studies hard for ";
-                    attackText += currentDefender.MonsterTypeEnum.ToString();
+                    attackText += currentDefender.SpecificMonsterTypeEnum.ToMessage();
                     attackText += " ";
                     attackText += currentDefender.Name;
                     attackText += "'s exam.";
@@ -153,7 +153,7 @@ namespace Game.Views
                 {
                     attackText += currentAttacker.Name;
                     attackText += " fills out all forms from ";
-                    attackText += currentDefender.MonsterTypeEnum.ToString();
+                    attackText += currentDefender.SpecificMonsterTypeEnum.ToMessage();
                     attackText += " ";
                     attackText += currentDefender.Name;
                     attackText += ".";

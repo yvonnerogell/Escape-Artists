@@ -765,7 +765,7 @@ namespace UnitTests.Views
         public void BattlePage_GetAttackerText_Monster_Faculty_Character_Student_Should_Pass()
         {
             // Arrange
-            var currentAttacker = new PlayerInfoModel(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
+            var currentAttacker = new PlayerInfoModel(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.Professor, PlayerType = PlayerTypeEnum.Monster });
             var currentDefender = new PlayerInfoModel(new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character });
 
             // Act
@@ -774,14 +774,14 @@ namespace UnitTests.Views
             // Reset
 
             // Assert
-            Assert.AreEqual("Faculty Honkey gives Minnie an exam.", result); 
+            Assert.AreEqual("Professor Honkey gives Minnie an exam.", result); 
         }
 
         [Test]
         public void BattlePage_GetAttackerText_Monster_Administrator_Character_Student_Should_Pass()
         {
             // Arrange
-            var currentAttacker = new PlayerInfoModel(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Administrator, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
+            var currentAttacker = new PlayerInfoModel(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Administrator, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.RegistrationAdministrator, PlayerType = PlayerTypeEnum.Monster });
             var currentDefender = new PlayerInfoModel(new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character });
 
             // Act
@@ -790,7 +790,7 @@ namespace UnitTests.Views
             // Reset
 
             // Assert
-            Assert.AreEqual("Administrator Honkey gives Minnie forms to fill out.", result);
+            Assert.AreEqual("Registration Administrator Honkey gives Minnie forms to fill out.", result);
         }
 
         [Test]
@@ -806,7 +806,7 @@ namespace UnitTests.Views
             // Reset
 
             // Assert
-            Assert.AreEqual("Minnie studies hard for Faculty Honkey's exam.", result);
+            Assert.AreEqual("Minnie studies hard for Adjunct Faculty Honkey's exam.", result);
         }
 
         [Test]
@@ -814,7 +814,7 @@ namespace UnitTests.Views
         {
             // Arrange
             var currentAttacker = new PlayerInfoModel(new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character });
-            var currentDefender = new PlayerInfoModel(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Administrator, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
+            var currentDefender = new PlayerInfoModel(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Administrator, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.GraduationOfficeAdministrator, PlayerType = PlayerTypeEnum.Monster });
 
             // Act
             var result = page.GetAttackText(currentAttacker, currentDefender);
@@ -822,7 +822,7 @@ namespace UnitTests.Views
             // Reset
 
             // Assert
-            Assert.AreEqual("Minnie fills out all forms from Administrator Honkey.", result);
+            Assert.AreEqual("Minnie fills out all forms from Graduation Office Administrator Honkey.", result);
         }
 
         [Test]
