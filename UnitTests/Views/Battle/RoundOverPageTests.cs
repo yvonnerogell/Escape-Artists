@@ -1011,7 +1011,6 @@ namespace UnitTests.Views
             foreach (var data in flexList)
 			{
                 ((FlexLayout)page.FindByName("CharacterListFrame")).Children.Remove(data);
-
             }
 
             // Assert
@@ -1039,21 +1038,24 @@ namespace UnitTests.Views
             foreach (var data in flexList)
             {
                 ((FlexLayout)page.FindByName("GraduatesListFrame")).Children.Remove(data);
-
             }
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-
-        /*
+        
         [Test]
         public void RoundOverPage_DrawDroppedItems_Valid_Should_Pass()
         {
             // Arrange
 
             // Draw the Items
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Add(new ItemModel());
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Add(new ItemModel { Name = "item", Id = "id", ImageURI = "squid.jpg"});
+
+            ((FlexLayout)page.FindByName("ItemListFoundFrame")).Children.Add(new Label());
+            ((FlexLayout)page.FindByName("ItemListFoundFrame")).Children.Add(new Label());
+            ((FlexLayout)page.FindByName("ItemListFoundFrame")).Children.Add(new Label());
 
             // Draw two times
             page.DrawDroppedItems();
@@ -1062,12 +1064,19 @@ namespace UnitTests.Views
             page.DrawDroppedItems();
 
             // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Clear();
+            var flexList = ((FlexLayout)page.FindByName("ItemListFoundFrame")).Children.ToList();
+            foreach (var data in flexList)
+            {
+                ((FlexLayout)page.FindByName("ItemListFoundFrame")).Children.Remove(data);
+            }
 
             // Assert
+
             Assert.IsTrue(true); // Got to here, so it happened...
         }
         
-
+        /*
         [Test]
         public void RoundOverPage_DrawItemLists_Valid_Should_Pass()
         {
