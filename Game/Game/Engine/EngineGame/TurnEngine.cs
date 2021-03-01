@@ -396,6 +396,51 @@ namespace Game.Engine.EngineGame
         }
 
         /// <summary>
+        /// If Graduated process Target Graduated
+        /// </summary>
+        /// <param name="Target"></param>
+        public bool RemoveIfGraduated(PlayerInfoModel Target)
+        {
+            // Check for alive
+            if (Target.Graduated == true && Target.PlayerType == PlayerTypeEnum.Character)
+            {
+                TargetGraduated(Target);
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Target Graduated
+        /// 
+        /// Process for graduation...
+        /// </summary>
+        /// <param name="Target"></param>
+        public virtual bool TargetGraduated(PlayerInfoModel Character)
+        {
+            bool found;
+
+            // Mark Status in output
+            EngineSettings.BattleMessagesModel.TurnMessageSpecial = " and causes graduation! ";
+
+            // Removing the 
+            EngineSettings.MapModel.RemovePlayerFromMap(Character);
+
+            // Add the Character to the killed list
+            EngineSettings.BattleScore.GraduateList += Character.FormatOutput() + "\n";
+
+            EngineSettings.BattleScore.GraduateModelList.Add(Character);
+
+            //DropItems(Target);
+
+            found = EngineSettings.CharacterList.Remove(EngineSettings.CharacterList.Find(m => m.Guid.Equals(Character.Guid)));
+            found = EngineSettings.PlayerList.Remove(EngineSettings.PlayerList.Find(m => m.Guid.Equals(Character.Guid)));
+
+            return true;
+        }
+
+        /// <summary>
         /// Target Died
         /// 
         /// Process for death...
