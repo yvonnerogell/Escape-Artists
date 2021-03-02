@@ -8,9 +8,10 @@
 
             <StackLayout Style="{StaticResource VerticalStack}">
 
-                <Label Text="Beginning a Round" Style="{StaticResource CenterMessageLargeStyle}"/>
-
-                <Button Clicked="BeginButton_Clicked" Text="Begin"/>
+                <Label Text="Begin a Round!"
+                        Style="{StaticResource CenterMessageStyle}"
+                        LineBreakMode="WordWrap"
+                        MaxLines="5" />
 
                 <Label Text="Characters" Style="{StaticResource MessageLargeStyle}"/>
 
@@ -26,7 +27,7 @@
                                     AlignContent="Start"
                                     Wrap="Wrap"/>
 
-                <StackLayout Padding="1"></StackLayout>
+                <StackLayout Padding="3"></StackLayout>
 
                 <Button Clicked="BeginButton_Clicked" Text="Begin"/>
                 

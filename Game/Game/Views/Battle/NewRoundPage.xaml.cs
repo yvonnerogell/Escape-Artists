@@ -46,15 +46,15 @@ namespace Game.Views
 		/// <param name="e"></param>
 		public async void BeginButton_Clicked(object sender, EventArgs e)
 		{
-			await Navigation.PopModalAsync();
-		}
+            await Navigation.PushModalAsync(new NavigationPage(new BattlePageTwo()));
+        }
 
-		/// <summary>
-		/// Return a stack layout with the Player information inside
-		/// </summary>
-		/// <param name="data"></param>
-		/// <returns></returns>
-		public StackLayout CreatePlayerDisplayBox(PlayerInfoModel data)
+        /// <summary>
+        /// Return a stack layout with the Player information inside
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public StackLayout CreatePlayerDisplayBox(PlayerInfoModel data)
 		{
             if (data == null)
             {
