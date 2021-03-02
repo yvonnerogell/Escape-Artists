@@ -67,10 +67,24 @@ namespace UnitTests.Views
 
         [Test]
 
+        public void CreatePlayerDisplayBox_Null_Should_Pass()
+        {
+            // Get the current value
+           
+            // Act
+            page.CreatePlayerDisplayBox(null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+        [Test]
+
         public void CreatePlayerDisplayBox_OnAppearing_Should_Pass()
         {
-            // Get the current valute
-            var player = new PlayerInfoModel();
+            // Get the current value
+            var player = new PlayerInfoModel(new CharacterModel{});
             // Act
             page.CreatePlayerDisplayBox(player);
 
@@ -202,11 +216,9 @@ namespace UnitTests.Views
         public void PopupSaveButtonItem_Clicked_Default_Should_Pass()
         {
             // Arrange
-            var sender = new Xamarin.Forms.Button();
-            var e = new System.EventArgs();
 
             // Act
-            page.PopupSaveButtonCharacter_Clicked(sender, e);
+            page.PopupSaveButtonCharacter_Clicked(null,null);
 
             // Reset
 
@@ -315,6 +327,10 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
+
+
+
+
 
         [Test]
         public void DrawMonsterList_Default_Should_Pass()

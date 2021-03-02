@@ -289,7 +289,7 @@ namespace Game.Views
         /// Add Characters to the Display
         /// </summary>
         public void DrawSelectedCharacters()
-        {
+            {
       
             var FlexList = CharacterListSelectedFrame.Children.ToList();
             foreach (var data in FlexList)
@@ -548,30 +548,33 @@ namespace Game.Views
         /// <param name="e"></param>
         public void PopupSaveButtonItem_Clicked(object sender, EventArgs e)
         {
-            var itemId = ((Button)sender).CommandParameter;
-            var characterName = AssignItemPicker.SelectedItem.ToString();
-            var character = CharacterIndexViewModel.Instance.GetCharacterByName(characterName);
-            PlayerInfoModel player = new PlayerInfoModel(character);
+            var itemId = "";
+            if (sender != null)
+            {
+                itemId = ((Button)sender).CommandParameter.ToString();
+                var characterName = AssignItemPicker.SelectedItem.ToString();
+                var character = CharacterIndexViewModel.Instance.GetCharacterByName(characterName);
+                PlayerInfoModel player = new PlayerInfoModel(character);
 
-            var characterFoundIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FindIndex(c => c.Name == player.Name);
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.RemoveAt(characterFoundIndex);
+                var characterFoundIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FindIndex(c => c.Name == player.Name);
+                BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.RemoveAt(characterFoundIndex);
 
-            // Add item to character
-            var item = ItemIndexViewModel.Instance.GetItem((string)itemId);
-            var itemLocation = ItemTypeEnumHelper.GetLocationFromItemType(item.ItemType);
-            player = AddItemToCharacter(player, itemLocation, item);
+                // Add item to character
+                var item = ItemIndexViewModel.Instance.GetItem((string)itemId);
+                var itemLocation = ItemTypeEnumHelper.GetLocationFromItemType(item.ItemType);
+                player = AddItemToCharacter(player, itemLocation, item);
 
-            // Remove item from dropped list and add to selected item list. 
-            var itemIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.FindIndex(i => i.Id == (string)itemId);
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.RemoveAt(itemIndex);
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelSelectList.Add(item);
+                // Remove item from dropped list and add to selected item list. 
+                var itemIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.FindIndex(i => i.Id == (string)itemId);
+                BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.RemoveAt(itemIndex);
+                BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelSelectList.Add(item);
 
-            // Add updated player back to view model
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(player);
+                // Add updated player back to view model
+                BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(player);
+            }
+                DrawItemLists();
 
-            DrawItemLists();
-
-            PopupLoadingViewItem.IsVisible = false;
+                PopupLoadingViewItem.IsVisible = false;
         }
 
         public PlayerInfoModel AddItemToCharacter(PlayerInfoModel player, ItemLocationEnum location, ItemModel item)
