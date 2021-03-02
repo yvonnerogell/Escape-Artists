@@ -702,16 +702,19 @@ namespace Game.Views
         /// <param name="e"></param>
         public void PopupSaveButtonMonster_Clicked(object sender, EventArgs e)
         {
-            var monsterName = ((Button)sender).CommandParameter.ToString();
-            var monster = MonsterIndexViewModel.Instance.GetMonsterByName(monsterName);
-            PlayerInfoModel player = new PlayerInfoModel(monster);
+            var monsterName = "";
+            if (sender != null)
+            {
+                monsterName = ((Button)sender).CommandParameter.ToString();
+                var monster = MonsterIndexViewModel.Instance.GetMonsterByName(monsterName);
+                PlayerInfoModel player = new PlayerInfoModel(monster);
 
-            var MonsterFoundIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.FindIndex(c => c.Name == player.Name);
-            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.RemoveAt(MonsterFoundIndex);
+                var MonsterFoundIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.FindIndex(c => c.Name == player.Name);
+                BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.RemoveAt(MonsterFoundIndex);
 
-            // Add updated player back to view model
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.MonsterSelectList.Add(player);
-
+                // Add updated player back to view model
+                BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.MonsterSelectList.Add(player);
+            }
             DrawMonsterList();
             DrawSelectedMonsters();
 
