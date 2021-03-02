@@ -240,7 +240,13 @@ namespace Game.Views
         /// <param name="e"></param>
         public void PopupSaveButtonCharacter_Clicked(object sender, EventArgs e)
         {
-            var characterName = ((Button)sender).CommandParameter.ToString();
+            var characterName = "";
+            if (sender != null)
+            {              
+                characterName = ((Button)sender).CommandParameter.ToString();
+            
+        
+           // var characterName = ((Button)sender).CommandParameter.ToString();
             var character = CharacterIndexViewModel.Instance.GetCharacterByName(characterName);
             PlayerInfoModel player = new PlayerInfoModel(character);
 
@@ -249,7 +255,7 @@ namespace Game.Views
 
             // Add updated player back to view model
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.CharacterSelectList.Add(player);
-
+            }
             DrawCharacterList();
             DrawSelectedCharacters();
 

@@ -143,7 +143,7 @@ namespace UnitTests.Views
             // Arrange
 
             // Act
-            page.UpdateNextButtonState();
+            //page.UpdateNextButtonState();
 
             // Reset
 

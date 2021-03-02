@@ -99,14 +99,13 @@ namespace UnitTests.Views
         public void PopupSaveButtonCharacter_Clicked_Default_Should_Pass()
         {
             // Arrange
-            var sender = new Xamarin.Forms.Button();
-            var e = new System.EventArgs();
-            
+           
+
             // Act
-            page.PopupSaveButtonCharacter_Clicked(sender, e);
+            page.PopupSaveButtonCharacter_Clicked(null, null);
 
             // Reset
-
+           
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
@@ -115,12 +114,10 @@ namespace UnitTests.Views
         public void PopupSaveButtonMonster_Clicked_Default_Should_Pass()
         {
             // Arrange
-            // Arrange
-            var sender = new Xamarin.Forms.Button();
-            var e = new System.EventArgs();
+            
 
             // Act
-            page.PopupSaveButtonCharacter_Clicked(sender, e);
+            page.PopupSaveButtonCharacter_Clicked(null, null);
 
             // Reset
 
