@@ -196,6 +196,12 @@ namespace Game.Views
         //    UpdateNextButtonState();
         }
 
+        public void OnCharacter_Clicked(object sender, EventArgs e)
+        {
+            //do the things needed to add the character to the party list and remove it from the character list
+
+        }
+
         /// <summary>
         /// TODO: remove this method and corresponding toolbar item. This is only here temporarily so that we can
         /// navigate to BattlePageOne from PickCharactersPage.
