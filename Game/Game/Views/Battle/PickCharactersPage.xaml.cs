@@ -36,6 +36,9 @@ namespace Game.Views
         // Empty Constructor for UTs
         public PickCharactersPage(bool UnitTest) { }
 
+        // The view model, used for data binding
+        readonly CharacterIndexViewModel ViewModel = CharacterIndexViewModel.Instance;
+
         /// <summary>
         /// Constructor for Index Page
         /// 
@@ -45,8 +48,8 @@ namespace Game.Views
         {
             InitializeComponent();
 
-            BindingContext = BattleEngineViewModel.Instance;
-            //BindingContext = BattleEngineViewModel.Instance;
+            BindingContext = ViewModel;
+          // BindingContext = BattleEngineViewModel.Instance;
 
             // Clear the Database List and the Party List to start
             BattleEngineViewModel.Instance.PartyCharacterList.Clear();
@@ -54,10 +57,10 @@ namespace Game.Views
             // Setting up the BattleEngineViewModel with default data to use for testing
             // TODO: Comment this out when ready to use the real battle engine
             // Melissa, you can change the character list as the user is selecting the characters for the game.
-            SetUpStubData();
+            // SetUpStubData();
 
 
-            UpdateNextButtonState();
+            //     UpdateNextButtonState();
         }
 
         /// <summary>
@@ -182,7 +185,7 @@ namespace Game.Views
             }
 
             // Manually deselect Character.
-            CharactersListView.SelectedItem = null;
+        //    CharactersListView.SelectedItem = null;
 
             // Don't add more than the party max
             if (BattleEngineViewModel.Instance.PartyCharacterList.Count() < BattleEngineViewModel.Instance.Engine.EngineSettings.MaxNumberPartyCharacters)
@@ -190,7 +193,7 @@ namespace Game.Views
                 BattleEngineViewModel.Instance.PartyCharacterList.Add(data);
             }
 
-            UpdateNextButtonState();
+        //    UpdateNextButtonState();
         }
 
         /// <summary>
@@ -231,12 +234,12 @@ namespace Game.Views
             }
 
             // Manually deselect Character.
-            PartyListView.SelectedItem = null;
+          //  PartyListView.SelectedItem = null;
 
             // Remove the character from the list
             BattleEngineViewModel.Instance.PartyCharacterList.Remove(data);
 
-            UpdateNextButtonState();
+       //     UpdateNextButtonState();
         }
 
         /// <summary>
@@ -247,19 +250,19 @@ namespace Game.Views
         /// Show the Count of the party
         /// 
         /// </summary>
-        public void UpdateNextButtonState()
-        {
+      //  public void UpdateNextButtonState()
+      //  {
             // If no characters disable Next button
-            BeginBattleButton.IsEnabled = true;
+        //    BeginBattleButton.IsEnabled = true;
 
-            var currentCount = BattleEngineViewModel.Instance.PartyCharacterList.Count();
-            if (currentCount == 0)
-            {
-              BeginBattleButton.IsEnabled = false;
-            }
-
-            PartyCountLabel.Text = currentCount.ToString();
-        }
+      //      var currentCount = BattleEngineViewModel.Instance.PartyCharacterList.Count();
+       //     if (currentCount == 0)
+       //     {
+       //       BeginBattleButton.IsEnabled = false;
+       //     }
+    //
+      //      PartyCountLabel.Text = currentCount.ToString();
+      //  }
 
         /// <summary>
         /// Jump to the Battle
