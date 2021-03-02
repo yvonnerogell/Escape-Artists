@@ -623,7 +623,7 @@ namespace Game.Views
             // Defualt Image is the Plus
             var ClickableButton = true;
 
-            var data = MonsterIndexViewModel.Instance.GetDefaultMonster(monster.SpecificMonsterTypeEnum);
+            var data = MonsterIndexViewModel.Instance.GetMonsterByName(monster.Name);
             if (data == null)
             {
                 // Show the Default Icon for the Location
