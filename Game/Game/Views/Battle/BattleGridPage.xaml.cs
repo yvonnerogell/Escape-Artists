@@ -46,96 +46,25 @@ namespace Game.Views
             // Set up the UI to Defaults
             BindingContext = BattleEngineViewModel.Instance;
 
-            // TODO for team: remove this once we are ready to use our own battle engine.
-            BattleEngineViewModel.Instance.SetBattleEngineToKoenig();
-
             // Create and Draw the Map
-            //InitializeMapGrid();
+            InitializeMapGrid();
 
             // Start the Battle Engine
             BattleEngineViewModel.Instance.Engine.StartBattle(false);
 
             // Populate the UI Map
-            // DrawMapGridInitialState();
+            DrawMapGridInitialState();
 
             // Ask the Game engine to select who goes first
             BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
 
             // Add Players to Display
-            // DrawGameAttackerDefenderBoard();
-
-            // Add players to display:
-            // TODO: This is just hardcoded placeholders. Will need to be changed to pull data from BattleEngineViewModel
-            //var currentCharacter = new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character };
-            //var currentAttacker = new PlayerInfoModel(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
-            //var currentDefender = new PlayerInfoModel(currentCharacter);
-
-            //GPAValueLabel.Text = GetCharacterGPA(currentCharacter);
-            //HealthValueLabel.Text = GetCharacterHealth(currentCharacter);
-
-            //var messages = GetBattleMessages();
-            //SetBattleMessages(messages);
+            DrawGameAttackerDefenderBoard();
 
             // Set the Battle Mode
-            // ShowBattleMode();
+            ShowBattleMode();
         }
 
-        /// <summary>
-        /// 
-        /// Returns the GPA of the current character. 
-        /// </summary>
-        /// <returns></returns>
-        // public string GetCharacterGPA(CharacterModel currentCharacter)
-        //	{
-        // TODO change to pull data from BattleEngineViewModel. 
-        //      return currentCharacter.GPA.ToString();
-        // }
-
-        /// <summary>
-        /// 
-        /// Returns the GPA of the current character. 
-        /// </summary>
-        /// <returns></returns>
-        //  public string GetCharacterHealth(CharacterModel currentCharacter)
-        //  {
-        // TODO change to pull data from BattleEngineViewModel. 
-        //      return currentCharacter.CurrentHealth.ToString();
-        // }
-
-        /// <summary>
-        /// 
-        /// Returns the five most recent battle messages to display
-        /// </summary>
-        /// <returns></returns>
-        //    public List<string> GetBattleMessages()
-        //  {
-        // TODO change to pull data from BattleEngineViewModel. 
-        //List<String> messages = new List<string>();
-        //messages.Add("Faculty Honkey gives Minnie an exam.");
-        //messages.Add("Goofey passes the exam with flying colors.");
-        //messages.Add("Administrator Frothy gives Mike forms to fill out.");
-        //messages.Add("Jocey fills out all the forms from Frothy.");
-        //messages.Add("Minnie studies hard from Professor Frank's exam.");
-
-        //  return messages;
-
-        // }
-
-        /// <summary>
-        /// 
-        /// Sets the five most recent battle messages to display
-        /// </summary>
-        /// <returns></returns>
-        //  public void SetBattleMessages(List<string> messages)
-        // {
-        //    BattleMessage1Label.Text = messages.ElementAt(0);
-        //   BattleMessage2Label.Text = messages.ElementAt(1);
-        //   BattleMessage3Label.Text = messages.ElementAt(2);
-        //   BattleMessage4Label.Text = messages.ElementAt(3);
-        //   BattleMessage5Label.Text = messages.ElementAt(4);
-        // }
-
-        /*
         /// <summary>
         /// Dray the Player Boxes
         /// </summary>
@@ -172,9 +101,7 @@ namespace Game.Views
             MonsterBox.Children.Add(PlayerInfoDisplayBox(null));
 
         }
-        */
 
-        /*
         /// <summary>
         /// Put the Player into a Display Box
         /// </summary>
@@ -208,11 +135,9 @@ namespace Game.Views
 
             return PlayerStack;
         }
-        */
 
         #region BattleMapMode
 
-        /*
         /// <summary>
         /// Create the Initial Map Grid
         /// 
@@ -225,32 +150,7 @@ namespace Game.Views
 
             return true;
         }
-        */
 
-        /// <summary>
-        /// Navigates to Battle Page 2
-        /// 
-        /// All lcoations are empty
-        /// </summary>
-        /// <returns></returns>
-        public async void AttackBackButton_Clicked(object sender, EventArgs e)
-        { 
-            await Navigation.PushModalAsync(new NavigationPage(new BattlePageTwo()));
-        }
-
-        /// <summary>
-        /// Navigates to Round Over Page. THis is a temporary button, will be removed once battle engine is implemented.
-        /// 
-        /// All lcoations are empty
-        /// </summary>
-        /// <returns></returns>
-        public async void RoundOverButton_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushModalAsync(new NavigationPage(new RoundOverPage()));
-        }
-
-
-        /*
         /// <summary>
         /// Draw the Map Grid
         /// Add the Players to the Map
@@ -270,9 +170,7 @@ namespace Game.Views
 
             UpdateMapGrid();
         }
-        */
 
-        /*
         /// <summary>
         /// Walk the current grid
         /// check each cell to see if it matches the engine map
@@ -322,9 +220,7 @@ namespace Game.Views
 
             return true;
         }
-        */
 
-        /*
         /// <summary>
         /// Convert the Stack to a name for the dictionary to lookup
         /// </summary>
@@ -355,9 +251,7 @@ namespace Game.Views
             // Look up the Frame in the Dictionary
             return string.Format("MapR{0}C{1}ImageButton", data.Row, data.Column);
         }
-        */
 
-        /*
         /// <summary>
         /// Populate the Map
         /// 
@@ -389,9 +283,7 @@ namespace Game.Views
 
             return true;
         }
-        */
 
-        /*
         /// <summary>
         /// Get the Frame from the Dictionary
         /// </summary>
@@ -402,9 +294,7 @@ namespace Game.Views
             MapLocationObject.TryGetValue(name, out object data);
             return data;
         }
-        */
 
-        /*
         /// <summary>
         /// Make the Game Map Frame 
         /// Place the Character or Monster on the frame
@@ -445,9 +335,7 @@ namespace Game.Views
 
             return MapFrame;
         }
-        */
 
-        /*
         /// <summary>
         /// This add the ImageButton to the stack to kep track of
         /// </summary>
@@ -470,9 +358,7 @@ namespace Game.Views
 
             return true;
         }
-        */
 
-        /*
         /// <summary>
         /// This adds the Stack into the Dictionary to keep track of
         /// </summary>
@@ -494,9 +380,7 @@ namespace Game.Views
             MapLocationObject.Add(name, data);
             return true;
         }
-        */
 
-        /*
         /// <summary>
         /// Set the Image onto the map
         /// The Image represents the player
@@ -540,9 +424,7 @@ namespace Game.Views
 
             return data;
         }
-        */
 
-        /*
         /// <summary>
         /// Set the Background color for the tile.
         /// Monsters and Characters have different colors
@@ -570,19 +452,13 @@ namespace Game.Views
             var result = (Color)Application.Current.Resources[BattleMapBackgroundColor];
             return result;
         }
-        */
 
-        
         #region MapEvents
-        
         /// <summary>
         /// Event when an empty location is clicked on
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        /// 
-        
-        /*
         public bool SetSelectedEmpty(MapModelLocation data)
         {
             // TODO: Info
@@ -593,10 +469,9 @@ namespace Game.Views
              * 
              * For Mike's simple battle grammar there is no selection of action so I just return true
              */
-        /*
+
             return true;
         }
-    
 
         /// <summary>
         /// Event when a Monster is clicked on
@@ -613,22 +488,18 @@ namespace Game.Views
              * 
              * For Mike's simple battle grammar there is no selection of action so I just return true
              */
-        /*
+
             data.IsSelectedTarget = true;
             return true;
         }
-        */
 
         /// <summary>
         /// Event when a Character is clicked on
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        /// 
-        /*
         public bool SetSelectedCharacter(MapModelLocation data)
-        { 
-        */
+        {
             // TODO: Info
 
             /*
@@ -637,19 +508,15 @@ namespace Game.Views
              * 
              * For Mike's simple battle grammar there is no selection of action so I just return true
              */
-            /*
+
             return true;
         }
-            */
-    
         #endregion MapEvents
-    
 
         #endregion BattleMapMode
 
         #region BasicBattleMode
 
-        /*
         /// <summary>
         /// Draw the UI for
         ///
@@ -694,13 +561,13 @@ namespace Game.Views
 
             // Show what action the Attacker used
             AttackerAttack.Source = BattleEngineViewModel.Instance.Engine.EngineSettings.PreviousAction.ToImageURI();
-            
+
             var item = ItemIndexViewModel.Instance.GetItem(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PrimaryHand);
             if (item != null)
             {
                 AttackerAttack.Source = item.ImageURI;
             }
-            
+
             DefenderImage.Source = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender.ImageURI;
             DefenderName.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender.Name;
             DefenderHealth.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender.GetCurrentHealthTotal.ToString() + " / " + BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender.GetMaxHealthTotal.ToString();
@@ -713,9 +580,7 @@ namespace Game.Views
 
             BattlePlayerBoxVersus.Text = "vs";
         }
-        */
 
-        /*
         /// <summary>
         /// Draws the Game Board Attacker and Defender areas to be null
         /// </summary>
@@ -732,9 +597,7 @@ namespace Game.Views
 
             BattlePlayerBoxVersus.Text = string.Empty;
         }
-        */
 
-        /*
         /// <summary>
         /// Attack Action
         /// </summary>
@@ -754,9 +617,7 @@ namespace Game.Views
         {
             await ShowBattleSettingsPage();
         }
-        */
 
-        /*
         /// <summary>
         /// Next Attack Example
         /// 
@@ -817,7 +678,6 @@ namespace Game.Views
                 return;
             }
         }
-        */
 
         /// <summary>
         /// Decide The Turn and who to Attack
@@ -844,7 +704,6 @@ namespace Game.Views
             }
         }
 
-        /*
         /// <summary>
         /// Game is over
         /// 
@@ -865,12 +724,10 @@ namespace Game.Views
 
             ShowBattleMode();
         }
-        */
         #endregion BasicBattleMode
 
         #region MessageHandelers
 
-        /*
         /// <summary>
         /// Builds up the output message
         /// </summary>
@@ -890,9 +747,7 @@ namespace Game.Views
             //htmlSource.Html = BattleEngineViewModel.Instance.Engine.BattleMessagesModel.GetHTMLFormattedTurnMessage();
             //HtmlBox.Source = HtmlBox.Source = htmlSource;
         }
-        */
 
-        /*
         /// <summary>
         ///  Clears the messages on the UX
         /// </summary>
@@ -902,43 +757,10 @@ namespace Game.Views
             htmlSource.Html = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleMessagesModel.GetHTMLBlankMessage();
             //HtmlBox.Source = htmlSource;
         }
-        */
 
         #endregion MessageHandelers
 
         #region PageHandelers
-
-        /// <summary>
-        /// Takes the game to BattlePageOne when clicked
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public async void ExitButton_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public async void UpdateButton_Clicked(object sender, EventArgs e)
-        {
-            // TODO: not sure what the update should do here; below is a placeholder
-            await Navigation.PushModalAsync(new NavigationPage(new AutoBattlePage()));
-        }
-
-        /// <summary>
-        /// Takes the game to AutoBattlePage
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public async void StartBattle_Clicked(object sender, EventArgs e)
-        {
-            // TODO: make sure the AutoBattlePage is the right option here
-            await Navigation.PushModalAsync(new NavigationPage(new AutoBattlePage()));
-        }
 
         /// <summary>
         /// Battle Over, so Exit Button
@@ -947,12 +769,11 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        // public async void ExitButton_Clicked(object sender, EventArgs e)
-        //{
-        //    await Navigation.PopModalAsync();
-        // }
+        public async void ExitButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync();
+        }
 
-        /*
         /// <summary>
         /// The Next Round Button
         /// </summary>
@@ -1009,19 +830,15 @@ namespace Game.Views
             ShowBattleMode();
             await Navigation.PushModalAsync(new BattleSettingsPage());
         }
-        */
         #endregion PageHandelers
 
-        /*
         protected override void OnAppearing()
         {
             base.OnAppearing();
 
             ShowBattleMode();
         }
-        */
 
-        /*
         /// <summary>
         /// 
         /// Hide the differnt button states
@@ -1037,9 +854,7 @@ namespace Game.Views
             MessageDisplayBox.IsVisible = false;
             BattlePlayerInfomationBox.IsVisible = false;
         }
-        */
 
-        /*
         /// <summary>
         /// Show the proper Battle Mode
         /// </summary>
@@ -1058,15 +873,13 @@ namespace Game.Views
             DrawPlayerBoxes();
 
             // Update the Mode
-            // BattleModeValue.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.BattleModeEnum.ToMessage();
+            BattleModeValue.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.BattleModeEnum.ToMessage();
 
             ShowBattleModeDisplay();
 
             ShowBattleModeUIElements();
         }
-        */
 
-        /*
         /// <summary>
         /// Control the UI Elements to display
         /// </summary>
@@ -1109,9 +922,7 @@ namespace Game.Views
                     break;
             }
         }
-        */
 
-        /*
         /// <summary>
         /// Control the Map Mode or Simple
         /// </summary>
@@ -1135,6 +946,5 @@ namespace Game.Views
                     break;
             }
         }
-        */
     }
 }

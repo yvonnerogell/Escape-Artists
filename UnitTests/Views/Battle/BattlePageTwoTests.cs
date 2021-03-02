@@ -65,6 +65,21 @@ namespace UnitTests.Views
             Application.Current = null;
         }
 
+        [Test]
+
+        public void CreatePlayerDisplayBox_OnAppearing_Should_Pass()
+        {
+            // Get the current valute
+            var player = new PlayerInfoModel();
+            // Act
+            page.CreatePlayerDisplayBox(player);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
 
         [Test]
         public void BattlePageTwo_OnAppearing_Should_Pass()
@@ -84,10 +99,11 @@ namespace UnitTests.Views
         public void PopupSaveButtonCharacter_Clicked_Default_Should_Pass()
         {
             // Arrange
-            page.ViewModel.Data.Engine.EngineSettings.CharacterList = new List<PlayerInfoModel>(); 
+            var sender = new Xamarin.Forms.Button();
+            var e = new System.EventArgs();
             
             // Act
-            page.PopupSaveButtonCharacter_Clicked(null, null);
+            page.PopupSaveButtonCharacter_Clicked(sender, e);
 
             // Reset
 
@@ -99,10 +115,85 @@ namespace UnitTests.Views
         public void PopupSaveButtonMonster_Clicked_Default_Should_Pass()
         {
             // Arrange
-            page.ViewModel.Data.Engine.EngineSettings.MonsterList = null;
+            // Arrange
+            var sender = new Xamarin.Forms.Button();
+            var e = new System.EventArgs();
 
             // Act
-            page.PopupSaveButtonCharacter_Clicked(null, null);
+            page.PopupSaveButtonCharacter_Clicked(sender, e);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void ShowPopupCharacter_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+            var character = new CharacterModel();
+            // Act
+            page.ShowPopupCharacter(character);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void ShowPopupMonster_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+            var monster = new MonsterModel();
+            // Act
+            page.ShowPopupMonster(monster);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void ShowPopupItem_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+            var item = new ItemModel();
+            // Act
+            page.ShowPopupItem(item);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+
+        [Test]
+        public void CharacterWhoCanAcceptItem_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel>();
+            var item = new ItemModel();
+            // Act
+            page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void AddItemToCharacter_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+            var player = new PlayerInfoModel();
+            var item = new ItemModel();
+            // Act
+            page.AddItemToCharacter(player, ItemLocationEnum.Feet, item);
 
             // Reset
 
@@ -114,10 +205,11 @@ namespace UnitTests.Views
         public void PopupSaveButtonItem_Clicked_Default_Should_Pass()
         {
             // Arrange
-            page.ViewModel.Data.Engine.EngineSettings.ItemPool = null;
+            var sender = new Xamarin.Forms.Button();
+            var e = new System.EventArgs();
 
             // Act
-            page.PopupSaveButtonCharacter_Clicked(null, null);
+            page.PopupSaveButtonCharacter_Clicked(sender, e);
 
             // Reset
 
@@ -125,6 +217,155 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
+        [Test]
+        public void GetCharacterToDisplay_Clicked_Default_Should_Pass()
+        {
+            // Act
+            page.GetCharacterToDisplay(null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void GetMonsterToDisplay_Clicked_Default_Should_Pass()
+        {
+            // Act
+            page.GetMonsterToDisplay(null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void GetItemToDisplay_Clicked_Default_Should_Pass()
+        {
+            // Act
+            page.GetItemToDisplay(null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void PopupCloseButtonCharacter_Clicked_Default_Should_Pass()
+        {
+            // Act
+            page.ClosePopupCharacter_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void PopupCloseButtonMonster_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+         
+
+            // Act
+            page.ClosePopupMonster_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void PopupCloseButtonItem_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+           
+
+            // Act
+            page.ClosePopupItem_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void DrawCharacerList_Default_Should_Pass()
+        {
+            // Act
+            page.DrawCharacterList();
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void DrawSelectedCharacters_Default_Should_Pass()
+        {
+            // Act
+            page.DrawSelectedCharacters();
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void DrawMonsterList_Default_Should_Pass()
+        {
+            // Act
+            page.DrawMonsterList();
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void DrawSelectedMonsters_Default_Should_Pass()
+        {
+            // Act
+            page.DrawSelectedMonsters();
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void DrawItemList_Default_Should_Pass()
+        {
+            // Act
+            page.DrawItemLists();
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void DrawSelectedItems_Default_Should_Pass()
+        {
+            // Act
+            page.DrawSelectedItems();
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
 
         [Test]
         public void BattlePageTwo_Constructor_Default_Should_Pass()
