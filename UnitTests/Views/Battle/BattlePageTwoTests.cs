@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using System.Collections.Generic;
 
 using NUnit.Framework;
 
@@ -79,6 +80,50 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
+        [Test]
+        public void PopupSaveButtonCharacter_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+            page.ViewModel.Data.Engine.EngineSettings.CharacterList = new List<PlayerInfoModel>(); 
+            
+            // Act
+            page.PopupSaveButtonCharacter_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void PopupSaveButtonMonster_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+            page.ViewModel.Data.Engine.EngineSettings.MonsterList = null;
+
+            // Act
+            page.PopupSaveButtonCharacter_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void PopupSaveButtonItem_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+            page.ViewModel.Data.Engine.EngineSettings.ItemPool = null;
+
+            // Act
+            page.PopupSaveButtonCharacter_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
 
 
         [Test]

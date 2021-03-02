@@ -882,17 +882,6 @@ namespace Game.Views
         }
         */
 
-        /// <summary>
-        /// Navigates to Battle Page 2
-        /// 
-        /// All lcoations are empty
-        /// </summary>
-        /// <returns></returns>
-        public async void OnAttackButton_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
-        }
-
         /*
         /// <summary>
         /// Draw the Map Grid
