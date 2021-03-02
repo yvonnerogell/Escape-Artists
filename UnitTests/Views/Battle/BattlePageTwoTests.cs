@@ -305,8 +305,25 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void DrawCharacerList_Default_Should_Pass()
+        public void DrawCharacterList_Default_Should_Pass()
         {
+            // Act
+            page.DrawCharacterList();
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void DrawCharacterList_AddRemove_Should_Pass()
+        {
+            // Arrange
+            var FlexList = new List<FlexLayout>();
+            var data = new FlexLayout();
+            FlexList.Add(data);
+            FlexList.Remove(data);
             // Act
             page.DrawCharacterList();
 
@@ -319,6 +336,23 @@ namespace UnitTests.Views
         [Test]
         public void DrawSelectedCharacters_Default_Should_Pass()
         {
+            // Act
+            page.DrawSelectedCharacters();
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void DrawSelectedCharacters_AddRemove_Should_Pass()
+        {
+            // Arrange
+            var FlexList = new List<FlexLayout>();
+            var data = new FlexLayout();
+            FlexList.Add(data);
+            FlexList.Remove(data);
             // Act
             page.DrawSelectedCharacters();
 
