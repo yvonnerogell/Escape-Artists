@@ -718,12 +718,7 @@ namespace Game.Views
         /// </summary>
         public void DrawMonsterList()
         {
-            // Clear and Populate the Monsters Remaining
-            var FlexList = MonsterListFrame.Children.ToList();
-            foreach (var data in FlexList)
-            {
-                MonsterListFrame.Children.Remove(data);
-            }
+            
 
             // Draw the Monsters
             foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList)

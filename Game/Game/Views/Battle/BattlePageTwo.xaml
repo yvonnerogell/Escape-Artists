@@ -113,10 +113,9 @@
                              BorderColor="{StaticResource TriciaryTextColor}" Padding="1">
 
                             <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand" Padding="2">
-                                <Image x:Name="PopupMonsterImage" Style="{StaticResource ImageLargeStyle}" Margin="5"/>
-
+                                <Image x:Name="PopupmonsterImage" Style="{StaticResource ImageLargeStyle}" Margin="5"/>
                                 <Label x:Name="PopupMonsterName" Style="{StaticResource PopupItemTextStyle}" MaxLines="2" LineBreakMode="WordWrap" Margin="5"/>
-
+                                
                                 <Button x:Name="PopupSaveButtonMonster" 
                                             Clicked="PopupSaveButtonMonster_Clicked" 
                                             Text="Save"
