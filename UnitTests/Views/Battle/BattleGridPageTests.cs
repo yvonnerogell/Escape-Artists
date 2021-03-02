@@ -1,5 +1,4 @@
 ﻿using System.Threading.Tasks;
-using System.Collections.Generic;
 
 using NUnit.Framework;
 
@@ -30,9 +29,6 @@ namespace UnitTests.Views
             //This is your App.xaml and App.xaml.cs, which can have resources, etc.
             app = new App();
             Application.Current = app;
-
-            // For now, set the engine to the Koenig Engine, change when ready 
-            BattleEngineViewModel.Instance.SetBattleEngineToKoenig();
 
             page = new BattleGridPage();
 
@@ -80,35 +76,20 @@ namespace UnitTests.Views
             // Assert
             Assert.IsNotNull(result);
         }
-        
+
         [Test]
-        public void BattlePage_AttackBackButton_Clicked_Default_Should_Pass()
+        public void BattlePage_AttackButton_Clicked_Default_Should_Pass()
         {
             // Arrange
 
             // Act
-            page.AttackBackButton_Clicked(null, null);
+            page.AttackButton_Clicked(null, null);
 
             // Reset
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-
-        [Test]
-        public void BattlePage_RoundOverButton_Clicked_Default_Should_Pass()
-        {
-            // Arrange
-
-            // Act
-            page.RoundOverButton_Clicked(null, null);
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-        /*
 
         [Test]
         public void BattlePage_ShowScoreButton_Clicked_Default_Should_Pass()
@@ -123,7 +104,6 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-        */
 
         [Test]
         public void BattlePage_ExitButton_Clicked_Default_Should_Pass()
@@ -140,35 +120,6 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void BattlePage_UpdateButton_Clicked_Default_Should_Pass()
-        {
-            // Arrange
-
-            // Act
-            page.UpdateButton_Clicked(null, null);
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-
-        [Test]
-        public void BattleGridPage_StartBattle_Clicked_Default_Should_Pass()
-        {
-            // Arrange
-
-            // Act
-            page.StartBattle_Clicked(null, null);
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-
-        /*
-        [Test]
         public void BattlePage_StartButton_Clicked_Default_Should_Pass()
         {
             // Arrange
@@ -181,7 +132,6 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-        
 
         [Test]
         public void BattlePage_NextRoundButton_Clicked_Default_Should_Pass()
@@ -225,7 +175,6 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-        
 
         [Test]
         public void BattlePage_GameMessage_Default_Should_Pass()
@@ -394,8 +343,7 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-        */
-        /*
+
         [Test]
         public void BattlePage_SetAttackerAndDefender_Character_vs_Monster_Should_Pass()
         {
@@ -569,97 +517,6 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
-        
-        [Test]
-        public void BattlePage_GetCharacterGPA_67_Should_Pass()
-        {
-            // Arrange
-            var currentCharacter = new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character };
-
-            // Act
-            var result = GetCharacterGPA(currentCharacter);
-
-            // Reset
-
-            // Assert
-            Assert.AreEqual("67", result);
-        }
-
-        [Test]
-        public void BattlePage_GetCharacterHealth_15_Should_Pass()
-        {
-            // Arrange
-            var currentCharacter = new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character };
-
-            // Act
-            var result = GetCharacterHealth(currentCharacter);
-
-            // Reset
-
-            // Assert
-            Assert.AreEqual("15", result);
-        }
-
-        [Test]
-        public void BattlePage_GetBattleMessages_Should_Pass()
-        {
-            // Arrange
-
-            // Act
-            var result = GetBattleMessages();
-
-            // Reset
-
-            // Assert
-            Assert.AreEqual("Faculty Honkey gives Minnie an exam.", result[0]);
-            Assert.AreEqual("Goofey passes the exam with flying colors.", result[1]);
-            Assert.AreEqual("Administrator Frothy gives Mike forms to fill out.", result[2]);
-            Assert.AreEqual("Jocey fills out all the forms from Frothy.", result[3]);
-            Assert.AreEqual("Minnie studies hard from Professor Frank's exam.", result[4]);
-        }
-
-        /*
-        [Test]
-        public void BattlePage_SetBattleMessages_Should_Pass()
-        {
-            // Arrange
-            List<string> messages = new List<string>();
-            messages.Add("Faculty Honkey gives Minnie an exam.");
-            messages.Add("Goofey passes the exam with flying colors.");
-            messages.Add("Administrator Frothy gives Mike forms to fill out.");
-            messages.Add("Jocey fills out all the forms from Frothy.");
-            messages.Add("Minnie studies hard from Professor Frank's exam.");
-
-            // Set just some default text
-            ((Label)page.FindByName("BattleMessage1Label")).Text = "Hello" ;
-            ((Label)page.FindByName("BattleMessage2Label")).Text = "Hello";
-            ((Label)page.FindByName("BattleMessage3Label")).Text = "Hello";
-            ((Label)page.FindByName("BattleMessage4Label")).Text = "Hello";
-            ((Label)page.FindByName("BattleMessage5Label")).Text = "Hello";
-
-
-            // Act
-            SetBattleMessages(messages);
-
-            var m1 = ((Label)page.FindByName("BattleMessage1Label")).Text;
-            var m2 = ((Label)page.FindByName("BattleMessage2Label")).Text;
-            var m3 = ((Label)page.FindByName("BattleMessage3Label")).Text;
-            var m4 = ((Label)page.FindByName("BattleMessage4Label")).Text;
-            var m5 = ((Label)page.FindByName("BattleMessage5Label")).Text;
-
-            // Reset
-
-
-            // Assert
-            Assert.AreEqual("Faculty Honkey gives Minnie an exam.", m1);
-            Assert.AreEqual("Goofey passes the exam with flying colors.", m2);
-            Assert.AreEqual("Administrator Frothy gives Mike forms to fill out.", m3);
-            Assert.AreEqual("Jocey fills out all the forms from Frothy.", m4);
-            Assert.AreEqual("Minnie studies hard from Professor Frank's exam.", m5);
-        }
-        */
-
-        /*
         [Test]
         public void BattlePage_GameOver_Default_Should_Pass()
         {
@@ -673,9 +530,7 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-        */
 
-        /*
         [Test]
         public void BattlePage_SetSelectedCharacter_Default_Should_Pass()
         {
@@ -717,9 +572,7 @@ namespace UnitTests.Views
             // Assert
             Assert.AreEqual(true, result); // Got to here, so it happened...
         }
-        */
 
-        /*
         [Test]
         public void BattlePage_UpdateMapGrid_InValid_Bogus_Image_Should_Fail()
         {
@@ -753,9 +606,7 @@ namespace UnitTests.Views
             // Assert
             Assert.AreEqual(false, result); // Got to here, so it happened...
         }
-        */
 
-        /*
         [Test]
         public void BattlePage_UpdateMapGrid_InValid_Bogus_Stack_Should_Fail()
         {
@@ -783,9 +634,7 @@ namespace UnitTests.Views
             // Assert
             Assert.AreEqual(false, result); // Got to here, so it happened...
         }
-        */
 
-        /*
         [Test]
         public void BattlePage_UpdateMapGrid_Valid_Stack_Should_Pass()
         {
@@ -819,7 +668,6 @@ namespace UnitTests.Views
             // Assert
             Assert.AreEqual(true, result); // Got to here, so it happened...
         }
-        
 
         [Test]
         public async Task BattlePage_ShowBattleSettingsPage_Default_Should_Pass()
@@ -848,9 +696,7 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-        */
 
-        /*
         [Test]
         public void BattleSettingsPage_MakeMapGridBox_InValid_Should_Fail()
         {
@@ -865,9 +711,7 @@ namespace UnitTests.Views
             // Assert
             Assert.AreEqual(HitStatusEnum.Default, BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.CharacterHitEnum);
         }
-        */
 
-        /*
         [Test]
         public void BattleSettingsPage_ShowBattleMode_Default_Should_Pass()
         {
@@ -898,7 +742,6 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got Here
         }
-        
 
         [Test]
         public void BattleSettingsPage_ShowBattleModeUIElements_NewRound_Should_Pass()
@@ -917,7 +760,6 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got Here
         }
 
-        
         [Test]
         public void BattleSettingsPage_ShowBattleModeUIElements_GameOver_Should_Pass()
         {
@@ -951,7 +793,6 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got Here
         }
-        
 
         [Test]
         public void BattleSettingsPage_ShowBattleModeUIElements_Battling_Should_Pass()
@@ -1175,6 +1016,5 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got Here
         }
-        */
     }
 }
