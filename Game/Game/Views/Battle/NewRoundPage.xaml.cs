@@ -3,7 +3,7 @@ using System.Linq;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
+using System.Threading.Tasks;
 using Game.Models;
 using Game.ViewModels;
 
@@ -18,10 +18,13 @@ namespace Game.Views
 		// This uses the Instance so it can be shared with other Battle Pages as needed
 		public BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
 
-		/// <summary>
-		/// Constructor
-		/// </summary>
-		public NewRoundPage ()
+        // Empty Constructor for UTs
+        bool UnitTestSetting;
+        public NewRoundPage(bool UnitTest) { UnitTestSetting = UnitTest; }
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public NewRoundPage ()
 		{
 			InitializeComponent ();
 
@@ -37,16 +40,74 @@ namespace Game.Views
 				MonsterListFrame.Children.Add(CreatePlayerDisplayBox(data));
 			}
 
-		}
+            
 
-		/// <summary>
-		/// Start next Round, returning to the battle screen
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		public async void BeginButton_Clicked(object sender, EventArgs e)
+        }
+
+        /// <summary>
+        /// Settings Page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void Settings_Clicked(object sender, EventArgs e)
+        {
+            await ShowBattleSettingsPage();
+        }
+
+        /// <summary>
+        /// Show Settings
+        /// </summary>
+        public async Task ShowBattleSettingsPage()
+        {
+            ShowBattleMode();
+            await Navigation.PushModalAsync(new BattleSettingsPage());
+        }
+
+        /// <summary>
+        /// Show the proper Battle Mode
+        /// </summary>
+        public void ShowBattleMode()
+        {
+            // If running in UT mode, 
+            if (UnitTestSetting)
+            {
+                return;
+            }
+
+            //HideUIElements();
+
+           //ClearMessages();
+
+            //DrawPlayerBoxes();
+
+            // Update the Mode
+            BattleModeValue.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.BattleModeEnum.ToMessage();
+
+//            ShowBattleModeDisplay();
+
+  //          ShowBattleModeUIElements();
+        }
+
+        /// <summary>
+        /// Start next Round, returning to the battle screen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void BeginButton_Clicked(object sender, EventArgs e)
 		{
             await Navigation.PushModalAsync(new NavigationPage(new BattlePageTwo()));
+        }
+
+        /// <summary>
+        /// Battle Over, so Exit Button
+        /// Need to show this for the user to click on.
+        /// The Quit does a prompt, exit just exits
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void ExitButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync();
         }
 
         /// <summary>
