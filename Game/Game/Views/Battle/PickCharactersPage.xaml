@@ -9,10 +9,8 @@
              x:Class="Game.Views.PickCharactersPage"
              Title="Pick Characters">
 
-    <!-- These are temporary buttons that will need to get deleted once the RoundStart page is set up.-->
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="BattlePageOne" Clicked="OnBattlePageOne_Clicked" IconImageSource="icon_cancel.png"/>
-        <ToolbarItem Text="Battle Grid" Clicked="OnBattleGridPage_Clicked" IconImageSource="icon_add.png"/>
+        <ToolbarItem Text="CancelPickCharacter" Clicked="OnCancelPickCharacter_Clicked" IconImageSource="icon_cancel.png"/>
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
