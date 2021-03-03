@@ -608,7 +608,15 @@ namespace Game.Views
             NextAttackExample();
         }
 
-
+        /// <summary>
+        /// Settings Page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void Setttings_Clicked(object sender, EventArgs e)
+        {
+            await ShowBattleSettingsPage();
+        }
 
         /// <summary>
         /// Next Attack Example

@@ -50,16 +50,6 @@ namespace Game.Views
         }
 
         /// <summary>
-        /// Settings Page
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public async void Setttings_Clicked(object sender, EventArgs e)
-        {
-            await ShowBattleSettingsPage();
-        }
-
-        /// <summary>
         /// Return a stack layout with the Player information inside
         /// </summary>
         /// <param name="data"></param>
