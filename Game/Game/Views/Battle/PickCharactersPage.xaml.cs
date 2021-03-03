@@ -7,6 +7,7 @@ using Xamarin.Forms.Xaml;
 
 using Game.Models;
 using Game.ViewModels;
+
 using Game.GameRules;
 using System.Linq;
 
@@ -36,31 +37,135 @@ namespace Game.Views
         // Empty Constructor for UTs
         public PickCharactersPage(bool UnitTest) { }
 
-        // The view model, used for data binding
-        readonly CharacterIndexViewModel ViewModel = CharacterIndexViewModel.Instance;
+        //Instance needed for populating the characters
+        public BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
 
         /// <summary>
-        /// Constructor for Index Page
-        /// 
+        /// Constructor for Index Page, Instantiates the binding content, ensures
+        /// the list is clear for the character party and sets up current stub data
         /// Get the CharacterIndexView Model
         /// </summary>
         public PickCharactersPage()
         {
             InitializeComponent();
 
-            BindingContext = ViewModel;
-          // BindingContext = BattleEngineViewModel.Instance;
+            //call method to create the stub data. NOTE: this isn't only for character but
+            //also for monsters and items as well
+            SetUpStubData();
+
+            // Draw the Characters
+            foreach (var data in EngineViewModel.Engine.EngineSettings.CharacterList)
+            {
+                PartyListFrame.Children.Add(CreatePlayerDisplayBox(data));
+            }
 
             // Clear the Database List and the Party List to start
             BattleEngineViewModel.Instance.PartyCharacterList.Clear();
 
-            // Setting up the BattleEngineViewModel with default data to use for testing
-            // TODO: Comment this out when ready to use the real battle engine
-            // Melissa, you can change the character list as the user is selecting the characters for the game.
-            // SetUpStubData();
+           
+            UpdateNextButtonState();
+        }
 
+        /// <summary>
+        /// Return a stack layout with the Player information inside
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public StackLayout CreatePlayerDisplayBox(PlayerInfoModel data)
+        {
+            if (data == null)
+            {
+                data = new PlayerInfoModel();
+            }
 
-            //     UpdateNextButtonState();
+            // Hookup the image
+            var PlayerImage = new Image
+            {
+                Style = (Style)Application.Current.Resources["ImageBattleLargeStyle"],
+                Source = data.ImageURI
+            };
+
+            // Add the Level
+            var PlayerLevelLabel = new Label
+            {
+                Text = "Level : " + data.Level,
+                Style = (Style)Application.Current.Resources["ValueStyleMicro"],
+                HorizontalOptions = LayoutOptions.Center,
+                HorizontalTextAlignment = TextAlignment.Center,
+                Padding = 0,
+                LineBreakMode = LineBreakMode.TailTruncation,
+                CharacterSpacing = 1,
+                LineHeight = 1,
+                MaxLines = 1,
+            };
+
+            // Add the HP
+            var PlayerHPLabel = new Label
+            {
+                Text = "HP : " + data.GetCurrentHealthTotal,
+                Style = (Style)Application.Current.Resources["ValueStyleMicro"],
+                HorizontalOptions = LayoutOptions.Center,
+                HorizontalTextAlignment = TextAlignment.Center,
+                Padding = 0,
+                LineBreakMode = LineBreakMode.TailTruncation,
+                CharacterSpacing = 1,
+                LineHeight = 1,
+                MaxLines = 1,
+            };
+
+            var PlayerNameLabel = new Label()
+            {
+                Text = data.Name,
+                Style = (Style)Application.Current.Resources["ValueStyle"],
+                HorizontalOptions = LayoutOptions.Center,
+                HorizontalTextAlignment = TextAlignment.Center,
+                Padding = 0,
+                LineBreakMode = LineBreakMode.TailTruncation,
+                CharacterSpacing = 1,
+                LineHeight = 1,
+                MaxLines = 1,
+            };
+
+            // Put the Image Button and Text inside a layout
+            var PlayerStack = new StackLayout
+            {
+                Style = (Style)Application.Current.Resources["PlayerInfoBox"],
+                HorizontalOptions = LayoutOptions.Center,
+                Padding = 0,
+                Spacing = 0,
+                Children = {
+                    PlayerImage,
+                    PlayerNameLabel,
+                    PlayerLevelLabel,
+                    PlayerHPLabel,
+                },
+            };
+
+            return PlayerStack;
+        }
+
+        /// <summary>
+        /// TODO: remove this method and corresponding toolbar item. This is only here temporarily so that we can
+        /// navigate to BattlePageOne from PickCharactersPage.
+        /// Call to open up BattlePageOne. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void OnBattlePageOne_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
+        }
+
+        /// <summary>
+        /// TODO: remove this method and corresponding toolbar item. This is only here temporarily so that we can
+        /// navigate to BattleGridPage from PickCharactersPage.
+        /// Call to open up BattlePageOne. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void OnBattleGridPage_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NavigationPage(new BattleGridPage()));
         }
 
         /// <summary>
@@ -203,30 +308,6 @@ namespace Game.Views
         }
 
         /// <summary>
-        /// TODO: remove this method and corresponding toolbar item. This is only here temporarily so that we can
-        /// navigate to BattlePageOne from PickCharactersPage.
-        /// Call to open up BattlePageOne. 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public async void OnBattlePageOne_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
-        }
-
-        /// <summary>
-        /// TODO: remove this method and corresponding toolbar item. This is only here temporarily so that we can
-        /// navigate to BattleGridPage from PickCharactersPage.
-        /// Call to open up BattlePageOne. 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public async void OnBattleGridPage_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushModalAsync(new NavigationPage(new BattleGridPage()));
-        }
-
-        /// <summary>
         /// The row selected from the list
         /// </summary>
         /// <param name="sender"></param>
@@ -240,7 +321,7 @@ namespace Game.Views
             }
 
             // Manually deselect Character.
-          //  PartyListView.SelectedItem = null;
+            //PartyListView.SelectedItem = null;
 
             // Remove the character from the list
             BattleEngineViewModel.Instance.PartyCharacterList.Remove(data);
@@ -256,23 +337,22 @@ namespace Game.Views
         /// Show the Count of the party
         /// 
         /// </summary>
-      //  public void UpdateNextButtonState()
-      //  {
-            // If no characters disable Next button
-        //    BeginBattleButton.IsEnabled = true;
+        public void UpdateNextButtonState()
+        {
+             //If no characters disable Next button
+            BeginBattleButton.IsEnabled = false;
 
-      //      var currentCount = BattleEngineViewModel.Instance.PartyCharacterList.Count();
-       //     if (currentCount == 0)
-       //     {
-       //       BeginBattleButton.IsEnabled = false;
-       //     }
-    //
-      //      PartyCountLabel.Text = currentCount.ToString();
-      //  }
+            var currentCount = BattleEngineViewModel.Instance.PartyCharacterList.Count();
+            if (currentCount == 0)
+            {
+              BeginBattleButton.IsEnabled = false;
+            }
+    
+           // PartyCountLabel.Text = currentCount.ToString();
+        }
 
         /// <summary>
-        /// Jump to the Battle
-        /// 
+        /// Jump to the newRoundPage when Battle Button is clicked
         /// Its Modal because don't want user to come back...
         /// </summary>
         /// <param name="sender"></param>

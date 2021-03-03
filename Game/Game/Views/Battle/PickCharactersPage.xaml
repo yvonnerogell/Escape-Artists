@@ -15,7 +15,37 @@
         <ToolbarItem Text="Battle Grid" Clicked="OnBattleGridPage_Clicked" IconImageSource="icon_add.png"/>
     </ContentPage.ToolbarItems>
 
-     <ContentPage.Resources>
+    <ContentPage.Content>
+                <ScrollView VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Never">
+                    <StackLayout Style="{StaticResource VerticalStack}">
+
+                        <Label Text="Bring on the Battle!"
+                        Style="{StaticResource CenterMessageStyle}"
+                        LineBreakMode="WordWrap"
+                        MaxLines="5" />
+
+                        <Label Text="Choose your Characters" Style="{StaticResource CenterMessageStyle}"/>
+
+                        <FlexLayout x:Name="PartyListFrame"
+                                    JustifyContent="Start"
+                                    AlignContent="Start"
+                                    Wrap="Wrap"/>
+
+                        <StackLayout HorizontalOptions="CenterAndExpand">
+                        <Button 
+                            x:Name="BeginBattleButton"
+                            Clicked="BattleButton_Clicked" 
+                            Text="Begin"
+                            IsEnabled="true"/>
+                        </StackLayout>
+
+                    </StackLayout>
+                </ScrollView>
+    </ContentPage.Content>
+
+
+
+     <!-- <ContentPage.Resources>
         <ResourceDictionary>
             <local_helpers:SpecificCharacterTypeEnumConverter x:Key="SpecificCharacterTypeEnumConverter"/>
         </ResourceDictionary>
@@ -38,7 +68,7 @@
 
                 <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="CenterAndExpand">
                         
-                <FlexLayout
+                  <FlexLayout
                     BindableLayout.ItemsSource="{Binding Dataset}"
                     Wrap="Wrap"
                     Direction="Row"
@@ -74,21 +104,12 @@
 
                     </BindableLayout.ItemTemplate>
 
-                </FlexLayout>
+                </FlexLayout> -->
 
-                <StackLayout HorizontalOptions="CenterAndExpand">
+              
 
-                        <Button 
-                            x:Name="BeginBattleButton"
-                            Clicked="BattleButton_Clicked" 
-                            Text="Begin"
-                            IsEnabled="true"/>
-
-                    </StackLayout>
-                    <!-- <StackLayout HorizontalOptions="End">
-
+                     <!-- <StackLayout HorizontalOptions="End">
                         <Label Text="Party" Style="{StaticResource CenterMessageStyle}"/>
-
                         <ListView 
                                 x:Name="PartyListView" 
                                 ItemsSource="{Binding PartyCharacterList}"
@@ -127,9 +148,4 @@
                             </ListView.ItemTemplate>
                         </ListView>
                     </StackLayout> -->
-                </StackLayout>
-
-            </StackLayout>
-        </ScrollView>
-    </ContentPage.Content>
 </ContentPage>
