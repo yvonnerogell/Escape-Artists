@@ -331,9 +331,12 @@ namespace Game.Views
                         CharacterListSelectedFrame.Children.Add(GetCharacterToDisplay(data));
                         count += 1;
                     }
+                   
 
                 }
+                count += 1; 
             }
+            
 
         }
 
@@ -809,7 +812,7 @@ namespace Game.Views
                     }
 
                 }
-
+                count += 1;
             }
 
         }
