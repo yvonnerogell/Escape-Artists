@@ -315,7 +315,7 @@ namespace Game.Views
         /// </summary>
         public void DrawItemLists()
         {
-            DrawDroppedItems();
+            DrawItems();
             DrawSelectedItems();
 
             // Only need to update the selected, the Dropped is set in the constructor
@@ -325,7 +325,7 @@ namespace Game.Views
         /// <summary>
         /// Add the Dropped Items to the Display
         /// </summary>
-        public void DrawDroppedItems()
+        public void DrawItems()
         {
             // Clear and Populate the Dropped Items
             var FlexList = ItemListFoundFrame.Children.ToList();
@@ -334,8 +334,8 @@ namespace Game.Views
                 ItemListFoundFrame.Children.Remove(data);
             }
             
-            //foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Distinct())
-            foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.ItemPool)
+            foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Distinct())
+            //foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.ItemPool)
             {
                 ItemListFoundFrame.Children.Add(GetItemToDisplay(data));
             }
