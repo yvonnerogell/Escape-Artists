@@ -144,16 +144,7 @@ namespace Game.Views
             return PlayerStack;
         }
 
-        /// <summary>
-        /// Cancel and closes the page
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        /// <returns></returns>
-        public async void OnCancelPickCharacter_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PopModalAsync();
-        }
+
 
         /// <summary>
         /// Used to test page with fake data

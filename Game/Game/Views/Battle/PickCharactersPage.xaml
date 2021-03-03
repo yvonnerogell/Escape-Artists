@@ -9,10 +9,6 @@
              x:Class="Game.Views.PickCharactersPage"
              Title="Pick Characters">
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="CancelPickCharacter" Clicked="OnCancelPickCharacter_Clicked" IconImageSource="icon_cancel.png"/>
-    </ContentPage.ToolbarItems>
-
     <ContentPage.Content>
                 <ScrollView VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Never">
                     <StackLayout Style="{StaticResource VerticalStack}">
