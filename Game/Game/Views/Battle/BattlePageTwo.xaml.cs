@@ -54,7 +54,8 @@ namespace Game.Views
 
             DrawCharacterList();
             DrawMonsterList();
-            
+            DrawItemLists();
+
             // Create and Draw the Map
             // InitializeMapGrid();
 
