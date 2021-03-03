@@ -316,7 +316,7 @@ namespace Game.Views
         public void DrawItemLists()
         {
             DrawItems();
-            DrawSelectedItems();
+            //DrawSelectedItems();
 
             // Only need to update the selected, the Dropped is set in the constructor
             //TotalSelected.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelSelectList.Count().ToString();
@@ -554,25 +554,28 @@ namespace Game.Views
             if (sender != null)
             {
                 itemId = ((Button)sender).CommandParameter.ToString();
-                var characterName = AssignItemPicker.SelectedItem.ToString();
-                var character = CharacterIndexViewModel.Instance.GetCharacterByName(characterName);
+                var character = (PlayerInfoModel)AssignItemPicker.SelectedItem;
+                //var characterName = AssignItemPicker.SelectedItem.ToString();
+                //var character = CharacterIndexViewModel.Instance.GetCharacterByName(characterName);
                 PlayerInfoModel player = new PlayerInfoModel(character);
 
                 var characterFoundIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FindIndex(c => c.Name == player.Name);
                 BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.RemoveAt(characterFoundIndex);
 
-                // Add item to character
-                var item = ItemIndexViewModel.Instance.GetItem(itemId);
-                var itemLocation = ItemTypeEnumHelper.GetLocationFromItemType(item.ItemType);
-                player = AddItemToCharacter(player, itemLocation, item);
+                    // Add item to character
+                    var item = ItemIndexViewModel.Instance.GetItem(itemId);
+                    var itemLocation = ItemTypeEnumHelper.GetLocationFromItemType(item.ItemType);
+                    player = AddItemToCharacter(player, itemLocation, item);
 
-                // Remove item from dropped list and add to selected item list. 
-                var itemIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.FindIndex(i => i.Id == (string)itemId);
-                BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.RemoveAt(itemIndex);
-                BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelSelectList.Add(item);
+                    // Remove item from dropped list and add to selected item list. 
+                    var itemIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.FindIndex(i => i.Id == (string)itemId);
+                    BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.RemoveAt(itemIndex);
+                    BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelSelectList.Add(item);
 
-                // Add updated player back to view model
-                BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(player);
+                    // Add updated player back to view model
+                    BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(player);
+                
+                
             }
                 DrawItemLists();
 
