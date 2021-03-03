@@ -53,7 +53,8 @@ namespace Game.Views
             BattleEngineViewModel.Instance.SetBattleEngineToKoenig();
 
             DrawCharacterList();
-
+            DrawMonsterList();
+            
             // Create and Draw the Map
             // InitializeMapGrid();
 
@@ -332,8 +333,8 @@ namespace Game.Views
                 ItemListFoundFrame.Children.Remove(data);
             }
             
-            foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Distinct())
-            //foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.ItemPool)
+            //foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Distinct())
+            foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.ItemPool)
             {
                 ItemListFoundFrame.Children.Add(GetItemToDisplay(data));
             }
@@ -560,7 +561,7 @@ namespace Game.Views
                 BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.RemoveAt(characterFoundIndex);
 
                 // Add item to character
-                var item = ItemIndexViewModel.Instance.GetItem((string)itemId);
+                var item = ItemIndexViewModel.Instance.GetItem(itemId);
                 var itemLocation = ItemTypeEnumHelper.GetLocationFromItemType(item.ItemType);
                 player = AddItemToCharacter(player, itemLocation, item);
 
