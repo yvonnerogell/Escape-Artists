@@ -749,7 +749,6 @@ namespace Game.Views
         public void DrawMonsterList()
         {
             
-
             // Draw the Monsters
             foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList)
             {
