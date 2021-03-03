@@ -814,14 +814,7 @@ namespace Game.Views
             await Navigation.PushModalAsync(new RoundOverPage());
         }
 
-        /// <summary>
-        /// Show Settings
-        /// </summary>
-        public async Task ShowBattleSettingsPage()
-        {
-            ShowBattleMode();
-            await Navigation.PushModalAsync(new BattleSettingsPage());
-        }
+        
         #endregion PageHandelers
 
         protected override void OnAppearing()
