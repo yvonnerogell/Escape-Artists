@@ -63,7 +63,7 @@ namespace Game.Views
             BattleEngineViewModel.Instance.PartyCharacterList.Clear();
 
            
-            UpdateNextButtonState();
+            //UpdateNextButtonState();
         }
 
         /// <summary>
@@ -290,7 +290,7 @@ namespace Game.Views
             }
 
             // Manually deselect Character.
-        //    CharactersListView.SelectedItem = null;
+            //CharactersListView.SelectedItem = null;
 
             // Don't add more than the party max
             if (BattleEngineViewModel.Instance.PartyCharacterList.Count() < BattleEngineViewModel.Instance.Engine.EngineSettings.MaxNumberPartyCharacters)
@@ -298,9 +298,14 @@ namespace Game.Views
                 BattleEngineViewModel.Instance.PartyCharacterList.Add(data);
             }
 
-        //    UpdateNextButtonState();
+            //UpdateNextButtonState();
         }
 
+        /// <summary>
+        /// TODO Implement this method to properly add characters to the list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void OnCharacter_Clicked(object sender, EventArgs e)
         {
             //do the things needed to add the character to the party list and remove it from the character list
@@ -324,28 +329,25 @@ namespace Game.Views
             //PartyListView.SelectedItem = null;
 
             // Remove the character from the list
-            BattleEngineViewModel.Instance.PartyCharacterList.Remove(data);
+            //BattleEngineViewModel.Instance.PartyCharacterList.Remove(data);
 
        //     UpdateNextButtonState();
         }
 
         /// <summary>
         /// Next Button is based on the count
-        /// 
         /// If no selected characters, disable
-        /// 
         /// Show the Count of the party
-        /// 
         /// </summary>
         public void UpdateNextButtonState()
         {
              //If no characters disable Next button
-            BeginBattleButton.IsEnabled = false;
+            BeginBattleButton.IsEnabled = true;
 
             var currentCount = BattleEngineViewModel.Instance.PartyCharacterList.Count();
             if (currentCount == 0)
             {
-              BeginBattleButton.IsEnabled = false;
+              BeginBattleButton.IsEnabled = true;
             }
     
            // PartyCountLabel.Text = currentCount.ToString();
