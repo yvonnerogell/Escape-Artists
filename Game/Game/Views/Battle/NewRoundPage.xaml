@@ -11,7 +11,6 @@
             <Label Text="Students and Parents vs. Faculty and Admin" Style="{StaticResource CenterMessageLargeStyle}"/>
             <Frame Padding="10,0,0,0"/>
             <ImageButton Source="icon_edit.png" Clicked="Settings_Clicked" HorizontalOptions="End" Style="{StaticResource BattleToolbarStyle}"/>
-            <Frame Padding="10,0,0,0"/>
             <ImageButton Source="icon_cancel.png" Clicked="ExitButton_Clicked" HorizontalOptions="End" Style="{StaticResource BattleToolbarStyle}"/>
             <Frame Padding="10,0,0,0"/>
             <Label x:Name="BattleModeValue" Text="" Style="{StaticResource ValueStyleMicro}" HorizontalTextAlignment="Center"/>
