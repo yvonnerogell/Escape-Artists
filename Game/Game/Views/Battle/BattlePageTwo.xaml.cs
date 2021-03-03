@@ -36,6 +36,16 @@ namespace Game.Views
         bool UnitTestSetting;
         public BattlePageTwo(bool UnitTest) { UnitTestSetting = UnitTest; }
 
+        // list of characters
+        public List<PlayerInfoModel> characterList = new List<PlayerInfoModel>();
+
+        // selecting the character of that turn
+        public List<PlayerInfoModel> mainCharacters = new List<PlayerInfoModel>();
+
+        // list of monsters
+        public List<PlayerInfoModel> monsterList = new List<PlayerInfoModel>();
+
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -55,6 +65,8 @@ namespace Game.Views
             DrawCharacterList();
             DrawMonsterList();
             DrawItemLists();
+
+            
 
             // Create and Draw the Map
             // InitializeMapGrid();
@@ -255,8 +267,8 @@ namespace Game.Views
             var characterFoundIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FindIndex(c => c.Name == player.Name);
             BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.RemoveAt(characterFoundIndex);
 
-            // Add updated player back to view model
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.CharacterSelectList.Add(player);
+                // Add updated player back to view model
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(player);
             }
             DrawCharacterList();
             DrawSelectedCharacters();
@@ -282,6 +294,7 @@ namespace Game.Views
                 if (data.Level != 20)
                 {
                     CharacterListFrame.Children.Add(GetCharacterToDisplay(data));
+                    characterList.Add(data);
                 }
 
             }
@@ -292,17 +305,14 @@ namespace Game.Views
         /// </summary>
         public void DrawSelectedCharacters()
             {
-      
+
             var FlexList = CharacterListSelectedFrame.Children.ToList();
             foreach (var data in FlexList)
             {
-                CharacterListSelectedFrame.Children.Remove(data);
+                //CharacterListSelectedFrame.Children.Remove(data);
+                CharacterListSelectedFrame.Children.Add(data);
             }
 
-            foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.CharacterSelectList)
-            {
-                CharacterListSelectedFrame.Children.Add(CreatePlayerDisplayBox(data));
-            }
         }
 
         /// <summary>
@@ -438,8 +448,7 @@ namespace Game.Views
             PopupSaveButtonItem.CommandParameter = data.Id;
 
             // Figure out which characters can be assigned this item and display that list in the picker. 
-            List<PlayerInfoModel> allCharacters = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.CharacterSelectList;
-            List<string> charactersForItem = GetCharacterWhoCanAcceptItem(allCharacters, data);
+            List<string> charactersForItem = GetCharacterWhoCanAcceptItem(mainCharacters, data);
             AssignItemPicker.ItemsSource = charactersForItem;
             AssignItemPicker.SelectedIndex = 0;
 
@@ -726,7 +735,7 @@ namespace Game.Views
                 BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.RemoveAt(MonsterFoundIndex);
 
                 // Add updated player back to view model
-                BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.MonsterSelectList.Add(player);
+                BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Add(player);
             }
             DrawMonsterList();
             DrawSelectedMonsters();
@@ -758,16 +767,13 @@ namespace Game.Views
         public void DrawSelectedMonsters()
         {
 
-            var FlexList = MonsterListSelectedFrame.Children.ToList();
+            var FlexList = MonsterListFrame.Children.ToList();
             foreach (var data in FlexList)
             {
-                MonsterListSelectedFrame.Children.Remove(data);
+                //CharacterListSelectedFrame.Children.Remove(data);
+                MonsterListSelectedFrame.Children.Add(data);
             }
 
-            foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.CharacterSelectList)
-            {
-                MonsterListSelectedFrame.Children.Add(CreatePlayerDisplayBox(data));
-            }
         }
 
 
