@@ -373,7 +373,7 @@ namespace Game.Views
         public void CreateEngineCharacterList()
         {
             // Clear the currett list
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
+            //BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
 
             // Load the Characters into the Engine
             foreach (var data in BattleEngineViewModel.Instance.PartyCharacterList)
