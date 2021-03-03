@@ -395,7 +395,7 @@ namespace Game.Views
             {
                 Style = (Style)Application.Current.Resources["ImageLargeStyle"],
                 Source = data.ImageURI,
-                CommandParameter = item.Id
+                CommandParameter = item.Id,
             };
 
             if (ClickableButton)
@@ -435,7 +435,7 @@ namespace Game.Views
             PopupItemValue.Text = " + " + data.Value.ToString();
 
             // Set command parameter so that popup knows which item it is displaying
-            PopupSaveButtonCharacter.CommandParameter = data.Id;
+            PopupSaveButtonItem.CommandParameter = data.Id;
 
             // Figure out which characters can be assigned this item and display that list in the picker. 
             List<PlayerInfoModel> allCharacters = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.CharacterSelectList;
@@ -554,13 +554,18 @@ namespace Game.Views
             if (sender != null)
             {
                 itemId = ((Button)sender).CommandParameter.ToString();
-                var character = (PlayerInfoModel)AssignItemPicker.SelectedItem;
-                //var characterName = AssignItemPicker.SelectedItem.ToString();
-                //var character = CharacterIndexViewModel.Instance.GetCharacterByName(characterName);
+                var characterName = AssignItemPicker.ItemsSource.ToString();
+                var character = CharacterIndexViewModel.Instance.GetCharacterByName(characterName);
+                if (character == null)
+                {
+                    // Show the Default Icon for the Location
+                    character = new CharacterModel { Name = "Unknown", ImageURI = "icon_cancel.png" };
+
+                }
                 PlayerInfoModel player = new PlayerInfoModel(character);
 
-                var characterFoundIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FindIndex(c => c.Name == player.Name);
-                BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.RemoveAt(characterFoundIndex);
+                // var characterFoundIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FindIndex(c => c.Name == player.Name);
+                // BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.RemoveAt(characterFoundIndex);
 
                 // Add item to character
                 var item = ItemIndexViewModel.Instance.GetItem(itemId);
@@ -573,7 +578,7 @@ namespace Game.Views
                     BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelSelectList.Add(item);
 
                     // Add updated player back to view model
-                    BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(player);
+                //    BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(player);
                 
                 
             }
