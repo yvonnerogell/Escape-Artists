@@ -36,6 +36,19 @@ namespace Game.Views
         bool UnitTestSetting;
         public BattlePageTwo(bool UnitTest) { UnitTestSetting = UnitTest; }
 
+        // list of characters
+        public List<PlayerInfoModel> characterList = new List<PlayerInfoModel>();
+
+        // selecting the character of that turn
+        public List<PlayerInfoModel> mainCharacters = new List<PlayerInfoModel>();
+
+        // list of monsters
+        public List<PlayerInfoModel> monsterList = new List<PlayerInfoModel>();
+
+        // selecting the character of that turn
+        public List<PlayerInfoModel> mainMonsters = new List<PlayerInfoModel>();
+
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -55,6 +68,8 @@ namespace Game.Views
             DrawCharacterList();
             DrawMonsterList();
             DrawItemLists();
+
+            
 
             // Create and Draw the Map
             // InitializeMapGrid();
@@ -255,8 +270,8 @@ namespace Game.Views
             var characterFoundIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FindIndex(c => c.Name == player.Name);
             BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.RemoveAt(characterFoundIndex);
 
-            // Add updated player back to view model
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.CharacterSelectList.Add(player);
+                // Add updated player back to view model
+            mainCharacters.Add(player);
             }
             DrawCharacterList();
             DrawSelectedCharacters();
@@ -276,33 +291,50 @@ namespace Game.Views
                 CharacterListFrame.Children.Remove(data);
             }
 
-            // Draw the Characters
-            foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
-            {
-                if (data.Level != 20)
-                {
-                    CharacterListFrame.Children.Add(GetCharacterToDisplay(data));
-                }
 
-            }
+                // Draw the Characters
+                foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
+                {
+                    if (data.Level != 20)
+                    {
+                        CharacterListFrame.Children.Add(GetCharacterToDisplay(data));
+                        characterList.Add(data);
+                
+                    }
+
+                }
+         
         }
 
         /// <summary>
         /// Add Characters to the Display
         /// </summary>
         public void DrawSelectedCharacters()
-            {
-      
+        {
+
             var FlexList = CharacterListSelectedFrame.Children.ToList();
             foreach (var data in FlexList)
             {
                 CharacterListSelectedFrame.Children.Remove(data);
+                
             }
 
-            foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.CharacterSelectList)
+            // making sure only one character can be selected
+            var count = 0;
+            while (count < 1)
             {
-                CharacterListSelectedFrame.Children.Add(CreatePlayerDisplayBox(data));
+                // Draw the Characters
+                foreach (var data in mainCharacters)
+                {
+                    if (data.Level != 20)
+                    {
+                        CharacterListSelectedFrame.Children.Add(GetCharacterToDisplay(data));
+                        count += 1;
+                    }
+
+                }
             }
+
         }
 
         /// <summary>
@@ -438,8 +470,7 @@ namespace Game.Views
             PopupSaveButtonItem.CommandParameter = data.Id;
 
             // Figure out which characters can be assigned this item and display that list in the picker. 
-            List<PlayerInfoModel> allCharacters = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.CharacterSelectList;
-            List<string> charactersForItem = GetCharacterWhoCanAcceptItem(allCharacters, data);
+            List<string> charactersForItem = GetCharacterWhoCanAcceptItem(mainCharacters, data);
             AssignItemPicker.ItemsSource = charactersForItem;
             AssignItemPicker.SelectedIndex = 0;
 
@@ -726,7 +757,7 @@ namespace Game.Views
                 BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.RemoveAt(MonsterFoundIndex);
 
                 // Add updated player back to view model
-                BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.MonsterSelectList.Add(player);
+                mainMonsters.Add(player);
             }
             DrawMonsterList();
             DrawSelectedMonsters();
@@ -740,7 +771,6 @@ namespace Game.Views
         public void DrawMonsterList()
         {
             
-
             // Draw the Monsters
             foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList)
             {
@@ -762,16 +792,28 @@ namespace Game.Views
             foreach (var data in FlexList)
             {
                 MonsterListSelectedFrame.Children.Remove(data);
+
             }
 
-            foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.CharacterSelectList)
+            // making sure only one character can be selected
+            var count = 0;
+            while (count < 1)
             {
-                MonsterListSelectedFrame.Children.Add(CreatePlayerDisplayBox(data));
+                // Draw the Characters
+                foreach (var data in mainMonsters)
+                {
+                    if (data.Level != 20)
+                    {
+                        MonsterListSelectedFrame.Children.Add(GetMonsterToDisplay(data));
+                        count += 1;
+                    }
+
+                }
+
             }
+
         }
-
-
-        public async void AttackButton_Clicked(object sender, EventArgs e)
+                public async void AttackButton_Clicked(object sender, EventArgs e)
         {
             // TODO: make sure the AutoBattlePage is the right option here
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.RoundOver;

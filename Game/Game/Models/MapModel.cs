@@ -70,29 +70,36 @@ namespace Game.Models
             int y = 0;
             foreach (var data in PlayerList.Where(m => m.PlayerType == PlayerTypeEnum.Character))
             {
-                MapGridLocation[x, y].Player = data;
-
-                // If too many to fit on a row, start at the next row
-                x++;
-                if (x >= MapXAxiesCount)
+                if (data != null)
                 {
-                    x = 0;
-                    y++;
+                    MapGridLocation[x, y].Player = data;
+
+                    // If too many to fit on a row, start at the next row
+                    x++;
+                    if (x >= MapXAxiesCount)
+                    {
+                        x = 0;
+                        y++;
+                    }
                 }
+                
             }
 
             x = 0;
             y = MapYAxiesCount - 1;
             foreach (var data in PlayerList.Where(m => m.PlayerType == PlayerTypeEnum.Monster))
             {
-                MapGridLocation[x, y].Player = data;
-
-                // If too many to fit on a row, start at the next row
-                x++;
-                if (x >= MapXAxiesCount)
+                if (data != null)
                 {
-                    x = 0;
-                    y--;
+                    MapGridLocation[x, y].Player = data;
+
+                    // If too many to fit on a row, start at the next row
+                    x++;
+                    if (x >= MapXAxiesCount)
+                    {
+                        x = 0;
+                        y--;
+                    }
                 }
             }
 

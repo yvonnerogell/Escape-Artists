@@ -80,12 +80,12 @@ namespace Game.Models
         public List<ItemModel> ItemModelSelectList { get; set; } = new List<ItemModel>();
 
         // Add the Selected Characters to the List
-        [Ignore]
-        public List<PlayerInfoModel> CharacterSelectList { get; set; } = new List<PlayerInfoModel>();
+      //  [Ignore]
+       // public List<PlayerInfoModel> CharacterSelectList { get; set; } = new List<PlayerInfoModel>();
 
         // Add the Selected Monsters to the List
-        [Ignore]
-        public List<PlayerInfoModel> MonsterSelectList { get; set; } = new List<PlayerInfoModel>();
+        //[Ignore]
+        //public List<PlayerInfoModel> MonsterSelectList { get; set; } = new List<PlayerInfoModel>();
 
         /// <summary>
         /// Instantiate new Score 
