@@ -415,6 +415,7 @@ namespace Game.Engine.EngineGame
 
                     // TODO: call RemoveIfGraduated(Target);
 
+
                     break;
             }
 
@@ -493,7 +494,8 @@ namespace Game.Engine.EngineGame
                     Debug.WriteLine(EngineSettings.BattleMessagesModel.LevelUpMessage);
                 }
 
-                // TODO: check if level is above 20. 
+                // check if level is above 20 and holds graduation item 
+                Attacker.GraduateIfLevelAboveMaxLevel();
 
                 // Add Experinece to the Score
                 EngineSettings.BattleScore.ExperienceGainedTotal += experienceEarned;
