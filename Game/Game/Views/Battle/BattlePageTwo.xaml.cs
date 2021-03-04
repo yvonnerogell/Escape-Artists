@@ -291,7 +291,6 @@ namespace Game.Views
                 CharacterListFrame.Children.Remove(data);
             }
 
-
                 // Draw the Characters
                 foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
                 {
@@ -318,7 +317,6 @@ namespace Game.Views
                 CharacterListSelectedFrame.Children.Remove(data);
                 
             }
-
             
             // Draw the Characters
             foreach (var data in mainCharacters)
@@ -332,7 +330,6 @@ namespace Game.Views
                    
             }
             
-
         }
 
         /// <summary>

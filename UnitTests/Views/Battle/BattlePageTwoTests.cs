@@ -629,7 +629,6 @@ namespace UnitTests.Views
         }
 
 
-
         [Test]
         public void DrawCharacterList_Default_Should_Pass()
         {
@@ -688,8 +687,17 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
+        [Test]
+        public void DrawItems_Default_Should_Pass()
+        {
+            // Act
+            page.DrawItems();
 
+            // Reset
 
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
 
 
         [Test]
