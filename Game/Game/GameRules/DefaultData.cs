@@ -301,7 +301,7 @@ namespace Game.GameRules
                     CharacterTypeEnum = CharacterTypeEnum.Student,
                     SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.SmartyPants,
                     Range = 3,
-                    Level = 10,
+                    Level = 1,
                     GPA = 80,
                     MaxHealth = 100,
                     ImageURI = Constants.SpecificCharacterTypeSmartyPantsImageURI,
