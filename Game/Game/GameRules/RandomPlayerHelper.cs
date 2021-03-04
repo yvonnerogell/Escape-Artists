@@ -194,7 +194,7 @@ namespace Game.GameRules
         public static string GetCharacterName()
         {
 
-            List<String> StringList = new List<String> { "Mike", "Doug", "Jea", "Sue", "Tim", "Daren", "Dani", "Mami", "Mari", "Ryu", "Hucky", "Peanut", "Sumi", "Apple", "Ami", "Honami", "Sonomi", "Pat", "Sakue", "Isamu" };
+            List<String> StringList = new List<String> { "Sarah", "Mariah", "Sascha", "Mika", "Gaurav", "Arnold", "Liam", "Oliver", "William", "Noah", "Harper", "Ayushi", "Michaela", "Michel", "Carlos", "Fely", "Yukari", "Charlotte", "Elijah", "Mason" };
 
             var index = DiceHelper.RollDice(1, StringList.Count()) - 1;
 
