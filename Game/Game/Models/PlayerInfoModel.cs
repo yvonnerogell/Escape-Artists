@@ -443,6 +443,10 @@ namespace Game.Models
             {
                 // Is the head item graduation cap and robe
                 ItemModel itemOnHead = ItemIndexViewModel.Instance.GetItem(Head);
+                if (itemOnHead == null)
+                {
+                    return false;
+                }
                 if (itemOnHead.ItemType == ItemTypeEnum.GraduationCapAndRobe)
                 {
                     return true;
