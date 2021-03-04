@@ -116,5 +116,31 @@ namespace UnitTests.Views
             // Assert
             Assert.IsNotNull(result); // Got to here, so it happened...
         }
+
+        [Test]
+        public void ShowBattleMode_Default_Should_Pass()
+        {
+            // Arrange
+            // Act
+            page.ShowBattleMode();
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void ExitButton_Default_Should_Pass()
+        {
+            // Arrange
+            // Act
+            page.ExitButton_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
     }
 }
