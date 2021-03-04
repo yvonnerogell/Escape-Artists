@@ -328,6 +328,7 @@ namespace Game.Engine.EngineGame
             We will be implementing different logic depending on Auto Battle and Manual Battle. 
             Auto Battle:
                 1. same idea as current auto battle, except parents cannot pickup item for head and feet
+                2. if graduation cap exist, place it with high level character
 
             Manual Battle:
                 1. only load the items for character if they can hold it. Parents cannot load head or feet
@@ -339,6 +340,16 @@ namespace Game.Engine.EngineGame
             
             if (EngineSettings.BattleScore.AutoBattle)
             {
+                if (character.CharacterTypeEnum == CharacterTypeEnum.Student && character.Level > 17)
+                {
+                    if (EngineSettings.ItemPool.Any(m => m.ItemType == ItemTypeEnum.GraduationCapAndRobe))
+                    {
+                        ItemModel GradItem = EngineSettings.ItemPool.Find(m => m.ItemType == ItemTypeEnum.GraduationCapAndRobe);
+                        character.Head = GradItem.Id;
+                        EngineSettings.ItemPool.Remove(GradItem);
+                    }
+                }
+                
                 GetItemFromPoolIfBetter(character, ItemLocationEnum.Necklace);
                 GetItemFromPoolIfBetter(character, ItemLocationEnum.PrimaryHand);
                 GetItemFromPoolIfBetter(character, ItemLocationEnum.OffHand);
