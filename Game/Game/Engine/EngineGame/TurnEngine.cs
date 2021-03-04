@@ -102,7 +102,7 @@ namespace Game.Engine.EngineGame
         {
 
             /*
-             * TODO: TEAMS Work out your own move logic if you are implementing move
+             * TEAMS Work out your own move logic if you are implementing move
              * 
              * Mike's Logic
              * The monster or charcter will move to a different square if one is open
@@ -115,13 +115,15 @@ namespace Game.Engine.EngineGame
 
             /*
             Auto and Manual are differently implmented.
-            Auto Battle 
-                1. change up the monster move based on monster type. 
-                    * professors can move faster (2-3 blocks)
-                    * admin can only move (1-2 blocks)
-                2. change up the character move based on character type.
-                    * students can move faster (2-3 blocks)
-                    * parents can only move (1-2 blocks)
+            Auto Battle
+                * Attacker range is determined by: 
+                    1. monster move based on monster type. 
+                        * professors can move faster (2-3 blocks)
+                        * admin can only move (1-2 blocks)
+                    2. character move based on character type.
+                        * students can move faster (2-3 blocks)
+                        * parents can only move (1-2 blocks)
+                * move closest to defender by only within the range of the attacker.
 
             Manual Battle
                 1. character selects move as action for specific player 
@@ -134,18 +136,36 @@ namespace Game.Engine.EngineGame
             if (Attacker.PlayerType == PlayerTypeEnum.Monster)
             {
                 // For Attack, Choose Who
+                EngineSettings.CurrentDefender = AttackChoice(Attacker);
+
+                if (EngineSettings.CurrentDefender == null)
+                {
+                    return false;
+                }
 
                 // Get X, Y for Defender
+                var locationDefender = EngineSettings.MapModel.GetLocationForPlayer(EngineSettings.CurrentDefender);
+                if (locationDefender == null)
+                {
+                    return false;
+                }
 
-                // Get X, Y for the Attacker
+                var locationAttacker = EngineSettings.MapModel.GetLocationForPlayer(Attacker);
+                if (locationAttacker == null)
+                {
+                    return false;
+                }
 
                 // Find Location Nearest to Defender that is Open.
 
-                // Get the Open Locations
+                // Get the Open Locations based on range of attacker
+                var openSquare = EngineSettings.MapModel.ReturnClosestEmptyLocationBasedOnRange(locationAttacker, locationDefender);
 
-                // Format a message to show
+                Debug.WriteLine(string.Format("{0} moves from {1},{2} to {3},{4}", locationAttacker.Player.Name, locationAttacker.Column, locationAttacker.Row, openSquare.Column, openSquare.Row));
 
-                throw new System.NotImplementedException();
+                EngineSettings.BattleMessagesModel.TurnMessage = Attacker.Name + " moves closer to " + EngineSettings.CurrentDefender.Name;
+
+                return EngineSettings.MapModel.MovePlayerOnMap(locationAttacker, openSquare);
             }
 
             return true;
