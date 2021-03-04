@@ -296,15 +296,17 @@ namespace Game.Models
         {
             MapModelLocation Result = null;
 
-            int LowestDistance = Attacker.Player.Range;
+            int LowestDistance = int.MaxValue;
+            int MaxTravelForAttacker = Attacker.Player.Range;
 
             foreach (var data in GetEmptyLocations())
             {
-                var distance = CalculateDistance(data, Target);
-                if (distance < LowestDistance)
+                var distanceToTarget = CalculateDistance(data, Target);
+                var distanceFromAttacker = CalculateDistance(data, Attacker);
+                if (distanceToTarget < LowestDistance && distanceFromAttacker <= MaxTravelForAttacker)
                 {
                     Result = data;
-                    LowestDistance = distance;
+                    LowestDistance = distanceToTarget;
                 }
             }
 
