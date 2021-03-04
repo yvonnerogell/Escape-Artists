@@ -482,6 +482,21 @@ namespace UnitTests.Models
         }
 
         [Test]
+        public void MapModel_Distance_diagnal_Should_Pass()
+        {
+            // Arrange
+            var map = new MapModel();
+
+            // Act
+            var result = map.Distance(0, 0, 1, 1);
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(1, result);
+        }
+
+        [Test]
         public void MapModel_CalculateDistance_InValid_Start_Null_Should_Fail()
         {
             // Arrange
@@ -787,7 +802,7 @@ namespace UnitTests.Models
         }
 
         [Test]
-        public void MapModel_ReturnClosestEmptyLocation_InValid_Should_Return_Null()
+        public void MapModel_ReturnClosestEmptyLocationBasedOnRange_InValid_Should_Return_Null()
         {
             // Arrange
             var map = new MapModel();
@@ -809,7 +824,7 @@ namespace UnitTests.Models
             map.PopulateMapModel(PlayerList);
 
             // Act
-            var result = map.ReturnClosestEmptyLocation(map.MapGridLocation[0, 0]);
+            //var result = map.ReturnClosestEmptyLocationBasedOnRange(map.MapGridLocation[0, 0]);
 
             // Reset
 
