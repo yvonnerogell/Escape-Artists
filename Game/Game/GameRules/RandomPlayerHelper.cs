@@ -82,7 +82,7 @@ namespace Game.GameRules
         public static string GetCharacterImage()
         {
 
-            List<String> StringList = new List<String> { "item.png", "item.png", "item.png", "item.png", "item.png", "item.png", "item.png" };
+            List<String> StringList = new List<String> { "helicopter_parent.png", "cool_parent.png", "overachiever_student.png", "prodigy_student.png", "slacker_student.png", "smarty_pants_character.png", "second_career_student.png" };
 
             var index = DiceHelper.RollDice(1, StringList.Count()) - 1;
 

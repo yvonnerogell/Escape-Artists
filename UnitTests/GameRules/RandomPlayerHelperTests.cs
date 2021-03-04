@@ -210,7 +210,7 @@ namespace UnitTests.Helpers
             DiceHelper.DisableForcedRolls();
 
             // Assert
-            Assert.AreEqual("item.png", result);
+            Assert.AreEqual("cool_parent.png", result);
         }
 
         [Test]
