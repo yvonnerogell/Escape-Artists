@@ -456,6 +456,42 @@ namespace UnitTests.Helpers
             Assert.AreEqual(400000, result.ExperienceRemaining);
         }
 
+        [Test]
+        public void RandomPlayerHelper_GetRandomCharacterParent_Valid_1_Should_Return_New_HelicopterParent()
+        {
+            // Arrange
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(1);
+
+            // Act
+            var result = RandomPlayerHelper.GetRandomCharacterParent(20);
+
+            // Reset
+            DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreEqual(CharacterTypeEnum.Parent, result.CharacterTypeEnum);
+            Assert.AreEqual(SpecificCharacterTypeEnum.HelicopterParent, result.SpecificCharacterTypeEnum);
+        }
+
+        [Test]
+        public void RandomPlayerHelper_GetRandomCharacterParent_Valid_2_Should_Return_New_CoolParent()
+        {
+            // Arrange
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(2);
+
+            // Act
+            var result = RandomPlayerHelper.GetRandomCharacterParent(20);
+
+            // Reset
+            DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreEqual(CharacterTypeEnum.Parent, result.CharacterTypeEnum);
+            Assert.AreEqual(SpecificCharacterTypeEnum.CoolParent, result.SpecificCharacterTypeEnum);
+        }
+
         //[Test]
         //public async Task RandomPlayerHelper_GetRandomMonster_Valid_Items_True_Should_Return_New_Monster()
         //{
