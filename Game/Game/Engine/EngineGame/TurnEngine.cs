@@ -413,8 +413,11 @@ namespace Game.Engine.EngineGame
                     // If it is a character apply the experience earned
                     CalculateExperience(Attacker, Target);
 
-                    // TODO: call RemoveIfGraduated(Target);
-
+                    // check if attacker/character is graduated and remove if that's the case
+                    if (Attacker.PlayerType == PlayerTypeEnum.Character)
+                    {
+                        RemoveIfGraduated(Attacker);
+                    }
 
                     break;
             }
