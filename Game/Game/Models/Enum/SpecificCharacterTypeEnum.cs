@@ -372,5 +372,59 @@ namespace Game.Models
             }
             return imageURI;
         }
+
+        /// <summary>
+        /// Given the inputted Character, updates the Range based on the SpecificCharacterTypeEnum. 
+        /// </summary>
+        /// <param name="newData">Character to update</param>
+        public static int ToRange(SpecificCharacterTypeEnum specificCharacterType)
+        {
+            var range = 1;
+            switch (specificCharacterType)
+            {
+
+                case SpecificCharacterTypeEnum.SmartyPants:
+                    range = 3;
+                    break;
+
+                case SpecificCharacterTypeEnum.Overachiever:
+                    range = 3;
+                    break;
+
+                case SpecificCharacterTypeEnum.InternationalStudent:
+                    range = 2;
+                    break;
+
+                case SpecificCharacterTypeEnum.Prodigy:
+                    range = 2;
+                    break;
+
+                case SpecificCharacterTypeEnum.SecondCareer:
+                    range = 2;
+                    break;
+
+                case SpecificCharacterTypeEnum.Slacker:
+                    range = 2;
+                    break;
+
+                case SpecificCharacterTypeEnum.Procrastinator:
+                    range = 2;
+                    break;
+
+                case SpecificCharacterTypeEnum.HelicopterParent:
+                    range = 2;
+                    break;
+
+                case SpecificCharacterTypeEnum.CoolParent:
+                    range = 1;
+                    break;
+
+                case SpecificCharacterTypeEnum.Unknown:
+                default:
+                    range = 1;
+                    break;
+            }
+            return range;
+        }
     }
 }
