@@ -36,14 +36,19 @@ namespace UnitTests.Views
             BattleEngineViewModel.Instance.SetBattleEngineToKoenig();
 
             var characters = DefaultData.LoadData(new CharacterModel());
+            characters.Add(new CharacterModel());
 
+            // add characters to the Engine
             foreach (var character in characters)
             {
                 BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(character));
             }
 
+            // create a list of monsters
             var monsters = DefaultData.LoadData(new MonsterModel());
+            monsters.Add(new MonsterModel());
 
+            // add monsters to the Engine
             foreach (var monster in monsters)
             {
                 BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Add(new PlayerInfoModel(monster));
@@ -66,36 +71,6 @@ namespace UnitTests.Views
         }
 
         [Test]
-
-        public void CreatePlayerDisplayBox_Null_Should_Pass()
-        {
-            // Get the current value
-           
-            // Act
-            page.CreatePlayerDisplayBox(null);
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-        [Test]
-
-        public void CreatePlayerDisplayBox_OnAppearing_Should_Pass()
-        {
-            // Get the current value
-            var player = new PlayerInfoModel(new CharacterModel{});
-            // Act
-            page.CreatePlayerDisplayBox(player);
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-
-
-        [Test]
         public void BattlePageTwo_OnAppearing_Should_Pass()
         {
             // Get the current valute
@@ -110,33 +85,43 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void PopupSaveButtonCharacter_Clicked_Default_Should_Pass()
-        {
-            // Arrange
-           
 
+        public void CreatePlayerDisplayBox_Null_Should_Pass()
+        {
+            // Get the current value
+           
             // Act
-            page.PopupSaveButtonCharacter_Clicked(null, null);
+            page.CreatePlayerDisplayBox(null);
 
             // Reset
-           
+
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
         [Test]
-        public void PopupSaveButtonMonster_Clicked_Default_Should_Pass()
+        public void GetCharacterToDisplay_Clicked_Default_Should_Pass()
         {
-            // Arrange
-            
-
             // Act
-            page.PopupSaveButtonCharacter_Clicked(null, null);
+            page.GetCharacterToDisplay(null);
 
             // Reset
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void GetCharacterToDisplay_Clicked_Null_Should_Pass()
+        {
+            // Act
+            var character = new PlayerInfoModel(new CharacterModel { Id = null });
+            var result = page.GetCharacterToDisplay(character);
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result); // Got to here, so it happened...
         }
 
         [Test]
@@ -152,6 +137,23 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
+
+        [Test]
+        public void PopupSaveButtonMonster_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+            
+
+            // Act
+            page.PopupSaveButtonMonster_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+
 
         [Test]
         public void ShowPopupMonster_Clicked_Default_Should_Pass()
@@ -193,12 +195,262 @@ namespace UnitTests.Views
 
             // Reset
 
-            // Assert
+            // Asser
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
         [Test]
-        public void AddItemToCharacter_Clicked_Default_Should_Pass()
+        public void CharacterWhoCanAcceptItem_Clicked_Head_IndexCard_Should_Fail()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel>();
+            var newCharacter = new PlayerInfoModel(new CharacterModel { Head = null });
+            characters.Add(newCharacter);
+            var item = new ItemModel { ItemType = ItemTypeEnum.IndexCards };
+            // Act
+            var list_of_characters = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.IsFalse(list_of_characters.Contains(newCharacter.Name)); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterWhoCanAcceptItem_Clicked_Head_HeadItem_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel>();
+            var newCharacter = new PlayerInfoModel(new CharacterModel
+            {
+                Head = "None",
+                Name = "something",
+                CharacterTypeEnum = CharacterTypeEnum.Student
+            });
+            characters.Add(newCharacter);
+            var item = new ItemModel();
+            item.Location = ItemLocationEnum.Head;
+            // Act
+            var list_of_characters = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(list_of_characters.Contains(newCharacter.Name)); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterWhoCanAcceptItem_Clicked_Parent_HeadItem_Should_Fail()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel>();
+            var newCharacter = new PlayerInfoModel(new CharacterModel
+            {           
+                Name = "something",
+                CharacterTypeEnum = CharacterTypeEnum.Parent
+            });
+            characters.Add(newCharacter);
+            var item = new ItemModel();
+            item.Location = ItemLocationEnum.Head;
+            // Act
+            var list_of_characters = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.IsFalse(list_of_characters.Contains(newCharacter.Name)); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterWhoCanAcceptItem_Clicked_Graduated_HeadItem_Should_Fail()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel>();
+            var newCharacter = new PlayerInfoModel(new CharacterModel
+            {
+                Name = "something",
+                Level = 20
+            });
+            characters.Add(newCharacter);
+            var item = new ItemModel();
+            item.Location = ItemLocationEnum.Head;
+            // Act
+            var list_of_characters = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.IsFalse(list_of_characters.Contains(newCharacter.Name)); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterWhoCanAcceptItem_Clicked_Necklace_NeckLaceItem_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel>();
+            var newCharacter = new PlayerInfoModel(new CharacterModel
+            {
+                Necklace = "None",
+                Name = "something",
+                CharacterTypeEnum = CharacterTypeEnum.Student
+            });
+            characters.Add(newCharacter);
+            var item = new ItemModel();
+            item.Location = ItemLocationEnum.Necklace;
+            // Act
+            var list_of_characters = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(list_of_characters.Contains(newCharacter.Name)); // Got to here, so it happened...
+        }
+
+
+
+        [Test]
+        public void CharacterWhoCanAcceptItem_Clicked_RightFinger_RightFingerItem_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel>();
+            var newCharacter = new PlayerInfoModel(new CharacterModel
+            {
+                RightFinger = "None",
+                Name = "something",
+                CharacterTypeEnum = CharacterTypeEnum.Student
+            });
+            characters.Add(newCharacter);
+            var item = new ItemModel();
+            item.Location = ItemLocationEnum.RightFinger;
+            // Act
+            var list_of_characters = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(list_of_characters.Contains(newCharacter.Name)); // Got to here, so it happened...
+        }
+
+
+        [Test]
+        public void CharacterWhoCanAcceptItem_Clicked_PrimaryHand_PrimaryHandItem_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel>();
+            var newCharacter = new PlayerInfoModel(new CharacterModel
+            {
+                PrimaryHand = "None",
+                Name = "something",
+                CharacterTypeEnum = CharacterTypeEnum.Student
+            });
+            characters.Add(newCharacter);
+            var item = new ItemModel();
+            item.Location = ItemLocationEnum.PrimaryHand;
+            // Act
+            var list_of_characters = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(list_of_characters.Contains(newCharacter.Name)); // Got to here, so it happened...
+        }
+
+
+        [Test]
+        public void CharacterWhoCanAcceptItem_Clicked_OffHand_OffHandItem_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel>();
+            var newCharacter = new PlayerInfoModel(new CharacterModel
+            {
+                OffHand = "None",
+                Name = "something",
+                CharacterTypeEnum = CharacterTypeEnum.Student
+            });
+            characters.Add(newCharacter);
+            var item = new ItemModel();
+            item.Location = ItemLocationEnum.OffHand;
+            // Act
+            var list_of_characters = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(list_of_characters.Contains(newCharacter.Name)); // Got to here, so it happened...
+        }
+
+
+        [Test]
+        public void CharacterWhoCanAcceptItem_Clicked_LeftFinger_LeftFingerItem_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel>();
+            var newCharacter = new PlayerInfoModel(new CharacterModel
+            {
+                LeftFinger = "None",
+                Name = "something",
+                CharacterTypeEnum = CharacterTypeEnum.Student
+            });
+            characters.Add(newCharacter);
+            var item = new ItemModel();
+            item.Location = ItemLocationEnum.LeftFinger;
+            // Act
+            var list_of_characters = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(list_of_characters.Contains(newCharacter.Name)); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterWhoCanAcceptItem_Clicked_Feet_FeetItem_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel>();
+            var newCharacter = new PlayerInfoModel(new CharacterModel
+            {
+                Feet = "None",
+                Name = "something",
+                CharacterTypeEnum = CharacterTypeEnum.Student
+            });
+            characters.Add(newCharacter);
+            var item = new ItemModel();
+            item.Location = ItemLocationEnum.Feet;
+            // Act
+            var list_of_characters = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(list_of_characters.Contains(newCharacter.Name)); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterWhoCanAcceptItem_Clicked_Parent_FeetItem_Should_Fail()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel>();
+            var newCharacter = new PlayerInfoModel(new CharacterModel
+            {
+                Name = "something",
+                CharacterTypeEnum = CharacterTypeEnum.Parent
+            });
+            characters.Add(newCharacter);
+            var item = new ItemModel();
+            item.Location = ItemLocationEnum.Feet;
+            // Act
+            var list_of_characters = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.IsFalse(list_of_characters.Contains(newCharacter.Name)); // Got to here, so it happened...
+        }
+
+
+        [Test]
+        public void AddItemToCharacter_Clicked_Feet_Should_Pass()
         {
             // Arrange
             var player = new PlayerInfoModel();
@@ -213,12 +465,13 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void PopupSaveButtonItem_Clicked_Default_Should_Pass()
+        public void AddItemToCharacter_Clicked_Head_Should_Pass()
         {
             // Arrange
-
+            var player = new PlayerInfoModel();
+            var item = new ItemModel();
             // Act
-            page.PopupSaveButtonCharacter_Clicked(null,null);
+            page.AddItemToCharacter(player, ItemLocationEnum.Head, item);
 
             // Reset
 
@@ -227,10 +480,104 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void GetCharacterToDisplay_Clicked_Default_Should_Pass()
+        public void AddItemToCharacter_Clicked_OffHand_Should_Pass()
         {
+            // Arrange
+            var player = new PlayerInfoModel();
+            var item = new ItemModel();
             // Act
-            page.GetCharacterToDisplay(null);
+            page.AddItemToCharacter(player, ItemLocationEnum.OffHand, item);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void AddItemToCharacter_Clicked_Necklace_Should_Pass()
+        {
+            // Arrange
+            var player = new PlayerInfoModel();
+            var item = new ItemModel();
+            // Act
+            page.AddItemToCharacter(player, ItemLocationEnum.Necklace, item);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void AddItemToCharacter_Clicked_PrimaryHand_Should_Pass()
+        {
+            // Arrange
+            var player = new PlayerInfoModel();
+            var item = new ItemModel();
+            // Act
+            page.AddItemToCharacter(player, ItemLocationEnum.PrimaryHand, item);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void AddItemToCharacter_Clicked_RightFinger_Should_Pass()
+        {
+            // Arrange
+            var player = new PlayerInfoModel();
+            var item = new ItemModel();
+            // Act
+            page.AddItemToCharacter(player, ItemLocationEnum.RightFinger, item);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void AddItemToCharacter_Clicked_LeftFinger_Should_Pass()
+        {
+            // Arrange
+            var player = new PlayerInfoModel();
+            var item = new ItemModel();
+            // Act
+            page.AddItemToCharacter(player, ItemLocationEnum.LeftFinger, item);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+
+
+        [Test]
+        public void PopupSaveButtonItem_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            page.PopupSaveButtonItem_Clicked(null,null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void PopupCloseButtonItem_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+
+
+            // Act
+            page.ClosePopupItem_Clicked(null, null);
 
             // Reset
 
@@ -251,6 +598,19 @@ namespace UnitTests.Views
         }
 
         [Test]
+        public void GetMonsterToDisplay_Clicked_Null_Should_Pass()
+        {
+            // Act
+            var monster = new PlayerInfoModel(new MonsterModel { Id = null });
+            var result = page.GetMonsterToDisplay(monster);
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result); // Got to here, so it happened...
+        }
+
+        [Test]
         public void GetItemToDisplay_Clicked_Default_Should_Pass()
         {
             // Act
@@ -260,6 +620,31 @@ namespace UnitTests.Views
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void GetItemToDisplay_Clicked_NotNull_Should_Pass()
+        {
+            // Act
+            var result = page.GetItemToDisplay(new ItemModel { ItemType=ItemTypeEnum.Skateboard});
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void GetItemToDisplay_Clicked_Null_Should_Pass()
+        {
+            // Act
+            var item = new ItemModel{ Id = null };
+            var result = page.GetItemToDisplay(item);
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result); // Got to here, so it happened...
         }
 
         [Test]
@@ -289,20 +674,6 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
-        [Test]
-        public void PopupCloseButtonItem_Clicked_Default_Should_Pass()
-        {
-            // Arrange
-           
-
-            // Act
-            page.ClosePopupItem_Clicked(null, null);
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
 
         [Test]
         public void DrawCharacterList_Default_Should_Pass()
@@ -362,9 +733,23 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
+        [Test]
+        public void DrawItems_Default_Should_Pass()
+        {
+            // Act
+            page.DrawItems();
 
+            // Reset
 
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
 
+        [Test]
+        public void DrawItems_Remove_Should_Pass()
+        {
+
+        }
 
         [Test]
         public void DrawMonsterList_Default_Should_Pass()
