@@ -231,6 +231,37 @@ namespace UnitTests.Helpers
         }
 
         [Test]
+        public void RandomPlayerHelper_GetItemEscapingSchool_Unknown_Should_Return_0()
+        {
+            // Arrange
+
+            // Act
+            var result = RandomPlayerHelper.GetItemEscapingSchool(Game.Models.ItemLocationEnum.Unknown);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(null, result);
+        }
+
+        [Test]
+        public void RandomPlayerHelper_GetItemEscapingSchool_2_Should_Return_2()
+        {
+            // Arrange
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(2);
+
+            // Act
+            var result = RandomPlayerHelper.GetItemEscapingSchool(Game.Models.ItemLocationEnum.Feet);
+
+            // Reset
+            DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreNotEqual(null, result);
+        }
+
+        [Test]
         public void RandomPlayerHelper_GetMonsterDifficultyValue_Should_Pass()
         {
             // Arrange
