@@ -209,8 +209,48 @@ namespace UnitTests.Views
 
             // Reset
 
-            // Assert
+            // Asser
             Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterWhoCanAcceptItem_Clicked_Head_IndexCard_Should_Fail()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel>();
+            var newCharacter = new PlayerInfoModel(new CharacterModel { Head = null });
+            characters.Add(newCharacter);
+            var item = new ItemModel { ItemType = ItemTypeEnum.IndexCards };
+            // Act
+            var list_of_characters = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.IsFalse(list_of_characters.Contains(newCharacter.Name)); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterWhoCanAcceptItem_Clicked_Head_GradCap_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel>();
+            var newCharacter = new PlayerInfoModel(new CharacterModel
+            {
+                Head = "None",
+                Name = "something",
+                CharacterTypeEnum = CharacterTypeEnum.Student
+            });
+            characters.Add(newCharacter);
+            var item = new ItemModel();
+            item.Location = ItemLocationEnum.Head;
+            // Act
+            var list_of_characters = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(list_of_characters.Contains(newCharacter.Name)); // Got to here, so it happened...
         }
 
         [Test]
