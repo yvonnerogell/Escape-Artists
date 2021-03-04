@@ -86,22 +86,7 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-        [Test]
-
-        public void CreatePlayerDisplayBox_OnAppearing_Should_Pass()
-        {
-            // Get the current value
-            var player = new PlayerInfoModel(new CharacterModel{});
-            // Act
-            page.CreatePlayerDisplayBox(player);
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-
-
+        
         [Test]
         public void BattlePageTwo_OnAppearing_Should_Pass()
         {
