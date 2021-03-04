@@ -70,6 +70,7 @@ namespace Game.Engine.EngineBase
                 }
 
                 Debug.WriteLine("Next Turn " + Battle.EngineSettings.BattleScore.TurnCount);
+                Debug.WriteLine("Characsts left: " + Battle.EngineSettings.CharacterList.Count());
 
                 // Do the turn...
                 // If the round is over start a new one...
