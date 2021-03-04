@@ -55,8 +55,8 @@ namespace UnitTests.Views
             }
 
             page = new BattlePageTwo();
+       
 
-            page = new BattlePageTwo();
 
             // Put seed data into the system for all tests
             //BattleEngineViewModel.Instance.Engine.Round.ClearLists();
@@ -131,15 +131,24 @@ namespace UnitTests.Views
         public void PopupSaveButtonCharacter_Clicked_Default_Should_Pass()
         {
             // Arrange
-
-
+            Button s = new Button();
+            s.CommandParameter = "Nancy";
+            var e = new System.EventArgs();
+            var characterName = s.CommandParameter.ToString();
+            var character = CharacterIndexViewModel.Instance.GetCharacterByName(characterName);
+            PlayerInfoModel player = new PlayerInfoModel(new CharacterModel{ Name = "random" });
+            if (character!= null)
+            {
+                player = new PlayerInfoModel(character);
+            }
+            
             // Act
-            page.PopupSaveButtonCharacter_Clicked(null, null);
+            page.PopupSaveButtonCharacter_Clicked(s, e);
 
             // Reset
 
             // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
+            Assert.IsFalse(BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Contains(player));
         }
 
 
