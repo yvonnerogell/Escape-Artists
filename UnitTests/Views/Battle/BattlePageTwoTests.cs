@@ -73,21 +73,6 @@ namespace UnitTests.Views
         }
 
         [Test]
-
-        public void CreatePlayerDisplayBox_Null_Should_Pass()
-        {
-            // Get the current value
-           
-            // Act
-            page.CreatePlayerDisplayBox(null);
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-        
-        [Test]
         public void BattlePageTwo_OnAppearing_Should_Pass()
         {
             // Get the current valute
@@ -102,28 +87,25 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void PopupSaveButtonCharacter_Clicked_Default_Should_Pass()
-        {
-            // Arrange
-           
 
+        public void CreatePlayerDisplayBox_Null_Should_Pass()
+        {
+            // Get the current value
+           
             // Act
-            page.PopupSaveButtonCharacter_Clicked(null, null);
+            page.CreatePlayerDisplayBox(null);
 
             // Reset
-           
+
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
         [Test]
-        public void PopupSaveButtonMonster_Clicked_Default_Should_Pass()
+        public void GetCharacterToDisplay_Clicked_Default_Should_Pass()
         {
-            // Arrange
-            
-
             // Act
-            page.PopupSaveButtonCharacter_Clicked(null, null);
+            page.GetCharacterToDisplay(null);
 
             // Reset
 
@@ -144,6 +126,39 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
+
+        [Test]
+        public void PopupSaveButtonCharacter_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+
+
+            // Act
+            page.PopupSaveButtonCharacter_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+
+        [Test]
+        public void PopupSaveButtonMonster_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+            
+
+            // Act
+            page.PopupSaveButtonCharacter_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+
 
         [Test]
         public void ShowPopupMonster_Clicked_Default_Should_Pass()
@@ -219,10 +234,13 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void GetCharacterToDisplay_Clicked_Default_Should_Pass()
+        public void PopupCloseButtonItem_Clicked_Default_Should_Pass()
         {
+            // Arrange
+
+
             // Act
-            page.GetCharacterToDisplay(null);
+            page.ClosePopupItem_Clicked(null, null);
 
             // Reset
 
@@ -281,20 +299,7 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
-        [Test]
-        public void PopupCloseButtonItem_Clicked_Default_Should_Pass()
-        {
-            // Arrange
-           
 
-            // Act
-            page.ClosePopupItem_Clicked(null, null);
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
 
         [Test]
         public void DrawCharacterList_Default_Should_Pass()
