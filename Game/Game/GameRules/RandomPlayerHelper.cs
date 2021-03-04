@@ -310,7 +310,53 @@ namespace Game.GameRules
             }
 
             // Add None to the list
+            ItemList.Insert(0, new ItemModel { Id = null, Name = "None" });
+
+            var result = ItemList.First().Id;
+
+            var index = DiceHelper.RollDice(1, ItemList.Count()) - 1;
+            if (index < ItemList.Count)
+            {
+                result = ItemList.ElementAt(index).Id;
+            }
+
+            return result;
+        }
+
+
+        /// <summary>
+        /// Get a Random Item for the Location. This method it particular to the Escaping School game flavor.
+        /// 
+        /// Return the String for the ID
+        /// </summary>
+        /// <param name="location"></param>
+        /// <returns></returns>
+        public static string GetItemEscapingSchool(ItemLocationEnum location)
+        {
+
+            var ItemList = new List<ItemModel>();
+
+            // Add None to the list
             ItemList.Add(new ItemModel { Id = null, Name = "None" });
+
+            var itemtypes = ItemLocationEnumHelper.GetItemFromLocationType(location);
+            if (itemtypes.Count == 0)
+            {
+                return null;
+            }
+
+            foreach (var type in itemtypes)
+			{
+                ItemModel item = new ItemModel();
+                item.Name = ItemTypeEnumHelper.getRandomeNameBasedOnType(type);
+                item.Description = ItemTypeEnumHelper.getDescriptionBasedOnType(type);
+                item.ItemType = type;
+                item.Attribute = AttributeEnum.Attack;
+                item.Location = location;
+                item.ImageURI = ItemTypeEnumHelper.GetImageURIFromItemType(type);
+                item.Damage = ItemTypeEnumHelper.GetDamageFromItemType(type);
+                ItemList.Add(item);
+			}
 
             var result = ItemList.First().Id;
 
@@ -354,6 +400,60 @@ namespace Game.GameRules
 
                 ImageURI = GetCharacterImage()
             };
+
+            result.MaxHealth = DiceHelper.RollDice(MaxLevel, 10);
+
+            // Level up to the new level
+            result.LevelUpToValue(result.Level);
+
+            // Enter Battle at full health
+            result.CurrentHealth = result.MaxHealth;
+
+            return result;
+        }
+
+        /// <summary>
+        /// Create Random Character for the battle. This method is specific to our game flavor - Escaping School.Creates a parent.
+        /// </summary>
+        /// <param name="MaxLevel"></param>
+        /// <returns></returns>
+        public static CharacterModel GetRandomCharacterParent(int MaxLevel)
+        {
+            
+            var result = new CharacterModel()
+            {
+                Level = DiceHelper.RollDice(1, MaxLevel),
+
+                // Randomize Name
+                Name = GetCharacterName(),
+                Description = GetCharacterDescriptionParent(),
+                CharacterTypeEnum = CharacterTypeEnum.Parent,
+
+                // Randomize the Attributes
+                Attack = GetAbilityValue(),
+                Speed = GetAbilityValue(),
+                Defense = GetAbilityValue(),
+
+                // Randomize an Item for Location. Parents don't have heads or feet.
+                Necklace = GetItem(ItemLocationEnum.Necklace),
+                PrimaryHand = GetItem(ItemLocationEnum.PrimaryHand),
+                OffHand = GetItem(ItemLocationEnum.OffHand),
+                RightFinger = GetItem(ItemLocationEnum.Finger),
+                LeftFinger = GetItem(ItemLocationEnum.Finger),
+            };
+
+            var specifictype = DiceHelper.RollDice(1, 2);
+
+            if (specifictype % 2 == 0)
+			{
+                result.SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.CoolParent;
+			}
+            if (specifictype % 2 != 0)
+            {
+                result.SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.HelicopterParent;
+            }
+
+            result.ImageURI = SpecificCharacterTypeEnumHelper.ToImageURI(result.SpecificCharacterTypeEnum);
 
             result.MaxHealth = DiceHelper.RollDice(MaxLevel, 10);
 
