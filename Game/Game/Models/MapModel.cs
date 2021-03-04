@@ -288,6 +288,29 @@ namespace Game.Models
             return Result;
         }
 
+        /// Walk the Map and Find the Location that is close to the target based on attacker's travel distance.
+        /// </summary>
+        /// <param name="Target"></param>
+        /// <returns></returns>
+        public MapModelLocation ReturnClosestEmptyLocationBasedOnRange(MapModelLocation Attacker, MapModelLocation Target)
+        {
+            MapModelLocation Result = null;
+
+            int LowestDistance = Attacker.Player.Range;
+
+            foreach (var data in GetEmptyLocations())
+            {
+                var distance = CalculateDistance(data, Target);
+                if (distance < LowestDistance)
+                {
+                    Result = data;
+                    LowestDistance = distance;
+                }
+            }
+
+            return Result;
+        }
+
         /// <summary>
         /// See if the Attacker is next to the Defender by the distance of Range
         /// 
