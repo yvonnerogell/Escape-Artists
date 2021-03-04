@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Game.GameRules;
+using Game.ViewModels;
 
 namespace Game.Models
 {
@@ -417,6 +418,38 @@ namespace Game.Models
         // once above 20 for character and hold cap they can graduate. 
         // parents do not graduate
 
+        /// <summary>
+        /// player will graduate if level is 20 and holds graduation item
+        /// </summary>
+        /// <returns></returns>
+        public bool GraduateIfLevelAboveMaxLevel()
+        {
+            if (Level >= LevelTableHelper.MaxLevel && HoldGraduationItem())
+            {
+                Graduated = true;
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// check if player is holding graduation items
+        /// </summary>
+        /// <returns></returns>
+        public bool HoldGraduationItem()
+        {
+            // Is head empty
+            if (Head != null)
+            {
+                // Is the head item graduation cap and robe
+                ItemModel itemOnHead = ItemIndexViewModel.Instance.GetItem(Head);
+                if (itemOnHead.ItemType == ItemTypeEnum.GraduationCapAndRobe)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         #endregion Graduation
 
     }
