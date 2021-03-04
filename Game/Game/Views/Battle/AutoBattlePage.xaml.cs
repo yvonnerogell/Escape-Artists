@@ -27,12 +27,28 @@ namespace Game.Views
 		}
 
 		/// <summary>
+		/// Any time picker changes, items reset based on player type
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		public void OnPickerSelectedIndexChanged(object sender, EventArgs e)
+		{
+			var picker = (Picker)sender;
+
+			BattleEngineViewModel.Instance.Engine.EngineSettings.MaxNumberPartyCharacters = (int)picker.SelectedItem;
+		}
+
+		/// <summary>
 		/// Defines what happens when the AutoBattleButton is clicked.
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		public async void AutobattleButton_Clicked(object sender, EventArgs e)
 		{
+			// Clear CharacterList and MonsterList
+			BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
+			BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
+
 			// Call into Auto Battle from here to do the Battle...
 
 			// To See Level UP happening, a character needs to be close to the next level
@@ -48,8 +64,12 @@ namespace Game.Views
 			// Turn on the Koenig version for now...
 			//BattleEngineViewModel.Instance.SetBattleEngineToKoenig();
 
-			BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(CharacterPlayer);
-			BattleEngineViewModel.Instance.Engine.EngineSettings.MaxNumberPartyCharacters = (int) CharacterPicker.SelectedItem;
+			BattleEngineViewModel.Instance.Engine.EngineSettings.MaxNumberPartyCharacters = (int)CharacterPicker.SelectedItem;
+			
+			if (BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Count < BattleEngineViewModel.Instance.Engine.EngineSettings.MaxNumberPartyCharacters)
+            {
+				BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(CharacterPlayer);
+			}
 
 
 			await BattleEngineViewModel.Instance.AutoBattleEngine.RunAutoBattle();
