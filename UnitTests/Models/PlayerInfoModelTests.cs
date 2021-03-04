@@ -641,6 +641,27 @@ namespace UnitTests.Models
         }
 
         [Test]
+        public void PlayerInfoModel_HoldGraduationItem_Head_With_Item_Should_Pass()
+        {
+            // Arrange
+            var character = new CharacterModel();
+            ItemIndexViewModel.Instance.LoadDatasetCommand.Execute(null);
+            ItemModel item = ItemIndexViewModel.Instance.GetDefaultItem(ItemLocationEnum.PrimaryHand);
+
+            //put a primary hand item on head
+            character.Head = item.Id;
+            var data = new PlayerInfoModel(character);
+
+            // Act
+            var result = data.HoldGraduationItem();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
         public void PlayerInfoModel_GraduateIfLevelAboveMaxLevel_True_Should_Pass()
         {
             // Arrange
