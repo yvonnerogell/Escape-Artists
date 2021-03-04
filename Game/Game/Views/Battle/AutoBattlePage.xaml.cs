@@ -49,6 +49,8 @@ namespace Game.Views
 			//BattleEngineViewModel.Instance.SetBattleEngineToKoenig();
 
 			BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(CharacterPlayer);
+			BattleEngineViewModel.Instance.Engine.EngineSettings.MaxNumberPartyCharacters = (int) CharacterPicker.SelectedItem;
+
 
 			await BattleEngineViewModel.Instance.AutoBattleEngine.RunAutoBattle();
 			
