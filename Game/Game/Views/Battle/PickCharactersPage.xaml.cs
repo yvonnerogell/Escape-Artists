@@ -40,6 +40,9 @@ namespace Game.Views
         //Instance needed for populating the characters
         public BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
 
+        // The view model, used for data binding
+        readonly CharacterIndexViewModel ViewModel = CharacterIndexViewModel.Instance;
+
         /// <summary>
         /// Constructor for Index Page, Instantiates the binding content, ensures
         /// the list is clear for the character party and sets up current stub data
@@ -53,105 +56,27 @@ namespace Game.Views
             //also for monsters and items as well
             SetUpStubData();
 
+            BindingContext = ViewModel;
+
             // Draw the Characters
-            foreach (var data in EngineViewModel.Engine.EngineSettings.CharacterList)
-            {
-                PartyListFrame.Children.Add(CreatePlayerDisplayBox(data));
-            }
+            //foreach (var data in EngineViewModel.Engine.EngineSettings.CharacterList)
+            //{
+            //    PartyListFrame.Children.Add(CreatePlayerDisplayBox(data));
+            //}
 
             // Clear the Database List and the Party List to start
             BattleEngineViewModel.Instance.PartyCharacterList.Clear();
 
-           
+
             //UpdateNextButtonState();
         }
-
-        /// <summary>
-        /// Return a stack layout with the Player information inside
-        /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
-        public StackLayout CreatePlayerDisplayBox(PlayerInfoModel data)
-        {
-            if (data == null)
-            {
-                data = new PlayerInfoModel();
-            }
-
-            // Hookup the image
-            var PlayerImage = new Image
-            {
-                Style = (Style)Application.Current.Resources["ImageBattleLargeStyle"],
-                Source = data.ImageURI
-            };
-
-            // Add the Level
-            var PlayerLevelLabel = new Label
-            {
-                Text = "Level : " + data.Level,
-                Style = (Style)Application.Current.Resources["ValueStyleMicro"],
-                HorizontalOptions = LayoutOptions.Center,
-                HorizontalTextAlignment = TextAlignment.Center,
-                Padding = 0,
-                LineBreakMode = LineBreakMode.TailTruncation,
-                CharacterSpacing = 1,
-                LineHeight = 1,
-                MaxLines = 1,
-            };
-
-            // Add the HP
-            var PlayerHPLabel = new Label
-            {
-                Text = "HP : " + data.GetCurrentHealthTotal,
-                Style = (Style)Application.Current.Resources["ValueStyleMicro"],
-                HorizontalOptions = LayoutOptions.Center,
-                HorizontalTextAlignment = TextAlignment.Center,
-                Padding = 0,
-                LineBreakMode = LineBreakMode.TailTruncation,
-                CharacterSpacing = 1,
-                LineHeight = 1,
-                MaxLines = 1,
-            };
-
-            var PlayerNameLabel = new Label()
-            {
-                Text = data.Name,
-                Style = (Style)Application.Current.Resources["ValueStyle"],
-                HorizontalOptions = LayoutOptions.Center,
-                HorizontalTextAlignment = TextAlignment.Center,
-                Padding = 0,
-                LineBreakMode = LineBreakMode.TailTruncation,
-                CharacterSpacing = 1,
-                LineHeight = 1,
-                MaxLines = 1,
-            };
-
-            // Put the Image Button and Text inside a layout
-            var PlayerStack = new StackLayout
-            {
-                Style = (Style)Application.Current.Resources["PlayerInfoBox"],
-                HorizontalOptions = LayoutOptions.Center,
-                Padding = 0,
-                Spacing = 0,
-                Children = {
-                    PlayerImage,
-                    PlayerNameLabel,
-                    PlayerLevelLabel,
-                    PlayerHPLabel,
-                },
-            };
-
-            return PlayerStack;
-        }
-
-
 
         /// <summary>
         /// Used to test page with fake data
         /// </summary>
         /// <returns></returns>
         public bool SetUpStubData()
-		{
+        {
             // Add characters to state machine
             var characters = GetCharacterStubList();
             AddStubCharactersToBattleEngineViewModel(characters);
@@ -230,13 +155,13 @@ namespace Game.Views
         /// </summary>
         /// <returns></returns>
         public bool AddStubCharactersToBattleEngineViewModel(List<CharacterModel> characters)
-		{
+        {
             foreach (var character in characters)
-			{
+            {
                 BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(character));
             }
             return true;
-		}
+        }
 
         /// <summary>
         /// Helper method to get a default character stub list.
@@ -309,7 +234,7 @@ namespace Game.Views
             // Remove the character from the list
             //BattleEngineViewModel.Instance.PartyCharacterList.Remove(data);
 
-       //     UpdateNextButtonState();
+            //     UpdateNextButtonState();
         }
 
         /// <summary>
@@ -319,16 +244,16 @@ namespace Game.Views
         /// </summary>
         public void UpdateNextButtonState()
         {
-             //If no characters disable Next button
+            //If no characters disable Next button
             BeginBattleButton.IsEnabled = true;
 
             var currentCount = BattleEngineViewModel.Instance.PartyCharacterList.Count();
             if (currentCount == 0)
             {
-              BeginBattleButton.IsEnabled = true;
+                BeginBattleButton.IsEnabled = true;
             }
-    
-           // PartyCountLabel.Text = currentCount.ToString();
+
+            // PartyCountLabel.Text = currentCount.ToString();
         }
 
         /// <summary>
