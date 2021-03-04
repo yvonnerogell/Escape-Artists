@@ -319,22 +319,17 @@ namespace Game.Views
                 
             }
 
-            // making sure only one character can be selected
-            var count = 0;
-            while (count < 1)
+            
+            // Draw the Characters
+            foreach (var data in mainCharacters)
             {
-                // Draw the Characters
-                foreach (var data in mainCharacters)
-                {
                     if (data.Level != 20)
                     {
                         CharacterListSelectedFrame.Children.Add(GetCharacterToDisplay(data));
-                        count += 1;
+                        CharacterFrame.IsVisible = false;
+                        break;
                     }
                    
-
-                }
-                count += 1; 
             }
             
 
@@ -795,25 +790,21 @@ namespace Game.Views
             foreach (var data in FlexList)
             {
                 MonsterListSelectedFrame.Children.Remove(data);
+                            }
 
-            }
-
-            // making sure only one character can be selected
-            var count = 0;
-            while (count < 1)
-            {
-                // Draw the Characters
+            
+                // Draw the Monsters
                 foreach (var data in mainMonsters)
                 {
                     if (data.Level != 20)
                     {
                         MonsterListSelectedFrame.Children.Add(GetMonsterToDisplay(data));
-                        count += 1;
+                        MonsterFrame.IsVisible = false; 
+                        break;
                     }
 
                 }
-                count += 1;
-            }
+                
 
         }
                 public async void AttackButton_Clicked(object sender, EventArgs e)
