@@ -127,29 +127,7 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
-        [Test]
-        public void PopupSaveButtonCharacter_Clicked_Default_Should_Pass()
-        {
-            // Arrange
-            Button s = new Button();
-            s.CommandParameter = "Nancy";
-            var e = new System.EventArgs();
-            var characterName = s.CommandParameter.ToString();
-            var character = CharacterIndexViewModel.Instance.GetCharacterByName(characterName);
-            PlayerInfoModel player = new PlayerInfoModel(new CharacterModel{ Name = "random" });
-            if (character!= null)
-            {
-                player = new PlayerInfoModel(character);
-            }
-            
-            // Act
-            page.PopupSaveButtonCharacter_Clicked(s, e);
 
-            // Reset
-
-            // Assert
-            Assert.IsFalse(BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Contains(player));
-        }
 
 
         [Test]
@@ -231,7 +209,7 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void CharacterWhoCanAcceptItem_Clicked_Head_GradCap_Should_Pass()
+        public void CharacterWhoCanAcceptItem_Clicked_Head_HeadItem_Should_Pass()
         {
             // Arrange
             var characters = new List<PlayerInfoModel>();
@@ -254,6 +232,216 @@ namespace UnitTests.Views
         }
 
         [Test]
+        public void CharacterWhoCanAcceptItem_Clicked_Parent_HeadItem_Should_Fail()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel>();
+            var newCharacter = new PlayerInfoModel(new CharacterModel
+            {           
+                Name = "something",
+                CharacterTypeEnum = CharacterTypeEnum.Parent
+            });
+            characters.Add(newCharacter);
+            var item = new ItemModel();
+            item.Location = ItemLocationEnum.Head;
+            // Act
+            var list_of_characters = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.IsFalse(list_of_characters.Contains(newCharacter.Name)); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterWhoCanAcceptItem_Clicked_Graduated_HeadItem_Should_Fail()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel>();
+            var newCharacter = new PlayerInfoModel(new CharacterModel
+            {
+                Name = "something",
+                Level = 20
+            });
+            characters.Add(newCharacter);
+            var item = new ItemModel();
+            item.Location = ItemLocationEnum.Head;
+            // Act
+            var list_of_characters = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.IsFalse(list_of_characters.Contains(newCharacter.Name)); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterWhoCanAcceptItem_Clicked_Necklace_NeckLaceItem_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel>();
+            var newCharacter = new PlayerInfoModel(new CharacterModel
+            {
+                Necklace = "None",
+                Name = "something",
+                CharacterTypeEnum = CharacterTypeEnum.Student
+            });
+            characters.Add(newCharacter);
+            var item = new ItemModel();
+            item.Location = ItemLocationEnum.Necklace;
+            // Act
+            var list_of_characters = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(list_of_characters.Contains(newCharacter.Name)); // Got to here, so it happened...
+        }
+
+
+
+        [Test]
+        public void CharacterWhoCanAcceptItem_Clicked_RightFinger_RightFingerItem_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel>();
+            var newCharacter = new PlayerInfoModel(new CharacterModel
+            {
+                RightFinger = "None",
+                Name = "something",
+                CharacterTypeEnum = CharacterTypeEnum.Student
+            });
+            characters.Add(newCharacter);
+            var item = new ItemModel();
+            item.Location = ItemLocationEnum.RightFinger;
+            // Act
+            var list_of_characters = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(list_of_characters.Contains(newCharacter.Name)); // Got to here, so it happened...
+        }
+
+
+        [Test]
+        public void CharacterWhoCanAcceptItem_Clicked_PrimaryHand_PrimaryHandItem_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel>();
+            var newCharacter = new PlayerInfoModel(new CharacterModel
+            {
+                PrimaryHand = "None",
+                Name = "something",
+                CharacterTypeEnum = CharacterTypeEnum.Student
+            });
+            characters.Add(newCharacter);
+            var item = new ItemModel();
+            item.Location = ItemLocationEnum.PrimaryHand;
+            // Act
+            var list_of_characters = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(list_of_characters.Contains(newCharacter.Name)); // Got to here, so it happened...
+        }
+
+
+        [Test]
+        public void CharacterWhoCanAcceptItem_Clicked_OffHand_OffHandItem_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel>();
+            var newCharacter = new PlayerInfoModel(new CharacterModel
+            {
+                OffHand = "None",
+                Name = "something",
+                CharacterTypeEnum = CharacterTypeEnum.Student
+            });
+            characters.Add(newCharacter);
+            var item = new ItemModel();
+            item.Location = ItemLocationEnum.OffHand;
+            // Act
+            var list_of_characters = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(list_of_characters.Contains(newCharacter.Name)); // Got to here, so it happened...
+        }
+
+
+        [Test]
+        public void CharacterWhoCanAcceptItem_Clicked_LeftFinger_LeftFingerItem_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel>();
+            var newCharacter = new PlayerInfoModel(new CharacterModel
+            {
+                LeftFinger = "None",
+                Name = "something",
+                CharacterTypeEnum = CharacterTypeEnum.Student
+            });
+            characters.Add(newCharacter);
+            var item = new ItemModel();
+            item.Location = ItemLocationEnum.LeftFinger;
+            // Act
+            var list_of_characters = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(list_of_characters.Contains(newCharacter.Name)); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterWhoCanAcceptItem_Clicked_Feet_FeetItem_Should_Pass()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel>();
+            var newCharacter = new PlayerInfoModel(new CharacterModel
+            {
+                Feet = "None",
+                Name = "something",
+                CharacterTypeEnum = CharacterTypeEnum.Student
+            });
+            characters.Add(newCharacter);
+            var item = new ItemModel();
+            item.Location = ItemLocationEnum.Feet;
+            // Act
+            var list_of_characters = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(list_of_characters.Contains(newCharacter.Name)); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterWhoCanAcceptItem_Clicked_Parent_FeetItem_Should_Fail()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel>();
+            var newCharacter = new PlayerInfoModel(new CharacterModel
+            {
+                Name = "something",
+                CharacterTypeEnum = CharacterTypeEnum.Parent
+            });
+            characters.Add(newCharacter);
+            var item = new ItemModel();
+            item.Location = ItemLocationEnum.Feet;
+            // Act
+            var list_of_characters = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.IsFalse(list_of_characters.Contains(newCharacter.Name)); // Got to here, so it happened...
+        }
+
+
+        [Test]
         public void AddItemToCharacter_Clicked_Default_Should_Pass()
         {
             // Arrange
@@ -274,7 +462,7 @@ namespace UnitTests.Views
             // Arrange
 
             // Act
-            page.PopupSaveButtonCharacter_Clicked(null,null);
+            page.PopupSaveButtonItem_Clicked(null,null);
 
             // Reset
 
