@@ -37,6 +37,25 @@ namespace UnitTests.Views
             // For now, set the engine to the Koenig Engine, change when ready 
             BattleEngineViewModel.Instance.SetBattleEngineToKoenig();
 
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = null;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = null;
+
+            var CharacterPlayer = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Speed = 100,
+                                Level = 20,
+                                MaxHealth = 200,
+                                CurrentHealth = 200,
+                                ExperienceTotal = 1,
+                            });
+
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(CharacterPlayer);
+
+            BattleEngineViewModel.Instance.Engine.StartBattle(true);   // Clear the Engine
+
             page = new RoundOverPage();
         }
 
