@@ -467,6 +467,79 @@ namespace Game.GameRules
         }
 
         /// <summary>
+        /// Create Random Character for the battle. This method is specific to our game flavor - Escaping School.Creates a parent.
+        /// </summary>
+        /// <param name="MaxLevel"></param>
+        /// <returns></returns>
+        public static CharacterModel GetRandomCharacterStudent(int MaxLevel)
+        {
+
+            var result = new CharacterModel()
+            {
+                Level = DiceHelper.RollDice(1, MaxLevel),
+
+                // Randomize Name
+                Name = GetCharacterName(),
+                Description = GetCharacterDescriptionParent(),
+                CharacterTypeEnum = CharacterTypeEnum.Student,
+
+                // Randomize the Attributes
+                Attack = GetAbilityValue(),
+                Speed = GetAbilityValue(),
+                Defense = GetAbilityValue(),
+
+                // Randomize an Item for Location. Parents don't have heads or feet.
+                Necklace = GetItem(ItemLocationEnum.Necklace),
+                PrimaryHand = GetItem(ItemLocationEnum.PrimaryHand),
+                OffHand = GetItem(ItemLocationEnum.OffHand),
+                RightFinger = GetItem(ItemLocationEnum.Finger),
+                LeftFinger = GetItem(ItemLocationEnum.Finger),
+            };
+
+            var specifictype = DiceHelper.RollDice(1, 7);
+
+            switch (specifictype)
+			{
+                case 1:
+                    result.SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.InternationalStudent;
+                    break;
+                case 2:
+                    result.SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.Overachiever;
+                    break;
+                case 3:
+                    result.SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.Procrastinator;
+                    break;
+                case 4:
+                    result.SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.Prodigy;
+                    break;
+                case 5:
+                    result.SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.SecondCareer;
+                    break;
+                case 6:
+                    result.SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.Slacker;
+                    break;
+                case 7:
+                    result.SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.SmartyPants;
+                    break;
+                default:
+                    result.SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.Unknown;
+                    break;
+			}
+
+            result.ImageURI = SpecificCharacterTypeEnumHelper.ToImageURI(result.SpecificCharacterTypeEnum);
+
+            result.MaxHealth = DiceHelper.RollDice(MaxLevel, 10);
+
+            // Level up to the new level
+            result.LevelUpToValue(result.Level);
+
+            // Enter Battle at full health
+            result.CurrentHealth = result.MaxHealth;
+
+            return result;
+        }
+
+        /// <summary>
         /// Create Random Character for the battle
         /// </summary>
         /// <param name="MaxLevel"></param>
