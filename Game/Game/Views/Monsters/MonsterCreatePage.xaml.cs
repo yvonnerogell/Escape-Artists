@@ -138,6 +138,7 @@ namespace Game.Views.Monsters
                 ViewModel.Data.SpecificMonsterTypeEnum = SpecificMonsterTypeEnumHelper.ConvertMessageStringToEnum(MonsterTypePicker.SelectedItem.ToString());
                 ViewModel.Data.MonsterTypeEnum = SpecificMonsterTypeEnumHelper.GetMonsterTypeEnumFromSpecificMonsterTypeEnum(ViewModel.Data.SpecificMonsterTypeEnum);
                 ViewModel.Data.ImageURI = SpecificMonsterTypeEnumHelper.ToImageURI(ViewModel.Data.SpecificMonsterTypeEnum);
+                ViewModel.Data.Range = SpecificMonsterTypeEnumHelper.ToRange(ViewModel.Data.SpecificMonsterTypeEnum);
 
                 // Unique Drop item
                 MessagingCenter.Send(this, "CreateItem", dropItem);
