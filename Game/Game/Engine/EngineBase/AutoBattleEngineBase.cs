@@ -69,7 +69,7 @@ namespace Game.Engine.EngineBase
                     return false;
                 }
 
-                Debug.WriteLine("Next Turn");
+                Debug.WriteLine("Next Turn " + Battle.EngineSettings.BattleScore.TurnCount);
 
                 // Do the turn...
                 // If the round is over start a new one...
@@ -78,7 +78,7 @@ namespace Game.Engine.EngineBase
                 if (RoundCondition == RoundEnum.NewRound)
                 {
                     Battle.Round.NewRound();
-                    Debug.WriteLine("New Round");
+                    Debug.WriteLine("New Round: " + Battle.EngineSettings.BattleScore.RoundCount);
                 }
 
             } while (RoundCondition != RoundEnum.GameOver);

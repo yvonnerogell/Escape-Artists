@@ -755,6 +755,69 @@ namespace UnitTests.Models
             Assert.AreEqual(null, result);
         }
 
+        /*
+        [Test]
+        public void MapModel_ReturnClosestEmptyLocationBasedOnRange_Valid_Target_Should_Pass()
+        {
+            // Arrange
+            var map = new MapModel();
+
+            map.MapXAxiesCount = 5;
+            map.MapYAxiesCount = 5;
+            map.MapGridLocation = new MapModelLocation[map.MapXAxiesCount, map.MapYAxiesCount];
+
+            var PlayerList = new List<PlayerInfoModel>();
+
+            var Character = new CharacterModel { Range = 1};
+            PlayerList.Add(new PlayerInfoModel(Character));
+
+            var Monster = new MonsterModel{ Range = 1 };
+            PlayerList.Add(new PlayerInfoModel(Monster));
+
+            map.PopulateMapModel(PlayerList);
+
+            // Act
+            var result = map.ReturnClosestEmptyLocationBasedOnRange(map.MapGridLocation[0, 0]);
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(0, result.Column);
+            Assert.AreEqual(1, result.Row);
+        }
+
+        [Test]
+        public void MapModel_ReturnClosestEmptyLocation_InValid_Should_Return_Null()
+        {
+            // Arrange
+            var map = new MapModel();
+
+            map.MapXAxiesCount = 2;
+            map.MapYAxiesCount = 2;
+            map.MapGridLocation = new MapModelLocation[map.MapXAxiesCount, map.MapYAxiesCount];
+
+            var PlayerList = new List<PlayerInfoModel>();
+
+            var Character = new CharacterModel();
+            PlayerList.Add(new PlayerInfoModel(Character));
+            PlayerList.Add(new PlayerInfoModel(Character));
+
+            var Monster = new MonsterModel();
+            PlayerList.Add(new PlayerInfoModel(Monster));
+            PlayerList.Add(new PlayerInfoModel(Monster));
+
+            map.PopulateMapModel(PlayerList);
+
+            // Act
+            var result = map.ReturnClosestEmptyLocation(map.MapGridLocation[0, 0]);
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(null, result);
+        }
+        */
+
         [Test]
         public void MapModel_GetLocationForPlayer_InValid_Should_Return_Null()
         {
