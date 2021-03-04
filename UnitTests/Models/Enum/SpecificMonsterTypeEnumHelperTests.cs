@@ -665,5 +665,131 @@ namespace UnitTests.Models.Enum
             // Assert
             Assert.AreEqual(Constants.SpecificMonsterTypeTeachingAssistantImageURI, result);
         }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ToRange_Unknown_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ToRange(SpecificMonsterTypeEnum.Unknown);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(1, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ToRange_AdjunctFaculty_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ToRange(SpecificMonsterTypeEnum.AdjunctFaculty);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(2, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ToRange_AssistantProfessor_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ToRange(SpecificMonsterTypeEnum.AssistantProfessor);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(2, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ToRange_AssociateProfessor_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ToRange(SpecificMonsterTypeEnum.AssociateProfessor);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(3, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ToRange_GraduationOfficeAdministrator_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ToRange(SpecificMonsterTypeEnum.GraduationOfficeAdministrator);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(2, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ToRange_HRAdministrator_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ToRange(SpecificMonsterTypeEnum.HRAdministrator);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(1, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ToRange_Professor_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ToRange(SpecificMonsterTypeEnum.Professor);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(3, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ToRange_RegistrationAdministrator_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ToRange(SpecificMonsterTypeEnum.RegistrationAdministrator);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(1, result);
+        }
+
+        [Test]
+        public void SpecificMonsterTypeEnumHelperTests_ToRange_TeachingAssistant_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificMonsterTypeEnumHelper.ToRange(SpecificMonsterTypeEnum.TeachingAssistant);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(2, result);
+        }
     }
 }
