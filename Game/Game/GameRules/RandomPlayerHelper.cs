@@ -105,7 +105,7 @@ namespace Game.GameRules
         public static string GetMonsterName()
         {
 
-            List<String> StringList = new List<String> { "Arg", "Deg", "Ase", "Xes", "Zez", "Klk", "Oi", "Oni", "Tanu" };
+            List<String> StringList = new List<String> { "Franks", "Anderson", "Jefferson", "Cruise", "Smith", "Garcia", "Brown", "Davis", "Williams" };
 
             var index = DiceHelper.RollDice(1, StringList.Count()) - 1;
 
