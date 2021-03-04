@@ -112,6 +112,19 @@ namespace UnitTests.Views
         }
 
         [Test]
+        public void GetCharacterToDisplay_Clicked_Null_Should_Pass()
+        {
+            // Act
+            var character = new PlayerInfoModel(new CharacterModel { Id = null });
+            var result = page.GetCharacterToDisplay(character);
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result); // Got to here, so it happened...
+        }
+
+        [Test]
         public void ShowPopupCharacter_Clicked_Default_Should_Pass()
         {
             // Arrange
@@ -585,6 +598,19 @@ namespace UnitTests.Views
         }
 
         [Test]
+        public void GetMonsterToDisplay_Clicked_Null_Should_Pass()
+        {
+            // Act
+            var monster = new PlayerInfoModel(new MonsterModel { Id = null });
+            var result = page.GetMonsterToDisplay(monster);
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result); // Got to here, so it happened...
+        }
+
+        [Test]
         public void GetItemToDisplay_Clicked_Default_Should_Pass()
         {
             // Act
@@ -594,6 +620,31 @@ namespace UnitTests.Views
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void GetItemToDisplay_Clicked_NotNull_Should_Pass()
+        {
+            // Act
+            var result = page.GetItemToDisplay(new ItemModel { ItemType=ItemTypeEnum.Skateboard});
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void GetItemToDisplay_Clicked_Null_Should_Pass()
+        {
+            // Act
+            var item = new ItemModel{ Id = null };
+            var result = page.GetItemToDisplay(item);
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result); // Got to here, so it happened...
         }
 
         [Test]
