@@ -88,6 +88,8 @@ namespace Game.Views
   //          ShowBattleModeUIElements();
         }
 
+
+
         /// <summary>
         /// Start next Round, returning to the battle screen
         /// </summary>
@@ -95,15 +97,20 @@ namespace Game.Views
         /// <param name="e"></param>
         public async void BeginButton_Clicked(object sender, EventArgs e)
 		{
-            if (BattleModeValue.Text == BattleModeEnum.SimpleNext.ToString() || 
-                BattleModeValue.Text == BattleModeEnum.SimpleAbility.ToString() ||
-                BattleModeValue.Text == BattleModeEnum.Unknown.ToString())
+            switch (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.BattleModeEnum)
             {
-                await Navigation.PushModalAsync(new NavigationPage(new BattlePageTwo()));
-            }
-            else
-            {
-                await Navigation.PushModalAsync(new NavigationPage(new BattleGridPage()));
+                case BattleModeEnum.MapAbility:
+                case BattleModeEnum.MapFull:
+                case BattleModeEnum.MapNext:
+                    await Navigation.PushModalAsync(new NavigationPage(new BattleGridPage()));
+                    break;
+
+                case BattleModeEnum.SimpleAbility:
+                case BattleModeEnum.SimpleNext:
+                case BattleModeEnum.Unknown:
+                default:
+                    await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
+                    break;
             }
         }
 
