@@ -253,6 +253,28 @@ namespace Game.GameRules
         }
 
         /// <summary>
+        /// Get Description for character student.
+        /// 
+        /// Return a random description
+        /// </summary>
+        /// <returns></returns>
+        public static string GetCharacterDescriptionStudent()
+        {
+            List<String> StringList = new List<String> { "I really do like school. I think.", "I wish I could graduate.", "I hope I get a good grade.", "I hope I chose the right career.", "I like hanging out with friends.", "School is overrated.", "I'm glad my parents are paying for this." };
+
+            var index = DiceHelper.RollDice(1, StringList.Count()) - 1;
+
+            var result = StringList.First();
+
+            if (index < StringList.Count)
+            {
+                result = StringList.ElementAt(index);
+            }
+
+            return result;
+        }
+
+        /// <summary>
         /// Get Random Ability Number
         /// </summary>
         /// <returns></returns>

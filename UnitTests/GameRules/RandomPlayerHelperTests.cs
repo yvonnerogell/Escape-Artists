@@ -166,6 +166,23 @@ namespace UnitTests.Helpers
         }
 
         [Test]
+        public void RandomPlayerHelper_GetCharacterDescriptionStudent_2_Should_Return_2()
+        {
+            // Arrange
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(2);
+
+            // Act
+            var result = RandomPlayerHelper.GetCharacterDescriptionStudent();
+
+            // Reset
+            DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreEqual("I wish I could graduate.", result);
+        }
+
+        [Test]
         public void RandomPlayerHelper_GetCharacterName_2_Should_Return_2()
         {
             // Arrange
