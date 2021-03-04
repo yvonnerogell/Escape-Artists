@@ -492,6 +492,151 @@ namespace UnitTests.Helpers
             Assert.AreEqual(SpecificCharacterTypeEnum.CoolParent, result.SpecificCharacterTypeEnum);
         }
 
+        [Test]
+        public void RandomPlayerHelper_GetRandomCharacterStudent_Valid_1_Should_Return_New_InternationalStudent()
+        {
+            // Arrange
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(1);
+
+            // Act
+            var result = RandomPlayerHelper.GetRandomCharacterStudent(20);
+
+            // Reset
+            DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreEqual(CharacterTypeEnum.Student, result.CharacterTypeEnum);
+            Assert.AreEqual(SpecificCharacterTypeEnum.InternationalStudent, result.SpecificCharacterTypeEnum);
+        }
+
+        [Test]
+        public void RandomPlayerHelper_GetRandomCharacterStudent_Valid_2_Should_Return_New_Overachiever()
+        {
+            // Arrange
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(2);
+
+            // Act
+            var result = RandomPlayerHelper.GetRandomCharacterStudent(20);
+
+            // Reset
+            DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreEqual(CharacterTypeEnum.Student, result.CharacterTypeEnum);
+            Assert.AreEqual(SpecificCharacterTypeEnum.Overachiever, result.SpecificCharacterTypeEnum);
+        }
+
+        [Test]
+        public void RandomPlayerHelper_GetRandomCharacterStudent_Valid_3_Should_Return_New_Procrastinator()
+        {
+            // Arrange
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(3);
+
+            // Act
+            var result = RandomPlayerHelper.GetRandomCharacterStudent(20);
+
+            // Reset
+            DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreEqual(CharacterTypeEnum.Student, result.CharacterTypeEnum);
+            Assert.AreEqual(SpecificCharacterTypeEnum.Procrastinator, result.SpecificCharacterTypeEnum);
+        }
+
+        [Test]
+        public void RandomPlayerHelper_GetRandomCharacterStudent_Valid_4_Should_Return_New_Prodigy()
+        {
+            // Arrange
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(4);
+
+            // Act
+            var result = RandomPlayerHelper.GetRandomCharacterStudent(20);
+
+            // Reset
+            DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreEqual(CharacterTypeEnum.Student, result.CharacterTypeEnum);
+            Assert.AreEqual(SpecificCharacterTypeEnum.Prodigy, result.SpecificCharacterTypeEnum);
+        }
+
+
+        [Test]
+        public void RandomPlayerHelper_GetRandomCharacterStudent_Valid_5_Should_Return_New_SecondCareer()
+        {
+            // Arrange
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(5);
+
+            // Act
+            var result = RandomPlayerHelper.GetRandomCharacterStudent(20);
+
+            // Reset
+            DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreEqual(CharacterTypeEnum.Student, result.CharacterTypeEnum);
+            Assert.AreEqual(SpecificCharacterTypeEnum.SecondCareer, result.SpecificCharacterTypeEnum);
+        }
+
+        [Test]
+        public void RandomPlayerHelper_GetRandomCharacterStudent_Valid_6_Should_Return_New_Slacker()
+        {
+            // Arrange
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(6);
+
+            // Act
+            var result = RandomPlayerHelper.GetRandomCharacterStudent(20);
+
+            // Reset
+            DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreEqual(CharacterTypeEnum.Student, result.CharacterTypeEnum);
+            Assert.AreEqual(SpecificCharacterTypeEnum.Slacker, result.SpecificCharacterTypeEnum);
+        }
+
+        [Test]
+        public void RandomPlayerHelper_GetRandomCharacterStudent_Valid_7_Should_Return_New_SmartyPants()
+        {
+            // Arrange
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(7);
+
+            // Act
+            var result = RandomPlayerHelper.GetRandomCharacterStudent(20);
+
+            // Reset
+            DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreEqual(CharacterTypeEnum.Student, result.CharacterTypeEnum);
+            Assert.AreEqual(SpecificCharacterTypeEnum.SmartyPants, result.SpecificCharacterTypeEnum);
+        }
+
+        [Test]
+        public void RandomPlayerHelper_GetRandomCharacterStudent_Valid_8_Should_Return_New_Student_Unknown()
+        {
+            // Arrange
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(8);
+
+            // Act
+            var result = RandomPlayerHelper.GetRandomCharacterStudent(20);
+
+            // Reset
+            DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreEqual(CharacterTypeEnum.Student, result.CharacterTypeEnum);
+            Assert.AreEqual(SpecificCharacterTypeEnum.Unknown, result.SpecificCharacterTypeEnum);
+        }
+
         //[Test]
         //public async Task RandomPlayerHelper_GetRandomMonster_Valid_Items_True_Should_Return_New_Monster()
         //{
