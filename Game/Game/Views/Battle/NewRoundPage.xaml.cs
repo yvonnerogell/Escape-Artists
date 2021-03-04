@@ -95,7 +95,16 @@ namespace Game.Views
         /// <param name="e"></param>
         public async void BeginButton_Clicked(object sender, EventArgs e)
 		{
-            await Navigation.PushModalAsync(new NavigationPage(new BattlePageTwo()));
+            if (BattleModeValue.Text == BattleModeEnum.SimpleNext.ToString() || 
+                BattleModeValue.Text == BattleModeEnum.SimpleAbility.ToString() ||
+                BattleModeValue.Text == BattleModeEnum.Unknown.ToString())
+            {
+                await Navigation.PushModalAsync(new NavigationPage(new BattlePageTwo()));
+            }
+            else
+            {
+                await Navigation.PushModalAsync(new NavigationPage(new BattleGridPage()));
+            }
         }
 
         /// <summary>
