@@ -98,6 +98,23 @@ namespace UnitTests.Helpers
         }
 
         [Test]
+        public void RandomPlayerHelper_GetMonsterDescriptionFaculty_2_Should_Return_2()
+        {
+            // Arrange
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(2);
+
+            // Act
+            var result = RandomPlayerHelper.GetMonsterDescriptionFaculty();
+
+            // Reset
+            DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreEqual("You will never pass this class.", result);
+        }
+
+        [Test]
         public void RandomPlayerHelper_GetCharacterDescription_2_Should_Return_2()
         {
             // Arrange

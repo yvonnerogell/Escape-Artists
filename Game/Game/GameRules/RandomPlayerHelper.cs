@@ -142,6 +142,28 @@ namespace Game.GameRules
         }
 
         /// <summary>
+        /// Get Description
+        /// 
+        /// Return a random description
+        /// </summary>
+        /// <returns></returns>
+        public static string GetMonsterDescriptionFaculty()
+        {
+            List<String> StringList = new List<String> { "Gives hard exams.", "You will never pass this class.", "Think you can graduate? Good luck.", "You need extra homework, is what you need.", "You think this assignment was easy? Watch this next one.", "I'm smart, you're dumb. I'm big, you're little. I'm right, you're wrong." };
+
+            var index = DiceHelper.RollDice(1, StringList.Count()) - 1;
+
+            var result = StringList.First();
+
+            if (index < StringList.Count)
+            {
+                result = StringList.ElementAt(index);
+            }
+
+            return result;
+        }
+
+        /// <summary>
         /// Get Name
         /// 
         /// Return a Random Name
