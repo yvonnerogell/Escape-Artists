@@ -36,18 +36,25 @@ namespace UnitTests.Views
             BattleEngineViewModel.Instance.SetBattleEngineToKoenig();
 
             var characters = DefaultData.LoadData(new CharacterModel());
+            characters.Add(new CharacterModel());
 
+            // add characters to the Engine
             foreach (var character in characters)
             {
                 BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(character));
             }
 
+            // create a list of monsters
             var monsters = DefaultData.LoadData(new MonsterModel());
+            monsters.Add(new MonsterModel());
 
+            // add monsters to the Engine
             foreach (var monster in monsters)
             {
                 BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Add(new PlayerInfoModel(monster));
             }
+
+            page = new BattlePageTwo();
 
             page = new BattlePageTwo();
 
