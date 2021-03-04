@@ -55,8 +55,6 @@ namespace UnitTests.Views
             }
 
             page = new BattlePageTwo();
-       
-
 
             // Put seed data into the system for all tests
             //BattleEngineViewModel.Instance.Engine.Round.ClearLists();
@@ -126,9 +124,6 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-
-
-
 
         [Test]
         public void PopupSaveButtonMonster_Clicked_Default_Should_Pass()
@@ -699,6 +694,11 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
+        [Test]
+        public void DrawItems_Remove_Should_Pass()
+        {
+
+        }
 
         [Test]
         public void DrawMonsterList_Default_Should_Pass()
