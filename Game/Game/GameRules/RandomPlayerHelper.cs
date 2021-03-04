@@ -142,7 +142,7 @@ namespace Game.GameRules
         }
 
         /// <summary>
-        /// Get Description
+        /// Get Description for faculty monster
         /// 
         /// Return a random description
         /// </summary>
@@ -150,6 +150,28 @@ namespace Game.GameRules
         public static string GetMonsterDescriptionFaculty()
         {
             List<String> StringList = new List<String> { "Gives hard exams.", "You will never pass this class.", "Think you can graduate? Good luck.", "You need extra homework, is what you need.", "You think this assignment was easy? Watch this next one.", "I'm smart, you're dumb. I'm big, you're little. I'm right, you're wrong." };
+
+            var index = DiceHelper.RollDice(1, StringList.Count()) - 1;
+
+            var result = StringList.First();
+
+            if (index < StringList.Count)
+            {
+                result = StringList.ElementAt(index);
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Get Description for administrator monster
+        /// 
+        /// Return a random description
+        /// </summary>
+        /// <returns></returns>
+        public static string GetMonsterDescriptionAdministrator()
+        {
+            List<String> StringList = new List<String> { "Just one more form to fill out.", "Oh no, you're not done, here's another form.", "You think you have a lot of paperwork to do? You should see my office.", "Just three more forms for you.", "I'm sorry, I can't find the paperwork you said you submitted.", "Let's see. I have four more students ahead of you in line, but I should be able to get to your forms next week." };
 
             var index = DiceHelper.RollDice(1, StringList.Count()) - 1;
 

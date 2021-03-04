@@ -115,6 +115,23 @@ namespace UnitTests.Helpers
         }
 
         [Test]
+        public void RandomPlayerHelper_GetMonsterDescriptionAdministrator_2_Should_Return_2()
+        {
+            // Arrange
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(2);
+
+            // Act
+            var result = RandomPlayerHelper.GetMonsterDescriptionAdministrator();
+
+            // Reset
+            DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreEqual("Oh no, you're not done, here's another form.", result);
+        }
+
+        [Test]
         public void RandomPlayerHelper_GetCharacterDescription_2_Should_Return_2()
         {
             // Arrange
