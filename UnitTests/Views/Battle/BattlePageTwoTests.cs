@@ -137,7 +137,7 @@ namespace UnitTests.Views
             
 
             // Act
-            page.PopupSaveButtonCharacter_Clicked(null, null);
+            page.PopupSaveButtonMonster_Clicked(null, null);
 
             // Reset
 
@@ -442,7 +442,7 @@ namespace UnitTests.Views
 
 
         [Test]
-        public void AddItemToCharacter_Clicked_Default_Should_Pass()
+        public void AddItemToCharacter_Clicked_Feet_Should_Pass()
         {
             // Arrange
             var player = new PlayerInfoModel();
@@ -455,6 +455,98 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
+
+        [Test]
+        public void AddItemToCharacter_Clicked_Head_Should_Pass()
+        {
+            // Arrange
+            var player = new PlayerInfoModel();
+            var item = new ItemModel();
+            // Act
+            page.AddItemToCharacter(player, ItemLocationEnum.Head, item);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void AddItemToCharacter_Clicked_OffHand_Should_Pass()
+        {
+            // Arrange
+            var player = new PlayerInfoModel();
+            var item = new ItemModel();
+            // Act
+            page.AddItemToCharacter(player, ItemLocationEnum.OffHand, item);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void AddItemToCharacter_Clicked_Necklace_Should_Pass()
+        {
+            // Arrange
+            var player = new PlayerInfoModel();
+            var item = new ItemModel();
+            // Act
+            page.AddItemToCharacter(player, ItemLocationEnum.Necklace, item);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void AddItemToCharacter_Clicked_PrimaryHand_Should_Pass()
+        {
+            // Arrange
+            var player = new PlayerInfoModel();
+            var item = new ItemModel();
+            // Act
+            page.AddItemToCharacter(player, ItemLocationEnum.PrimaryHand, item);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void AddItemToCharacter_Clicked_RightFinger_Should_Pass()
+        {
+            // Arrange
+            var player = new PlayerInfoModel();
+            var item = new ItemModel();
+            // Act
+            page.AddItemToCharacter(player, ItemLocationEnum.RightFinger, item);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void AddItemToCharacter_Clicked_LeftFinger_Should_Pass()
+        {
+            // Arrange
+            var player = new PlayerInfoModel();
+            var item = new ItemModel();
+            // Act
+            page.AddItemToCharacter(player, ItemLocationEnum.LeftFinger, item);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+
 
         [Test]
         public void PopupSaveButtonItem_Clicked_Default_Should_Pass()
