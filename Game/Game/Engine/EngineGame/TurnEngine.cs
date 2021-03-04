@@ -8,6 +8,7 @@ using System.Linq;
 using Game.Helpers;
 using Game.ViewModels;
 using System.Diagnostics;
+using Game.GameRules;
 
 namespace Game.Engine.EngineGame
 {
@@ -634,14 +635,34 @@ namespace Game.Engine.EngineGame
                 1. find which monsters were killed
                 2. see if they have drop item
                 3. move that item to the list. make a copy of it. 
-            */
-
+            
             List<PlayerInfoModel> DeadMonster = EngineSettings.BattleScore.MonsterModelDeathList;
             var result = new List<ItemModel>();
 
             foreach (PlayerInfoModel monster in DeadMonster)
             {
                 var data = ItemIndexViewModel.Instance.GetItem(monster.UniqueDropItem);
+                result.Add(data);
+            }
+
+            return result;
+            */
+
+
+            /*
+            TODO: call get monsterUniqueItem with our game flavor random items
+            
+            We added in another method for helper. 
+
+            */
+            var NumberToDrop = (DiceHelper.RollDice(1, round + 1) - 1);
+
+            var result = new List<ItemModel>();
+
+            for (var i = 0; i < NumberToDrop; i++)
+            {
+                // Get a random Unique Item
+                var data = ItemIndexViewModel.Instance.GetItem(RandomPlayerHelper.GetMonsterUniqueItem());
                 result.Add(data);
             }
 
