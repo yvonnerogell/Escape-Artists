@@ -770,7 +770,6 @@ namespace UnitTests.Models
             Assert.AreEqual(null, result);
         }
 
-        /*
         [Test]
         public void MapModel_ReturnClosestEmptyLocationBasedOnRange_Valid_Target_Should_Pass()
         {
@@ -792,7 +791,7 @@ namespace UnitTests.Models
             map.PopulateMapModel(PlayerList);
 
             // Act
-            var result = map.ReturnClosestEmptyLocationBasedOnRange(map.MapGridLocation[0, 0]);
+            var result = map.ReturnClosestEmptyLocationBasedOnRange(map.MapGridLocation[0, 0], map.MapGridLocation[0, 4]);
 
             // Reset
 
@@ -824,14 +823,13 @@ namespace UnitTests.Models
             map.PopulateMapModel(PlayerList);
 
             // Act
-            //var result = map.ReturnClosestEmptyLocationBasedOnRange(map.MapGridLocation[0, 0]);
+            var result = map.ReturnClosestEmptyLocationBasedOnRange(map.MapGridLocation[0, 0], map.MapGridLocation[0, 1]);
 
             // Reset
 
             // Assert 
             Assert.AreEqual(null, result);
         }
-        */
 
         [Test]
         public void MapModel_GetLocationForPlayer_InValid_Should_Return_Null()
