@@ -868,5 +868,146 @@ namespace UnitTests.Models.Enum
             // Assert
             Assert.AreEqual(Constants.SpecificCharacterTypeSmartyPantsImageURI, result);
         }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_ToRange_Unknown_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.ToRange(SpecificCharacterTypeEnum.Unknown);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(1, result);
+        }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_ToRange_CoolParent_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.ToRange(SpecificCharacterTypeEnum.CoolParent);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(1, result);
+        }
+
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_ToRange_HelicopterParent_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.ToRange(SpecificCharacterTypeEnum.HelicopterParent);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(2, result);
+        }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_ToRange_InternationalStudent_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.ToRange(SpecificCharacterTypeEnum.InternationalStudent);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(2, result);
+        }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_ToRange_Overachiever_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.ToRange(SpecificCharacterTypeEnum.Overachiever);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(3, result);
+        }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_ToRange_Procrastinator_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.ToRange(SpecificCharacterTypeEnum.Procrastinator);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(2, result);
+        }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_ToRange_Prodigy_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.ToRange(SpecificCharacterTypeEnum.Prodigy);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(2, result);
+        }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_ToRange_SecondCareer_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.ToRange(SpecificCharacterTypeEnum.SecondCareer);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(2, result);
+        }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_ToRange_Slacker_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.ToRange(SpecificCharacterTypeEnum.Slacker);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(2, result);
+        }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_ToRange_SmartyPants_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.ToRange(SpecificCharacterTypeEnum.SmartyPants);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(3, result);
+        }
     }
 }
