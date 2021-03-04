@@ -149,6 +149,23 @@ namespace UnitTests.Helpers
         }
 
         [Test]
+        public void RandomPlayerHelper_GetCharacterDescriptionParent_2_Should_Return_2()
+        {
+            // Arrange
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(2);
+
+            // Act
+            var result = RandomPlayerHelper.GetCharacterDescriptionParent();
+
+            // Reset
+            DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreEqual("My child is the best.", result);
+        }
+
+        [Test]
         public void RandomPlayerHelper_GetCharacterName_2_Should_Return_2()
         {
             // Arrange

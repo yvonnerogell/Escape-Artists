@@ -231,6 +231,28 @@ namespace Game.GameRules
         }
 
         /// <summary>
+        /// Get Description for character parent.
+        /// 
+        /// Return a random description
+        /// </summary>
+        /// <returns></returns>
+        public static string GetCharacterDescriptionParent()
+        {
+            List<String> StringList = new List<String> { "I love my baby.", "My child is the best.", "My child is the smartest.", "My child is the brightest.", "My little baby will graduate soon!", "What can I say? School is expensive.", "I don't agree with the grade my child got." };
+
+            var index = DiceHelper.RollDice(1, StringList.Count()) - 1;
+
+            var result = StringList.First();
+
+            if (index < StringList.Count)
+            {
+                result = StringList.ElementAt(index);
+            }
+
+            return result;
+        }
+
+        /// <summary>
         /// Get Random Ability Number
         /// </summary>
         /// <returns></returns>
