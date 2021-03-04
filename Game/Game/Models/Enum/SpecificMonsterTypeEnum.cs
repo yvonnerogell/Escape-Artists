@@ -302,5 +302,50 @@ namespace Game.Models
             }
             return imageURI;
         }
+
+        /// <summary>
+        /// Given the inputted Monster, updates the Range based on the SpecificMonsterTypeEnum. 
+        /// </summary>
+        /// <param name="newData">Character to update</param>
+        public static int ToRange(SpecificMonsterTypeEnum specificMonsterType)
+        {
+            var range = 1;
+            switch (specificMonsterType)
+            {
+
+                case SpecificMonsterTypeEnum.TeachingAssistant:
+                    range = 2;
+                    break;
+
+                case SpecificMonsterTypeEnum.AdjunctFaculty:
+                    range = 2;
+                    break;
+
+                case SpecificMonsterTypeEnum.AssistantProfessor:
+                    range = 2;
+                    break;
+
+                case SpecificMonsterTypeEnum.AssociateProfessor:
+                    range = 3;
+                    break;
+
+                case SpecificMonsterTypeEnum.Professor:
+                    range = 3;
+                    break;
+
+                case SpecificMonsterTypeEnum.HRAdministrator:
+                    range = 1;
+                    break;
+
+                case SpecificMonsterTypeEnum.RegistrationAdministrator:
+                    range = 1;
+                    break;
+
+                case SpecificMonsterTypeEnum.GraduationOfficeAdministrator:
+                    range = 2;
+                    break;
+            }
+            return range;
+        }
     }
 }
