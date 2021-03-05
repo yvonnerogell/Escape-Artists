@@ -48,5 +48,19 @@ namespace UnitTests.Engine.EngineGame
         }
         #endregion Constructor
 
+
+        [Test]
+        public void TurnEngine_ChooseToUseAbility_Valid_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ((TurnEngine)Engine.Round.Turn).ChooseToUseAbility(new PlayerInfoModel());
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
     }
 }
