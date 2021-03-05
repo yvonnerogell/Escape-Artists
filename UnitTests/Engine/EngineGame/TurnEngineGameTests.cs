@@ -62,5 +62,19 @@ namespace UnitTests.Engine.EngineGame
             // Assert
             Assert.AreEqual(false, result);
         }
+
+        [Test]
+        public void TurnEngine_UseAbility_Valid_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ((TurnEngine)Engine.Round.Turn).UseAbility(new PlayerInfoModel());
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
     }
 }
