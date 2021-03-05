@@ -584,10 +584,9 @@ namespace Game.Views
         public void PopupSaveButtonItem_Clicked(object sender, EventArgs e)
         {
             var itemId = "";
-            if (sender != null)
-            {
+            
                 itemId = ((Button)sender).CommandParameter.ToString();
-            }
+           
                                 
                 var item = ItemIndexViewModel.Instance.GetItem(itemId);
                 var itemLocation = ItemTypeEnumHelper.GetLocationFromItemType(item.ItemType);
@@ -597,7 +596,7 @@ namespace Game.Views
                 player = AddItemToCharacter(player, itemLocation, item);
          
                  // Remove item from dropped list and add to selected item list. 
-                    var itemIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.FindIndex(i => i.Id == (string)itemId);
+                    var itemIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.FindIndex(i => i.Name == (string)item.Name);
                     BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.RemoveAt(itemIndex);
                     BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelSelectList.Add(item);
                 selectedItems.Add(item);

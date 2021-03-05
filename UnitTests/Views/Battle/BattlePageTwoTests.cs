@@ -54,6 +54,16 @@ namespace UnitTests.Views
                 BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Add(new PlayerInfoModel(monster));
             }
 
+            // create a list of Items
+            var items = DefaultData.LoadData(new ItemModel());
+            items.Add(new ItemModel());
+
+            // add monsters to the Engine
+            foreach (var item in items)
+            {
+                BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Add(new ItemModel(item));
+            }
+
             page = new BattlePageTwo();
 
             // Put seed data into the system for all tests
@@ -153,6 +163,46 @@ namespace UnitTests.Views
            // BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
            // selectedCharacters.Clear();
 
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void PopupSaveButtonItem_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+            Button s = new Button();
+            page.selectedCharacters.Add(new PlayerInfoModel(new CharacterModel
+            {
+                Name = "Nancy",
+                    Description = "I would have been a professor by now if it weren't for the stress of I-94 renewal",
+                    CharacterTypeEnum = CharacterTypeEnum.Student,
+                    SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.InternationalStudent,
+                    Range = 2,
+                    Level = 1,
+                    GPA = 80,
+                    MaxHealth = 100,
+                    ImageURI = Constants.SpecificCharacterTypeInternationalStudentImageURI,
+                    Head = "None",
+                    Necklace = "None",
+                    PrimaryHand = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.Notebook),
+            OffHand = "None",
+                    Feet = "None",
+                    RightFinger = "None",
+                    LeftFinger = "None",
+                    SpecialAbility = AbilityEnum.FlashGenius
+                }));
+            // should be an existing name
+            s.CommandParameter = "Notebooks1";
+            System.EventArgs e = new System.EventArgs();
+
+            // Act
+            page.PopupSaveButtonItem_Clicked(s, e);
+
+            // Reset
+            //selectedMonsters.Clear();
+            //  BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
+            //  mainMonsters.Clear();
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
