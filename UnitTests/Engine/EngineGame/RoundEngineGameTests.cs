@@ -200,5 +200,30 @@ namespace UnitTests.Engine.EngineGame
         }
 
         #endregion SwapCharacterItem
+
+
+
+        [Test]
+        public void RoundEngine_RemoveGraduatedandDeadPlayersFromList_Default_Should_Pass()
+        {
+            // Arrange
+            var save = Engine.EngineSettings.PlayerList;
+            Engine.EngineSettings.PlayerList.Clear();
+            Engine.EngineSettings.PlayerList.Add(new PlayerInfoModel(new CharacterModel { Alive = false, Graduated = false}));
+            Engine.EngineSettings.PlayerList.Add(new PlayerInfoModel(new CharacterModel { Alive = false, Graduated = false }));
+            Engine.EngineSettings.PlayerList.Add(new PlayerInfoModel(new CharacterModel { Graduated = true, Alive = true }));
+            Engine.EngineSettings.PlayerList.Add(new PlayerInfoModel(new CharacterModel { Graduated = true, Alive = true }));
+            Engine.EngineSettings.PlayerList.Add(new PlayerInfoModel(new CharacterModel { Graduated = false, Alive = true }));
+
+            // Act
+            var result = ((RoundEngine)Engine.Round).RemoveGraduatedandDeadPlayersFromList();
+
+            // Assert
+            Assert.AreEqual(1, result.Count);
+
+            // Reset
+            Engine.EngineSettings.PlayerList.Clear();
+            Engine.EngineSettings.PlayerList = save;
+        }
     }
 }
