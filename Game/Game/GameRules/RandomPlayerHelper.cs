@@ -540,7 +540,7 @@ namespace Game.GameRules
         }
 
         /// <summary>
-        /// Create Random Character for the battle
+        /// Create Random monster for the battle
         /// </summary>
         /// <param name="MaxLevel"></param>
         /// <returns></returns>
@@ -601,6 +601,97 @@ namespace Game.GameRules
                 result.LeftFinger = GetItem(ItemLocationEnum.Finger);
                 result.Feet = GetItem(ItemLocationEnum.Feet);
             }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Create Random monster faculty for the battle
+        /// </summary>
+        /// <param name="MaxLevel"></param>
+        /// <returns></returns>
+        public static MonsterModel GetRandomMonsterFaculty(int MaxLevel, int level = 0)
+        {
+
+            var result = new MonsterModel()
+            {
+                Level = DiceHelper.RollDice(1, MaxLevel),
+
+                // Randomize Name
+                Name = GetMonsterName(),
+                Description = GetMonsterDescriptionFaculty(),
+                MonsterTypeEnum = MonsterTypeEnum.Faculty,
+
+                // Randomize the Attributes
+                Attack = GetAbilityValue(),
+                Speed = GetAbilityValue(),
+                Defense = GetAbilityValue(),
+
+                Difficulty = GetMonsterDifficultyValue()
+            };
+
+            if (level != 0)
+			{
+                result.Level = level;
+			}
+
+            // Adjust values based on Difficulty
+            result.Attack = result.Difficulty.ToModifier(result.Attack);
+            result.Defense = result.Difficulty.ToModifier(result.Defense);
+            result.Speed = result.Difficulty.ToModifier(result.Speed);
+            result.Level = result.Difficulty.ToModifier(result.Level);
+
+            // Get the new Max Health
+            result.MaxHealth = DiceHelper.RollDice(result.Level, 10);
+
+            // Adjust the health, If the new Max Health is above the rule for the level, use the original
+            var MaxHealthAdjusted = result.Difficulty.ToModifier(result.MaxHealth);
+            if (MaxHealthAdjusted < result.Level * 10)
+            {
+                result.MaxHealth = MaxHealthAdjusted;
+            }
+
+            // Level up to the new level
+            result.LevelUpToValue(result.Level);
+
+            var specifictype = DiceHelper.RollDice(1, 5);
+
+            result.SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.Unknown;
+
+            switch (specifictype)
+            {
+                case 1:
+                    result.SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty;
+                    break;
+                case 2:
+                    result.SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AssistantProfessor;
+                    break;
+                case 3:
+                    result.SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AssociateProfessor;
+                    break;
+                case 4:
+                    result.SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.Professor;
+                    break;
+                default:
+                    result.SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.Unknown;
+                    break;
+            }
+
+            result.ImageURI = SpecificMonsterTypeEnumHelper.ToImageURI(result.SpecificMonsterTypeEnum);
+
+            // Set ExperienceRemaining so Monsters can both use this method
+            var LevelData = LevelTableHelper.LevelDetailsList.ElementAtOrDefault(result.Level + 1) ?? LevelTableHelper.LevelDetailsList.Last();
+            result.ExperienceRemaining = LevelData.Experience;
+
+            // Enter Battle at full health
+            result.CurrentHealth = result.MaxHealth;
+
+            var uniqueDrop = result.DropItemBasedOnCharacterType(result.SpecificMonsterTypeEnum);
+
+            if (uniqueDrop != null)
+			{
+                result.UniqueDropItem = uniqueDrop.Id;
+			}
 
             return result;
         }
