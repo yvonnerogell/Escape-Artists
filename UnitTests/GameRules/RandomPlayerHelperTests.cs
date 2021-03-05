@@ -471,6 +471,20 @@ namespace UnitTests.Helpers
         }
 
         [Test]
+        public void RandomPlayerHelper_GetRandomMonsterAdministrator_Valid_Should_Return_New_Monster()
+        {
+            // Arrange
+
+            // Act
+            var result = RandomPlayerHelper.GetRandomMonsterAdministrator(100000);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(400000, result.ExperienceRemaining);
+        }
+
+        [Test]
         public void RandomPlayerHelper_GetRandomCharacterParent_Valid_1_Should_Return_New_HelicopterParent()
         {
             // Arrange
@@ -749,7 +763,61 @@ namespace UnitTests.Helpers
             DiceHelper.SetForcedRollValue(5);
 
             // Act
-            var result = RandomPlayerHelper.GetRandomMonsterFaculty(20, 20);
+            var result = RandomPlayerHelper.GetRandomMonsterFaculty(20);
+
+            // Reset
+            DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreEqual(MonsterTypeEnum.Faculty, result.MonsterTypeEnum);
+            Assert.AreEqual(SpecificMonsterTypeEnum.Unknown, result.SpecificMonsterTypeEnum);
+        }
+
+        [Test]
+        public void RandomPlayerHelper_GetRandomMonsterAdministrator_Valid_1_Level_20_Should_Return_New_Monster_HRAdministrator()
+        {
+            // Arrange
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(1);
+
+            // Act
+            var result = RandomPlayerHelper.GetRandomMonsterAdministrator(20);
+
+            // Reset
+            DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreEqual(MonsterTypeEnum.Faculty, result.MonsterTypeEnum);
+            Assert.AreEqual(SpecificMonsterTypeEnum.HRAdministrator, result.SpecificMonsterTypeEnum);
+        }
+
+        [Test]
+        public void RandomPlayerHelper_GetRandomMonsterAdministrator_Valid_2_Level_20_Should_Return_New_Monster_RegistrationAdministrator()
+        {
+            // Arrange
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(2);
+
+            // Act
+            var result = RandomPlayerHelper.GetRandomMonsterAdministrator(20);
+
+            // Reset
+            DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreEqual(MonsterTypeEnum.Faculty, result.MonsterTypeEnum);
+            Assert.AreEqual(SpecificMonsterTypeEnum.RegistrationAdministrator, result.SpecificMonsterTypeEnum);
+        }
+
+        [Test]
+        public void RandomPlayerHelper_GetRandomMonsterAdministrator_Valid_3_Level_20_Should_Return_New_Monster_Unknown()
+        {
+            // Arrange
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(3);
+
+            // Act
+            var result = RandomPlayerHelper.GetRandomMonsterAdministrator(20);
 
             // Reset
             DiceHelper.DisableForcedRolls();
