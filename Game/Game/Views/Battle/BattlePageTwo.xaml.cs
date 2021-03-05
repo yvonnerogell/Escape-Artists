@@ -469,11 +469,7 @@ namespace Game.Views
             // Set command parameter so that popup knows which item it is displaying
             PopupSaveButtonItem.CommandParameter = data.Id;
 
-            // Figure out which characters can be assigned this item and display that list in the picker. 
-            List<string> charactersForItem = GetCharacterWhoCanAcceptItem(selectedCharacters, data);
-            AssignItemPicker.ItemsSource = charactersForItem;
-            AssignItemPicker.SelectedIndex = 0;
-
+          
             return true;
         }
 
@@ -585,24 +581,15 @@ namespace Game.Views
             if (sender != null)
             {
                 itemId = ((Button)sender).CommandParameter.ToString();
-                var characterName = AssignItemPicker.ItemsSource.ToString();
-                var character = CharacterIndexViewModel.Instance.GetCharacterByName(characterName);
-                if (character == null)
-                {
-                    // Show the Default Icon for the Location
-                    character = new CharacterModel { Name = "Unknown", ImageURI = "icon_cancel.png" };
-
-                }
-                PlayerInfoModel player = new PlayerInfoModel(character);
-
-                // var characterFoundIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FindIndex(c => c.Name == player.Name);
-                // BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.RemoveAt(characterFoundIndex);
-
-                // Add item to character
+            }
+                                
                 var item = ItemIndexViewModel.Instance.GetItem(itemId);
                 var itemLocation = ItemTypeEnumHelper.GetLocationFromItemType(item.ItemType);
-                player = AddItemToCharacter(player, itemLocation, item);
 
+                // Add item to the one selected character
+                var player = selectedCharacters[0]; 
+                player = AddItemToCharacter(player, itemLocation, item);
+         
                  // Remove item from dropped list and add to selected item list. 
                     var itemIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.FindIndex(i => i.Id == (string)itemId);
                     BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.RemoveAt(itemIndex);
@@ -611,8 +598,7 @@ namespace Game.Views
                     // Add updated player back to view model
                 //    BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(player);
                 
-                
-            }
+                           
                 DrawItemLists();
                 PopupLoadingViewItem.IsVisible = false;
         }

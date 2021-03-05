@@ -129,8 +129,6 @@
                                     <Label x:Name="PopupItemValue" Style="{StaticResource ValueStyle}" />
                                 </StackLayout>
 
-                                <Label Text="Assign Item To: " Margin="5"/>
-                                <Picker x:Name="AssignItemPicker" SelectedItem="Assign Item To" Margin="5" />
 
                                 <Button x:Name="PopupSaveButtonItem" 
                                     Clicked="PopupSaveButtonItem_Clicked" 
