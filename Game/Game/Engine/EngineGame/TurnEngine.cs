@@ -9,7 +9,6 @@ using Game.Helpers;
 using Game.ViewModels;
 using System.Diagnostics;
 using Game.GameRules;
-using System;
 
 namespace Game.Engine.EngineGame
 {
@@ -400,12 +399,6 @@ namespace Game.Engine.EngineGame
 
                     //Calculate Damage
                     EngineSettings.BattleMessagesModel.DamageAmount = Attacker.GetDamageRollValue();
-                    
-                    if (Attacker.CharacterTypeEnum == CharacterTypeEnum.Student){
-                        var additionalDamage = (Attacker.GPA * 0.5)/100 + 1;
-                        EngineSettings.BattleMessagesModel.DamageAmount =
-                            Convert.ToInt32(Math.Ceiling(EngineSettings.BattleMessagesModel.DamageAmount * additionalDamage));
-                    }
 
                     // If critical Hit, double the damage
                     if (EngineSettings.BattleMessagesModel.HitStatus == HitStatusEnum.CriticalHit)
