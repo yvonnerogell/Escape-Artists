@@ -17,7 +17,7 @@
                 HorizontalOptions="Center">
 
                 <!--The Character Found-->
-                <Frame x:Name="CharacterFrame" BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
+                <Frame x:Name="CharacterFoundFrame" BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
                     <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="250" WidthRequest="750">
                         <Label Text="Select one character" Style="{StaticResource MessageStyle}" Padding="10" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
                         <FlexLayout x:Name="CharacterListFrame"
@@ -31,7 +31,7 @@
 
                 <!--The Character Popup-->
                 <StackLayout 
-                        x:Name="PopupLoadingViewCharacter" 
+                        x:Name="CharacterSelectedFrame" 
                         BackgroundColor="{StaticResource PageBackgroundColor}" 
                         IsVisible="false" 
                         AbsoluteLayout.LayoutBounds=".5, .5,.5,.5" 

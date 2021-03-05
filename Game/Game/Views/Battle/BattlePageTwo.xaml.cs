@@ -48,7 +48,6 @@ namespace Game.Views
         // selecting the item of that turn
         public List<ItemModel> selectedItems = new List<ItemModel>();
 
-
         /// <summary>
         /// Constructor
         /// </summary>
@@ -233,7 +232,7 @@ namespace Game.Views
         /// <returns></returns>
         public bool ShowPopupCharacter(CharacterModel data)
         {
-            PopupLoadingViewCharacter.IsVisible = true;
+            CharacterSelectedFrame.IsVisible = true;
             PopupCharacterImage.Source = data.ImageURI;
 
             PopupCharacterName.Text = data.Name;
@@ -253,7 +252,7 @@ namespace Game.Views
         /// <param name="e"></param>
         public void ClosePopupCharacter_Clicked(object sender, EventArgs e)
         {
-            PopupLoadingViewCharacter.IsVisible = false;
+            CharacterSelectedFrame.IsVisible = false;
         }
 
         /// <summary>
@@ -289,7 +288,7 @@ namespace Game.Views
             DrawItems();
 
             PopupLoadingItemListFoundFrame.IsVisible = true;
-            PopupLoadingViewCharacter.IsVisible = false;
+            CharacterSelectedFrame.IsVisible = false;
             PopupCharacterListSelected.IsVisible = true;
         }
 
@@ -333,7 +332,7 @@ namespace Game.Views
                     {
                         // select only one and then break
                         CharacterListSelectedFrame.Children.Add(GetCharacterToDisplay(data));
-                        CharacterFrame.IsVisible = false;
+                        CharacterFoundFrame.IsVisible = false;
                         break;
                     }
             }            
@@ -810,12 +809,10 @@ namespace Game.Views
                         MonsterFrame.IsVisible = false; 
                         break;
                     }
-
                 }
-                
-
         }
-                public async void AttackButton_Clicked(object sender, EventArgs e)
+
+        public async void AttackButton_Clicked(object sender, EventArgs e)
         {
             // TODO: make sure the AutoBattlePage is the right option here
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.RoundOver;
