@@ -66,6 +66,11 @@ namespace Game.Views
             BattleEngineViewModel.Instance.SetBattleEngineToKoenig();
 
             PopupLoadingItemListFoundFrame.IsVisible = false;
+            PopupCharacterListSelected.IsVisible = false;
+            PopupMonsterListSelected.IsVisible = false;
+            PopupItemListSelected.IsVisible = false;
+            PopupLoadingViewMonster.IsVisible = false;
+
 
             DrawCharacterList();
             DrawMonsterList();
@@ -282,8 +287,10 @@ namespace Game.Views
             DrawSelectedCharacters();
             // This is when the item list should be visible
             DrawItems();
+
             PopupLoadingItemListFoundFrame.IsVisible = true;
             PopupLoadingViewCharacter.IsVisible = false;
+            PopupCharacterListSelected.IsVisible = true;
         }
 
         /// <summary>
@@ -600,7 +607,10 @@ namespace Game.Views
                 
                            
                 DrawItemLists();
+
+                // visibility after the click
                 PopupLoadingViewItem.IsVisible = false;
+                PopupItemListSelected.IsVisible = true;
         }
 
         public PlayerInfoModel AddItemToCharacter(PlayerInfoModel player, ItemLocationEnum location, ItemModel item)
@@ -756,7 +766,9 @@ namespace Game.Views
             DrawMonsterList();
             DrawSelectedMonsters();
 
+            // visibility after the click
             PopupLoadingViewMonster.IsVisible = false;
+            PopupMonsterListSelected.IsVisible = true;
         }
 
         /// <summary>
