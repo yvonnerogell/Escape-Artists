@@ -76,5 +76,33 @@ namespace UnitTests.Engine.EngineGame
             // Assert
             Assert.AreEqual(false, result);
         }
+
+        [Test]
+        public void TurnEngine_DetermineActionChoice_Valid_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ((TurnEngine)Engine.Round.Turn).DetermineActionChoice(new PlayerInfoModel());
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
+        [Test]
+        public void TurnEngine_DetermineCriticalMissProblem_Valid_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ((TurnEngine)Engine.Round.Turn).DetermineCriticalMissProblem(new PlayerInfoModel());
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
     }
 }
