@@ -499,5 +499,69 @@ namespace Scenario
             Assert.AreEqual(1, AutoBattle.Battle.EngineSettings.BattleScore.MonsterModelDeathList.Count);
             Assert.IsTrue(AutoBattle.Battle.EngineSettings.BattleScore.MonsterModelDeathList.Any(m => m.SpecificMonsterTypeEnum == SpecificMonsterTypeEnum.GraduationOfficeAdministrator));
         }
+
+        [Test]
+        public async Task AutoBattleEngine_RunAutoBattle_Valid_Fight_BigBoss_Pickup_Grad_cap_Should_Pass()
+        {
+            /* 
+             * Tests fighting big boss if character is  > 17 level, then if beaten pick up graduation cap 
+             * 
+             * created:
+             * 1 Character
+             *      Speed high
+             *      Level 20
+             *      Health high
+             * 
+             * created during game then killed:
+             * Monsters
+             *      Graduation monster with graduation cap
+             *      Speed High
+             *      Hit strong
+             *      Health High
+             *      
+             * Character then is holding the cap when they graduate
+             * Always rolls hits
+             * 
+             * 
+             */
+
+            //Arrange
+
+            // Add Characters
+
+            AutoBattle.Battle.EngineSettings.MaxNumberPartyCharacters = 1;
+
+            var CharacterPlayer = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Speed = 10,
+                                Level = 20,
+                                MaxHealth = 100,
+                                CurrentHealth = 100,
+                                SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.InternationalStudent,
+                                CharacterTypeEnum = CharacterTypeEnum.Student,
+                                GPA = 100,
+                            });
+
+            AutoBattle.Battle.EngineSettings.CharacterList.Add(CharacterPlayer);
+
+            // Add Monsters
+            AutoBattle.Battle.EngineSettings.MaxNumberPartyMonsters = 1;
+
+            //Act
+            var result = await AutoBattle.RunAutoBattle();
+
+            //Reset
+
+            //Assert
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(1, AutoBattle.Battle.EngineSettings.BattleScore.GraduateModelList.Count);
+
+            // check if the graduated student holds the graduation cap
+            var character = AutoBattle.Battle.EngineSettings.BattleScore.GraduateModelList.FirstOrDefault();
+            string headItem = character.Head;
+            ItemModel item = ItemIndexViewModel.Instance.GetItem(headItem);
+            Assert.IsTrue(item.ItemType == ItemTypeEnum.GraduationCapAndRobe);
+        }
     }
 }
