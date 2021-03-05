@@ -91,7 +91,8 @@ namespace Game.Engine.EngineGame
 
             // See if Desired Target is within Range, and if so attack away
 
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
+            return base.DetermineActionChoice(Attacker);
         }
 
         /// <summary>
@@ -187,7 +188,8 @@ namespace Game.Engine.EngineGame
 
             // Don't try
 
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
+            return ChooseToUseAbility(Attacker);
         }
 
         /// <summary>
@@ -195,7 +197,8 @@ namespace Game.Engine.EngineGame
         /// </summary>
         public override bool UseAbility(PlayerInfoModel Attacker)
         {
-            throw new System.NotImplementedException();
+            return UseAbility(Attacker);
+            //throw new System.NotImplementedException();
         }
 
         /// <summary>
@@ -674,7 +677,8 @@ namespace Game.Engine.EngineGame
         /// </summary>
         public override bool DetermineCriticalMissProblem(PlayerInfoModel attacker)
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
+            return base.DetermineCriticalMissProblem(attacker);
         }
     }
 }
