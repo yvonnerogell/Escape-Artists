@@ -1,6 +1,9 @@
-﻿using System.Threading.Tasks;
+﻿using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
 using Game.Engine.EngineBase;
 using Game.Engine.EngineInterfaces;
+using Game.Models;
 
 namespace Game.Engine.EngineGame
 {
@@ -49,6 +52,71 @@ namespace Game.Engine.EngineGame
         {
             Battle = new BattleEngine();
         }
+
+
+        /// <summary>
+        /// Run Auto Battle
+        /// </summary>
+        /// <returns></returns>
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
+        public override async Task<bool> RunAutoBattle()
+#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
+        {
+            RoundEnum RoundCondition;
+
+            Debug.WriteLine("Auto Battle Starting");
+
+            // Auto Battle, does all the steps that a human would do.
+
+            // Prepare for Battle
+
+            CreateCharacterParty();
+
+            // Start Battle in AutoBattle mode
+            Battle.StartBattle(true);
+
+            // Fight Loop. Continue until Game is Over...
+            do
+            {
+                // Check for excessive duration.
+                if (DetectInfinateLoop())
+                {
+                    Debug.WriteLine("Aborting, More than Max Rounds");
+                    Battle.EndBattle();
+                    return false;
+                }
+
+                Debug.WriteLine("Next Turn " + Battle.EngineSettings.BattleScore.TurnCount);
+                Debug.WriteLine("Characsts left: " + Battle.EngineSettings.CharacterList.Count());
+
+                // Do the turn...
+                // If the round is over start a new one...
+                RoundCondition = Battle.Round.RoundNextTurn();
+
+                if (RoundCondition == RoundEnum.NewRound)
+                {
+                    Battle.Round.NewRound();
+                    Debug.WriteLine("New Round: " + Battle.EngineSettings.BattleScore.RoundCount);
+                }
+
+            } while ((RoundCondition == RoundEnum.NewRound) || (RoundCondition == RoundEnum.NextTurn));
+
+            if (RoundCondition == RoundEnum.GameOver)
+            {
+                Debug.WriteLine("Game Over");
+            }
+
+            if (RoundCondition == RoundEnum.GraduationCeremony)
+            {
+                Debug.WriteLine("Graduation Ceremony!!!");
+            }
+
+            // Wrap up
+            Battle.EndBattle();
+
+            return true;
+        }
+
         /// <summary>
         /// Create character list and monster list
         /// </summary>
@@ -68,16 +136,6 @@ namespace Game.Engine.EngineGame
             //throw new System.NotImplementedException();
 
             return base.DetectInfinateLoop();
-        }
-
-        /// <summary>
-        /// Start the automatic battle
-        /// </summary>
-        /// <returns></returns>
-        public override Task<bool> RunAutoBattle()
-        {
-            //throw new System.NotImplementedException();
-            return base.RunAutoBattle();
         }
     }
 }

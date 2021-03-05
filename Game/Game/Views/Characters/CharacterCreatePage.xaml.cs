@@ -211,7 +211,7 @@ namespace Game.Views.Characters
                 ViewModel.Data.CharacterTypeEnum = SpecificCharacterTypeEnumHelper.GetCharacterTypeEnumFromSpecificCharacterTypeEnum(ViewModel.Data.SpecificCharacterTypeEnum);
                 ViewModel.Data.ImageURI = SpecificCharacterTypeEnumHelper.ToImageURI(ViewModel.Data.SpecificCharacterTypeEnum);
                 ViewModel.Data.SpecialAbility = SpecificCharacterTypeEnumHelper.ToAbility(ViewModel.Data.SpecificCharacterTypeEnum);
-
+                ViewModel.Data.Range = SpecificCharacterTypeEnumHelper.ToRange(ViewModel.Data.SpecificCharacterTypeEnum);
                 MessagingCenter.Send(this, "Create", ViewModel.Data);
 
                 foreach (var item in newItems)

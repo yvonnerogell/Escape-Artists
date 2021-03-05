@@ -2,6 +2,7 @@
 
 using Game.Models;
 using System.Collections.Generic;
+using Game.ViewModels;
 
 namespace UnitTests.Models
 {
@@ -584,6 +585,138 @@ namespace UnitTests.Models
 
             // Assert
             Assert.AreEqual(true, result.Contains("Bobbet"));
+        }
+
+        [Test]
+        public void PlayerInfoModel_HoldGraduationItem_False_Should_Pass()
+        {
+            // Arrange
+            var character = new CharacterModel();
+            character.Head = "nothing";
+            var data = new PlayerInfoModel(character);
+
+            // Act
+            var result = data.HoldGraduationItem();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public void PlayerInfoModel_HoldGraduationItem_Null_Should_Pass()
+        {
+            // Arrange
+            var character = new CharacterModel();
+            character.Head = null;
+            var data = new PlayerInfoModel(character);
+
+            // Act
+            var result = data.HoldGraduationItem();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public void PlayerInfoModel_HoldGraduationItem_True_Should_Pass()
+        {
+            // Arrange
+            var character = new CharacterModel();
+            ItemIndexViewModel.Instance.LoadDatasetCommand.Execute(null);
+            string itemId = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.GraduationCapAndRobe);
+            character.Head = itemId;
+            var data = new PlayerInfoModel(character);
+
+            // Act
+            var result = data.HoldGraduationItem();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void PlayerInfoModel_HoldGraduationItem_Head_With_Item_Should_Pass()
+        {
+            // Arrange
+            var character = new CharacterModel();
+            ItemIndexViewModel.Instance.LoadDatasetCommand.Execute(null);
+            ItemModel item = ItemIndexViewModel.Instance.GetDefaultItem(ItemLocationEnum.PrimaryHand);
+
+            //put a primary hand item on head
+            character.Head = item.Id;
+            var data = new PlayerInfoModel(character);
+
+            // Act
+            var result = data.HoldGraduationItem();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public void PlayerInfoModel_GraduateIfLevelAboveMaxLevel_True_Should_Pass()
+        {
+            // Arrange
+            var character = new CharacterModel();
+            ItemIndexViewModel.Instance.LoadDatasetCommand.Execute(null);
+            string itemId = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.GraduationCapAndRobe);
+            character.Head = itemId;
+            character.Level = 20;
+            var data = new PlayerInfoModel(character);
+
+            // Act
+            var result = data.GraduateIfLevelAboveMaxLevel();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void PlayerInfoModel_GraduateIfLevelAboveMaxLevel_LowerLevel_Should_Pass()
+        {
+            // Arrange
+            var character = new CharacterModel();
+            ItemIndexViewModel.Instance.LoadDatasetCommand.Execute(null);
+            string itemId = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.GraduationCapAndRobe);
+            character.Head = itemId;
+            character.Level = 19;
+            var data = new PlayerInfoModel(character);
+
+            // Act
+            var result = data.GraduateIfLevelAboveMaxLevel();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public void PlayerInfoModel_GraduateIfLevelAboveMaxLevel_No_Item_Should_Pass()
+        {
+            // Arrange
+            var character = new CharacterModel();
+            character.Head = null;
+            character.Level = 20;
+            var data = new PlayerInfoModel(character);
+
+            // Act
+            var result = data.GraduateIfLevelAboveMaxLevel();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
         }
     }
 }

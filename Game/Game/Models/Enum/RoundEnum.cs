@@ -16,6 +16,9 @@ namespace Game.Models
         NewRound = 2, 
 
         // Game Over, characters dead
-        GameOver = 3, 
+        GameOver = 3,
+
+        // When Characters win! Start GraduationCeremony
+        GraduationCeremony = 10,
     }
 }

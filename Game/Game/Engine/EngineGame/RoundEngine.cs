@@ -219,8 +219,67 @@ namespace Game.Engine.EngineGame
 
             //throw new System.NotImplementedException();
 
-            return base.RoundNextTurn();
-            //return RoundEnum.GameOver;
+            // No characters, game is over...
+
+            if (CheckGraduationCeremony())
+            {
+                EngineSettings.RoundStateEnum = RoundEnum.GraduationCeremony;
+                return EngineSettings.RoundStateEnum;
+            }
+
+            if (EngineSettings.CharacterList.Count < 1)
+            {
+                // Game Over
+                EngineSettings.RoundStateEnum = RoundEnum.GameOver;
+                return EngineSettings.RoundStateEnum;
+            }
+
+            // Check if round is over
+            if (EngineSettings.MonsterList.Count < 1)
+            {
+                // If over, New Round
+                EngineSettings.RoundStateEnum = RoundEnum.NewRound;
+                return RoundEnum.NewRound;
+            }
+
+            if (EngineSettings.BattleScore.AutoBattle)
+            {
+                // Decide Who gets next turn
+                // Remember who just went...
+                EngineSettings.CurrentAttacker = GetNextPlayerTurn();
+
+                // Only Attack for now
+                EngineSettings.CurrentAction = ActionEnum.Attack;
+            }
+
+            // Do the turn....
+            Turn.TakeTurn(EngineSettings.CurrentAttacker);
+
+            EngineSettings.RoundStateEnum = RoundEnum.NextTurn;
+
+            return EngineSettings.RoundStateEnum;
+        }
+
+        /// <summary>
+        /// Helper to check if it meets the graduation ceremony conditions
+        /// </summary>
+        /// <returns></returns>
+        public bool CheckGraduationCeremony()
+        {
+            // students still in school
+            if (EngineSettings.CharacterList.Any(m => m.CharacterTypeEnum == CharacterTypeEnum.Student))
+            {
+                return false;
+            }
+
+            // no one gradated
+            if (EngineSettings.BattleScore.GraduateModelList.Count() == 0)
+            {
+                return false;
+            }
+
+            // no students left, and some people graduated!
+            return true;
         }
 
         /// <summary>
@@ -328,6 +387,7 @@ namespace Game.Engine.EngineGame
             We will be implementing different logic depending on Auto Battle and Manual Battle. 
             Auto Battle:
                 1. same idea as current auto battle, except parents cannot pickup item for head and feet
+                2. if graduation cap exist, place it with high level character
 
             Manual Battle:
                 1. only load the items for character if they can hold it. Parents cannot load head or feet
@@ -339,6 +399,16 @@ namespace Game.Engine.EngineGame
             
             if (EngineSettings.BattleScore.AutoBattle)
             {
+                if (character.CharacterTypeEnum == CharacterTypeEnum.Student && character.Level > 17)
+                {
+                    if (EngineSettings.ItemPool.Any(m => m.ItemType == ItemTypeEnum.GraduationCapAndRobe))
+                    {
+                        ItemModel GradItem = EngineSettings.ItemPool.Find(m => m.ItemType == ItemTypeEnum.GraduationCapAndRobe);
+                        character.Head = GradItem.Id;
+                        EngineSettings.ItemPool.Remove(GradItem);
+                    }
+                }
+                
                 GetItemFromPoolIfBetter(character, ItemLocationEnum.Necklace);
                 GetItemFromPoolIfBetter(character, ItemLocationEnum.PrimaryHand);
                 GetItemFromPoolIfBetter(character, ItemLocationEnum.OffHand);
