@@ -803,7 +803,7 @@ namespace UnitTests.Views
         public void DrawSelectedItems_Default_Should_Pass()
         {
             // Act
-            page.DrawSelectedItems();
+            page.DrawSelectedItem();
 
             // Reset
 

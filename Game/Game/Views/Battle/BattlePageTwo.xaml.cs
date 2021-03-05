@@ -45,6 +45,9 @@ namespace Game.Views
         // selecting the monster of that turn
         public List<PlayerInfoModel> selectedMonsters = new List<PlayerInfoModel>();
 
+        // selecting the item of that turn
+        public List<ItemModel> selectedItems = new List<ItemModel>();
+
 
         /// <summary>
         /// Constructor
@@ -340,7 +343,7 @@ namespace Game.Views
         public void DrawItemLists()
         {
             DrawItems();
-            DrawSelectedItems();
+            DrawSelectedItem();
 
             // Only need to update the selected, the Dropped is set in the constructor
             //TotalSelected.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelSelectList.Count().ToString();
@@ -360,15 +363,18 @@ namespace Game.Views
             
             foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Distinct())
             {
+                // if the selected character can use this item, add the item 
                 if (GetCharacterWhoCanAcceptItem(selectedCharacters, data).Count() == 1)
-                        ItemListFoundFrame.Children.Add(GetItemToDisplay(data));
+                {
+                    ItemListFoundFrame.Children.Add(GetItemToDisplay(data));
+                }                       
             }
         }
 
         /// <summary>
         /// Add the Dropped Items to the Display
         /// </summary>
-        public void DrawSelectedItems()
+        public void DrawSelectedItem()
         {
             // Clear and Populate the Dropped Items
             var FlexList = ItemListSelectedFrame.Children.ToList();
@@ -377,11 +383,12 @@ namespace Game.Views
                 ItemListSelectedFrame.Children.Remove(data);
             }
 
-            foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelSelectList)
+            foreach (var data in selectedItems)
             {
                 ItemListSelectedFrame.Children.Add(GetItemToDisplay(data));
+                PopupLoadingItemListFoundFrame.IsVisible = false;
                 break;
-            }
+            }            
         }
 
 
@@ -600,7 +607,7 @@ namespace Game.Views
                     var itemIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.FindIndex(i => i.Id == (string)itemId);
                     BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.RemoveAt(itemIndex);
                     BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelSelectList.Add(item);
-
+                selectedItems.Add(item);
                     // Add updated player back to view model
                 //    BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(player);
                 
