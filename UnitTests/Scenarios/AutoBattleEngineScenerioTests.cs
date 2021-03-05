@@ -109,21 +109,17 @@ namespace Scenario
 			CharacterIndexViewModel.Instance.Dataset.Clear();
 
 			// To See Level UP happening, a character needs to be close to the next level
-			var Character = new CharacterModel
+			var character = new PlayerInfoModel
 			{
                 ExperienceTotal = 300,
 				Name = "Mike Level Example",
 				Speed = 100,    // Go first
+                PlayerType = PlayerTypeEnum.Character
 			};
-
-			// Remember Start Level
-			var StartLevel = Character.Level;
-
-			var CharacterPlayer = new PlayerInfoModel(Character);
 
             var save = AutoBattle.Battle.EngineSettings.CharacterList;
             AutoBattle.Battle.EngineSettings.CharacterList.Clear();
-            AutoBattle.Battle.EngineSettings.CharacterList.Add(CharacterPlayer);
+            AutoBattle.Battle.EngineSettings.CharacterList.Add(character);
 
 
 			// Add Monsters

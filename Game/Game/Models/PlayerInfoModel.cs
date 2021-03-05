@@ -134,7 +134,7 @@ namespace Game.Models
             Guid = System.Guid.NewGuid().ToString();
 
             // Set current experience to be 1 above minimum.
-            //ExperienceTotal = LevelTableHelper.LevelDetailsList[Level - 1].Experience + 1;
+            ExperienceTotal = LevelTableHelper.LevelDetailsList[Level - 1].Experience + 1;
 
             AbilityTracker.Add(data.SpecialAbility, Constants.SpecialAbilityUsePerRound);
 
