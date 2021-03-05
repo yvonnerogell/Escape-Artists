@@ -189,7 +189,7 @@ namespace Game.Engine.EngineGame
             // Don't try
 
             //throw new System.NotImplementedException();
-            return ChooseToUseAbility(Attacker);
+            return base.ChooseToUseAbility(Attacker);
         }
 
         /// <summary>
@@ -197,7 +197,7 @@ namespace Game.Engine.EngineGame
         /// </summary>
         public override bool UseAbility(PlayerInfoModel Attacker)
         {
-            return UseAbility(Attacker);
+            return base.UseAbility(Attacker);
             //throw new System.NotImplementedException();
         }
 
