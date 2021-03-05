@@ -153,7 +153,7 @@ namespace Game.Engine.EngineKoenig
             //If there are not enough will add random ones
             for (int i = Battle.EngineSettings.CharacterList.Count(); i < Battle.EngineSettings.MaxNumberPartyCharacters; i++)
             {
-                Battle.PopulateCharacterList(RandomPlayerHelper.GetRandomCharacter(1));
+                Battle.PopulateCharacterList(RandomPlayerHelper.GetRandomCharacterEscapingSchool(1));
             }
 
             return true;
