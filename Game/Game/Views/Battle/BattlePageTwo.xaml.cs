@@ -258,21 +258,27 @@ namespace Game.Views
         public void PopupSaveButtonCharacter_Clicked(object sender, EventArgs e)
         {
             var characterName = "";
-            if (sender != null)
-            {              
-                characterName = ((Button)sender).CommandParameter.ToString();
-            
-        
-           // var characterName = ((Button)sender).CommandParameter.ToString();
-            var character = CharacterIndexViewModel.Instance.GetCharacterByName(characterName);
-            PlayerInfoModel player = new PlayerInfoModel(character);
+            var player = new PlayerInfoModel(); ;
+          //  if (sender != null)
+           // {              
+            characterName = ((Button)sender).CommandParameter.ToString();
+            foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
+            {
+                if (data.Name.Equals(characterName))
+                {
+                    player = data;
+                }
+
+            }
+            //var character = CharacterIndexViewModel.Instance.GetCharacterByName(characterName);
+            //PlayerInfoModel player = new PlayerInfoModel(character);
 
             var characterFoundIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FindIndex(c => c.Name == player.Name);
             BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.RemoveAt(characterFoundIndex);
 
-                // Add updated player back to view model
+           // Add updated player back to view model
             mainCharacters.Add(player);
-            }
+           // }
             DrawCharacterList();
             DrawSelectedCharacters();
 
@@ -742,18 +748,27 @@ namespace Game.Views
         public void PopupSaveButtonMonster_Clicked(object sender, EventArgs e)
         {
             var monsterName = "";
-            if (sender != null)
+            var player = new PlayerInfoModel();
+            //  if (sender != null)
+            // {              
+            monsterName = ((Button)sender).CommandParameter.ToString();
+            foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList)
             {
-                monsterName = ((Button)sender).CommandParameter.ToString();
-                var monster = MonsterIndexViewModel.Instance.GetMonsterByName(monsterName);
-                PlayerInfoModel player = new PlayerInfoModel(monster);
+                if (data.Name.Equals(monsterName))
+                {
+                    player = data;
+                }
+
+            }
+            //var monster = MonsterIndexViewModel.Instance.GetMonsterByName(monsterName);
+            //PlayerInfoModel player = new PlayerInfoModel(monster);
 
                 var MonsterFoundIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.FindIndex(c => c.Name == player.Name);
                 BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.RemoveAt(MonsterFoundIndex);
 
                 // Add updated player back to view model
                 mainMonsters.Add(player);
-            }
+         //   }
             DrawMonsterList();
             DrawSelectedMonsters();
 

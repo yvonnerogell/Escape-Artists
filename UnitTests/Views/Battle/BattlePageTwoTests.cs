@@ -139,16 +139,40 @@ namespace UnitTests.Views
         }
 
         [Test]
+        public void PopupSaveButtonCharacter_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+            Button s = new Button();
+            // should be an existing name
+            s.CommandParameter = "Nancy";
+            System.EventArgs e = new System.EventArgs();
+            // Act
+            page.PopupSaveButtonCharacter_Clicked(s, e);
+
+            //Reset
+           // BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
+           // mainCharacters.Clear();
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
         public void PopupSaveButtonMonster_Clicked_Default_Should_Pass()
         {
             // Arrange
+            Button s = new Button();
+            // should be an existing name
+            s.CommandParameter = "Karen";
+            System.EventArgs e = new System.EventArgs();
             
-
             // Act
-            page.PopupSaveButtonMonster_Clicked(null, null);
+            page.PopupSaveButtonMonster_Clicked(s,e);
 
             // Reset
-
+            mainMonsters.Clear();
+          //  BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
+          //  mainMonsters.Clear();
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
@@ -556,19 +580,7 @@ namespace UnitTests.Views
 
 
 
-        [Test]
-        public void PopupSaveButtonItem_Clicked_Default_Should_Pass()
-        {
-            // Arrange
 
-            // Act
-            page.PopupSaveButtonItem_Clicked(null,null);
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
 
         [Test]
         public void PopupCloseButtonItem_Clicked_Default_Should_Pass()
