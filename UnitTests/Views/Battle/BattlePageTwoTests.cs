@@ -151,7 +151,7 @@ namespace UnitTests.Views
 
             //Reset
            // BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
-           // mainCharacters.Clear();
+           // selectedCharacters.Clear();
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
@@ -170,7 +170,7 @@ namespace UnitTests.Views
             page.PopupSaveButtonMonster_Clicked(s,e);
 
             // Reset
-            mainMonsters.Clear();
+            selectedMonsters.Clear();
           //  BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
           //  mainMonsters.Clear();
             // Assert

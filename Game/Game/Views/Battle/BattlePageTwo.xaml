@@ -49,7 +49,6 @@
 
                             <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand" Padding="2">
                                 <Image x:Name="PopupCharacterImage" Style="{StaticResource ImageLargeStyle}" Margin="5"/>
-
                                 <Label x:Name="PopupCharacterName" Style="{StaticResource PopupItemTextStyle}" MaxLines="2" LineBreakMode="WordWrap" Margin="5"/>
                                 <Label x:Name="HealthTextLabel" Text="Health: " FontAttributes="Bold" FontSize="Micro" HorizontalOptions="Start" Style="{StaticResource LabelStyle}"/>
                                 <Label x:Name="PopupCharacterHealth" Style="{StaticResource PopupItemTextStyle}" MaxLines="2" LineBreakMode="WordWrap" Margin="5" />

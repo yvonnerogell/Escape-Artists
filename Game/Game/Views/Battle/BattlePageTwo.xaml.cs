@@ -36,17 +36,14 @@ namespace Game.Views
         bool UnitTestSetting;
         public BattlePageTwo(bool UnitTest) { UnitTestSetting = UnitTest; }
 
-        // list of characters
-        public List<PlayerInfoModel> characterList = new List<PlayerInfoModel>();
-
         // selecting the character of that turn
-        public List<PlayerInfoModel> mainCharacters = new List<PlayerInfoModel>();
+        public List<PlayerInfoModel> selectedCharacters = new List<PlayerInfoModel>();
 
-        // list of monsters
-        public List<PlayerInfoModel> monsterList = new List<PlayerInfoModel>();
+        // list of monsters found in the frame
+        public List<PlayerInfoModel> monstersFoundList = new List<PlayerInfoModel>();
 
-        // selecting the character of that turn
-        public List<PlayerInfoModel> mainMonsters = new List<PlayerInfoModel>();
+        // selecting the monster of that turn
+        public List<PlayerInfoModel> selectedMonsters = new List<PlayerInfoModel>();
 
 
         /// <summary>
@@ -69,8 +66,7 @@ namespace Game.Views
             DrawMonsterList();
             DrawItemLists();
 
-            
-
+           
             // Create and Draw the Map
             // InitializeMapGrid();
 
@@ -162,7 +158,7 @@ namespace Game.Views
         }
 
         /// <summary>
-        /// Look up the Item to Display
+        /// Look up the Character to Display
         /// </summary>
         /// <param name="location"></param>
         /// <returns></returns>
@@ -184,18 +180,19 @@ namespace Game.Views
             var data = CharacterIndexViewModel.Instance.GetCharacterByName(character.Name);
             if (data == null)
             {
-                // Show the Default Icon for the Location
-                data = new CharacterModel { Name = "Unknown", ImageURI = "icon_cancel.png" };
+                // Show the Default Name & Image
+                data = new CharacterModel { Name = "Unknown", ImageURI = "squid.jpg" };
 
                 // Turn off click action
                 ClickableButton = false;
             }
 
-            // Hookup the Image Button to show the Item picture
+            // Hookup the Image Button to show the Character picture
             var CharacterButton = new ImageButton
             {
                 Style = (Style)Application.Current.Resources["ImageLargeStyle"],
                 Source = data.ImageURI,
+                // This sends the name to the popup
                 CommandParameter = character.Name
             };
 
@@ -220,7 +217,7 @@ namespace Game.Views
         }
 
         /// <summary>
-        /// Show the Popup for the Item
+        /// Show the Popup for the Character
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
@@ -235,7 +232,6 @@ namespace Game.Views
 
             // Set command parameter so that popup knows which item it is displaying
             PopupSaveButtonCharacter.CommandParameter = data.Name;
-
            
             return true;
         }
@@ -259,8 +255,8 @@ namespace Game.Views
         {
             var characterName = "";
             var player = new PlayerInfoModel(); ;
-          //  if (sender != null)
-           // {              
+            
+            // Look up by Character name
             characterName = ((Button)sender).CommandParameter.ToString();
             foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
             {
@@ -270,15 +266,13 @@ namespace Game.Views
                 }
 
             }
-            //var character = CharacterIndexViewModel.Instance.GetCharacterByName(characterName);
-            //PlayerInfoModel player = new PlayerInfoModel(character);
-
+           
             var characterFoundIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FindIndex(c => c.Name == player.Name);
             BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.RemoveAt(characterFoundIndex);
 
            // Add updated player back to view model
-            mainCharacters.Add(player);
-           // }
+            selectedCharacters.Add(player);
+
             DrawCharacterList();
             DrawSelectedCharacters();
 
@@ -290,7 +284,7 @@ namespace Game.Views
         /// </summary>
         public void DrawCharacterList()
         {
-            // Clear and Populate the Characters Remaining
+            // Clear and Populate the Characters remaining
             var FlexList = CharacterListFrame.Children.ToList();
             foreach (var data in FlexList)
             {
@@ -302,13 +296,9 @@ namespace Game.Views
                 {
                     if (data.Level != 20)
                     {
-                        CharacterListFrame.Children.Add(GetCharacterToDisplay(data));
-                        characterList.Add(data);
-                
+                        CharacterListFrame.Children.Add(GetCharacterToDisplay(data));            
                     }
-
-                }
-         
+                }        
         }
 
         /// <summary>
@@ -320,22 +310,20 @@ namespace Game.Views
             var FlexList = CharacterListSelectedFrame.Children.ToList();
             foreach (var data in FlexList)
             {
-                CharacterListSelectedFrame.Children.Remove(data);
-                
+                CharacterListSelectedFrame.Children.Remove(data);                
             }
             
             // Draw the Characters
-            foreach (var data in mainCharacters)
+            foreach (var data in selectedCharacters)
             {
                     if (data.Level != 20)
                     {
+                        // select only one and then break
                         CharacterListSelectedFrame.Children.Add(GetCharacterToDisplay(data));
                         CharacterFrame.IsVisible = false;
                         break;
                     }
-                   
-            }
-            
+            }            
         }
 
         /// <summary>
@@ -473,7 +461,7 @@ namespace Game.Views
             PopupSaveButtonItem.CommandParameter = data.Id;
 
             // Figure out which characters can be assigned this item and display that list in the picker. 
-            List<string> charactersForItem = GetCharacterWhoCanAcceptItem(mainCharacters, data);
+            List<string> charactersForItem = GetCharacterWhoCanAcceptItem(selectedCharacters, data);
             AssignItemPicker.ItemsSource = charactersForItem;
             AssignItemPicker.SelectedIndex = 0;
 
@@ -769,7 +757,7 @@ namespace Game.Views
                 BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.RemoveAt(MonsterFoundIndex);
 
                 // Add updated player back to view model
-                mainMonsters.Add(player);
+                selectedMonsters.Add(player);
          //   }
             DrawMonsterList();
             DrawSelectedMonsters();
@@ -808,7 +796,7 @@ namespace Game.Views
 
             
                 // Draw the Monsters
-                foreach (var data in mainMonsters)
+                foreach (var data in selectedMonsters)
                 {
                     if (data.Level != 20)
                     {
