@@ -53,7 +53,7 @@
                                 <Label x:Name="PopupCharacterName" Style="{StaticResource PopupItemTextStyle}" MaxLines="2" LineBreakMode="WordWrap" Margin="5"/>
                                 <Label x:Name="HealthTextLabel" Text="Health: " FontAttributes="Bold" FontSize="Micro" HorizontalOptions="Start" Style="{StaticResource LabelStyle}"/>
                                 <Label x:Name="PopupCharacterHealth" Style="{StaticResource PopupItemTextStyle}" MaxLines="2" LineBreakMode="WordWrap" Margin="5" />
-                                <Label x:Name="GPATextLabel" Text="GPA: "  FontAttributes="Bold" FontSize="Micro" HorizontalOptions="EndAndExpand"  Style="{StaticResource LabelStyle}"/>
+                                <Label x:Name="GPATextLabel" Text="GPA: "  FontAttributes="Bold" FontSize="Micro" HorizontalOptions="Start"  Style="{StaticResource LabelStyle}"/>
                                 <Label x:Name="PopupCharacterGPA" Style="{StaticResource PopupItemTextStyle}" MaxLines="2" LineBreakMode="WordWrap" Margin="5" />
 
                                 <Button x:Name="PopupSaveButtonCharacter" 
@@ -84,9 +84,9 @@
                 </Grid>
 
                 <!-- Item Found-->
-                <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
+                <Frame x:Name="ItemFrame" BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
                     <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="250" WidthRequest="750">
-                        <Label Text="Select one or more items" Style="{StaticResource MessageStyle}" Padding="10" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+                        <Label Text="Select one item" Style="{StaticResource MessageStyle}" Padding="10" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
                         <FlexLayout x:Name="ItemListFoundFrame"
                                     JustifyContent="Center"
                                     AlignContent="Center"
