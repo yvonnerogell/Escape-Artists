@@ -62,9 +62,11 @@ namespace Game.Views
             // TODO for team: remove this once we are ready to use our own battle engine.
             BattleEngineViewModel.Instance.SetBattleEngineToKoenig();
 
+            PopupLoadingItemListFoundFrame.IsVisible = false;
+
             DrawCharacterList();
             DrawMonsterList();
-            DrawItemLists();
+            //DrawItemLists();
 
            
             // Create and Draw the Map
@@ -275,7 +277,9 @@ namespace Game.Views
 
             DrawCharacterList();
             DrawSelectedCharacters();
-
+            // This is when the item list should be visible
+            DrawItems();
+            PopupLoadingItemListFoundFrame.IsVisible = true;
             PopupLoadingViewCharacter.IsVisible = false;
         }
 
@@ -306,7 +310,6 @@ namespace Game.Views
         /// </summary>
         public void DrawSelectedCharacters()
         {
-
             var FlexList = CharacterListSelectedFrame.Children.ToList();
             foreach (var data in FlexList)
             {
@@ -356,9 +359,9 @@ namespace Game.Views
             }
             
             foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Distinct())
-            //foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.ItemPool)
             {
-                ItemListFoundFrame.Children.Add(GetItemToDisplay(data));
+                if (GetCharacterWhoCanAcceptItem(selectedCharacters, data).Count() == 1)
+                        ItemListFoundFrame.Children.Add(GetItemToDisplay(data));
             }
         }
 
@@ -377,7 +380,6 @@ namespace Game.Views
             foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelSelectList)
             {
                 ItemListSelectedFrame.Children.Add(GetItemToDisplay(data));
-                ItemFrame.IsVisible = false;
                 break;
             }
         }
@@ -605,7 +607,6 @@ namespace Game.Views
                 
             }
                 DrawItemLists();
-
                 PopupLoadingViewItem.IsVisible = false;
         }
 
