@@ -139,7 +139,7 @@ namespace Game.Engine.EngineBase
             //If there are not enough will add random ones
             for (int i = Battle.EngineSettings.CharacterList.Count(); i < Battle.EngineSettings.MaxNumberPartyCharacters; i++)
             {
-                Battle.PopulateCharacterList(RandomPlayerHelper.GetRandomCharacterStudent(1));
+                Battle.PopulateCharacterList(RandomPlayerHelper.GetRandomCharacterEscapingSchool(1));
             }
             
 
