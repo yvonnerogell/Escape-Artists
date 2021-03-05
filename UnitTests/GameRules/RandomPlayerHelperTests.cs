@@ -313,11 +313,16 @@ namespace UnitTests.Helpers
         }
 
         [Test]
-        public void RandomPlayerHelper_GetMonsterUniqueItem_2_Should_Return_2()
+        public async Task RandomPlayerHelper_GetMonsterUniqueItem_2_Should_Return_2()
         {
             // Arrange
             DiceHelper.EnableForcedRolls();
             DiceHelper.SetForcedRollValue(2);
+            var save = ItemIndexViewModel.Instance.Dataset;
+            ItemIndexViewModel.Instance.Dataset.Clear();
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { ItemType = ItemTypeEnum.Calculator });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { ItemType = ItemTypeEnum.Diploma });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { ItemType = ItemTypeEnum.FoodCourtCard });
 
             var expected = ItemIndexViewModel.Instance.Dataset.ElementAt(1).Id;
 
@@ -325,11 +330,75 @@ namespace UnitTests.Helpers
             var result = RandomPlayerHelper.GetMonsterUniqueItem();
 
             // Reset
+            ItemIndexViewModel.Instance.Dataset.Clear();
+            ItemIndexViewModel.Instance.Dataset = save;
             DiceHelper.DisableForcedRolls();
 
             // Assert
             Assert.AreEqual(expected, result);
         }
+
+        [Test]
+        public async Task RandomPlayerHelper_GetMonsterItemEscapingSchool_2_Should_Return_2()
+        {
+            // Arrange
+            var save = ItemIndexViewModel.Instance.Dataset;
+            ItemIndexViewModel.Instance.Dataset.Clear();
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { ItemType = ItemTypeEnum.Calculator });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { ItemType = ItemTypeEnum.Diploma });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { ItemType = ItemTypeEnum.FoodCourtCard });
+
+            // Act
+            var result = RandomPlayerHelper.GetMonsterItemEscapingSchool();
+
+            // Reset
+            ItemIndexViewModel.Instance.Dataset.Clear();
+            ItemIndexViewModel.Instance.Dataset = save;
+
+            // Assert
+            Assert.AreNotEqual(ItemTypeEnum.GraduationCapAndRobe, result.ItemType);
+        }
+
+        [Test]
+        public async Task RandomPlayerHelper_GetMonsterItemEscapingSchool_Valid_Should_Pass()
+        {
+            // Arrange
+            var save = ItemIndexViewModel.Instance.Dataset;
+            ItemIndexViewModel.Instance.Dataset.Clear();
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { ItemType = ItemTypeEnum.GraduationCapAndRobe });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { ItemType = ItemTypeEnum.Diploma });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { ItemType = ItemTypeEnum.FoodCourtCard });
+
+            // Act
+            var result = RandomPlayerHelper.GetMonsterItemEscapingSchool();
+
+            // Reset
+            ItemIndexViewModel.Instance.Dataset.Clear();
+            ItemIndexViewModel.Instance.Dataset = save;
+
+            // Assert
+            Assert.AreNotEqual(ItemTypeEnum.GraduationCapAndRobe, result.ItemType);
+        }
+
+        [Test]
+        public async Task RandomPlayerHelper_GetMonsterItemEscapingSchool_Should_Return_Null()
+        {
+            // Arrange
+            var save = ItemIndexViewModel.Instance.Dataset;
+            ItemIndexViewModel.Instance.Dataset.Clear();
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { ItemType = ItemTypeEnum.GraduationCapAndRobe });
+
+            // Act
+            var result = RandomPlayerHelper.GetMonsterItemEscapingSchool();
+
+            // Reset
+            ItemIndexViewModel.Instance.Dataset.Clear();
+            ItemIndexViewModel.Instance.Dataset = save;
+
+            // Assert
+            Assert.AreEqual(null, result);
+        }
+
 
         //[Test]
         //public void RandomPlayerHelper_GetRandomCharacter_InValid_Empty_CharacterList_Should_Return_New()
