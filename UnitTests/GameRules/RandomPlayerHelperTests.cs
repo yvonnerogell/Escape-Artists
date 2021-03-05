@@ -856,7 +856,7 @@ namespace UnitTests.Helpers
             DiceHelper.DisableForcedRolls();
 
             // Assert
-            Assert.AreEqual(MonsterTypeEnum.Faculty, result.MonsterTypeEnum);
+            Assert.AreEqual(MonsterTypeEnum.Administrator, result.MonsterTypeEnum);
             Assert.AreEqual(SpecificMonsterTypeEnum.HRAdministrator, result.SpecificMonsterTypeEnum);
         }
 
@@ -874,7 +874,7 @@ namespace UnitTests.Helpers
             DiceHelper.DisableForcedRolls();
 
             // Assert
-            Assert.AreEqual(MonsterTypeEnum.Faculty, result.MonsterTypeEnum);
+            Assert.AreEqual(MonsterTypeEnum.Administrator, result.MonsterTypeEnum);
             Assert.AreEqual(SpecificMonsterTypeEnum.RegistrationAdministrator, result.SpecificMonsterTypeEnum);
         }
 
@@ -892,7 +892,7 @@ namespace UnitTests.Helpers
             DiceHelper.DisableForcedRolls();
 
             // Assert
-            Assert.AreEqual(MonsterTypeEnum.Faculty, result.MonsterTypeEnum);
+            Assert.AreEqual(MonsterTypeEnum.Administrator, result.MonsterTypeEnum);
             Assert.AreEqual(SpecificMonsterTypeEnum.Unknown, result.SpecificMonsterTypeEnum);
         }
 
@@ -961,6 +961,41 @@ namespace UnitTests.Helpers
 
             // Assert
             Assert.AreEqual(CharacterTypeEnum.Parent, result.CharacterTypeEnum);
+        }
+
+
+        [Test]
+        public void RandomPlayerHelper_GetRandomMonsterEscapingSchool_1_Should_Return_Faculty()
+        {
+            // Arrange
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(1);
+
+            // Act
+            var result = RandomPlayerHelper.GetRandomMonsterEscapingSchool(20);
+
+            // Reset
+            DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreEqual(MonsterTypeEnum.Faculty, result.MonsterTypeEnum);
+        }
+
+        [Test]
+        public void RandomPlayerHelper_GetRandomMonsterEscapingSchool_2_Should_Return_Administrator()
+        {
+            // Arrange
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(2);
+
+            // Act
+            var result = RandomPlayerHelper.GetRandomMonsterEscapingSchool(20);
+
+            // Reset
+            DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreEqual(MonsterTypeEnum.Administrator, result.MonsterTypeEnum);
         }
     }
 }

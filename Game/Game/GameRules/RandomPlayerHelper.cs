@@ -647,6 +647,22 @@ namespace Game.GameRules
         }
 
         /// <summary>
+        /// Create Random monster for the Escaping school game.
+        /// </summary>
+        /// <param name="MaxLevel"></param>
+        /// <returns></returns>
+        public static MonsterModel GetRandomMonsterEscapingSchool(int MaxLevel)
+        {
+            var type = DiceHelper.RollDice(1, 2);
+            
+            if (type % 2 == 0)
+			{
+                return GetRandomMonsterAdministrator(MaxLevel);
+			}
+            return GetRandomMonsterFaculty(MaxLevel);
+        }
+
+        /// <summary>
         /// Create Random monster faculty for the battle
         /// </summary>
         /// <param name="MaxLevel"></param>
@@ -747,7 +763,7 @@ namespace Game.GameRules
                 // Randomize Name
                 Name = GetMonsterName(),
                 Description = GetMonsterDescriptionFaculty(),
-                MonsterTypeEnum = MonsterTypeEnum.Faculty,
+                MonsterTypeEnum = MonsterTypeEnum.Administrator,
 
                 // Randomize the Attributes
                 Attack = GetAbilityValue(),
