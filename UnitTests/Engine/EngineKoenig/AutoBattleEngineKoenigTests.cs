@@ -220,5 +220,82 @@ namespace UnitTests.Engine.EngineKoenig
             //Assert
             Assert.IsTrue(result);
         }
+
+        [Test]
+        public async Task AutoBattleEngine_RunAutoBattle_Koenig_InValid_Round_Loop_Should_Fail()
+        {
+            /* 
+             * Test infinate rounds.  
+             * 
+             * Characters overpower monsters, game never ends
+             * 
+             * 6 Character
+             *      Speed high
+             *      Hit Hard
+             *      High health
+             * 
+             * 1 Monsters
+             *      Slow
+             *      Weak Hit
+             *      Weak health
+             * 
+             * Should never end
+             * 
+             * Inifinite Loop Check should stop the game
+             * 
+             */
+
+            //Arrange
+
+            // Add Characters
+
+
+            AutoBattleEngine.Battle.EngineSettings.MaxNumberPartyCharacters = 6;
+
+            var CharacterPlayer = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Speed = 100,
+                                Level = 5,
+                                MaxHealth = 200,
+                                CurrentHealth = 200,
+                                ExperienceTotal = 1,
+                            });
+
+            var CharacterPlayerMin = new PlayerInfoModel(
+                new CharacterModel
+                {
+                    Speed = 99,
+                    Level = 1,
+                    MaxHealth = 200,
+                    CurrentHealth = 200,
+                    ExperienceTotal = 1,
+                });
+
+            AutoBattleEngine.Battle.EngineSettings.CharacterList.Add(CharacterPlayer);
+            AutoBattleEngine.Battle.EngineSettings.CharacterList.Add(CharacterPlayer);
+            AutoBattleEngine.Battle.EngineSettings.CharacterList.Add(CharacterPlayer);
+            AutoBattleEngine.Battle.EngineSettings.CharacterList.Add(CharacterPlayer);
+            AutoBattleEngine.Battle.EngineSettings.CharacterList.Add(CharacterPlayer);
+            AutoBattleEngine.Battle.EngineSettings.CharacterList.Add(CharacterPlayerMin);
+
+            // Add Monsters
+
+            AutoBattleEngine.Battle.EngineSettings.MaxNumberPartyMonsters = 1;
+
+            // Controll Rolls,  Hit is always a 3
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(3);
+
+            //Act
+            var result = await AutoBattleEngine.RunAutoBattle();
+
+            //Reset
+            DiceHelper.DisableForcedRolls();
+
+            //Assert
+            Assert.AreEqual(false, result);
+            Assert.AreEqual(true, AutoBattleEngine.Battle.EngineSettings.BattleScore.RoundCount > AutoBattleEngine.Battle.EngineSettings.MaxRoundCount);
+        }
     }
 }
