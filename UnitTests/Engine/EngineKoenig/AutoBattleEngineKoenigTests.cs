@@ -181,6 +181,44 @@ namespace UnitTests.Engine.EngineKoenig
             //Assert
             Assert.AreEqual(6, count);
         }
+
         #endregion CreateCharacterParty   
+
+        [Test]
+        public void AutoBattleEngine_DetectInfiniteLoop_MaxRoundCount_Should_Return_True()
+        {
+            //Arrange
+            var saveRoundCount = AutoBattleEngine.Battle.EngineSettings.MaxRoundCount;
+            AutoBattleEngine.Battle.EngineSettings.MaxRoundCount = 0;
+
+            //Act
+            var result = AutoBattleEngine.DetectInfinateLoop();
+
+            //Reset
+            AutoBattleEngine.Battle.EngineSettings.MaxRoundCount = saveRoundCount;
+
+            //Assert
+            Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void AutoBattleEngine_DetectInfiniteLoop_MaxTurnCount_Should_Return_True()
+        {
+            //Arrange
+            var saveRoundCount = AutoBattleEngine.Battle.EngineSettings.MaxRoundCount;
+            AutoBattleEngine.Battle.EngineSettings.MaxRoundCount = 1000000;
+            var saveTurnCount = AutoBattleEngine.Battle.EngineSettings.MaxTurnCount;
+            AutoBattleEngine.Battle.EngineSettings.MaxTurnCount = -1;
+
+            //Act
+            var result = AutoBattleEngine.DetectInfinateLoop();
+
+            //Reset
+            AutoBattleEngine.Battle.EngineSettings.MaxRoundCount = saveRoundCount;
+            AutoBattleEngine.Battle.EngineSettings.MaxTurnCount = saveTurnCount;
+
+            //Assert
+            Assert.IsTrue(result);
+        }
     }
 }
