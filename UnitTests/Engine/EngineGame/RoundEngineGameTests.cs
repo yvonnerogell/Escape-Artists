@@ -156,6 +156,58 @@ namespace UnitTests.Engine.EngineGame
         }
 
         [Test]
+        public void RoundEngine_PickupItemsFromPool_Auto_Valid_Student_Level_18_Should_Pass()
+        {
+            // Arrange
+            PlayerInfoModel character = new PlayerInfoModel(new CharacterModel { Level = 18, CharacterTypeEnum = CharacterTypeEnum.Student});
+            var save = Engine.EngineSettings.ItemPool;
+            Engine.EngineSettings.ItemPool.Clear();
+            Engine.EngineSettings.ItemPool.Add(new ItemModel { ItemType = ItemTypeEnum.GraduationCapAndRobe });
+
+            // Act
+            bool result = Engine.Round.PickupItemsFromPool(character);
+
+            // Reset
+            Engine.EngineSettings.ItemPool.Clear();
+            Engine.EngineSettings.ItemPool = save;
+
+            // Assert
+            Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void RoundEngine_PickupItemsFromPool_Auto_Valid_Student_Level_15_Should_Pass()
+        {
+            // Arrange
+            PlayerInfoModel character = new PlayerInfoModel(new CharacterModel { Level = 15, CharacterTypeEnum = CharacterTypeEnum.Student });
+
+            // Act
+
+            bool result = Engine.Round.PickupItemsFromPool(character);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void RoundEngine_PickupItemsFromPool_Auto_Valid_Parent_Level_15_Should_Pass()
+        {
+            // Arrange
+            PlayerInfoModel character = new PlayerInfoModel(new CharacterModel { Level = 15, CharacterTypeEnum = CharacterTypeEnum.Parent });
+
+            // Act
+
+            bool result = Engine.Round.PickupItemsFromPool(character);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(result);
+        }
+
+        [Test]
         public void RoundEngine_PickupItemsFromPool_Manual_Valid_Default_Should_Pass()
         {
             // Arrange
@@ -200,5 +252,30 @@ namespace UnitTests.Engine.EngineGame
         }
 
         #endregion SwapCharacterItem
+
+
+
+        [Test]
+        public void RoundEngine_RemoveGraduatedandDeadPlayersFromList_Default_Should_Pass()
+        {
+            // Arrange
+            var save = Engine.EngineSettings.PlayerList;
+            Engine.EngineSettings.PlayerList.Clear();
+            Engine.EngineSettings.PlayerList.Add(new PlayerInfoModel(new CharacterModel { Alive = false, Graduated = false}));
+            Engine.EngineSettings.PlayerList.Add(new PlayerInfoModel(new CharacterModel { Alive = false, Graduated = false }));
+            Engine.EngineSettings.PlayerList.Add(new PlayerInfoModel(new CharacterModel { Graduated = true, Alive = true }));
+            Engine.EngineSettings.PlayerList.Add(new PlayerInfoModel(new CharacterModel { Graduated = true, Alive = true }));
+            Engine.EngineSettings.PlayerList.Add(new PlayerInfoModel(new CharacterModel { Graduated = false, Alive = true }));
+
+            // Act
+            var result = ((RoundEngine)Engine.Round).RemoveGraduatedandDeadPlayersFromList();
+
+            // Assert
+            Assert.AreEqual(1, result.Count);
+
+            // Reset
+            Engine.EngineSettings.PlayerList.Clear();
+            Engine.EngineSettings.PlayerList = save;
+        }
     }
 }
