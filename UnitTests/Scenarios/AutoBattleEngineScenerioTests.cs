@@ -217,7 +217,7 @@ namespace Scenario
                             new CharacterModel
                             {
                                 Speed = 100,
-                                Level = 20,
+                                Level = 5,
                                 MaxHealth = 200,
                                 CurrentHealth = 200,
                                 ExperienceTotal = 1,
