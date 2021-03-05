@@ -483,12 +483,14 @@ namespace Game.Engine.EngineBase
         /// Also target is dead if health <= 0
         /// </summary>
         /// <param name="Target"></param>
-        public virtual void ApplyDamage(PlayerInfoModel Target)
+        public virtual int ApplyDamage(PlayerInfoModel Target)
         {
             // Apply the damage.
             // If the target is out of health, we cause death. 
             Target.TakeDamage(EngineSettings.BattleMessagesModel.DamageAmount);
             EngineSettings.BattleMessagesModel.CurrentHealth = Target.GetCurrentHealthTotal;
+
+            return EngineSettings.BattleMessagesModel.DamageAmount;
         }
 
         /// <summary>

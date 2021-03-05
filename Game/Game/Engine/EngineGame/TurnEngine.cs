@@ -457,11 +457,11 @@ namespace Game.Engine.EngineGame
         /// Apply the Damage to the Target
         /// Also target is dead if health <= 0
         /// </summary>
-        public override void ApplyDamage(PlayerInfoModel Target)
+        public override int ApplyDamage(PlayerInfoModel Target)
         {
             //apply the damage to target, if target is less than 0, cause death
             //throw new System.NotImplementedException();
-            base.ApplyDamage(Target);
+            return base.ApplyDamage(Target);
         }
 
         /// <summary>
