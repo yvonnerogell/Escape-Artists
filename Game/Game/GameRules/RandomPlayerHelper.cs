@@ -40,6 +40,31 @@ namespace Game.GameRules
         }
 
         /// <summary>
+        /// Get a random item for monster
+        /// </summary>
+        /// <returns></returns>
+        public static ItemModel GetMonsterItemEscapingSchool()
+        {
+            var itemIndex = DiceHelper.RollDice(1, ItemIndexViewModel.Instance.Dataset.Count()) - 1;
+
+            // Check to see if there are enough items, if not, then just use the first one...
+            var result = ItemIndexViewModel.Instance.Dataset.First();
+
+            for (var i = itemIndex; i < ItemIndexViewModel.Instance.Dataset.Count; i++)
+			{
+                result = ItemIndexViewModel.Instance.Dataset.ElementAt(i);
+                if (result.ItemType == ItemTypeEnum.GraduationCapAndRobe)
+				{
+                    result = null;
+                    continue;
+				}
+
+			}
+            
+            return result;
+        }
+
+        /// <summary>
         /// Get A Random Difficulty
         /// </summary>
         /// <returns></returns>
