@@ -3,7 +3,7 @@ using System.Linq;
 
 using NUnit.Framework;
 
-using Game.Engine.EngineKoenig;
+using Game.Engine.EngineGame;
 using Game.Models;
 using Game.Helpers;
 using Game.ViewModels;
@@ -382,5 +382,63 @@ namespace Scenario
         //    //Assert
         //    Assert.AreEqual(true, result);
         //}
+
+
+        [Test]
+        public async Task AutoBattleEngine_RunAutoBattle_Valid_GraduationCeremony_Should_Pass()
+        {
+            /* 
+             * Tests graduation ceremony
+             * 
+             * Characters will not die but will reach level 20, which means they will graduate and a ceremony will happen
+             * 
+             * 1 Character
+             *      Speed high
+             *      Level 20
+             *      Health high
+             * 
+             * 1 Monsters
+             *      Speed High
+             *      Hit strong
+             *      Health High
+             * 
+             * Always rolls hits
+             * 
+             * 
+             */
+
+            //Arrange
+
+            // Add Characters
+
+            AutoBattle.Battle.EngineSettings.MaxNumberPartyCharacters = 1;
+
+            var CharacterPlayer = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Speed = 10,
+                                Level = 20,
+                                MaxHealth = 100,
+                                CurrentHealth = 100,
+                                SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.InternationalStudent,
+                                GPA = 100,
+                                Graduated = true
+                            });
+
+            AutoBattle.Battle.EngineSettings.CharacterList.Add(CharacterPlayer);
+
+            // Add Monsters
+            AutoBattle.Battle.EngineSettings.MaxNumberPartyMonsters = 1;
+
+            //Act
+            var result = await AutoBattle.RunAutoBattle();
+
+            //Reset
+
+            //Assert
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(0, AutoBattle.Battle.EngineSettings.BattleScore.CharacterModelDeathList.Count);
+            Assert.AreEqual(1, AutoBattle.Battle.EngineSettings.BattleScore.GraduateModelList.Count);
+        }
     }
 }
