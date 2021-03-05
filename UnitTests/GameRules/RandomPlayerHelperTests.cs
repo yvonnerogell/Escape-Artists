@@ -928,5 +928,39 @@ namespace UnitTests.Helpers
             // Assert
             Assert.AreEqual(PlayerTypeEnum.Monster, result.PlayerType);
         }
+
+        [Test]
+        public void RandomPlayerHelper_GetRandomCharacterEscapingSchool_1_Should_Return_Student()
+        {
+            // Arrange
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(1);
+
+            // Act
+            var result = RandomPlayerHelper.GetRandomCharacterEscapingSchool(20);
+
+            // Reset
+            DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreEqual(CharacterTypeEnum.Student, result.CharacterTypeEnum);
+        }
+
+        [Test]
+        public void RandomPlayerHelper_GetRandomCharacterEscapingSchool_2_Should_Return_Parent()
+        {
+            // Arrange
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(2);
+
+            // Act
+            var result = RandomPlayerHelper.GetRandomCharacterEscapingSchool(20);
+
+            // Reset
+            DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreEqual(CharacterTypeEnum.Parent, result.CharacterTypeEnum);
+        }
     }
 }

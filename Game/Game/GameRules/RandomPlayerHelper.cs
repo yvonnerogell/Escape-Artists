@@ -438,6 +438,22 @@ namespace Game.GameRules
         }
 
         /// <summary>
+        /// Create Random Character for Escaping School
+        /// </summary>
+        /// <param name="MaxLevel"></param>
+        /// <returns></returns>
+        public static CharacterModel GetRandomCharacterEscapingSchool(int MaxLevel)
+        {
+            var type = DiceHelper.RollDice(1, 2);
+
+            if (type % 2 == 0)
+			{
+                return GetRandomCharacterParent(MaxLevel);
+			}
+            return GetRandomCharacterStudent(MaxLevel);
+        }
+
+        /// <summary>
         /// Create Random Character for the battle. This method is specific to our game flavor - Escaping School.Creates a parent.
         /// </summary>
         /// <param name="MaxLevel"></param>
