@@ -440,5 +440,64 @@ namespace Scenario
             Assert.AreEqual(0, AutoBattle.Battle.EngineSettings.BattleScore.CharacterModelDeathList.Count);
             Assert.AreEqual(1, AutoBattle.Battle.EngineSettings.BattleScore.GraduateModelList.Count);
         }
+
+        [Test]
+        public async Task AutoBattleEngine_RunAutoBattle_Valid_Fight_BigBoss_Should_Pass()
+        {
+            /* 
+             * Tests fighting big boss if character is  > 17 level 
+             * 
+             * created:
+             * 1 Character
+             *      Speed high
+             *      Level 18
+             *      Health high
+             * 
+             * created during game then killed:
+             * 1 Monsters
+             *      Graduation monster with graduation cap
+             *      Speed High
+             *      Hit strong
+             *      Health High
+             * 
+             * Always rolls hits
+             * 
+             * 
+             */
+
+            //Arrange
+
+            // Add Characters
+
+            AutoBattle.Battle.EngineSettings.MaxNumberPartyCharacters = 1;
+
+            var CharacterPlayer = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Speed = 10,
+                                Level = 18,
+                                MaxHealth = 100,
+                                CurrentHealth = 100,
+                                SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.InternationalStudent,
+                                CharacterTypeEnum = CharacterTypeEnum.Student,
+                                GPA = 100,
+                                Graduated = true
+                            });
+
+            AutoBattle.Battle.EngineSettings.CharacterList.Add(CharacterPlayer);
+
+            // Add Monsters
+            AutoBattle.Battle.EngineSettings.MaxNumberPartyMonsters = 1;
+
+            //Act
+            var result = await AutoBattle.RunAutoBattle();
+
+            //Reset
+
+            //Assert
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(1, AutoBattle.Battle.EngineSettings.BattleScore.MonsterModelDeathList.Count);
+            Assert.IsTrue(AutoBattle.Battle.EngineSettings.BattleScore.MonsterModelDeathList.Any(m => m.SpecificMonsterTypeEnum == SpecificMonsterTypeEnum.GraduationOfficeAdministrator));
+        }
     }
 }
