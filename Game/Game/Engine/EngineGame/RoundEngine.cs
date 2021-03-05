@@ -130,7 +130,7 @@ namespace Game.Engine.EngineGame
             // load the monsters list
             for (var i = 0; i < MaxParty; i++)
             {
-                var data = RandomPlayerHelper.GetRandomMonster(TargetLevel, EngineSettings.BattleSettingsModel.AllowMonsterItems);
+                var data = RandomPlayerHelper.GetRandomMonsterEscapingSchool(TargetLevel);
 
                 // Help identify which Monster it is
                 data.Name += " " + EngineSettings.MonsterList.Count() + 1;
