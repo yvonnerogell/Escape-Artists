@@ -219,8 +219,67 @@ namespace Game.Engine.EngineGame
 
             //throw new System.NotImplementedException();
 
-            return base.RoundNextTurn();
-            //return RoundEnum.GameOver;
+            // No characters, game is over...
+
+            if (CheckGraduationCeremony())
+            {
+                EngineSettings.RoundStateEnum = RoundEnum.GraduationCeremony;
+                return EngineSettings.RoundStateEnum;
+            }
+
+            if (EngineSettings.CharacterList.Count < 1)
+            {
+                // Game Over
+                EngineSettings.RoundStateEnum = RoundEnum.GameOver;
+                return EngineSettings.RoundStateEnum;
+            }
+
+            // Check if round is over
+            if (EngineSettings.MonsterList.Count < 1)
+            {
+                // If over, New Round
+                EngineSettings.RoundStateEnum = RoundEnum.NewRound;
+                return RoundEnum.NewRound;
+            }
+
+            if (EngineSettings.BattleScore.AutoBattle)
+            {
+                // Decide Who gets next turn
+                // Remember who just went...
+                EngineSettings.CurrentAttacker = GetNextPlayerTurn();
+
+                // Only Attack for now
+                EngineSettings.CurrentAction = ActionEnum.Attack;
+            }
+
+            // Do the turn....
+            Turn.TakeTurn(EngineSettings.CurrentAttacker);
+
+            EngineSettings.RoundStateEnum = RoundEnum.NextTurn;
+
+            return EngineSettings.RoundStateEnum;
+        }
+
+        /// <summary>
+        /// Helper to check if it meets the graduation ceremony conditions
+        /// </summary>
+        /// <returns></returns>
+        public bool CheckGraduationCeremony()
+        {
+            // students still in school
+            if (EngineSettings.CharacterList.Any(m => m.CharacterTypeEnum == CharacterTypeEnum.Student))
+            {
+                return false;
+            }
+
+            // no one gradated
+            if (EngineSettings.BattleScore.GraduateModelList.Count() == 0)
+            {
+                return false;
+            }
+
+            // no students left, and some people graduated!
+            return true;
         }
 
         /// <summary>
