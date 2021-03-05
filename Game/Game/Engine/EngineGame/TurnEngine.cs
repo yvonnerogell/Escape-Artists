@@ -604,7 +604,57 @@ namespace Game.Engine.EngineGame
             // Add to ScoreModel
 
             //throw new System.NotImplementedException();
-            return base.DropItems(Target);
+            //return base.DropItems(Target);
+            
+            var DroppedMessage = "\nItems Dropped : \n";
+
+            // Drop Items to ItemModel Pool
+            var myItemList = Target.DropAllItems();
+
+            // Get the monster's unique drop item.
+            if (Target.PlayerType == PlayerTypeEnum.Monster)
+            {
+                var myItem = ItemIndexViewModel.Instance.GetItem(Target.UniqueDropItem);
+                if (myItem != null)
+                {
+                    myItemList.Add(myItem);
+                }
+            }
+
+            // I feel generous, even when characters die, random drops happen :-)
+            // If Random drops are enabled, then add some....
+
+            // add item only if is not null
+            foreach (ItemModel item in GetRandomMonsterItemDrops(EngineSettings.BattleScore.RoundCount))
+            {
+                if (item != null)
+                {
+                    myItemList.Add(item);
+                }
+            }
+
+            //myItemList.AddRange(GetRandomMonsterItemDrops(EngineSettings.BattleScore.RoundCount));
+
+            // Add to ScoreModel
+            foreach (var ItemModel in myItemList)
+            {
+                EngineSettings.BattleScore.ItemsDroppedList += ItemModel.FormatOutput() + "\n";
+                DroppedMessage += ItemModel.Name + "\n";
+            }
+
+            EngineSettings.ItemPool.AddRange(myItemList);
+
+            if (myItemList.Count == 0)
+            {
+                DroppedMessage = " Nothing dropped. ";
+            }
+
+            EngineSettings.BattleMessagesModel.DroppedMessage = DroppedMessage;
+
+            EngineSettings.BattleScore.ItemModelDropList.AddRange(myItemList);
+
+            return myItemList.Count();
+
         }
 
         /// <summary>
