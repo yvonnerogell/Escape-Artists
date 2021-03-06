@@ -145,5 +145,104 @@ namespace UnitTests.Engine.EngineGame
             Assert.IsNotNull(result);
         }
 
+        [Test]
+        public void TurnEngine_TurnMessageResultForAttackMonster_CriticalHit_Valid_Should_Pass()
+        {
+            // Arrange
+            var attackerFaculty = new MonsterModel { MonsterTypeEnum = MonsterTypeEnum.Faculty };
+            var targetStudent = new CharacterModel { CharacterTypeEnum = CharacterTypeEnum.Student };
+            var saveStatus = Engine.EngineSettings.BattleMessagesModel.HitStatus;
+            Engine.EngineSettings.BattleMessagesModel.HitStatus = HitStatusEnum.CriticalHit;
+
+            // Act
+            var result = ((TurnEngine)Engine.Round.Turn).TurnMessageResultForAttackMonster(attackerFaculty.MonsterTypeEnum, targetStudent.CharacterTypeEnum);
+
+            // Reset
+            Engine.EngineSettings.BattleMessagesModel.HitStatus = saveStatus;
+
+            // Assert
+            Assert.AreEqual("Faculty gives an exam to Student. ", result);
+        }
+
+
+        [Test]
+        public void TurnEngine_TurnMessageResultForAttackMonster_Hit_Valid_Should_Pass()
+        {
+            // Arrange
+            var attackerFaculty = new MonsterModel { MonsterTypeEnum = MonsterTypeEnum.Faculty };
+            var targetStudent = new CharacterModel { CharacterTypeEnum = CharacterTypeEnum.Parent };
+            var saveStatus = Engine.EngineSettings.BattleMessagesModel.HitStatus;
+            Engine.EngineSettings.BattleMessagesModel.HitStatus = HitStatusEnum.Hit;
+
+            // Act
+            var result = ((TurnEngine)Engine.Round.Turn).TurnMessageResultForAttackMonster(attackerFaculty.MonsterTypeEnum, targetStudent.CharacterTypeEnum);
+
+            // Reset
+            Engine.EngineSettings.BattleMessagesModel.HitStatus = saveStatus;
+
+            // Assert
+            Assert.AreEqual("Faculty calls for parent-teacher conference with Parent. ", result);
+        }
+
+
+        [Test]
+        public void TurnEngine_TurnMessageResultForAttack_Monster_Attacker_Valid_Should_Pass()
+        {
+            // Arrange
+            var attackerFaculty = new PlayerInfoModel (new MonsterModel { MonsterTypeEnum = MonsterTypeEnum.Faculty });
+            var targetStudent = new PlayerInfoModel (new CharacterModel { CharacterTypeEnum = CharacterTypeEnum.Student });
+            var saveStatus = Engine.EngineSettings.BattleMessagesModel.HitStatus;
+            Engine.EngineSettings.BattleMessagesModel.HitStatus = HitStatusEnum.CriticalHit;
+
+            // Act
+            var result = ((TurnEngine)Engine.Round.Turn).TurnMessageResultForAttack(attackerFaculty, targetStudent);
+
+            // Reset
+            Engine.EngineSettings.BattleMessagesModel.HitStatus = saveStatus;
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
+
+
+        [Test]
+        public void TurnEngine_TurnMessageResultForAttack_CharacterAttacker_Valid_Should_Pass()
+        {
+            // Arrange
+            var targetFaculty = new PlayerInfoModel(new MonsterModel { MonsterTypeEnum = MonsterTypeEnum.Faculty });
+            var attackerStudent = new PlayerInfoModel(new CharacterModel { CharacterTypeEnum = CharacterTypeEnum.Student });
+            var saveStatus = Engine.EngineSettings.BattleMessagesModel.HitStatus;
+            Engine.EngineSettings.BattleMessagesModel.HitStatus = HitStatusEnum.CriticalHit;
+
+            // Act
+            var result = ((TurnEngine)Engine.Round.Turn).TurnMessageResultForAttack(attackerStudent, targetFaculty);
+
+            // Reset
+            Engine.EngineSettings.BattleMessagesModel.HitStatus = saveStatus;
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void TurnEngine_TurnMessageResultForAttack_Unknown_Valid_Should_Pass()
+        {
+            // Arrange
+            var targetFaculty = new PlayerInfoModel(new MonsterModel { MonsterTypeEnum = MonsterTypeEnum.Unknown });
+            var attackerStudent = new PlayerInfoModel(new CharacterModel { CharacterTypeEnum = CharacterTypeEnum.Unknown });
+            targetFaculty.PlayerType = PlayerTypeEnum.Unknown;
+            attackerStudent.PlayerType = PlayerTypeEnum.Unknown;
+            var saveStatus = Engine.EngineSettings.BattleMessagesModel.HitStatus;
+            Engine.EngineSettings.BattleMessagesModel.HitStatus = HitStatusEnum.CriticalHit;
+
+            // Act
+            var result = ((TurnEngine)Engine.Round.Turn).TurnMessageResultForAttack(attackerStudent, targetFaculty);
+
+            // Reset
+            Engine.EngineSettings.BattleMessagesModel.HitStatus = saveStatus;
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
     }
 }

@@ -50,7 +50,7 @@
 
                 <Image
                         x:Name="AutobattleImage"
-                        Source="running.gif"
+                        Source="grad_gif.gif"
                         IsAnimationPlaying="True"
                         Style="{StaticResource ImageLargeStyle}"></Image>
 

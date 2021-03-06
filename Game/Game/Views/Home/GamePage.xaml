@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="using:Game"
-             x:Class="Game.Views.GamePage">
+             x:Class="Game.Views.GamePage"
+             Title="Escaping School">
 
     <ContentPage.Content>
 
@@ -21,11 +22,12 @@
                         <Label Grid.Row="0" Grid.Column="0"
                                HorizontalOptions="StartAndExpand"
                                Text="School"
-                               Style="{StaticResource CenterMessageMediumStyle}"/>
+                               Style="{StaticResource CenterMessageMediumStyle}"
+                               FontAttributes="Bold"/>
          
 
                         <ImageButton Grid.Row="0" Grid.Column="1"
-                            Source="{x:Static local:Constants.SpecificCharacterTypeDefaultImageURI}"
+                            Source="gamepage_school.png"
                             HorizontalOptions="EndAndExpand"
                             Style="{StaticResource GamePageMenuImageButton}"/>
 
@@ -45,11 +47,12 @@
                         <Label Grid.Row="0" Grid.Column="0"
                             HorizontalOptions="StartAndExpand"
                             Text="Exam Room"
-                            Style="{StaticResource CenterMessageMediumStyle}"/>
+                            Style="{StaticResource CenterMessageMediumStyle}"
+                            FontAttributes="Bold"/>
 
                         <ImageButton Grid.Row="0" Grid.Column="1"
                             HorizontalOptions="EndAndExpand"
-                            Source="{x:Static local:Constants.SpecificMonsterTypeGraduationOfficeAdministratorImageURI}"
+                            Source="gamepage_classroom.png"
                             Style="{StaticResource GamePageMenuImageButton}"/>
 
                         <Button Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="0" Opacity="0" Clicked="ExamRoomButton_Clicked"/>
@@ -68,12 +71,14 @@
                         <Label Grid.Row="0" Grid.Column="0"
                             HorizontalOptions="StartAndExpand"
                             Text="Auto Battle" 
-                            Style="{StaticResource CenterMessageMediumStyle}"/>
+                            Style="{StaticResource CenterMessageMediumStyle}"
+                            FontAttributes="Bold"/>
 
                         <ImageButton Grid.Row="0" Grid.Column="1"
                             HorizontalOptions="EndAndExpand"
-                            Source="{x:Static local:Constants.SpecificMonsterTypeProfessorImageURI}"
-                            Style="{StaticResource GamePageMenuImageButton}"/>
+                            Source="gamepage_autobattle.png"
+                            Style="{StaticResource GamePageMenuImageButton}"
+                            WidthRequest="240"/>
 
                         <Button Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="0" Opacity="0" Clicked="AutobattleButton_Clicked"/>
 
@@ -91,11 +96,12 @@
                         <Label Grid.Row="0" Grid.Column="0"
                                HorizontalOptions="StartAndExpand"
                                Text="Battle Settings"
-                               Style="{StaticResource CenterMessageMediumStyle}"/>
+                               Style="{StaticResource CenterMessageMediumStyle}"
+                               FontAttributes="Bold"/>
 
 
                         <ImageButton Grid.Row="0" Grid.Column="1"
-                            Source="{x:Static local:Constants.SpecificMonsterTypeDefaultImageURI}"
+                            Source="gamepage_battlesettings.png"
                             HorizontalOptions="EndAndExpand"
                             Style="{StaticResource GamePageMenuImageButton}"/>
 

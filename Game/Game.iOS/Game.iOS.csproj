@@ -303,4 +303,19 @@
   <ItemGroup>
     <BundleResource Include="Resources\running.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\grad_gif.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\gamepage_school.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\gamepage_classroom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\gamepage_battlesettings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\gamepage_autobattle.png" />
+  </ItemGroup>
 </Project>
