@@ -56,7 +56,9 @@ namespace Game.Views
 			{
 				ExperienceTotal = 300,    // Enough for next level
 				Name = "Mike Level Example",
-				Speed = 100,	// Go first
+				Speed = 100,    // Go first
+				PlayerType = PlayerTypeEnum.Character,
+				CharacterTypeEnum = CharacterTypeEnum.Student
 			};
 
 			var CharacterPlayer = new PlayerInfoModel(Character);
