@@ -97,12 +97,44 @@ namespace Game.Views
                 HealthValueLabel.Text = GetCharacterHealth(currentCharacter);
             }
 
+            var messages = GetBattleMessages();
+            SetBattleMessages(messages);
+
 
 
             // Set the Battle Mode
             // ShowBattleMode();
 
         }
+
+        /// <summary>
+        /// 
+        /// Sets the five most recent battle messages to display
+        /// </summary>
+        /// <returns></returns>
+        public void SetBattleMessages(List<string> messages)
+        {
+            BattleMessage1Label.Text = messages.ElementAt(0);
+            BattleMessage2Label.Text = messages.ElementAt(1);
+            BattleMessage3Label.Text = messages.ElementAt(2);
+            BattleMessage4Label.Text = messages.ElementAt(3);
+            BattleMessage5Label.Text = messages.ElementAt(4);
+        }
+
+        public List<string> GetBattleMessages()
+        {
+            // TODO change to pull data from BattleEngineViewModel. 
+            List<String> messages = new List<string>();
+            messages.Add("Faculty Honkey gives Minnie an exam.");
+            messages.Add("Goofey passes the exam with flying colors.");
+            messages.Add("Administrator Frothy gives Mike forms to fill out.");
+            messages.Add("Jocey fills out all the forms from Frothy.");
+            messages.Add("Minnie studies hard from Professor Frank's exam.");
+
+            return messages;
+
+        }
+
 
         /// <summary>
         /// 
