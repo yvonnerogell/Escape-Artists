@@ -483,7 +483,7 @@ namespace Game.Engine.EngineGame
             var DefenseScore = Target.GetDefense() + Target.Level;
            
             // Modifying for 
-            if (Attacker.CharacterTypeEnum == CharacterTypeEnum.Student)
+            if (Attacker.PlayerType == PlayerTypeEnum.Character && Attacker.CharacterTypeEnum == CharacterTypeEnum.Student)
             {
                 AttackScore = Convert.ToInt32(Math.Ceiling(Attacker.Level * (0.5 + Attacker.GPA/100) + Attacker.GetAttack()));
             }
