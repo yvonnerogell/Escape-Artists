@@ -291,7 +291,7 @@ namespace Game.Engine.EngineGame
             // Attack the Weakness (lowest HP) MonsterModel first 
 
             // Teams, You need to implement your own Logic can not use mine.
-            return base.SelectMonsterToAttack();
+            //return base.SelectMonsterToAttack();
             //throw new System.NotImplementedException();
 
             /*
