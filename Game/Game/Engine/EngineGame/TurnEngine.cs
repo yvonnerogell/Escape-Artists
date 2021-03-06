@@ -9,6 +9,7 @@ using Game.Helpers;
 using Game.ViewModels;
 using System.Diagnostics;
 using Game.GameRules;
+using System;
 
 namespace Game.Engine.EngineGame
 {
@@ -470,7 +471,26 @@ namespace Game.Engine.EngineGame
         public override HitStatusEnum CalculateAttackStatus(PlayerInfoModel Attacker, PlayerInfoModel Target)
         {
             //throw new System.NotImplementedException();
-            return base.CalculateAttackStatus(Attacker, Target);
+            // Remember Current Player
+            EngineSettings.BattleMessagesModel.PlayerType = PlayerTypeEnum.Monster;
+
+            // Choose who to attack
+            EngineSettings.BattleMessagesModel.TargetName = Target.Name;
+            EngineSettings.BattleMessagesModel.AttackerName = Attacker.Name;
+
+            // Set Attack and Defense
+            var AttackScore = Attacker.Level + Attacker.GetAttack();
+            var DefenseScore = Target.GetDefense() + Target.Level;
+           
+            // Modifying for 
+            if (Attacker.CharacterTypeEnum == CharacterTypeEnum.Student)
+            {
+                AttackScore = Convert.ToInt32(Math.Ceiling(Attacker.Level * (0.5 + Attacker.GPA/100) + Attacker.GetAttack()));
+            }
+
+            EngineSettings.BattleMessagesModel.HitStatus = RollToHitTarget(AttackScore, DefenseScore);
+
+            return EngineSettings.BattleMessagesModel.HitStatus;
         }
 
         /// <summary>
