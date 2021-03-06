@@ -303,4 +303,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\running.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\grad_gif.gif" />
+  </ItemGroup>
 </Project>

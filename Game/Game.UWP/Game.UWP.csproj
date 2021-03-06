@@ -137,6 +137,7 @@
     <Content Include="associate_professor_monster.png" />
     <Content Include="autobattle_background.png" />
     <Content Include="background.png" />
+    <Content Include="grad_gif.gif" />
     <Content Include="grad_office_monster.png" />
     <Content Include="human_resources_monster.png" />
     <Content Include="item_calculator.png" />
