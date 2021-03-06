@@ -104,5 +104,46 @@ namespace UnitTests.Engine.EngineGame
             // Assert
             Assert.IsNotNull(result);
         }
+        
+        [Test]
+        public void TurnEngine_CalculateAttackStatus_Valid_Character_Student_Should_Pass()
+        {
+            // Arrange
+            CharacterModel attacker = new CharacterModel {
+                PlayerType = PlayerTypeEnum.Character,
+                CharacterTypeEnum = CharacterTypeEnum.Student,
+                
+            };
+            MonsterModel defender = new MonsterModel ();
+
+            // Act
+            var result = ((TurnEngine)Engine.Round.Turn).CalculateAttackStatus(new PlayerInfoModel(attacker), new PlayerInfoModel(defender));
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
+        [Test]
+        public void TurnEngine_CalculateAttackStatus_Valid_Monster_Should_Pass()
+        {
+            // Arrange
+            CharacterModel defender = new CharacterModel
+            {
+                PlayerType = PlayerTypeEnum.Character,
+                CharacterTypeEnum = CharacterTypeEnum.Student,
+            };
+            MonsterModel attacker = new MonsterModel();
+
+            // Act
+            var result = ((TurnEngine)Engine.Round.Turn).CalculateAttackStatus(new PlayerInfoModel(attacker), new PlayerInfoModel(defender));
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
     }
 }
