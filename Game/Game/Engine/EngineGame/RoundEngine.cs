@@ -248,8 +248,11 @@ namespace Game.Engine.EngineGame
                 // Remember who just went...
                 EngineSettings.CurrentAttacker = GetNextPlayerTurn();
 
-                // Only Attack for now
-                EngineSettings.CurrentAction = ActionEnum.Attack;
+                // Only Attack for now if CurrentAction is set to Unknown, else do the action
+                if (EngineSettings.CurrentAction == ActionEnum.Unknown)
+                {
+                    EngineSettings.CurrentAction = ActionEnum.Attack;
+                }
             }
 
             // Do the turn....
