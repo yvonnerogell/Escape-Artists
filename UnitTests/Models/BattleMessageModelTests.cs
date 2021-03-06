@@ -85,6 +85,22 @@ namespace UnitTests.Models
         }
 
         [Test]
+        public void BattleMessageModel_GetCurrentGPAMessage_Default_Should_Pass()
+        {
+            // Arrange
+            var message = new BattleMessagesModel();
+
+            // Act
+            var result = message.GetCurrentGPAMessage();
+
+            // Reset
+
+            // Assert
+
+            Assert.IsNotNull(result);
+        }
+
+        [Test]
         public void BattleMessageModel_GetTurnMessage_Default_Should_Pass()
         {
             // Arrange
