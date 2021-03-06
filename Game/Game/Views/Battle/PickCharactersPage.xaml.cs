@@ -33,6 +33,7 @@ namespace Game.Views
         public static int NUM_CHARACTERS = 7;
         public static int NUM_ITEMS = 5;
         public static int NUM_MONSTERS = 6;
+        public static bool is_added;
 
         // Empty Constructor for UTs
         public PickCharactersPage(bool UnitTest) { }
@@ -52,23 +53,15 @@ namespace Game.Views
         {
             InitializeComponent();
 
-            //call method to create the stub data. NOTE: this isn't only for character but
-            //also for monsters and items as well
+            //call method to create the stub data.
             SetUpStubData();
 
             BindingContext = ViewModel;
 
-            // Draw the Characters
-            //foreach (var data in EngineViewModel.Engine.EngineSettings.CharacterList)
-            //{
-            //    PartyListFrame.Children.Add(CreatePlayerDisplayBox(data));
-            //}
-
             // Clear the Database List and the Party List to start
             BattleEngineViewModel.Instance.PartyCharacterList.Clear();
 
-
-            //UpdateNextButtonState();
+            UpdateNextButtonState();
         }
 
         /// <summary>
@@ -205,13 +198,30 @@ namespace Game.Views
         }
 
         /// <summary>
-        /// TODO Implement this method to properly add characters to the list
+        /// Method to add or remove a character to/from the party list
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void OnCharacter_Clicked(object sender, EventArgs e)
+        public void OnCharacter_Clicked(object sender, EventArgs args)
         {
-            //do the things needed to add the character to the party list and remove it from the character list
+            //Create charactermodel from the character selected
+            var button = sender as ImageButton;
+            String characterId = button.CommandParameter as String;
+            CharacterModel data = ViewModel.Dataset.FirstOrDefault(itm => itm.Id == characterId);
+            if (data == null)
+            {
+                return;
+            }
+
+            if (BattleEngineViewModel.Instance.PartyCharacterList.Count() < BattleEngineViewModel.Instance.Engine.EngineSettings.MaxNumberPartyCharacters)
+            {
+                //Add character to the instance partcharacterlist
+                is_added = true;
+                BattleEngineViewModel.Instance.PartyCharacterList.Add(data);
+                
+            }
+            UpdateNextButtonState();
+
 
         }
 
@@ -227,6 +237,8 @@ namespace Game.Views
             {
                 return;
             }
+
+            
 
             // Manually deselect Character.
             //PartyListView.SelectedItem = null;
@@ -244,13 +256,17 @@ namespace Game.Views
         /// </summary>
         public void UpdateNextButtonState()
         {
-            //If no characters disable Next button
-            BeginBattleButton.IsEnabled = true;
+            
 
             var currentCount = BattleEngineViewModel.Instance.PartyCharacterList.Count();
-            if (currentCount == 0)
+            if (currentCount > 0)
             {
                 BeginBattleButton.IsEnabled = true;
+            }
+            else
+            {
+                //If no characters disable Next button
+                BeginBattleButton.IsEnabled = false;
             }
 
             // PartyCountLabel.Text = currentCount.ToString();
@@ -276,7 +292,7 @@ namespace Game.Views
         public void CreateEngineCharacterList()
         {
             // Clear the currett list
-            //BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
 
             // Load the Characters into the Engine
             foreach (var data in BattleEngineViewModel.Instance.PartyCharacterList)
