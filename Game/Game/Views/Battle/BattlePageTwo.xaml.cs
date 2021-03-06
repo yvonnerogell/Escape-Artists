@@ -183,23 +183,23 @@ namespace Game.Views
                 return new StackLayout();
             }
 
-            if (string.IsNullOrEmpty(character.Id))
-            {
-                return new StackLayout();
-            }
+         //   if (string.IsNullOrEmpty(character.Id))
+          //  {
+           //     return new StackLayout();
+            //}
 
             // Defualt Image is the Plus
             var ClickableButton = true;
 
             var data = CharacterIndexViewModel.Instance.GetCharacterByName(character.Name);
-            if (data == null)
-            {
+            //if (data == null)
+            //{
                 // Show the Default Name & Image
-                data = new CharacterModel { Name = "Unknown", ImageURI = "squid.jpg" };
+            //    data = new CharacterModel { Name = "Unknown", ImageURI = "squid.jpg" };
 
                 // Turn off click action
-                ClickableButton = false;
-            }
+//                ClickableButton = false;
+  //          }
 
             // Hookup the Image Button to show the Character picture
             var CharacterButton = new ImageButton
@@ -517,10 +517,10 @@ namespace Game.Views
                 if (character.Head == null || character.Head == "None")
                 {
                     // Parents don't have heads in this game..
-                    if (character.CharacterTypeEnum == CharacterTypeEnum.Parent)
-                    {
-                        continue;
-                    }
+                 //   if (character.CharacterTypeEnum == CharacterTypeEnum.Parent)
+                  //  {
+                  //      continue;
+                  //  }
                     if (item.Location.ToString() == ItemLocationEnum.Head.ToString())
                     {
                         result.Add(character.Name);
@@ -662,10 +662,10 @@ namespace Game.Views
                 return new StackLayout();
             }
 
-            if (string.IsNullOrEmpty(monster.Id))
-            {
-                return new StackLayout();
-            }
+           // if (string.IsNullOrEmpty(monster.Id))
+           // {
+           //     return new StackLayout();
+           // }
 
             // Defualt Image is the Plus
             var ClickableButton = true;

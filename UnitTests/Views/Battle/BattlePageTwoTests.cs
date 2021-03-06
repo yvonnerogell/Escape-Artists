@@ -124,14 +124,17 @@ namespace UnitTests.Views
         [Test]
         public void GetCharacterToDisplay_Clicked_Null_Should_Pass()
         {
+            // Arrange
+            var player = new PlayerInfoModel(new CharacterModel());
+            var button = page.Content.FindByName("CharacterButton");
+
             // Act
-            var character = new PlayerInfoModel(new CharacterModel { Id = null });
-            var result = page.GetCharacterToDisplay(character);
+            page.GetCharacterToDisplay(player);
 
             // Reset
 
             // Assert
-            Assert.IsNotNull(result); // Got to here, so it happened...
+            Assert.IsNull(button); // Got to here, so it happened...
         }
 
         [Test]
@@ -326,6 +329,27 @@ namespace UnitTests.Views
             characters.Add(newCharacter);
             var item = new ItemModel();
             item.Location = ItemLocationEnum.Head;
+            // Act
+            var list_of_characters = page.GetCharacterWhoCanAcceptItem(characters, item);
+
+            // Reset
+
+            // Assert
+            Assert.IsFalse(list_of_characters.Contains(newCharacter.Name)); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void CharacterWhoCanAcceptItem_Clicked_Parent_HeadItem_Should_Fail2()
+        {
+            // Arrange
+            var characters = new List<PlayerInfoModel>();
+            var newCharacter = new PlayerInfoModel(new CharacterModel
+            {
+                Name = "something",
+                CharacterTypeEnum = CharacterTypeEnum.Parent
+            });
+            characters.Add(newCharacter);
+            var item = new ItemModel();
             // Act
             var list_of_characters = page.GetCharacterWhoCanAcceptItem(characters, item);
 
