@@ -48,6 +48,8 @@ namespace Game.Views
         // selecting the item of that turn
         public List<ItemModel> selectedItems = new List<ItemModel>();
 
+        public FlexLayout FlexLayout { get; }
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -99,6 +101,11 @@ namespace Game.Views
             // Set the Battle Mode
             // ShowBattleMode();
 
+        }
+
+        public BattlePageTwo(FlexLayout flexLayout)
+        {
+            FlexLayout = flexLayout;
         }
 
         /// <summary>

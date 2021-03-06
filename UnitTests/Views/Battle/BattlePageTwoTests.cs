@@ -63,7 +63,7 @@ namespace UnitTests.Views
             {
                 BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Add(new ItemModel(item));
             }
-
+           
             page = new BattlePageTwo();
 
             // Put seed data into the system for all tests
@@ -749,6 +749,20 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
+
+        [Test]
+        public void DrawSelectedCharacters_Default_Should_Pass()
+        {
+            // Act
+            page.DrawSelectedCharacters();
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+
         [Test]
         public void DrawCharacterList_AddRemove_Should_Pass()
         {
@@ -767,32 +781,21 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void DrawSelectedCharacters_Default_Should_Pass()
-        {
-            // Act
-            page.DrawSelectedCharacters();
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-
-        [Test]
         public void DrawSelectedCharacters_AddRemove_Should_Pass()
         {
             // Arrange
-            var FlexList = new List<FlexLayout>();
-            var data = new FlexLayout();
-            FlexList.Add(data);
-            FlexList.Remove(data);
+            FlexLayout characterlistselectedframe = (FlexLayout)page.Content.FindByName("CharacterListSelectedFrame");
+            // add two elements to the list because when will be removed
+            characterlistselectedframe.Children.Add(new FlexLayout());
+            characterlistselectedframe.Children.Add(new FlexLayout());
+
             // Act
             page.DrawSelectedCharacters();
 
             // Reset
 
             // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
+            Assert.AreEqual(0, characterlistselectedframe.Children.Count);
         }
 
         [Test]
@@ -810,7 +813,19 @@ namespace UnitTests.Views
         [Test]
         public void DrawItems_Remove_Should_Pass()
         {
+            // Arrange
+            FlexLayout itemlistfoundframe = (FlexLayout)page.Content.FindByName("ItemListFoundFrame");
+            // add two elements to the list because when will be removed
+            itemlistfoundframe.Children.Add(new FlexLayout());
+            itemlistfoundframe.Children.Add(new FlexLayout());
 
+            // Act
+            page.DrawItems();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(0, itemlistfoundframe.Children.Count);
         }
 
         [Test]
@@ -838,6 +853,24 @@ namespace UnitTests.Views
         }
 
         [Test]
+        public void DrawSelectedMonsters_AddRemove_Should_Pass()
+        {
+            // Arrange
+            FlexLayout monsterlistselectedframe = (FlexLayout)page.Content.FindByName("MonsterListSelectedFrame");
+            // add two elements to the list because when will be removed
+            monsterlistselectedframe.Children.Add(new FlexLayout());
+            monsterlistselectedframe.Children.Add(new FlexLayout());
+
+            // Act
+            page.DrawSelectedMonsters();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(0, monsterlistselectedframe.Children.Count);
+        }
+
+        [Test]
         public void DrawItemList_Default_Should_Pass()
         {
             // Act
@@ -862,6 +895,24 @@ namespace UnitTests.Views
         }
 
         [Test]
+        public void DrawSelectedItems_Remove_Should_Pass()
+        {
+            // Arrange
+            FlexLayout itemlistselectedframe = (FlexLayout)page.Content.FindByName("ItemListSelectedFrame");
+            // add two elements to the list because when will be removed
+            itemlistselectedframe.Children.Add(new FlexLayout());
+            itemlistselectedframe.Children.Add(new FlexLayout());
+
+            // Act
+            page.DrawSelectedItem();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(0, itemlistselectedframe.Children.Count);
+        }
+
+        [Test]
         public void BattlePageTwo_Constructor_Default_Should_Pass()
         {
             // Arrange
@@ -874,6 +925,23 @@ namespace UnitTests.Views
             // Assert
             Assert.IsNotNull(result);
         }
+
+        [Test]
+        public void BattlePageTwo_ConstructorFlexLayout_Default_Should_Pass()
+        {
+            // Arrange
+            var flexlayout = new FlexLayout();
+
+            // Act
+            var result = new BattlePageTwo(flexlayout);
+
+            // Reset
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
+
 
         [Test]
         public void BattlePageTwo_AttackButton_Clicked_Default_Should_Pass()
