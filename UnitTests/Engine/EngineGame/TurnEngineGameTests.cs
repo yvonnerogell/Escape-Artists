@@ -181,7 +181,7 @@ namespace UnitTests.Engine.EngineGame
             Engine.EngineSettings.BattleMessagesModel.HitStatus = saveStatus;
 
             // Assert
-            Assert.IsNotNull("Faculty calls parent in for parent-teacher conference Parent.");
+            Assert.IsNotNull("Faculty calls for parent-teacher conference with Parent.");
         }
     }
 }

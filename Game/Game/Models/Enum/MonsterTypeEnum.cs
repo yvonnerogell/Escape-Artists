@@ -36,7 +36,7 @@
                             break;
 
                         case CharacterTypeEnum.Parent:
-                            msg = " calls parent in for parent-teacher conference ";
+                            msg = " calls for parent-teacher conference with ";
                             break;
                     }
                     break;

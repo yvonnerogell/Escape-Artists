@@ -37,7 +37,7 @@ namespace UnitTests.Models.Enum
             // Reset
 
             // Assert
-            Assert.AreEqual(" calls parent in for parent-teacher conference ", result);
+            Assert.AreEqual(" calls for parent-teacher conference with ", result);
         }
 
         [Test]
