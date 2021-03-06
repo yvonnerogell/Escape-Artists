@@ -89,6 +89,10 @@ namespace Game.Models
 
             SpecificMonsterTypeEnum = data.SpecificMonsterTypeEnum;
 
+            MonsterTypeEnum = data.MonsterTypeEnum;
+            CharacterTypeEnum = data.CharacterTypeEnum;
+
+
             Graduated = data.Graduated;
         }
 
