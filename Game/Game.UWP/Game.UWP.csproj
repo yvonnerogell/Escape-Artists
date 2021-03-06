@@ -137,6 +137,10 @@
     <Content Include="associate_professor_monster.png" />
     <Content Include="autobattle_background.png" />
     <Content Include="background.png" />
+    <Content Include="gamepage_autobattle.png" />
+    <Content Include="gamepage_battlesettings.png" />
+    <Content Include="gamepage_classroom.png" />
+    <Content Include="gamepage_school.png" />
     <Content Include="grad_gif.gif" />
     <Content Include="grad_office_monster.png" />
     <Content Include="human_resources_monster.png" />
