@@ -426,12 +426,94 @@ namespace Game.Engine.EngineGame
 
                     break;
             }
+            TurnMessageResultForAttack(Attacker, Target);
 
-            EngineSettings.BattleMessagesModel.TurnMessage = Attacker.Name + EngineSettings.BattleMessagesModel.AttackStatus + Target.Name + EngineSettings.BattleMessagesModel.TurnMessageSpecial + EngineSettings.BattleMessagesModel.ExperienceEarned;
+            EngineSettings.BattleMessagesModel.TurnMessage =
+                EngineSettings.BattleMessagesModel.TurnMessageResult + 
+                Attacker.Name + EngineSettings.BattleMessagesModel.AttackStatus + Target.Name + 
+                EngineSettings.BattleMessagesModel.TurnMessageSpecial + 
+                EngineSettings.BattleMessagesModel.ExperienceEarned;
+
             Debug.WriteLine(EngineSettings.BattleMessagesModel.TurnMessage);
 
             return true;
         }
+
+
+        /// <summary>
+        /// Helper method to get the attack message 
+        /// </summary>
+        /// <param name="attacker"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        public bool TurnMessageResultForAttack(PlayerInfoModel attacker, PlayerInfoModel target)
+        {
+           
+            if (attacker.PlayerType == PlayerTypeEnum.Character)
+            {
+                EngineSettings.BattleMessagesModel.TurnMessageResult = TurnMessageResultForAttackCharacter(attacker.CharacterTypeEnum, target.MonsterTypeEnum);
+                return true;
+            }
+
+            if (attacker.PlayerType == PlayerTypeEnum.Monster)
+            {
+                EngineSettings.BattleMessagesModel.TurnMessageResult = TurnMessageResultForAttackMonster(attacker.MonsterTypeEnum, target.CharacterTypeEnum);
+                return true;
+            }
+
+                return false;
+        }
+
+        /// <summary>
+        /// helper method to get the attack message for Character to Monster
+        /// </summary>
+        /// <param name="attacker"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        public string TurnMessageResultForAttackCharacter(CharacterTypeEnum attacker, MonsterTypeEnum target)
+        {
+            string msg = "";
+            switch (EngineSettings.BattleMessagesModel.HitStatus)
+            {
+                case HitStatusEnum.CriticalHit:
+                    msg = attacker.ToString() + CharacterTypeEnumHelper.getAttackMessage(attacker, target) + target.ToString() + ". ";
+                    break;
+                case HitStatusEnum.Hit:
+                    msg = attacker.ToString() + CharacterTypeEnumHelper.getAttackMessage(attacker, target) + target.ToString() + ". ";
+                    break;
+
+                default:
+                    break;
+            }
+
+            return msg;
+        }
+
+        /// <summary>
+        /// helper method to get the attack message for Monster to Character
+        /// </summary>
+        /// <param name="attacker"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        public string TurnMessageResultForAttackMonster(MonsterTypeEnum monsterType, CharacterTypeEnum characterType)
+        {
+            string msg = "";
+            switch (EngineSettings.BattleMessagesModel.HitStatus)
+            {
+                case HitStatusEnum.CriticalHit:
+
+                    break;
+                case HitStatusEnum.Hit:
+
+                    break;
+
+                default:
+                    break;
+            }
+
+            return msg;
+        }
+
 
         /// <summary>
         /// See if the Battle Settings will Override the Hit
