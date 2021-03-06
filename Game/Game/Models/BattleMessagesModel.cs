@@ -44,6 +44,9 @@
         // The Remaining Health Mesage
         public int CurrentHealth = 0;
 
+        // The Remaining GPA Message
+        public int CurrentGPA = 0;
+
         // Beginning of the Html Block for html formatting
         public string htmlHead = @"<html><body bgcolor=""#E8D0B6""><p>";
 
@@ -70,6 +73,7 @@
 
             DamageAmount = 0;
             CurrentHealth = 0;
+            CurrentGPA = 0;
 
             return true;
         }
@@ -109,6 +113,15 @@
         public string GetCurrentHealthMessage()
         {
             return " remaining health is " + CurrentHealth.ToString();
+        }
+
+        /// <summary>
+        /// Remaining GPA Message
+        /// </summary>
+        /// <returns></returns>
+        public string GetCurrentGPAMessage()
+        {
+            return " remaining GPA is " + CurrentGPA.ToString();
         }
 
         /// <summary>
