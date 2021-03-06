@@ -158,46 +158,29 @@ namespace Scenario
 
             // Add Characters
 
-            AutoBattle.Battle.EngineSettings.MaxNumberPartyCharacters = 1;
-
-            CharacterIndexViewModel.Instance.Dataset.Clear();
-
             // To See Level UP happening, a character needs to be close to the next level
             var character = new PlayerInfoModel
             {
                 ExperienceTotal = 300,
                 Name = "Mike Level Example",
-                Speed = 1,    // Go last
+                Level = 19,
+                Speed = -1,    // Go last
                 PlayerType = PlayerTypeEnum.Character
             };
 
             var save = AutoBattle.Battle.EngineSettings.CharacterList;
+
+            AutoBattle.Battle.EngineSettings.MaxNumberPartyCharacters = 1;
             AutoBattle.Battle.EngineSettings.CharacterList.Clear();
             AutoBattle.Battle.EngineSettings.CharacterList.Add(character);
 
             // Set current action to Move
             AutoBattle.Battle.EngineSettings.CurrentAction = ActionEnum.Move;
 
-            // Add monsters who will go first. 
-            AutoBattle.Battle.EngineSettings.MaxNumberPartyMonsters = 2;
-			var MonsterPlayer = new PlayerInfoModel(
-				new MonsterModel
-				{
-					Speed = 100, // Will go first...
-					Level = 10,
-					CurrentHealth = 1,
-					ExperienceTotal = 1,
-					ExperienceRemaining = 1,
-				});
-
-            AutoBattle.Battle.EngineSettings.MonsterList.Add(MonsterPlayer);
-            AutoBattle.Battle.EngineSettings.MonsterList.Add(MonsterPlayer);
-
             //Act
             var result = await AutoBattle.RunAutoBattle();
 
             //Reset
-            AutoBattle.Battle.EngineSettings.CharacterList.Clear();
             AutoBattle.Battle.EngineSettings.CharacterList = save;
 
             //Assert
