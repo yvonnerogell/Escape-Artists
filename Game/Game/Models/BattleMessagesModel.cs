@@ -26,6 +26,8 @@
         // Turn Special Message
         public string TurnMessageSpecial = string.Empty;
 
+        public string TurnMessageResult = string.Empty;
+
         // Turn Experience Earned Message
         public string ExperienceEarned = string.Empty;
 
