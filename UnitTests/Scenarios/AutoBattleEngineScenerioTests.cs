@@ -137,7 +137,76 @@ namespace Scenario
 			// Assert.AreEqual(StartLevel+1, Engine.EngineSettings.BattleScore.CharacterModelDeathList.Where(m=>m.Guid.Equals(Character.Guid)).First().Level);
 		}
 
-		[Test]
+        // TODO: WORK IN PROGRESS: This test will not yet test the MoveAsTurn because the only ActionEnum available
+        // for autobattle is Attack. 
+        [Test]
+        public async Task AutoBattleEngine_RunAutoBattle_Monster_MoveAsTurn_Should_Pass()
+        {
+
+            /* 
+             * Test to force leveling up of a character during the battle
+             * 
+             * 1 Character, Experience set at next level mark
+             * 
+             * 6 Monsters
+             * 
+             * Character Should Level UP 1 level
+             * 
+             */
+
+            //Arrange
+
+            // Add Characters
+
+            AutoBattle.Battle.EngineSettings.MaxNumberPartyCharacters = 1;
+
+            CharacterIndexViewModel.Instance.Dataset.Clear();
+
+            // To See Level UP happening, a character needs to be close to the next level
+            var character = new PlayerInfoModel
+            {
+                ExperienceTotal = 300,
+                Name = "Mike Level Example",
+                Speed = 1,    // Go last
+                PlayerType = PlayerTypeEnum.Character
+            };
+
+            var save = AutoBattle.Battle.EngineSettings.CharacterList;
+            AutoBattle.Battle.EngineSettings.CharacterList.Clear();
+            AutoBattle.Battle.EngineSettings.CharacterList.Add(character);
+
+            // Set current action to Move
+            AutoBattle.Battle.EngineSettings.CurrentAction = ActionEnum.Move;
+
+            // Add monsters who will go first. 
+            AutoBattle.Battle.EngineSettings.MaxNumberPartyMonsters = 2;
+			var MonsterPlayer = new PlayerInfoModel(
+				new MonsterModel
+				{
+					Speed = 100, // Will go first...
+					Level = 10,
+					CurrentHealth = 1,
+					ExperienceTotal = 1,
+					ExperienceRemaining = 1,
+				});
+
+            AutoBattle.Battle.EngineSettings.MonsterList.Add(MonsterPlayer);
+            AutoBattle.Battle.EngineSettings.MonsterList.Add(MonsterPlayer);
+
+            //Act
+            var result = await AutoBattle.RunAutoBattle();
+
+            //Reset
+            AutoBattle.Battle.EngineSettings.CharacterList.Clear();
+            AutoBattle.Battle.EngineSettings.CharacterList = save;
+
+            //Assert
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(true, AutoBattle.Battle.EngineSettings.BattleScore.CharacterAtDeathList.Contains("Mike Level Example"));
+            // Assert.AreEqual(StartLevel+1, Engine.EngineSettings.BattleScore.CharacterModelDeathList.Where(m=>m.Guid.Equals(Character.Guid)).First().Level);
+        }
+
+        [Test]
         public async Task AutoBattleEngine_RunAutoBattle_GameOver_Round_1_Should_Pass()
         {
             /* 
