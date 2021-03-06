@@ -495,16 +495,16 @@ namespace Game.Engine.EngineGame
         /// <param name="attacker"></param>
         /// <param name="target"></param>
         /// <returns></returns>
-        public string TurnMessageResultForAttackMonster(MonsterTypeEnum monsterType, CharacterTypeEnum characterType)
+        public string TurnMessageResultForAttackMonster(MonsterTypeEnum attacker, CharacterTypeEnum target)
         {
             string msg = "";
             switch (EngineSettings.BattleMessagesModel.HitStatus)
             {
                 case HitStatusEnum.CriticalHit:
-
+                    msg = attacker.ToString() + MonsterTypeEnumHelper.GetAttackMessage(attacker, target) + target.ToString() + ". ";
                     break;
                 case HitStatusEnum.Hit:
-
+                    msg = attacker.ToString() + MonsterTypeEnumHelper.GetAttackMessage(attacker, target) + target.ToString() + ". ";
                     break;
 
                 default:
