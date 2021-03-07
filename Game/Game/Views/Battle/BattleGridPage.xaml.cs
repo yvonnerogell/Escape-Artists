@@ -33,6 +33,11 @@ namespace Game.Views
         bool UnitTestSetting;
         public BattleGridPage(bool UnitTest) { UnitTestSetting = UnitTest; }
 
+        // if a character is selected
+        //public PlayerInfoModel selectedCharacter = new PlayerInfoModel(new CharacterModel());
+        public MapModelLocation selectedPlayerLocation = new MapModelLocation();
+
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -57,12 +62,13 @@ namespace Game.Views
 
             // Ask the Game engine to select who goes first
             BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
-
+            
             // Add Players to Display
             DrawGameAttackerDefenderBoard();
 
             // Set the Battle Mode
             ShowBattleMode();
+
         }
 
         /// <summary>
@@ -314,7 +320,8 @@ namespace Game.Views
             var PlayerStack = new StackLayout
             {
                 Padding = 0,
-                Style = (Style)Application.Current.Resources["BattleMapImageBox"],
+                //Style = (Style)Application.Current.Resources["BattleMapImageBox"],
+                Style = (Style)Application.Current.Resources["BattleMapBox"],
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.Center,
                 BackgroundColor = DetermineMapBackgroundColor(mapLocationModel),
@@ -459,8 +466,9 @@ namespace Game.Views
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public bool SetSelectedEmpty(MapModelLocation data)
+        public PlayerInfoModel SetSelectedEmpty(MapModelLocation data)
         {
+
             // TODO: Info
 
             /*
@@ -469,8 +477,10 @@ namespace Game.Views
              * 
              * For Mike's simple battle grammar there is no selection of action so I just return true
              */
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.MovePlayerOnMap(selectedPlayerLocation, data);
+            UpdateMapGrid();
 
-            return true;
+            return data.Player;
         }
 
         /// <summary>
@@ -478,7 +488,8 @@ namespace Game.Views
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public bool SetSelectedMonster(MapModelLocation data)
+        //public bool SetSelectedMonster(MapModelLocation data)
+        public PlayerInfoModel SetSelectedMonster (MapModelLocation data)
         {
             // TODO: Info
 
@@ -489,8 +500,14 @@ namespace Game.Views
              * For Mike's simple battle grammar there is no selection of action so I just return true
              */
 
-            data.IsSelectedTarget = true;
-            return true;
+            if (data.Player.PlayerType == PlayerTypeEnum.Monster)
+            {
+                //data.IsSelectedTarget = true;
+                selectedPlayerLocation = data;
+            }
+            return null;
+            //data.IsSelectedTarget = true;
+            //return true;
         }
 
         /// <summary>
@@ -498,7 +515,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public bool SetSelectedCharacter(MapModelLocation data)
+        public MapModelLocation SetSelectedCharacter(MapModelLocation data)
         {
             // TODO: Info
 
@@ -509,7 +526,14 @@ namespace Game.Views
              * For Mike's simple battle grammar there is no selection of action so I just return true
              */
 
-            return true;
+            if (data.Player.PlayerType == PlayerTypeEnum.Character)
+            {
+                //data.IsSelectedTarget = true;
+                selectedPlayerLocation = data;
+            }
+            return null;
+
+            //return true;
         }
         #endregion MapEvents
 
