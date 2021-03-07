@@ -163,7 +163,7 @@ namespace UnitTests.Views
             page.PopupSaveButtonCharacter_Clicked(s, e);
 
             //Reset
-           // BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
            // selectedCharacters.Clear();
 
             // Assert
@@ -203,11 +203,10 @@ namespace UnitTests.Views
             page.PopupSaveButtonItem_Clicked(s, e);
 
             // Reset
-            //selectedMonsters.Clear();
-            //  BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
-            //  mainMonsters.Clear();
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
+            
+
+           // Assert
+           Assert.IsTrue(true); // Got to here, so it happened...
         }
 
         [Test]
@@ -224,7 +223,7 @@ namespace UnitTests.Views
 
             // Reset
             selectedMonsters.Clear();
-          //  BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
           //  mainMonsters.Clear();
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
@@ -255,7 +254,7 @@ namespace UnitTests.Views
             page.ShowPopupItem(item);
 
             // Reset
-
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Clear();
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
