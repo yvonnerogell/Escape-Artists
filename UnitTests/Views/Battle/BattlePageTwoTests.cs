@@ -36,17 +36,19 @@ namespace UnitTests.Views
             BattleEngineViewModel.Instance.SetBattleEngineToKoenig();
 
             var characters = DefaultData.LoadData(new CharacterModel());
-            characters.Add(new CharacterModel());
-
-            // add characters to the Engine
-            foreach (var character in characters)
-            {
-                BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(character));
-            }
 
             // create a list of monsters
             var monsters = DefaultData.LoadData(new MonsterModel());
-            monsters.Add(new MonsterModel());
+            
+            
+            // create a list of Items
+            var items = DefaultData.LoadData(new ItemModel());
+          
+             //add characters to the Engine
+                foreach (var character in characters)
+            {
+                BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(character));
+            }
 
             // add monsters to the Engine
             foreach (var monster in monsters)
@@ -54,20 +56,16 @@ namespace UnitTests.Views
                 BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Add(new PlayerInfoModel(monster));
             }
 
-            // create a list of Items
-            var items = DefaultData.LoadData(new ItemModel());
-            items.Add(new ItemModel());
-
-            // add monsters to the Engine
+            // add items to the Engine
             foreach (var item in items)
-            {
+             {
                 BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Add(new ItemModel(item));
-            }
-           
+             }
+
             page = new BattlePageTwo();
 
             // Put seed data into the system for all tests
-            //BattleEngineViewModel.Instance.Engine.Round.ClearLists();
+            BattleEngineViewModel.Instance.Engine.Round.ClearLists();
 
             //Start the Engine in AutoBattle Mode
             //BattleEngineViewModel.Instance.Engine.StartBattle(false);
@@ -162,12 +160,14 @@ namespace UnitTests.Views
             // Act
             page.PopupSaveButtonCharacter_Clicked(s, e);
 
-            //Reset
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
+            
            // selectedCharacters.Clear();
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
+
+            //Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
         }
 
         [Test]
@@ -222,11 +222,15 @@ namespace UnitTests.Views
             page.PopupSaveButtonMonster_Clicked(s,e);
 
             // Reset
-            selectedMonsters.Clear();
-            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
-          //  mainMonsters.Clear();
+            //selectedMonsters.Clear();
+            //BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
+          //  mon.Clear();
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
+
+            // Reset
+            //selectedMonsters.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
         }
 
 
@@ -253,10 +257,12 @@ namespace UnitTests.Views
             // Act
             page.ShowPopupItem(item);
 
-            // Reset
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Clear();
+            
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
+
+            // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Clear();
         }
 
 
@@ -942,21 +948,6 @@ namespace UnitTests.Views
 
             // Act
             var result = page;
-
-            // Reset
-
-            // Assert
-            Assert.IsNotNull(result);
-        }
-
-        [Test]
-        public void BattlePageTwo_ConstructorFlexLayout_Default_Should_Pass()
-        {
-            // Arrange
-            var flexlayout = new FlexLayout();
-
-            // Act
-            var result = new BattlePageTwo(flexlayout);
 
             // Reset
 

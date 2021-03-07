@@ -77,7 +77,7 @@ namespace Game.Views
             DrawMonsterList();
             //DrawItemLists();
 
-           
+
             // Create and Draw the Map
             // InitializeMapGrid();
 
@@ -88,7 +88,9 @@ namespace Game.Views
             // DrawMapGridInitialState();
 
             // Ask the Game engine to select who goes first
-            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
+            //BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FirstOrDefault());
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.FirstOrDefault());
 
 
             //var currentAttacker = ;
@@ -103,10 +105,6 @@ namespace Game.Views
 
         }
 
-        public BattlePageTwo(FlexLayout flexLayout)
-        {
-            FlexLayout = flexLayout;
-        }
 
         /// <summary>
         /// Return a stack layout with the Player information inside
@@ -192,15 +190,16 @@ namespace Game.Views
             var ClickableButton = true;
 
             var data = CharacterIndexViewModel.Instance.GetCharacterByName(character.Name);
-            //if (data == null)
-            //{
+            
+            if (data == null)
+            {
                 // Show the Default Name & Image
-            //    data = new CharacterModel { Name = "Unknown", ImageURI = "squid.jpg" };
+                data = new CharacterModel { Name = "Unknown", ImageURI = "squid.jpg" };
 
                 // Turn off click action
-//                ClickableButton = false;
-  //          }
-
+                ClickableButton = false;
+            }
+ 
             // Hookup the Image Button to show the Character picture
             var CharacterButton = new ImageButton
             {
