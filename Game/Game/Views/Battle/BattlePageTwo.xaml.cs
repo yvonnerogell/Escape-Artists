@@ -89,8 +89,8 @@ namespace Game.Views
 
             // Ask the Game engine to select who goes first
             //BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
-            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FirstOrDefault());
-            BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.FirstOrDefault());
+            //BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FirstOrDefault());
+            //BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.FirstOrDefault());
 
 
             //var currentAttacker = ;
@@ -759,11 +759,14 @@ namespace Game.Views
             //var monster = MonsterIndexViewModel.Instance.GetMonsterByName(monsterName);
             //PlayerInfoModel player = new PlayerInfoModel(monster);
 
-                var MonsterFoundIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.FindIndex(c => c.Name == player.Name);
+            var MonsterFoundIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.FindIndex(c => c.Name == player.Name);
+            if (MonsterFoundIndex >= 0)
+            {
                 BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.RemoveAt(MonsterFoundIndex);
+            }
 
-                // Add updated player back to view model
-                selectedMonsters.Add(player);
+            // Add updated player back to view model
+            selectedMonsters.Add(player);
          //   }
             DrawMonsterList();
             DrawSelectedMonsters();
@@ -820,7 +823,7 @@ namespace Game.Views
             // TODO: make sure the AutoBattlePage is the right option here
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.RoundOver;
            
-            await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
+            //await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
             
         }
 

@@ -37,24 +37,42 @@ namespace UnitTests.Views
 
             var characters = DefaultData.LoadData(new CharacterModel());
 
-            // create a list of monsters
             var monsters = DefaultData.LoadData(new MonsterModel());
-            
-            
+
+
             // create a list of Items
             var items = DefaultData.LoadData(new ItemModel());
-          
-             //add characters to the Engine
-                foreach (var character in characters)
+
+            // to add to the monster
+            var DefaultIndexCards = (string)null;
+            var newItem = ItemIndexViewModel.Instance.GetItem("IndexCards1");
+            if (newItem != null)
+            {
+                DefaultIndexCards = newItem.Id;
+            }
+            
+
+            //add characters to the Engine
+            foreach (var character in characters)
             {
                 BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(character));
             }
 
-            // add monsters to the Engine
-            foreach (var monster in monsters)
+            
+            // just in the case the list is empty
+            monsters.Add(new MonsterModel
             {
-                BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Add(new PlayerInfoModel(monster));
-            }
+                Name = "Sam",
+                Description = "I do all the work everyone else gets credit for!",
+                MonsterTypeEnum = MonsterTypeEnum.Faculty,
+                SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.TeachingAssistant,
+                Range = 2,
+                Difficulty = DifficultyEnum.Easy,
+                UniqueDropItem = DefaultIndexCards,
+                Attack = 1,
+                ImageURI = Constants.SpecificMonsterTypeTeachingAssistantImageURI
+            });
+
 
             // add items to the Engine
             foreach (var item in items)
@@ -213,6 +231,14 @@ namespace UnitTests.Views
         public void PopupSaveButtonMonster_Clicked_Default_Should_Pass()
         {
             // Arrange
+            // create a list of monsters
+            var monsters = DefaultData.LoadData(new MonsterModel());
+            // add monsters to the Engine
+            foreach (var monster in monsters)
+            {
+                BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Add(new PlayerInfoModel(monster));
+            }
+
             Button s = new Button();
             // should be an existing name
             s.CommandParameter = "Karen";
@@ -221,15 +247,11 @@ namespace UnitTests.Views
             // Act
             page.PopupSaveButtonMonster_Clicked(s,e);
 
-            // Reset
-            //selectedMonsters.Clear();
-            //BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
-          //  mon.Clear();
+            
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
 
             // Reset
-            //selectedMonsters.Clear();
             BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
         }
 
