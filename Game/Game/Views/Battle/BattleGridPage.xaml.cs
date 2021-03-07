@@ -466,7 +466,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public PlayerInfoModel SetSelectedEmpty(MapModelLocation data)
+        public bool SetSelectedEmpty(MapModelLocation data)
         {
 
             // TODO: Info
@@ -480,7 +480,7 @@ namespace Game.Views
             BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.MovePlayerOnMap(selectedPlayerLocation, data);
             UpdateMapGrid();
 
-            return data.Player;
+            return true;
         }
 
         /// <summary>
@@ -489,7 +489,7 @@ namespace Game.Views
         /// <param name="data"></param>
         /// <returns></returns>
         //public bool SetSelectedMonster(MapModelLocation data)
-        public PlayerInfoModel SetSelectedMonster (MapModelLocation data)
+        public bool SetSelectedMonster (MapModelLocation data)
         {
             // TODO: Info
 
@@ -504,8 +504,9 @@ namespace Game.Views
             {
                 //data.IsSelectedTarget = true;
                 selectedPlayerLocation = data;
+                return true;
             }
-            return null;
+            return false;
             //data.IsSelectedTarget = true;
             //return true;
         }
@@ -515,7 +516,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public MapModelLocation SetSelectedCharacter(MapModelLocation data)
+        public bool SetSelectedCharacter(MapModelLocation data)
         {
             // TODO: Info
 
@@ -530,8 +531,9 @@ namespace Game.Views
             {
                 //data.IsSelectedTarget = true;
                 selectedPlayerLocation = data;
+                return true;
             }
-            return null;
+            return false;
 
             //return true;
         }
