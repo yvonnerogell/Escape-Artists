@@ -542,7 +542,7 @@ namespace UnitTests.Views
             // Reset
 
             // Assert
-            Assert.AreEqual(true, result); // Got to here, so it happened...
+            Assert.AreEqual(false, result); // Got to here, so it happened...
         }
 
         [Test]
@@ -556,7 +556,7 @@ namespace UnitTests.Views
             // Reset
 
             // Assert
-            Assert.AreEqual(true, result); // Got to here, so it happened...
+            Assert.AreEqual(false, result); // Got to here, so it happened...
         }
 
         [Test]
