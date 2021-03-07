@@ -204,6 +204,7 @@ namespace Game.Views
         /// <param name="e"></param>
         public void OnCharacter_Clicked(object sender, EventArgs args)
         {
+
             //Create charactermodel from the character selected
             var button = sender as ImageButton;
             String characterId = button.CommandParameter as String;
@@ -212,17 +213,18 @@ namespace Game.Views
             {
                 return;
             }
-
-            if (BattleEngineViewModel.Instance.PartyCharacterList.Count() < BattleEngineViewModel.Instance.Engine.EngineSettings.MaxNumberPartyCharacters)
+            if (is_added == true)
+            {
+                BattleEngineViewModel.Instance.PartyCharacterList.Remove(data);
+                is_added = false;
+            }
+            else if (BattleEngineViewModel.Instance.PartyCharacterList.Count() < BattleEngineViewModel.Instance.Engine.EngineSettings.MaxNumberPartyCharacters)
             {
                 //Add character to the instance partcharacterlist
-                is_added = true;
                 BattleEngineViewModel.Instance.PartyCharacterList.Add(data);
-                
+                is_added = true;
             }
             UpdateNextButtonState();
-
-
         }
 
         /// <summary>
