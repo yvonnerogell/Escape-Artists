@@ -33,6 +33,8 @@ namespace Game.Views
         //Instance needed for populating the characters
         public BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
 
+        public List<CharacterModel> selectedCharacters = new List<CharacterModel>();
+
         // The view model, used for data binding
         readonly CharacterIndexViewModel ViewModel = CharacterIndexViewModel.Instance;
 
@@ -196,26 +198,24 @@ namespace Game.Views
         /// <param name="e"></param>
         public void OnCharacter_Clicked(object sender, EventArgs args)
         {
-
+            List<Tuple<string, bool>> is_added = new List<Tuple<string, bool>>();
             //Create charactermodel from the character selected
             var button = sender as ImageButton;
             String characterId = button.CommandParameter as String;
+
             CharacterModel data = ViewModel.Dataset.FirstOrDefault(itm => itm.Id == characterId);
-            if (data == null)
-            {
-                return;
-            }
-            if (is_added == true)
+            if (selectedCharacters.Contains(data))
             {
                 BattleEngineViewModel.Instance.PartyCharacterList.Remove(data);
-                is_added = false;
-                button.BackgroundColor = Color.Transparent;
+                selectedCharacters.Remove(data);
+                button.BackgroundColor = Color.Pink;
             }
+            //the selected characters list does not contain the character and max not reached
             else if (BattleEngineViewModel.Instance.PartyCharacterList.Count() < BattleEngineViewModel.Instance.Engine.EngineSettings.MaxNumberPartyCharacters)
             {
                 //Add character to the instance partcharacterlist
                 BattleEngineViewModel.Instance.PartyCharacterList.Add(data);
-                is_added = true;
+                selectedCharacters.Add(data);
                 button.BackgroundColor = Color.Green;
             }
             UpdateNextButtonState();
@@ -226,7 +226,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="args"></param>
-        public void OnPartySelectionChanged(object sender, SelectionChangedEventArgs args)
+        /*public void OnPartySelectionChanged(object sender, SelectionChangedEventArgs args)
         {
             var button = sender as ImageButton;
             String characterId = button.CommandParameter as String;
@@ -245,7 +245,7 @@ namespace Game.Views
             }
 
             UpdateNextButtonState();
-        }
+        }*/
 
         /// <summary>
         /// Next Button is based on the count
