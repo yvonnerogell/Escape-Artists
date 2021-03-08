@@ -46,7 +46,7 @@ namespace Game.Models
             ExperienceTotal = 0;
             ExperienceRemaining = LevelTableHelper.LevelDetailsList[Level + 1].Experience - 1;
             SpecialAbility = SpecificCharacterTypeEnumHelper.ToAbility(SpecificCharacterTypeEnum);
-            TileImageURI = Constants.SpecificCharacterTypeDefaultTileImageURI;
+            TileImageURI = SpecificCharacterTypeEnumHelper.ToTileImageURI(SpecificCharacterTypeEnum);
 
         }
 
