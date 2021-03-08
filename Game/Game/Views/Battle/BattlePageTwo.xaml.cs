@@ -48,7 +48,7 @@ namespace Game.Views
         // selecting the item of that turn
         public List<ItemModel> selectedItems = new List<ItemModel>();
 
-        public FlexLayout FlexLayout { get; }
+        //public FlexLayout FlexLayout { get; }
 
         /// <summary>
         /// Constructor
