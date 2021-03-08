@@ -32,10 +32,10 @@ namespace Game.Models
             Attack = 1;
             Difficulty = DifficultyEnum.Average;
             UniqueDropItem = null;
-            ImageURI = Constants.SpecificMonsterTypeDefaultImageURI;
+            ImageURI = SpecificMonsterTypeEnumHelper.ToImageURI(SpecificMonsterTypeEnum);
             ExperienceTotal = 0;
             ExperienceRemaining = LevelTableHelper.LevelDetailsList[Level + 1].Experience - 1;
-            TileImageURI = Constants.SpecificMonsterTypeDefaultTileImageURI;
+            TileImageURI = SpecificMonsterTypeEnumHelper.ToTileImageURI(SpecificMonsterTypeEnum);
 
         }
 
