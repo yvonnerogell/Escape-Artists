@@ -987,6 +987,80 @@ namespace UnitTests.Engine.EngineBase
         }
         #endregion TurnAsAttack
 
+        #region SelectCharacterToAttack
+        [Test]
+        public void TurnEngine_DefenderSelect_Null_Should_Pass()
+        {
+
+            /* 
+             * Test to check if the dice roll sets the correct defender
+             * 
+             * The list is null
+             * 
+             * A dice roll decides who is the defender/attacker
+             * 
+             */
+
+            //Arrange
+
+            // Simulate the dice
+            //var dice = 1;
+
+            // save this state
+            var save = Engine.EngineSettings.PlayerList;
+
+            // Set list of players
+            Engine.EngineSettings.PlayerList = null;
+
+            // Set current action to Attack
+            //Engine.EngineSettings.CurrentAction = ActionEnum.Attack;
+            //var defender = new PlayerInfoModel(new CharacterModel());
+
+            //Act
+            var result = Engine.Round.Turn.SelectCharacterToAttack();
+
+            //Assert
+            Assert.AreEqual(result, null);
+
+            // Reset 
+            Engine.EngineSettings.PlayerList = save;
+
+        }
+
+        [Test]
+        public void TurnEngine_DefenderSelect_Empty_Should_Pass()
+        {
+
+            /* 
+             * Test to check if the dice roll sets the correct defender
+             * 
+             * The list is empty
+             * 
+             * A dice roll decides who is the defender/attacker
+             * 
+             */
+
+            //Arrange
+
+            // save current state
+            var save = Engine.EngineSettings.PlayerList;
+
+            // Set monster count
+            Engine.EngineSettings.PlayerList.Clear();
+
+            //Act
+            var result = Engine.Round.Turn.SelectCharacterToAttack();
+
+            //Assert
+            Assert.AreEqual(result, null);
+
+            //Reset 
+            Engine.EngineSettings.PlayerList = save;
+
+        }
+
+        #endregion SelectCharacterToAttack
+
         #region RemoveIfDead
         [Test]
         public void TurnEngine_RemoveIfDead_Valid_Dead_True_Should_Return_False()
@@ -1617,6 +1691,7 @@ namespace UnitTests.Engine.EngineBase
             // Assert
             Assert.AreEqual(false, result);
         }
+
         #endregion MoveAsTurn
 
         #region DetermineCriticalMissProblem
