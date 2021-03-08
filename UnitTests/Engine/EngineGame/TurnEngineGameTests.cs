@@ -312,5 +312,33 @@ namespace UnitTests.Engine.EngineGame
             // Assert
             Assert.AreEqual(null, result);
         }
+
+        [Test]
+        public void TurnEngine_TurnAsAttack_Attacker_Null_Should_Return_False()
+        {
+            // Arrange
+
+            // Act
+            var result = Engine.Round.Turn.TurnAsAttack(null, new PlayerInfoModel());
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public void TurnEngine_TurnAsAttack_Target_Null_Should_Return_False()
+        {
+            // Arrange
+
+            // Act
+            var result = Engine.Round.Turn.TurnAsAttack(new PlayerInfoModel(), null);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
     }
 }
