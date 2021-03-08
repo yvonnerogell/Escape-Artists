@@ -1037,5 +1037,47 @@ namespace UnitTests.Engine.EngineGame
             //Assert
             Assert.AreEqual(true, result);
         }
+
+        [Test]
+        public void TurnEngine_CalculateExperience_LevelUp_True_Should_Pass()
+        {
+            // save
+
+            var characterPlayer = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Name = "Character",
+                                CharacterTypeEnum = CharacterTypeEnum.Parent,
+                                Speed = 1,
+                                Level = 1,
+                                MaxHealth = 1,
+                                CurrentHealth = 1
+                            });
+
+            var monsterPlayer = new PlayerInfoModel(
+                new MonsterModel
+                {
+                    Name = "Monster",
+                    MonsterTypeEnum = MonsterTypeEnum.Administrator,
+                    Speed = 1,
+                    Level = 1,
+                    MaxHealth = 1,
+                    CurrentHealth = 1,
+                });
+
+            characterPlayer.PlayerType = PlayerTypeEnum.Character;
+            characterPlayer.MonsterTypeEnum = MonsterTypeEnum.Unknown;
+            characterPlayer.ExperienceTotal = 300;
+            monsterPlayer.PlayerType = PlayerTypeEnum.Monster;
+            monsterPlayer.CharacterTypeEnum = CharacterTypeEnum.Unknown;
+
+            //Act
+            var result = Engine.Round.Turn.CalculateExperience(characterPlayer, monsterPlayer);
+
+            //Reset
+
+            //Assert
+            Assert.AreEqual(true, result);
+        }
     }
 }
