@@ -22,7 +22,8 @@
                         <Label Grid.Row="0" Grid.Column="0"
                                HorizontalOptions="StartAndExpand"
                                Text="Characters"
-                               Style="{StaticResource CenterMessageMediumStyle}"/>
+                               Style="{StaticResource CenterMessageMediumStyle}"
+                               FontAttributes="Bold"/>
 
                         <ImageButton Grid.Row="0" Grid.Column="1"
                             Source="{x:Static local:Constants.SpecificCharacterTypeDefaultImageURI}"
@@ -45,7 +46,8 @@
                         <Label Grid.Row="0" Grid.Column="0"
                                HorizontalOptions="StartAndExpand"
                                Text="Monsters"
-                               Style="{StaticResource CenterMessageMediumStyle}"/>
+                               Style="{StaticResource CenterMessageMediumStyle}"
+                               FontAttributes="Bold"/>
 
                         <ImageButton Grid.Row="0" Grid.Column="1"
                             Source="{x:Static local:Constants.SpecificMonsterTypeAssistantProfessorImageURI}"
@@ -69,7 +71,8 @@
                         <Label Grid.Row="0" Grid.Column="0"
                                HorizontalOptions="StartAndExpand"
                                Text="Items"
-                               Style="{StaticResource CenterMessageMediumStyle}"/>
+                               Style="{StaticResource CenterMessageMediumStyle}"
+                               FontAttributes="Bold"/>
 
                         <ImageButton Grid.Row="0" Grid.Column="1"
                                     Source="{x:Static local:Constants.ItemTypeLaptopImageURI}"
@@ -93,7 +96,8 @@
                         <Label Grid.Row="0" Grid.Column="0"
                                Text="Scores"
                                HorizontalOptions="StartAndExpand"
-                               Style="{StaticResource CenterMessageMediumStyle}"/>
+                               Style="{StaticResource CenterMessageMediumStyle}"
+                               FontAttributes="Bold"/>
 
                         <ImageButton Grid.Row="0" Grid.Column="1"
                                 Source="{x:Static local:Constants.ItemTypeGraduationCapAndRobeImageURI}"
