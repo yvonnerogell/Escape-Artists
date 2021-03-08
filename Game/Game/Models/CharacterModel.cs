@@ -26,6 +26,9 @@ namespace Game.Models
         // Variable indicating if Character has graduated or not (i.e. reached level 20)
         public bool Graduated { get; set; } = false;
 
+        // Holds the tile image URI, which is used for index views. 
+        public string TileImageURI { get; set; }
+
         /// <summary>
         /// Default Character constructor
         /// </summary>
@@ -43,6 +46,7 @@ namespace Game.Models
             ExperienceTotal = 0;
             ExperienceRemaining = LevelTableHelper.LevelDetailsList[Level + 1].Experience - 1;
             SpecialAbility = SpecificCharacterTypeEnumHelper.ToAbility(SpecificCharacterTypeEnum);
+            TileImageURI = Constants.SpecificCharacterTypeDefaultTileImageURI;
 
         }
 

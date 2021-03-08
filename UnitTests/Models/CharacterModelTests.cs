@@ -194,6 +194,7 @@ namespace UnitTests.Models
             result.RightFinger = "rightfinger";
             result.LeftFinger = "leftfinger";
             result.Job = CharacterJobEnum.Unknown;
+            result.TileImageURI = "uri";
 
             // Reset
 
@@ -221,8 +222,10 @@ namespace UnitTests.Models
             Assert.AreEqual("rightfinger", result.RightFinger);
             Assert.AreEqual("leftfinger", result.LeftFinger);
             Assert.AreEqual(CharacterJobEnum.Unknown, result.Job);
+            Assert.AreEqual("uri", result.TileImageURI);
+
         }
-        
+
         [Test]
         public void CharacterModel_GetAttack_Fighter_Should_Pass()
         {
