@@ -32,7 +32,7 @@
                         
                         <StackLayout Padding="10" WidthRequest="150" HeightRequest="250">
 
-                            <ImageButton Source="{Binding ImageURI}"  Clicked="ReadCharacter_Clicked" CommandParameter="{Binding Id}"/>
+                            <ImageButton Source="{Binding TileImageURI}"  Clicked="ReadCharacter_Clicked" CommandParameter="{Binding Id}"/>
 
                             <StackLayout Orientation="Vertical" HorizontalOptions="Center">
 
