@@ -340,5 +340,123 @@ namespace UnitTests.Engine.EngineGame
             // Assert
             Assert.AreEqual(false, result);
         }
+
+        [Test]
+        public void TurnEngine_TurnAsAttack_CriticalHit_Should_Return_True()
+        {
+            // save
+            var saveCharacterList = Engine.EngineSettings.CharacterList;
+            var saveMonsterList = Engine.EngineSettings.MonsterList;
+            var saveHitStatus = Engine.EngineSettings.BattleMessagesModel.HitStatus;
+            var saveCharacterHitEnum = Engine.EngineSettings.BattleSettingsModel.CharacterHitEnum;
+            Engine.EngineSettings.CharacterList.Clear();
+            Engine.EngineSettings.MonsterList.Clear();
+
+            Engine.EngineSettings.MaxNumberPartyCharacters = 1;
+
+            var characterPlayer = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Name = "Character",
+                                CharacterTypeEnum = CharacterTypeEnum.Parent,
+                                Speed = 1,
+                                Level = 1,
+                                MaxHealth = 1,
+                                CurrentHealth = 1,
+                            });
+
+            var monsterPlayer = new PlayerInfoModel(
+                new MonsterModel
+                {
+                    Name = "Monster",
+                    MonsterTypeEnum = MonsterTypeEnum.Administrator,
+                    Speed = 1,
+                    Level = 1,
+                    MaxHealth = 1,
+                    CurrentHealth = 1,
+                });
+
+            characterPlayer.PlayerType = PlayerTypeEnum.Character;
+            characterPlayer.MonsterTypeEnum = MonsterTypeEnum.Unknown;
+            monsterPlayer.PlayerType = PlayerTypeEnum.Monster;
+            monsterPlayer.CharacterTypeEnum = CharacterTypeEnum.Unknown;
+
+            Engine.EngineSettings.CharacterList.Add(characterPlayer); 
+            Engine.EngineSettings.MonsterList.Add(monsterPlayer);
+
+            Engine.EngineSettings.BattleMessagesModel.HitStatus = HitStatusEnum.CriticalHit;
+            Engine.EngineSettings.BattleSettingsModel.CharacterHitEnum = HitStatusEnum.CriticalHit;
+
+            //Act
+            var result = Engine.Round.Turn.TurnAsAttack(characterPlayer, monsterPlayer);
+
+            //Reset
+            Engine.EngineSettings.CharacterList = saveCharacterList;
+            Engine.EngineSettings.MonsterList = saveMonsterList;
+            Engine.EngineSettings.BattleMessagesModel.HitStatus = saveHitStatus;
+            Engine.EngineSettings.BattleSettingsModel.CharacterHitEnum = saveCharacterHitEnum;
+
+            //Assert
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public void TurnEngine_TurnAsAttack_CriticalMiss_Should_Return_True()
+        {
+            // save
+            var saveCharacterList = Engine.EngineSettings.CharacterList;
+            var saveMonsterList = Engine.EngineSettings.MonsterList;
+            var saveHitStatus = Engine.EngineSettings.BattleMessagesModel.HitStatus;
+            var saveCharacterHitEnum = Engine.EngineSettings.BattleSettingsModel.CharacterHitEnum;
+            Engine.EngineSettings.CharacterList.Clear();
+            Engine.EngineSettings.MonsterList.Clear();
+
+            Engine.EngineSettings.MaxNumberPartyCharacters = 1;
+
+            var characterPlayer = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Name = "Character",
+                                CharacterTypeEnum = CharacterTypeEnum.Parent,
+                                Speed = 1,
+                                Level = 1,
+                                MaxHealth = 1,
+                                CurrentHealth = 1,
+                            });
+
+            var monsterPlayer = new PlayerInfoModel(
+                new MonsterModel
+                {
+                    Name = "Monster",
+                    MonsterTypeEnum = MonsterTypeEnum.Administrator,
+                    Speed = 1,
+                    Level = 1,
+                    MaxHealth = 1,
+                    CurrentHealth = 1,
+                });
+
+            characterPlayer.PlayerType = PlayerTypeEnum.Character;
+            characterPlayer.MonsterTypeEnum = MonsterTypeEnum.Unknown;
+            monsterPlayer.PlayerType = PlayerTypeEnum.Monster;
+            monsterPlayer.CharacterTypeEnum = CharacterTypeEnum.Unknown;
+
+            Engine.EngineSettings.CharacterList.Add(characterPlayer);
+            Engine.EngineSettings.MonsterList.Add(monsterPlayer);
+
+            Engine.EngineSettings.BattleMessagesModel.HitStatus = HitStatusEnum.CriticalMiss;
+            Engine.EngineSettings.BattleSettingsModel.CharacterHitEnum = HitStatusEnum.CriticalMiss;
+
+            //Act
+            var result = Engine.Round.Turn.TurnAsAttack(characterPlayer, monsterPlayer);
+
+            //Reset
+            Engine.EngineSettings.CharacterList = saveCharacterList;
+            Engine.EngineSettings.MonsterList = saveMonsterList;
+            Engine.EngineSettings.BattleMessagesModel.HitStatus = saveHitStatus;
+            Engine.EngineSettings.BattleSettingsModel.CharacterHitEnum = saveCharacterHitEnum;
+
+            //Assert
+            Assert.AreEqual(true, result);
+        }
     }
 }
