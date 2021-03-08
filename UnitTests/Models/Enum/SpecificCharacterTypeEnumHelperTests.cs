@@ -870,6 +870,147 @@ namespace UnitTests.Models.Enum
         }
 
         [Test]
+        public void SpecificCharacterTypeEnumHelperTests_ToTileImageURI_Unknown_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.ToTileImageURI(SpecificCharacterTypeEnum.Unknown);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(Constants.SpecificCharacterTypeDefaultTileImageURI, result);
+        }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_ToTileImageURI_CoolParent_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.ToTileImageURI(SpecificCharacterTypeEnum.CoolParent);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(Constants.SpecificCharacterTypeCoolParentTileImageURI, result);
+        }
+
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_ToTileImageURI_HelicopterParent_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.ToTileImageURI(SpecificCharacterTypeEnum.HelicopterParent);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(Constants.SpecificCharacterTypeHelicopterParentTileImageURI, result);
+        }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_ToTileImageURI_InternationalStudent_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.ToTileImageURI(SpecificCharacterTypeEnum.InternationalStudent);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(Constants.SpecificCharacterTypeInternationalStudentTileImageURI, result);
+        }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_ToTileImageURI_Overachiever_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.ToTileImageURI(SpecificCharacterTypeEnum.Overachiever);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(Constants.SpecificCharacterTypeOverachieverTileImageURI, result);
+        }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_ToTileImageURI_Procrastinator_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.ToTileImageURI(SpecificCharacterTypeEnum.Procrastinator);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(Constants.SpecificCharacterTypeProcrastinatorTileImageURI, result);
+        }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_ToTileImageURI_Prodigy_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.ToTileImageURI(SpecificCharacterTypeEnum.Prodigy);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(Constants.SpecificCharacterTypeProdigyTileImageURI, result);
+        }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_ToTileImageURI_SecondCareer_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.ToTileImageURI(SpecificCharacterTypeEnum.SecondCareer);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(Constants.SpecificCharacterTypeSecondCareerTileImageURI, result);
+        }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_ToTileImageURI_Slacker_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.ToTileImageURI(SpecificCharacterTypeEnum.Slacker);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(Constants.SpecificCharacterTypeSlackerTileImageURI, result);
+        }
+
+        [Test]
+        public void SpecificCharacterTypeEnumHelperTests_ToTileImageURI_SmartyPants_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = SpecificCharacterTypeEnumHelper.ToTileImageURI(SpecificCharacterTypeEnum.SmartyPants);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(Constants.SpecificCharacterTypeSmartyPantsTileImageURI, result);
+        }
+
+        [Test]
         public void SpecificCharacterTypeEnumHelperTests_ToRange_Unknown_Should_Pass()
         {
             // Arrange

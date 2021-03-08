@@ -374,6 +374,60 @@ namespace Game.Models
         }
 
         /// <summary>
+        /// Given the inputted Character, returns the tile image URI based on the SpecificCharacterTypeEnum. 
+        /// </summary>
+        /// <param name="newData">Character to update</param>
+        public static string ToTileImageURI(SpecificCharacterTypeEnum specificCharacterType)
+        {
+            var imageURI = Constants.SpecificCharacterTypeDefaultImageURI; ;
+            switch (specificCharacterType)
+            {
+
+                case SpecificCharacterTypeEnum.SmartyPants:
+                    imageURI = Constants.SpecificCharacterTypeSmartyPantsTileImageURI;
+                    break;
+
+                case SpecificCharacterTypeEnum.Overachiever:
+                    imageURI = Constants.SpecificCharacterTypeOverachieverTileImageURI;
+                    break;
+
+                case SpecificCharacterTypeEnum.InternationalStudent:
+                    imageURI = Constants.SpecificCharacterTypeInternationalStudentTileImageURI;
+                    break;
+
+                case SpecificCharacterTypeEnum.Prodigy:
+                    imageURI = Constants.SpecificCharacterTypeProdigyTileImageURI;
+                    break;
+
+                case SpecificCharacterTypeEnum.SecondCareer:
+                    imageURI = Constants.SpecificCharacterTypeSecondCareerTileImageURI;
+                    break;
+
+                case SpecificCharacterTypeEnum.Slacker:
+                    imageURI = Constants.SpecificCharacterTypeSlackerTileImageURI;
+                    break;
+
+                case SpecificCharacterTypeEnum.Procrastinator:
+                    imageURI = Constants.SpecificCharacterTypeProcrastinatorTileImageURI;
+                    break;
+
+                case SpecificCharacterTypeEnum.HelicopterParent:
+                    imageURI = Constants.SpecificCharacterTypeHelicopterParentTileImageURI;
+                    break;
+
+                case SpecificCharacterTypeEnum.CoolParent:
+                    imageURI = Constants.SpecificCharacterTypeCoolParentTileImageURI;
+                    break;
+
+                case SpecificCharacterTypeEnum.Unknown:
+                default:
+                    imageURI = Constants.SpecificCharacterTypeDefaultTileImageURI;
+                    break;
+            }
+            return imageURI;
+        }
+
+        /// <summary>
         /// Given the inputted Character, updates the Range based on the SpecificCharacterTypeEnum. 
         /// </summary>
         /// <param name="newData">Character to update</param>
