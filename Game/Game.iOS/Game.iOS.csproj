@@ -366,4 +366,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\tile_teaching_assistant_monster.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\home_background.png" />
+  </ItemGroup>
 </Project>

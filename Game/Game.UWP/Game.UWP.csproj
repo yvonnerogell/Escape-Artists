@@ -143,6 +143,7 @@
     <Content Include="gamepage_school.png" />
     <Content Include="grad_gif.gif" />
     <Content Include="grad_office_monster.png" />
+    <Content Include="home_background.png" />
     <Content Include="human_resources_monster.png" />
     <Content Include="item_calculator.png" />
     <Content Include="coolparent.png" />
