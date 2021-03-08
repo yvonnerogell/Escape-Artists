@@ -961,6 +961,20 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
+        [Test]
+        public void BattlePageTwo_ExitButton_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            page.ExitButton_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
 
         /*
         [Test]
