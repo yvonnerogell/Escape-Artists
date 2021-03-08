@@ -530,7 +530,8 @@ namespace Game.GameRules
                     Difficulty = DifficultyEnum.Easy,
                     UniqueDropItem = DefaultIndexCards,
                     Attack = 1,
-                    ImageURI = Constants.SpecificMonsterTypeTeachingAssistantImageURI
+                    ImageURI = Constants.SpecificMonsterTypeTeachingAssistantImageURI,
+                    TileImageURI = Constants.SpecificMonsterTypeTeachingAssistantTileImageURI
                 },
 
                 new MonsterModel {
@@ -541,7 +542,8 @@ namespace Game.GameRules
                     Range = 2,
                     Difficulty = DifficultyEnum.Average,
                     Attack = 1,
-                    ImageURI = Constants.SpecificMonsterTypeAdjunctFacultyImageURI
+                    ImageURI = Constants.SpecificMonsterTypeAdjunctFacultyImageURI,
+                    TileImageURI = Constants.SpecificMonsterTypeAdjunctFacultyTileImageURI
                 },
 
                 new MonsterModel {
@@ -553,7 +555,8 @@ namespace Game.GameRules
                     Difficulty = DifficultyEnum.Average,
                     UniqueDropItem = DefaultLaptop,
                     Attack = 1,
-                    ImageURI = Constants.SpecificMonsterTypeAssistantProfessorImageURI
+                    ImageURI = Constants.SpecificMonsterTypeAssistantProfessorImageURI,
+                    TileImageURI = Constants.SpecificMonsterTypeAssistantProfessorTileImageURI
                 },
 
                 new MonsterModel {
@@ -565,7 +568,8 @@ namespace Game.GameRules
                     Difficulty = DifficultyEnum.Difficult,
                     UniqueDropItem = DefaultTextbooks,
                     Attack = 1,
-                    ImageURI = Constants.SpecificMonsterTypeAssociateProfessorImageURI
+                    ImageURI = Constants.SpecificMonsterTypeAssociateProfessorImageURI,
+                    TileImageURI = Constants.SpecificMonsterTypeAssociateProfessorTileImageURI
                 },
 
                 new MonsterModel {
@@ -576,7 +580,8 @@ namespace Game.GameRules
                     Range = 3,
                     Difficulty = DifficultyEnum.Difficult,
                     Attack = 5,
-                    ImageURI = Constants.SpecificMonsterTypeProfessorImageURI
+                    ImageURI = Constants.SpecificMonsterTypeProfessorImageURI,
+                    TileImageURI = Constants.SpecificMonsterTypeProfessorTileImageURI
                 },
 
                 new MonsterModel {
@@ -588,7 +593,8 @@ namespace Game.GameRules
                     Difficulty = DifficultyEnum.Easy,
                     UniqueDropItem = DefaultFinancialAid,
                     Attack = 3,
-                    ImageURI = Constants.SpecificMonsterTypeHRAdministratorImageURI
+                    ImageURI = Constants.SpecificMonsterTypeHRAdministratorImageURI,
+                    TileImageURI = Constants.SpecificMonsterTypeHRAdministratorTileImageURI
                 },
 
                 new MonsterModel {
@@ -599,7 +605,8 @@ namespace Game.GameRules
                     Range = 1,
                     Difficulty = DifficultyEnum.Average,
                     Attack = 2,
-                    ImageURI = Constants.SpecificMonsterTypeRegistrationAdministratorImageURI
+                    ImageURI = Constants.SpecificMonsterTypeRegistrationAdministratorImageURI,
+                    TileImageURI = Constants.SpecificMonsterTypeRegistrationAdministratorTileImageURI
                 },
 
                  new MonsterModel {
@@ -611,7 +618,8 @@ namespace Game.GameRules
                     Difficulty = DifficultyEnum.Difficult,
                     UniqueDropItem = DefaultGraduationCapAndRobe,
                     Attack = 8,
-                    ImageURI = Constants.SpecificMonsterTypeGraduationOfficeAdministratorImageURI
+                    ImageURI = Constants.SpecificMonsterTypeGraduationOfficeAdministratorImageURI,
+                    TileImageURI = Constants.SpecificMonsterTypeGraduationOfficeAdministratorTileImageURI
                 },
             };
 
