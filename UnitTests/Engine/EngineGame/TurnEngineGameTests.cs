@@ -244,5 +244,39 @@ namespace UnitTests.Engine.EngineGame
             // Assert
             Assert.AreEqual(false, result);
         }
+
+        [Test]
+        public void TurnEngine_SelectCharacterToAttack_PlayerList_Null_Should_Return_Null()
+        {
+            // Arrange
+            var save = Engine.EngineSettings.PlayerList;
+            Engine.EngineSettings.PlayerList = null;
+
+            // Act
+            var result = Engine.Round.Turn.SelectCharacterToAttack();
+
+            // Reset
+            Engine.EngineSettings.PlayerList = save;
+
+            // Assert
+            Assert.AreEqual(null, result);
+        }
+
+        [Test]
+        public void TurnEngine_SelectCharacterToAttack_PlayerList_Empty_Should_Return_Null()
+        {
+            // Arrange
+            var save = Engine.EngineSettings.PlayerList;
+            Engine.EngineSettings.PlayerList.Clear();
+
+            // Act
+            var result = Engine.Round.Turn.SelectCharacterToAttack();
+
+            // Reset
+            Engine.EngineSettings.PlayerList = save;
+
+            // Assert
+            Assert.AreEqual(null, result);
+        }
     }
 }
