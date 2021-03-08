@@ -312,7 +312,8 @@ namespace Game.GameRules
                     Feet = "None",
                     RightFinger = DefaultIndexCards,
                     LeftFinger = "None",
-                    SpecialAbility = AbilityEnum.ExtraCredit
+                    SpecialAbility = AbilityEnum.ExtraCredit,
+                    TileImageURI = Constants.SpecificCharacterTypeSmartyPantsTileImageURI,
                 },
 
                 new CharacterModel {
@@ -332,7 +333,8 @@ namespace Game.GameRules
                     Feet = "None",
                     RightFinger = "None",
                     LeftFinger = "None",
-                    SpecialAbility = AbilityEnum.FlashGenius
+                    SpecialAbility = AbilityEnum.FlashGenius,
+                    TileImageURI = Constants.SpecificCharacterTypeOverachieverTileImageURI,
         },
 
                 new CharacterModel {
@@ -352,7 +354,8 @@ namespace Game.GameRules
                     Feet = "None",
                     RightFinger = "None",
                     LeftFinger = "None",
-                    SpecialAbility = AbilityEnum.FlashGenius
+                    SpecialAbility = AbilityEnum.FlashGenius,
+                    TileImageURI = Constants.SpecificCharacterTypeInternationalStudentTileImageURI,
                 },
 
                 new CharacterModel {
@@ -372,7 +375,8 @@ namespace Game.GameRules
                     Feet = "None",
                     RightFinger = "None",
                     LeftFinger = "None",
-                    SpecialAbility = AbilityEnum.ExtraCredit
+                    SpecialAbility = AbilityEnum.ExtraCredit,
+                    TileImageURI = Constants.SpecificCharacterTypeProdigyTileImageURI,
                 },
 
                 new CharacterModel {
@@ -392,7 +396,8 @@ namespace Game.GameRules
                     Feet = "None",
                     RightFinger = "None",
                     LeftFinger = "None",
-                    SpecialAbility = AbilityEnum.Extension
+                    SpecialAbility = AbilityEnum.Extension,
+                    TileImageURI = Constants.SpecificCharacterTypeSecondCareerTileImageURI,
                 },
 
                 new CharacterModel {
@@ -412,7 +417,8 @@ namespace Game.GameRules
                     Feet = "Skateboard",
                     RightFinger = "None",
                     LeftFinger = DefaultCalculator,
-                    SpecialAbility = AbilityEnum.Extension
+                    SpecialAbility = AbilityEnum.Extension,
+                    TileImageURI = Constants.SpecificCharacterTypeSlackerTileImageURI,
                 },
 
                 new CharacterModel {
@@ -432,7 +438,8 @@ namespace Game.GameRules
                     Feet = "None",
                     RightFinger = "None",
                     LeftFinger = "None",
-                    SpecialAbility = AbilityEnum.Extension
+                    SpecialAbility = AbilityEnum.Extension,
+                    TileImageURI = Constants.SpecificCharacterTypeProcrastinatorTileImageURI,
                 },
 
                  new CharacterModel {
@@ -452,7 +459,8 @@ namespace Game.GameRules
                     Feet = "None",
                     RightFinger = "None",
                     LeftFinger = "None",
-                    SpecialAbility = AbilityEnum.Bribes
+                    SpecialAbility = AbilityEnum.Bribes,
+                    TileImageURI = Constants.SpecificCharacterTypeHelicopterParentTileImageURI,
                 },
 
                   new CharacterModel {
@@ -472,7 +480,8 @@ namespace Game.GameRules
                     Feet = "None",
                     RightFinger = "None",
                     LeftFinger = "None",
-                    SpecialAbility = AbilityEnum.PayTuition
+                    SpecialAbility = AbilityEnum.PayTuition,
+                    TileImageURI = Constants.SpecificCharacterTypeCoolParentTileImageURI,
                 },
             };
 
