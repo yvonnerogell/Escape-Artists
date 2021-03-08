@@ -215,6 +215,22 @@
     <Content Include="squid.jpg" />
     <Content Include="student.png" />
     <Content Include="teaching_assistant_monster.png" />
+    <Content Include="tile_adjunct_faculty_monster.png" />
+    <Content Include="tile_assistant_professor_monster.png" />
+    <Content Include="tile_associate_professor_monster.png" />
+    <Content Include="tile_coolparent.png" />
+    <Content Include="tile_grad_office_monster.png" />
+    <Content Include="tile_helicopter_parent.png" />
+    <Content Include="tile_international_student.png" />
+    <Content Include="tile_overachiever_student.png" />
+    <Content Include="tile_procrastinator_student.png" />
+    <Content Include="tile_prodigy_student.png" />
+    <Content Include="tile_professor_monster.png" />
+    <Content Include="tile_registration_monster.png" />
+    <Content Include="tile_second_career_student.png" />
+    <Content Include="tile_slacker_student.png" />
+    <Content Include="tile_smarty_pants_character.png" />
+    <Content Include="tile_teaching_assistant_monster.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

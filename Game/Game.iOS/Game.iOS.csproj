@@ -318,4 +318,52 @@
   <ItemGroup>
     <BundleResource Include="Resources\gamepage_autobattle.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tile_adjunct_faculty_monster.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tile_assistant_professor_monster.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tile_associate_professor_monster.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tile_coolparent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tile_grad_office_monster.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tile_helicopter_parent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tile_international_student.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tile_overachiever_student.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tile_procrastinator_student.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tile_prodigy_student.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tile_professor_monster.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tile_registration_monster.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tile_second_career_student.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tile_slacker_student.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tile_smarty_pants_character.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tile_teaching_assistant_monster.png" />
+  </ItemGroup>
 </Project>
