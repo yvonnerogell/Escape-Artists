@@ -45,17 +45,17 @@
                     <Button
                     Text="Play Now"
                     Clicked="GameButton_Clicked"
-                    Style="{StaticResource ButtonStyleMedium}"/>
+                    Style="{StaticResource ButtonStyleMedium}" CornerRadius="25"/>
                     
                     <Button
                     Text="About"
                     Clicked="AboutButton_Clicked"
-                    Style="{StaticResource ButtonStyleMedium}"/>
+                    Style="{StaticResource ButtonStyleMedium}" CornerRadius="25"/>
                     
                     <Button
                     Text="Score"
                     Clicked="ScoreButton_Clicked"
-                    Style="{StaticResource ButtonStyleMedium}"/>
+                    Style="{StaticResource ButtonStyleMedium}" CornerRadius="25"/>
 
                 </StackLayout>
             </StackLayout>
