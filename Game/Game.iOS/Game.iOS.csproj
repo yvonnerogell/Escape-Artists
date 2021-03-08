@@ -369,4 +369,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\home_background.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\tile_hr_administrator_monster.png" />
+  </ItemGroup>
 </Project>

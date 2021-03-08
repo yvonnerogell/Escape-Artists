@@ -222,6 +222,7 @@
     <Content Include="tile_coolparent.png" />
     <Content Include="tile_grad_office_monster.png" />
     <Content Include="tile_helicopter_parent.png" />
+    <Content Include="tile_hr_administrator_monster.png" />
     <Content Include="tile_international_student.png" />
     <Content Include="tile_overachiever_student.png" />
     <Content Include="tile_procrastinator_student.png" />
