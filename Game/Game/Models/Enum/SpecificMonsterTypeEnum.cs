@@ -304,6 +304,51 @@ namespace Game.Models
         }
 
         /// <summary>
+        /// assigns a specific Image for each Monster
+        /// </summary>
+        /// <param name="newData"></param>
+        public static string ToTileImageURI(SpecificMonsterTypeEnum specificMonsterTypeEnum)
+        {
+            var imageURI = Constants.SpecificMonsterTypeDefaultTileImageURI;
+            switch (specificMonsterTypeEnum)
+            {
+
+                case SpecificMonsterTypeEnum.TeachingAssistant:
+                    imageURI = Constants.SpecificMonsterTypeTeachingAssistantTileImageURI;
+                    break;
+
+                case SpecificMonsterTypeEnum.AdjunctFaculty:
+                    imageURI = Constants.SpecificMonsterTypeAdjunctFacultyTileImageURI;
+                    break;
+
+                case SpecificMonsterTypeEnum.AssistantProfessor:
+                    imageURI = Constants.SpecificMonsterTypeAssistantProfessorTileImageURI;
+                    break;
+
+                case SpecificMonsterTypeEnum.AssociateProfessor:
+                    imageURI = Constants.SpecificMonsterTypeAssociateProfessorTileImageURI;
+                    break;
+
+                case SpecificMonsterTypeEnum.Professor:
+                    imageURI = Constants.SpecificMonsterTypeProfessorTileImageURI;
+                    break;
+
+                case SpecificMonsterTypeEnum.HRAdministrator:
+                    imageURI = Constants.SpecificMonsterTypeHRAdministratorTileImageURI;
+                    break;
+
+                case SpecificMonsterTypeEnum.RegistrationAdministrator:
+                    imageURI = Constants.SpecificMonsterTypeRegistrationAdministratorTileImageURI;
+                    break;
+
+                case SpecificMonsterTypeEnum.GraduationOfficeAdministrator:
+                    imageURI = Constants.SpecificMonsterTypeGraduationOfficeAdministratorTileImageURI;
+                    break;
+            }
+            return imageURI;
+        }
+
+        /// <summary>
         /// Given the inputted Monster, updates the Range based on the SpecificMonsterTypeEnum. 
         /// </summary>
         /// <param name="newData">Character to update</param>
