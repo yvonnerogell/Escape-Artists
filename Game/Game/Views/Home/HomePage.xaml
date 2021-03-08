@@ -16,14 +16,15 @@
                 <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="Center">
                     <Image
                          Source="squid.jpg"
-                         Style="{StaticResource ImageLargeStyle}"/>
+                         Style="{StaticResource ImageLargeStyle}"
+                         Opacity="0" HeightRequest="260"/>
 
                 </StackLayout>
 
                 <StackLayout HorizontalOptions="Center" Padding="70,5,70,0">
 
                     <Label 
-                        Text="Welcome to Escaping School!"
+                        Text=""
                         Style="{StaticResource CenterMessageStyle}"
                         FontSize="Micro"
                         LineBreakMode="WordWrap"
@@ -31,7 +32,7 @@
                         />
 
                     <Label 
-                        Text="Hope you graduate!"
+                        Text=""
                         Style="{StaticResource CenterMessageStyle}"
                         FontSize="Micro"
                         LineBreakMode="WordWrap"
