@@ -63,6 +63,21 @@ namespace UnitTests.Models
             Assert.IsNotNull(result.Speed);
         }
 
+        [Test]
+        public void MonsterModel_SetGet_TileImageURI_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = new MonsterModel();
+            result.TileImageURI = "uri";
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual("uri", result.TileImageURI);
+        }
+
         /*
         [Test]
         public void MonsterModel_Set_Default_Should_Pass()

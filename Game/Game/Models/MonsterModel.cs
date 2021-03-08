@@ -15,6 +15,9 @@ namespace Game.Models
         // Unique Drop Item for Monsters
         public string UniqueDropItem { get; set; } = null;
 
+        // Holds the tile image URI, which is used for index views. 
+        public string TileImageURI { get; set; }
+
         /// <summary>
         /// Constructor to create a new MonsterModel.
         /// </summary>
@@ -32,6 +35,7 @@ namespace Game.Models
             ImageURI = Constants.SpecificMonsterTypeDefaultImageURI;
             ExperienceTotal = 0;
             ExperienceRemaining = LevelTableHelper.LevelDetailsList[Level + 1].Experience - 1;
+            TileImageURI = Constants.SpecificMonsterTypeDefaultTileImageURI;
 
         }
 
