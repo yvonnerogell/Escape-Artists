@@ -273,6 +273,7 @@ namespace Game.Engine.EngineGame
                 Defender = EngineSettings.PlayerList
                 .Where(m => m.Alive && m.PlayerType == PlayerTypeEnum.Character)
                 .OrderBy(m => m.Level).FirstOrDefault();
+                return Defender;
             }
 
             Defender = EngineSettings.PlayerList

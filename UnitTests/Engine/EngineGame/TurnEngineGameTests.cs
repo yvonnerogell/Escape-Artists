@@ -280,6 +280,293 @@ namespace UnitTests.Engine.EngineGame
         }
 
         [Test]
+        public void TurnEngine_SelectCharacterToAttack_D2_1_Should_Return_Player()
+        {
+            // Arrange
+            var save = Engine.EngineSettings.PlayerList;
+            Engine.EngineSettings.PlayerList.Clear();
+            var characterPlayer = new PlayerInfoModel(
+                new CharacterModel
+                {
+                    Name = "Character",
+                    CharacterTypeEnum = CharacterTypeEnum.Parent,
+                    Speed = 1,
+                    Level = 1,
+                    MaxHealth = 1,
+                    CurrentHealth = 1,
+                });
+            characterPlayer.PlayerType = PlayerTypeEnum.Character;
+            characterPlayer.Alive = true;
+
+            Engine.EngineSettings.PlayerList.Add(characterPlayer);
+
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(1);
+
+            // Act
+            var result = Engine.Round.Turn.SelectCharacterToAttack();
+
+            // Reset
+            Engine.EngineSettings.PlayerList = save;
+            DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreEqual("Character", result.Name);
+        }
+
+        [Test]
+        public void TurnEngine_SelectCharacterToAttack_D2_2_Should_Return_Player()
+        {
+            // Arrange
+            var save = Engine.EngineSettings.PlayerList;
+            Engine.EngineSettings.PlayerList.Clear();
+            var characterPlayer = new PlayerInfoModel(
+                new CharacterModel
+                {
+                    Name = "Character",
+                    CharacterTypeEnum = CharacterTypeEnum.Parent,
+                    Speed = 1,
+                    Level = 1,
+                    MaxHealth = 1,
+                    CurrentHealth = 1,
+                });
+            characterPlayer.PlayerType = PlayerTypeEnum.Character;
+            characterPlayer.Alive = true;
+
+            Engine.EngineSettings.PlayerList.Add(characterPlayer);
+
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(2);
+
+            // Act
+            var result = Engine.Round.Turn.SelectCharacterToAttack();
+
+            // Reset
+            Engine.EngineSettings.PlayerList = save;
+            DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreEqual("Character", result.Name);
+        }
+
+        [Test]
+        public void TurnEngine_SelectCharacterToAttack_D2_1_PlayerType_Not_Character_Should_Return_Null()
+        {
+            // Arrange
+            var save = Engine.EngineSettings.PlayerList;
+            Engine.EngineSettings.PlayerList.Clear();
+            var characterPlayer = new PlayerInfoModel(
+                new CharacterModel
+                {
+                    Name = "Character",
+                    CharacterTypeEnum = CharacterTypeEnum.Parent,
+                    Speed = 1,
+                    Level = 1,
+                    MaxHealth = 1,
+                    CurrentHealth = 1,
+                });
+            characterPlayer.PlayerType = PlayerTypeEnum.Unknown;
+            characterPlayer.Alive = true;
+
+            Engine.EngineSettings.PlayerList.Add(characterPlayer);
+            Engine.EngineSettings.PlayerList.Add(characterPlayer);
+
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(1);
+
+            // Act
+            var result = Engine.Round.Turn.SelectCharacterToAttack();
+
+            // Reset
+            Engine.EngineSettings.PlayerList = save;
+            DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreEqual(null, result);
+        }
+
+        [Test]
+        public void TurnEngine_SelectCharacterToAttack_D2_1_PlayerType_Unknown_Alive_False_Should_Return_Null()
+        {
+            // Arrange
+            var save = Engine.EngineSettings.PlayerList;
+            Engine.EngineSettings.PlayerList.Clear();
+            var characterPlayer = new PlayerInfoModel(
+                new CharacterModel
+                {
+                    Name = "Character",
+                    CharacterTypeEnum = CharacterTypeEnum.Parent,
+                    Speed = 1,
+                    Level = 1,
+                    MaxHealth = 1,
+                    CurrentHealth = 1,
+                });
+            characterPlayer.PlayerType = PlayerTypeEnum.Unknown;
+            characterPlayer.Alive = false;
+
+            Engine.EngineSettings.PlayerList.Add(characterPlayer);
+            Engine.EngineSettings.PlayerList.Add(characterPlayer);
+
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(1);
+
+            // Act
+            var result = Engine.Round.Turn.SelectCharacterToAttack();
+
+            // Reset
+            Engine.EngineSettings.PlayerList = save;
+            DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreEqual(null, result);
+        }
+
+        [Test]
+        public void TurnEngine_SelectCharacterToAttack_D2_1_PlayerType_Character_Alive_True_Should_Return_Null()
+        {
+            // Arrange
+            var save = Engine.EngineSettings.PlayerList;
+            Engine.EngineSettings.PlayerList.Clear();
+            var characterPlayer = new PlayerInfoModel(
+                new CharacterModel
+                {
+                    Name = "Character",
+                    CharacterTypeEnum = CharacterTypeEnum.Parent,
+                    Speed = 1,
+                    Level = 1,
+                    MaxHealth = 1,
+                    CurrentHealth = 1,
+                });
+            characterPlayer.PlayerType = PlayerTypeEnum.Character;
+            characterPlayer.Alive = true;
+
+            Engine.EngineSettings.PlayerList.Add(characterPlayer);
+            Engine.EngineSettings.PlayerList.Add(characterPlayer);
+
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(1);
+
+            // Act
+            var result = Engine.Round.Turn.SelectCharacterToAttack();
+
+            // Reset
+            Engine.EngineSettings.PlayerList = save;
+            DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreEqual("Character", result.Name);
+        }
+
+        [Test]
+        public void TurnEngine_SelectCharacterToAttack_D2_2_PlayerType_Not_Character_Should_Return_Null()
+        {
+            // Arrange
+            var save = Engine.EngineSettings.PlayerList;
+            Engine.EngineSettings.PlayerList.Clear();
+            var characterPlayer = new PlayerInfoModel(
+                new CharacterModel
+                {
+                    Name = "Character",
+                    CharacterTypeEnum = CharacterTypeEnum.Parent,
+                    Speed = 1,
+                    Level = 1,
+                    MaxHealth = 1,
+                    CurrentHealth = 1,
+                });
+            characterPlayer.PlayerType = PlayerTypeEnum.Unknown;
+            characterPlayer.Alive = true;
+
+            Engine.EngineSettings.PlayerList.Add(characterPlayer);
+            Engine.EngineSettings.PlayerList.Add(characterPlayer);
+
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(2);
+
+            // Act
+            var result = Engine.Round.Turn.SelectCharacterToAttack();
+
+            // Reset
+            Engine.EngineSettings.PlayerList = save;
+            DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreEqual(null, result);
+        }
+
+        [Test]
+        public void TurnEngine_SelectCharacterToAttack_D2_2_PlayerType_Unknown_Alive_False_Should_Return_Null()
+        {
+            // Arrange
+            var save = Engine.EngineSettings.PlayerList;
+            Engine.EngineSettings.PlayerList.Clear();
+            var characterPlayer = new PlayerInfoModel(
+                new CharacterModel
+                {
+                    Name = "Character",
+                    CharacterTypeEnum = CharacterTypeEnum.Parent,
+                    Speed = 1,
+                    Level = 1,
+                    MaxHealth = 1,
+                    CurrentHealth = 1,
+                });
+            characterPlayer.PlayerType = PlayerTypeEnum.Unknown;
+            characterPlayer.Alive = false;
+
+            Engine.EngineSettings.PlayerList.Add(characterPlayer);
+            Engine.EngineSettings.PlayerList.Add(characterPlayer);
+
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(2);
+
+            // Act
+            var result = Engine.Round.Turn.SelectCharacterToAttack();
+
+            // Reset
+            Engine.EngineSettings.PlayerList = save;
+            DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreEqual(null, result);
+        }
+
+        [Test]
+        public void TurnEngine_SelectCharacterToAttack_D2_2_PlayerType_Character_Alive_False_Should_Return_Null()
+        {
+            // Arrange
+            var save = Engine.EngineSettings.PlayerList;
+            Engine.EngineSettings.PlayerList.Clear();
+            var characterPlayer = new PlayerInfoModel(
+                new CharacterModel
+                {
+                    Name = "Character",
+                    CharacterTypeEnum = CharacterTypeEnum.Parent,
+                    Speed = 1,
+                    Level = 1,
+                    MaxHealth = 1,
+                    CurrentHealth = 1,
+                });
+            characterPlayer.PlayerType = PlayerTypeEnum.Character;
+            characterPlayer.Alive = false;
+
+            Engine.EngineSettings.PlayerList.Add(characterPlayer);
+            Engine.EngineSettings.PlayerList.Add(characterPlayer);
+
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(2);
+
+            // Act
+            var result = Engine.Round.Turn.SelectCharacterToAttack();
+
+            // Reset
+            Engine.EngineSettings.PlayerList = save;
+            DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreEqual(null, result);
+        }
+
+
+        [Test]
         public void TurnEngine_SelectMonsterToAttack_PlayerList_Null_Should_Return_Null()
         {
             // Arrange
