@@ -53,6 +53,37 @@ namespace Game
         public static string SpecificCharacterTypeSlackerImageURI = "slacker_student.png";
         public static string SpecificCharacterTypeProcrastinatorImageURI = "procrastinator_student.png";
 
+        // Parent Character Types Image URIs
+        public static string SpecificCharacterTypeHelicopterParentImageURI = "helicopter_parent.png";
+        public static string SpecificCharacterTypeCoolParentImageURI = "coolparent.png";
+
+        // TILE Faculty Monster types Image URIs
+        public static string SpecificMonsterTypeDefaultTileImageURI = "tile_teaching_assistant_monster.png";
+        public static string SpecificMonsterTypeTeachingAssistantTileImageURI = "tile_teaching_assistant_monster.png";
+        public static string SpecificMonsterTypeAdjunctFacultyTileImageURI = "tile_adjunct_faculty_monster.png";
+        public static string SpecificMonsterTypeAssistantProfessorTileImageURI = "tile_assistant_professor_monster.png";
+        public static string SpecificMonsterTypeAssociateProfessorTileImageURI = "tile_associate_professor_monster.png";
+        public static string SpecificMonsterTypeProfessorTileImageURI = "tile_professor_monster.png";
+
+        // TILE Administrator Monster types Image URIs
+        public static string SpecificMonsterTypeHRAdministratorTileImageURI = "tile_human_resources_monster.png";
+        public static string SpecificMonsterTypeRegistrationAdministratorTileImageURI = "tile_registration_monster.png";
+        public static string SpecificMonsterTypeGraduationOfficeAdministratorTileImageURI = "tile_grad_office_monster.png";
+
+        // TILE Student Character Types Image URIs
+        public static string SpecificCharacterTypeDefaultTileImageURI = "tile_smarty_pants_character.png";
+        public static string SpecificCharacterTypeSmartyPantsTileImageURI = "tile_smarty_pants_character.png";
+        public static string SpecificCharacterTypeOverachieverTileImageURI = "tile_overachiever_student.png";
+        public static string SpecificCharacterTypeInternationalStudentTileImageURI = "tile_international_student.png";
+        public static string SpecificCharacterTypeProdigyTileImageURI = "tile_prodigy_student.png";
+        public static string SpecificCharacterTypeSecondCareerTileImageURI = "tile_second_career_student.png";
+        public static string SpecificCharacterTypeSlackerTileImageURI = "tile_slacker_student.png";
+        public static string SpecificCharacterTypeProcrastinatorTileImageURI = "tile_procrastinator_student.png";
+
+        // TILE Parent Character Types Image URIs
+        public static string SpecificCharacterTypeHelicopterParentTileImageURI = "tile_helicopter_parent.png";
+        public static string SpecificCharacterTypeCoolParentTileImageURI = "tile_coolparent.png";
+
         // Item Types Image URIs
         public static string ItemTypeDefaultImageURI = "item.png";
         public static string ItemTypeIndexCardsImageURI = "item_indexcards.png";
@@ -69,10 +100,6 @@ namespace Game
         public static string ItemTypeGraduationCapAndRobeImageURI = "item_gradcap.png";
         public static string ItemTypeDiplomaImageURI = "item_diploma.png";
         public static string ItemTypeSkateboardImageURI = "item_skateboard.png";
-
-        // Parent Character Types Image URIs
-        public static string SpecificCharacterTypeHelicopterParentImageURI = "helicopter_parent.png";
-        public static string SpecificCharacterTypeCoolParentImageURI = "coolparent.png";
 
         // Default Character name
         public static string CharacterNameDefault = "New Character Name";
