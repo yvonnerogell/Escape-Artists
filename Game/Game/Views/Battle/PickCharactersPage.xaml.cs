@@ -208,7 +208,7 @@ namespace Game.Views
             {
                 BattleEngineViewModel.Instance.PartyCharacterList.Remove(data);
                 selectedCharacters.Remove(data);
-                button.BackgroundColor = Color.Pink;
+                button.BackgroundColor = Color.Transparent;
             }
             //the selected characters list does not contain the character and max not reached
             else if (BattleEngineViewModel.Instance.PartyCharacterList.Count() < BattleEngineViewModel.Instance.Engine.EngineSettings.MaxNumberPartyCharacters)
