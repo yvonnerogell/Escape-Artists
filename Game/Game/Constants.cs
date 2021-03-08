@@ -66,7 +66,7 @@ namespace Game
         public static string SpecificMonsterTypeProfessorTileImageURI = "tile_professor_monster.png";
 
         // TILE Administrator Monster types Image URIs
-        public static string SpecificMonsterTypeHRAdministratorTileImageURI = "tile_registration_monster.png";
+        public static string SpecificMonsterTypeHRAdministratorTileImageURI = "tile_hr_administrator_monster.png";
         public static string SpecificMonsterTypeRegistrationAdministratorTileImageURI = "tile_registration_monster.png";
         public static string SpecificMonsterTypeGraduationOfficeAdministratorTileImageURI = "tile_grad_office_monster.png";
 
