@@ -371,6 +371,7 @@ namespace Game.Views
                     ItemListFoundFrame.Children.Add(GetItemToDisplay(data));
                 }                       
             }
+            // makes the List of Items for the character visible
             PopupLoadingItemListFoundFrame.IsVisible = true;
         }
 
@@ -390,6 +391,8 @@ namespace Game.Views
             {
                 ItemListSelectedFrame.Children.Add(GetItemToDisplay(data));
                 PopupLoadingItemListFoundFrame.IsVisible = false;
+                PopupLoadingViewItem.IsVisible = false;
+                PopupItemListSelected.IsVisible = true;
                 break;
             }            
         }
@@ -471,7 +474,6 @@ namespace Game.Views
 
             // Set command parameter so that popup knows which item it is displaying
             PopupSaveButtonItem.CommandParameter = data.Id;
-
           
             return true;
         }
@@ -580,11 +582,9 @@ namespace Game.Views
         /// <param name="e"></param>
         public void PopupSaveButtonItem_Clicked(object sender, EventArgs e)
         {
-            var itemId = "";
-            
+            var itemId = "";   
                 itemId = ((Button)sender).CommandParameter.ToString();
-           
-                                
+                          
                 var item = ItemIndexViewModel.Instance.GetItem(itemId);
                 var itemLocation = ItemTypeEnumHelper.GetLocationFromItemType(item.ItemType);
 
@@ -601,11 +601,11 @@ namespace Game.Views
                 //    BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(player);
                 
                            
-               // DrawItemLists();
+                DrawSelectedItem();
 
                 // visibility after the click
-                PopupLoadingViewItem.IsVisible = false;
-                PopupItemListSelected.IsVisible = true;
+               // PopupLoadingViewItem.IsVisible = false;
+               // PopupItemListSelected.IsVisible = true;
         }
 
         public PlayerInfoModel AddItemToCharacter(PlayerInfoModel player, ItemLocationEnum location, ItemModel item)
@@ -831,9 +831,7 @@ namespace Game.Views
             var action = (ActionEnum)picker.SelectedIndex;
             BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = action;
 
-                DrawItemLists();
-                PopupItemListSelected.IsVisible = true;
-    
+            DrawItems();
         }
 
 
