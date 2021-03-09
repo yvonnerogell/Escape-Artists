@@ -63,11 +63,8 @@
                     <StackLayout  Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" 
                                   HorizontalOptions="Center" MinimumHeightRequest="250" WidthRequest="250" Padding="5">
 
-                        <Label x:Name="BattleMessage1Label"  Text="" LineBreakMode="WordWrap" Padding="2"/>
-                        <Label x:Name="BattleMessage2Label"  Text="" LineBreakMode="WordWrap" Padding="2"/>
-                        <Label x:Name="BattleMessage3Label"  Text=""  LineBreakMode="WordWrap" Padding="2"/>
-                        <Label x:Name="BattleMessage4Label"  Text="" LineBreakMode="WordWrap" Padding="2"/>
-                        <Label x:Name="BattleMessage5Label"  Text="" LineBreakMode="WordWrap" Padding="2"/>
+                        <Label x:Name="AttackResults" Text="Attack results:" FontAttributes="Bold" FontSize="Micro" Padding="20, 5, 0, 5" HorizontalOptions="Start" Style="{StaticResource LabelStyle}"/>
+                        <Label x:Name="BattleMessageLabel"  Text="lkjflksdjfksdljfksldjfsldkjfklsjd" Padding="20, 5, 0, 5" LineBreakMode="WordWrap"/>
                     </StackLayout>
                 </Frame>
 
