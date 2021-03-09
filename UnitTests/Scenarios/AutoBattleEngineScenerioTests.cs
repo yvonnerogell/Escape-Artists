@@ -643,6 +643,8 @@ namespace Scenario
             var result = await AutoBattle.RunAutoBattle();
 
             //Reset
+            AutoBattle.Battle.EngineSettings.CharacterList.Clear();
+
             //Assert
             Assert.AreEqual(true, result);
         }
@@ -668,6 +670,8 @@ namespace Scenario
             var result = await AutoBattle.RunAutoBattle();
 
             //Reset
+            AutoBattle.Battle.EngineSettings.CharacterList.Clear();
+
             //Assert
             Assert.AreEqual(true, result);
 
