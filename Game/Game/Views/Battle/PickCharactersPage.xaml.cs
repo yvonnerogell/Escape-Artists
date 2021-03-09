@@ -25,7 +25,6 @@ namespace Game.Views
         public static int NUM_CHARACTERS = 7;
         public static int NUM_ITEMS = 5;
         public static int NUM_MONSTERS = 6;
-        public static bool is_added;
 
         // Empty Constructor for UTs
         public PickCharactersPage(bool UnitTest) { }
@@ -202,8 +201,12 @@ namespace Game.Views
             //Create charactermodel from the character selected
             var button = sender as ImageButton;
             String characterId = button.CommandParameter as String;
-
+          
             CharacterModel data = ViewModel.Dataset.FirstOrDefault(itm => itm.Id == characterId);
+            if (data == null)
+            {
+                return;
+            }
             if (selectedCharacters.Contains(data))
             {
                 BattleEngineViewModel.Instance.PartyCharacterList.Remove(data);
