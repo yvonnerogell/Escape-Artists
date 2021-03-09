@@ -322,8 +322,23 @@ namespace Game.Views
         /// All lcoations are empty
         /// </summary>
         /// <returns></returns>
-        public async void AttackBackButton_Clicked(object sender, EventArgs e)
+        public async void NextAttackButton_Clicked(object sender, EventArgs e)
         {
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum == BattleStateEnum.RoundOver)
+			{
+                await Navigation.PushModalAsync(new NavigationPage(new RoundOverPage()));
+            }
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum == BattleStateEnum.Battling)
+            {
+                await Navigation.PushModalAsync(new NavigationPage(new BattlePageTwo()));
+            }
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum == BattleStateEnum.GameOver)
+            {
+                await Navigation.PushModalAsync(new NavigationPage(new GameOverPage()));
+            }
+
+            // default to battle page two - used for testing purposes
+            // TODO remove once manual battle is working
             await Navigation.PushModalAsync(new NavigationPage(new BattlePageTwo()));
         }
 

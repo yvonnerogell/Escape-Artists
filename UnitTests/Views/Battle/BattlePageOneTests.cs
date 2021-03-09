@@ -293,14 +293,67 @@ namespace UnitTests.Views
 
         
         [Test]
-        public void BattlePage_AttackBackButton_Clicked_Default_Should_Pass()
+        public void BattlePage_NextAttackButton_Clicked_RoundOver_Should_Pass()
         {
             // Arrange
+            var save = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.RoundOver;
 
             // Act
-            page.AttackBackButton_Clicked(null, null);
+            page.NextAttackButton_Clicked(null, null);
 
             // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = save;
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+        [Test]
+        public void BattlePage_NextAttackButton_Clicked_Unknown_Should_Pass()
+        {
+            // Arrange
+            var save = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Unknown;
+
+            // Act
+            page.NextAttackButton_Clicked(null, null);
+
+            // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = save;
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void BattlePage_NextAttackButton_Clicked_GameOver_Should_Pass()
+        {
+            // Arrange
+            var save = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.GameOver;
+
+            // Act
+            page.NextAttackButton_Clicked(null, null);
+
+            // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = save;
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void BattlePage_NextAttackButton_Clicked_Battling_Should_Pass()
+        {
+            // Arrange
+            var save = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Battling;
+
+            // Act
+            page.NextAttackButton_Clicked(null, null);
+
+            // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = save;
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...

@@ -50,7 +50,7 @@
                 </Frame>
 
                 <StackLayout Margin="2">
-                    <Button Text="Next attack" Clicked="AttackBackButton_Clicked" CornerRadius="15" FontAttributes="Bold"  
+                    <Button Text="Next attack" Clicked="NextAttackButton_Clicked" CornerRadius="15" FontAttributes="Bold"  
                                 TextColor="{StaticResource New_ButtonTextColor}"
                                 Margin="2"
                                 HorizontalOptions="Center"
