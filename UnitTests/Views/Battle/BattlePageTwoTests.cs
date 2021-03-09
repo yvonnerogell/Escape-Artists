@@ -106,7 +106,7 @@ namespace UnitTests.Views
             // Assert
             Assert.IsNull(button); // Got to here, so it happened...
         }
-
+/*
         [Test]
         public void ShowPopupCharacter_Clicked_Default_Should_Pass()
         {
@@ -120,7 +120,9 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
+*/
 
+/*
         [Test]
         public void PopupSaveButtonCharacter_Clicked_Default_Should_Pass()
         {
@@ -146,7 +148,7 @@ namespace UnitTests.Views
             //Reset
             BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
         }
-
+*/
         [Test]
         public void PopupSaveButtonItem_Clicked_Default_Should_Pass()
         {
@@ -161,7 +163,7 @@ namespace UnitTests.Views
             }
 
             Button s = new Button();
-            page.selectedCharacters.Add(new PlayerInfoModel(new CharacterModel
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(new CharacterModel
             {
                 Name = "Nancy",
                     Description = "I would have been a professor by now if it weren't for the stress of I-94 renewal",
@@ -192,11 +194,11 @@ namespace UnitTests.Views
            Assert.IsTrue(true); // Got to here, so it happened...
 
             // Reset
-            page.selectedCharacters.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Clear();
 
         }
-
+/*
         [Test]
         public void PopupSaveButtonMonster_Clicked_Default_Should_Pass()
         {
@@ -224,7 +226,9 @@ namespace UnitTests.Views
             // Reset
             BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
         }
+*/
 
+/*
         [Test]
         public void ShowPopupMonster_Clicked_Default_Should_Pass()
         {
@@ -238,7 +242,7 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-
+*/
         [Test]
         public void ShowPopupItem_Clicked_Default_Should_Pass()
         {
@@ -727,7 +731,7 @@ namespace UnitTests.Views
             // Assert
             Assert.IsNotNull(result); // Got to here, so it happened...
         }
-
+/*
         [Test]
         public void PopupCloseButtonCharacter_Clicked_Default_Should_Pass()
         {
@@ -739,7 +743,8 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-
+ */  
+/*
         [Test]
         public void PopupCloseButtonMonster_Clicked_Default_Should_Pass()
         {
@@ -754,7 +759,7 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-
+*/
 
         [Test]
         public void DrawCharacterList_Default_Should_Pass()
@@ -768,7 +773,7 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
-
+/*
         [Test]
         public void DrawSelectedCharacters_Default_Should_Pass()
         {
@@ -780,7 +785,7 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-
+*/
 
         [Test]
         public void DrawCharacterList_AddRemove_Should_Pass()
@@ -799,6 +804,7 @@ namespace UnitTests.Views
             // Reset
         }
 
+/*
         [Test]
         public void DrawSelectedCharacters_AddRemove_Should_Pass()
         {
@@ -838,7 +844,7 @@ namespace UnitTests.Views
             //Reset
             page.selectedCharacters.Clear();
         }
-
+*/
         [Test]
         public void DrawItems_Default_Should_Pass()
         {
@@ -880,7 +886,7 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-
+/*
         [Test]
         public void DrawSelectedMonsters_Default_Should_Pass()
         {
@@ -892,7 +898,8 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-
+*/
+/*
         [Test]
         public void DrawSelectedMonsters_AddRemove_Should_Pass()
         {
@@ -922,6 +929,7 @@ namespace UnitTests.Views
             // Reset
             page.selectedMonsters.Clear();
         }
+*/
 
         [Test]
         public void DrawItemList_Default_Should_Pass()
@@ -966,6 +974,23 @@ namespace UnitTests.Views
         }
 
         [Test]
+        public void BattlePageTwo_OnPickerSelectedActionChanged_Default_Should_Pass()
+        {
+            // Arrange
+            var picker = (Picker)page.FindByName("ActionSelectedPicker");
+            var item = picker.SelectedItem;
+            var index = picker.SelectedIndex;
+
+            var args = new SelectedItemChangedEventArgs(item, index);
+
+            // Act
+           page.OnPickerSelectedActionChanged(picker, args);
+
+            // Assert
+            Assert.AreEqual(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction, ActionEnum.Unknown);
+        }
+
+        [Test]
         public void BattlePageTwo_Constructor_Default_Should_Pass()
         {
             // Arrange
@@ -980,14 +1005,13 @@ namespace UnitTests.Views
         }
 
 
-
         [Test]
-        public void BattlePageTwo_AttackButton_Clicked_Default_Should_Pass()
+        public void BattlePageTwo_ContinueButton_Clicked_Default_Should_Pass()
         {
             // Arrange
 
             // Act
-            page.AttackButton_Clicked(null, null);
+            page.ContinueButton_Clicked(null, null);
 
             // Reset
 

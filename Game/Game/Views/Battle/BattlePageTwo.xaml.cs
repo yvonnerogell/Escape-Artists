@@ -305,8 +305,9 @@ namespace Game.Views
                     {
                         CharacterListFrame.Children.Add(GetCharacterToDisplay(data));            
                     }
-                }     
-                
+                }
+            // making sure that the character is not clickable
+            CharacterListFrame.IsEnabled = false;
         }
 /*
         /// <summary>
@@ -390,9 +391,13 @@ namespace Game.Views
             foreach (var data in selectedItems)
             {
                 ItemListSelectedFrame.Children.Add(GetItemToDisplay(data));
+                // selected item is visible
                 PopupLoadingItemListFoundFrame.IsVisible = false;
+                // other item frames are invisible
                 PopupLoadingViewItem.IsVisible = false;
                 PopupItemListSelected.IsVisible = true;
+                // selected item is not clickable
+                PopupItemListSelected.IsEnabled = false;                
                 break;
             }            
         }
@@ -715,6 +720,8 @@ namespace Game.Views
                 }
 
             }
+            // Monsters are not clickable
+            MonsterListFrame.IsEnabled = false;
         }
         /*
                 /// <summary>

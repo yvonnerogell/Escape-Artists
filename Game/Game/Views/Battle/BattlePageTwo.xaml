@@ -30,7 +30,7 @@
                 </Frame>
 
                 <!--Selecting an ActionEnum-->
-                <Picker 
+                <Picker VerticalOptions="StartAndExpand"
                    x:Name="ActionSelectedPicker"
                     Title="Select Action: "
                     SelectedIndexChanged="OnPickerSelectedActionChanged">
