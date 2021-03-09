@@ -310,7 +310,9 @@ namespace Game.Views
                 }     
                 
             if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction == ActionEnum.Attack) {
-                DrawItems();
+                
+                DrawItemLists();
+                PopupItemListSelected.IsVisible = true;
             }
         }
 
@@ -604,7 +606,7 @@ namespace Game.Views
                 //    BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(player);
                 
                            
-                DrawItemLists();
+               // DrawItemLists();
 
                 // visibility after the click
                 PopupLoadingViewItem.IsVisible = false;
