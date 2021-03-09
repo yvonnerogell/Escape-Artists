@@ -164,6 +164,10 @@ namespace UnitTests.Views
             // Arrange
 
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.CharacterModelDeathList.Add(new PlayerInfoModel(new CharacterModel()));
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.CharacterModelDeathList.Add(new PlayerInfoModel(new CharacterModel()));
+
+            // Draw the Graduates
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.GraduateModelList.Add(new PlayerInfoModel(new CharacterModel()));
 
             // Draw the Monsters
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.MonsterModelDeathList.Add(new PlayerInfoModel(new CharacterModel()));

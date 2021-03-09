@@ -12107,40 +12107,43 @@ namespace Game.Droid
 			public const int tile_helicopter_parent = 2131165421;
 			
 			// aapt resource value: 0x7F0700EE
-			public const int tile_international_student = 2131165422;
+			public const int tile_hr_administrator_monster = 2131165422;
 			
 			// aapt resource value: 0x7F0700EF
-			public const int tile_overachiever_student = 2131165423;
+			public const int tile_international_student = 2131165423;
 			
 			// aapt resource value: 0x7F0700F0
-			public const int tile_procrastinator_student = 2131165424;
+			public const int tile_overachiever_student = 2131165424;
 			
 			// aapt resource value: 0x7F0700F1
-			public const int tile_prodigy_student = 2131165425;
+			public const int tile_procrastinator_student = 2131165425;
 			
 			// aapt resource value: 0x7F0700F2
-			public const int tile_professor_monster = 2131165426;
+			public const int tile_prodigy_student = 2131165426;
 			
 			// aapt resource value: 0x7F0700F3
-			public const int tile_registration_monster = 2131165427;
+			public const int tile_professor_monster = 2131165427;
 			
 			// aapt resource value: 0x7F0700F4
-			public const int tile_second_career_student = 2131165428;
+			public const int tile_registration_monster = 2131165428;
 			
 			// aapt resource value: 0x7F0700F5
-			public const int tile_slacker_student = 2131165429;
+			public const int tile_second_career_student = 2131165429;
 			
 			// aapt resource value: 0x7F0700F6
-			public const int tile_smarty_pants_character = 2131165430;
+			public const int tile_slacker_student = 2131165430;
 			
 			// aapt resource value: 0x7F0700F7
-			public const int tile_teaching_assistant_monster = 2131165431;
+			public const int tile_smarty_pants_character = 2131165431;
 			
 			// aapt resource value: 0x7F0700F8
-			public const int tooltip_frame_dark = 2131165432;
+			public const int tile_teaching_assistant_monster = 2131165432;
 			
 			// aapt resource value: 0x7F0700F9
-			public const int tooltip_frame_light = 2131165433;
+			public const int tooltip_frame_dark = 2131165433;
+			
+			// aapt resource value: 0x7F0700FA
+			public const int tooltip_frame_light = 2131165434;
 			
 			static Drawable()
 			{
