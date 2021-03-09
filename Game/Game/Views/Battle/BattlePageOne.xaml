@@ -32,15 +32,6 @@
 
                         </StackLayout>
 
-                        <StackLayout Margin="10">
-                            <Button Text="Attack back!" Clicked="AttackBackButton_Clicked" CornerRadius="15" FontAttributes="Bold"  
-                                TextColor="{StaticResource New_ButtonTextColor}"
-                                Margin="10"
-                                HorizontalOptions="Center"
-                                BackgroundColor="{StaticResource New_SecondaryBackgroundColor}"/>
-
-                        </StackLayout>
-
                     </StackLayout>
 
                 </Frame>
@@ -58,16 +49,25 @@
 
                 </Frame>
 
+                <StackLayout Margin="2">
+                    <Button Text="Next attack" Clicked="AttackBackButton_Clicked" CornerRadius="15" FontAttributes="Bold"  
+                                TextColor="{StaticResource New_ButtonTextColor}"
+                                Margin="2"
+                                HorizontalOptions="Center"
+                                BackgroundColor="{StaticResource New_SecondaryBackgroundColor}"/>
+
+                </StackLayout>
+
                 <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
 
                     <StackLayout  Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" 
                                   HorizontalOptions="Center" MinimumHeightRequest="250" WidthRequest="250" Padding="5">
 
                         <Label x:Name="AttackResults" Text="Attack results:" FontAttributes="Bold" FontSize="Micro" Padding="20, 5, 0, 5" HorizontalOptions="Start" Style="{StaticResource LabelStyle}"/>
-                        <Label x:Name="BattleMessageLabel"  Text="lkjflksdjfksdljfksldjfsldkjfklsjd" Padding="20, 5, 0, 5" LineBreakMode="WordWrap"/>
+                        <Label x:Name="BattleMessageLabel"  Text="" Padding="20, 5, 0, 5" LineBreakMode="WordWrap"/>
                     </StackLayout>
                 </Frame>
-
+                
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
