@@ -19,10 +19,12 @@ namespace Game.Views
         public BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
 
         // TODO remove these if we aren't using stubbing
+        /*
         public static int NUM_CHARACTERS = 4;
         public static int NUM_ITEMS = 5;
         public static int NUM_GRADUATES = 3;
         public static int NUM_MONSTERS = 4;
+        */
 
         /// <summary>
         /// Constructor
@@ -39,6 +41,8 @@ namespace Game.Views
             DrawOutput();
         }
 
+        #region DataStubbing
+        /*
         /// <summary>
         /// Used to test page with fake data
         /// </summary>
@@ -149,6 +153,8 @@ namespace Game.Views
             }
             return true;
         }
+        */
+        #endregion DataStubbing
 
         /// <summary>
         /// Draw data for
