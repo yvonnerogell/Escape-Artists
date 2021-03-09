@@ -815,7 +815,7 @@ namespace Game.Views
                 } 
         */
 
-        public async void AttackButton_Clicked(object sender, EventArgs e)
+        public async void ContinueButton_Clicked(object sender, EventArgs e)
         {
             // TODO: make sure the AutoBattlePage is the right option here
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.RoundOver;

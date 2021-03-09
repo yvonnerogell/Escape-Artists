@@ -136,7 +136,7 @@
                     </Frame>
 
                     <StackLayout Margin="10">
-                        <Button Text="Continue!" Clicked="AttackButton_Clicked" CornerRadius="15" FontAttributes="Bold"  
+                        <Button Text="Continue!" Clicked="ContinueButton_Clicked" CornerRadius="15" FontAttributes="Bold"  
                                 TextColor="{StaticResource New_ButtonTextColor}"
                                 Margin="10"
                                 HorizontalOptions="Center"
