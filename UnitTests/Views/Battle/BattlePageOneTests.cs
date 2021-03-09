@@ -759,7 +759,154 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-        
+
+        [Test]
+        public void BattlePage_SetAttackerDefenderImages_Character_Monster_Should_Return_True()
+        {
+            // Arrange
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Clear();
+
+            // Make Character
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MaxNumberPartyCharacters = 1;
+
+            var CharacterPlayer = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Speed = 100,
+                                Level = 10,
+                                CurrentHealth = 11,
+                                ExperienceTotal = 1,
+                                ExperienceRemaining = 1,
+                                Name = "Mike",
+                                ListOrder = 1,
+                                ImageURI = "characterURI"
+                            });
+
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(CharacterPlayer);
+
+            // Make Monster
+
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MaxNumberPartyMonsters = 1;
+
+            var MonsterPlayer = new PlayerInfoModel(
+                            new MonsterModel
+                            {
+                                Speed = -1,
+                                Level = 10,
+                                CurrentHealth = 11,
+                                ExperienceTotal = 1,
+                                ExperienceRemaining = 1,
+                                Name = "Mike",
+                                ListOrder = 1,
+                                ImageURI = "monsterURI"
+                            });
+
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Add(CharacterPlayer);
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Add(MonsterPlayer);
+
+            // Act
+            var result = page.SetAttackerDefenderImages(CharacterPlayer, MonsterPlayer);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void BattlePage_SetAttackerDefenderImages_Character_Monster_Null_Should_Return_False()
+        {
+            // Arrange
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Clear();
+
+            // Make Character
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MaxNumberPartyCharacters = 1;
+
+            var CharacterPlayer = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Speed = 100,
+                                Level = 10,
+                                CurrentHealth = 11,
+                                ExperienceTotal = 1,
+                                ExperienceRemaining = 1,
+                                Name = "Mike",
+                                ListOrder = 1,
+                                ImageURI = "characterURI"
+                            });
+
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(CharacterPlayer);
+
+            // Make Monster
+
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MaxNumberPartyMonsters = 1;
+
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Add(CharacterPlayer);
+
+            // Act
+            var result = page.SetAttackerDefenderImages(CharacterPlayer, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsFalse(result);
+        }
+        [Test]
+        public void BattlePage_SetAttackerDefenderImages_Character_Null_Monster_Should_Return_False()
+        {
+            // Arrange
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Clear();
+
+            // Make Monster
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MaxNumberPartyMonsters = 1;
+
+            var MonsterPlayer = new PlayerInfoModel(
+                            new MonsterModel
+                            {
+                                Speed = -1,
+                                Level = 10,
+                                CurrentHealth = 11,
+                                ExperienceTotal = 1,
+                                ExperienceRemaining = 1,
+                                Name = "Mike",
+                                ListOrder = 1,
+                                ImageURI = "monsterURI"
+                            });
+
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Add(MonsterPlayer);
+
+            // Act
+            var result = page.SetAttackerDefenderImages(null, MonsterPlayer);
+
+            // Reset
+
+            // Assert
+            Assert.IsFalse(result);
+        }
+
+        [Test]
+        public void BattlePage_SetAttackerDefenderImages_Character_Null_Monster_Nll_Should_Return_False()
+        {
+            // Arrange
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Clear();
+
+            // Act
+            var result = page.SetAttackerDefenderImages(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsFalse(result);
+        }
+
 
         [Test]
         public void BattlePage_GetAttackerText_Monster_Faculty_Character_Student_Should_Pass()
