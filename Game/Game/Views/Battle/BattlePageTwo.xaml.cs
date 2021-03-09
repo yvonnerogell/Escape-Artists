@@ -307,7 +307,11 @@ namespace Game.Views
                     {
                         CharacterListFrame.Children.Add(GetCharacterToDisplay(data));            
                     }
-                }        
+                }     
+                
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction == ActionEnum.Attack) {
+                DrawItems();
+            }
         }
 
         /// <summary>
@@ -827,9 +831,9 @@ namespace Game.Views
         public void OnPickerSelectedActionChanged(object sender, EventArgs e)
         {
             var picker = (Picker)sender;
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = (ActionEnum)picker.SelectedIndex;
+            var action = (ActionEnum)picker.SelectedIndex;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = action;
         }
-
 
 
         /*
