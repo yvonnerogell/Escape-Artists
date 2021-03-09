@@ -19,7 +19,7 @@
                 <!--The Character Found-->
                 <Frame x:Name="CharacterFoundFrame" BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
                     <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="250" WidthRequest="750">
-                        <Label Text="Select one character" Style="{StaticResource MessageStyle}" Padding="10" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+                        <Label Text="Character" Style="{StaticResource MessageStyle}" Padding="10" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
                         <FlexLayout x:Name="CharacterListFrame"
                                     JustifyContent="Center"
                                     AlignContent="Center"
@@ -42,59 +42,6 @@
                     </Picker.ItemsSource>
                     <Picker.SelectedIndex>0</Picker.SelectedIndex>
                 </Picker>
-
-                <!--The Character Popup-->
-                <StackLayout 
-                        x:Name="CharacterSelectedFrame" 
-                        BackgroundColor="{StaticResource PageBackgroundColor}" 
-                        IsVisible="false" 
-                        AbsoluteLayout.LayoutBounds=".5, .5,.5,.5" 
-                        AbsoluteLayout.LayoutFlags="All">
-
-                    <StackLayout 
-                        VerticalOptions="CenterAndExpand" 
-                        HorizontalOptions="CenterAndExpand"
-                        WidthRequest="400"
-                        HeightRequest="400"
-                        >
-
-                        <Frame 
-                             BorderColor="{StaticResource TriciaryTextColor}" Padding="1">
-
-                            <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand" Padding="2">
-                                <Image x:Name="PopupCharacterImage" Style="{StaticResource ImageLargeStyle}" Margin="5"/>
-                                <Label x:Name="PopupCharacterName" Style="{StaticResource PopupItemTextStyle}" MaxLines="2" LineBreakMode="WordWrap" Margin="5"/>
-                                <Label x:Name="HealthTextLabel" Text="Health: " FontAttributes="Bold" FontSize="Micro" HorizontalOptions="Start" Style="{StaticResource LabelStyle}"/>
-                                <Label x:Name="PopupCharacterHealth" Style="{StaticResource PopupItemTextStyle}" MaxLines="2" LineBreakMode="WordWrap" Margin="5" />
-                                <Label x:Name="GPATextLabel" Text="GPA: "  FontAttributes="Bold" FontSize="Micro" HorizontalOptions="Start"  Style="{StaticResource LabelStyle}"/>
-                                <Label x:Name="PopupCharacterGPA" Style="{StaticResource PopupItemTextStyle}" MaxLines="2" LineBreakMode="WordWrap" Margin="5" />
-
-                                <Button x:Name="PopupSaveButtonCharacter" 
-                                            Clicked="PopupSaveButtonCharacter_Clicked" 
-                                            Text="Save"
-                                            Margin="10"/>
-
-                                <Button x:Name="PopupCloseButtonCharacter" 
-                                            Clicked="ClosePopupCharacter_Clicked" 
-                                            Text="Close"
-                                            Margin="10"/>
-
-                            </StackLayout>
-                        </Frame>
-                    </StackLayout>
-                </StackLayout>
-
-                <Grid HorizontalOptions="Center">
-                    <Frame x:Name="PopupCharacterListSelected" BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10" HorizontalOptions="Center">
-                        <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" MinimumHeightRequest="250" WidthRequest="250">
-                            <Label Text="Characters Selected" Style="{StaticResource MessageStyle}" Padding="10" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
-                            <FlexLayout x:Name="CharacterListSelectedFrame"
-                                    JustifyContent="Center"
-                                    AlignContent="Center"
-                                    Wrap="Wrap"/>
-                        </StackLayout>
-                    </Frame>
-                </Grid>
 
                 <!-- Item Found-->
                 <Frame x:Name="PopupLoadingItemListFoundFrame" BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
@@ -166,7 +113,7 @@
                     <Grid HorizontalOptions="Center">
                         <Frame x:Name="PopupItemListSelected" BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10" HorizontalOptions="Center">
                             <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" MinimumHeightRequest="250" WidthRequest="250">
-                                <Label Text="Items Selected" Style="{StaticResource MessageStyle}" Padding="10" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+                                <Label Text="Item Selected" Style="{StaticResource MessageStyle}" Padding="10" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
                                 <FlexLayout x:Name="ItemListSelectedFrame"
                                     JustifyContent="Center"
                                     AlignContent="Center"

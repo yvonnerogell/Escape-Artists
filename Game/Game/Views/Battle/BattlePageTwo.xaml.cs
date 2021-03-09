@@ -65,7 +65,7 @@ namespace Game.Views
             BattleEngineViewModel.Instance.SetBattleEngineToKoenig();
 
             PopupLoadingItemListFoundFrame.IsVisible = false;
-            PopupCharacterListSelected.IsVisible = false;
+            //PopupCharacterListSelected.IsVisible = false;
             PopupMonsterListSelected.IsVisible = false;
             PopupItemListSelected.IsVisible = false;
             PopupLoadingViewMonster.IsVisible = false;
@@ -173,39 +173,35 @@ namespace Game.Views
                 return new StackLayout();
             }
 
-         //   if (string.IsNullOrEmpty(character.Id))
-          //  {
-           //     return new StackLayout();
-            //}
-
             // Defualt Image is the Plus
-            var ClickableButton = true;
+            //var ClickableButton = true;
 
             var data = CharacterIndexViewModel.Instance.GetCharacterByName(character.Name);
-            
-            if (data == null)
-            {
-                // Show the Default Name & Image
-                data = new CharacterModel { Name = "Unknown", ImageURI = "squid.jpg" };
 
-                // Turn off click action
-                ClickableButton = false;
-            }
- 
+            //      if (data == null)
+            //    {
+            // Show the Default Name & Image
+            //      data = new CharacterModel { Name = "Unknown", ImageURI = "squid.jpg" };
+
+            // Turn off click action
+            //    ClickableButton = false;
+            //}
+
             // Hookup the Image Button to show the Character picture
             var CharacterButton = new ImageButton
             {
-                Style = (Style)Application.Current.Resources["ImageLargeStyle"],
-                Source = data.ImageURI,
-                // This sends the name to the popup
-                CommandParameter = character.Name
+               Style = (Style)Application.Current.Resources["ImageLargeStyle"],
+              Source = data.ImageURI
+              
+            // This sends the name to the popup
+             //CommandParameter = character.Name
             };
 
-            if (ClickableButton)
-            {
-                // Add a event to the user can click the item and see more
-                CharacterButton.Clicked += (sender, args) => ShowPopupCharacter(data);
-            }
+            //            if (ClickableButton)
+            //          {
+            // Add a event to the user can click the item and see more
+            //            CharacterButton.Clicked += (sender, args) => ShowPopupCharacter(data);
+            //      }
 
             // Put the Image Button and Text inside a layout
             var ItemStack = new StackLayout
@@ -217,10 +213,11 @@ namespace Game.Views
                     CharacterButton,
                 },
             };
-
             return ItemStack;
         }
 
+
+/*
         /// <summary>
         /// Show the Popup for the Character
         /// </summary>
@@ -287,6 +284,7 @@ namespace Game.Views
             CharacterSelectedFrame.IsVisible = false;
             PopupCharacterListSelected.IsVisible = true;
         }
+*/
 
         /// <summary>
         /// Clear and Add the Characters that survived
@@ -309,13 +307,8 @@ namespace Game.Views
                     }
                 }     
                 
-            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction == ActionEnum.Attack) {
-                
-                DrawItemLists();
-                PopupItemListSelected.IsVisible = true;
-            }
         }
-
+/*
         /// <summary>
         /// Add Characters to the Display
         /// </summary>
@@ -339,7 +332,7 @@ namespace Game.Views
                     }
             }            
         }
-
+*/
         /// <summary>
         /// Draw the List of Items
         /// 
@@ -372,11 +365,13 @@ namespace Game.Views
             foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Distinct())
             {
                 // if the selected character can use this item, add the item 
-                if (GetCharacterWhoCanAcceptItem(selectedCharacters, data).Count() == 1)
+                //if (GetCharacterWhoCanAcceptItem(selectedCharacters, data).Count() == 1)
+                if (GetCharacterWhoCanAcceptItem(BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList, data).Count() == 1)
                 {
                     ItemListFoundFrame.Children.Add(GetItemToDisplay(data));
                 }                       
             }
+            PopupLoadingItemListFoundFrame.IsVisible = true;
         }
 
         /// <summary>
@@ -593,8 +588,8 @@ namespace Game.Views
                 var item = ItemIndexViewModel.Instance.GetItem(itemId);
                 var itemLocation = ItemTypeEnumHelper.GetLocationFromItemType(item.ItemType);
 
-                // Add item to the one selected character
-                var player = selectedCharacters[0]; 
+            // Add item to the one selected character
+            var player = BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList[0];
                 player = AddItemToCharacter(player, itemLocation, item);
          
                  // Remove item from dropped list and add to selected item list. 
@@ -835,6 +830,10 @@ namespace Game.Views
             var picker = (Picker)sender;
             var action = (ActionEnum)picker.SelectedIndex;
             BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = action;
+
+                DrawItemLists();
+                PopupItemListSelected.IsVisible = true;
+    
         }
 
 
