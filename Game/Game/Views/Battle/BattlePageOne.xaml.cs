@@ -100,12 +100,37 @@ namespace Game.Views
             var messages = GetBattleMessages();
             SetBattleMessages(messages);
 
+            SetAttackerDefenderImages(currentAttacker, currentDefender);
+
 
 
             // Set the Battle Mode
             // ShowBattleMode();
 
         }
+
+        /// <summary>
+        /// Sets the images of the current attacker and defender
+        /// </summary>
+        /// <returns></returns>
+        public bool SetAttackerDefenderImages(PlayerInfoModel currentAttacker, PlayerInfoModel currentDefender)
+		{
+            if (currentAttacker == null) 
+			{
+                return false;
+			}
+
+            AttackerImage.Source = currentAttacker.ImageURI;
+
+            if (currentDefender == null)
+			{
+                return false;
+			}
+
+            DefenderImage.Source = currentDefender.ImageURI;
+
+            return true;
+		}
 
         /// <summary>
         /// 
