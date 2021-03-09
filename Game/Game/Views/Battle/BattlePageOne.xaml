@@ -18,10 +18,6 @@
                 VerticalOptions="Center"
                 HorizontalOptions="Center">
 
-                <StackLayout>
-                    <Button Text="Round Over (temp)!" Clicked="RoundOverButton_Clicked"/>
-                </StackLayout>
-
                 <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
                     <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="250" WidthRequest="250">
                         <Label x:Name="AttackTextLabel" HorizontalOptions="Center" Padding="15"/>
@@ -67,7 +63,11 @@
                         <Label x:Name="BattleMessageLabel"  Text="" Padding="20, 5, 0, 5" LineBreakMode="WordWrap"/>
                     </StackLayout>
                 </Frame>
-                
+
+                <StackLayout>
+                    <Button Text="Round Over (temp)!" Clicked="RoundOverButton_Clicked"/>
+                </StackLayout>
+
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
