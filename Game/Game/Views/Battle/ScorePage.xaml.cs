@@ -33,7 +33,7 @@ namespace Game.Views
 
             // Setting up the BattleEngineViewModel with default data to use for testing
             // TODO: Comment this out when ready to use the real battle engine
-            SetUpStubData();
+            //SetUpStubData();
 
 
             DrawOutput();
