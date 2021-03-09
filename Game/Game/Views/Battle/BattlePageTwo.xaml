@@ -29,6 +29,20 @@
                     </StackLayout>
                 </Frame>
 
+                <!--Selecting an ActionEnum-->
+                <Picker 
+                   x:Name="ActionSelectedPicker"
+                    Title="Select Action: "
+                    SelectedIndexChanged="OnPickerSelectedActionChanged">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Ability</x:String>
+                            <x:String>Attack</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                    <Picker.SelectedIndex>0</Picker.SelectedIndex>
+                </Picker>
+
                 <!--The Character Popup-->
                 <StackLayout 
                         x:Name="CharacterSelectedFrame" 

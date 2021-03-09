@@ -48,8 +48,6 @@ namespace Game.Views
         // selecting the item of that turn
         public List<ItemModel> selectedItems = new List<ItemModel>();
 
-        //public FlexLayout FlexLayout { get; }
-
         /// <summary>
         /// Constructor
         /// </summary>
@@ -72,12 +70,10 @@ namespace Game.Views
             PopupItemListSelected.IsVisible = false;
             PopupLoadingViewMonster.IsVisible = false;
 
-
+            // Start with the CharacterList and MonsterLIst only
             DrawCharacterList();
             DrawMonsterList();
-            //DrawItemLists();
-
-
+  
             // Create and Draw the Map
             // InitializeMapGrid();
 
@@ -92,19 +88,15 @@ namespace Game.Views
             //BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FirstOrDefault());
             //BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.FirstOrDefault());
 
-
             //var currentAttacker = ;
             //var currentDefender = null;
-
 
             // Add Players to DisplayViewModel.Data.PlayerType = PlayerTypeEnum.Character;
             // DrawGameAttackerDefenderBoard();
 
             // Set the Battle Mode
             // ShowBattleMode();
-
         }
-
 
         /// <summary>
         /// Return a stack layout with the Player information inside
@@ -827,6 +819,18 @@ namespace Game.Views
             
         }
 
+        /// <summary>
+        /// Any time picker changes, game status changes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void OnPickerSelectedActionChanged(object sender, EventArgs e)
+        {
+            var picker = (Picker)sender;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = (ActionEnum)picker.SelectedIndex;
+        }
+
+
 
         /*
         /// <summary>
@@ -1227,61 +1231,61 @@ namespace Game.Views
         /// <param name="data"></param>
         /// <returns></returns>
         /// 
-       // public bool SetSelectedEmpty(MapModelLocation data)
-       // {
-            // TODO: Info
+        // public bool SetSelectedEmpty(MapModelLocation data)
+        // {
+        // TODO: Info
 
-            /*
-             * This gets called when the characters is clicked on
-             * Usefull if you want to select the location to move to etc.
-             * 
-             * For Mike's simple battle grammar there is no selection of action so I just return true
-             */
+        /*
+         * This gets called when the characters is clicked on
+         * Usefull if you want to select the location to move to etc.
+         * 
+         * For Mike's simple battle grammar there is no selection of action so I just return true
+         */
 
-       //     return true;
-       // }
+        //     return true;
+        // }
 
         /// <summary>
         /// Event when a Monster is clicked on
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-     //   public bool SetSelectedMonster(MapModelLocation data)
-       // {
-            // TODO: Info
+        //   public bool SetSelectedMonster(MapModelLocation data)
+        // {
+        // TODO: Info
 
-            /*
-             * This gets called when the Monster is clicked on
-             * Usefull if you want to select the monster to attack etc.
-             * 
-             * For Mike's simple battle grammar there is no selection of action so I just return true
-             */
+        /*
+         * This gets called when the Monster is clicked on
+         * Usefull if you want to select the monster to attack etc.
+         * 
+         * For Mike's simple battle grammar there is no selection of action so I just return true
+         */
 
-       //     data.IsSelectedTarget = true;
-         //   return true;
-       // }
+        //     data.IsSelectedTarget = true;
+        //   return true;
+        // }
 
         /// <summary>
         /// Event when a Character is clicked on
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-     //   public bool SetSelectedCharacter(MapModelLocation data)
-      //  {
-            // TODO: Info
+        //   public bool SetSelectedCharacter(MapModelLocation data)
+        //  {
+        // TODO: Info
 
-            /*
-             * This gets called when the characters is clicked on
-             * Usefull if you want to select the character and then set state or do something
-             * 
-             * For Mike's simple battle grammar there is no selection of action so I just return true
-             */
+        /*
+         * This gets called when the characters is clicked on
+         * Usefull if you want to select the character and then set state or do something
+         * 
+         * For Mike's simple battle grammar there is no selection of action so I just return true
+         */
 
-       //     return true;
-     //   }
+        //     return true;
+        //   }
         #endregion MapEvents
 
-      //  #endregion BattleMapMode
+        //  #endregion BattleMapMode
 
         #region BasicBattleMode
 
