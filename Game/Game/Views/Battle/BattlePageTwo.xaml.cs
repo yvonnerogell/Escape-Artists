@@ -279,7 +279,7 @@ namespace Game.Views
             selectedCharacters.Add(player);
 
             DrawCharacterList();
-            DrawSelectedCharacters();
+            //DrawSelectedCharacters();
             // This is when the item list should be visible
             DrawItems();
 
