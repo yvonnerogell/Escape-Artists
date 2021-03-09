@@ -620,17 +620,12 @@ namespace Scenario
         public async Task AutoBattleEngine_RunBattle_OneParent_VS_Monsters_Should_Pass()
         {
             //Arrange
-
+            AutoBattle.Battle.EngineSettings.CharacterList.Clear();
             //Setting up one character - PARENT
             AutoBattle.Battle.EngineSettings.MaxNumberPartyCharacters = 1;
             var ParentCharacter = new PlayerInfoModel(
                            new CharacterModel
                            {
-                               Name = "Cool Parent Test",
-                               Speed = 10,
-                               Level = 5,
-                               MaxHealth = 100,
-                               CurrentHealth = 100,
                                SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.CoolParent,
                                CharacterTypeEnum = CharacterTypeEnum.Parent
                            }) ;
