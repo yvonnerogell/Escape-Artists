@@ -615,5 +615,70 @@ namespace Scenario
             ItemModel item = ItemIndexViewModel.Instance.GetItem(headItem);
             Assert.IsTrue(item.ItemType == ItemTypeEnum.GraduationCapAndRobe);
         }
+
+        [Test]
+        public async Task AutoBattleEngine_RunBattle_OneParent_VS_Monsters_Should_Pass()
+        {
+            //Arrange
+
+            //Setting up one character - PARENT
+            AutoBattle.Battle.EngineSettings.MaxNumberPartyCharacters = 1;
+            var ParentCharacter = new PlayerInfoModel(
+                           new CharacterModel
+                           {
+                               Name = "Cool Parent Test",
+                               Speed = 10,
+                               Level = 5,
+                               MaxHealth = 100,
+                               CurrentHealth = 100,
+                               SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.CoolParent,
+                               CharacterTypeEnum = CharacterTypeEnum.Parent
+                           }) ;
+            AutoBattle.Battle.EngineSettings.CharacterList.Add(ParentCharacter);
+
+            //Setting up multiple monsters
+            AutoBattle.Battle.EngineSettings.MaxNumberPartyMonsters = 2;
+
+            //Act
+            var result = await AutoBattle.RunAutoBattle();
+
+            //Reset
+            //Assert
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
+        public async Task AutoBattleEngine_RunBattle_OneStudent_VS_Monsters_Should_Pass()
+        {
+            //Arrange
+
+            //Setting up one character - STUDENT
+            AutoBattle.Battle.EngineSettings.MaxNumberPartyCharacters = 1;
+            var StudentCharacter = new PlayerInfoModel(
+                           new CharacterModel
+                           {
+                               CharacterTypeEnum = CharacterTypeEnum.Student
+                           });
+            AutoBattle.Battle.EngineSettings.CharacterList.Add(StudentCharacter);
+
+            //Setting up multiple monsters
+            AutoBattle.Battle.EngineSettings.MaxNumberPartyMonsters = 2;
+
+            //Act
+            var result = await AutoBattle.RunAutoBattle();
+
+            //Reset
+            //Assert
+            Assert.AreEqual(true, result);
+
+        }
     }
+
 }
+
+
+
+
+
+
+
