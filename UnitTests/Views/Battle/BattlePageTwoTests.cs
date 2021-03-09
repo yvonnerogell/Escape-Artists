@@ -793,16 +793,37 @@ namespace UnitTests.Views
             // Act
             page.DrawCharacterList();
 
-            // Reset
-
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
+
+            // Reset
         }
 
         [Test]
         public void DrawSelectedCharacters_AddRemove_Should_Pass()
         {
             // Arrange
+            page.selectedCharacters.Add(new PlayerInfoModel(new CharacterModel
+            {
+                Name = "Nancy",
+                Description = "I would have been a professor by now if it weren't for the stress of I-94 renewal",
+                CharacterTypeEnum = CharacterTypeEnum.Student,
+                SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.InternationalStudent,
+                Range = 2,
+                Level = 20,
+                GPA = 80,
+                MaxHealth = 100,
+                ImageURI = Constants.SpecificCharacterTypeInternationalStudentImageURI,
+                Head = "None",
+                Necklace = "None",
+                PrimaryHand = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.Notebook),
+                OffHand = "None",
+                Feet = "None",
+                RightFinger = "None",
+                LeftFinger = "None",
+                SpecialAbility = AbilityEnum.FlashGenius
+            }));
+
             FlexLayout characterlistselectedframe = (FlexLayout)page.Content.FindByName("CharacterListSelectedFrame");
             // add two elements to the list because when will be removed
             characterlistselectedframe.Children.Add(new FlexLayout());
@@ -811,10 +832,11 @@ namespace UnitTests.Views
             // Act
             page.DrawSelectedCharacters();
 
-            // Reset
-
             // Assert
             Assert.AreEqual(0, characterlistselectedframe.Children.Count);
+
+            //Reset
+            page.selectedCharacters.Clear();
         }
 
         [Test]
@@ -875,6 +897,17 @@ namespace UnitTests.Views
         public void DrawSelectedMonsters_AddRemove_Should_Pass()
         {
             // Arrange
+            page.selectedMonsters.Add(new PlayerInfoModel(new MonsterModel
+            {
+                Speed = -1,
+                Level = 20,
+                CurrentHealth = 11,
+                ExperienceTotal = 1,
+                ExperienceRemaining = 1,
+                Name = "Mike",
+                ListOrder = 1,
+            }));
+
             FlexLayout monsterlistselectedframe = (FlexLayout)page.Content.FindByName("MonsterListSelectedFrame");
             // add two elements to the list because when will be removed
             monsterlistselectedframe.Children.Add(new FlexLayout());
@@ -883,10 +916,11 @@ namespace UnitTests.Views
             // Act
             page.DrawSelectedMonsters();
 
-            // Reset
-
             // Assert
             Assert.AreEqual(0, monsterlistselectedframe.Children.Count);
+
+            // Reset
+            page.selectedMonsters.Clear();
         }
 
         [Test]
