@@ -66,11 +66,11 @@ namespace Game.Views
 
             PopupLoadingItemListFoundFrame.IsVisible = false;
             //PopupCharacterListSelected.IsVisible = false;
-            PopupMonsterListSelected.IsVisible = false;
+            //PopupMonsterListSelected.IsVisible = false;
             PopupItemListSelected.IsVisible = false;
-            PopupLoadingViewMonster.IsVisible = false;
+            //PopupLoadingViewMonster.IsVisible = false;
 
-            // Start with the CharacterList and MonsterLIst only
+            // Start with the CharacterList and MonsterList only
             DrawCharacterList();
             DrawMonsterList();
   
@@ -677,14 +677,14 @@ namespace Game.Views
             {
                 Style = (Style)Application.Current.Resources["ImageLargeStyle"],
                 Source = data.ImageURI,
-                CommandParameter = monster.Name
+                //CommandParameter = monster.Name
             };
 
-            if (ClickableButton)
-            {
+         //   if (ClickableButton)
+          //  {
                 // Add a event to the user can click the item and see more
-                MonsterButton.Clicked += (sender, args) => ShowPopupMonster(data);
-            }
+          //      MonsterButton.Clicked += (sender, args) => ShowPopupMonster(data);
+           // }
 
             // Put the Image Button and Text inside a layout
             var ItemStack = new StackLayout
@@ -701,80 +701,11 @@ namespace Game.Views
         }
 
         /// <summary>
-        /// Show the Popup for the Item
-        /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
-        public bool ShowPopupMonster(MonsterModel data)
-        {
-            PopupLoadingViewMonster.IsVisible = true;
-            PopupMonsterImage.Source = data.ImageURI;
-
-            PopupMonsterName.Text = data.Name;
-
-            // Set command parameter so that popup knows which item it is displaying
-            PopupSaveButtonMonster.CommandParameter = data.Name;
-
-
-            return true;
-        }
-
-        /// <summary>
-        /// Close the popup
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public void ClosePopupMonster_Clicked(object sender, EventArgs e)
-        {
-            PopupLoadingViewMonster.IsVisible = false;
-        }
-
-        /// <summary>
-        /// Save the assigned item and close the popup
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public void PopupSaveButtonMonster_Clicked(object sender, EventArgs e)
-        {
-            var monsterName = "";
-            var player = new PlayerInfoModel();
-            //  if (sender != null)
-            // {              
-            monsterName = ((Button)sender).CommandParameter.ToString();
-            foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList)
-            {
-                if (data.Name.Equals(monsterName))
-                {
-                    player = data;
-                }
-
-            }
-            //var monster = MonsterIndexViewModel.Instance.GetMonsterByName(monsterName);
-            //PlayerInfoModel player = new PlayerInfoModel(monster);
-
-            var MonsterFoundIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.FindIndex(c => c.Name == player.Name);
-            if (MonsterFoundIndex >= 0)
-            {
-                BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.RemoveAt(MonsterFoundIndex);
-            }
-
-            // Add updated player back to view model
-            selectedMonsters.Add(player);
-         //   }
-            DrawMonsterList();
-            DrawSelectedMonsters();
-
-            // visibility after the click
-            PopupLoadingViewMonster.IsVisible = false;
-            PopupMonsterListSelected.IsVisible = true;
-        }
-
-        /// <summary>
         /// Clear and Add the Monsters that survived
         /// </summary>
         public void DrawMonsterList()
         {
-            
+
             // Draw the Monsters
             foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList)
             {
@@ -785,31 +716,104 @@ namespace Game.Views
 
             }
         }
-
-        /// <summary>
-        /// Add Monsters to the Display
-        /// </summary>
-        public void DrawSelectedMonsters()
-        {
-
-            var FlexList = MonsterListSelectedFrame.Children.ToList();
-            foreach (var data in FlexList)
-            {
-                MonsterListSelectedFrame.Children.Remove(data);
-                            }
-
-            
-                // Draw the Monsters
-                foreach (var data in selectedMonsters)
+        /*
+                /// <summary>
+                /// Show the Popup for the Item
+                /// </summary>
+                /// <param name="data"></param>
+                /// <returns></returns>
+                public bool ShowPopupMonster(MonsterModel data)
                 {
-                    if (data.Level != 20)
-                    {
-                        MonsterListSelectedFrame.Children.Add(GetMonsterToDisplay(data));
-                        MonsterFrame.IsVisible = false; 
-                        break;
-                    }
+                    PopupLoadingViewMonster.IsVisible = true;
+                    PopupMonsterImage.Source = data.ImageURI;
+
+                    PopupMonsterName.Text = data.Name;
+
+                    // Set command parameter so that popup knows which item it is displaying
+                    PopupSaveButtonMonster.CommandParameter = data.Name;
+
+
+                    return true;
                 }
-        }
+        */
+
+        /*
+          /// <summary>
+                /// Close the popup
+                /// </summary>
+                /// <param name="sender"></param>
+                /// <param name="e"></param>
+                public void ClosePopupMonster_Clicked(object sender, EventArgs e)
+                {
+                    PopupLoadingViewMonster.IsVisible = false;
+                }
+
+                /// <summary>
+                /// Save the assigned item and close the popup
+                /// </summary>
+                /// <param name="sender"></param>
+                /// <param name="e"></param>
+                public void PopupSaveButtonMonster_Clicked(object sender, EventArgs e)
+                {
+                    var monsterName = "";
+                    var player = new PlayerInfoModel();
+                    //  if (sender != null)
+                    // {              
+                    monsterName = ((Button)sender).CommandParameter.ToString();
+                    foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList)
+                    {
+                        if (data.Name.Equals(monsterName))
+                        {
+                            player = data;
+                        }
+
+                    }
+                    //var monster = MonsterIndexViewModel.Instance.GetMonsterByName(monsterName);
+                    //PlayerInfoModel player = new PlayerInfoModel(monster);
+
+                    var MonsterFoundIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.FindIndex(c => c.Name == player.Name);
+                    if (MonsterFoundIndex >= 0)
+                    {
+                        BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.RemoveAt(MonsterFoundIndex);
+                    }
+
+                    // Add updated player back to view model
+                    selectedMonsters.Add(player);
+                 //   }
+                    DrawMonsterList();
+                    DrawSelectedMonsters();
+
+                    // visibility after the click
+                    //PopupLoadingViewMonster.IsVisible = false;
+                    //PopupMonsterListSelected.IsVisible = true;
+                }
+               
+
+                /// <summary>
+                /// Add Monsters to the Display
+                /// </summary>
+                public void DrawSelectedMonsters()
+                {
+
+                    var FlexList = MonsterListSelectedFrame.Children.ToList();
+                    foreach (var data in FlexList)
+                    {
+                        MonsterListSelectedFrame.Children.Remove(data);
+                                    }
+
+
+                        // Draw the Monsters
+                        foreach (var data in selectedMonsters)
+                        {
+                            if (data.Level != 20)
+                            {
+                                MonsterListSelectedFrame.Children.Add(GetMonsterToDisplay(data));
+                                MonsterFrame.IsVisible = false; 
+                                break;
+                            }
+                        }
+                } 
+        */
 
         public async void AttackButton_Clicked(object sender, EventArgs e)
         {
