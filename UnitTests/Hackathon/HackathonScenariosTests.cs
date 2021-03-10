@@ -155,12 +155,12 @@ namespace Scenario
 
         #endregion Scenario1
 
-        /*
+        
         #region Scenario34
         [Test]
         public async Task HackathonScenario_Scenario_34_Valid_Default_Should_Pass()
         {
-        */
+        
             /* 
             * Scenario Number:  
             *      34
@@ -200,8 +200,8 @@ namespace Scenario
             //Arrange
 
             // Set Character Conditions
-            /*
-            EngineViewModel.Engine.EngineSettings.MaxNumberPartyCharacters = 1;
+            
+            EngineViewModel.EngineGame.EngineSettings.MaxNumberPartyCharacters = 1;
 
             var character = new PlayerInfoModel(
                             new CharacterModel
@@ -215,37 +215,38 @@ namespace Scenario
                             });
             character.WantsToRest = true;
 
-            EngineViewModel.Engine.EngineSettings.CharacterList.Add(character);
+            EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
+            EngineViewModel.EngineGame.EngineSettings.CharacterList.Add(character);
 
-            EngineViewModel.Engine.EngineSettings.HackathonDebug = true;
-
-            DiceHelper.DisableForcedRolls();
-            DiceHelper.SetForcedRollValue(2);
+            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = true;
 
             // Set Monster Conditions
 
             // Auto Battle will add the monsters
 
             // Monsters always hit
-            EngineViewModel.Engine.EngineSettings.BattleSettingsModel.MonsterHitEnum = HitStatusEnum.Hit;
+            EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.MonsterHitEnum = HitStatusEnum.Hit;
+
+            // Minnie always misses when she attacks
+            EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.CharacterHitEnum = HitStatusEnum.Miss;
+
+            DiceHelper.DisableForcedRolls();
+            DiceHelper.SetForcedRollValue(2);
 
             //Act
-            var result = await EngineViewModel.AutoBattleEngine.RunAutoBattle();
+            var result = await EngineViewModel.AutoBattleEngineGame.RunAutoBattle();
 
             //Reset
-            EngineViewModel.Engine.EngineSettings.BattleSettingsModel.MonsterHitEnum = HitStatusEnum.Default;
-            EngineViewModel.Engine.EngineSettings.HackathonDebug = false;
+            EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.MonsterHitEnum = HitStatusEnum.Default;
+            EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.CharacterHitEnum = HitStatusEnum.Default;
+            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = false;
             DiceHelper.DisableForcedRolls();
 
             //Assert
-            Assert.IsTrue(EngineViewModel.Engine.EngineSettings.BattleScore.CharacterModelDeathList[0].FiveMinuteBreaks > 0);
-            */
-
-        /*
+            Assert.IsTrue(result);
+            Assert.IsTrue(EngineViewModel.EngineGame.EngineSettings.BattleScore.CharacterModelDeathList[0].FiveMinuteBreaks > 0);
+            
         }
         #endregion Scenario34
-        */
-            
-    
     }
 }
