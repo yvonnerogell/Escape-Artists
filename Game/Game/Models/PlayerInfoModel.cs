@@ -44,9 +44,6 @@ namespace Game.Models
         // Tracks if the character wants the option of resting for their turn. Only available for characters
         public bool WantsToRest { get; set; } = false;
 
-        // Tracks the number of times a character has slipped. only available for characters
-        public int SlippedNumTimes { get; set; } = 0;
-
         /// <summary>
         /// Default Constructor
         /// </summary>
@@ -107,8 +104,6 @@ namespace Game.Models
             FiveMinuteBreaks = data.FiveMinuteBreaks;
 
             WantsToRest = data.WantsToRest;
-
-            SlippedNumTimes = data.SlippedNumTimes;
         }
 
         /// <summary>
