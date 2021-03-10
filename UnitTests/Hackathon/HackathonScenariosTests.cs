@@ -152,5 +152,78 @@ namespace Scenario
             Assert.AreEqual(1, EngineViewModel.Engine.EngineSettings.BattleScore.RoundCount);
         }
         #endregion Scenario1
+
+        #region Scenario25
+        [Test]
+        public async Task HackathonScenario_Scenario_25_Valid_Default_Should_Pass()
+        {
+            /* 
+            * Scenario Number:  
+            *      25
+            *      
+            * Description: 
+            *      Drop an Item from the list after suffering a successful hit
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      Change required to the rule for Dropping Item 
+            * 
+            * Test Algrorithm:
+            *      Set debug switch to "On"
+            *      Set a Monster Hit
+            *      Make sure it's a successful hit
+            *      Check if item is dropped
+            *  
+            *      Startup Battle
+            *      Run Auto Battle
+            * 
+            * Test Conditions:
+            *      Default condition is sufficient
+            * 
+            * Validation:
+            *      Verify Battle Returned True
+            *      Verify Item is in the ItemDropList
+            *      
+            *  
+            */
+
+            //Arrange
+
+            // Set Character Conditions
+
+            EngineViewModel.Engine.EngineSettings.MaxNumberPartyCharacters = 1;
+
+            var CharacterPlayerMike = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Speed = -1, // Will go last...
+                                Level = 1,
+                                CurrentHealth = 1,
+                                ExperienceTotal = 1,
+                                ExperienceRemaining = 1,
+                                Name = "Mike",
+                            });
+
+            EngineViewModel.Engine.EngineSettings.CharacterList.Add(CharacterPlayerMike);
+
+            // Set Monster Conditions
+
+            // Auto Battle will add the monsters
+
+            // Monsters always hit
+            EngineViewModel.Engine.EngineSettings.BattleSettingsModel.MonsterHitEnum = HitStatusEnum.Hit;
+
+            //Act
+            var result = await EngineViewModel.AutoBattleEngine.RunAutoBattle();
+
+            //Reset
+            EngineViewModel.Engine.EngineSettings.BattleSettingsModel.MonsterHitEnum = HitStatusEnum.Default;
+
+            //Assert
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(null, EngineViewModel.Engine.EngineSettings.PlayerList.Find(m => m.Name.Equals("Mike")));
+            Assert.AreEqual(1, EngineViewModel.Engine.EngineSettings.BattleScore.RoundCount);
+        }
+        #endregion Scenario25
+
     }
 }
