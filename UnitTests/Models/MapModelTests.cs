@@ -862,6 +862,36 @@ namespace UnitTests.Models
         }
 
         [Test]
+        public void MapModel_ReturnClosestEmptyLocationBasedOnSpeed_Negative_Valid_Target_Should_Pass()
+        {
+            // Arrange
+            var map = new MapModel();
+
+            map.MapXAxiesCount = 5;
+            map.MapYAxiesCount = 5;
+            map.MapGridLocation = new MapModelLocation[map.MapXAxiesCount, map.MapYAxiesCount];
+
+            var PlayerList = new List<PlayerInfoModel>();
+
+            var Character = new CharacterModel { Speed = -1 };
+            PlayerList.Add(new PlayerInfoModel(Character));
+
+            var Monster = new MonsterModel { Speed = -1 };
+            PlayerList.Add(new PlayerInfoModel(Monster));
+
+            map.PopulateMapModel(PlayerList);
+
+            // Act
+            var result = map.ReturnClosestEmptyLocationBasedOnSpeed(map.MapGridLocation[0, 0], map.MapGridLocation[0, 4]);
+
+            // Reset
+
+            // Assert 
+            Assert.AreEqual(0, result.Column);
+            Assert.AreEqual(0, result.Row);
+        }
+
+        [Test]
         public void MapModel_ReturnClosestEmptyLocationBasedOnSpeed_InValid_Should_Return_Null()
         {
             // Arrange
