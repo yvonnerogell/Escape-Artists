@@ -842,8 +842,9 @@ namespace Game.Views
         public async void ContinueButton_Clicked(object sender, EventArgs e)
         {
             // TODO: make sure the AutoBattlePage is the right option here
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.RoundOver;
-           if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction == ActionEnum.Attack)
+            //BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.RoundOver;
+            
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction == ActionEnum.Attack)
             {
                 await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
             }
