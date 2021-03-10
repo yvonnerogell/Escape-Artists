@@ -18,6 +18,9 @@
         // Move
         Move = 3,
 
+        // Rest
+        Rest = 4,
+
     }
 
     /// <summary>
@@ -49,6 +52,10 @@
                     Message = " Uses Ability ";
                     break;
 
+                case ActionEnum.Rest:
+                    Message = " Rests ";
+                    break;
+
                 case ActionEnum.Unknown:
                 default:
                     break;
@@ -78,6 +85,10 @@
                     break;
 
                 case ActionEnum.Ability:
+                    Message = "item.png";
+                    break;
+
+                case ActionEnum.Rest:
                     Message = "item.png";
                     break;
 

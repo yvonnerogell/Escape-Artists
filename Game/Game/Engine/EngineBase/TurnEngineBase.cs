@@ -69,6 +69,18 @@ namespace Game.Engine.EngineBase
                 }
             }
 
+            // Check to see if hackathon scenarios should be enabled.
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.HackathonDebug && Attacker.WantsToRest)
+            {
+                var num = DiceHelper.RollDice(1, 2);
+
+                // Randomize whether character will keep its current action or rest as its move. 
+                if (num % 2 == 0)
+                {
+                    EngineSettings.CurrentAction = ActionEnum.Rest;
+                }
+            }
+
             switch (EngineSettings.CurrentAction)
             {
                 //case ActionEnum.Unknown:
@@ -86,6 +98,9 @@ namespace Game.Engine.EngineBase
                 case ActionEnum.Move:
                     result = MoveAsTurn(Attacker);
                     break;
+                case ActionEnum.Rest:
+                    result = RestAsTurn(Attacker);
+                    break;
             }
 
             EngineSettings.BattleScore.TurnCount++;
@@ -97,6 +112,19 @@ namespace Game.Engine.EngineBase
             EngineSettings.CurrentAction = ActionEnum.Unknown;
 
             return result;
+        }
+
+
+        /// <summary>
+        /// Rest as your turn increases the attacker's current health by two points. 
+        /// </summary>
+        /// <param name="Attacker"></param>
+        /// <returns></returns>
+        public virtual bool RestAsTurn(PlayerInfoModel Attacker)
+        {
+            Attacker.CurrentHealth += 2;
+            Attacker.FiveMinuteBreaks++;
+            return true;
         }
 
         /// <summary>

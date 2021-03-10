@@ -3,6 +3,7 @@
 using Game.Models;
 using System.Threading.Tasks;
 using Game.ViewModels;
+using Game.Helpers;
 
 namespace Scenario
 {
@@ -16,7 +17,7 @@ namespace Scenario
         public void Setup()
         {
             // Choose which engine to run
-            EngineViewModel.SetBattleEngineToKoenig();
+            //EngineViewModel.SetBattleEngineToKoenig();
 
             // Put seed data into the system for all tests
             EngineViewModel.Engine.Round.ClearLists();
@@ -151,79 +152,101 @@ namespace Scenario
             Assert.AreEqual(null, EngineViewModel.Engine.EngineSettings.PlayerList.Find(m => m.Name.Equals("Mike")));
             Assert.AreEqual(1, EngineViewModel.Engine.EngineSettings.BattleScore.RoundCount);
         }
+
         #endregion Scenario1
 
-        #region Scenario25
+        
+        #region Scenario34
         [Test]
-        public async Task HackathonScenario_Scenario_25_Valid_Default_Should_Pass()
+        public async Task HackathonScenario_Scenario_34_Valid_Default_Should_Pass()
         {
+        
             /* 
             * Scenario Number:  
-            *      25
+            *      34
             *      
             * Description: 
-            *      Drop an Item from the list after suffering a successful hit
+            *      Take 5... 
+            *      Why is it that a character must take an action?  
+            *      Can’t a hard-working character just sit back and take a break? 
+            *      Allow characters to choose to do nothing for their turn, they just sit back and take in 
+            *      all that is happening around them. Resting restores 2 health per rest.
             * 
             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
-            *      Change required to the rule for Dropping Item 
+            *      PlayerInfoModel - Add variable to track number of FiveMinuteBreaks character has taken
+            *      ActionEnum.cs - Added ActionEnum.Rest
+            *      TurnEngineBase.cs - Added case for ActionEnum.Rest which calls RestAsTurn(Attacker)
             * 
-            * Test Algrorithm:
-            *      Set debug switch to "On"
-            *      Set a Monster Hit
-            *      Make sure it's a successful hit
-            *      Check if item is dropped
+            * Test Algorithm:
+            *      Create Character named Minnie
+            *      Set speed to 100 so she goes first
+            *      Set CurrentAction to ActionEnum.Rest
+            *      Set Current Health to 100 to ensure she survives long enough to take a couple of turns
+            *      Set character.WantsToRest to true
+            *      Set hackathon debug to true
             *  
             *      Startup Battle
             *      Run Auto Battle
             * 
             * Test Conditions:
-            *      Default condition is sufficient
+            *      Test that current 
             * 
             * Validation:
             *      Verify Battle Returned True
-            *      Verify Item is in the ItemDropList
-            *      
+            *      Verify dead character Minnie's FiveMinuteBreaks is greater than 0
             *  
             */
 
             //Arrange
 
             // Set Character Conditions
+            
+            EngineViewModel.EngineGame.EngineSettings.MaxNumberPartyCharacters = 1;
 
-            EngineViewModel.Engine.EngineSettings.MaxNumberPartyCharacters = 1;
-
-            var CharacterPlayerMike = new PlayerInfoModel(
+            var character = new PlayerInfoModel(
                             new CharacterModel
                             {
-                                Speed = -1, // Will go last...
+                                Speed = 100,
                                 Level = 1,
-                                CurrentHealth = 1,
+                                CurrentHealth = 100, 
                                 ExperienceTotal = 1,
                                 ExperienceRemaining = 1,
-                                Name = "Mike",
+                                Name = "Minnie",
                             });
+            character.WantsToRest = true;
 
-            EngineViewModel.Engine.EngineSettings.CharacterList.Add(CharacterPlayerMike);
+            EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
+            EngineViewModel.EngineGame.EngineSettings.CharacterList.Add(character);
+
+            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = true;
 
             // Set Monster Conditions
 
             // Auto Battle will add the monsters
 
             // Monsters always hit
-            EngineViewModel.Engine.EngineSettings.BattleSettingsModel.MonsterHitEnum = HitStatusEnum.Hit;
+            EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.MonsterHitEnum = HitStatusEnum.Hit;
+
+            // Minnie always misses when she attacks
+            EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.CharacterHitEnum = HitStatusEnum.Miss;
+
+            DiceHelper.DisableForcedRolls();
+            DiceHelper.SetForcedRollValue(2);
 
             //Act
-            var result = await EngineViewModel.AutoBattleEngine.RunAutoBattle();
+            var result = await EngineViewModel.AutoBattleEngineGame.RunAutoBattle();
 
             //Reset
-            EngineViewModel.Engine.EngineSettings.BattleSettingsModel.MonsterHitEnum = HitStatusEnum.Default;
+            EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.MonsterHitEnum = HitStatusEnum.Default;
+            EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.CharacterHitEnum = HitStatusEnum.Default;
+            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = false;
+            DiceHelper.DisableForcedRolls();
 
             //Assert
-            Assert.AreEqual(true, result);
-            Assert.AreEqual(null, EngineViewModel.Engine.EngineSettings.PlayerList.Find(m => m.Name.Equals("Mike")));
-            Assert.AreEqual(1, EngineViewModel.Engine.EngineSettings.BattleScore.RoundCount);
+            Assert.IsTrue(result);
+            Assert.IsTrue(EngineViewModel.EngineGame.EngineSettings.BattleScore.CharacterModelDeathList[0].FiveMinuteBreaks > 0);
+            
         }
-        #endregion Scenario25
-
+        #endregion Scenario34
     }
 }

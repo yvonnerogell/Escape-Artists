@@ -101,5 +101,8 @@ namespace Game.Engine.EngineModels
         // Hold the Battle State, Unknown is default
          public BattleStateEnum BattleStateEnum { get; set; } = BattleStateEnum.Unknown;
 
+        // Variable used for debugging our hackathon scenerios
+         public bool HackathonDebug { get; set; } = false;
+
     }
 }
