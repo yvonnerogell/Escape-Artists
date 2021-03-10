@@ -37,8 +37,8 @@
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>      </x:String>
-                            <x:String>Attack</x:String>
                             <x:String>Ability</x:String>
+                            <x:String>Attack</x:String>
                             
                         </x:Array>
                     </Picker.ItemsSource>
