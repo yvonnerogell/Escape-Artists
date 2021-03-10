@@ -86,6 +86,9 @@ namespace Game.Engine.EngineBase
                 case ActionEnum.Move:
                     result = MoveAsTurn(Attacker);
                     break;
+                case ActionEnum.Rest:
+                    result = RestAsTurn(Attacker);
+                    break;
             }
 
             EngineSettings.BattleScore.TurnCount++;
@@ -97,6 +100,18 @@ namespace Game.Engine.EngineBase
             EngineSettings.CurrentAction = ActionEnum.Unknown;
 
             return result;
+        }
+
+
+        /// <summary>
+        /// Rest as your turn increases the attacker's current health by two points. 
+        /// </summary>
+        /// <param name="Attacker"></param>
+        /// <returns></returns>
+        public virtual bool RestAsTurn(PlayerInfoModel Attacker)
+        {
+            Attacker.CurrentHealth += 2;
+            return true;
         }
 
         /// <summary>
