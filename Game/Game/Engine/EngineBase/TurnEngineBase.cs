@@ -111,6 +111,7 @@ namespace Game.Engine.EngineBase
         public virtual bool RestAsTurn(PlayerInfoModel Attacker)
         {
             Attacker.CurrentHealth += 2;
+            Attacker.FiveMinuteBreaks++;
             return true;
         }
 

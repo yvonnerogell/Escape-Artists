@@ -636,6 +636,7 @@ namespace UnitTests.Engine.EngineBase
             // Assert
             Assert.AreEqual(true, result);
             Assert.AreEqual(7, character.CurrentHealth);
+            Assert.AreEqual(1, character.FiveMinuteBreaks);
         }
 
         [Test]
