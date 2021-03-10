@@ -188,6 +188,8 @@ namespace Game.Engine.EngineGame
                         Difficulty = DifficultyEnum.Difficult,
                         ImageURI = Constants.SpecificMonsterTypeGraduationOfficeAdministratorImageURI
                     };
+
+                    EngineSettings.MonsterList.Add(new PlayerInfoModel(BigBoss));
                 }
             }
 
