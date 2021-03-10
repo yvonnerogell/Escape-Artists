@@ -323,6 +323,76 @@ namespace Scenario
         }
         #endregion Scenario34
 
+        #region Scenario35
+        [Test]
+        public async Task HackathonScenario_Scenario_35_Valid_Default_Should_Pass()
+        {
+            /* 
+            * Scenario Number:  
+            *      35
+            *      
+            * Description: 
+            *      Move based on speed
+            *      Limit the distance a player can move to their speed attribute. 
+            *      If a player has speed of 3, then they can move 3 squares, a speed of 6 can move 6 etc.
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      MapModel - created a new method to move based on speed limit of the playerInfoModel. 
+            *      TurnEngine - if debug is turned on use speed variable to figure out distance moved. 
+            * 
+            * Test Algorithm:
+            *      Create Character named SlowPoke
+            *      Set speed to 1
+            *      Set current action to Move
+            *      Set hackathon debug to true
+            *  
+            *      Startup Battle
+            *      Run Auto Battle
+            * 
+            * Test Conditions:
+            *      Test that current 
+            * 
+            * Validation:
+            *      Verify Battle Returned True
+            *  
+            */
+
+            //Arrange
+
+            // Add Characters
+
+            // To See Level UP happening, a character needs to be close to the next level
+            var character = new PlayerInfoModel
+            {
+                ExperienceTotal = 300,
+                Name = "Mike Level Example",
+                Level = 19,
+                Speed = -1,    // Go last
+                PlayerType = PlayerTypeEnum.Character
+            };
+
+            var save = EngineViewModel.EngineGame.EngineSettings.CharacterList;
+
+            EngineViewModel.EngineGame.EngineSettings.MaxNumberPartyCharacters = 1;
+            EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
+            EngineViewModel.EngineGame.EngineSettings.CharacterList.Add(character);
+            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = true;
+
+            // Set current action to Move
+            EngineViewModel.EngineGame.EngineSettings.CurrentAction = ActionEnum.Move;
+
+            //Act
+            var result = await EngineViewModel.AutoBattleEngineGame.RunAutoBattle();
+
+            //Reset
+            EngineViewModel.EngineGame.EngineSettings.CharacterList = save;
+            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = false;
+
+            //Assert
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(true, EngineViewModel.EngineGame.EngineSettings.BattleScore.CharacterAtDeathList.Contains("Mike Level Example"));
+        }
+        #endregion Scenario35
 
     }
 }
