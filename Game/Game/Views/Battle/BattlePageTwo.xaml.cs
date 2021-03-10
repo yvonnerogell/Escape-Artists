@@ -69,6 +69,7 @@ namespace Game.Views
             MonsterFrame.IsVisible = false;          
             PopupMonsterListSelected.IsVisible = false;
             PopupItemListSelected.IsVisible = false;
+            PopupAbilityApplied.IsVisible = false;
             //PopupCharacterListSelected.IsVisible = false;
             //PopupLoadingViewMonster.IsVisible = false;
 
@@ -827,7 +828,16 @@ namespace Game.Views
                     PopupLoadingViewMonster.IsVisible = false;
                     PopupMonsterListSelected.IsVisible = true;
                 }
-  
+
+        /// <summary>
+        /// Close the popup
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void ClosePopupAbility_Clicked(object sender, EventArgs e)
+        {
+           PopupAbilityApplied.IsVisible = false;
+        }
 
         public async void ContinueButton_Clicked(object sender, EventArgs e)
         {
@@ -856,8 +866,21 @@ namespace Game.Views
             var action = (ActionEnum)picker.SelectedIndex;
             BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = action;
 
-            DrawItems();
-            DrawMonsterList();            
+            if (action == ActionEnum.Attack)
+            {
+                DrawItems();
+                DrawMonsterList();
+                // this is important to avoid going back and forth
+                ActionSelectedPicker.IsEnabled = false;
+            }
+
+            if (action == ActionEnum.Ability)
+            {
+                PopupAbilityApplied.IsVisible = true;
+                // this is important to avoid going back and forth
+                ActionSelectedPicker.IsEnabled = false;
+            }
+         
         }
 
 
