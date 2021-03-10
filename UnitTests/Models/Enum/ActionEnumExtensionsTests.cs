@@ -78,6 +78,20 @@ namespace UnitTests.Models.Enum
         }
 
         [Test]
+        public void ActionEnumExtensionsTests_Slip_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ActionEnum.Slip.ToMessage();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(" Slips ", result);
+        }
+
+        [Test]
         public void ActionEnumExtensionsTests_ToImage_Attack_Default_Should_Pass()
         {
             // Arrange
@@ -140,6 +154,20 @@ namespace UnitTests.Models.Enum
 
             // Act
             var result = ActionEnum.Rest.ToImageURI();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("item.png", result);
+        }
+
+        [Test]
+        public void ActionEnumExtensionsTests_ToImage_Slip_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ActionEnum.Slip.ToImageURI();
 
             // Reset
 

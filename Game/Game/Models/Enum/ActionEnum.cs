@@ -21,6 +21,9 @@
         // Rest
         Rest = 4,
 
+        // Slip
+        Slip = 5,
+
     }
 
     /// <summary>
@@ -56,6 +59,10 @@
                     Message = " Rests ";
                     break;
 
+                case ActionEnum.Slip:
+                    Message = " Slips ";
+                    break;
+
                 case ActionEnum.Unknown:
                 default:
                     break;
@@ -89,6 +96,10 @@
                     break;
 
                 case ActionEnum.Rest:
+                    Message = "item.png";
+                    break;
+
+                case ActionEnum.Slip:
                     Message = "item.png";
                     break;
 
