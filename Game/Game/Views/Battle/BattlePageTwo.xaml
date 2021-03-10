@@ -36,7 +36,7 @@
                     SelectedIndexChanged="OnPickerSelectedActionChanged">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
-                            <x:String>Ability</x:String>
+                            <x:String>Use Ability</x:String>
                             <x:String>Attack</x:String>
                         </x:Array>
                     </Picker.ItemsSource>

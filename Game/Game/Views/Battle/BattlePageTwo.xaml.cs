@@ -757,7 +757,6 @@ namespace Game.Views
                     PopupMonsterListSelected.IsVisible = true;
                     PopupMonsterListSelected.IsEnabled = false;
                     MonsterFrame.IsVisible = false;
-                   
                 }
         }
 
@@ -834,8 +833,15 @@ namespace Game.Views
         {
             // TODO: make sure the AutoBattlePage is the right option here
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.RoundOver;
-           
-            //await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
+           if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction == ActionEnum.Attack)
+            {
+                await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
+            }
+           else
+            {
+                await Navigation.PushModalAsync(new NavigationPage(new RoundOverPage()));
+            }
+            
             
         }
 
