@@ -38,6 +38,12 @@ namespace Game.Models
         // The specific monster type for this monster
         public SpecificMonsterTypeEnum SpecificMonsterTypeEnum { get; set; }
 
+        // Tracks the number of 5-minute breaks a character has taken. Only available for characters
+        public int FiveMinuteBreaks { get; set; } = 0;
+
+        // Tracks if the character wants the option of resting for their turn. Only available for characters
+        public bool WantsToRest { get; set; } = false;
+
         /// <summary>
         /// Default Constructor
         /// </summary>
@@ -94,6 +100,10 @@ namespace Game.Models
 
 
             Graduated = data.Graduated;
+
+            FiveMinuteBreaks = data.FiveMinuteBreaks;
+
+            WantsToRest = data.WantsToRest;
         }
 
         /// <summary>
@@ -149,6 +159,10 @@ namespace Game.Models
             Graduated = data.Graduated;
 
             SpecificCharacterTypeEnum = data.SpecificCharacterTypeEnum;
+
+            FiveMinuteBreaks = 0; // start this at 0
+
+            WantsToRest = false; // default to false
 
             /*
                 TODO: Team, this is needed to keep the UT passing for the base game, your game does not need to use it.
