@@ -4,6 +4,7 @@ using Game.Models;
 using System.Threading.Tasks;
 using Game.ViewModels;
 using Game.Helpers;
+using System.Linq;
 
 namespace Scenario
 {
@@ -155,7 +156,84 @@ namespace Scenario
 
         #endregion Scenario1
 
-        
+        #region Scenario14
+        [Test]
+        public async Task HackathonScenario_Scenario_14_Valid_Default_Should_Pass()
+        {
+            /* 
+            * Scenario Number:  
+            *      14
+            *      
+            * Description: 
+            *      Start a Boss Battle, which replaces 6 monsters with 1 boss based on roll chances 
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      Changed AddMonstersToRound:
+            *           * make sure EngineSettingsModel.Instance.HackathonDebug == true
+            *           * if dice roll is even then clearn monster list and add 1 boss:
+            *           MonsterModel BigBoss = new MonsterModel
+                        {
+                            PlayerType = PlayerTypeEnum.Monster,
+                            MonsterTypeEnum = MonsterTypeEnum.Administrator,
+                            SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.GraduationOfficeAdministrator,
+                            Name = "Mike Koenig",
+                            Description = "You will never graduate!!!",
+                            Attack = 10,
+                            Range = 5,
+                            Level = 20,
+                            Difficulty = DifficultyEnum.Difficult,
+                            ImageURI = Constants.SpecificMonsterTypeGraduationOfficeAdministratorImageURI
+                        };
+            * 
+            * Test Algrorithm:
+            *      turn EngineSettingsModel.Instance.HackathonDebug to be true
+            *      force dice roll to be even (in our case keep it 2)
+            *      force the game to only have 1 round and 1 turn so we can see what is added in the monster list
+            *  
+            *      Startup Battle
+            *      Start auto battle
+            * 
+            * Test Conditions:
+            *      Default condition is sufficient
+            * 
+            * Validation:
+            *      Verify there is only one monster
+            *      Verify the monster list monster includes big boss
+            *  
+            */
+
+            //Arrange
+
+            // Set Character Conditions
+
+            // Set Monster Conditions
+
+            // Auto Battle will add the monsters
+
+            // Monsters always hit
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(2);
+            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = true;
+            EngineViewModel.EngineGame.EngineSettings.MaxRoundCount = 1;
+            EngineViewModel.EngineGame.EngineSettings.MaxTurnCount = 1;
+
+            //Act
+            var result = await EngineViewModel.AutoBattleEngineGame.RunAutoBattle();
+
+            //Reset
+            DiceHelper.DisableForcedRolls();
+            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = false;
+            EngineViewModel.EngineGame.EngineSettings.MaxRoundCount = 100;
+            EngineViewModel.EngineGame.EngineSettings.MaxTurnCount = 1000;
+
+            //Assert
+            // validate monster is big boss
+            Assert.AreEqual(1, EngineViewModel.EngineGame.EngineSettings.MonsterList.Count());
+            Assert.AreEqual("Mike Koenig", EngineViewModel.EngineGame.EngineSettings.MonsterList.FirstOrDefault().Name);
+        }
+
+        #endregion Scenario14
+
         #region Scenario34
         [Test]
         public async Task HackathonScenario_Scenario_34_Valid_Default_Should_Pass()
