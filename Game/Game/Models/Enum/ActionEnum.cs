@@ -9,14 +9,15 @@
         // Not specified
         Unknown = 0,
 
+        // Ability
+        Ability = 1,
+
         // Attack
-        Attack = 1,
+        Attack = 2,
 
         // Move
-        Move = 10,
+        Move = 3,
 
-        // Ability
-        Ability = 20
     }
 
     /// <summary>
