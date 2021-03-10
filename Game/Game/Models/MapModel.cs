@@ -326,6 +326,8 @@ namespace Game.Models
             if (Attacker.Player.Speed < 0)
             {
                 MaxTravelForAttacker = 0;
+                // don't move
+                Result = new MapModelLocation { Column = Attacker.Column, Row = Attacker.Row };
             }
 
             foreach (var data in GetEmptyLocations())
