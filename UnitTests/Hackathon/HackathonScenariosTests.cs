@@ -152,5 +152,94 @@ namespace Scenario
             Assert.AreEqual(1, EngineViewModel.Engine.EngineSettings.BattleScore.RoundCount);
         }
         #endregion Scenario1
+
+        #region Scenario1
+        [Test]
+        public async Task HackathonScenario_Scenario_14_Valid_Default_Should_Pass()
+        {
+            /* 
+            * Scenario Number:  
+            *      14
+            *      
+            * Description: 
+            *      Start a BOSS battle. Where based on the dice roll, it will create a big boss instead of 6 monsters.
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      Changed AddMonstersToRound method:
+            *           * validate EngineSettingsModel.Instance.HackathonDebug == true
+            *           * roll the dice, and if is even, clear the current monster list and add in Big Boss:
+            *           MonsterModel BigBoss = new MonsterModel
+                            {
+                                PlayerType = PlayerTypeEnum.Monster,
+                                MonsterTypeEnum = MonsterTypeEnum.Administrator,
+                                SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.GraduationOfficeAdministrator,
+                                Name = "Mike Koenig",
+                                Description = "You will never graduate!!!",
+                                Attack = 10,
+                                Range = 5,
+                                Level = 20,
+                                Difficulty = DifficultyEnum.Difficult,
+                                ImageURI = Constants.SpecificMonsterTypeGraduationOfficeAdministratorImageURI
+                            };
+            * 
+            * Test Algrorithm:
+            *      Create Character named Mike
+            *      Set speed to -1 so he is really slow
+            *      Set Max health to 1 so he is weak
+            *      Set Current Health to 1 so he is weak
+            *  
+            *      Startup Battle
+            *      Run Auto Battle
+            * 
+            * Test Conditions:
+            *      Default condition is sufficient
+            * 
+            * Validation:
+            *      Verify Battle Returned True
+            *      Verify Mike is not in the Player List
+            *      Verify Round Count is 1
+            *  
+            */
+
+            //Arrange
+
+            // Set Character Conditions
+
+            /*
+            EngineViewModel.Engine.EngineSettings.MaxNumberPartyCharacters = 1;
+
+            var CharacterPlayerMike = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Speed = -1, // Will go last...
+                                Level = 1,
+                                CurrentHealth = 1,
+                                ExperienceTotal = 1,
+                                ExperienceRemaining = 1,
+                                Name = "Mike",
+                            });
+
+            EngineViewModel.Engine.EngineSettings.CharacterList.Add(CharacterPlayerMike);
+
+            // Set Monster Conditions
+
+            // Auto Battle will add the monsters
+
+            // Monsters always hit
+            EngineViewModel.Engine.EngineSettings.BattleSettingsModel.MonsterHitEnum = HitStatusEnum.Hit;
+
+            //Act
+            var result = await EngineViewModel.AutoBattleEngine.RunAutoBattle();
+
+            //Reset
+            EngineViewModel.Engine.EngineSettings.BattleSettingsModel.MonsterHitEnum = HitStatusEnum.Default;
+
+            //Assert
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(null, EngineViewModel.Engine.EngineSettings.PlayerList.Find(m => m.Name.Equals("Mike")));
+            Assert.AreEqual(1, EngineViewModel.Engine.EngineSettings.BattleScore.RoundCount);
+            */
+        }
+        #endregion Scenario1
     }
 }
