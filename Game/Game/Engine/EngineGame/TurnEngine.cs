@@ -164,6 +164,11 @@ namespace Game.Engine.EngineGame
                 // Get the Open Locations based on range of attacker
                 var openSquare = EngineSettings.MapModel.ReturnClosestEmptyLocationBasedOnRange(locationAttacker, locationDefender);
 
+                if (EngineSettings.HackathonDebug == true)
+                {
+                   openSquare = EngineSettings.MapModel.ReturnClosestEmptyLocationBasedOnSpeed(locationAttacker, locationDefender);
+                }
+
                 Debug.WriteLine(string.Format("{0} moves from {1},{2} to {3},{4}", locationAttacker.Player.Name, locationAttacker.Column, locationAttacker.Row, openSquare.Column, openSquare.Row));
 
                 EngineSettings.BattleMessagesModel.TurnMessage = Attacker.Name + " moves closer to " + EngineSettings.CurrentDefender.Name;

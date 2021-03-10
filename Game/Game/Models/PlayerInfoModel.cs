@@ -44,8 +44,8 @@ namespace Game.Models
         // Tracks if the character wants the option of resting for their turn. Only available for characters
         public bool WantsToRest { get; set; } = false;
 
-        // Tracks Scenario 25
-        public bool LoseDamagedItem { get; set; } = false;
+        // Tracks the number of times a character has slipped. only available for characters
+        public int SlippedNumTimes { get; set; } = 0;
 
         /// <summary>
         /// Default Constructor
@@ -108,7 +108,7 @@ namespace Game.Models
 
             WantsToRest = data.WantsToRest;
 
-            LoseDamagedItem = data.LoseDamagedItem;
+            SlippedNumTimes = data.SlippedNumTimes;
         }
 
         /// <summary>
@@ -168,6 +168,8 @@ namespace Game.Models
             FiveMinuteBreaks = 0; // start this at 0
 
             WantsToRest = false; // default to false
+
+            SlippedNumTimes = 0; // start this at 0
 
             /*
                 TODO: Team, this is needed to keep the UT passing for the base game, your game does not need to use it.

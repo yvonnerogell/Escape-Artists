@@ -640,6 +640,33 @@ namespace UnitTests.Engine.EngineBase
         }
 
         [Test]
+        public void TurnEngine_TakeTurn_Slip_Should_Pass()
+        {
+            // Arrange
+
+            Engine.EngineSettings.CurrentAction = ActionEnum.Slip;
+
+            var character = new PlayerInfoModel(new CharacterModel());
+            var monster = new PlayerInfoModel(new CharacterModel());
+            character.CurrentHealth = 5;
+
+            Engine.EngineSettings.PlayerList.Add(character);
+            Engine.EngineSettings.PlayerList.Add(monster);
+
+            Engine.EngineSettings.MapModel.PopulateMapModel(Engine.EngineSettings.PlayerList);
+
+            // Act
+            var result = Engine.Round.Turn.TakeTurn(character);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(3, character.CurrentHealth);
+            Assert.AreEqual(1, character.SlippedNumTimes);
+        }
+
+        [Test]
         public void TurnEngine_TakeTurn_InValid_ActionEnum_Unknown_Should_Set_Action_To_Attack()
         {
             // Arrange
