@@ -43,6 +43,9 @@ namespace Game.Engine.EngineBase
         // Hold the BaseEngine
         public EngineSettingsModel EngineSettings = EngineSettingsModel.Instance;
 
+        // Set the probability of Losing Items as a result of damage (Scenario 25)
+        public int LoseDamagedItem_Probability = 1;
+
         /// <summary>
         /// CharacterModel Attacks...
         /// </summary>
@@ -98,6 +101,7 @@ namespace Game.Engine.EngineBase
                 case ActionEnum.Move:
                     result = MoveAsTurn(Attacker);
                     break;
+
                 case ActionEnum.Rest:
                     result = RestAsTurn(Attacker);
                     break;
@@ -126,6 +130,78 @@ namespace Game.Engine.EngineBase
             Attacker.FiveMinuteBreaks++;
             return true;
         }
+
+        /// <summary>
+        /// Losing a Damaged Item with some probability (Scenario 25)
+        /// </summary>
+        /// <param name="Attacker"></param>
+        /// <returns></returns>
+        public virtual bool LoseDamagedItem(PlayerInfoModel Defender)
+        {
+            if (Defender.LoseDamagedItem == true)
+            {
+                // Adding Scenario 25: damage causes item to be dropped with some probability
+                var Scenario25 = false;
+                var dice = DiceHelper.RollDice(1, 100);
+
+                if (dice > LoseDamagedItem_Probability)
+                {
+                    Scenario25 = true;
+                }
+
+                if (Scenario25 == true)
+                {
+                    var item = new ItemModel();
+                    if (Defender.Head != null)
+                    {
+                        item = ItemIndexViewModel.Instance.GetItem(Defender.Head);
+                        //EngineSettings.BattleScore.ItemModelDropList.Add(item);
+                        Defender.Head = null;
+                        }
+                    if (Defender.Feet != null)
+                    {
+                        item = ItemIndexViewModel.Instance.GetItem(Defender.Feet);
+                        EngineSettings.BattleScore.ItemModelDropList.Add(item);
+                        Defender.Feet = null;
+                        }
+                    if (Defender.OffHand != null)
+                    {
+                        item = ItemIndexViewModel.Instance.GetItem(Defender.OffHand);
+                        EngineSettings.BattleScore.ItemModelDropList.Add(item);
+                        Defender.OffHand = null;
+                        }
+                    if (Defender.PrimaryHand != null)
+                    {
+                        item = ItemIndexViewModel.Instance.GetItem(Defender.PrimaryHand);
+                        EngineSettings.BattleScore.ItemModelDropList.Add(item);
+                        Defender.PrimaryHand = null;
+                        }
+                    if (Defender.RightFinger != null)
+                    {
+                        item = ItemIndexViewModel.Instance.GetItem(Defender.RightFinger);
+                        EngineSettings.BattleScore.ItemModelDropList.Add(item);
+                        Defender.RightFinger = null;
+                        }
+                    if (Defender.LeftFinger != null)
+                    {
+                        item = ItemIndexViewModel.Instance.GetItem(Defender.LeftFinger);
+                        EngineSettings.BattleScore.ItemModelDropList.Add(item);
+                        Defender.LeftFinger = null;
+                        }
+                    if (Defender.Necklace != null)
+                    {
+                        item = ItemIndexViewModel.Instance.GetItem(Defender.Necklace);
+                        EngineSettings.BattleScore.ItemModelDropList.Add(item);
+                        Defender.Necklace = null;
+                    }
+                    
+                    EngineSettings.BattleMessagesModel.TurnMessageSpecial = "Rental insurance was a good idea!";
+                    return true;
+                }
+            }
+            return false;
+        }
+        
 
         /// <summary>
         /// Determine what Actions to do
@@ -442,6 +518,12 @@ namespace Game.Engine.EngineBase
                     // Apply the Damage
                     ApplyDamage(Target);
 
+                    // Implement Scenario 25
+
+                    LoseDamagedItem(Target);
+                    
+                    
+
                     EngineSettings.BattleMessagesModel.TurnMessageSpecial = EngineSettings.BattleMessagesModel.GetCurrentHealthMessage();
 
                     // Check if Dead and Remove
@@ -518,6 +600,7 @@ namespace Game.Engine.EngineBase
             Target.TakeDamage(EngineSettings.BattleMessagesModel.DamageAmount);
             EngineSettings.BattleMessagesModel.CurrentHealth = Target.GetCurrentHealthTotal;
 
+            
             return EngineSettings.BattleMessagesModel.DamageAmount;
         }
 

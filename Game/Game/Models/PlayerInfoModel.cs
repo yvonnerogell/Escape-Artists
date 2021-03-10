@@ -44,6 +44,9 @@ namespace Game.Models
         // Tracks if the character wants the option of resting for their turn. Only available for characters
         public bool WantsToRest { get; set; } = false;
 
+        // Tracks Scenario 25
+        public bool LoseDamagedItem { get; set; } = false;
+
         /// <summary>
         /// Default Constructor
         /// </summary>
@@ -104,6 +107,8 @@ namespace Game.Models
             FiveMinuteBreaks = data.FiveMinuteBreaks;
 
             WantsToRest = data.WantsToRest;
+
+            LoseDamagedItem = data.LoseDamagedItem;
         }
 
         /// <summary>
