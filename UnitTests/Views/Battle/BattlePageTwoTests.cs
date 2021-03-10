@@ -37,6 +37,7 @@ namespace UnitTests.Views
 
             // Put seed data into the system for all tests
             BattleEngineViewModel.Instance.Engine.Round.ClearLists();
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
 
             //Start the Engine in AutoBattle Mode
             //BattleEngineViewModel.Instance.Engine.StartBattle(false);
@@ -194,11 +195,11 @@ namespace UnitTests.Views
            Assert.IsTrue(true); // Got to here, so it happened...
 
             // Reset
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Clear();
+           BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
+           BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Clear();
 
         }
-/*
+
         [Test]
         public void PopupSaveButtonMonster_Clicked_Default_Should_Pass()
         {
@@ -218,17 +219,15 @@ namespace UnitTests.Views
             
             // Act
             page.PopupSaveButtonMonster_Clicked(s,e);
-
             
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
 
             // Reset
             BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(null);
         }
-*/
 
-/*
         [Test]
         public void ShowPopupMonster_Clicked_Default_Should_Pass()
         {
@@ -242,7 +241,7 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-*/
+
         [Test]
         public void ShowPopupItem_Clicked_Default_Should_Pass()
         {
@@ -886,7 +885,7 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-/*
+
         [Test]
         public void DrawSelectedMonsters_Default_Should_Pass()
         {
@@ -897,8 +896,9 @@ namespace UnitTests.Views
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
+
         }
-*/
+
 /*
         [Test]
         public void DrawSelectedMonsters_AddRemove_Should_Pass()
@@ -989,6 +989,7 @@ namespace UnitTests.Views
            page.OnPickerSelectedActionChanged(picker, args);
 
             // Assert
+            // -1 is the default
             Assert.AreEqual(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction, ActionEnum.Unknown);
         }
 
@@ -1015,10 +1016,14 @@ namespace UnitTests.Views
             // Act
             page.ContinueButton_Clicked(null, null);
 
-            // Reset
-
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
+
+            // Reset
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(null);
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
+
         }
 
         [Test]

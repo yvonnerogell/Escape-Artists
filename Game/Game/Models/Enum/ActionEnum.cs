@@ -6,8 +6,8 @@
     /// </summary>
     public enum ActionEnum
     {
-        // Not specified
-        Unknown = 0,
+        // Not specified  - has to be -1 to make it compatible with pickers
+        Unknown = -1,
 
         // Ability
         Ability = 1,

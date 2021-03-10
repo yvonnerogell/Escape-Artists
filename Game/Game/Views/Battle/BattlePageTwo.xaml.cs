@@ -86,13 +86,7 @@ namespace Game.Views
             // DrawMapGridInitialState();
 
             // Ask the Game engine to select who goes first
-            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
-            
-            // Setting Attacker and Defender if the Action is Attack
-            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction == ActionEnum.Attack)
-            {
-                BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FirstOrDefault());                
-            }
+            //BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
 
             //var currentAttacker = ;
             //var currentDefender = null;
@@ -808,7 +802,6 @@ namespace Game.Views
                             currentDefender = data;
                             BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(currentDefender);
                         }
-
                     }
                     //var monster = MonsterIndexViewModel.Instance.GetMonsterByName(monsterName);
                     //PlayerInfoModel player = new PlayerInfoModel(monster);
@@ -846,6 +839,8 @@ namespace Game.Views
             
             if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction == ActionEnum.Attack)
             {
+                BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FirstOrDefault());
+                
                 await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
             }
            else
