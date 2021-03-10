@@ -503,7 +503,7 @@ namespace Game.Views
             if (data.Player.PlayerType == PlayerTypeEnum.Monster)
             {
                 //data.IsSelectedTarget = true;
-                selectedPlayerLocation = data;
+                BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(data.Player);
                 return true;
             }
             return false;
@@ -530,6 +530,7 @@ namespace Game.Views
             if (data.Player.PlayerType == PlayerTypeEnum.Character)
             {
                 //data.IsSelectedTarget = true;
+                BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(data.Player);
                 selectedPlayerLocation = data;
                 return true;
             }
