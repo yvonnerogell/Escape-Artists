@@ -101,6 +101,9 @@ namespace Game.Engine.EngineBase
                 case ActionEnum.Rest:
                     result = RestAsTurn(Attacker);
                     break;
+                case ActionEnum.Slip:
+                    result = SlipAsTurn(Attacker);
+                    break;
             }
 
             EngineSettings.BattleScore.TurnCount++;
@@ -124,6 +127,18 @@ namespace Game.Engine.EngineBase
         {
             Attacker.CurrentHealth += 2;
             Attacker.FiveMinuteBreaks++;
+            return true;
+        }
+
+        /// <summary>
+        /// Slip as your turn decreases the attacker's current health by two points. 
+        /// </summary>
+        /// <param name="Attacker"></param>
+        /// <returns></returns>
+        public virtual bool SlipAsTurn(PlayerInfoModel Attacker)
+        {
+            Attacker.CurrentHealth -= 2;
+            Attacker.SlippedNumTimes++;
             return true;
         }
 
