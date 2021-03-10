@@ -152,12 +152,15 @@ namespace Scenario
             Assert.AreEqual(null, EngineViewModel.Engine.EngineSettings.PlayerList.Find(m => m.Name.Equals("Mike")));
             Assert.AreEqual(1, EngineViewModel.Engine.EngineSettings.BattleScore.RoundCount);
         }
+
         #endregion Scenario1
 
+        /*
         #region Scenario34
         [Test]
         public async Task HackathonScenario_Scenario_34_Valid_Default_Should_Pass()
         {
+        */
             /* 
             * Scenario Number:  
             *      34
@@ -197,7 +200,7 @@ namespace Scenario
             //Arrange
 
             // Set Character Conditions
-
+            /*
             EngineViewModel.Engine.EngineSettings.MaxNumberPartyCharacters = 1;
 
             var character = new PlayerInfoModel(
@@ -235,9 +238,14 @@ namespace Scenario
             DiceHelper.DisableForcedRolls();
 
             //Assert
-            Assert.IsTrue(result);
             Assert.IsTrue(EngineViewModel.Engine.EngineSettings.BattleScore.CharacterModelDeathList[0].FiveMinuteBreaks > 0);
+            */
+
+        /*
         }
         #endregion Scenario34
+        */
+            
+    
     }
 }
