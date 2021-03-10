@@ -69,6 +69,18 @@ namespace Game.Engine.EngineBase
                 }
             }
 
+            // Check to see if hackathon scenarios should be enabled.
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.HackathonDebug && Attacker.WantsToRest)
+            {
+                var num = DiceHelper.RollDice(1, 2);
+
+                // Randomize whether character will keep its current action or rest as its move. 
+                if (num % 2 == 0)
+                {
+                    EngineSettings.CurrentAction = ActionEnum.Rest;
+                }
+            }
+
             switch (EngineSettings.CurrentAction)
             {
                 //case ActionEnum.Unknown:
