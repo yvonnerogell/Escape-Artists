@@ -64,6 +64,20 @@ namespace UnitTests.Models.Enum
         }
 
         [Test]
+        public void ActionEnumExtensionsTests_Rests_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ActionEnum.Rest.ToMessage();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(" Rests ", result);
+        }
+
+        [Test]
         public void ActionEnumExtensionsTests_ToImage_Attack_Default_Should_Pass()
         {
             // Arrange
@@ -112,6 +126,20 @@ namespace UnitTests.Models.Enum
 
             // Act
             var result = ActionEnum.Unknown.ToImageURI();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("item.png", result);
+        }
+
+        [Test]
+        public void ActionEnumExtensionsTests_ToImage_Rest_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            var result = ActionEnum.Rest.ToImageURI();
 
             // Reset
 
