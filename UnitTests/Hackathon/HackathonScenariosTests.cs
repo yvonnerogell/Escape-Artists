@@ -21,16 +21,16 @@ namespace Scenario
             //EngineViewModel.SetBattleEngineToKoenig();
 
             // Put seed data into the system for all tests
-            EngineViewModel.Engine.Round.ClearLists();
+            EngineViewModel.EngineGame.Round.ClearLists();
 
             //Start the Engine in AutoBattle Mode
-            EngineViewModel.Engine.StartBattle(false);
+            EngineViewModel.EngineGame.StartBattle(false);
 
-            EngineViewModel.Engine.EngineSettings.BattleSettingsModel.CharacterHitEnum = HitStatusEnum.Default;
-            EngineViewModel.Engine.EngineSettings.BattleSettingsModel.MonsterHitEnum = HitStatusEnum.Default;
+            EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.CharacterHitEnum = HitStatusEnum.Default;
+            EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.MonsterHitEnum = HitStatusEnum.Default;
 
-            EngineViewModel.Engine.EngineSettings.BattleSettingsModel.AllowCriticalHit = false;
-            EngineViewModel.Engine.EngineSettings.BattleSettingsModel.AllowCriticalMiss = false;
+            EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.AllowCriticalHit = false;
+            EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.AllowCriticalMiss = false;
         }
 
         [TearDown]
