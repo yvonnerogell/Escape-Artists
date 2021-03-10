@@ -81,6 +81,19 @@ namespace Game.Engine.EngineBase
                 }
             }
 
+            // Check to see if hackathon scenarios should be enabled.
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.SeattleWinter)
+            {
+                var randomInt = DiceHelper.RollDice(1, 100);
+                var percentage = BattleEngineViewModel.Instance.Engine.EngineSettings.SeattleWinterLikelihood;
+
+                // Randomize whether character will keep its current action or rest as its move. 
+                if (randomInt <= percentage)
+                {
+                    EngineSettings.CurrentAction = ActionEnum.Slip;
+                }
+            }
+
             switch (EngineSettings.CurrentAction)
             {
                 //case ActionEnum.Unknown:
@@ -100,6 +113,9 @@ namespace Game.Engine.EngineBase
                     break;
                 case ActionEnum.Rest:
                     result = RestAsTurn(Attacker);
+                    break;
+                case ActionEnum.Slip:
+                    result = SlipAsTurn(Attacker);
                     break;
             }
 
@@ -124,6 +140,18 @@ namespace Game.Engine.EngineBase
         {
             Attacker.CurrentHealth += 2;
             Attacker.FiveMinuteBreaks++;
+            return true;
+        }
+
+        /// <summary>
+        /// Slip as your turn decreases the attacker's current health by two points. 
+        /// </summary>
+        /// <param name="Attacker"></param>
+        /// <returns></returns>
+        public virtual bool SlipAsTurn(PlayerInfoModel Attacker)
+        {
+            Attacker.CurrentHealth -= 2;
+            Attacker.SlippedNumTimes++;
             return true;
         }
 

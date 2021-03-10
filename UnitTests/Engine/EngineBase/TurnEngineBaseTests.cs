@@ -640,6 +640,101 @@ namespace UnitTests.Engine.EngineBase
         }
 
         [Test]
+        public void TurnEngine_TakeTurn_Slip_Should_Pass()
+        {
+            // Arrange
+
+            Engine.EngineSettings.CurrentAction = ActionEnum.Slip;
+
+            var character = new PlayerInfoModel(new CharacterModel());
+            var monster = new PlayerInfoModel(new CharacterModel());
+            character.CurrentHealth = 5;
+
+            Engine.EngineSettings.PlayerList.Add(character);
+            Engine.EngineSettings.PlayerList.Add(monster);
+
+            Engine.EngineSettings.MapModel.PopulateMapModel(Engine.EngineSettings.PlayerList);
+
+            // Act
+            var result = Engine.Round.Turn.TakeTurn(character);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(3, character.CurrentHealth);
+            Assert.AreEqual(1, character.SlippedNumTimes);
+        }
+
+        [Test]
+        public void TurnEngine_TakeTurn_SeattleWinter_Should_Slip_And_Pass()
+        {
+            // Arrange
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(50);
+
+
+            Engine.EngineSettings.CurrentAction = ActionEnum.Slip;
+
+            var character = new PlayerInfoModel(new CharacterModel());
+            var monster = new PlayerInfoModel(new CharacterModel());
+            character.CurrentHealth = 5;
+
+            Engine.EngineSettings.PlayerList.Add(character);
+            Engine.EngineSettings.PlayerList.Add(monster);
+            BattleEngineViewModel.Instance.Engine.EngineSettings.SeattleWinter = true;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.SeattleWinterLikelihood = 50;
+
+            Engine.EngineSettings.MapModel.PopulateMapModel(Engine.EngineSettings.PlayerList);
+
+            // Act
+            var result = Engine.Round.Turn.TakeTurn(character);
+
+            // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.SeattleWinter = false;
+            DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(3, character.CurrentHealth);
+            Assert.AreEqual(1, character.SlippedNumTimes);
+        }
+
+        [Test]
+        public void TurnEngine_TakeTurn_SeattleWinter_Should_Not_Slip_And_Pass()
+        {
+            // Arrange
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(70);
+
+
+            Engine.EngineSettings.CurrentAction = ActionEnum.Rest;
+
+            var character = new PlayerInfoModel(new CharacterModel());
+            var monster = new PlayerInfoModel(new CharacterModel());
+            character.CurrentHealth = 5;
+
+            Engine.EngineSettings.PlayerList.Add(character);
+            Engine.EngineSettings.PlayerList.Add(monster);
+            BattleEngineViewModel.Instance.Engine.EngineSettings.SeattleWinter = true;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.SeattleWinterLikelihood = 50;
+
+            Engine.EngineSettings.MapModel.PopulateMapModel(Engine.EngineSettings.PlayerList);
+
+            // Act
+            var result = Engine.Round.Turn.TakeTurn(character);
+
+            // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.SeattleWinter = false;
+            DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreEqual(true, result);
+            Assert.AreEqual(7, character.CurrentHealth);
+            Assert.AreEqual(0, character.SlippedNumTimes);
+        }
+
+        [Test]
         public void TurnEngine_TakeTurn_InValid_ActionEnum_Unknown_Should_Set_Action_To_Attack()
         {
             // Arrange

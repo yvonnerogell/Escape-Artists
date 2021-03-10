@@ -104,5 +104,11 @@ namespace Game.Engine.EngineModels
         // Variable used for debugging our hackathon scenerios
          public bool HackathonDebug { get; set; } = false;
 
+        // Variable used to determine if game is in Seattle Winter mode (aka very slippery)
+        public bool SeattleWinter { get; set; } = false;
+
+        // Variable used to determine likelihood of Seattle Winter occurring (if set to true)
+        public int SeattleWinterLikelihood { get; set; } = 0;
+
     }
 }

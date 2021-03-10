@@ -411,11 +411,18 @@ namespace Scenario
             * 
             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
             *      Create Seattle Winter setting in EngineSettingsModel
+            *      Create SeattleWinterLikelihood variable in EngineSettingsModel - this will be a floating number between 0 and 1. 
+            *      Add SlippedNumTimes variable to PlayerInfoModel so we can track how many times a character slipped 
+            *      Create new action enum in ActionEnum - ActionEnum.Slip
+            *      Add case for ActionEnum.Slip to TurnEngineBase.cs + method for SlipAsTurn that will cause some damage (because it hurts to slip and fall)
             *      
             * 
             * Test Algorithm:
             *      Create Character named Minnie
             *      Set Seattle Winter setting to true
+            *      Set Seattle WinterLikelihood to 1.0 so it's 100% sure we will slip and fall
+            *      Set speed to 100 so we go first. 
+            *      Set health to 100 so we can ensure to stay alive for a little while
             *  
             *      Startup Battle
             *      Run Auto Battle
@@ -424,7 +431,7 @@ namespace Scenario
             * 
             * Validation:
             *      Verify Battle Returned True
-            *      Verify dead character Minnie's FiveMinuteBreaks is greater than 0
+            *      Verify dead character Minnie's SlippedNumTimes is greater than 0
             *  
             */
 
@@ -460,7 +467,7 @@ namespace Scenario
             var result = await EngineViewModel.AutoBattleEngineGame.RunAutoBattle();
 
             //Reset
-            
+
             //Assert
 
 
