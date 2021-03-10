@@ -178,8 +178,8 @@ namespace Game.Engine.EngineGame
                     MonsterModel BigBoss = new MonsterModel
                     {
                         PlayerType = PlayerTypeEnum.Monster,
-                        MonsterTypeEnum = MonsterTypeEnum.Administrator,
-                        SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.GraduationOfficeAdministrator,
+                        MonsterTypeEnum = MonsterTypeEnum.Faculty,
+                        SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.Professor,
                         Name = "Mike Koenig",
                         Description = "You will never graduate!!!",
                         Attack = 10,
