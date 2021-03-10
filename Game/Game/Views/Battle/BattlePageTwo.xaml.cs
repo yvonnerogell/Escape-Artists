@@ -178,17 +178,17 @@ namespace Game.Views
 
             var data = CharacterIndexViewModel.Instance.GetCharacterByName(character.Name);
 
-            //      if (data == null)
-            //    {
+                  if (data == null)
+                {
             // Show the Default Name & Image
-            //      data = new CharacterModel { Name = "Unknown", ImageURI = "squid.jpg" };
+                  data = new CharacterModel { Name = "Unknown", ImageURI = "squid.jpg" };
 
             // Turn off click action
             //    ClickableButton = false;
-            //}
+            }
 
             // Hookup the Image Button to show the Character picture
-            var CharacterButton = new ImageButton
+            var CharacterButton = new Image
             {
                Style = (Style)Application.Current.Resources["ImageLargeStyle"],
               Source = data.ImageURI
