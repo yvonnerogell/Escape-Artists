@@ -931,6 +931,7 @@ namespace UnitTests.Views
         }
 */
 
+/*
         [Test]
         public void DrawItemList_Default_Should_Pass()
         {
@@ -942,6 +943,7 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
+*/
 
         [Test]
         public void DrawSelectedItems_Default_Should_Pass()

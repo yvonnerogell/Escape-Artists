@@ -37,13 +37,14 @@ namespace Game.Views
         public BattlePageTwo(bool UnitTest) { UnitTestSetting = UnitTest; }
 
         // selecting the character of that turn
-        public List<PlayerInfoModel> selectedCharacters = new List<PlayerInfoModel>();
+       // public List<PlayerInfoModel> selectedCharacters = new List<PlayerInfoModel>();
 
         // list of monsters found in the frame
         public List<PlayerInfoModel> monstersFoundList = new List<PlayerInfoModel>();
 
         // selecting the monster of that turn
-        public List<PlayerInfoModel> selectedMonsters = new List<PlayerInfoModel>();
+        //   public List<PlayerInfoModel> selectedMonsters = new List<PlayerInfoModel>();
+        public PlayerInfoModel currentDefender = new PlayerInfoModel(new MonsterModel());
 
         // selecting the item of that turn
         public List<ItemModel> selectedItems = new List<ItemModel>();
@@ -65,15 +66,15 @@ namespace Game.Views
             BattleEngineViewModel.Instance.SetBattleEngineToKoenig();
 
             PopupLoadingItemListFoundFrame.IsVisible = false;
-            //PopupCharacterListSelected.IsVisible = false;
-            //PopupMonsterListSelected.IsVisible = false;
+            MonsterFrame.IsVisible = false;          
+            PopupMonsterListSelected.IsVisible = false;
             PopupItemListSelected.IsVisible = false;
+            //PopupCharacterListSelected.IsVisible = false;
             //PopupLoadingViewMonster.IsVisible = false;
 
-            // Start with the CharacterList and MonsterList only
+            // Start with the CharacterList only
             DrawCharacterList();
-            DrawMonsterList();
-  
+           
             // Create and Draw the Map
             // InitializeMapGrid();
 
@@ -84,9 +85,13 @@ namespace Game.Views
             // DrawMapGridInitialState();
 
             // Ask the Game engine to select who goes first
-            //BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
-            //BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FirstOrDefault());
-            //BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.FirstOrDefault());
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
+            
+            // Setting Attacker and Defender if the Action is Attack
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction == ActionEnum.Attack)
+            {
+                BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FirstOrDefault());                
+            }
 
             //var currentAttacker = ;
             //var currentDefender = null;
@@ -298,8 +303,8 @@ namespace Game.Views
                 CharacterListFrame.Children.Remove(data);
             }
 
-                // Draw the Characters
-                foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
+            // Draw the Characters
+            foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
                 {
                     if (data.Level != 20)
                     {
@@ -334,6 +339,7 @@ namespace Game.Views
             }            
         }
 */
+/*
         /// <summary>
         /// Draw the List of Items
         /// 
@@ -350,6 +356,7 @@ namespace Game.Views
             // Only need to update the selected, the Dropped is set in the constructor
             //TotalSelected.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelSelectList.Count().ToString();
         }
+*/
 
         /// <summary>
         /// Add the Dropped Items to the Display
@@ -682,14 +689,14 @@ namespace Game.Views
             {
                 Style = (Style)Application.Current.Resources["ImageLargeStyle"],
                 Source = data.ImageURI,
-                //CommandParameter = monster.Name
+                CommandParameter = monster.Name
             };
 
-         //   if (ClickableButton)
-          //  {
+            if (ClickableButton)
+            {
                 // Add a event to the user can click the item and see more
-          //      MonsterButton.Clicked += (sender, args) => ShowPopupMonster(data);
-           // }
+                MonsterButton.Clicked += (sender, args) => ShowPopupMonster(data);
+            }
 
             // Put the Image Button and Text inside a layout
             var ItemStack = new StackLayout
@@ -710,6 +717,12 @@ namespace Game.Views
         /// </summary>
         public void DrawMonsterList()
         {
+            // Clear the Monsters
+            var FlexList = MonsterListFrame.Children.ToList();
+            foreach (var data in FlexList)
+            {
+                MonsterListFrame.Children.Remove(data);
+            }
 
             // Draw the Monsters
             foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList)
@@ -720,16 +733,41 @@ namespace Game.Views
                 }
 
             }
-            // Monsters are not clickable
-            MonsterListFrame.IsEnabled = false;
+
+            // Make Monsters visible
+            MonsterFrame.IsVisible = true;
         }
-        /*
-                /// <summary>
-                /// Show the Popup for the Item
-                /// </summary>
-                /// <param name="data"></param>
-                /// <returns></returns>
-                public bool ShowPopupMonster(MonsterModel data)
+
+        /// <summary>
+        /// Add Monsters to the Display
+        /// </summary>
+        public void DrawSelectedMonsters()
+        {
+            var FlexList = MonsterListSelectedFrame.Children.ToList();
+            foreach (var data in FlexList)
+            {
+                MonsterListSelectedFrame.Children.Remove(data);
+            }
+
+            // Draw the selected current Defender for display
+            if (currentDefender.Level != 20)
+                {
+                    // Set Monster it as defender
+                    MonsterListSelectedFrame.Children.Add(GetMonsterToDisplay(currentDefender));
+                    PopupMonsterListSelected.IsVisible = true;
+                    PopupMonsterListSelected.IsEnabled = false;
+                    MonsterFrame.IsVisible = false;
+                   
+                }
+        }
+
+
+        /// <summary>
+        /// Show the Popup for the Monster
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public bool ShowPopupMonster(MonsterModel data)
                 {
                     PopupLoadingViewMonster.IsVisible = true;
                     PopupMonsterImage.Source = data.ImageURI;
@@ -739,12 +777,9 @@ namespace Game.Views
                     // Set command parameter so that popup knows which item it is displaying
                     PopupSaveButtonMonster.CommandParameter = data.Name;
 
-
                     return true;
                 }
-        */
-
-        /*
+        
           /// <summary>
                 /// Close the popup
                 /// </summary>
@@ -763,7 +798,6 @@ namespace Game.Views
                 public void PopupSaveButtonMonster_Clicked(object sender, EventArgs e)
                 {
                     var monsterName = "";
-                    var player = new PlayerInfoModel();
                     //  if (sender != null)
                     // {              
                     monsterName = ((Button)sender).CommandParameter.ToString();
@@ -771,56 +805,30 @@ namespace Game.Views
                     {
                         if (data.Name.Equals(monsterName))
                         {
-                            player = data;
+                            currentDefender = data;
+                            BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(currentDefender);
                         }
 
                     }
                     //var monster = MonsterIndexViewModel.Instance.GetMonsterByName(monsterName);
                     //PlayerInfoModel player = new PlayerInfoModel(monster);
 
-                    var MonsterFoundIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.FindIndex(c => c.Name == player.Name);
+                    var MonsterFoundIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.FindIndex(c => c.Name == currentDefender.Name);
                     if (MonsterFoundIndex >= 0)
                     {
                         BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.RemoveAt(MonsterFoundIndex);
                     }
 
-                    // Add updated player back to view model
-                    selectedMonsters.Add(player);
+                
                  //   }
-                    DrawMonsterList();
+                    //DrawMonsterList();
                     DrawSelectedMonsters();
 
                     // visibility after the click
-                    //PopupLoadingViewMonster.IsVisible = false;
-                    //PopupMonsterListSelected.IsVisible = true;
+                    PopupLoadingViewMonster.IsVisible = false;
+                    PopupMonsterListSelected.IsVisible = true;
                 }
-               
-
-                /// <summary>
-                /// Add Monsters to the Display
-                /// </summary>
-                public void DrawSelectedMonsters()
-                {
-
-                    var FlexList = MonsterListSelectedFrame.Children.ToList();
-                    foreach (var data in FlexList)
-                    {
-                        MonsterListSelectedFrame.Children.Remove(data);
-                                    }
-
-
-                        // Draw the Monsters
-                        foreach (var data in selectedMonsters)
-                        {
-                            if (data.Level != 20)
-                            {
-                                MonsterListSelectedFrame.Children.Add(GetMonsterToDisplay(data));
-                                MonsterFrame.IsVisible = false; 
-                                break;
-                            }
-                        }
-                } 
-        */
+  
 
         public async void ContinueButton_Clicked(object sender, EventArgs e)
         {
@@ -843,6 +851,7 @@ namespace Game.Views
             BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = action;
 
             DrawItems();
+            DrawMonsterList();            
         }
 
 

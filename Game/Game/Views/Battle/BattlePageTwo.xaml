@@ -125,7 +125,7 @@
                     <!-- Monster Found-->
                     <Frame x:Name="MonsterFrame" BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
                         <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="250" WidthRequest="750">
-                            <Label Text="Monster" Style="{StaticResource MessageStyle}" Padding="10" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+                            <Label Text="Select one monster" Style="{StaticResource MessageStyle}" Padding="10" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
                             <FlexLayout x:Name="MonsterListFrame"
                                     JustifyContent="Center"
                                     AlignContent="Center"
@@ -134,6 +134,56 @@
                             <StackLayout Orientation="Horizontal"/>
                         </StackLayout>
                     </Frame>
+
+                    <!--The Monster Popup-->
+                    <StackLayout 
+                        x:Name="PopupLoadingViewMonster" 
+                        BackgroundColor="{StaticResource PageBackgroundColor}" 
+                        IsVisible="false" 
+                        AbsoluteLayout.LayoutBounds=".5, .5,.5,.5" 
+                        AbsoluteLayout.LayoutFlags="All">
+
+                        <StackLayout 
+                        VerticalOptions="CenterAndExpand" 
+                        HorizontalOptions="CenterAndExpand"
+                        WidthRequest="400"
+                        HeightRequest="400"
+                        >
+
+                            <Frame 
+                             BorderColor="{StaticResource TriciaryTextColor}" Padding="1">
+
+                                <StackLayout Style="{StaticResource VerticalStack}" HorizontalOptions="CenterAndExpand" Padding="2">
+                                    <Image x:Name="PopupMonsterImage" Style="{StaticResource ImageLargeStyle}" Margin="5"/>
+                                    <Label x:Name="PopupMonsterName" Style="{StaticResource PopupItemTextStyle}" MaxLines="2" LineBreakMode="WordWrap" Margin="5"/>
+
+                                    <Button x:Name="PopupSaveButtonMonster" 
+                                            Clicked="PopupSaveButtonMonster_Clicked" 
+                                            Text="Save"
+                                            Margin="10"/>
+
+                                    <Button x:Name="PopupCloseButtonMonster" 
+                                            Clicked="ClosePopupMonster_Clicked" 
+                                            Text="Close"
+                                            Margin="10"/>
+
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <Grid HorizontalOptions="Center">
+                        <Frame x:Name="PopupMonsterListSelected" BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10" HorizontalOptions="Center">
+                            <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" MinimumHeightRequest="250" WidthRequest="250">
+                                <Label Text="Monster Selected" Style="{StaticResource MessageStyle}" Padding="10" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+                                <FlexLayout x:Name="MonsterListSelectedFrame"
+                                    JustifyContent="Center"
+                                    AlignContent="Center"
+                                    Wrap="Wrap"/>
+                            </StackLayout>
+                        </Frame>
+                    </Grid>
+
 
                     <StackLayout Margin="10">
                         <Button Text="Continue!" Clicked="ContinueButton_Clicked" CornerRadius="15" FontAttributes="Bold"  
