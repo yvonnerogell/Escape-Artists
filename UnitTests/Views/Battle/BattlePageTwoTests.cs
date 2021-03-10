@@ -650,8 +650,20 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
+        [Test]
+        public void PopupCloseButtonAbility_Clicked_Default_Should_Pass()
+        {
+            // Arrange
 
 
+            // Act
+            page.ClosePopupAbility_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
 
 
         [Test]
@@ -685,14 +697,19 @@ namespace UnitTests.Views
         public void GetMonsterToDisplay_Clicked_Null_Should_Pass()
         {
             // Act
-            var monster = new PlayerInfoModel(new MonsterModel { Id = null });
-            var result = page.GetMonsterToDisplay(monster);
+            // Arrange
+            var player = new PlayerInfoModel(new MonsterModel { Id = null });
+            var button = page.Content.FindByName("MonsterButton");
+
+            // Act
+            page.GetCharacterToDisplay(player);
 
             // Reset
 
             // Assert
-            Assert.IsNotNull(result); // Got to here, so it happened...
+            Assert.IsNotNull(button); // Got to here, so it happened...
         }
+
 
         [Test]
         public void GetItemToDisplay_Clicked_Default_Should_Pass()
@@ -743,7 +760,7 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
  */  
-/*
+
         [Test]
         public void PopupCloseButtonMonster_Clicked_Default_Should_Pass()
         {
@@ -758,7 +775,6 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-*/
 
         [Test]
         public void DrawCharacterList_Default_Should_Pass()
@@ -861,6 +877,7 @@ namespace UnitTests.Views
         {
             // Arrange
             FlexLayout itemlistfoundframe = (FlexLayout)page.Content.FindByName("ItemListFoundFrame");
+            
             // add two elements to the list because when will be removed
             itemlistfoundframe.Children.Add(new FlexLayout());
             itemlistfoundframe.Children.Add(new FlexLayout());
@@ -872,6 +889,44 @@ namespace UnitTests.Views
 
             // Assert
             Assert.AreEqual(0, itemlistfoundframe.Children.Count);
+        }
+
+        [Test]
+        public void DrawItems_Add_Should_Pass()
+        {
+            // Arrange
+            
+            // Items are added to this FlexLayout
+            FlexLayout itemlistfoundframe = (FlexLayout)page.Content.FindByName("ItemListFoundFrame");
+            
+            // Populate ItemList and CharacterList
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
+           BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Add(new ItemModel {Location = ItemLocationEnum.Head});
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(new CharacterModel
+            {
+                Name = "Nancy",
+                Description = "I would have been a professor by now if it weren't for the stress of I-94 renewal",
+                CharacterTypeEnum = CharacterTypeEnum.Student,
+                SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.InternationalStudent,
+                Range = 2,
+                Level = 1,
+                GPA = 80,
+                MaxHealth = 100,
+                ImageURI = Constants.SpecificCharacterTypeInternationalStudentImageURI,
+                Head = null,
+                SpecialAbility = AbilityEnum.FlashGenius
+            }));
+            
+            // Act
+            page.DrawItems();
+
+            // Assert
+            Assert.AreEqual(1, itemlistfoundframe.Children.Count);
+
+            // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
         }
 
         [Test]
@@ -887,6 +942,50 @@ namespace UnitTests.Views
         }
 
         [Test]
+        public void DrawMonsterList_Remove_Should_Pass()
+        {
+            // Arrange
+            FlexLayout monsterlistframe = (FlexLayout)page.Content.FindByName("MonsterListFrame");
+            // add two elements to the list because when will be removed
+            monsterlistframe.Children.Add(new FlexLayout());
+            monsterlistframe.Children.Remove(new FlexLayout());
+
+            // Act
+            page.DrawMonsterList();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(0, monsterlistframe.Children.Count);
+        }
+
+        [Test]
+        public void DrawMonsterList_Add_Should_Pass()
+        {
+            // Arrange
+
+            // Items are added to this FlexLayout
+            FlexLayout monsterlistframe = (FlexLayout)page.Content.FindByName("MonsterListFrame");
+
+            // Populate ItemList and CharacterList
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Add(new PlayerInfoModel(new MonsterModel
+            {
+                Name = "Blah",
+                Level = 10
+            }));
+
+            // Act
+            page.DrawMonsterList();
+
+            // Assert
+            Assert.AreEqual(1, monsterlistframe.Children.Count);
+
+            // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
+        }
+
+        [Test]
         public void DrawSelectedMonsters_Default_Should_Pass()
         {
             // Act
@@ -899,12 +998,11 @@ namespace UnitTests.Views
 
         }
 
-/*
         [Test]
         public void DrawSelectedMonsters_AddRemove_Should_Pass()
         {
             // Arrange
-            page.selectedMonsters.Add(new PlayerInfoModel(new MonsterModel
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Add(new PlayerInfoModel(new MonsterModel
             {
                 Speed = -1,
                 Level = 20,
@@ -924,26 +1022,26 @@ namespace UnitTests.Views
             page.DrawSelectedMonsters();
 
             // Assert
-            Assert.AreEqual(0, monsterlistselectedframe.Children.Count);
+            Assert.AreEqual(1, monsterlistselectedframe.Children.Count);
 
             // Reset
-            page.selectedMonsters.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
         }
-*/
 
-/*
-        [Test]
-        public void DrawItemList_Default_Should_Pass()
-        {
-            // Act
-            page.DrawItemLists();
 
-            // Reset
+        /*
+                [Test]
+                public void DrawItemList_Default_Should_Pass()
+                {
+                    // Act
+                    page.DrawItemLists();
 
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-*/
+                    // Reset
+
+                    // Assert
+                    Assert.IsTrue(true); // Got to here, so it happened...
+                }
+        */
 
         [Test]
         public void DrawSelectedItems_Default_Should_Pass()
@@ -980,17 +1078,48 @@ namespace UnitTests.Views
         {
             // Arrange
             var picker = (Picker)page.FindByName("ActionSelectedPicker");
-            var item = picker.SelectedItem;
-            var index = picker.SelectedIndex;
-
-            var args = new SelectedItemChangedEventArgs(item, index);
+            System.EventArgs e = new System.EventArgs();
 
             // Act
-           page.OnPickerSelectedActionChanged(picker, args);
+           page.OnPickerSelectedActionChanged(picker, e);
 
             // Assert
             // -1 is the default
             Assert.AreEqual(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction, ActionEnum.Unknown);
+        }
+
+        [Test]
+        public void BattlePageTwo_OnPickerSelectedActionChanged_Ability_Should_Pass()
+        {
+            // Arrange
+            var picker = (Picker)page.FindByName("ActionSelectedPicker");
+            picker.SelectedIndex = 1;
+            System.EventArgs e = new System.EventArgs();
+
+            
+            // Act
+            page.OnPickerSelectedActionChanged(picker, e);
+
+            // Assert
+            // 1 is for Ability
+            Assert.AreEqual(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction, ActionEnum.Ability);
+        }
+
+        [Test]
+        public void BattlePageTwo_OnPickerSelectedActionChanged_Attack_Should_Pass()
+        {
+            // Arrange
+            var picker = (Picker)page.FindByName("ActionSelectedPicker");
+            picker.SelectedIndex = 2;
+            System.EventArgs e = new System.EventArgs();
+
+
+            // Act
+            page.OnPickerSelectedActionChanged(picker, e);
+
+            // Assert
+            // 2 is for Attack
+            Assert.AreEqual(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction, ActionEnum.Attack);
         }
 
         [Test]
@@ -1023,7 +1152,6 @@ namespace UnitTests.Views
             BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
             BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(null);
             BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
-
         }
 
         [Test]

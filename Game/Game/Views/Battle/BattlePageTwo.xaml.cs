@@ -239,7 +239,7 @@ namespace Game.Views
         }
 
         /// <summary>
-        /// Close the popup
+        /// Cflose the popup
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -368,7 +368,6 @@ namespace Game.Views
             foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Distinct())
             {
                 // if the selected character can use this item, add the item 
-                //if (GetCharacterWhoCanAcceptItem(selectedCharacters, data).Count() == 1)
                 if (GetCharacterWhoCanAcceptItem(BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList, data).Count() == 1)
                 {
                     ItemListFoundFrame.Children.Add(GetItemToDisplay(data));
