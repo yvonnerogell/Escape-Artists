@@ -169,7 +169,7 @@ namespace Game.Engine.EngineGame
             {
                 var d2 = DiceHelper.RollDice(1, 10);
                 // 50/50 chance of it occuring with boss battle
-                if (d2 % 2 == 2)
+                if (d2 % 2 == 0)
                 {
                     // clear the monster list
                     EngineSettings.MonsterList.Clear();
