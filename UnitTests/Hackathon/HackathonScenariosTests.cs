@@ -180,7 +180,6 @@ namespace Scenario
             * Test Algorithm:
             *      Create Character named Minnie
             *      Set speed to 100 so she goes first
-            *      Set CurrentAction to ActionEnum.Rest
             *      Set Current Health to 100 to ensure she survives long enough to take a couple of turns
             *      Set character.WantsToRest to true
             *      Set hackathon debug to true
@@ -230,9 +229,6 @@ namespace Scenario
             // Minnie always misses when she attacks
             EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.CharacterHitEnum = HitStatusEnum.Miss;
 
-            DiceHelper.DisableForcedRolls();
-            DiceHelper.SetForcedRollValue(2);
-
             //Act
             var result = await EngineViewModel.AutoBattleEngineGame.RunAutoBattle();
 
@@ -240,7 +236,6 @@ namespace Scenario
             EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.MonsterHitEnum = HitStatusEnum.Default;
             EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.CharacterHitEnum = HitStatusEnum.Default;
             EngineViewModel.EngineGame.EngineSettings.HackathonDebug = false;
-            DiceHelper.DisableForcedRolls();
 
             //Assert
             Assert.IsTrue(result);
