@@ -313,6 +313,31 @@ namespace Game.Models
             return Result;
         }
 
+        /// Walk the Map and Find the Location that is close to the target based on attacker's speed.
+        /// </summary>
+        /// <param name="Target"></param>
+        /// <returns></returns>
+        public MapModelLocation ReturnClosestEmptyLocationBasedOnSpeed(MapModelLocation Attacker, MapModelLocation Target)
+        {
+            MapModelLocation Result = null;
+
+            int LowestDistance = int.MaxValue;
+            int MaxTravelForAttacker = Attacker.Player.Speed;
+
+            foreach (var data in GetEmptyLocations())
+            {
+                var distanceToTarget = CalculateDistance(data, Target);
+                var distanceFromAttacker = CalculateDistance(data, Attacker);
+                if (distanceToTarget < LowestDistance && distanceFromAttacker <= MaxTravelForAttacker)
+                {
+                    Result = data;
+                    LowestDistance = distanceToTarget;
+                }
+            }
+
+            return Result;
+        }
+
         /// <summary>
         /// See if the Attacker is next to the Defender by the distance of Range
         /// 
