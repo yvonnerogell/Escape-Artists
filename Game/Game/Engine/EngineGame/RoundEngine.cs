@@ -5,6 +5,7 @@ using Game.Engine.EngineBase;
 using Game.Engine.EngineInterfaces;
 using Game.Engine.EngineModels;
 using Game.GameRules;
+using Game.Helpers;
 using Game.Models;
 
 namespace Game.Engine.EngineGame
@@ -161,6 +162,33 @@ namespace Game.Engine.EngineGame
                 EngineSettings.MonsterList.Add(new PlayerInfoModel(BigBoss));
                 // Add MaxNumberPartyMonster back.
                 MaxParty++;
+            }
+
+
+            if (EngineSettingsModel.Instance.HackathonDebug == true)
+            {
+                var d2 = DiceHelper.RollDice(1, 10);
+                // 50/50 chance of it occuring with boss battle
+                if (d2 % 2 == 2)
+                {
+                    // clear the monster list
+                    EngineSettings.MonsterList.Clear();
+
+                    // add in the new badass monster
+                    MonsterModel BigBoss = new MonsterModel
+                    {
+                        PlayerType = PlayerTypeEnum.Monster,
+                        MonsterTypeEnum = MonsterTypeEnum.Administrator,
+                        SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.GraduationOfficeAdministrator,
+                        Name = "Mike Koenig",
+                        Description = "You will never graduate!!!",
+                        Attack = 10,
+                        Range = 5,
+                        Level = 20,
+                        Difficulty = DifficultyEnum.Difficult,
+                        ImageURI = Constants.SpecificMonsterTypeGraduationOfficeAdministratorImageURI
+                    };
+                }
             }
 
             return EngineSettings.MonsterList.Count();
