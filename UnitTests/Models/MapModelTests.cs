@@ -892,7 +892,7 @@ namespace UnitTests.Models
         }
 
         [Test]
-        public void MapModel_ReturnClosestEmptyLocationBasedOnSpeed_InValid_Should_Return_Null()
+        public void MapModel_ReturnClosestEmptyLocationBasedOnSpeed_0_Valid_Target_Should_Pass()
         {
             // Arrange
             var map = new MapModel();
@@ -919,7 +919,8 @@ namespace UnitTests.Models
             // Reset
 
             // Assert 
-            Assert.AreEqual(null, result);
+            Assert.AreEqual(0, result.Column);
+            Assert.AreEqual(0, result.Row);
         }
 
         [Test]
