@@ -108,7 +108,7 @@ namespace Game.Engine.EngineModels
         public bool SeattleWinter { get; set; } = false;
 
         // Variable used to determine likelihood of Seattle Winter occurring (if set to true)
-        public double SeattleWinterLikelihood { get; set; } = 0.0;
+        public int SeattleWinterLikelihood { get; set; } = 0;
 
     }
 }

@@ -55,7 +55,7 @@ namespace UnitTests.Engine.EngineModels
             result.RoundStateEnum = RoundEnum.Unknown;
             result.BattleStateEnum = BattleStateEnum.Unknown;
             result.SeattleWinter = true;
-            result.SeattleWinterLikelihood = 0.5;
+            result.SeattleWinterLikelihood = 100;
 
             // Reset
 
@@ -84,7 +84,7 @@ namespace UnitTests.Engine.EngineModels
             Assert.AreEqual(RoundEnum.Unknown, result.RoundStateEnum);
             Assert.AreEqual(BattleStateEnum.Unknown, result.BattleStateEnum);
             Assert.AreEqual(true, result.SeattleWinter);
-            Assert.AreEqual(0.5, result.SeattleWinterLikelihood);
+            Assert.AreEqual(100, result.SeattleWinterLikelihood);
 
         }
     }
