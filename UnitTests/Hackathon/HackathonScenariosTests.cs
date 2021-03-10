@@ -17,7 +17,7 @@ namespace Scenario
         public void Setup()
         {
             // Choose which engine to run
-            EngineViewModel.SetBattleEngineToKoenig();
+            //EngineViewModel.SetBattleEngineToKoenig();
 
             // Put seed data into the system for all tests
             EngineViewModel.Engine.Round.ClearLists();
