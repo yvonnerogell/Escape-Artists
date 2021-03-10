@@ -324,5 +324,77 @@ namespace Scenario
         #endregion Scenario34
 
 
+        #region Scenario38
+        [Test]
+        public async Task HackathonScenario_Scenario_38_Valid_Default_Should_Pass()
+        {
+
+            /* 
+            * Scenario Number:  
+            *     38
+            *      
+            * Description: 
+            *     Black Ice in Seattle 
+            *     Just like a cold January, black ice forms on the map and everyone takes a chance of 
+            *     slipping and falling instead of carrying out their action.  Use the settings to enable 
+            *     Seattle Winter, and set the percentage change of slipping while going out to get a latte.
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      Create Seattle Winter setting in EngineSettingsModel
+            *      
+            * 
+            * Test Algorithm:
+            *      Create Character named Minnie
+            *      Set Seattle Winter setting to true
+            *  
+            *      Startup Battle
+            *      Run Auto Battle
+            * 
+            * Test Conditions:
+            * 
+            * Validation:
+            *      Verify Battle Returned True
+            *      Verify dead character Minnie's FiveMinuteBreaks is greater than 0
+            *  
+            */
+
+            //Arrange
+
+            // Set Character Conditions
+
+            EngineViewModel.EngineGame.EngineSettings.MaxNumberPartyCharacters = 1;
+
+            var character = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Speed = 100,
+                                Level = 1,
+                                CurrentHealth = 100,
+                                ExperienceTotal = 1,
+                                ExperienceRemaining = 1,
+                                Name = "Minnie",
+                            });
+            character.WantsToRest = true;
+
+            EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
+            EngineViewModel.EngineGame.EngineSettings.CharacterList.Add(character);
+
+            // Set Monster Conditions
+
+            // Auto Battle will add the monsters
+
+            // Monsters always hit
+
+
+            //Act
+            var result = await EngineViewModel.AutoBattleEngineGame.RunAutoBattle();
+
+            //Reset
+            
+            //Assert
+
+
+        }
+        #endregion Scenario38
     }
 }
