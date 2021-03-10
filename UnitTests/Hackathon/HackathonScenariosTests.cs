@@ -31,6 +31,7 @@ namespace Scenario
 
             EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.AllowCriticalHit = false;
             EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.AllowCriticalMiss = false;
+            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = false;
         }
 
         [TearDown]
@@ -321,5 +322,7 @@ namespace Scenario
             
         }
         #endregion Scenario34
+
+
     }
 }
