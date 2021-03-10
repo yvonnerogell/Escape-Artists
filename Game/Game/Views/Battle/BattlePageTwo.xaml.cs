@@ -70,6 +70,7 @@ namespace Game.Views
             PopupMonsterListSelected.IsVisible = false;
             PopupItemListSelected.IsVisible = false;
             PopupAbilityApplied.IsVisible = false;
+            ActionSelectedPicker.IsEnabled = true;
             //PopupCharacterListSelected.IsVisible = false;
             //PopupLoadingViewMonster.IsVisible = false;
 
@@ -675,7 +676,7 @@ namespace Game.Views
                 data = new MonsterModel { Name = "Unknown", ImageURI = "icon_cancel.png" };
 
                 // Turn off click action
-                ClickableButton = false;
+                //ClickableButton = false;
             }
 
             // Hookup the Image Button to show the Item picture

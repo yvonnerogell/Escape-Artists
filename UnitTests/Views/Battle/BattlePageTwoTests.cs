@@ -696,18 +696,18 @@ namespace UnitTests.Views
         [Test]
         public void GetMonsterToDisplay_Clicked_Null_Should_Pass()
         {
-            // Act
+            
             // Arrange
-            var player = new PlayerInfoModel(new MonsterModel { Id = null });
+            var player = new PlayerInfoModel(new MonsterModel());
             var button = page.Content.FindByName("MonsterButton");
 
             // Act
-            page.GetCharacterToDisplay(player);
+            page.GetMonsterToDisplay(player);
 
             // Reset
 
             // Assert
-            Assert.IsNotNull(button); // Got to here, so it happened...
+            Assert.IsNull(button); // Got to here, so it happened...
         }
 
 
