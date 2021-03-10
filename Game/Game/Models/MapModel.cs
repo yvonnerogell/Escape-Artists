@@ -323,6 +323,10 @@ namespace Game.Models
 
             int LowestDistance = int.MaxValue;
             int MaxTravelForAttacker = Attacker.Player.Speed;
+            if (Attacker.Player.Speed < 0)
+            {
+                MaxTravelForAttacker = 0;
+            }
 
             foreach (var data in GetEmptyLocations())
             {
