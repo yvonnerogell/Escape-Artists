@@ -46,9 +46,6 @@ namespace Game.Views
         {
             InitializeComponent();
 
-            //call method to create the stub data.
-            SetUpStubData();
-
             BindingContext = ViewModel;
 
             // Clear the Database List and the Party List to start
@@ -282,6 +279,12 @@ namespace Game.Views
         public async void BattleButton_Clicked(object sender, EventArgs e)
         {
             CreateEngineCharacterList();
+
+            // Set initial State to Starting
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Starting;
+
+            // Start the battle
+            BattleEngineViewModel.Instance.Engine.StartBattle(false);
 
             await Navigation.PushModalAsync(new NavigationPage(new NewRoundPage()));
             await Navigation.PopAsync();
