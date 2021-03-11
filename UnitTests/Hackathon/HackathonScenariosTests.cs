@@ -171,7 +171,7 @@ namespace Scenario
             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
             *      Changed AddMonstersToRound:
             *           * make sure EngineSettingsModel.Instance.HackathonDebug == true
-            *           * if dice roll is even then clearn monster list and add 1 boss:
+            *           * if dice roll is higher than likelihood % then clear monster list and add 1 big boss:
             *           MonsterModel BigBoss = new MonsterModel
                         {
                             PlayerType = PlayerTypeEnum.Monster,
@@ -188,7 +188,7 @@ namespace Scenario
             * 
             * Test Algrorithm:
             *      turn EngineSettingsModel.Instance.HackathonDebug to be true
-            *      force dice roll to be even (in our case keep it 2)
+            *      force dice roll to be higher than likelihood (in our case keep likelihood 0)
             *      force the game to only have 1 round and 1 turn so we can see what is added in the monster list
             *  
             *      Startup Battle
