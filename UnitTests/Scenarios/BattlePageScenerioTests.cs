@@ -26,7 +26,8 @@ namespace Scenario
             Application.Current = app;
 
             // Choose which engine to run
-            BattleEngineViewModel.Instance.SetBattleEngineToKoenig();
+            //BattleEngineViewModel.Instance.SetBattleEngineToKoenig();
+            BattleEngineViewModel.Instance.SetBattleEngineToGame();
 
             page = new BattlePageOne();
         }
