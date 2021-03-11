@@ -35,6 +35,7 @@ namespace Game.Models
 
         // Scenario 29
         public int Durability { get; set; } = 1;
+        public bool CanBeBroken { get; set } = false;
 
         // The Value item modifies.  So a ring of Health +3, has a Value of 3
         public int Value { get; set; } = 0;
@@ -64,6 +65,7 @@ namespace Game.Models
 
             // Scenario 29
             Durability = 1;
+            CanBeBroken = false;
         }
 
         /// <summary>
@@ -101,7 +103,9 @@ namespace Game.Models
 
             Guid = newData.Guid;
 
+            // Scenario 29
             Durability = newData.Durability;
+            CanBeBroken = newData.CanBeBroken;
 
             return true;
         }
