@@ -186,7 +186,7 @@ namespace Game.Engine.EngineGame
                         Range = 5,
                         Level = 20,
                         Difficulty = DifficultyEnum.Difficult,
-                        ImageURI = Constants.SpecificMonsterTypeGraduationOfficeAdministratorImageURI
+                        ImageURI = Constants.SpecificMonsterTypeProfessorImageURI,
                     };
 
                     EngineSettings.MonsterList.Add(new PlayerInfoModel(BigBoss));
