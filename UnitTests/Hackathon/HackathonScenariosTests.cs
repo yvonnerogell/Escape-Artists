@@ -931,9 +931,10 @@ namespace Scenario
             * 
             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
             *      
-            *      PlayerInfoModel.cs - Added a ItemDurability switch
+            *      ItemModel.cs - Added a ItemDurability switch
             *      ItemModel.cs - Added Durability to the item
-            *      ItemIndexViewModel.Instance.GetItem() - Each GetItem should lower durability
+            *      BasePlayerModel.cs - implemented reduction in durability each time GetItemBonus() is invoked
+            *      
             *      
             * Test Algorithm:
             *      Create Character with a droppable item in LeftFinger

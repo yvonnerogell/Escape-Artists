@@ -34,8 +34,8 @@ namespace Game.Models
         public ItemLocationEnum Location { get; set; } = ItemLocationEnum.Unknown;
 
         // Scenario 29
-        public int Durability { get; set; } = 1;
-        public bool CanBeBroken { get; set } = false;
+        public double Durability { get; set; } = 1.0;
+        public bool CanBeBroken { get; set; } = false;
 
         // The Value item modifies.  So a ring of Health +3, has a Value of 3
         public int Value { get; set; } = 0;
@@ -64,7 +64,7 @@ namespace Game.Models
             Description = ItemTypeEnumHelper.getDescriptionBasedOnType(ItemType);
 
             // Scenario 29
-            Durability = 1;
+            Durability = 1.0;
             CanBeBroken = false;
         }
 

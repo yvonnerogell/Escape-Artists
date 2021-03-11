@@ -1021,6 +1021,11 @@ namespace Game.Models
                 }
             }
 
+            // Scenario 29
+            if (myItem.CanBeBroken == true) {
+                myItem.Durability -= 0.2;
+            }
+
             return myReturn;
         }
 
