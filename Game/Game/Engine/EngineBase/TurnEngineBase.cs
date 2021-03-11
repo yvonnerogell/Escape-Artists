@@ -397,11 +397,16 @@ namespace Game.Engine.EngineBase
         /// <returns></returns>
         public virtual bool Attack(PlayerInfoModel Attacker)
         {
+            // Implement Scenario 25
+            LoseDamagedItem(Attacker);
+
             // INFO: Teams, AttackChoice will auto pick the target, good for auto battle
             if (EngineSettings.BattleScore.AutoBattle)
             {
                 // For Attack, Choose Who
                 EngineSettings.CurrentDefender = AttackChoice(Attacker);
+
+
 
                 if (EngineSettings.CurrentDefender == null)
                 {
@@ -411,6 +416,7 @@ namespace Game.Engine.EngineBase
 
             // Do Attack
             TurnAsAttack(Attacker, EngineSettings.CurrentDefender);
+           
 
             return true;
         }
@@ -532,6 +538,7 @@ namespace Game.Engine.EngineBase
                 case HitStatusEnum.CriticalHit:
                 case HitStatusEnum.Hit:
                     // It's a Hit
+                    
 
                     //Calculate Damage
                     EngineSettings.BattleMessagesModel.DamageAmount = Attacker.GetDamageRollValue();
@@ -544,9 +551,6 @@ namespace Game.Engine.EngineBase
 
                     // Apply the Damage
                     ApplyDamage(Target);
-
-                    // Implement Scenario 25
-                    LoseDamagedItem(Target);
 
                     EngineSettings.BattleMessagesModel.TurnMessageSpecial = EngineSettings.BattleMessagesModel.GetCurrentHealthMessage();
 
