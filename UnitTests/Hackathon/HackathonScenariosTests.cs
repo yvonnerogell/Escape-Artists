@@ -314,7 +314,6 @@ namespace Scenario
 
         #endregion Scenario14
 
-
         #region Scenario25
 
         [Test]
@@ -916,7 +915,97 @@ namespace Scenario
             EngineViewModel.EngineGame.EngineSettings.HackathonDebug = false;
             EngineViewModel.EngineGame.EngineSettings.BattleMessagesModel.HitStatus = HitStatusEnum.Unknown;
         }
+
         #endregion Scenario25
+
+        #region Scenario29
+        [Test]
+        public async Task HackathonScenario_Scenario_29_Valid_Should_Pass()
+        {
+            /* 
+            * Scenario Number:  
+            *      29
+            *      
+            * Description: 
+            * Make an item less durable at each use until it's 0, then drop the item
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      
+            *      PlayerInfoModel.cs - Added a ItemDurability switch
+            *      ItemModel.cs - Added Durability to the item
+            *      ItemIndexViewModel.Instance.GetItem() - Each GetItem should lower durability
+            *      
+            * Test Algorithm:
+            *      Create Character with a droppable item in LeftFinger
+            *      Create a Monster Hit
+            *      Set CurrentAction to ActionEnum.Attack
+            *      Set hackathon debug to true
+            *  
+            *      Startup Battle
+            *      Run Auto Battle
+            * 
+            * Test Conditions:
+            *      
+            * 
+            * Validation:
+            *      Verify Battle Returned True
+            *      Verify that DroppedItemList has a new addition
+            *  
+            */
+
+            //Arrange
+
+            // This works in Attack mode
+            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = true;
+
+            EngineViewModel.EngineGame.EngineSettings.CurrentAction = ActionEnum.Attack;
+
+            // Set Character Conditions
+            EngineViewModel.EngineGame.EngineSettings.MaxNumberPartyCharacters = 1;
+            var character = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Speed = 5,
+                                Level = 5,
+                                LeftFinger = "Calculator1",
+                                CurrentHealth = 50,
+                                ExperienceTotal = 10,
+                                ExperienceRemaining = 10,
+                                Name = "WeakDefender"
+                            });
+            character.LoseDamagedItem = true;
+            EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
+            EngineViewModel.EngineGame.EngineSettings.CharacterList.Add(character);
+            // Setting a monster as attacker, and our character as defender
+            EngineViewModel.EngineGame.EngineSettings.CurrentAttacker = EngineViewModel.EngineGame.EngineSettings.MonsterList[0];
+            //EngineViewModel.EngineGame.EngineSettings.CurrentDefender = character;
+
+            // Monster hits, and to make things simpler, the character misses
+            EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.MonsterHitEnum = HitStatusEnum.Hit;
+            EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.CharacterHitEnum = HitStatusEnum.Miss;
+            EngineViewModel.EngineGame.EngineSettings.BattleMessagesModel.HitStatus = HitStatusEnum.Hit;
+
+            // Start with empty Dropped Item List
+            //EngineViewModel.EngineGame.EngineSettings.BattleScore.ItemModelDropList.Clear();
+
+            //Act
+            var result = await EngineViewModel.AutoBattleEngineGame.RunAutoBattle();
+
+            //Assert
+            Assert.IsTrue(result);
+            Assert.IsNull(EngineViewModel.EngineGame.EngineSettings.CurrentDefender.LeftFinger);
+
+            // Reset
+            EngineViewModel.EngineGame.EngineSettings.CurrentAttacker = null;
+            EngineViewModel.EngineGame.EngineSettings.CurrentDefender = null;
+            EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.MonsterHitEnum = HitStatusEnum.Default;
+            EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.CharacterHitEnum = HitStatusEnum.Default;
+            EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
+            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = false;
+            EngineViewModel.EngineGame.EngineSettings.BattleMessagesModel.HitStatus = HitStatusEnum.Unknown;
+        }
+        #endregion Scenario29
+
 
         #region Scenario34
         [Test]

@@ -33,6 +33,9 @@ namespace Game.Models
         // Where the Item goes on the character.  Head, Foot etc.
         public ItemLocationEnum Location { get; set; } = ItemLocationEnum.Unknown;
 
+        // Scenario 29
+        public int Durability { get; set; } = 1;
+
         // The Value item modifies.  So a ring of Health +3, has a Value of 3
         public int Value { get; set; } = 0;
 
@@ -58,6 +61,9 @@ namespace Game.Models
             Damage = ItemTypeEnumHelper.GetDamageFromItemType(ItemType);
             Name = ItemTypeEnumHelper.getRandomeNameBasedOnType(ItemType);
             Description = ItemTypeEnumHelper.getDescriptionBasedOnType(ItemType);
+
+            // Scenario 29
+            Durability = 1;
         }
 
         /// <summary>
@@ -94,6 +100,8 @@ namespace Game.Models
             Damage = newData.Damage;
 
             Guid = newData.Guid;
+
+            Durability = newData.Durability;
 
             return true;
         }
