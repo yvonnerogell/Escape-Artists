@@ -175,15 +175,15 @@ namespace Scenario
             *           MonsterModel BigBoss = new MonsterModel
                         {
                             PlayerType = PlayerTypeEnum.Monster,
-                            MonsterTypeEnum = MonsterTypeEnum.Administrator,
-                            SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.GraduationOfficeAdministrator,
+                            MonsterTypeEnum = MonsterTypeEnum.Faculty,
+                            SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.Professor,
                             Name = "Mike Koenig",
                             Description = "You will never graduate!!!",
                             Attack = 10,
                             Range = 5,
                             Level = 20,
                             Difficulty = DifficultyEnum.Difficult,
-                            ImageURI = Constants.SpecificMonsterTypeGraduationOfficeAdministratorImageURI
+                            ImageURI = Constants.SpecificMonsterTypeProfessorImageURI,
                         };
             * 
             * Test Algrorithm:
