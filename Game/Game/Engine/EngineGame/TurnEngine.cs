@@ -570,7 +570,13 @@ namespace Game.Engine.EngineGame
             // Set Attack and Defense
             var AttackScore = Attacker.Level + Attacker.GetAttack();
             var DefenseScore = Target.GetDefense() + Target.Level;
-           
+
+            //For hackathon, making character Bob always miss... poor bob
+            if (Attacker.Name == "Bob" || Attacker.Name == "bob")
+            {
+                return HitStatusEnum.Miss;
+            }
+
             // Modifying for 
             if (Attacker.PlayerType == PlayerTypeEnum.Character && Attacker.CharacterTypeEnum == CharacterTypeEnum.Student)
             {
