@@ -237,6 +237,99 @@ namespace Scenario
 
         #endregion Scenario14
 
+
+        #region Scenario25
+        [Test]
+        public async Task HackathonScenario_Scenario_25_Valid_Default_Should_Pass()
+        {
+            /* 
+            * Scenario Number:  
+            *      25
+            *      
+            * Description: 
+            * Drop an Item if the Target took a hit (probabilistic)
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      TurnEngineBase.cs – Added LoseDamagedItem() method into AddDamage() in TurnBaseEngine.cs 
+            *      TurnEngineBase.cs – Added LoseDamagedItem_Probability as a hardcoded public int
+            *      PlayerInfoModel.cs - Added a LoseDamagedItem switch
+            *      
+            * Test Algorithm:
+            *      Create Character with a droppable item in RightFinger
+            *      Create a Monster Hit
+            *      Set CurrentAction to ActionEnum.Attack
+            *      Set hackathon debug to true
+            *  
+            *      Startup Battle
+            *      Run Auto Battle
+            * 
+            * Test Conditions:
+            *      
+            * 
+            * Validation:
+            *      Verify Battle Returned True
+            *      Verify that DroppedItemList has a new addition
+            *  
+            */
+
+            //Arrange
+
+            // This works in Attack mode
+            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = true;
+            EngineViewModel.EngineGame.EngineSettings.CurrentAction = ActionEnum.Attack;
+
+            // Set Character Conditions
+            EngineViewModel.EngineGame.EngineSettings.MaxNumberPartyCharacters = 1;
+            var character = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Speed = 0,
+                                Level = 1,
+                                RightFinger = "IndexCards1",
+                                CurrentHealth = 2,
+                                ExperienceTotal = 1,
+                                ExperienceRemaining = 1,
+                                Name = "WeakDefender"
+                            });
+            character.LoseDamagedItem = true;
+
+            EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
+            EngineViewModel.EngineGame.EngineSettings.CharacterList.Add(character);
+            // Setting a monster as attacker, and our character as defender
+            EngineViewModel.EngineGame.EngineSettings.CurrentAttacker = EngineViewModel.EngineGame.EngineSettings.MonsterList[0];
+            EngineViewModel.EngineGame.EngineSettings.CurrentDefender = character;
+
+
+            // Monster hits, and to make things simpler, the character misses
+            EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.MonsterHitEnum = HitStatusEnum.Hit;
+            //EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.CharacterHitEnum = HitStatusEnum.Miss;
+            EngineViewModel.EngineGame.EngineSettings.BattleMessagesModel.HitStatus = HitStatusEnum.Hit;
+
+            // Start with empty Dropped Item List
+            //EngineViewModel.EngineGame.EngineSettings.BattleScore.ItemModelDropList.Clear();
+
+            //Act
+            var result = await EngineViewModel.AutoBattleEngineGame.RunAutoBattle();
+
+            //Assert
+            Assert.IsTrue(result);
+            // Dropped Item List adds the item
+            Assert.IsNull(EngineViewModel.EngineGame.EngineSettings.CurrentDefender.RightFinger);
+            //Assert.IsTrue(EngineViewModel.EngineGame.EngineSettings.BattleScore.ItemModelDropList.Count > 0);
+
+            // Reset
+            EngineViewModel.EngineGame.EngineSettings.CurrentAttacker = null;
+            EngineViewModel.EngineGame.EngineSettings.CurrentDefender = null;
+            EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.MonsterHitEnum = HitStatusEnum.Default;
+            EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.CharacterHitEnum = HitStatusEnum.Default;
+            EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
+            //EngineViewModel.EngineGame.EngineSettings.BattleScore.ItemModelDropList.Clear();
+            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = false;
+            EngineViewModel.EngineGame.EngineSettings.BattleMessagesModel.HitStatus = HitStatusEnum.Unknown;
+
+        }
+        #endregion Scenario25
+
         #region Scenario34
         [Test]
         public async Task HackathonScenario_Scenario_34_Valid_WantsToRest_True_Should_Pass()
@@ -665,98 +758,5 @@ namespace Scenario
             Assert.IsTrue(EngineViewModel.EngineGame.EngineSettings.BattleScore.CharacterModelDeathList[0].SlippedNumTimes == 0);
         }
         #endregion Scenario38
-
-
-        #region Scenario25
-        [Test]
-        public async Task HackathonScenario_Scenario_25_Valid_Default_Should_Pass()
-        { 
-            /* 
-            * Scenario Number:  
-            *      25
-            *      
-            * Description: 
-            * Drop an Item if the Target took a hit (probabilistic)
-            * 
-            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
-            *      TurnEngineBase.cs – Added LoseDamagedItem() method into AddDamage() in TurnBaseEngine.cs 
-            *      TurnEngineBase.cs – Added LoseDamagedItem_Probability as a hardcoded public int
-            *      PlayerInfoModel.cs - Added a LoseDamagedItem switch
-            *      
-            * Test Algorithm:
-            *      Create Character with a droppable item in RightFinger
-            *      Create a Monster Hit
-            *      Set CurrentAction to ActionEnum.Attack
-            *      Set hackathon debug to true
-            *  
-            *      Startup Battle
-            *      Run Auto Battle
-            * 
-            * Test Conditions:
-            *      
-            * 
-            * Validation:
-            *      Verify Battle Returned True
-            *      Verify that DroppedItemList has a new addition
-            *  
-            */
-
-            //Arrange
-
-            // This works in Attack mode
-            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = true;
-            EngineViewModel.EngineGame.EngineSettings.CurrentAction = ActionEnum.Attack;
-
-            // Set Character Conditions
-            EngineViewModel.EngineGame.EngineSettings.MaxNumberPartyCharacters = 1;
-            var character = new PlayerInfoModel(
-                            new CharacterModel
-                            {
-                                Speed = 0,
-                                Level = 1,
-                                RightFinger = "IndexCards1",
-                                CurrentHealth = 2,
-                                ExperienceTotal = 1,
-                                ExperienceRemaining = 1,
-                                Name = "WeakDefender"
-                            });
-            character.LoseDamagedItem = true;
-
-            EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
-            EngineViewModel.EngineGame.EngineSettings.CharacterList.Add(character);
-            // Setting a monster as attacker, and our character as defender
-            EngineViewModel.EngineGame.EngineSettings.CurrentAttacker = EngineViewModel.EngineGame.EngineSettings.MonsterList[0];
-            EngineViewModel.EngineGame.EngineSettings.CurrentDefender = character;
-            
-
-            // Monster hits, and to make things simpler, the character misses
-            EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.MonsterHitEnum = HitStatusEnum.Hit;
-            //EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.CharacterHitEnum = HitStatusEnum.Miss;
-            EngineViewModel.EngineGame.EngineSettings.BattleMessagesModel.HitStatus = HitStatusEnum.Hit;
-
-            // Start with empty Dropped Item List
-            //EngineViewModel.EngineGame.EngineSettings.BattleScore.ItemModelDropList.Clear();
-
-            //Act
-            var result = await EngineViewModel.AutoBattleEngineGame.RunAutoBattle();
-
-            //Assert
-            Assert.IsTrue(result);
-            // Dropped Item List adds the item
-            Assert.IsNull(EngineViewModel.EngineGame.EngineSettings.CurrentDefender.RightFinger);
-            //Assert.IsTrue(EngineViewModel.EngineGame.EngineSettings.BattleScore.ItemModelDropList.Count > 0);
-
-            // Reset
-            EngineViewModel.EngineGame.EngineSettings.CurrentAttacker = null;
-            EngineViewModel.EngineGame.EngineSettings.CurrentDefender = null;
-            EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.MonsterHitEnum = HitStatusEnum.Default;
-            EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.CharacterHitEnum = HitStatusEnum.Default;
-            EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
-            //EngineViewModel.EngineGame.EngineSettings.BattleScore.ItemModelDropList.Clear();
-            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = false;
-            EngineViewModel.EngineGame.EngineSettings.BattleMessagesModel.HitStatus = HitStatusEnum.Unknown;
-
-        }
-        #endregion Scenario25
     }
 }
