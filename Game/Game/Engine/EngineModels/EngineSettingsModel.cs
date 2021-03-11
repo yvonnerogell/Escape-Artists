@@ -110,5 +110,8 @@ namespace Game.Engine.EngineModels
         // Variable used to determine likelihood of Seattle Winter occurring (if set to true)
         public int SeattleWinterLikelihood { get; set; } = 0;
 
+        // Variable used to determine likelihood of Boss Battle occurring 
+        public int BossBattleLikelihood { get; set; } = 0;
+
     }
 }

@@ -167,9 +167,11 @@ namespace Game.Engine.EngineGame
 
             if (EngineSettingsModel.Instance.HackathonDebug == true)
             {
-                var d2 = DiceHelper.RollDice(1, 10);
+                var d2 = DiceHelper.RollDice(1, 100);
                 // 50/50 chance of it occuring with boss battle
-                if (d2 % 2 == 0)
+                var percentage = EngineSettingsModel.Instance.BossBattleLikelihood;
+
+                if (d2 >= percentage)
                 {
                     // clear the monster list
                     EngineSettings.MonsterList.Clear();
@@ -186,7 +188,7 @@ namespace Game.Engine.EngineGame
                         Range = 5,
                         Level = 20,
                         Difficulty = DifficultyEnum.Difficult,
-                        ImageURI = Constants.SpecificMonsterTypeGraduationOfficeAdministratorImageURI
+                        ImageURI = Constants.SpecificMonsterTypeProfessorImageURI,
                     };
 
                     EngineSettings.MonsterList.Add(new PlayerInfoModel(BigBoss));

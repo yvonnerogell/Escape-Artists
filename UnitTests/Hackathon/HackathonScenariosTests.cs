@@ -171,24 +171,24 @@ namespace Scenario
             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
             *      Changed AddMonstersToRound:
             *           * make sure EngineSettingsModel.Instance.HackathonDebug == true
-            *           * if dice roll is even then clearn monster list and add 1 boss:
+            *           * if dice roll is higher than likelihood % then clear monster list and add 1 big boss:
             *           MonsterModel BigBoss = new MonsterModel
                         {
                             PlayerType = PlayerTypeEnum.Monster,
-                            MonsterTypeEnum = MonsterTypeEnum.Administrator,
-                            SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.GraduationOfficeAdministrator,
+                            MonsterTypeEnum = MonsterTypeEnum.Faculty,
+                            SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.Professor,
                             Name = "Mike Koenig",
                             Description = "You will never graduate!!!",
                             Attack = 10,
                             Range = 5,
                             Level = 20,
                             Difficulty = DifficultyEnum.Difficult,
-                            ImageURI = Constants.SpecificMonsterTypeGraduationOfficeAdministratorImageURI
+                            ImageURI = Constants.SpecificMonsterTypeProfessorImageURI,
                         };
             * 
             * Test Algrorithm:
             *      turn EngineSettingsModel.Instance.HackathonDebug to be true
-            *      force dice roll to be even (in our case keep it 2)
+            *      force dice roll to be higher than likelihood (in our case keep likelihood 0)
             *      force the game to only have 1 round and 1 turn so we can see what is added in the monster list
             *  
             *      Startup Battle
@@ -439,6 +439,8 @@ namespace Scenario
 
             // Set Character Conditions
 
+            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = true;
+
             EngineViewModel.EngineGame.EngineSettings.MaxNumberPartyCharacters = 1;
 
             var character = new PlayerInfoModel(
@@ -451,26 +453,32 @@ namespace Scenario
                                 ExperienceRemaining = 1,
                                 Name = "Minnie",
                             });
-            character.WantsToRest = true;
 
             EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
             EngineViewModel.EngineGame.EngineSettings.CharacterList.Add(character);
 
+            EngineViewModel.EngineGame.EngineSettings.SeattleWinter = true;
+            EngineViewModel.EngineGame.EngineSettings.SeattleWinterLikelihood = 100;
+
             // Set Monster Conditions
 
-            // Auto Battle will add the monsters
-
             // Monsters always hit
+            EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.MonsterHitEnum = HitStatusEnum.Hit;
+
+            // Minnie always misses when she attacks
+            EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.CharacterHitEnum = HitStatusEnum.Miss;
 
 
             //Act
             var result = await EngineViewModel.AutoBattleEngineGame.RunAutoBattle();
 
             //Reset
+            EngineViewModel.EngineGame.EngineSettings.SeattleWinter = false;
+            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = false;
 
             //Assert
-
-
+            Assert.IsTrue(result);
+            Assert.IsTrue(EngineViewModel.EngineGame.EngineSettings.BattleScore.CharacterModelDeathList[0].SlippedNumTimes > 0);
         }
         #endregion Scenario38
 
