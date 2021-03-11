@@ -546,7 +546,7 @@ namespace Game.Engine.EngineBase
                     ApplyDamage(Target);
 
                     // Implement Scenario 25
-                    LoseDamagedItem(Defender);
+                    LoseDamagedItem(Target);
 
                     EngineSettings.BattleMessagesModel.TurnMessageSpecial = EngineSettings.BattleMessagesModel.GetCurrentHealthMessage();
 
