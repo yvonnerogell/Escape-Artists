@@ -404,35 +404,7 @@ namespace Scenario
         [Test]
         public async Task HackathonScenario_Scenario_25_Valid_OffHand_Should_Pass()
         {
-            /* 
-            * Scenario Number:  
-            *      25
-            *      
-            * Description: 
-            * Drop an Item if the Target took a hit (probabilistic)
-            * 
-            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
-            *      TurnEngineBase.cs – Added LoseDamagedItem() method into AddDamage() in TurnBaseEngine.cs 
-            *      TurnEngineBase.cs – Added LoseDamagedItem_Probability as a hardcoded public int
-            *      PlayerInfoModel.cs - Added a LoseDamagedItem switch
-            *      
-            * Test Algorithm:
-            *      Create Character with a droppable item in OffHand
-            *      Create a Monster Hit
-            *      Set CurrentAction to ActionEnum.Attack
-            *      Set hackathon debug to true
-            *  
-            *      Startup Battle
-            *      Run Auto Battle
-            * 
-            * Test Conditions:
-            *      
-            * 
-            * Validation:
-            *      Verify Battle Returned True
-            *      Verify that DroppedItemList has a new addition
-            *  
-            */
+            
 
             //Arrange
 
@@ -489,35 +461,7 @@ namespace Scenario
         [Test]
         public async Task HackathonScenario_Scenario_25_Valid_PrimaryHand_Should_Pass()
         {
-            /* 
-            * Scenario Number:  
-            *      25
-            *      
-            * Description: 
-            * Drop an Item if the Target took a hit (probabilistic)
-            * 
-            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
-            *      TurnEngineBase.cs – Added LoseDamagedItem() method into AddDamage() in TurnBaseEngine.cs 
-            *      TurnEngineBase.cs – Added LoseDamagedItem_Probability as a hardcoded public int
-            *      PlayerInfoModel.cs - Added a LoseDamagedItem switch
-            *      
-            * Test Algorithm:
-            *      Create Character with a droppable item in PrimaryHand
-            *      Create a Monster Hit
-            *      Set CurrentAction to ActionEnum.Attack
-            *      Set hackathon debug to true
-            *  
-            *      Startup Battle
-            *      Run Auto Battle
-            * 
-            * Test Conditions:
-            *      
-            * 
-            * Validation:
-            *      Verify Battle Returned True
-            *      Verify that DroppedItemList has a new addition
-            *  
-            */
+            
 
             //Arrange
 
@@ -574,36 +518,7 @@ namespace Scenario
         [Test]
         public async Task HackathonScenario_Scenario_25_Valid_Feet_Should_Pass()
         {
-            /* 
-            * Scenario Number:  
-            *      25
-            *      
-            * Description: 
-            * Drop an Item if the Target took a hit (probabilistic)
-            * 
-            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
-            *      TurnEngineBase.cs – Added LoseDamagedItem() method into AddDamage() in TurnBaseEngine.cs 
-            *      TurnEngineBase.cs – Added LoseDamagedItem_Probability as a hardcoded public int
-            *      PlayerInfoModel.cs - Added a LoseDamagedItem switch
-            *      
-            * Test Algorithm:
-            *      Create Character with a droppable item in Feet
-            *      Create a Monster Hit
-            *      Set CurrentAction to ActionEnum.Attack
-            *      Set hackathon debug to true
-            *  
-            *      Startup Battle
-            *      Run Auto Battle
-            * 
-            * Test Conditions:
-            *      
-            * 
-            * Validation:
-            *      Verify Battle Returned True
-            *      Verify that DroppedItemList has a new addition
-            *  
-            */
-
+            
             //Arrange
 
             // This works in Attack mode
@@ -661,36 +576,7 @@ namespace Scenario
         [Test]
         public async Task HackathonScenario_Scenario_25_Valid_Necklace_Should_Pass()
         {
-            /* 
-            * Scenario Number:  
-            *      25
-            *      
-            * Description: 
-            * Drop an Item if the Target took a hit (probabilistic)
-            * 
-            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
-            *      TurnEngineBase.cs – Added LoseDamagedItem() method into AddDamage() in TurnBaseEngine.cs 
-            *      TurnEngineBase.cs – Added LoseDamagedItem_Probability as a hardcoded public int
-            *      PlayerInfoModel.cs - Added a LoseDamagedItem switch
-            *      
-            * Test Algorithm:
-            *      Create Character with a droppable item in Necklace
-            *      Create a Monster Hit
-            *      Set CurrentAction to ActionEnum.Attack
-            *      Set hackathon debug to true
-            *  
-            *      Startup Battle
-            *      Run Auto Battle
-            * 
-            * Test Conditions:
-            *      
-            * 
-            * Validation:
-            *      Verify Battle Returned True
-            *      Verify that DroppedItemList has a new addition
-            *  
-            */
-
+            
             //Arrange
 
             // This works in Attack mode
@@ -748,35 +634,7 @@ namespace Scenario
         [Test]
         public async Task HackathonScenario_Scenario_25_Valid_LeftFinger_Should_Pass()
         {
-            /* 
-            * Scenario Number:  
-            *      25
-            *      
-            * Description: 
-            * Drop an Item if the Target took a hit (probabilistic)
-            * 
-            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
-            *      TurnEngineBase.cs – Added LoseDamagedItem() method into AddDamage() in TurnBaseEngine.cs 
-            *      TurnEngineBase.cs – Added LoseDamagedItem_Probability as a hardcoded public int
-            *      PlayerInfoModel.cs - Added a LoseDamagedItem switch
-            *      
-            * Test Algorithm:
-            *      Create Character with a droppable item in LeftFinger
-            *      Create a Monster Hit
-            *      Set CurrentAction to ActionEnum.Attack
-            *      Set hackathon debug to true
-            *  
-            *      Startup Battle
-            *      Run Auto Battle
-            * 
-            * Test Conditions:
-            *      
-            * 
-            * Validation:
-            *      Verify Battle Returned True
-            *      Verify that DroppedItemList has a new addition
-            *  
-            */
+            
 
             //Arrange
 
@@ -834,35 +692,7 @@ namespace Scenario
         [Test]
         public async Task HackathonScenario_Scenario_25_Valid_RightFinger_Should_Pass()
         {
-            /* 
-            * Scenario Number:  
-            *      25
-            *      
-            * Description: 
-            * Drop an Item if the Target took a hit (probabilistic)
-            * 
-            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
-            *      TurnEngineBase.cs – Added LoseDamagedItem() method into AddDamage() in TurnBaseEngine.cs 
-            *      TurnEngineBase.cs – Added LoseDamagedItem_Probability as a hardcoded public int
-            *      PlayerInfoModel.cs - Added a LoseDamagedItem switch
-            *      
-            * Test Algorithm:
-            *      Create Character with a droppable item in RightFinger
-            *      Create a Monster Hit
-            *      Set CurrentAction to ActionEnum.Attack
-            *      Set hackathon debug to true
-            *  
-            *      Startup Battle
-            *      Run Auto Battle
-            * 
-            * Test Conditions:
-            *      
-            * 
-            * Validation:
-            *      Verify Battle Returned True
-            *      Verify that DroppedItemList has a new addition
-            *  
-            */
+            
 
             //Arrange
 
@@ -958,11 +788,11 @@ namespace Scenario
 
             // This works in Hackathon debug mode
             EngineViewModel.EngineGame.EngineSettings.HackathonDebug = true;
-
+            
             // Set Character, Monster and Item Conditions
             EngineViewModel.EngineGame.EngineSettings.MaxNumberPartyCharacters = 1;
-            EngineViewModel.EngineGame.EngineSettings.MaxNumberPartyMonsters = 1;
-            var item = new ItemModel { CanBeBroken = true, Id = "Calculator1", ItemType = ItemTypeEnum.Calculator,
+            EngineViewModel.EngineGame.EngineSettings.BattleScore.ItemModelDropList.Clear();
+             var item = new ItemModel { CanBeBroken = true, Id = "Calculator1", ItemType = ItemTypeEnum.Calculator,
             Range = 10, Damage = 5, Value = 5, Location = ItemLocationEnum.LeftFinger, Durability = 0, Attribute = AttributeEnum.Attack};
             var character = new PlayerInfoModel(
                             new CharacterModel
@@ -985,7 +815,7 @@ namespace Scenario
 
             //Assert
             Assert.IsTrue(result);
-            Assert.IsNull(character.RightFinger);
+            Assert.IsNull(EngineViewModel.EngineGame.EngineSettings.CurrentDefender.LeftFinger);
 
             // Reset
             EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
@@ -1000,7 +830,7 @@ namespace Scenario
 
             // This works in Hackathon debug mode
             EngineViewModel.EngineGame.EngineSettings.HackathonDebug = true;
-
+           
             // Set Character, Monster and Item Conditions
             EngineViewModel.EngineGame.EngineSettings.MaxNumberPartyCharacters = 1;
             EngineViewModel.EngineGame.EngineSettings.MaxNumberPartyMonsters = 1;
@@ -1037,7 +867,7 @@ namespace Scenario
 
             //Assert
             Assert.IsTrue(result);
-            Assert.IsNull(character.RightFinger);
+            Assert.IsNull(EngineViewModel.EngineGame.EngineSettings.CurrentDefender.RightFinger);
 
             // Reset
             EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
@@ -1059,8 +889,8 @@ namespace Scenario
             var item = new ItemModel
             {
                 CanBeBroken = true,
-                Id = "Calculator1",
-                ItemType = ItemTypeEnum.Calculator,
+                Id = "Graduationcapandrobe1",
+                ItemType = ItemTypeEnum.GraduationCapAndRobe,
                 Range = 10,
                 Damage = 5,
                 Value = 5,
@@ -1089,7 +919,7 @@ namespace Scenario
 
             //Assert
             Assert.IsTrue(result);
-            Assert.IsNull(character.Head);
+            Assert.IsNull(EngineViewModel.EngineGame.EngineSettings.CurrentDefender.Head);
 
             // Reset
             EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
@@ -1111,8 +941,8 @@ namespace Scenario
             var item = new ItemModel
             {
                 CanBeBroken = true,
-                Id = "Calculator1",
-                ItemType = ItemTypeEnum.Calculator,
+                Id = "Librarycard1",
+                ItemType = ItemTypeEnum.LibraryCard,
                 Range = 10,
                 Damage = 5,
                 Value = 5,
@@ -1141,67 +971,67 @@ namespace Scenario
 
             //Assert
             Assert.IsTrue(result);
-            Assert.IsNull(character.Necklace);
+            Assert.IsNull(EngineViewModel.EngineGame.EngineSettings.CurrentDefender.Necklace);
 
 
             // Reset
             EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
             EngineViewModel.EngineGame.EngineSettings.HackathonDebug = false;
-        }           
-            
+        }
+
         [Test]
-            public async Task HackathonScenario_Scenario_29_PrimaryHand_Should_Pass()
+        public async Task HackathonScenario_Scenario_29_PrimaryHand_Should_Pass()
+        {
+
+            //Arrange
+
+            // This works in Hackathon debug mode
+            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = true;
+
+            // Set Character, Monster and Item Conditions
+            EngineViewModel.EngineGame.EngineSettings.MaxNumberPartyCharacters = 1;
+            EngineViewModel.EngineGame.EngineSettings.MaxNumberPartyMonsters = 1;
+            var item = new ItemModel
             {
+                CanBeBroken = true,
+                Id = "Textbooks1",
+                ItemType = ItemTypeEnum.Textbooks,
+                Range = 10,
+                Damage = 5,
+                Value = 5,
+                Location = ItemLocationEnum.PrimaryHand,
+                Durability = 0,
+                Attribute = AttributeEnum.Attack
+            };
+            var character = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Speed = 10,
+                                Level = 5,
+                                PrimaryHand = item.Id,
+                                CurrentHealth = 20,
+                                ExperienceTotal = 20,
+                                ExperienceRemaining = 20,
+                                Name = "DefenderWhoseItemCanBeBroken"
+                            });
+            character.ItemCanBeBroken = true;
 
-                //Arrange
+            EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
+            EngineViewModel.EngineGame.EngineSettings.CharacterList.Add(character);
 
-                // This works in Hackathon debug mode
-                EngineViewModel.EngineGame.EngineSettings.HackathonDebug = true;
+            //Act
+            var result = await EngineViewModel.AutoBattleEngineGame.RunAutoBattle();
 
-                // Set Character, Monster and Item Conditions
-                EngineViewModel.EngineGame.EngineSettings.MaxNumberPartyCharacters = 1;
-                EngineViewModel.EngineGame.EngineSettings.MaxNumberPartyMonsters = 1;
-                var item = new ItemModel
-                {
-                    CanBeBroken = true,
-                    Id = "Calculator1",
-                    ItemType = ItemTypeEnum.Calculator,
-                    Range = 10,
-                    Damage = 5,
-                    Value = 5,
-                    Location = ItemLocationEnum.PrimaryHand,
-                    Durability = 0,
-                    Attribute = AttributeEnum.Attack
-                };
-                var character = new PlayerInfoModel(
-                                new CharacterModel
-                                {
-                                    Speed = 10,
-                                    Level = 5,
-                                    PrimaryHand = item.Id,
-                                    CurrentHealth = 20,
-                                    ExperienceTotal = 20,
-                                    ExperienceRemaining = 20,
-                                    Name = "DefenderWhoseItemCanBeBroken"
-                                });
-                character.ItemCanBeBroken = true;
+            //Assert
+            Assert.IsTrue(result);
+            Assert.IsNull(EngineViewModel.EngineGame.EngineSettings.CurrentDefender.PrimaryHand);
 
-                EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
-                EngineViewModel.EngineGame.EngineSettings.CharacterList.Add(character);
+            // Reset
+            EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
+            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = false;
+        }
 
-                //Act
-                var result = await EngineViewModel.AutoBattleEngineGame.RunAutoBattle();
 
-                //Assert
-                Assert.IsTrue(result);
-                Assert.IsNull(character.PrimaryHand);
-
-                // Reset
-                EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
-                EngineViewModel.EngineGame.EngineSettings.HackathonDebug = false;
-            }
-
-        
 
         [Test]
         public async Task HackathonScenario_Scenario_29_OffHand_Should_Pass()
@@ -1218,8 +1048,8 @@ namespace Scenario
             var item = new ItemModel
             {
                 CanBeBroken = true,
-                Id = "Calculator1",
-                ItemType = ItemTypeEnum.Calculator,
+                Id = "FinancialAid1",
+                ItemType = ItemTypeEnum.FinancialAid,
                 Range = 10,
                 Damage = 5,
                 Value = 5,
@@ -1248,7 +1078,7 @@ namespace Scenario
 
             //Assert
             Assert.IsTrue(result);
-            Assert.IsNull(character.OffHand);
+            Assert.IsNull(EngineViewModel.EngineGame.EngineSettings.CurrentDefender.OffHand);
 
             // Reset
             EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
@@ -1270,8 +1100,8 @@ namespace Scenario
             var item = new ItemModel
             {
                 CanBeBroken = true,
-                Id = "Calculator1",
-                ItemType = ItemTypeEnum.Calculator,
+                Id = "Skateboard",
+                ItemType = ItemTypeEnum.Skateboard,
                 Range = 10,
                 Damage = 5,
                 Value = 5,
@@ -1300,13 +1130,12 @@ namespace Scenario
 
             //Assert
             Assert.IsTrue(result);
-            Assert.IsNull(character.Feet);
+            Assert.IsNull(EngineViewModel.EngineGame.EngineSettings.CurrentDefender.Feet);
 
             // Reset
             EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
             EngineViewModel.EngineGame.EngineSettings.HackathonDebug = false;
         }
-
 
         #endregion Scenario29
 

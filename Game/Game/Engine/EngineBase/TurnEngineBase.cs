@@ -129,6 +129,8 @@ namespace Game.Engine.EngineBase
                 {
                     var item = ItemIndexViewModel.Instance.GetItem(Defender.Head);
                     item.Durability -= 0.5;
+                    Defender.Head = item.Id;
+
                     if (item.Durability < 0)
                     {
                         Defender.Head = null;
@@ -140,6 +142,7 @@ namespace Game.Engine.EngineBase
                 {
                     var item = ItemIndexViewModel.Instance.GetItem(Defender.Feet);
                     item.Durability -= 0.5;
+                    Defender.Feet = item.Id;
                     if (item.Durability < 0)
                     {
                         Defender.Feet = null;
@@ -150,6 +153,7 @@ namespace Game.Engine.EngineBase
                 {
                     var item = ItemIndexViewModel.Instance.GetItem(Defender.PrimaryHand);
                     item.Durability -= 0.5;
+                    Defender.PrimaryHand = item.Id;
                     if (item.Durability < 0)
                     {
                         Defender.PrimaryHand = null;
@@ -160,6 +164,7 @@ namespace Game.Engine.EngineBase
                 {
                     var item = ItemIndexViewModel.Instance.GetItem(Defender.OffHand);
                     item.Durability -= 0.5;
+                    Defender.OffHand = item.Id;
                     if (item.Durability < 0)
                     {
                         Defender.OffHand = null;
@@ -170,6 +175,7 @@ namespace Game.Engine.EngineBase
                 {
                     var item = ItemIndexViewModel.Instance.GetItem(Defender.RightFinger);
                     item.Durability -= 0.5;
+                    Defender.RightFinger = item.Id;
                     if (item.Durability < 0)
                     {
                         Defender.RightFinger = null;
@@ -180,6 +186,7 @@ namespace Game.Engine.EngineBase
                 {
                     var item = ItemIndexViewModel.Instance.GetItem(Defender.LeftFinger);
                     item.Durability -= 0.5;
+                    Defender.LeftFinger = item.Id;
                     if (item.Durability < 0)
                     {
                         Defender.LeftFinger = null;
@@ -190,6 +197,7 @@ namespace Game.Engine.EngineBase
                 {
                     var item = ItemIndexViewModel.Instance.GetItem(Defender.Necklace);
                     item.Durability -= 0.5;
+                    Defender.Necklace = item.Id;
                     if (item.Durability < 0)
                     {
                         Defender.Necklace = null;
