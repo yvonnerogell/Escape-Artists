@@ -1021,15 +1021,6 @@ namespace Game.Models
                 }
             }
 
-            // Scenario 29; things get broken after 2 uses
-            if (myItem.CanBeBroken == true)
-            {
-                myItem.Durability -= 0.5;
-                if (myItem.Durability < 0) {
-                    myItem = null;
-                    return 0;
-                }
-            }
 
             return myReturn;
         }

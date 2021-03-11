@@ -50,6 +50,9 @@ namespace Game.Models
         // Tracks Scenario 25
         public bool LoseDamagedItem { get; set; } = false;
 
+        //Tracks Scenario 29
+        public bool ItemCanBeBroken { get; set; } = false;
+
         /// <summary>
         /// Default Constructor
         /// </summary>
@@ -115,6 +118,9 @@ namespace Game.Models
 
             //Scenario 25
             LoseDamagedItem = data.LoseDamagedItem;
+
+            // Scenario 29
+            ItemCanBeBroken = data.ItemCanBeBroken;
         }
 
         /// <summary>

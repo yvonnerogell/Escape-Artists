@@ -43,7 +43,7 @@ namespace Game.Engine.EngineBase
         // Hold the BaseEngine
         public EngineSettingsModel EngineSettings = EngineSettingsModel.Instance;
 
-        // Set the probability of Losing Items as a result of damage (Scenario 25)
+        // Set the probability of Losing Items as a result of damage - default is 1% (Scenario 25)
         public int LoseDamagedItem_Probability = 1;
 
         /// <summary>
@@ -117,7 +117,91 @@ namespace Game.Engine.EngineBase
             return false;
         }
 
-        
+        /// Losing a Damaged Item with some probability (Scenario 25)
+        /// </summary>
+        /// <param name="Attacker"></param>
+        /// <returns></returns>
+        public virtual bool PlayerItemCanBeBroken(PlayerInfoModel Defender)
+        {
+            if (Defender.ItemCanBeBroken == true)
+            {
+                if (Defender.Head != null)
+                {
+                    var item = ItemIndexViewModel.Instance.GetItem(Defender.Head);
+                    item.Durability -= 0.5;
+                    if (item.Durability < 0)
+                    {
+                        Defender.Head = null;
+                        EngineSettings.BattleMessagesModel.TurnMessageSpecial = "Your item is broken!";
+                    }
+                }
+
+                if (Defender.Feet != null)
+                {
+                    var item = ItemIndexViewModel.Instance.GetItem(Defender.Feet);
+                    item.Durability -= 0.5;
+                    if (item.Durability < 0)
+                    {
+                        Defender.Feet = null;
+                        EngineSettings.BattleMessagesModel.TurnMessageSpecial = "Your item is broken!";
+                    }
+                }
+                if (Defender.PrimaryHand != null)
+                {
+                    var item = ItemIndexViewModel.Instance.GetItem(Defender.PrimaryHand);
+                    item.Durability -= 0.5;
+                    if (item.Durability < 0)
+                    {
+                        Defender.PrimaryHand = null;
+                        EngineSettings.BattleMessagesModel.TurnMessageSpecial = "Your item is broken!";
+                    }
+                }
+                if (Defender.OffHand != null)
+                {
+                    var item = ItemIndexViewModel.Instance.GetItem(Defender.OffHand);
+                    item.Durability -= 0.5;
+                    if (item.Durability < 0)
+                    {
+                        Defender.OffHand = null;
+                        EngineSettings.BattleMessagesModel.TurnMessageSpecial = "Your item is broken!";
+                    }
+                }
+                if (Defender.RightFinger != null)
+                {
+                    var item = ItemIndexViewModel.Instance.GetItem(Defender.RightFinger);
+                    item.Durability -= 0.5;
+                    if (item.Durability < 0)
+                    {
+                        Defender.RightFinger = null;
+                        EngineSettings.BattleMessagesModel.TurnMessageSpecial = "Your item is broken!";
+                    }
+                }
+                if (Defender.LeftFinger != null)
+                {
+                    var item = ItemIndexViewModel.Instance.GetItem(Defender.LeftFinger);
+                    item.Durability -= 0.5;
+                    if (item.Durability < 0)
+                    {
+                        Defender.LeftFinger = null;
+                        EngineSettings.BattleMessagesModel.TurnMessageSpecial = "Your item is broken!";
+                    }
+                }
+                if (Defender.Necklace != null)
+                {
+                    var item = ItemIndexViewModel.Instance.GetItem(Defender.Necklace);
+                    item.Durability -= 0.5;
+                    if (item.Durability < 0)
+                    {
+                        Defender.Necklace = null;
+                        EngineSettings.BattleMessagesModel.TurnMessageSpecial = "Your item is broken!";
+                    }
+                }
+
+                return true;
+            
+            }
+            return false;
+        }
         /// <summary>
         /// CharacterModel Attacks...
         /// </summary>
@@ -125,6 +209,10 @@ namespace Game.Engine.EngineBase
         /// <returns></returns>
         public virtual bool TakeTurn(PlayerInfoModel Attacker)
         {
+
+            // Scenario 29
+            PlayerItemCanBeBroken(Attacker);
+
             // Choose Action.  Such as Move, Attack etc.
 
             // INFO: Teams, if you have other actions they would go here.
