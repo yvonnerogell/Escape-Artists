@@ -164,7 +164,7 @@ namespace Scenario
         {
             /* 
             * Scenario Number:  
-            *      14
+            *      14 (test 1/2)
             *      
             * Description: 
             *      Start a Boss Battle, which replaces 6 monsters with 1 boss based on roll chances 
@@ -233,6 +233,83 @@ namespace Scenario
             //Assert.IsFalse(result);
             Assert.AreEqual(1, EngineViewModel.EngineGame.EngineSettings.MonsterList.Count());
             Assert.AreEqual("Mike Koenig", EngineViewModel.EngineGame.EngineSettings.MonsterList.FirstOrDefault().Name);
+        }
+
+        [Test]
+        public async Task HackathonScenario_Scenario_14_Will_Not_Add_Big_Boss_Should_Pass()
+        {
+            /* 
+            * Scenario Number:  
+            *      14 (test 2/2)
+            *      
+            * Description: 
+            *      Start a Boss Battle, which replaces 6 monsters with 1 boss based on roll chances 
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      Changed AddMonstersToRound:
+            *           * make sure EngineSettingsModel.Instance.HackathonDebug == true
+            *           * if dice roll is higher than likelihood % then clear monster list and add 1 big boss:
+            *           MonsterModel BigBoss = new MonsterModel
+                        {
+                            PlayerType = PlayerTypeEnum.Monster,
+                            MonsterTypeEnum = MonsterTypeEnum.Faculty,
+                            SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.Professor,
+                            Name = "Mike Koenig",
+                            Description = "You will never graduate!!!",
+                            Attack = 10,
+                            Range = 5,
+                            Level = 20,
+                            Difficulty = DifficultyEnum.Difficult,
+                            ImageURI = Constants.SpecificMonsterTypeProfessorImageURI,
+                        };
+            * 
+            * Test Algrorithm:
+            *      turn EngineSettingsModel.Instance.HackathonDebug to be true
+            *      force dice roll to be lower than likelihood (in our case keep likelihood 100)
+            *      force the game to only have 1 round and 1 turn so we can see what is added in the monster list
+            *  
+            *      Startup Battle
+            *      Start auto battle
+            * 
+            * Test Conditions:
+            *      Default condition is sufficient
+            * 
+            * Validation:
+            *      Verify there is six monsters
+            *      Verify the monster list monster does not includes big boss
+            *  
+            */
+
+            //Arrange
+
+            // Set Character Conditions
+
+            // Set Monster Conditions
+
+            // Auto Battle will add the monsters
+
+            // Monsters always hit
+            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = true;
+            EngineViewModel.EngineGame.EngineSettings.MaxRoundCount = 1;
+            EngineViewModel.EngineGame.EngineSettings.MaxTurnCount = 1;
+            EngineViewModel.EngineGame.EngineSettings.BossBattleLikelihood = 101;
+            EngineViewModel.EngineGame.EngineSettings.MaxNumberPartyMonsters = 6;
+
+            //Act
+            var result = await EngineViewModel.AutoBattleEngineGame.RunAutoBattle();
+
+            //Reset
+            DiceHelper.DisableForcedRolls();
+            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = false;
+            EngineViewModel.EngineGame.EngineSettings.MaxRoundCount = 100;
+            EngineViewModel.EngineGame.EngineSettings.MaxTurnCount = 1000;
+            EngineViewModel.EngineGame.EngineSettings.BossBattleLikelihood = 0;
+
+            //Assert
+            // validate monster is big boss
+            //Assert.IsFalse(result);
+            Assert.AreEqual(6, EngineViewModel.EngineGame.EngineSettings.MonsterList.Count());
+            Assert.AreEqual(null, EngineViewModel.EngineGame.EngineSettings.MonsterList.Find(m => m.Name == "Mike Koenig"));
         }
 
         #endregion Scenario14
