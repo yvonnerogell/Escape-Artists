@@ -963,28 +963,28 @@ namespace Scenario
 
             // Set Character Conditions
             EngineViewModel.EngineGame.EngineSettings.MaxNumberPartyCharacters = 1;
+            var item = new ItemModel { CanBeBroken = true, Id = "Calculator1" };
             var character = new PlayerInfoModel(
                             new CharacterModel
                             {
-                                Speed = 5,
+                                Speed = 10,
                                 Level = 5,
-                                LeftFinger = "Calculator1",
-                                CurrentHealth = 50,
+                                LeftFinger = item.Id,
+                                CurrentHealth = 100,
                                 ExperienceTotal = 10,
                                 ExperienceRemaining = 10,
-                                Name = "WeakDefender"
+                                Name = "DefenderWhoseItemCanBeBroken"
                             });
-            character.LoseDamagedItem = true;
+            
             EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
             EngineViewModel.EngineGame.EngineSettings.CharacterList.Add(character);
             // Setting a monster as attacker, and our character as defender
-            EngineViewModel.EngineGame.EngineSettings.CurrentAttacker = EngineViewModel.EngineGame.EngineSettings.MonsterList[0];
-            //EngineViewModel.EngineGame.EngineSettings.CurrentDefender = character;
-
+            //EngineViewModel.EngineGame.EngineSettings.CurrentAttacker = EngineViewModel.EngineGame.EngineSettings.MonsterList[0];
+           
             // Monster hits, and to make things simpler, the character misses
-            EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.MonsterHitEnum = HitStatusEnum.Hit;
-            EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.CharacterHitEnum = HitStatusEnum.Miss;
-            EngineViewModel.EngineGame.EngineSettings.BattleMessagesModel.HitStatus = HitStatusEnum.Hit;
+          // EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.MonsterHitEnum = HitStatusEnum.Hit;
+          //  EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.CharacterHitEnum = HitStatusEnum.Hit;
+          //  EngineViewModel.EngineGame.EngineSettings.BattleMessagesModel.HitStatus = HitStatusEnum.Hit;
 
             // Start with empty Dropped Item List
             //EngineViewModel.EngineGame.EngineSettings.BattleScore.ItemModelDropList.Clear();
@@ -994,7 +994,7 @@ namespace Scenario
 
             //Assert
             Assert.IsTrue(result);
-            Assert.IsNull(EngineViewModel.EngineGame.EngineSettings.CurrentDefender.LeftFinger);
+            Assert.IsNull(character.RightFinger);
 
             // Reset
             EngineViewModel.EngineGame.EngineSettings.CurrentAttacker = null;
