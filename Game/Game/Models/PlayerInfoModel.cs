@@ -44,6 +44,12 @@ namespace Game.Models
         // Tracks if the character wants the option of resting for their turn. Only available for characters
         public bool WantsToRest { get; set; } = false;
 
+        // Tracks the number of times a character has slipped. only available for characters
+        public int SlippedNumTimes { get; set; } = 0;
+
+        // Tracks Scenario 25
+        public bool LoseDamagedItem { get; set; } = false;
+
         /// <summary>
         /// Default Constructor
         /// </summary>
@@ -104,6 +110,11 @@ namespace Game.Models
             FiveMinuteBreaks = data.FiveMinuteBreaks;
 
             WantsToRest = data.WantsToRest;
+
+            SlippedNumTimes = data.SlippedNumTimes;
+
+            //Scenario 25
+            LoseDamagedItem = data.LoseDamagedItem;
         }
 
         /// <summary>
@@ -213,7 +224,7 @@ namespace Game.Models
             RightFinger = data.RightFinger;
             LeftFinger = data.LeftFinger;
             Feet = data.Feet;
-            
+
             UniqueDropItem = data.UniqueDropItem;
 
             Difficulty = data.Difficulty;
@@ -333,32 +344,32 @@ namespace Game.Models
         /// </summary>
         /// <returns>The ability enum that can be used.</returns>
         public AbilityEnum SelectSpecialAbilityToUse()
-		{
+        {
 
             var abilityEnum = AbilityEnum.None;
 
             // Monsters will not have any abilities in the AbilityTracker, and will therefore return AbilityEnum.None
             if (AbilityTracker.Count == 0)
-			{
+            {
                 return abilityEnum;
             }
-            
+
             // Characters will only have 1 ability in their trackers. However, foreach loop was easiest way to
             // not have to switch on SpecificCharacterType. 
             foreach (var item in AbilityTracker)
-			{
+            {
                 abilityEnum = item.Key;
 
                 var result = AbilityTracker.TryGetValue(abilityEnum, out int remaining);
-                
+
                 // If the special ability count is 0, return None since there is no more to use this round
                 if (remaining <= 0)
-				{
+                {
                     abilityEnum = AbilityEnum.None;
-				}
+                }
             }
             return abilityEnum;
-		}
+        }
 
         /// <summary>
         /// Returns true if the specified ability is available for use, false if not. 
@@ -404,7 +415,7 @@ namespace Game.Models
             }
 
             switch (ability)
-			{
+            {
                 case AbilityEnum.ExtraCredit:
                     GPA = (int)(GPA * Constants.SpecialAbilityGPABoostExtension);
                     break;
@@ -422,7 +433,7 @@ namespace Game.Models
                     break;
                 default:
                     break;
-			}
+            }
 
             // Reduce the count
             AbilityTracker[ability] = remaining - 1;
