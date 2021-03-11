@@ -82,7 +82,7 @@ namespace Game.Engine.EngineBase
             }
 
             // Check to see if hackathon scenarios should be enabled.
-            if (BattleEngineViewModel.Instance.Engine.EngineSettings.SeattleWinter)
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.HackathonDebug && BattleEngineViewModel.Instance.Engine.EngineSettings.SeattleWinter && Attacker.PlayerType == PlayerTypeEnum.Character)
             {
                 var randomInt = DiceHelper.RollDice(1, 100);
                 var percentage = BattleEngineViewModel.Instance.Engine.EngineSettings.SeattleWinterLikelihood;
