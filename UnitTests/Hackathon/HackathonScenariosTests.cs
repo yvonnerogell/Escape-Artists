@@ -19,6 +19,7 @@ namespace Scenario
         {
             // Choose which engine to run
             //EngineViewModel.SetBattleEngineToKoenig();
+            EngineViewModel.SetBattleEngineToGame();
 
             // Put seed data into the system for all tests
             EngineViewModel.EngineGame.Round.ClearLists();
@@ -229,6 +230,7 @@ namespace Scenario
 
             //Assert
             // validate monster is big boss
+            //Assert.IsFalse(result);
             Assert.AreEqual(1, EngineViewModel.EngineGame.EngineSettings.MonsterList.Count());
             Assert.AreEqual("Mike Koenig", EngineViewModel.EngineGame.EngineSettings.MonsterList.FirstOrDefault().Name);
         }
