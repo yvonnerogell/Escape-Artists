@@ -46,9 +46,6 @@ namespace Game.Views
         {
             InitializeComponent();
 
-            //call method to create the stub data.
-            SetUpStubData();
-
             BindingContext = ViewModel;
 
             // Clear the Database List and the Party List to start
