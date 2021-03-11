@@ -920,7 +920,7 @@ namespace Scenario
 
         #region Scenario29
         [Test]
-        public async Task HackathonScenario_Scenario_29_Valid_Should_Pass()
+        public async Task HackathonScenario_Scenario_29_LeftFinger_Should_Pass()
         {
             /* 
             * Scenario Number:  
@@ -934,15 +934,14 @@ namespace Scenario
             *      ItemModel.cs - Added a ItemDurability switch
             *      ItemModel.cs - Added Durability to the item
             *      PlayerInfoModel.cs - Added ItemCanBeBroken as an attribute
-            *      BasePlayerModel.cs - implemented reduction in durability each time GetItemBonus() is invoked
             *      TurnEngineBase.cs - make sure in each turn the attacker has ItemCanBeBroken() implemented
             *      
             * Test Algorithm:
-            *      Create Character with a droppable item in LeftFinger
-            *      Create a Monster Hit
-            *      Set CurrentAction to ActionEnum.Attack
-            *      Set hackathon debug to true
-            *  
+            *      Create an ItemModel with Durability
+            *      Create a character whose item can be broken
+            *      Run the turns; get deductions from the item's durability in each turn
+            *      Remove item if its durability is below zero
+            *      
             *      Startup Battle
             *      Run Auto Battle
             * 
@@ -951,7 +950,7 @@ namespace Scenario
             * 
             * Validation:
             *      Verify Battle Returned True
-            *      Verify that DroppedItemList has a new addition
+            *      Verify that the character's item is null if the former item's durability is less than zero
             *  
             */
 
@@ -992,6 +991,323 @@ namespace Scenario
             EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
             EngineViewModel.EngineGame.EngineSettings.HackathonDebug = false;
             }
+
+        [Test]
+        public async Task HackathonScenario_Scenario_29_RightFinger_Should_Pass()
+        {
+
+            //Arrange
+
+            // This works in Hackathon debug mode
+            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = true;
+
+            // Set Character, Monster and Item Conditions
+            EngineViewModel.EngineGame.EngineSettings.MaxNumberPartyCharacters = 1;
+            EngineViewModel.EngineGame.EngineSettings.MaxNumberPartyMonsters = 1;
+            var item = new ItemModel
+            {
+                CanBeBroken = true,
+                Id = "Calculator1",
+                ItemType = ItemTypeEnum.Calculator,
+                Range = 10,
+                Damage = 5,
+                Value = 5,
+                Location = ItemLocationEnum.RightFinger,
+                Durability = 0,
+                Attribute = AttributeEnum.Attack
+            };
+            var character = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Speed = 10,
+                                Level = 5,
+                                RightFinger = item.Id,
+                                CurrentHealth = 20,
+                                ExperienceTotal = 20,
+                                ExperienceRemaining = 20,
+                                Name = "DefenderWhoseItemCanBeBroken"
+                            });
+            character.ItemCanBeBroken = true;
+
+            EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
+            EngineViewModel.EngineGame.EngineSettings.CharacterList.Add(character);
+
+            //Act
+            var result = await EngineViewModel.AutoBattleEngineGame.RunAutoBattle();
+
+            //Assert
+            Assert.IsTrue(result);
+            Assert.IsNull(character.RightFinger);
+
+            // Reset
+            EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
+            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = false;
+        }
+
+        [Test]
+        public async Task HackathonScenario_Scenario_29_Head_Should_Pass()
+        {
+
+            //Arrange
+
+            // This works in Hackathon debug mode
+            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = true;
+
+            // Set Character, Monster and Item Conditions
+            EngineViewModel.EngineGame.EngineSettings.MaxNumberPartyCharacters = 1;
+            EngineViewModel.EngineGame.EngineSettings.MaxNumberPartyMonsters = 1;
+            var item = new ItemModel
+            {
+                CanBeBroken = true,
+                Id = "Calculator1",
+                ItemType = ItemTypeEnum.Calculator,
+                Range = 10,
+                Damage = 5,
+                Value = 5,
+                Location = ItemLocationEnum.Head,
+                Durability = 0,
+                Attribute = AttributeEnum.Attack
+            };
+            var character = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Speed = 10,
+                                Level = 5,
+                                Head = item.Id,
+                                CurrentHealth = 20,
+                                ExperienceTotal = 20,
+                                ExperienceRemaining = 20,
+                                Name = "DefenderWhoseItemCanBeBroken"
+                            });
+            character.ItemCanBeBroken = true;
+
+            EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
+            EngineViewModel.EngineGame.EngineSettings.CharacterList.Add(character);
+
+            //Act
+            var result = await EngineViewModel.AutoBattleEngineGame.RunAutoBattle();
+
+            //Assert
+            Assert.IsTrue(result);
+            Assert.IsNull(character.Head);
+
+            // Reset
+            EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
+            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = false;
+        }
+
+        [Test]
+        public async Task HackathonScenario_Scenario_29_Necklace_Should_Pass()
+        {
+
+            //Arrange
+
+            // This works in Hackathon debug mode
+            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = true;
+
+            // Set Character, Monster and Item Conditions
+            EngineViewModel.EngineGame.EngineSettings.MaxNumberPartyCharacters = 1;
+            EngineViewModel.EngineGame.EngineSettings.MaxNumberPartyMonsters = 1;
+            var item = new ItemModel
+            {
+                CanBeBroken = true,
+                Id = "Calculator1",
+                ItemType = ItemTypeEnum.Calculator,
+                Range = 10,
+                Damage = 5,
+                Value = 5,
+                Location = ItemLocationEnum.Necklace,
+                Durability = 0,
+                Attribute = AttributeEnum.Attack
+            };
+            var character = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Speed = 10,
+                                Level = 5,
+                                Necklace = item.Id,
+                                CurrentHealth = 20,
+                                ExperienceTotal = 20,
+                                ExperienceRemaining = 20,
+                                Name = "DefenderWhoseItemCanBeBroken"
+                            });
+            character.ItemCanBeBroken = true;
+
+            EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
+            EngineViewModel.EngineGame.EngineSettings.CharacterList.Add(character);
+
+            //Act
+            var result = await EngineViewModel.AutoBattleEngineGame.RunAutoBattle();
+
+            //Assert
+            Assert.IsTrue(result);
+            Assert.IsNull(character.Necklace);
+
+
+            // Reset
+            EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
+            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = false;
+        }           
+            
+        [Test]
+            public async Task HackathonScenario_Scenario_29_PrimaryHand_Should_Pass()
+            {
+
+                //Arrange
+
+                // This works in Hackathon debug mode
+                EngineViewModel.EngineGame.EngineSettings.HackathonDebug = true;
+
+                // Set Character, Monster and Item Conditions
+                EngineViewModel.EngineGame.EngineSettings.MaxNumberPartyCharacters = 1;
+                EngineViewModel.EngineGame.EngineSettings.MaxNumberPartyMonsters = 1;
+                var item = new ItemModel
+                {
+                    CanBeBroken = true,
+                    Id = "Calculator1",
+                    ItemType = ItemTypeEnum.Calculator,
+                    Range = 10,
+                    Damage = 5,
+                    Value = 5,
+                    Location = ItemLocationEnum.PrimaryHand,
+                    Durability = 0,
+                    Attribute = AttributeEnum.Attack
+                };
+                var character = new PlayerInfoModel(
+                                new CharacterModel
+                                {
+                                    Speed = 10,
+                                    Level = 5,
+                                    PrimaryHand = item.Id,
+                                    CurrentHealth = 20,
+                                    ExperienceTotal = 20,
+                                    ExperienceRemaining = 20,
+                                    Name = "DefenderWhoseItemCanBeBroken"
+                                });
+                character.ItemCanBeBroken = true;
+
+                EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
+                EngineViewModel.EngineGame.EngineSettings.CharacterList.Add(character);
+
+                //Act
+                var result = await EngineViewModel.AutoBattleEngineGame.RunAutoBattle();
+
+                //Assert
+                Assert.IsTrue(result);
+                Assert.IsNull(character.PrimaryHand);
+
+                // Reset
+                EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
+                EngineViewModel.EngineGame.EngineSettings.HackathonDebug = false;
+            }
+
+        
+
+        [Test]
+        public async Task HackathonScenario_Scenario_29_OffHand_Should_Pass()
+        {
+
+            //Arrange
+
+            // This works in Hackathon debug mode
+            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = true;
+
+            // Set Character, Monster and Item Conditions
+            EngineViewModel.EngineGame.EngineSettings.MaxNumberPartyCharacters = 1;
+            EngineViewModel.EngineGame.EngineSettings.MaxNumberPartyMonsters = 1;
+            var item = new ItemModel
+            {
+                CanBeBroken = true,
+                Id = "Calculator1",
+                ItemType = ItemTypeEnum.Calculator,
+                Range = 10,
+                Damage = 5,
+                Value = 5,
+                Location = ItemLocationEnum.OffHand,
+                Durability = 0,
+                Attribute = AttributeEnum.Attack
+            };
+            var character = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Speed = 10,
+                                Level = 5,
+                                OffHand = item.Id,
+                                CurrentHealth = 20,
+                                ExperienceTotal = 20,
+                                ExperienceRemaining = 20,
+                                Name = "DefenderWhoseItemCanBeBroken"
+                            });
+            character.ItemCanBeBroken = true;
+
+            EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
+            EngineViewModel.EngineGame.EngineSettings.CharacterList.Add(character);
+
+            //Act
+            var result = await EngineViewModel.AutoBattleEngineGame.RunAutoBattle();
+
+            //Assert
+            Assert.IsTrue(result);
+            Assert.IsNull(character.OffHand);
+
+            // Reset
+            EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
+            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = false;
+        }
+
+        [Test]
+        public async Task HackathonScenario_Scenario_29_Feet_Should_Pass()
+        {
+
+            //Arrange
+
+            // This works in Hackathon debug mode
+            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = true;
+
+            // Set Character, Monster and Item Conditions
+            EngineViewModel.EngineGame.EngineSettings.MaxNumberPartyCharacters = 1;
+            EngineViewModel.EngineGame.EngineSettings.MaxNumberPartyMonsters = 1;
+            var item = new ItemModel
+            {
+                CanBeBroken = true,
+                Id = "Calculator1",
+                ItemType = ItemTypeEnum.Calculator,
+                Range = 10,
+                Damage = 5,
+                Value = 5,
+                Location = ItemLocationEnum.Feet,
+                Durability = 0,
+                Attribute = AttributeEnum.Attack
+            };
+            var character = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Speed = 10,
+                                Level = 5,
+                                Feet = item.Id,
+                                CurrentHealth = 20,
+                                ExperienceTotal = 20,
+                                ExperienceRemaining = 20,
+                                Name = "DefenderWhoseItemCanBeBroken"
+                            });
+            character.ItemCanBeBroken = true;
+
+            EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
+            EngineViewModel.EngineGame.EngineSettings.CharacterList.Add(character);
+
+            //Act
+            var result = await EngineViewModel.AutoBattleEngineGame.RunAutoBattle();
+
+            //Assert
+            Assert.IsTrue(result);
+            Assert.IsNull(character.Feet);
+
+            // Reset
+            EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
+            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = false;
+        }
+
+
         #endregion Scenario29
 
 
