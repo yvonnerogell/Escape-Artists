@@ -616,15 +616,17 @@ namespace UnitTests.Engine.EngineBase
         public void TurnEngine_TakeTurn_Rest_Should_Pass()
         {
             // Arrange
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(2);
+            Engine.EngineSettings.HackathonDebug = true;
 
             Engine.EngineSettings.CurrentAction = ActionEnum.Rest;
-
             var character = new PlayerInfoModel(new CharacterModel());
-            var monster = new PlayerInfoModel(new CharacterModel());
             character.CurrentHealth = 5;
+            character.WantsToRest = true;
 
+            Engine.EngineSettings.PlayerList.Clear();
             Engine.EngineSettings.PlayerList.Add(character);
-            Engine.EngineSettings.PlayerList.Add(monster);
 
             Engine.EngineSettings.MapModel.PopulateMapModel(Engine.EngineSettings.PlayerList);
 
@@ -632,6 +634,8 @@ namespace UnitTests.Engine.EngineBase
             var result = Engine.Round.Turn.TakeTurn(character);
 
             // Reset
+            Engine.EngineSettings.HackathonDebug = false;
+            DiceHelper.DisableForcedRolls();
 
             // Assert
             Assert.AreEqual(true, result);

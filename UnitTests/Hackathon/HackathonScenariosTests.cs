@@ -439,6 +439,8 @@ namespace Scenario
 
             // Set Character Conditions
 
+            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = true;
+
             EngineViewModel.EngineGame.EngineSettings.MaxNumberPartyCharacters = 1;
 
             var character = new PlayerInfoModel(
@@ -451,26 +453,32 @@ namespace Scenario
                                 ExperienceRemaining = 1,
                                 Name = "Minnie",
                             });
-            character.WantsToRest = true;
 
             EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
             EngineViewModel.EngineGame.EngineSettings.CharacterList.Add(character);
 
+            EngineViewModel.EngineGame.EngineSettings.SeattleWinter = true;
+            EngineViewModel.EngineGame.EngineSettings.SeattleWinterLikelihood = 100;
+
             // Set Monster Conditions
 
-            // Auto Battle will add the monsters
-
             // Monsters always hit
+            EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.MonsterHitEnum = HitStatusEnum.Hit;
+
+            // Minnie always misses when she attacks
+            EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.CharacterHitEnum = HitStatusEnum.Miss;
 
 
             //Act
             var result = await EngineViewModel.AutoBattleEngineGame.RunAutoBattle();
 
             //Reset
+            EngineViewModel.EngineGame.EngineSettings.SeattleWinter = false;
+            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = false;
 
             //Assert
-
-
+            Assert.IsTrue(result);
+            Assert.IsTrue(EngineViewModel.EngineGame.EngineSettings.BattleScore.CharacterModelDeathList[0].SlippedNumTimes > 0);
         }
         #endregion Scenario38
     }
