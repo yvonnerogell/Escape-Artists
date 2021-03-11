@@ -396,10 +396,12 @@ namespace Scenario
 
         #region Scenario38
         [Test]
-        public async Task HackathonScenario_Scenario_38_Valid_Default_Should_Pass()
+        public async Task HackathonScenario_Scenario_38_Valid_Slip_100_Likelihood_Should_Pass()
         {
 
             /* 
+             * Test 1/2.
+             * 
             * Scenario Number:  
             *     38
             *      
@@ -420,7 +422,7 @@ namespace Scenario
             * Test Algorithm:
             *      Create Character named Minnie
             *      Set Seattle Winter setting to true
-            *      Set Seattle WinterLikelihood to 1.0 so it's 100% sure we will slip and fall
+            *      Set Seattle WinterLikelihood to 100 so it's 100% sure we will slip and fall
             *      Set speed to 100 so we go first. 
             *      Set health to 100 so we can ensure to stay alive for a little while
             *  
@@ -428,6 +430,7 @@ namespace Scenario
             *      Run Auto Battle
             * 
             * Test Conditions:
+            *      Requires 2 tests: One where likelihood is 100% and slip always happens, and one where likelihood is 0 and slip never happens
             * 
             * Validation:
             *      Verify Battle Returned True
@@ -479,6 +482,95 @@ namespace Scenario
             //Assert
             Assert.IsTrue(result);
             Assert.IsTrue(EngineViewModel.EngineGame.EngineSettings.BattleScore.CharacterModelDeathList[0].SlippedNumTimes > 0);
+        }
+
+        [Test]
+        public async Task HackathonScenario_Scenario_38_Valid_Slip_0_Likelihood_Should_Pass()
+        {
+
+            /* 
+             * Test 2/2. 
+             * 
+            * Scenario Number:  
+            *     38
+            *      
+            * Description: 
+            *     Black Ice in Seattle 
+            *     Just like a cold January, black ice forms on the map and everyone takes a chance of 
+            *     slipping and falling instead of carrying out their action.  Use the settings to enable 
+            *     Seattle Winter, and set the percentage change of slipping while going out to get a latte.
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      Create Seattle Winter setting in EngineSettingsModel
+            *      Create SeattleWinterLikelihood variable in EngineSettingsModel - this will be a floating number between 0 and 1. 
+            *      Add SlippedNumTimes variable to PlayerInfoModel so we can track how many times a character slipped 
+            *      Create new action enum in ActionEnum - ActionEnum.Slip
+            *      Add case for ActionEnum.Slip to TurnEngineBase.cs + method for SlipAsTurn that will cause some damage (because it hurts to slip and fall)
+            *      
+            * 
+            * Test Algorithm:
+            *      Create Character named Minnie
+            *      Set Seattle Winter setting to true
+            *      Set Seattle WinterLikelihood to 0 so it never slips.
+            *      Set speed to 100 so we go first. 
+            *      Set health to 100 so we can ensure to stay alive for a little while
+            *  
+            *      Startup Battle
+            *      Run Auto Battle
+            * 
+            * Test Conditions:
+            *      Requires 2 tests: One where likelihood is 100% and slip always happens, and one where likelihood is 0 and slip never happens
+            * 
+            * Validation:
+            *      Verify Battle Returned True
+            *      Verify dead character Minnie's SlippedNumTimes is greater than 0
+            *  
+            */
+
+            //Arrange
+
+            // Set Character Conditions
+
+            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = true;
+
+            EngineViewModel.EngineGame.EngineSettings.MaxNumberPartyCharacters = 1;
+
+            var character = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Speed = 100,
+                                Level = 1,
+                                CurrentHealth = 100,
+                                ExperienceTotal = 1,
+                                ExperienceRemaining = 1,
+                                Name = "Minnie",
+                            });
+
+            EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
+            EngineViewModel.EngineGame.EngineSettings.CharacterList.Add(character);
+
+            EngineViewModel.EngineGame.EngineSettings.SeattleWinter = true;
+            EngineViewModel.EngineGame.EngineSettings.SeattleWinterLikelihood = 0;
+
+            // Set Monster Conditions
+
+            // Monsters always hit
+            EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.MonsterHitEnum = HitStatusEnum.Hit;
+
+            // Minnie always misses when she attacks
+            EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.CharacterHitEnum = HitStatusEnum.Miss;
+
+
+            //Act
+            var result = await EngineViewModel.AutoBattleEngineGame.RunAutoBattle();
+
+            //Reset
+            EngineViewModel.EngineGame.EngineSettings.SeattleWinter = false;
+            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = false;
+
+            //Assert
+            Assert.IsTrue(result);
+            Assert.IsTrue(EngineViewModel.EngineGame.EngineSettings.BattleScore.CharacterModelDeathList[0].SlippedNumTimes == 0);
         }
         #endregion Scenario38
 
