@@ -35,7 +35,8 @@ namespace UnitTests.Views
             Application.Current = app;
 
             // For now, set the engine to the Koenig Engine, change when ready 
-            BattleEngineViewModel.Instance.SetBattleEngineToKoenig();
+            //BattleEngineViewModel.Instance.SetBattleEngineToKoenig();
+            BattleEngineViewModel.Instance.SetBattleEngineToGame();
 
             BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
             BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
