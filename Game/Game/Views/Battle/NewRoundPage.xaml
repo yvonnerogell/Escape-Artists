@@ -3,12 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Game.Views.NewRoundPage"
              Title="New Round">
-
+    
+    <!--
     <NavigationPage.TitleView>
-        <!--Menu Bar-->
         <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand">
             <Frame Padding="100,0,0,0"/>
-            <Label Text="Students and Parents vs. Faculty and Admin" Style="{StaticResource CenterMessageLargeStyle}"/>
             <Frame Padding="100,0,0,0"/>
             <ImageButton Source="icon_add.png" Clicked="Settings_Clicked" HorizontalOptions="EndAndExpand" Style="{StaticResource BattleToolbarStyle}"/>
             <ImageButton Source="icon_cancel.png" Clicked="ExitButton_Clicked" HorizontalOptions="End" Style="{StaticResource BattleToolbarStyle}"/>
@@ -16,7 +15,13 @@
             <Label x:Name="BattleModeValue" Text="" Style="{StaticResource ValueStyleMicro}" HorizontalTextAlignment="Center"/>
         </StackLayout>
     </NavigationPage.TitleView>
+    -->
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Settings" Clicked="Settings_Clicked" IconImageSource="icon_add.png"/>
+        <ToolbarItem Text="Cancel" Clicked="ExitButton_Clicked" IconImageSource="icon_cancel.png"/>
+    </ContentPage.ToolbarItems>
+    
     <ContentPage.Content>
         <ScrollView VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Never">
 
