@@ -280,6 +280,12 @@ namespace Game.Views
         {
             CreateEngineCharacterList();
 
+            // Set initial State to Starting
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Starting;
+
+            // Start the battle
+            BattleEngineViewModel.Instance.Engine.StartBattle(false);
+
             await Navigation.PushModalAsync(new NavigationPage(new NewRoundPage()));
             await Navigation.PopAsync();
         }
