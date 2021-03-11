@@ -237,10 +237,12 @@ namespace Scenario
 
         #region Scenario34
         [Test]
-        public async Task HackathonScenario_Scenario_34_Valid_Default_Should_Pass()
+        public async Task HackathonScenario_Scenario_34_Valid_WantsToRest_True_Should_Pass()
         {
 
-            /* 
+            /*
+             * Test 1/2.
+             * 
             * Scenario Number:  
             *      34
             *      
@@ -252,7 +254,7 @@ namespace Scenario
             *      all that is happening around them. Resting restores 2 health per rest.
             * 
             * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
-            *      PlayerInfoModel - Add variable to track number of FiveMinuteBreaks character has taken
+            *      PlayerInfoModel - Add variable to track number of FiveMinuteBreaks character has taken. Also add variable that indicates if player wants to rest. 
             *      ActionEnum.cs - Added ActionEnum.Rest
             *      TurnEngineBase.cs - Added case for ActionEnum.Rest which calls RestAsTurn(Attacker)
             * 
@@ -267,7 +269,7 @@ namespace Scenario
             *      Run Auto Battle
             * 
             * Test Conditions:
-            *      Test that current 
+            *      Requires two tests: one where WantsToRest is set to true and one where it's set to false. 
             * 
             * Validation:
             *      Verify Battle Returned True
@@ -319,6 +321,94 @@ namespace Scenario
             //Assert
             Assert.IsTrue(result);
             Assert.IsTrue(EngineViewModel.EngineGame.EngineSettings.BattleScore.CharacterModelDeathList[0].FiveMinuteBreaks > 0);
+
+        }
+
+        [Test]
+        public async Task HackathonScenario_Scenario_34_Valid_WantsToRest_False_Should_Pass()
+        {
+
+            /*
+             * Test 2/2.
+             * 
+            * Scenario Number:  
+            *      34
+            *      
+            * Description: 
+            *      Take 5... 
+            *      Why is it that a character must take an action?  
+            *      Can’t a hard-working character just sit back and take a break? 
+            *      Allow characters to choose to do nothing for their turn, they just sit back and take in 
+            *      all that is happening around them. Resting restores 2 health per rest.
+            * 
+            * Changes Required (Classes, Methods etc.)  List Files, Methods, and Describe Changes: 
+            *      PlayerInfoModel - Add variable to track number of FiveMinuteBreaks character has taken. Also add variable that indicates if player wants to rest. 
+            *      ActionEnum.cs - Added ActionEnum.Rest
+            *      TurnEngineBase.cs - Added case for ActionEnum.Rest which calls RestAsTurn(Attacker)
+            * 
+            * Test Algorithm:
+            *      Create Character named Minnie
+            *      Set speed to 100 so she goes first
+            *      Set Current Health to 100 to ensure she survives long enough to take a couple of turns
+            *      Set character.WantsToRest to false
+            *      Set hackathon debug to true
+            *  
+            *      Startup Battle
+            *      Run Auto Battle
+            * 
+            * Test Conditions:
+            *      Requires two tests: one where WantsToRest is set to true and one where it's set to false. 
+            * 
+            * Validation:
+            *      Verify Battle Returned True
+            *      Verify dead character Minnie's FiveMinuteBreaks is == 0
+            *  
+            */
+
+            //Arrange
+
+            // Set Character Conditions
+
+            EngineViewModel.EngineGame.EngineSettings.MaxNumberPartyCharacters = 1;
+
+            var character = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Speed = 100,
+                                Level = 1,
+                                CurrentHealth = 100,
+                                ExperienceTotal = 1,
+                                ExperienceRemaining = 1,
+                                Name = "Minnie",
+                            });
+            character.WantsToRest = false;
+
+            EngineViewModel.EngineGame.EngineSettings.CharacterList.Clear();
+            EngineViewModel.EngineGame.EngineSettings.CharacterList.Add(character);
+
+            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = true;
+
+            // Set Monster Conditions
+
+            // Auto Battle will add the monsters
+
+            // Monsters always hit
+            EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.MonsterHitEnum = HitStatusEnum.Hit;
+
+            // Minnie always misses when she attacks
+            EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.CharacterHitEnum = HitStatusEnum.Miss;
+
+            //Act
+            var result = await EngineViewModel.AutoBattleEngineGame.RunAutoBattle();
+
+            //Reset
+            EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.MonsterHitEnum = HitStatusEnum.Default;
+            EngineViewModel.EngineGame.EngineSettings.BattleSettingsModel.CharacterHitEnum = HitStatusEnum.Default;
+            EngineViewModel.EngineGame.EngineSettings.HackathonDebug = false;
+
+            //Assert
+            Assert.IsTrue(result);
+            Assert.IsTrue(EngineViewModel.EngineGame.EngineSettings.BattleScore.CharacterModelDeathList[0].FiveMinuteBreaks == 0);
 
         }
         #endregion Scenario34
