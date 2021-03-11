@@ -639,6 +639,7 @@ namespace Scenario
 
             //Reset
             AutoBattle.Battle.EngineSettings.CharacterList.Clear();
+            AutoBattle.Battle.EngineSettings.MaxNumberPartyMonsters = 6;
 
             //Assert
             Assert.AreEqual(true, result);
@@ -666,6 +667,7 @@ namespace Scenario
 
             //Reset
             AutoBattle.Battle.EngineSettings.CharacterList.Clear();
+            AutoBattle.Battle.EngineSettings.MaxNumberPartyMonsters = 6;
 
             //Assert
             Assert.AreEqual(true, result);
