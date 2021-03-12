@@ -62,11 +62,24 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void NewRoundPage_BeginButton_Clicked_Default_Should_Pass()
+        public void NewRoundPage_BeginGridButton_Clicked_Default_Should_Pass()
         {
             // Arrange
             // Act
-            page.BeginButton_Clicked(null, null);
+            page.BeginGridButton_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void NewRoundPage_BeginSimpleButton_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+            // Act
+            page.BeginSimpleButton_Clicked(null, null);
 
             // Reset
 
