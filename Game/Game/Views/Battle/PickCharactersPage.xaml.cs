@@ -22,10 +22,6 @@ namespace Game.Views
     public partial class PickCharactersPage : ContentPage
     {
 
-        public static int NUM_CHARACTERS = 7;
-        public static int NUM_ITEMS = 5;
-        public static int NUM_MONSTERS = 6;
-
         // Empty Constructor for UTs
         public PickCharactersPage(bool UnitTest) { }
 
@@ -35,7 +31,7 @@ namespace Game.Views
         public List<CharacterModel> selectedCharacters = new List<CharacterModel>();
 
         // The view model, used for data binding
-        readonly CharacterIndexViewModel ViewModel = CharacterIndexViewModel.Instance;
+        public CharacterIndexViewModel ViewModel = CharacterIndexViewModel.Instance;
 
         /// <summary>
         /// Constructor for Index Page, Instantiates the binding content, ensures
@@ -54,6 +50,7 @@ namespace Game.Views
             UpdateNextButtonState();
         }
 
+        /*
         /// <summary>
         /// Used to test page with fake data
         /// </summary>
@@ -73,7 +70,9 @@ namespace Game.Views
 
             return true;
         }
+        */
 
+        /*
         /// <summary>
         /// Helper method to get a default character stub list.
         /// </summary>
@@ -161,6 +160,7 @@ namespace Game.Views
             }
             return result;
         }
+        */
 
         /// <summary>
         /// The row selected from the list

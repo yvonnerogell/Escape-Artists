@@ -33,7 +33,7 @@ namespace Game.Views
         public GenericViewModel<BattleEngineViewModel> ViewModel = new GenericViewModel<BattleEngineViewModel>();
 
         // Empty Constructor for UTs
-        bool UnitTestSetting;
+        public bool UnitTestSetting;
         public BattlePageTwo(bool UnitTest) { UnitTestSetting = UnitTest; }
 
         // selecting the character of that turn
@@ -217,75 +217,119 @@ namespace Game.Views
             return ItemStack;
         }
 
-
-/*
         /// <summary>
-        /// Show the Popup for the Character
-        /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
-        public bool ShowPopupCharacter(CharacterModel data)
-        {
-            CharacterSelectedFrame.IsVisible = true;
-            PopupCharacterImage.Source = data.ImageURI;
-
-            PopupCharacterName.Text = data.Name;
-            PopupCharacterHealth.Text = data.CurrentHealth.ToString();
-            PopupCharacterGPA.Text = data.GPA.ToString();
-
-            // Set command parameter so that popup knows which item it is displaying
-            PopupSaveButtonCharacter.CommandParameter = data.Name;
-           
-            return true;
-        }
-
-        /// <summary>
-        /// Cflose the popup
+        /// Settings Page
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void ClosePopupCharacter_Clicked(object sender, EventArgs e)
+        public async void Settings_Clicked(object sender, EventArgs e)
         {
-            CharacterSelectedFrame.IsVisible = false;
+            await ShowBattleSettingsPage();
         }
 
         /// <summary>
-        /// Save the assigned item and close the popup
+        /// Show Settings
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public void PopupSaveButtonCharacter_Clicked(object sender, EventArgs e)
+        public async Task ShowBattleSettingsPage()
         {
-            var characterName = "";
-            var player = new PlayerInfoModel(); ;
-            
-            // Look up by Character name
-            characterName = ((Button)sender).CommandParameter.ToString();
-            foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
+            ShowBattleMode();
+            await Navigation.PushModalAsync(new BattleSettingsPage());
+        }
+
+        /// <summary>
+        /// Show the proper Battle Mode
+        /// </summary>
+        public void ShowBattleMode()
+        {
+            // If running in UT mode, 
+            if (UnitTestSetting)
             {
-                if (data.Name.Equals(characterName))
+                return;
+            }
+
+            //HideUIElements();
+
+            //ClearMessages();
+
+            //DrawPlayerBoxes();
+
+            // Update the Mode
+            //BattleModeValue.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.BattleModeEnum.ToMessage();
+
+            //            ShowBattleModeDisplay();
+
+            //          ShowBattleModeUIElements();
+        }
+
+
+        /*
+                /// <summary>
+                /// Show the Popup for the Character
+                /// </summary>
+                /// <param name="data"></param>
+                /// <returns></returns>
+                public bool ShowPopupCharacter(CharacterModel data)
                 {
-                    player = data;
+                    CharacterSelectedFrame.IsVisible = true;
+                    PopupCharacterImage.Source = data.ImageURI;
+
+                    PopupCharacterName.Text = data.Name;
+                    PopupCharacterHealth.Text = data.CurrentHealth.ToString();
+                    PopupCharacterGPA.Text = data.GPA.ToString();
+
+                    // Set command parameter so that popup knows which item it is displaying
+                    PopupSaveButtonCharacter.CommandParameter = data.Name;
+
+                    return true;
                 }
 
-            }
-           
-            var characterFoundIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FindIndex(c => c.Name == player.Name);
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.RemoveAt(characterFoundIndex);
+                /// <summary>
+                /// Cflose the popup
+                /// </summary>
+                /// <param name="sender"></param>
+                /// <param name="e"></param>
+                public void ClosePopupCharacter_Clicked(object sender, EventArgs e)
+                {
+                    CharacterSelectedFrame.IsVisible = false;
+                }
 
-           // Add updated player back to view model
-            selectedCharacters.Add(player);
+                /// <summary>
+                /// Save the assigned item and close the popup
+                /// </summary>
+                /// <param name="sender"></param>
+                /// <param name="e"></param>
+                public void PopupSaveButtonCharacter_Clicked(object sender, EventArgs e)
+                {
+                    var characterName = "";
+                    var player = new PlayerInfoModel(); ;
 
-            DrawCharacterList();
-            //DrawSelectedCharacters();
-            // This is when the item list should be visible
-            DrawItems();
+                    // Look up by Character name
+                    characterName = ((Button)sender).CommandParameter.ToString();
+                    foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
+                    {
+                        if (data.Name.Equals(characterName))
+                        {
+                            player = data;
+                        }
 
-            PopupLoadingItemListFoundFrame.IsVisible = true;
-            CharacterSelectedFrame.IsVisible = false;
-            PopupCharacterListSelected.IsVisible = true;
-        }
-*/
+                    }
+
+                    var characterFoundIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FindIndex(c => c.Name == player.Name);
+                    BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.RemoveAt(characterFoundIndex);
+
+                   // Add updated player back to view model
+                    selectedCharacters.Add(player);
+
+                    DrawCharacterList();
+                    //DrawSelectedCharacters();
+                    // This is when the item list should be visible
+                    DrawItems();
+
+                    PopupLoadingItemListFoundFrame.IsVisible = true;
+                    CharacterSelectedFrame.IsVisible = false;
+                    PopupCharacterListSelected.IsVisible = true;
+                }
+        */
 
         /// <summary>
         /// Clear and Add the Characters that survived

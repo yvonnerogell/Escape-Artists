@@ -53,6 +53,9 @@ namespace Game.Models
         //Tracks Scenario 29
         public bool ItemCanBeBroken { get; set; } = false;
 
+        // variable for TileImageURI
+        public string TileImageURI { get; set; }
+
         /// <summary>
         /// Default Constructor
         /// </summary>
@@ -121,6 +124,8 @@ namespace Game.Models
 
             // Scenario 29
             ItemCanBeBroken = data.ItemCanBeBroken;
+
+            TileImageURI = data.TileImageURI;
         }
 
         /// <summary>
@@ -182,6 +187,8 @@ namespace Game.Models
             WantsToRest = false; // default to false
 
             SlippedNumTimes = 0; // start this at 0
+
+            TileImageURI = data.TileImageURI;
 
             /*
                 TODO: Team, this is needed to keep the UT passing for the base game, your game does not need to use it.
@@ -252,6 +259,8 @@ namespace Game.Models
             {
                 AbilityTracker.Add(AbilityEnumHelper.ConvertStringToEnum(item), Level);
             }
+
+            TileImageURI = data.TileImageURI;
 
         }
 

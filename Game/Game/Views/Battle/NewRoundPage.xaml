@@ -18,7 +18,6 @@
     -->
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Settings" Clicked="Settings_Clicked" IconImageSource="icon_settings.png"/>
         <ToolbarItem Text="Cancel" Clicked="ExitButton_Clicked" IconImageSource="icon_cancel.png"/>
     </ContentPage.ToolbarItems>
     
@@ -48,7 +47,11 @@
 
                 <StackLayout Padding="3"></StackLayout>
 
-                <Button Clicked="BeginButton_Clicked" Text="Begin"/>
+                <StackLayout Style="{StaticResource HorizontalCenterStack}">
+                    <Button Clicked="BeginSimpleButton_Clicked" Text="Begin Simple Battle"/>
+                    <Button Clicked="BeginGridButton_Clicked" Text="Begin Map Battle"/>
+                </StackLayout>
+                
                 
             </StackLayout>
         </ScrollView>

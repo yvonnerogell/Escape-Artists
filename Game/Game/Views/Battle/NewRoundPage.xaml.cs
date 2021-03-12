@@ -15,6 +15,8 @@ namespace Game.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class NewRoundPage: ContentPage
 	{
+        public PlayerInfoModel nextPlayer;
+
 		// This uses the Instance so it can be shared with other Battle Pages as needed
 		public BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
 
@@ -40,52 +42,9 @@ namespace Game.Views
 				MonsterListFrame.Children.Add(CreatePlayerDisplayBox(data));
 			}
 
-            
+            nextPlayer = EngineViewModel.Engine.Round.GetNextPlayerTurn();
 
-        }
-
-        /// <summary>
-        /// Settings Page
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public async void Settings_Clicked(object sender, EventArgs e)
-        {
-            await ShowBattleSettingsPage();
-        }
-
-        /// <summary>
-        /// Show Settings
-        /// </summary>
-        public async Task ShowBattleSettingsPage()
-        {
-            ShowBattleMode();
-            await Navigation.PushModalAsync(new BattleSettingsPage());
-        }
-
-        /// <summary>
-        /// Show the proper Battle Mode
-        /// </summary>
-        public void ShowBattleMode()
-        {
-            // If running in UT mode, 
-            if (UnitTestSetting)
-            {
-                return;
-            }
-
-            //HideUIElements();
-
-           //ClearMessages();
-
-            //DrawPlayerBoxes();
-
-            // Update the Mode
-            //BattleModeValue.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.BattleModeEnum.ToMessage();
-
-//            ShowBattleModeDisplay();
-
-  //          ShowBattleModeUIElements();
+            EngineViewModel.Engine.EngineSettings.CurrentAttacker = nextPlayer;
         }
 
 
@@ -95,23 +54,30 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public async void BeginButton_Clicked(object sender, EventArgs e)
+        public async void BeginSimpleButton_Clicked(object sender, EventArgs e)
 		{
-            switch (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.BattleModeEnum)
-            {
-                case BattleModeEnum.MapAbility:
-                case BattleModeEnum.MapFull:
-                case BattleModeEnum.MapNext:
-                    await Navigation.PushModalAsync(new NavigationPage(new BattleGridPage()));
-                    break;
-
-                case BattleModeEnum.SimpleAbility:
-                case BattleModeEnum.SimpleNext:
-                case BattleModeEnum.Unknown:
-                default:
-                    await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
-                    break;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.BattleModeEnum = BattleModeEnum.SimpleNext;
+            if (nextPlayer.PlayerType == PlayerTypeEnum.Character)
+			{
+                await Navigation.PushModalAsync(new NavigationPage(new BattlePageTwo()));
             }
+            if (nextPlayer.PlayerType == PlayerTypeEnum.Monster)
+			{
+                EngineViewModel.Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
+                EngineViewModel.Engine.Round.RoundNextTurn();
+                await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
+            }
+        }
+
+        /// <summary>
+        /// Start next Round, returning to the battle screen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void BeginGridButton_Clicked(object sender, EventArgs e)
+        {
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.BattleModeEnum = BattleModeEnum.MapNext;
+            await Navigation.PushModalAsync(new NavigationPage(new BattleGridPage()));
         }
 
         /// <summary>

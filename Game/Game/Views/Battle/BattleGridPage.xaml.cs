@@ -802,6 +802,16 @@ namespace Game.Views
         }
 
         /// <summary>
+        /// Settings Page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void Settings_Clicked(object sender, EventArgs e)
+        {
+            await ShowBattleSettingsPage();
+        }
+
+        /// <summary>
         /// The Next Round Button
         /// </summary>
         /// <param name="sender"></param>
@@ -900,7 +910,7 @@ namespace Game.Views
             DrawPlayerBoxes();
 
             // Update the Mode
-            BattleModeValue.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.BattleModeEnum.ToMessage();
+            //BattleModeValue.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.BattleModeEnum.ToMessage();
 
             ShowBattleModeDisplay();
 

@@ -495,6 +495,8 @@ namespace Game.GameRules
             }
 
             result.ImageURI = SpecificCharacterTypeEnumHelper.ToImageURI(result.SpecificCharacterTypeEnum);
+            result.TileImageURI = SpecificCharacterTypeEnumHelper.ToTileImageURI(result.SpecificCharacterTypeEnum);
+
 
             result.MaxHealth = DiceHelper.RollDice(MaxLevel, 10);
 
@@ -568,6 +570,8 @@ namespace Game.GameRules
 			}
 
             result.ImageURI = SpecificCharacterTypeEnumHelper.ToImageURI(result.SpecificCharacterTypeEnum);
+            result.TileImageURI = SpecificCharacterTypeEnumHelper.ToTileImageURI(result.SpecificCharacterTypeEnum);
+
 
             result.MaxHealth = DiceHelper.RollDice(MaxLevel, 10);
 
@@ -706,7 +710,7 @@ namespace Game.GameRules
             // Level up to the new level
             result.LevelUpToValue(result.Level);
 
-            var specifictype = DiceHelper.RollDice(1, 5);
+            var specifictype = DiceHelper.RollDice(1, 4);
 
             result.SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.Unknown;
 
@@ -730,6 +734,7 @@ namespace Game.GameRules
             }
 
             result.ImageURI = SpecificMonsterTypeEnumHelper.ToImageURI(result.SpecificMonsterTypeEnum);
+            result.TileImageURI = SpecificMonsterTypeEnumHelper.ToTileImageURI(result.SpecificMonsterTypeEnum);
 
             // Set ExperienceRemaining so Monsters can both use this method
             var LevelData = LevelTableHelper.LevelDetailsList.ElementAtOrDefault(result.Level + 1) ?? LevelTableHelper.LevelDetailsList.Last();
@@ -810,6 +815,7 @@ namespace Game.GameRules
             }
 
             result.ImageURI = SpecificMonsterTypeEnumHelper.ToImageURI(result.SpecificMonsterTypeEnum);
+            result.TileImageURI = SpecificMonsterTypeEnumHelper.ToTileImageURI(result.SpecificMonsterTypeEnum);
 
             // Set ExperienceRemaining so Monsters can both use this method
             var LevelData = LevelTableHelper.LevelDetailsList.ElementAtOrDefault(result.Level + 1) ?? LevelTableHelper.LevelDetailsList.Last();

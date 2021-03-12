@@ -30,7 +30,7 @@ namespace Game.Views
 
 
         // Empty Constructor for UTs
-        bool UnitTestSetting;
+        public bool UnitTestSetting;
         public BattlePageOne(bool UnitTest) { UnitTestSetting = UnitTest; }
 
         /// <summary>
@@ -40,42 +40,14 @@ namespace Game.Views
         {
             InitializeComponent();
 
-            // Set initial State to Starting
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Starting;
-
             // Set up the UI to Defaults
             BindingContext = BattleEngineViewModel.Instance;
-
-            // TODO for team: remove this once we are ready to use our own battle engine.
-            BattleEngineViewModel.Instance.SetBattleEngineToKoenig();
-
-            // Create and Draw the Map
-            //InitializeMapGrid();
 
             // TODO: Remoev this once we move to real battle engine
             List<ItemModel> droppedItems = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList;
 
-            // TODO: This should be moved to RoundStart page
-            // Start the Battle Engine
-            //BattleEngineViewModel.Instance.Engine.StartBattle(false);
-
             // TODO remove once we use real engine. This is just reassigning items for testing pruposes. 
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList = droppedItems;
-
-            // Populate the UI Map
-            // DrawMapGridInitialState();
-
-
-            // Ask the Game engine to select who goes first
-            // BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
-
-            // TODO chnage this once we have our battle implemented
-            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FirstOrDefault());
-            BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.FirstOrDefault());
-
-            // Add Players to Display
-            // DrawGameAttackerDefenderBoard();
-
 
             var currentAttacker = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker;
             var currentDefender = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender;
@@ -95,6 +67,7 @@ namespace Game.Views
                 AttackTextLabel.Text = GetAttackText(currentAttacker, currentDefender);
                 GPAValueLabel.Text = GetCharacterGPA(currentCharacter);
                 HealthValueLabel.Text = GetCharacterHealth(currentCharacter);
+                CharacterNameLabel.Text = GetCharacterName(currentCharacter) + " Stats";
             }
 
             SetBattleMessage(BattleEngineViewModel.Instance.Engine.EngineSettings.BattleMessagesModel.TurnMessage);
@@ -116,14 +89,14 @@ namespace Game.Views
                 return false;
 			}
 
-            AttackerImage.Source = currentAttacker.ImageURI;
+            AttackerImage.Source = currentAttacker.TileImageURI;
 
             if (currentDefender == null)
 			{
                 return false;
 			}
 
-            DefenderImage.Source = currentDefender.ImageURI;
+            DefenderImage.Source = currentDefender.TileImageURI;
 
             return true;
 		}
@@ -153,45 +126,23 @@ namespace Game.Views
 
             if (currentAttacker.PlayerType == PlayerTypeEnum.Monster)
             {
-                if (currentAttacker.MonsterTypeEnum == MonsterTypeEnum.Faculty)
-                {
-                    attackText += currentAttacker.SpecificMonsterTypeEnum.ToMessage();
-                    attackText += " ";
-                    attackText += currentAttacker.Name;
-                    attackText += " gives ";
-                    attackText += currentDefender.Name;
-                    attackText += " an exam.";
-                }
-                if (currentAttacker.MonsterTypeEnum == MonsterTypeEnum.Administrator)
-                {
-                    attackText += currentAttacker.SpecificMonsterTypeEnum.ToMessage();
-                    attackText += " ";
-                    attackText += currentAttacker.Name;
-                    attackText += " gives ";
-                    attackText += currentDefender.Name;
-                    attackText += " forms to fill out.";
-                }
+                attackText += currentAttacker.SpecificMonsterTypeEnum.ToMessage();
+                attackText += " ";
+                attackText += currentAttacker.Name;
+                attackText += "\n vs \n";
+                attackText += currentDefender.SpecificCharacterTypeEnum.ToMessage();
+                attackText += " ";
+                attackText += currentDefender.Name;
             }
             if (currentAttacker.PlayerType == PlayerTypeEnum.Character)
             {
-                if (currentDefender.MonsterTypeEnum == MonsterTypeEnum.Faculty)
-                {
-                    attackText += currentAttacker.Name;
-                    attackText += " studies hard for ";
-                    attackText += currentDefender.SpecificMonsterTypeEnum.ToMessage();
-                    attackText += " ";
-                    attackText += currentDefender.Name;
-                    attackText += "'s exam.";
-                }
-                if (currentDefender.MonsterTypeEnum == MonsterTypeEnum.Administrator)
-                {
-                    attackText += currentAttacker.Name;
-                    attackText += " fills out all forms from ";
-                    attackText += currentDefender.SpecificMonsterTypeEnum.ToMessage();
-                    attackText += " ";
-                    attackText += currentDefender.Name;
-                    attackText += ".";
-                }
+                attackText += currentAttacker.SpecificCharacterTypeEnum.ToMessage();
+                attackText += " ";
+                attackText += currentAttacker.Name;
+                attackText += "\n vs \n";
+                attackText += currentDefender.SpecificMonsterTypeEnum.ToMessage();
+                attackText += " ";
+                attackText += currentDefender.Name;
             }
             return attackText;
         }
@@ -209,7 +160,7 @@ namespace Game.Views
 
         /// <summary>
         /// 
-        /// Returns the GPA of the current character. 
+        /// Returns the health of the current character. 
         /// </summary>
         /// <returns></returns>
         public string GetCharacterHealth(PlayerInfoModel currentCharacter)
@@ -220,10 +171,65 @@ namespace Game.Views
 
         /// <summary>
         /// 
+        /// Returns the name of the current character. 
+        /// </summary>
+        /// <returns></returns>
+        public string GetCharacterName(PlayerInfoModel currentCharacter)
+        {
+            // TODO change to pull data from BattleEngineViewModel. 
+            return currentCharacter.Name;
+        }
+
+        /// <summary>
+        /// Settings Page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void Settings_Clicked(object sender, EventArgs e)
+        {
+            await ShowBattleSettingsPage();
+        }
+
+        /// <summary>
+        /// Show Settings
+        /// </summary>
+        public async Task ShowBattleSettingsPage()
+        {
+            ShowBattleMode();
+            await Navigation.PushModalAsync(new BattleSettingsPage());
+        }
+
+        /// <summary>
+        /// Show the proper Battle Mode
+        /// </summary>
+        public void ShowBattleMode()
+        {
+            // If running in UT mode, 
+            if (UnitTestSetting)
+            {
+                return;
+            }
+
+            //HideUIElements();
+
+            //ClearMessages();
+
+            //DrawPlayerBoxes();
+
+            // Update the Mode
+            //BattleModeValue.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.BattleModeEnum.ToMessage();
+
+            //            ShowBattleModeDisplay();
+
+            //          ShowBattleModeUIElements();
+        }
+
+        /// <summary>
+        /// 
         /// Returns the five most recent battle messages to display
         /// </summary>
         /// <returns></returns>
-       
+
         /*
         /// <summary>
         /// Dray the Player Boxes
