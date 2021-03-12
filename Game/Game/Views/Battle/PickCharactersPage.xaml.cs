@@ -22,10 +22,6 @@ namespace Game.Views
     public partial class PickCharactersPage : ContentPage
     {
 
-        public static int NUM_CHARACTERS = 7;
-        public static int NUM_ITEMS = 5;
-        public static int NUM_MONSTERS = 6;
-
         // Empty Constructor for UTs
         public PickCharactersPage(bool UnitTest) { }
 
