@@ -219,7 +219,11 @@ namespace Game.Engine.EngineBase
         {
 
             // Scenario 29
-            PlayerItemCanBeBroken(Attacker);
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.HackathonDebug)
+            {
+                PlayerItemCanBeBroken(Attacker);
+            }
+
 
             // Choose Action.  Such as Move, Attack etc.
 
