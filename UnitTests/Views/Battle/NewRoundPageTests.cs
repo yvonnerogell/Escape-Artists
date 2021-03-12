@@ -134,20 +134,6 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void ShowBattleMode_Default_Should_Pass()
-        {
-            // Arrange
-            
-            // Act
-            UTPage.ShowBattleMode();
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-
-        [Test]
         public void ExitButton_Default_Should_Pass()
         {
             // Arrange
@@ -159,28 +145,5 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-
-       [Test]
-       public void Settings_Clicked_Default_Should_Pass()
-        {
-            //Arrange
-            //Act
-            page.Settings_Clicked(null, null);
-            //Reset
-            //Assert
-            Assert.IsTrue(true); //Got to her, so it happened...
-        }
-
-        [Test]
-        public async Task ShowBattleSettingsPage_Default_Should_Pass()
-        {
-            //Arrange
-            //Act
-            await page.ShowBattleSettingsPage();
-            //Reset
-            //Assert
-            Assert.IsTrue(true);
-        }
-
     }
 }
