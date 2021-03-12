@@ -26,14 +26,30 @@ namespace Game.Views
 
             #region BattleMode
             // Load the values for the Diffculty into the Picker
+            /*
             foreach (var item in BattleModeEnumHelper.GetListMessageAll)
             {
                 BattleModePicker.Items.Add(item);
+            }
+            */
+            // check what the current one is, only set those options.
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.BattleModeEnum.ToMessage() == BattleModeEnum.SimpleNext.ToMessage() ||
+                BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.BattleModeEnum.ToMessage() == BattleModeEnum.SimpleAbility.ToMessage())
+            {
+                BattleModePicker.Items.Add(BattleModeEnum.SimpleNext.ToMessage());
+                BattleModePicker.Items.Add(BattleModeEnum.SimpleAbility.ToMessage());
+            }
+            else
+            {
+                BattleModePicker.Items.Add(BattleModeEnum.MapNext.ToMessage());
+                BattleModePicker.Items.Add(BattleModeEnum.MapAbility.ToMessage());
+                BattleModePicker.Items.Add(BattleModeEnum.MapFull.ToMessage());
             }
 
             // Set Values to current State
             BattleModePicker.SelectedItem = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.BattleModeEnum.ToMessage();
             BattleModePicker.SelectedIndex = BattleModePicker.Items.IndexOf(BattleModePicker.SelectedItem.ToString());
+
             #endregion BattleMode
 
             #region HitPickers

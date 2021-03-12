@@ -81,7 +81,7 @@ namespace Game.Views
             //DrawPlayerBoxes();
 
             // Update the Mode
-            BattleModeValue.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.BattleModeEnum.ToMessage();
+            //BattleModeValue.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.BattleModeEnum.ToMessage();
 
 //            ShowBattleModeDisplay();
 
