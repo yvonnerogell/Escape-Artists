@@ -1035,6 +1035,21 @@ namespace UnitTests.Views
         }
 
         [Test]
+        public void BattlePage_GetCharacterName_Should_Pass()
+        {
+            // Arrange
+            var currentCharacter = new PlayerInfoModel(new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character });
+
+            // Act
+            var result = page.GetCharacterName(currentCharacter);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Minnie", result);
+        }
+
+        [Test]
         public void BattlePage_SetBattleMessage_Should_Pass()
         {
             // Arrange

@@ -67,6 +67,7 @@ namespace Game.Views
                 AttackTextLabel.Text = GetAttackText(currentAttacker, currentDefender);
                 GPAValueLabel.Text = GetCharacterGPA(currentCharacter);
                 HealthValueLabel.Text = GetCharacterHealth(currentCharacter);
+                CharacterNameLabel.Text = GetCharacterName(currentCharacter) + " Stats";
             }
 
             SetBattleMessage(BattleEngineViewModel.Instance.Engine.EngineSettings.BattleMessagesModel.TurnMessage);
@@ -159,13 +160,24 @@ namespace Game.Views
 
         /// <summary>
         /// 
-        /// Returns the GPA of the current character. 
+        /// Returns the health of the current character. 
         /// </summary>
         /// <returns></returns>
         public string GetCharacterHealth(PlayerInfoModel currentCharacter)
         {
             // TODO change to pull data from BattleEngineViewModel. 
             return currentCharacter.CurrentHealth.ToString();
+        }
+
+        /// <summary>
+        /// 
+        /// Returns the name of the current character. 
+        /// </summary>
+        /// <returns></returns>
+        public string GetCharacterName(PlayerInfoModel currentCharacter)
+        {
+            // TODO change to pull data from BattleEngineViewModel. 
+            return currentCharacter.Name;
         }
 
         /// <summary>
