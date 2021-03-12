@@ -19,6 +19,7 @@ namespace Game.Views
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "<Pending>")]
     public partial class BattlePageOne : ContentPage
     {
+        public PlayerInfoModel nextPlayer;
         // HTML Formatting for message output box
         public HtmlWebViewSource htmlSource = new HtmlWebViewSource();
 
@@ -336,16 +337,23 @@ namespace Game.Views
             }
             if (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum == BattleStateEnum.Battling)
             {
-                await Navigation.PushModalAsync(new NavigationPage(new BattlePageTwo()));
+                nextPlayer = BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn();
+                BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = nextPlayer;
+                if (nextPlayer.PlayerType == PlayerTypeEnum.Character)
+                {
+                    await Navigation.PushModalAsync(new NavigationPage(new BattlePageTwo()));
+                }
+                if (nextPlayer.PlayerType == PlayerTypeEnum.Monster)
+                {
+                    BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
+                    BattleEngineViewModel.Instance.Engine.Round.RoundNextTurn();
+                    await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
+                }
             }
             if (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum == BattleStateEnum.GameOver)
             {
                 await Navigation.PushModalAsync(new NavigationPage(new GameOverPage()));
             }
-
-            // default to battle page two - used for testing purposes
-            // TODO remove once manual battle is working
-            await Navigation.PushModalAsync(new NavigationPage(new BattlePageTwo()));
         }
 
         /// <summary>

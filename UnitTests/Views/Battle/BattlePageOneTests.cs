@@ -263,6 +263,10 @@ namespace UnitTests.Views
         public void BattlePage_NextAttackButton_Clicked_RoundOver_Should_Pass()
         {
             // Arrange
+            page.nextPlayer = new PlayerInfoModel(new MonsterModel { PlayerType = PlayerTypeEnum.Monster, MonsterTypeEnum = MonsterTypeEnum.Administrator, Name = "monster", ImageURI = "uri", SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.HRAdministrator });
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = page.nextPlayer;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = new PlayerInfoModel(new CharacterModel { Name = "character", PlayerType = PlayerTypeEnum.Character, SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.Overachiever, CharacterTypeEnum = CharacterTypeEnum.Student, ImageURI = "uri", GPA = 13 });
+
             var save = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum;
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.RoundOver;
 
@@ -271,48 +275,68 @@ namespace UnitTests.Views
 
             // Reset
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = save;
+            page.nextPlayer = null;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = null;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = null;
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
+
+        
         [Test]
         public void BattlePage_NextAttackButton_Clicked_Unknown_Should_Pass()
         {
             // Arrange
             var save = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum;
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Unknown;
+            page.nextPlayer = new PlayerInfoModel(new MonsterModel { PlayerType = PlayerTypeEnum.Monster, MonsterTypeEnum = MonsterTypeEnum.Administrator, Name = "monster", ImageURI = "uri", SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.HRAdministrator });
+
 
             // Act
             page.NextAttackButton_Clicked(null, null);
 
             // Reset
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = save;
+            page.nextPlayer = null;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = null;
+
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
+        
         [Test]
         public void BattlePage_NextAttackButton_Clicked_GameOver_Should_Pass()
         {
             // Arrange
             var save = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum;
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.GameOver;
+            page.nextPlayer = new PlayerInfoModel(new MonsterModel { PlayerType = PlayerTypeEnum.Monster, MonsterTypeEnum = MonsterTypeEnum.Administrator, Name = "monster", ImageURI = "uri", SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.HRAdministrator });
+
 
             // Act
             page.NextAttackButton_Clicked(null, null);
 
             // Reset
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = save;
+            page.nextPlayer = null;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = null;
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
+        
         [Test]
-        public void BattlePage_NextAttackButton_Clicked_Battling_Should_Pass()
+        public void BattlePage_NextAttackButton_Clicked_Battling_Character_NextPlayer_Should_Pass()
         {
             // Arrange
+            page.nextPlayer = new PlayerInfoModel(new CharacterModel { PlayerType = PlayerTypeEnum.Character, CharacterTypeEnum = CharacterTypeEnum.Student, Name = "monster", ImageURI = "uri", SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.Slacker });
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = page.nextPlayer;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = new PlayerInfoModel(new CharacterModel { Name = "character", PlayerType = PlayerTypeEnum.Character, SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.Overachiever, CharacterTypeEnum = CharacterTypeEnum.Student, ImageURI = "uri", GPA = 13 });
+
             var save = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum;
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Battling;
 
@@ -321,10 +345,41 @@ namespace UnitTests.Views
 
             // Reset
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = save;
+            page.nextPlayer = null;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = null;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = null;
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
+
+        [Test]
+        public void BattlePage_NextAttackButton_Clicked_Battling_Monster_NextPlayer_Should_Pass_()
+        {
+            // Arrange
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Clear();
+            var nextPlayer = new PlayerInfoModel(new MonsterModel { PlayerType = PlayerTypeEnum.Monster, MonsterTypeEnum = MonsterTypeEnum.Administrator, Name = "monster", ImageURI = "uri", SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.HRAdministrator });
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Add(nextPlayer);
+
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = new PlayerInfoModel(new CharacterModel { Name = "character", PlayerType = PlayerTypeEnum.Character, SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.Overachiever, CharacterTypeEnum = CharacterTypeEnum.Student, ImageURI = "uri", GPA = 13 });
+
+            var save = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Battling;
+
+            // Act
+            page.NextAttackButton_Clicked(null, null);
+
+            // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = save;
+            page.nextPlayer = null;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = null;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = null;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Clear();
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
 
         [Test]
         public void BattlePage_RoundOverButton_Clicked_Default_Should_Pass()

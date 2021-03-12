@@ -57,6 +57,7 @@ namespace Game.Views
         public async void BeginSimpleButton_Clicked(object sender, EventArgs e)
 		{
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.BattleModeEnum = BattleModeEnum.SimpleNext;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Battling;
             if (nextPlayer.PlayerType == PlayerTypeEnum.Character)
 			{
                 await Navigation.PushModalAsync(new NavigationPage(new BattlePageTwo()));
