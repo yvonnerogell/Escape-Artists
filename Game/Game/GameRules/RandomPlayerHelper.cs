@@ -706,7 +706,7 @@ namespace Game.GameRules
             // Level up to the new level
             result.LevelUpToValue(result.Level);
 
-            var specifictype = DiceHelper.RollDice(1, 5);
+            var specifictype = DiceHelper.RollDice(1, 4);
 
             result.SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.Unknown;
 
