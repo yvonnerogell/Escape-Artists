@@ -466,6 +466,34 @@ namespace Game.Models
             return true;
         }
 
+
+
+        /// <summary>
+        /// check if attacker has special ability 
+        /// </summary>
+        /// <param name="Attacker"></param>
+        /// <returns></returns>
+        public bool IsSpecialAbilityAvailable()
+        {
+            if (EngineGameSpecialAbility == AbilityEnum.Unknown)
+            {
+                return false;
+            }
+
+            if (EngineGameSpecialAbility == AbilityEnum.None)
+            {
+                return false;
+            }
+
+            if (AbilityUsedInCurrentRound == true)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+
         /// <summary>
         /// Use the EngineGameSpecialAbility
         /// </summary>
@@ -474,13 +502,7 @@ namespace Game.Models
         public bool UseSpecialAbility()
         {
             // no ability to use
-            if (EngineGameSpecialAbility == AbilityEnum.None)
-            {
-                return false;
-            }
-
-            // ability already used
-            if (AbilityUsedInCurrentRound == true)
+            if (!IsSpecialAbilityAvailable())
             {
                 return false;
             }
@@ -501,8 +523,6 @@ namespace Game.Models
                     break;
                 case AbilityEnum.PayTuition:
                     GPA = (int)(GPA * Constants.SpecialAbilityGPABoostPayTuition);
-                    break;
-                default:
                     break;
             }
 
