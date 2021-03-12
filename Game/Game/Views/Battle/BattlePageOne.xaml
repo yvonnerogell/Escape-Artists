@@ -24,8 +24,8 @@
                         <Label x:Name="AttackTextLabel" HorizontalOptions="Center" Padding="15"/>
 
                         <StackLayout Orientation="Horizontal">
-                            <Image x:Name="AttackerImage" Source="assistant_professor_monster.png"/>
-                            <Image x:Name="DefenderImage" Source="helicopter_parent.png"/>
+                            <Image x:Name="AttackerImage" Source="assistant_professor_monster.png" HeightRequest="120" WidthRequest="120"/>
+                            <Image x:Name="DefenderImage" Source="helicopter_parent.png" HeightRequest="120" WidthRequest="120"/>
 
                         </StackLayout>
 

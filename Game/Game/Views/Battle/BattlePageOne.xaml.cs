@@ -89,14 +89,14 @@ namespace Game.Views
                 return false;
 			}
 
-            AttackerImage.Source = currentAttacker.ImageURI;
+            AttackerImage.Source = currentAttacker.TileImageURI;
 
             if (currentDefender == null)
 			{
                 return false;
 			}
 
-            DefenderImage.Source = currentDefender.ImageURI;
+            DefenderImage.Source = currentDefender.TileImageURI;
 
             return true;
 		}
