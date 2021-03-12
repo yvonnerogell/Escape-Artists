@@ -116,6 +116,67 @@ namespace UnitTests.Models
         }
 
         [Test]
+        public void PlayerInfoModel_IsSpecialAbilityAvailable_Unknown_Should_Pass()
+        {
+            // Arrange
+            var data = new PlayerInfoModel(new CharacterModel { SpecialAbility = AbilityEnum.Unknown });
+
+            // Act
+            var result = data.IsSpecialAbilityAvailable();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public void PlayerInfoModel_IsSpecialAbilityAvailable_None_Should_Pass()
+        {
+            // Arrange
+            var data = new PlayerInfoModel(new CharacterModel { SpecialAbility = AbilityEnum.None });
+
+            // Act
+            var result = data.IsSpecialAbilityAvailable();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public void PlayerInfoModel_IsSpecialAbilityAvailable_Not_Available_Should_Pass()
+        {
+            // Arrange
+            var data = new PlayerInfoModel(new CharacterModel { SpecialAbility = AbilityEnum.Extension });
+            data.AbilityUsedInCurrentRound = true;
+
+            // Act
+            var result = data.IsSpecialAbilityAvailable();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public void PlayerInfoModel_IsSpecialAbilityAvailable_Available_Should_Pass()
+        {
+            // Arrange
+            var data = new PlayerInfoModel(new CharacterModel { SpecialAbility = AbilityEnum.Extension });
+
+            // Act
+            var result = data.IsSpecialAbilityAvailable();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
         public void PlayerInfoModel_IsAbilityAvailable_Available_Should_Pass()
         {
             // Arrange
@@ -534,7 +595,7 @@ namespace UnitTests.Models
             // Reset
 
             // Assert
-            Assert.AreEqual(true, data.AbilityUsedInCurrentRound);
+            Assert.AreEqual(false, data.AbilityUsedInCurrentRound);
             Assert.AreEqual(0, data.GPA);
         }
 
