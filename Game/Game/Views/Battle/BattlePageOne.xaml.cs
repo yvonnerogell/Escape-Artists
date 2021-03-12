@@ -40,42 +40,14 @@ namespace Game.Views
         {
             InitializeComponent();
 
-            // Set initial State to Starting
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Starting;
-
             // Set up the UI to Defaults
             BindingContext = BattleEngineViewModel.Instance;
-
-            // TODO for team: remove this once we are ready to use our own battle engine.
-            BattleEngineViewModel.Instance.SetBattleEngineToKoenig();
-
-            // Create and Draw the Map
-            //InitializeMapGrid();
 
             // TODO: Remoev this once we move to real battle engine
             List<ItemModel> droppedItems = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList;
 
-            // TODO: This should be moved to RoundStart page
-            // Start the Battle Engine
-            //BattleEngineViewModel.Instance.Engine.StartBattle(false);
-
             // TODO remove once we use real engine. This is just reassigning items for testing pruposes. 
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList = droppedItems;
-
-            // Populate the UI Map
-            // DrawMapGridInitialState();
-
-
-            // Ask the Game engine to select who goes first
-            // BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
-
-            // TODO chnage this once we have our battle implemented
-            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FirstOrDefault());
-            BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.FirstOrDefault());
-
-            // Add Players to Display
-            // DrawGameAttackerDefenderBoard();
-
 
             var currentAttacker = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker;
             var currentDefender = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender;

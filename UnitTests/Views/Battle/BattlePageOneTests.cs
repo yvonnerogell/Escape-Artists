@@ -103,13 +103,6 @@ namespace UnitTests.Views
         public void BattlePage_Constructor_Default_CurrentAttacker_Null_Should_Pass()
         {
             // Arrange
-            var currentAttacker = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker;
-            var attackerList = new List<PlayerInfoModel>();
-            attackerList.Add(null);
-
-            // Need to set both of these so that current defender and attacker are both populated
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList = attackerList;
-            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList = attackerList;
 
             // Act
             var result = new BattlePageOne();
@@ -119,26 +112,18 @@ namespace UnitTests.Views
             // Assert
             Assert.IsNotNull(result);
             Assert.AreEqual(null, BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker);
-
-            // Reset - have to reset here because needed to assert that current attacker was null
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = currentAttacker;
         }
 
         [Test]
         public void BattlePage_Constructor_Default_CurrentAttacker_Student_Should_Pass()
         {
             // Arrange
-            var currentAttacker = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker;
             var attacker = new PlayerInfoModel(new CharacterModel { Name = "Minnie", CharacterTypeEnum = CharacterTypeEnum.Student });
-            var attackerList = new List<PlayerInfoModel>();
-            attackerList.Add(attacker);
             var defender = new PlayerInfoModel(new MonsterModel { Name = "Goofey", MonsterTypeEnum = MonsterTypeEnum.Faculty });
-            var defenderList = new List<PlayerInfoModel>();
-            defenderList.Add(defender);
 
             // Need to set both of these so that current defender and attacker are both populated
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList = attackerList;
-            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList = defenderList;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = attacker;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = defender;
 
             // Act
             var result = new BattlePageOne();
@@ -148,25 +133,21 @@ namespace UnitTests.Views
             // Assert
             Assert.AreEqual(attacker, BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker);
 
-            // Reset - have to reset here because needed to assert that current attacker was null
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = currentAttacker;
+            // Reset - have to reset here because needed to assert current attacker
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = null;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = null;
         }
 
         [Test]
         public void BattlePage_Constructor_Default_CurrentAttacker_Parent_Should_Pass()
         {
             // Arrange
-            var currentAttacker = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker;
             var attacker = new PlayerInfoModel(new CharacterModel { Name = "Minnie", CharacterTypeEnum = CharacterTypeEnum.Parent });
-            var attackerList = new List<PlayerInfoModel>();
-            attackerList.Add(attacker);
             var defender = new PlayerInfoModel(new MonsterModel { Name = "Goofey", MonsterTypeEnum = MonsterTypeEnum.Faculty });
-            var defenderList = new List<PlayerInfoModel>();
-            defenderList.Add(defender);
 
             // Need to set both of these so that current defender and attacker are both populated
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList = attackerList;
-            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList = defenderList;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = attacker;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = defender;
 
             // Act
             var result = new BattlePageOne();
@@ -176,25 +157,21 @@ namespace UnitTests.Views
             // Assert
             Assert.AreEqual(attacker, BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker);
 
-            // Reset - have to reset here because needed to assert that current attacker was null
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = currentAttacker;
+            // Reset - have to reset here because needed to assert current attacker
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = null;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = null;
         }
 
         [Test]
         public void BattlePage_Constructor_Default_CurrentAttacker_Unknown_Should_Pass()
         {
             // Arrange
-            var currentAttacker = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker;
             var attacker = new PlayerInfoModel(new CharacterModel { Name = "Minnie", CharacterTypeEnum = CharacterTypeEnum.Unknown });
-            var attackerList = new List<PlayerInfoModel>();
-            attackerList.Add(attacker);
             var defender = new PlayerInfoModel(new MonsterModel { Name = "Goofey", MonsterTypeEnum = MonsterTypeEnum.Faculty });
-            var defenderList = new List<PlayerInfoModel>();
-            defenderList.Add(defender);
 
             // Need to set both of these so that current defender and attacker are both populated
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList = attackerList;
-            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList = defenderList;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = attacker;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = defender;
 
             // Act
             var result = new BattlePageOne();
@@ -204,25 +181,21 @@ namespace UnitTests.Views
             // Assert
             Assert.AreEqual(attacker, BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker);
 
-            // Reset - have to reset here because needed to assert that current attacker was null
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = currentAttacker;
+            // Reset - have to reset here because needed to assert current attacker
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = null;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = null;
         }
 
         [Test]
         public void BattlePage_Constructor_Default_CurrentAttacker_Monster_Unknown_Should_Pass()
         {
             // Arrange
-            var currentAttacker = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker;
             var attacker = new PlayerInfoModel(new MonsterModel { Name = "Minnie", MonsterTypeEnum = MonsterTypeEnum.Unknown });
-            var attackerList = new List<PlayerInfoModel>();
-            attackerList.Add(attacker);
             var defender = new PlayerInfoModel(new CharacterModel { Name = "Goofey", CharacterTypeEnum = CharacterTypeEnum.Student });
-            var defenderList = new List<PlayerInfoModel>();
-            defenderList.Add(defender);
 
             // Need to set both of these so that current defender and attacker are both populated
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList = attackerList;
-            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList = defenderList;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = attacker;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = defender;
 
             // Act
             var result = new BattlePageOne();
@@ -232,53 +205,45 @@ namespace UnitTests.Views
             // Assert
             Assert.AreEqual(attacker, BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker);
 
-            // Reset - have to reset here because needed to assert that current attacker was null
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = currentAttacker;
+            // Reset - have to reset here because needed to assert current attacker
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = null;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = null;
         }
 
         [Test]
         public void BattlePage_Constructor_Default_CurrentAttacker_Monster_Faculty_Should_Pass()
         {
             // Arrange
-            var currentAttacker = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker;
             var attacker = new PlayerInfoModel(new MonsterModel { Name = "Minnie", MonsterTypeEnum = MonsterTypeEnum.Faculty });
-            var attackerList = new List<PlayerInfoModel>();
-            attackerList.Add(attacker);
             var defender = new PlayerInfoModel(new CharacterModel { Name = "Goofey", CharacterTypeEnum = CharacterTypeEnum.Student });
-            var defenderList = new List<PlayerInfoModel>();
-            defenderList.Add(defender);
-
 
             // Need to set both of these so that current defender and attacker are both populated
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList = attackerList;
-            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList = defenderList;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = attacker;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = defender;
 
             // Act
             var result = new BattlePageOne();
 
             // Reset
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
-            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
 
             // Assert
             Assert.AreEqual(attacker, BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker);
+
+            // Reset - have to reset here because needed to assert current attacker
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = null;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = null;
         }
 
         [Test]
         public void BattlePage_Constructor_Default_CurrentAttacker_Monster_Administrator_Should_Pass()
         {
             // Arrange
-            var currentAttacker = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker;
             var attacker = new PlayerInfoModel(new MonsterModel { Name = "Minnie", MonsterTypeEnum = MonsterTypeEnum.Administrator });
-            var attackerList = new List<PlayerInfoModel>();
-            attackerList.Add(attacker);
             var defender = new PlayerInfoModel(new CharacterModel { Name = "Goofey", CharacterTypeEnum = CharacterTypeEnum.Student });
-            var defenderList = new List<PlayerInfoModel>();
-            defenderList.Add(defender);
-
+           
             // Need to set both of these so that current defender and attacker are both populated
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList = attackerList;
-            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList = defenderList;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = attacker;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = defender;
 
             // Act
             var result = new BattlePageOne();
@@ -288,8 +253,9 @@ namespace UnitTests.Views
             // Assert
             Assert.AreEqual(attacker, BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker);
 
-            // Reset - have to reset here because needed to assert that current attacker was null
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = currentAttacker;
+            // Reset - have to reset here because needed to assert current attacker
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = null;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = null;
         }
 
         
@@ -689,6 +655,8 @@ namespace UnitTests.Views
             page.SetAttackerAndDefender();
 
             // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = null;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = null;
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
@@ -749,6 +717,8 @@ namespace UnitTests.Views
             page.SetAttackerAndDefender();
 
             // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = null;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = null;
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
@@ -809,6 +779,8 @@ namespace UnitTests.Views
             page.SetAttackerAndDefender();
 
             // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = null;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = null;
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
@@ -864,6 +836,8 @@ namespace UnitTests.Views
             var result = page.SetAttackerDefenderImages(CharacterPlayer, MonsterPlayer);
 
             // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = null;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = null;
 
             // Assert
             Assert.IsTrue(result);
@@ -905,6 +879,8 @@ namespace UnitTests.Views
             var result = page.SetAttackerDefenderImages(CharacterPlayer, null);
 
             // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = null;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = null;
 
             // Assert
             Assert.IsFalse(result);
@@ -939,6 +915,8 @@ namespace UnitTests.Views
             var result = page.SetAttackerDefenderImages(null, MonsterPlayer);
 
             // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = null;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = null;
 
             // Assert
             Assert.IsFalse(result);
