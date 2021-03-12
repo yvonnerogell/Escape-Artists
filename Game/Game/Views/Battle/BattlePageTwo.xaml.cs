@@ -732,6 +732,7 @@ namespace Game.Views
 
             // Make Monsters visible
             MonsterFrame.IsVisible = true;
+            MonsterListFrame.IsVisible = true;
         }
 
         /// <summary>
