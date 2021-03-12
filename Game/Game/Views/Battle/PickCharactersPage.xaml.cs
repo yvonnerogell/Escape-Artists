@@ -35,7 +35,7 @@ namespace Game.Views
         public List<CharacterModel> selectedCharacters = new List<CharacterModel>();
 
         // The view model, used for data binding
-        readonly CharacterIndexViewModel ViewModel = CharacterIndexViewModel.Instance;
+        public CharacterIndexViewModel ViewModel = CharacterIndexViewModel.Instance;
 
         /// <summary>
         /// Constructor for Index Page, Instantiates the binding content, ensures

@@ -250,7 +250,7 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void PickCharacterPage_OnCharacter_Clicked_Name_Exists_Should_Pass()
+        public async Task PickCharacterPage_OnCharacter_Clicked_Name_Exists_Should_Pass()
         {
             // Arrange
             var characters = DefaultData.LoadData(new CharacterModel());
@@ -261,7 +261,12 @@ namespace UnitTests.Views
                 BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(character));
             }
 
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(new CharacterModel { Name = "Test", Id="id"}));
+            var player = new CharacterModel { Name = "Test", Id = "id" };
+
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(player));
+            page.selectedCharacters.Clear();
+            page.selectedCharacters.Add(player);
+            await page.ViewModel.CreateAsync(player);
 
             ImageButton s = new ImageButton();
             // This id does now exist
@@ -276,6 +281,43 @@ namespace UnitTests.Views
 
             //Reset
             BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
+            page.selectedCharacters.Clear();
+            await page.ViewModel.DeleteAsync(player);
+        }
+
+        [Test]
+        public async Task PickCharacterPage_OnCharacter_Clicked_Name_Exists_Not_Selected_Should_Pass()
+        {
+            // Arrange
+            var characters = DefaultData.LoadData(new CharacterModel());
+
+            //add characters to the Engine
+            foreach (var character in characters)
+            {
+                BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(character));
+            }
+
+            var player = new CharacterModel { Name = "Test", Id = "id" };
+
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(player));
+            page.selectedCharacters.Clear();
+            await page.ViewModel.CreateAsync(player);
+
+            ImageButton s = new ImageButton();
+            // This id does now exist
+            s.CommandParameter = "id";
+            System.EventArgs e = new System.EventArgs();
+
+            // Act
+            page.OnCharacter_Clicked(s, e);
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+
+            //Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
+            page.selectedCharacters.Clear();
+            await page.ViewModel.DeleteAsync(player);
         }
     }
 }
