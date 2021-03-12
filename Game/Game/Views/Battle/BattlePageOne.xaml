@@ -6,6 +6,7 @@
              Title="Attack Results">
 
     <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Settings" Clicked="Settings_Clicked" IconImageSource="icon_settings.png"/>
         <ToolbarItem Text="Exit" Clicked="ExitButton_Clicked" IconImageSource="icon_cancel.png"/>
     </ContentPage.ToolbarItems>
 
