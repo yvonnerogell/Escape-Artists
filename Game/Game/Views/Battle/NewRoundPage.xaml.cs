@@ -44,50 +44,6 @@ namespace Game.Views
 
         }
 
-        /// <summary>
-        /// Settings Page
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public async void Settings_Clicked(object sender, EventArgs e)
-        {
-            await ShowBattleSettingsPage();
-        }
-
-        /// <summary>
-        /// Show Settings
-        /// </summary>
-        public async Task ShowBattleSettingsPage()
-        {
-            ShowBattleMode();
-            await Navigation.PushModalAsync(new BattleSettingsPage());
-        }
-
-        /// <summary>
-        /// Show the proper Battle Mode
-        /// </summary>
-        public void ShowBattleMode()
-        {
-            // If running in UT mode, 
-            if (UnitTestSetting)
-            {
-                return;
-            }
-
-            //HideUIElements();
-
-           //ClearMessages();
-
-            //DrawPlayerBoxes();
-
-            // Update the Mode
-            //BattleModeValue.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.BattleModeEnum.ToMessage();
-
-//            ShowBattleModeDisplay();
-
-  //          ShowBattleModeUIElements();
-        }
-
 
 
         /// <summary>
