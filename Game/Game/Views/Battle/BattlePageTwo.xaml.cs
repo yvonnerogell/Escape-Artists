@@ -300,13 +300,14 @@ namespace Game.Views
             }
 
             // Draw the Characters
-            foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
-                {
-                    if (data.Level != 20)
+            //foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
+            var attacker= BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker;
+            //{
+                    if (attacker.Level != 20)
                     {
-                        CharacterListFrame.Children.Add(GetCharacterToDisplay(data));            
+                        CharacterListFrame.Children.Add(GetCharacterToDisplay(attacker));            
                     }
-                }
+            //    }
             // making sure that the character is not clickable
             CharacterListFrame.IsEnabled = false;
         }
