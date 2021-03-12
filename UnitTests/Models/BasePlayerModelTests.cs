@@ -298,6 +298,71 @@ namespace UnitTests.Models
         }
 
         [Test]
+        public async Task BasePlayerModel_GetDamageRollValue_AttackItem_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new BasePlayerModel<CharacterModel>();
+            data.Level = 1;
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Id = "primaryHand", Location = ItemLocationEnum.PrimaryHand});
+            data.AttackItem = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.PrimaryHand);
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(1);
+
+            // Act
+            var result = data.GetDamageRollValue();
+
+            // Reset
+            DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreEqual(2, result);
+        }
+
+
+        [Test]
+        public async Task BasePlayerModel_GetDamageRollValue_AttackItem_Null_PrimaryHand_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new BasePlayerModel<CharacterModel>();
+            data.Level = 1;
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Id = "primaryHand", Location = ItemLocationEnum.PrimaryHand });
+            data.PrimaryHand = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.PrimaryHand);
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(1);
+
+            // Act
+            var result = data.GetDamageRollValue();
+
+            // Reset
+            DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreEqual(2, result);
+        }
+
+        [Test]
+        public async Task BasePlayerModel_GetDamageRollValue_AttackItem_Default_PrimaryHand_Default_Should_Pass()
+        {
+            // Arrange
+            var data = new BasePlayerModel<CharacterModel>();
+            data.Level = 1;
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Attribute = AttributeEnum.Attack, Value = 1, Id = "primaryHand", Location = ItemLocationEnum.PrimaryHand });
+            data.PrimaryHand = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.PrimaryHand);
+            data.AttackItem = ItemIndexViewModel.Instance.GetDefaultItemId(ItemLocationEnum.PrimaryHand);
+            DiceHelper.EnableForcedRolls();
+            DiceHelper.SetForcedRollValue(1);
+
+            // Act
+            var result = data.GetDamageRollValue();
+
+            // Reset
+            DiceHelper.DisableForcedRolls();
+
+            // Assert
+            Assert.AreEqual(2, result);
+        }
+
+        [Test]
         public void BasePlayerModel_TakeDamage_Valid_Should_Pass()
         {
             // Arrange
