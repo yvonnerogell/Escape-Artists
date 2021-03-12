@@ -95,23 +95,21 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public async void BeginButton_Clicked(object sender, EventArgs e)
+        public async void BeginSimpleButton_Clicked(object sender, EventArgs e)
 		{
-            switch (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.BattleModeEnum)
-            {
-                case BattleModeEnum.MapAbility:
-                case BattleModeEnum.MapFull:
-                case BattleModeEnum.MapNext:
-                    await Navigation.PushModalAsync(new NavigationPage(new BattleGridPage()));
-                    break;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.BattleModeEnum = BattleModeEnum.SimpleNext;
+            await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
+        }
 
-                case BattleModeEnum.SimpleAbility:
-                case BattleModeEnum.SimpleNext:
-                case BattleModeEnum.Unknown:
-                default:
-                    await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
-                    break;
-            }
+        /// <summary>
+        /// Start next Round, returning to the battle screen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public async void BeginGridButton_Clicked(object sender, EventArgs e)
+        {
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.BattleModeEnum = BattleModeEnum.MapNext;
+            await Navigation.PushModalAsync(new NavigationPage(new BattleGridPage()));
         }
 
         /// <summary>

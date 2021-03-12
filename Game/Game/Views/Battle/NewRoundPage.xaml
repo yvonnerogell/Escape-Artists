@@ -48,7 +48,11 @@
 
                 <StackLayout Padding="3"></StackLayout>
 
-                <Button Clicked="BeginButton_Clicked" Text="Begin"/>
+                <StackLayout Style="{StaticResource HorizontalCenterStack}">
+                    <Button Clicked="BeginSimpleButton_Clicked" Text="Begin Simple Battle"/>
+                    <Button Clicked="BeginGridButton_Clicked" Text="Begin Grid Battle"/>
+                </StackLayout>
+                
                 
             </StackLayout>
         </ScrollView>
