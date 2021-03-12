@@ -379,5 +379,53 @@ namespace UnitTests.ViewModels
             // Assert
             Assert.IsNull(result);
         }
+
+        [Test]
+        public void MonsterIndexViewModel_GetMonsterByName_Null_Should_Pass()
+        {
+            // Arrange
+            ViewModel.Dataset.Clear();
+
+            // Act
+            var result = ViewModel.GetMonsterByName(null);
+
+            // Reset
+
+            // Assert
+            Assert.IsNull(result);
+        }
+
+        [Test]
+        public void MonsterIndexViewModel_GetMonsterByName_Exists_Should_Pass()
+        {
+            // Arrange
+            ViewModel.Dataset.Clear();
+            var monster = new MonsterModel { Name = "Monster" };
+            ViewModel.Dataset.Add(monster);
+
+            // Act
+            var result = ViewModel.GetMonsterByName("Monster");
+
+            // Reset
+            ViewModel.Dataset.Clear();
+
+            // Assert
+            Assert.AreEqual(monster, result);
+        }
+
+        [Test]
+        public void MonsterIndexViewModel_GetMonsterByName_Does_Not_Exist_Should_Pass()
+        {
+            // Arrange
+            ViewModel.Dataset.Clear();
+
+            // Act
+            var result = ViewModel.GetMonsterByName("Monster");
+
+            // Reset
+
+            // Assert
+            Assert.IsNull(result);
+        }
     }
 }
