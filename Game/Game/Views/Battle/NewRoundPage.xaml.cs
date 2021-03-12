@@ -15,6 +15,8 @@ namespace Game.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class NewRoundPage: ContentPage
 	{
+        public PlayerInfoModel nextPlayer;
+
 		// This uses the Instance so it can be shared with other Battle Pages as needed
 		public BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
 
@@ -40,8 +42,9 @@ namespace Game.Views
 				MonsterListFrame.Children.Add(CreatePlayerDisplayBox(data));
 			}
 
-            
+            nextPlayer = EngineViewModel.Engine.Round.GetNextPlayerTurn();
 
+            EngineViewModel.Engine.EngineSettings.CurrentAttacker = nextPlayer;
         }
 
 
@@ -54,7 +57,16 @@ namespace Game.Views
         public async void BeginSimpleButton_Clicked(object sender, EventArgs e)
 		{
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.BattleModeEnum = BattleModeEnum.SimpleNext;
-            await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
+            if (nextPlayer.PlayerType == PlayerTypeEnum.Character)
+			{
+                await Navigation.PushModalAsync(new NavigationPage(new BattlePageTwo()));
+            }
+            if (nextPlayer.PlayerType == PlayerTypeEnum.Monster)
+			{
+                EngineViewModel.Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
+                EngineViewModel.Engine.Round.RoundNextTurn();
+                await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
+            }
         }
 
         /// <summary>

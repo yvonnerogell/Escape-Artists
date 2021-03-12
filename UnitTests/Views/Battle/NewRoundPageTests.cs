@@ -75,13 +75,38 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void NewRoundPage_BeginSimpleButton_Clicked_Default_Should_Pass()
+        public void NewRoundPage_BeginSimpleButton_Clicked_NextPlayer_Character_Should_Pass()
         {
             // Arrange
+            page.nextPlayer = new PlayerInfoModel { PlayerType = PlayerTypeEnum.Character };
+
             // Act
             page.BeginSimpleButton_Clicked(null, null);
 
             // Reset
+            page.nextPlayer = null;
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+
+        [Test]
+        public void NewRoundPage_BeginSimpleButton_Clicked_NextPlayer_Monster_Should_Pass()
+        {
+            // Arrange
+            page.nextPlayer = new PlayerInfoModel(new MonsterModel { PlayerType = PlayerTypeEnum.Monster, MonsterTypeEnum = MonsterTypeEnum.Administrator, Name="monster", ImageURI = "uri" , SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.HRAdministrator}) ;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = page.nextPlayer;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = new PlayerInfoModel(new CharacterModel { Name = "character", PlayerType = PlayerTypeEnum.Character, SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.Overachiever, CharacterTypeEnum = CharacterTypeEnum.Student, ImageURI = "uri", GPA = 13 });
+
+            // Act
+            page.BeginSimpleButton_Clicked(null, null);
+
+            // Reset
+            page.nextPlayer = null;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = null;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = null;
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
