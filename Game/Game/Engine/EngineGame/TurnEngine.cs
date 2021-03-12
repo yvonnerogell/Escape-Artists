@@ -208,6 +208,16 @@ namespace Game.Engine.EngineGame
         }
 
         /// <summary>
+        /// Use the special ability.
+        /// </summary>
+        /// <param name="Attacker"></param>
+        /// <returns>true if ability is used, false otherwise</returns>
+        public override bool UseSpecialAbility(PlayerInfoModel Attacker)
+        {
+            return base.UseSpecialAbility(Attacker);
+        }
+
+        /// <summary>
         /// Attack as a Turn
         /// 
         /// Pick who to go after
