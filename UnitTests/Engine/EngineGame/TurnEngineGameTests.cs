@@ -78,6 +78,25 @@ namespace UnitTests.Engine.EngineGame
         }
 
         [Test]
+        public void TurnEngine_TakeTurn_Special_Ability_Should_Pass()
+        {
+            // Arrange
+
+            Engine.EngineSettings.CurrentAction = ActionEnum.SpecialAbility;
+            Engine.EngineSettings.CurrentActionAbility = AbilityEnum.ExtraCredit;
+
+            var PlayerInfo = new PlayerInfoModel(new CharacterModel());
+
+            // Act
+            var result = Engine.Round.Turn.TakeTurn(PlayerInfo);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
         public void TurnEngine_DetermineActionChoice_Valid_Default_Should_Pass()
         {
             // Arrange
