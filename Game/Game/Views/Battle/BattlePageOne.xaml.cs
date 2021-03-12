@@ -125,45 +125,23 @@ namespace Game.Views
 
             if (currentAttacker.PlayerType == PlayerTypeEnum.Monster)
             {
-                if (currentAttacker.MonsterTypeEnum == MonsterTypeEnum.Faculty)
-                {
-                    attackText += currentAttacker.SpecificMonsterTypeEnum.ToMessage();
-                    attackText += " ";
-                    attackText += currentAttacker.Name;
-                    attackText += " gives ";
-                    attackText += currentDefender.Name;
-                    attackText += " an exam.";
-                }
-                if (currentAttacker.MonsterTypeEnum == MonsterTypeEnum.Administrator)
-                {
-                    attackText += currentAttacker.SpecificMonsterTypeEnum.ToMessage();
-                    attackText += " ";
-                    attackText += currentAttacker.Name;
-                    attackText += " gives ";
-                    attackText += currentDefender.Name;
-                    attackText += " forms to fill out.";
-                }
+                attackText += currentAttacker.SpecificMonsterTypeEnum.ToMessage();
+                attackText += " ";
+                attackText += currentAttacker.Name;
+                attackText += " vs ";
+                attackText += currentDefender.SpecificCharacterTypeEnum.ToMessage();
+                attackText += " ";
+                attackText += currentDefender.Name;
             }
             if (currentAttacker.PlayerType == PlayerTypeEnum.Character)
             {
-                if (currentDefender.MonsterTypeEnum == MonsterTypeEnum.Faculty)
-                {
-                    attackText += currentAttacker.Name;
-                    attackText += " studies hard for ";
-                    attackText += currentDefender.SpecificMonsterTypeEnum.ToMessage();
-                    attackText += " ";
-                    attackText += currentDefender.Name;
-                    attackText += "'s exam.";
-                }
-                if (currentDefender.MonsterTypeEnum == MonsterTypeEnum.Administrator)
-                {
-                    attackText += currentAttacker.Name;
-                    attackText += " fills out all forms from ";
-                    attackText += currentDefender.SpecificMonsterTypeEnum.ToMessage();
-                    attackText += " ";
-                    attackText += currentDefender.Name;
-                    attackText += ".";
-                }
+                attackText += currentAttacker.SpecificCharacterTypeEnum.ToMessage();
+                attackText += " ";
+                attackText += currentAttacker.Name;
+                attackText += " vs ";
+                attackText += currentDefender.SpecificMonsterTypeEnum.ToMessage();
+                attackText += " ";
+                attackText += currentDefender.Name;
             }
             return attackText;
         }

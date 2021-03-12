@@ -945,7 +945,7 @@ namespace UnitTests.Views
         {
             // Arrange
             var currentAttacker = new PlayerInfoModel(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.Professor, PlayerType = PlayerTypeEnum.Monster });
-            var currentDefender = new PlayerInfoModel(new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character });
+            var currentDefender = new PlayerInfoModel(new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character, SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.Overachiever });
 
             // Act
             var result = page.GetAttackText(currentAttacker, currentDefender);
@@ -953,7 +953,7 @@ namespace UnitTests.Views
             // Reset
 
             // Assert
-            Assert.AreEqual("Professor Honkey gives Minnie an exam.", result); 
+            Assert.AreEqual("Professor Honkey vs Overachiever Minnie", result); 
         }
 
         [Test]
@@ -961,7 +961,7 @@ namespace UnitTests.Views
         {
             // Arrange
             var currentAttacker = new PlayerInfoModel(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Administrator, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.RegistrationAdministrator, PlayerType = PlayerTypeEnum.Monster });
-            var currentDefender = new PlayerInfoModel(new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character });
+            var currentDefender = new PlayerInfoModel(new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character, SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.SecondCareer });
 
             // Act
             var result = page.GetAttackText(currentAttacker, currentDefender);
@@ -969,14 +969,14 @@ namespace UnitTests.Views
             // Reset
 
             // Assert
-            Assert.AreEqual("Registration Administrator Honkey gives Minnie forms to fill out.", result);
+            Assert.AreEqual("Registration Administrator Honkey vs Second Career Minnie", result);
         }
 
         [Test]
         public void BattlePage_GetAttackerText_Attacker_Student_Monster_Defender_Faculty_Should_Pass()
         {
             // Arrange
-            var currentAttacker = new PlayerInfoModel(new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character });
+            var currentAttacker = new PlayerInfoModel(new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character, SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.Slacker });
             var currentDefender = new PlayerInfoModel(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Faculty, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty, PlayerType = PlayerTypeEnum.Monster });
 
             // Act
@@ -985,14 +985,14 @@ namespace UnitTests.Views
             // Reset
 
             // Assert
-            Assert.AreEqual("Minnie studies hard for Adjunct Faculty Honkey's exam.", result);
+            Assert.AreEqual("Slacker Minnie vs Adjunct Faculty Honkey", result);
         }
 
         [Test]
         public void BattlePage_GetAttackerText_Attacker_Student_Monster_Defender_Administrator_Should_Pass()
         {
             // Arrange
-            var currentAttacker = new PlayerInfoModel(new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character });
+            var currentAttacker = new PlayerInfoModel(new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.SmartyPants, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character });
             var currentDefender = new PlayerInfoModel(new MonsterModel { Name = "Honkey", MonsterTypeEnum = MonsterTypeEnum.Administrator, SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.GraduationOfficeAdministrator, PlayerType = PlayerTypeEnum.Monster });
 
             // Act
@@ -1001,7 +1001,7 @@ namespace UnitTests.Views
             // Reset
 
             // Assert
-            Assert.AreEqual("Minnie fills out all forms from Graduation Office Administrator Honkey.", result);
+            Assert.AreEqual("Smarty Pants Minnie vs Graduation Office Administrator Honkey", result);
         }
 
         [Test]
