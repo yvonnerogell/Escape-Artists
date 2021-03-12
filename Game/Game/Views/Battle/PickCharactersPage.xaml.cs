@@ -54,6 +54,7 @@ namespace Game.Views
             UpdateNextButtonState();
         }
 
+        /*
         /// <summary>
         /// Used to test page with fake data
         /// </summary>
@@ -73,7 +74,9 @@ namespace Game.Views
 
             return true;
         }
+        */
 
+        /*
         /// <summary>
         /// Helper method to get a default character stub list.
         /// </summary>
@@ -161,6 +164,7 @@ namespace Game.Views
             }
             return result;
         }
+        */
 
         /// <summary>
         /// The row selected from the list
