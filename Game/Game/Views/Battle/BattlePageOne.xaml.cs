@@ -46,9 +46,6 @@ namespace Game.Views
             // Set up the UI to Defaults
             BindingContext = BattleEngineViewModel.Instance;
 
-            // TODO for team: remove this once we are ready to use our own battle engine.
-            BattleEngineViewModel.Instance.SetBattleEngineToKoenig();
-
             // Create and Draw the Map
             //InitializeMapGrid();
 
@@ -68,10 +65,6 @@ namespace Game.Views
 
             // Ask the Game engine to select who goes first
             // BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
-
-            // TODO chnage this once we have our battle implemented
-            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FirstOrDefault());
-            BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.FirstOrDefault());
 
             // Add Players to Display
             // DrawGameAttackerDefenderBoard();
