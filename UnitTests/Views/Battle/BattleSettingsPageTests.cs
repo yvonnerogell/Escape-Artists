@@ -63,6 +63,23 @@ namespace UnitTests.Views
         }
 
         [Test]
+        public void BattleSettingsPage_Constructor_Grid_Map_Default_Should_Pass()
+        {
+            // Arrange
+            BattleModeEnum original = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.BattleModeEnum;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.BattleModeEnum = BattleModeEnum.MapNext;
+            
+            // Act
+            var result = new BattleSettingsPage();
+
+            // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.BattleModeEnum = original;
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
+        [Test]
         public void BattleSettingsPage_CloseButton_Clicked_Default_Should_Pass()
         {
             // Arrange
