@@ -50,7 +50,7 @@
 
                 <StackLayout Style="{StaticResource HorizontalCenterStack}">
                     <Button Clicked="BeginSimpleButton_Clicked" Text="Begin Simple Battle"/>
-                    <Button Clicked="BeginGridButton_Clicked" Text="Begin Grid Battle"/>
+                    <Button Clicked="BeginGridButton_Clicked" Text="Begin Map Battle"/>
                 </StackLayout>
                 
                 
