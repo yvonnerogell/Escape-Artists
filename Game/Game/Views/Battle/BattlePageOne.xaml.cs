@@ -129,7 +129,7 @@ namespace Game.Views
                 attackText += currentAttacker.SpecificMonsterTypeEnum.ToMessage();
                 attackText += " ";
                 attackText += currentAttacker.Name;
-                attackText += " vs ";
+                attackText += "\n vs \n";
                 attackText += currentDefender.SpecificCharacterTypeEnum.ToMessage();
                 attackText += " ";
                 attackText += currentDefender.Name;
@@ -139,7 +139,7 @@ namespace Game.Views
                 attackText += currentAttacker.SpecificCharacterTypeEnum.ToMessage();
                 attackText += " ";
                 attackText += currentAttacker.Name;
-                attackText += " vs ";
+                attackText += "\n vs \n";
                 attackText += currentDefender.SpecificMonsterTypeEnum.ToMessage();
                 attackText += " ";
                 attackText += currentDefender.Name;

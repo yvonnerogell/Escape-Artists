@@ -20,8 +20,8 @@
                 HorizontalOptions="Center">
 
                 <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
-                    <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="250" WidthRequest="250">
-                        <Label x:Name="AttackTextLabel" HorizontalOptions="Center" Padding="15"/>
+                    <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="230" WidthRequest="250">
+                        <Label x:Name="AttackTextLabel" HorizontalOptions="Center" Padding="15" HorizontalTextAlignment="Center"/>
 
                         <StackLayout Orientation="Horizontal">
                             <Image x:Name="AttackerImage" Source="assistant_professor_monster.png" HeightRequest="120" WidthRequest="120"/>

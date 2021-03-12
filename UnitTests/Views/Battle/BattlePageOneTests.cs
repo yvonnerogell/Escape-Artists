@@ -953,7 +953,7 @@ namespace UnitTests.Views
             // Reset
 
             // Assert
-            Assert.AreEqual("Professor Honkey vs Overachiever Minnie", result); 
+            Assert.AreEqual("Professor Honkey\n vs \nOverachiever Minnie", result); 
         }
 
         [Test]
@@ -969,7 +969,7 @@ namespace UnitTests.Views
             // Reset
 
             // Assert
-            Assert.AreEqual("Registration Administrator Honkey vs Second Career Minnie", result);
+            Assert.AreEqual("Registration Administrator Honkey\n vs \nSecond Career Minnie", result);
         }
 
         [Test]
@@ -985,7 +985,7 @@ namespace UnitTests.Views
             // Reset
 
             // Assert
-            Assert.AreEqual("Slacker Minnie vs Adjunct Faculty Honkey", result);
+            Assert.AreEqual("Slacker Minnie\n vs \nAdjunct Faculty Honkey", result);
         }
 
         [Test]
@@ -1001,7 +1001,7 @@ namespace UnitTests.Views
             // Reset
 
             // Assert
-            Assert.AreEqual("Smarty Pants Minnie vs Graduation Office Administrator Honkey", result);
+            Assert.AreEqual("Smarty Pants Minnie\n vs \nGraduation Office Administrator Honkey", result);
         }
 
         [Test]
