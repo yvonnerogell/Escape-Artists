@@ -342,13 +342,14 @@ namespace Game.Views
 
             // Draw the Characters
             //foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
-            var attacker= BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker;
             //{
-                    if (attacker.Level != 20)
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker!= null) 
+            { 
+                if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Level != 20)
                     {
-                        CharacterListFrame.Children.Add(GetCharacterToDisplay(attacker));            
+                        CharacterListFrame.Children.Add(GetCharacterToDisplay(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker));            
                     }
-            //    }
+            }
             // making sure that the character is not clickable
             CharacterListFrame.IsEnabled = false;
         }
@@ -475,17 +476,7 @@ namespace Game.Views
 
             // Defualt Image is the Plus
             var ClickableButton = true;
-            var data = item;
-            //var data = ItemIndexViewModel.Instance.GetItem(item.Id);
-            if (data == null)
-            {
-                // Show the Default Icon for the Location
-                data = new ItemModel { Name = "Unknown", ImageURI = "icon_cancel.png" };
-
-                // Turn off click action
-                ClickableButton = false;
-            }
-
+           
             // Hookup the Image Button to show the Item picture
             var ItemButton = new ImageButton
             {
@@ -548,75 +539,78 @@ namespace Game.Views
 
             foreach (var character in characters)
             {
-                // exclude any graduates
-                if (character.Level == 20)
+                if (character != null)
                 {
-                    continue;
-                }
-                if (character.Feet == null || character.Feet == "None")
-                {
-                    // Parents don't have feet
-                    if (character.CharacterTypeEnum == CharacterTypeEnum.Parent)
+                    // exclude any graduates
+                    if (character.Level == 20)
                     {
                         continue;
                     }
-                    if (item.Location.ToString() == ItemLocationEnum.Feet.ToString())
+                    if (character.Feet == null || character.Feet == "None")
                     {
-                        result.Add(character.Name);
-                        continue;
+                        // Parents don't have feet
+                        if (character.CharacterTypeEnum == CharacterTypeEnum.Parent)
+                        {
+                            continue;
+                        }
+                        if (item.Location.ToString() == ItemLocationEnum.Feet.ToString())
+                        {
+                            result.Add(character.Name);
+                            continue;
+                        }
                     }
-                }
-                if (character.Head == null || character.Head == "None")
-                {
-                    // Parents don't have heads in this game..
-                 //   if (character.CharacterTypeEnum == CharacterTypeEnum.Parent)
-                  //  {
-                  //      continue;
-                  //  }
-                    if (item.Location.ToString() == ItemLocationEnum.Head.ToString())
+                    if (character.Head == null || character.Head == "None")
                     {
-                        result.Add(character.Name);
-                        continue;
+                        // Parents don't have heads in this game..
+                        //   if (character.CharacterTypeEnum == CharacterTypeEnum.Parent)
+                        //  {
+                        //      continue;
+                        //  }
+                        if (item.Location.ToString() == ItemLocationEnum.Head.ToString())
+                        {
+                            result.Add(character.Name);
+                            continue;
+                        }
                     }
-                }
-                if (character.LeftFinger == null || character.LeftFinger == "None")
-                {
-                    if (item.Location.ToString() == ItemLocationEnum.LeftFinger.ToString())
+                    if (character.LeftFinger == null || character.LeftFinger == "None")
                     {
-                        result.Add(character.Name);
-                        continue;
+                        if (item.Location.ToString() == ItemLocationEnum.LeftFinger.ToString())
+                        {
+                            result.Add(character.Name);
+                            continue;
+                        }
                     }
-                }
-                if (character.Necklace == null || character.Necklace == "None")
-                {
-                    if (item.Location.ToString() == ItemLocationEnum.Necklace.ToString())
+                    if (character.Necklace == null || character.Necklace == "None")
                     {
-                        result.Add(character.Name);
-                        continue;
+                        if (item.Location.ToString() == ItemLocationEnum.Necklace.ToString())
+                        {
+                            result.Add(character.Name);
+                            continue;
+                        }
                     }
-                }
-                if (character.OffHand == null || character.OffHand == "None")
-                {
-                    if (item.Location.ToString() == ItemLocationEnum.OffHand.ToString())
+                    if (character.OffHand == null || character.OffHand == "None")
                     {
-                        result.Add(character.Name);
-                        continue;
+                        if (item.Location.ToString() == ItemLocationEnum.OffHand.ToString())
+                        {
+                            result.Add(character.Name);
+                            continue;
+                        }
                     }
-                }
-                if (character.PrimaryHand == null || character.PrimaryHand == "None")
-                {
-                    if (item.Location.ToString() == ItemLocationEnum.PrimaryHand.ToString())
+                    if (character.PrimaryHand == null || character.PrimaryHand == "None")
                     {
-                        result.Add(character.Name);
-                        continue;
+                        if (item.Location.ToString() == ItemLocationEnum.PrimaryHand.ToString())
+                        {
+                            result.Add(character.Name);
+                            continue;
+                        }
                     }
-                }
-                if (character.RightFinger == null || character.RightFinger == "None")
-                {
-                    if (item.Location.ToString() == ItemLocationEnum.RightFinger.ToString())
+                    if (character.RightFinger == null || character.RightFinger == "None")
                     {
-                        result.Add(character.Name);
-                        continue;
+                        if (item.Location.ToString() == ItemLocationEnum.RightFinger.ToString())
+                        {
+                            result.Add(character.Name);
+                            continue;
+                        }
                     }
                 }
             }
@@ -733,16 +727,6 @@ namespace Game.Views
             Speed = monster.Speed, Range = monster.Range, Necklace = monster.Necklace, MaxHealth = monster.MaxHealth,
             PlayerType = monster.PlayerType, UniqueDropItem = monster.UniqueDropItem, Order = monster.Order,
             ListOrder = monster.ListOrder, TileImageURI = monster.TileImageURI, Job = monster.Job};
-
-            //var data = MonsterIndexViewModel.Instance.GetMonsterByName(monster.Name);
-            if (monster == null)
-            {
-                // Show the Default Icon for the Location
-                monster = new PlayerInfoModel { Name = "Unknown", ImageURI = "icon_cancel.png" };
-
-                // Turn off click action
-                ClickableButton = false;
-            }
 
             // Hookup the Image Button to show the Monster picture
             var MonsterButton = new ImageButton
@@ -911,8 +895,11 @@ namespace Game.Views
             }
            else
             {
-                // Use the ability for the current attacker
-                BattleEngineViewModel.Instance.Engine.Round.Turn.UseAbility(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker);
+                if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker != null)
+                {
+                    // Use the ability for the current attacker
+                    BattleEngineViewModel.Instance.Engine.Round.Turn.UseAbility(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker);
+                }
                 await Navigation.PushModalAsync(new NavigationPage(new RoundOverPage()));
             }
             

@@ -233,7 +233,7 @@ namespace UnitTests.Views
         public void ShowPopupMonster_Clicked_Default_Should_Pass()
         {
             // Arrange
-            var monster = new MonsterModel();
+            var monster = new PlayerInfoModel();
             // Act
             page.ShowPopupMonster(monster);
 
@@ -789,19 +789,38 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
-/*
         [Test]
-        public void DrawSelectedCharacters_Default_Should_Pass()
+        public void DrawCharacterList_Remove_Should_Pass()
         {
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = null;
+            FlexLayout characterlistframe = (FlexLayout)page.Content.FindByName("CharacterListFrame");
+
+            // add two elements to the list because when will be removed
+            characterlistframe.Children.Add(new FlexLayout());
+            characterlistframe.Children.Add(new FlexLayout());
+
             // Act
-            page.DrawSelectedCharacters();
+            page.DrawCharacterList();
 
             // Reset
-
             // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
+            Assert.IsTrue(true);
+            Assert.AreEqual(0, characterlistframe.Children.Count);
         }
-*/
+
+        /*
+                [Test]
+                public void DrawSelectedCharacters_Default_Should_Pass()
+                {
+                    // Act
+                    page.DrawSelectedCharacters();
+
+                    // Reset
+
+                    // Assert
+                    Assert.IsTrue(true); // Got to here, so it happened...
+                }
+        */
 
         [Test]
         public void DrawCharacterList_AddRemove_Should_Pass()
@@ -902,9 +921,7 @@ namespace UnitTests.Views
             
             // Populate ItemList and CharacterList
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Clear();
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
-           BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Add(new ItemModel {Location = ItemLocationEnum.Head});
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(new CharacterModel
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = new PlayerInfoModel(new CharacterModel
             {
                 Name = "Nancy",
                 Description = "I would have been a professor by now if it weren't for the stress of I-94 renewal",
@@ -917,7 +934,11 @@ namespace UnitTests.Views
                 ImageURI = Constants.SpecificCharacterTypeInternationalStudentImageURI,
                 Head = null,
                 SpecialAbility = AbilityEnum.FlashGenius
-            }));
+            });
+
+           List<PlayerInfoModel> characterlist = new List<PlayerInfoModel>();
+           BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Add(new ItemModel {Location = ItemLocationEnum.RightFinger});
+            characterlist.Add(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker);
             
             // Act
             page.DrawItems();
