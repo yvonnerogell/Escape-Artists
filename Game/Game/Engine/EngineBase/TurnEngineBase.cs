@@ -292,6 +292,10 @@ namespace Game.Engine.EngineBase
                 case ActionEnum.Slip:
                     result = SlipAsTurn(Attacker);
                     break;
+
+                case ActionEnum.SpecialAbility:
+                    result = UseSpecialAbility(Attacker);
+                    break;
             }
 
             EngineSettings.BattleScore.TurnCount++;
@@ -302,6 +306,17 @@ namespace Game.Engine.EngineBase
             // Reset the Action to unknown for next time
             EngineSettings.CurrentAction = ActionEnum.Unknown;
 
+            return result;
+        }
+
+        /// <summary>
+        /// Use the special ability.
+        /// </summary>
+        /// <param name="Attacker"></param>
+        /// <returns>true if ability is used, false otherwise</returns>
+        public virtual bool UseSpecialAbility(PlayerInfoModel Attacker)
+        {
+            bool result = Attacker.UseSpecialAbility();
             return result;
         }
 

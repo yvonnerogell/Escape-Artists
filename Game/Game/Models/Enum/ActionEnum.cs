@@ -24,6 +24,9 @@
         // Slip
         Slip = 5,
 
+        // Special ability
+        SpecialAbility = 10,
+
     }
 
     /// <summary>
@@ -63,6 +66,10 @@
                     Message = " Slips ";
                     break;
 
+                case ActionEnum.SpecialAbility:
+                    Message = " Special Ability ";
+                    break;
+
                 case ActionEnum.Unknown:
                 default:
                     break;
@@ -100,6 +107,10 @@
                     break;
 
                 case ActionEnum.Slip:
+                    Message = "item.png";
+                    break;
+
+                case ActionEnum.SpecialAbility:
                     Message = "item.png";
                     break;
 

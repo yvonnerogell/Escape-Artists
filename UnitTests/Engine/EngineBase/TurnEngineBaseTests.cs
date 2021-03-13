@@ -588,6 +588,25 @@ namespace UnitTests.Engine.EngineBase
         }
 
         [Test]
+        public void TurnEngine_TakeTurn_Special_Ability_Should_Pass()
+        {
+            // Arrange
+
+            Engine.EngineSettings.CurrentAction = ActionEnum.SpecialAbility;
+            Engine.EngineSettings.CurrentActionAbility = AbilityEnum.ExtraCredit;
+
+            var PlayerInfo = new PlayerInfoModel(new CharacterModel());
+
+            // Act
+            var result = Engine.Round.Turn.TakeTurn(PlayerInfo);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
         public void TurnEngine_TakeTurn_Move_Should_Pass()
         {
             // Arrange
@@ -1397,7 +1416,7 @@ namespace UnitTests.Engine.EngineBase
             // Assert
             Assert.AreEqual(true, result);
         }
-        
+
         #endregion UseAbility
 
         #region BattleSettings

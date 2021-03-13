@@ -170,6 +170,9 @@ namespace Game.Models
         // LeftFinger is a string referencing the database table
         public string LeftFinger { get; set; } = null;
 
+        // Item picked during battle for attack is string
+        public string AttackItem { get; set; } = null;
+
         #endregion Items
 
         #region AttributeDisplay
@@ -572,9 +575,20 @@ namespace Game.Models
         public int GetDamageRollValue()
         {
             var myReturn = 0;
-
+            
             var myItem = ItemIndexViewModel.Instance.GetItem(PrimaryHand);
-            if (myItem != null)
+            // Also equipt with item picked during game
+            var attackItem = ItemIndexViewModel.Instance.GetItem(AttackItem);
+
+            // add in the attack item to damage
+            if (attackItem != null)
+            {
+                // Dice of the weapon. So sword of Damage 10 is d10
+                myReturn += DiceHelper.RollDice(1, attackItem.Damage);
+            }
+
+            // add in the damage to primary hand IF attackitem is not picked. 
+            if (myItem != null && attackItem == null)
             {
                 // Dice of the weapon.  So sword of Damage 10 is d10
                 myReturn += DiceHelper.RollDice(1, myItem.Damage);

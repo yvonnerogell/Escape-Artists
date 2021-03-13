@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Game.Views.BattlePageOne"
              BackgroundImageSource="background.png"
-             Title="Attack Results">
+             Title="Turn Results">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Settings" Clicked="Settings_Clicked" IconImageSource="icon_settings.png"/>
@@ -38,7 +38,7 @@
                     <StackLayout  Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" 
                                   HorizontalOptions="Center" MinimumHeightRequest="250" WidthRequest="250" Padding="5">
 
-                        <Label x:Name="AttackResults" Text="Attack results:" FontAttributes="Bold" FontSize="Micro" Padding="20, 5, 0, 5" HorizontalOptions="Start" Style="{StaticResource LabelStyle}"/>
+                        <Label x:Name="TurnResults" Text="Turn result:" FontAttributes="Bold" FontSize="Micro" Padding="20, 5, 0, 5" HorizontalOptions="Start" Style="{StaticResource LabelStyle}"/>
                         <Label x:Name="BattleMessageLabel"  Text="" Padding="20, 5, 0, 5" LineBreakMode="WordWrap"/>
                     </StackLayout>
                 </Frame>

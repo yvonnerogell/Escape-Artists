@@ -104,6 +104,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="about_button.png" />
     <Content Include="adjunct_faculty_monster.png" />
     <Content Include="Assets\BadgeLogo.scale-100.png" />
     <Content Include="Assets\BadgeLogo.scale-125.png" />
@@ -177,6 +178,7 @@
     <Content Include="mapcell.png" />
     <Content Include="overachiever_student.png" />
     <Content Include="parent.png" />
+    <Content Include="play_now_button.png" />
     <Content Include="procrastinator_student.png" />
     <Content Include="prodigy_student.png" />
     <Content Include="professor_monster.png" />
@@ -210,6 +212,7 @@
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="registration_monster.png" />
     <Content Include="running.gif" />
+    <Content Include="score_button.png" />
     <Content Include="second_career_student.png" />
     <Content Include="item_skateboard.png" />
     <Content Include="slacker_student.png" />

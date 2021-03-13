@@ -26,6 +26,10 @@ namespace Game.Models
         public int GPA { get; set; }
 
         // Only characters have abilities, so only characters will have this variable
+        // Indicates wheather player has special ability
+        public AbilityEnum EngineGameSpecialAbility { get; set; } = AbilityEnum.None; 
+
+        // Only characters have abilities, so only characters will have this variable
         // Indicates whether ability has been used in current round
         public bool AbilityUsedInCurrentRound { get; set; } = false;
 
@@ -100,6 +104,7 @@ namespace Game.Models
             Difficulty = data.Difficulty;
 
             AbilityTracker = data.AbilityTracker;
+            EngineGameSpecialAbility = data.EngineGameSpecialAbility;
 
             GPA = data.GPA;
 
@@ -173,6 +178,8 @@ namespace Game.Models
             ExperienceTotal = LevelTableHelper.LevelDetailsList[Level - 1].Experience + 1;
 
             AbilityTracker.Add(data.SpecialAbility, Constants.SpecialAbilityUsePerRound);
+            EngineGameSpecialAbility = data.SpecialAbility;
+            AbilityUsedInCurrentRound = false;
 
             GPA = data.GPA;
 
@@ -259,6 +266,7 @@ namespace Game.Models
             {
                 AbilityTracker.Add(AbilityEnumHelper.ConvertStringToEnum(item), Level);
             }
+            EngineGameSpecialAbility = AbilityEnum.None;
 
             TileImageURI = data.TileImageURI;
 
@@ -413,11 +421,11 @@ namespace Game.Models
         /// Use the Ability
         /// </summary>
         /// <param name="Attacker"></param>
-        /// <returns>Returns true if ability was successfully used, false if not</returns>
+        /// <returns></returns>
         public bool UseAbility(AbilityEnum ability)
         {
-            var available = AbilityTracker.TryGetValue(ability, out int remaining);
-            if (available == false)
+            var avaible = AbilityTracker.TryGetValue(ability, out int remaining);
+            if (avaible == false)
             {
                 // does not exist
                 return false;
@@ -430,6 +438,76 @@ namespace Game.Models
             }
 
             switch (ability)
+            {
+                case AbilityEnum.Heal:
+                case AbilityEnum.Bandage:
+                    BuffHealth();
+                    break;
+
+                case AbilityEnum.Toughness:
+                case AbilityEnum.Barrier:
+                    BuffDefense();
+                    break;
+
+                case AbilityEnum.Curse:
+                case AbilityEnum.Focus:
+                    BuffAttack();
+                    break;
+
+                case AbilityEnum.Quick:
+                case AbilityEnum.Nimble:
+                    BuffSpeed();
+                    break;
+            }
+
+            // Reduce the count
+            AbilityTracker[ability] = remaining - 1;
+
+            return true;
+        }
+
+
+
+        /// <summary>
+        /// check if attacker has special ability 
+        /// </summary>
+        /// <param name="Attacker"></param>
+        /// <returns></returns>
+        public bool IsSpecialAbilityAvailable()
+        {
+            if (EngineGameSpecialAbility == AbilityEnum.Unknown)
+            {
+                return false;
+            }
+
+            if (EngineGameSpecialAbility == AbilityEnum.None)
+            {
+                return false;
+            }
+
+            if (AbilityUsedInCurrentRound == true)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+
+        /// <summary>
+        /// Use the EngineGameSpecialAbility
+        /// </summary>
+        /// <param name="Attacker"></param>
+        /// <returns>Returns true if ability was successfully used, false if not</returns>
+        public bool UseSpecialAbility()
+        {
+            // no ability to use
+            if (!IsSpecialAbilityAvailable())
+            {
+                return false;
+            }
+
+            switch (EngineGameSpecialAbility)
             {
                 case AbilityEnum.ExtraCredit:
                     GPA = (int)(GPA * Constants.SpecialAbilityGPABoostExtension);
@@ -446,12 +524,8 @@ namespace Game.Models
                 case AbilityEnum.PayTuition:
                     GPA = (int)(GPA * Constants.SpecialAbilityGPABoostPayTuition);
                     break;
-                default:
-                    break;
             }
 
-            // Reduce the count
-            AbilityTracker[ability] = remaining - 1;
             AbilityUsedInCurrentRound = true;
 
             return true;

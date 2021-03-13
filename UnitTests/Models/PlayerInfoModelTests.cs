@@ -116,6 +116,67 @@ namespace UnitTests.Models
         }
 
         [Test]
+        public void PlayerInfoModel_IsSpecialAbilityAvailable_Unknown_Should_Pass()
+        {
+            // Arrange
+            var data = new PlayerInfoModel(new CharacterModel { SpecialAbility = AbilityEnum.Unknown });
+
+            // Act
+            var result = data.IsSpecialAbilityAvailable();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public void PlayerInfoModel_IsSpecialAbilityAvailable_None_Should_Pass()
+        {
+            // Arrange
+            var data = new PlayerInfoModel(new CharacterModel { SpecialAbility = AbilityEnum.None });
+
+            // Act
+            var result = data.IsSpecialAbilityAvailable();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public void PlayerInfoModel_IsSpecialAbilityAvailable_Not_Available_Should_Pass()
+        {
+            // Arrange
+            var data = new PlayerInfoModel(new CharacterModel { SpecialAbility = AbilityEnum.Extension });
+            data.AbilityUsedInCurrentRound = true;
+
+            // Act
+            var result = data.IsSpecialAbilityAvailable();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public void PlayerInfoModel_IsSpecialAbilityAvailable_Available_Should_Pass()
+        {
+            // Arrange
+            var data = new PlayerInfoModel(new CharacterModel { SpecialAbility = AbilityEnum.Extension });
+
+            // Act
+            var result = data.IsSpecialAbilityAvailable();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
+
+        [Test]
         public void PlayerInfoModel_IsAbilityAvailable_Available_Should_Pass()
         {
             // Arrange
@@ -409,14 +470,15 @@ namespace UnitTests.Models
         }
 
         [Test]
-        public void PlayerInfoModel_UseAbility_ExtraCredit_Should_Pass()
+        public void PlayerInfoModel_UseSpecialAbility_ExtraCredit_Should_Pass()
         {
             // Arrange
             var data = new PlayerInfoModel(new CharacterModel());
             data.GPA = 100;
+            data.EngineGameSpecialAbility = AbilityEnum.ExtraCredit;
 
             // Act
-            data.UseAbility(AbilityEnum.ExtraCredit);
+            data.UseSpecialAbility();
 
             // Reset
 
@@ -426,7 +488,7 @@ namespace UnitTests.Models
         }
 
         [Test]
-        public void PlayerInfoModel_UseAbility_Bribes_Should_Pass()
+        public void PlayerInfoModel_UseSpecialAbility_Bribes_Should_Pass()
         {
             // Arrange
             var character = new CharacterModel();
@@ -435,7 +497,7 @@ namespace UnitTests.Models
             data.GPA = 100;
 
             // Act
-            data.UseAbility(AbilityEnum.Bribes);
+            data.UseSpecialAbility();
 
             // Reset
 
@@ -445,7 +507,7 @@ namespace UnitTests.Models
         }
 
         [Test]
-        public void PlayerInfoModel_UseAbility_Extension_Should_Pass()
+        public void PlayerInfoModel_UseSpecialAbility_Extension_Should_Pass()
         {
             // Arrange
             var character = new CharacterModel();
@@ -454,7 +516,7 @@ namespace UnitTests.Models
             data.GPA = 100;
 
             // Act
-            data.UseAbility(AbilityEnum.Extension);
+            data.UseSpecialAbility();
 
             // Reset
 
@@ -464,7 +526,7 @@ namespace UnitTests.Models
         }
 
         [Test]
-        public void PlayerInfoModel_UseAbility_FlashGenius_Should_Pass()
+        public void PlayerInfoModel_UseSpecialAbility_FlashGenius_Should_Pass()
         {
             // Arrange
             var character = new CharacterModel();
@@ -473,7 +535,7 @@ namespace UnitTests.Models
             data.GPA = 100;
 
             // Act
-            var result = data.UseAbility(AbilityEnum.FlashGenius);
+            var result = data.UseSpecialAbility();
 
             // Reset
 
@@ -483,7 +545,7 @@ namespace UnitTests.Models
         }
 
         [Test]
-        public void PlayerInfoModel_UseAbility_PayTuition_Should_Pass()
+        public void PlayerInfoModel_UseSpecialAbility_PayTuition_Should_Pass()
         {
             // Arrange
             var character = new CharacterModel();
@@ -492,7 +554,7 @@ namespace UnitTests.Models
             data.GPA = 100;
 
             // Act
-            var result = data.UseAbility(AbilityEnum.PayTuition);
+            var result = data.UseSpecialAbility();
 
             // Reset
 
@@ -502,7 +564,7 @@ namespace UnitTests.Models
         }
 
         [Test]
-        public void PlayerInfoModel_UseAbility_None_Remaining_Should_Pass()
+        public void PlayerInfoModel_UseSpecialAbility_None_Remaining_Should_Pass()
         {
             // Arrange
             var character = new CharacterModel();
@@ -510,28 +572,48 @@ namespace UnitTests.Models
             var data = new PlayerInfoModel(character);
 
             // Act
-            var result = data.UseAbility(AbilityEnum.None);
+            var result = data.UseSpecialAbility();
 
             // Reset
 
             // Assert
-            Assert.AreEqual(true, data.AbilityUsedInCurrentRound);
+            Assert.AreEqual(false, data.AbilityUsedInCurrentRound);
             Assert.AreEqual(0, data.GPA);
         }
 
         [Test]
-        public void PlayerInfoModel_UseAbility_0_Remaining_Should_Pass()
+        public void PlayerInfoModel_UseSpecialAbility_Default_Remaining_Should_Pass()
+        {
+            // Arrange
+            var character = new CharacterModel();
+            character.SpecialAbility = AbilityEnum.Unknown;
+            var data = new PlayerInfoModel(character);
+
+            // Act
+            var result = data.UseSpecialAbility();
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(false, data.AbilityUsedInCurrentRound);
+            Assert.AreEqual(0, data.GPA);
+        }
+
+        [Test]
+        public void PlayerInfoModel_UseSpecialAbility_0_Remaining_Should_Pass()
         {
             // Arrange
             var character = new CharacterModel();
             character.SpecialAbility = AbilityEnum.ExtraCredit;
             var data = new PlayerInfoModel(character);
+            data.AbilityUsedInCurrentRound = true;
 
             // Act
             data.UseAbility(AbilityEnum.ExtraCredit);
-            var result = data.UseAbility(AbilityEnum.ExtraCredit);
+            var result = data.UseSpecialAbility();
 
             // Reset
+            data.AbilityUsedInCurrentRound = false;
 
             // Assert
             Assert.AreEqual(false, result);

@@ -375,4 +375,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\icon_settings.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\score_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\play_now_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\about_button.png" />
+  </ItemGroup>
 </Project>
