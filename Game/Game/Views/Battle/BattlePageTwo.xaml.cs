@@ -413,7 +413,6 @@ namespace Game.Views
 
             List<PlayerInfoModel> eligible_character_list = new List<PlayerInfoModel>();
             eligible_character_list.Add(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker);
-
             foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Distinct())
             {
                 // if the selected character can use this item, add the item 
@@ -422,9 +421,15 @@ namespace Game.Views
                     ItemListFoundFrame.Children.Add(GetItemToDisplay(data));
                 }                       
             }
-            // makes the List of Items for the character visible
-            PopupLoadingItemListFoundFrame.IsVisible = true;
-            ItemListFoundFrame.IsVisible = true;
+
+            // Item Frame is displayed only if there is something to display
+            if (ItemListFoundFrame.Children.Count() > 0)
+            {
+                // makes the List of Items for the character visible
+                PopupLoadingItemListFoundFrame.IsVisible = true;
+                ItemListFoundFrame.IsVisible = true;
+            }
+            
         }
 
         /// <summary>
@@ -652,7 +657,7 @@ namespace Game.Views
                     var itemIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.FindIndex(i => i.Name == (string)item.Name);
                     BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.RemoveAt(itemIndex);
                     BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelSelectList.Add(item);
-                selectedItems.Add(item);
+                    selectedItems.Add(item);
                     // Add updated player back to view model
                 //    BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(player);
                 
@@ -745,7 +750,7 @@ namespace Game.Views
             // Hookup the Image Button to show the Monster picture
             var MonsterButton = new ImageButton
             {
-                Style = (Style)Application.Current.Resources["ImageLargeStyle"],
+                //Style = (Style)Application.Current.Resources["ImageBattleLargeStyle"],
                 Source = monster.ImageURI,
                 CommandParameter = monster.Name
             };
