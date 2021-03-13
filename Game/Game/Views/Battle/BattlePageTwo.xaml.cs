@@ -410,11 +410,14 @@ namespace Game.Views
             {
                 ItemListFoundFrame.Children.Remove(data);
             }
-            
+
+            List<PlayerInfoModel> eligible_character_list = new List<PlayerInfoModel>();
+            eligible_character_list.Add(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker);
+
             foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Distinct())
             {
                 // if the selected character can use this item, add the item 
-                if (GetCharacterWhoCanAcceptItem(BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList, data).Count() > 0)
+                if (GetCharacterWhoCanAcceptItem(eligible_character_list, data).Count() > 0)
                 {
                     ItemListFoundFrame.Children.Add(GetItemToDisplay(data));
                 }                       
@@ -470,8 +473,8 @@ namespace Game.Views
 
             // Defualt Image is the Plus
             var ClickableButton = true;
-            
-            var data = ItemIndexViewModel.Instance.GetItem(item.Id);
+            var data = item;
+            //var data = ItemIndexViewModel.Instance.GetItem(item.Id);
             if (data == null)
             {
                 // Show the Default Icon for the Location
@@ -484,15 +487,15 @@ namespace Game.Views
             // Hookup the Image Button to show the Item picture
             var ItemButton = new ImageButton
             {
-                Style = (Style)Application.Current.Resources["ImageLargeStyle"],
-                Source = data.ImageURI,
+                //Style = (Style)Application.Current.Resources["ImageLargeStyle"],
+                Source = item.ImageURI,
                 CommandParameter = item.Id,
             };
 
             if (ClickableButton)
             {
                 // Add a event to the user can click the item and see more
-                ItemButton.Clicked += (sender, args) => ShowPopupItem(data);
+                ItemButton.Clicked += (sender, args) => ShowPopupItem(item);
             }
 
             // Put the Image Button and Text inside a layout
@@ -730,29 +733,27 @@ namespace Game.Views
             ListOrder = monster.ListOrder, TileImageURI = monster.TileImageURI, Job = monster.Job};
 
             //var data = MonsterIndexViewModel.Instance.GetMonsterByName(monster.Name);
-            if (data == null)
+            if (monster == null)
             {
                 // Show the Default Icon for the Location
-                data = new MonsterModel { Name = "Unknown", ImageURI = "icon_cancel.png" };
+                monster = new PlayerInfoModel { Name = "Unknown", ImageURI = "icon_cancel.png" };
 
                 // Turn off click action
-                //ClickableButton = false;
+                ClickableButton = false;
             }
 
-            // Hookup the Image Button to show the Item picture
+            // Hookup the Image Button to show the Monster picture
             var MonsterButton = new ImageButton
             {
                 Style = (Style)Application.Current.Resources["ImageLargeStyle"],
-                //Source = monster.ImageURI,
-                //CommandParameter = monster.Name
                 Source = monster.ImageURI,
-                CommandParameter = data.Name
+                CommandParameter = monster.Name
             };
 
             if (ClickableButton)
             {
                 // Add a event to the user can click the item and see more
-                MonsterButton.Clicked += (sender, args) => ShowPopupMonster(data);
+                MonsterButton.Clicked += (sender, args) => ShowPopupMonster(monster);
             }
 
             // Put the Image Button and Text inside a layout
@@ -824,7 +825,8 @@ namespace Game.Views
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public bool ShowPopupMonster(MonsterModel data)
+        
+        public bool ShowPopupMonster(PlayerInfoModel data)
                 {
                     PopupLoadingViewMonster.IsVisible = true;
                     PopupMonsterImage.Source = data.ImageURI;
@@ -862,6 +864,7 @@ namespace Game.Views
                     {
                         if (data.Name.Equals(monsterName))
                         {
+                            // set current defender
                             currentDefender = data;
                             BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(currentDefender);
                         }
@@ -902,7 +905,7 @@ namespace Game.Views
             
             if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction == ActionEnum.Attack)
             {
-                BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FirstOrDefault());
+                //BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FirstOrDefault());
                 
                 await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
             }
@@ -927,8 +930,8 @@ namespace Game.Views
 
             if (action == ActionEnum.Attack)
             {
-                //DrawItems();
                 DrawMonsterList();
+                DrawItems();    
                 // this is important to avoid going back and forth
                 ActionSelectedPicker.IsEnabled = false;
             }
