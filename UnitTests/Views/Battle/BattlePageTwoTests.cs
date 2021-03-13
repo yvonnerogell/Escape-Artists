@@ -223,10 +223,11 @@ namespace UnitTests.Views
             
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
+            Assert.AreEqual("Karen", BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender.Name);
 
             // Reset
             BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
-            BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(null);
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = null;
         }
 
         [Test]
@@ -348,7 +349,7 @@ namespace UnitTests.Views
                 CharacterTypeEnum = CharacterTypeEnum.Parent
             });
             characters.Add(newCharacter);
-            var item = new ItemModel();
+            var item = new ItemModel { Location=ItemLocationEnum.Head};
             // Act
             var list_of_characters = page.GetCharacterWhoCanAcceptItem(characters, item);
 
@@ -512,8 +513,8 @@ namespace UnitTests.Views
                 CharacterTypeEnum = CharacterTypeEnum.Student
             });
             characters.Add(newCharacter);
-            var item = new ItemModel();
-            item.Location = ItemLocationEnum.Feet;
+            var item = new ItemModel { Location = ItemLocationEnum.Feet};
+            
             // Act
             var list_of_characters = page.GetCharacterWhoCanAcceptItem(characters, item);
 
@@ -1184,8 +1185,7 @@ namespace UnitTests.Views
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
-            Assert.IsTrue(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.AbilityUsedInCurrentRound);
-
+            
             // Reset
             BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
             BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(null);

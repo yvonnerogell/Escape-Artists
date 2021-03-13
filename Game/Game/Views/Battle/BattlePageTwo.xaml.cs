@@ -60,7 +60,7 @@ namespace Game.Views
             BindingContext = BattleEngineViewModel.Instance;
 
             // TODO for team: remove this once we are ready to use our own battle engine.
-            BattleEngineViewModel.Instance.SetBattleEngineToKoenig();
+            //BattleEngineViewModel.Instance.SetBattleEngineToKoenig();
 
             PopupLoadingItemListFoundFrame.IsVisible = false;
             MonsterFrame.IsVisible = false;          
@@ -535,7 +535,13 @@ namespace Game.Views
         /// <returns></returns>
         public List<string> GetCharacterWhoCanAcceptItem(List<PlayerInfoModel> characters, ItemModel item)
         {
+            
             List<string> result = new List<string>();
+
+            if (item == null) 
+            {
+                return result;
+            }
 
             foreach (var character in characters)
             {
@@ -843,26 +849,30 @@ namespace Game.Views
                 public void PopupSaveButtonMonster_Clicked(object sender, EventArgs e)
                 {
                     var monsterName = "";
-                    //  if (sender != null)
-                    // {              
+            //  if (sender != null)
+            // {              
                     monsterName = ((Button)sender).CommandParameter.ToString();
+            
                     foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList)
                     {
                         if (data.Name.Equals(monsterName))
                         {
                             // set current defender
                             currentDefender = data;
-                            BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(currentDefender);
+                    //BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(currentDefender);
+                    BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = currentDefender;
+                    ContinueButton.IsEnabled = true;
+                    break;
                         }
                     }
                     //var monster = MonsterIndexViewModel.Instance.GetMonsterByName(monsterName);
                     //PlayerInfoModel player = new PlayerInfoModel(monster);
 
-                    var MonsterFoundIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.FindIndex(c => c.Name == currentDefender.Name);
-                    if (MonsterFoundIndex >= 0)
-                    {
-                        BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.RemoveAt(MonsterFoundIndex);
-                    }
+                 //   var MonsterFoundIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.FindIndex(c => c.Name == currentDefender.Name);
+                //    if (MonsterFoundIndex >= 0)
+                //    {
+                //        BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.RemoveAt(MonsterFoundIndex);
+                //    }
 
                 
                  //   }
@@ -887,22 +897,22 @@ namespace Game.Views
         public async void ContinueButton_Clicked(object sender, EventArgs e)
         {
             // TODO: make sure the AutoBattlePage is the right option here
-            //BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.RoundOver;
-            
-            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction == ActionEnum.Attack)
-            { 
-                await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
-            }
-           else
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Battling;
+
+            // Applying the ability 
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction == ActionEnum.Ability)
             {
                 if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker != null)
                 {
                     // Use the ability for the current attacker
-                   BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.AbilityUsedInCurrentRound = true;
-                }
-                await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
+                    BattleEngineViewModel.Instance.Engine.Round.Turn.UseAbility(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker);
 
+                }
             }
+
+            BattleEngineViewModel.Instance.Engine.Round.RoundNextTurn();
+            // Moving on to next turn, and navigating to BattlePageOne
+            await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
         }
 
         /// <summary>
@@ -918,6 +928,7 @@ namespace Game.Views
 
             if (action == ActionEnum.Attack)
             {
+                ContinueButton.IsEnabled = false;
                 DrawMonsterList();
                 DrawItems();    
                 // this is important to avoid going back and forth
