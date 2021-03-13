@@ -115,7 +115,7 @@ namespace Game.Views
             var PlayerImage = new Image
             {
                 Style = (Style)Application.Current.Resources["ImageBattleLargeStyle"],
-                Source = data.ImageURI
+                Source = data.ImageURI,
             };
 
             // Add the Level
@@ -414,13 +414,14 @@ namespace Game.Views
             foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Distinct())
             {
                 // if the selected character can use this item, add the item 
-                if (GetCharacterWhoCanAcceptItem(BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList, data).Count() == 1)
+                if (GetCharacterWhoCanAcceptItem(BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList, data).Count() > 0)
                 {
                     ItemListFoundFrame.Children.Add(GetItemToDisplay(data));
                 }                       
             }
             // makes the List of Items for the character visible
             PopupLoadingItemListFoundFrame.IsVisible = true;
+            ItemListFoundFrame.IsVisible = true;
         }
 
         /// <summary>
@@ -469,7 +470,7 @@ namespace Game.Views
 
             // Defualt Image is the Plus
             var ClickableButton = true;
-
+            
             var data = ItemIndexViewModel.Instance.GetItem(item.Id);
             if (data == null)
             {
@@ -713,8 +714,22 @@ namespace Game.Views
 
             // Defualt Image is the Plus
             var ClickableButton = true;
+            
+            // translating a PlayerInfoModel to a MonsterModel
+            MonsterModel data = new MonsterModel { Name = monster.Name,
+            ImageURI = monster.ImageURI, Alive = monster.Alive, Attack = monster.Attack,
+            Defense = monster.Defense, Description = monster.Description, CurrentHealth = monster.CurrentHealth,
+            Difficulty = monster.Difficulty, CharacterTypeEnum = monster.CharacterTypeEnum, ExperienceTotal = monster.ExperienceTotal,
+            ExperienceRemaining = monster.ExperienceRemaining, BuffAttackValue = monster.BuffAttackValue,
+            BuffDefenseValue = monster.BuffDefenseValue, BuffHealthValue = monster.BuffHealthValue, BuffSpeedValue = monster.BuffSpeedValue,
+            Head = monster.Head, Feet = monster.Feet, RightFinger = monster.RightFinger, LeftFinger = monster.LeftFinger,
+            OffHand = monster.OffHand, PrimaryHand = monster.PrimaryHand, Id = monster.Id, Guid = monster.Guid,
+            Level = monster.Level, MonsterTypeEnum = monster.MonsterTypeEnum, SpecificMonsterTypeEnum = monster.SpecificMonsterTypeEnum,
+            Speed = monster.Speed, Range = monster.Range, Necklace = monster.Necklace, MaxHealth = monster.MaxHealth,
+            PlayerType = monster.PlayerType, UniqueDropItem = monster.UniqueDropItem, Order = monster.Order,
+            ListOrder = monster.ListOrder, TileImageURI = monster.TileImageURI, Job = monster.Job};
 
-            var data = MonsterIndexViewModel.Instance.GetMonsterByName(monster.Name);
+            //var data = MonsterIndexViewModel.Instance.GetMonsterByName(monster.Name);
             if (data == null)
             {
                 // Show the Default Icon for the Location
@@ -728,8 +743,10 @@ namespace Game.Views
             var MonsterButton = new ImageButton
             {
                 Style = (Style)Application.Current.Resources["ImageLargeStyle"],
-                Source = data.ImageURI,
-                CommandParameter = monster.Name
+                //Source = monster.ImageURI,
+                //CommandParameter = monster.Name
+                Source = monster.ImageURI,
+                CommandParameter = data.Name
             };
 
             if (ClickableButton)
@@ -910,7 +927,7 @@ namespace Game.Views
 
             if (action == ActionEnum.Attack)
             {
-                DrawItems();
+                //DrawItems();
                 DrawMonsterList();
                 // this is important to avoid going back and forth
                 ActionSelectedPicker.IsEnabled = false;
