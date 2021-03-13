@@ -1163,7 +1163,57 @@ namespace UnitTests.Views
         public void BattlePageTwo_ContinueButton_Clicked_Default_Should_Pass()
         {
             // Arrange
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Ability;
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(new PlayerInfoModel(new CharacterModel
+            {
+                Name = "Nancy",
+                Description = "I would have been a professor by now if it weren't for the stress of I-94 renewal",
+                CharacterTypeEnum = CharacterTypeEnum.Student,
+                SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.InternationalStudent,
+                Range = 2,
+                Level = 1,
+                GPA = 80,
+                MaxHealth = 100,
+                ImageURI = Constants.SpecificCharacterTypeInternationalStudentImageURI,
+                Head = null,
+                SpecialAbility = AbilityEnum.FlashGenius
+            }));
 
+            // Act
+            page.ContinueButton_Clicked(null, null);
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+            Assert.IsTrue(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.AbilityUsedInCurrentRound);
+
+            // Reset
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(null);
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
+        }
+
+        [Test]
+        public void BattlePageTwo_ContinueButton_Clicked_Attack_Should_Pass()
+        {
+            // Arrange
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Attack;
+            // Act
+            page.ContinueButton_Clicked(null, null);
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+
+            // Reset
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(null);
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
+        }
+
+        [Test]
+        public void BattlePageTwo_ContinueButton_Clicked_Ability_Should_Pass()
+        {
+            // Arrange
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Ability;
             // Act
             page.ContinueButton_Clicked(null, null);
 

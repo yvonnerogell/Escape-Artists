@@ -898,12 +898,11 @@ namespace Game.Views
                 if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker != null)
                 {
                     // Use the ability for the current attacker
-                    BattleEngineViewModel.Instance.Engine.Round.Turn.UseAbility(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker);
+                   BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.AbilityUsedInCurrentRound = true;
                 }
-                await Navigation.PushModalAsync(new NavigationPage(new RoundOverPage()));
+                await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
+
             }
-            
-            
         }
 
         /// <summary>
