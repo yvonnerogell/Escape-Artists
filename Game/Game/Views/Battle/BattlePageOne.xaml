@@ -38,7 +38,7 @@
                     <StackLayout  Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" 
                                   HorizontalOptions="Center" MinimumHeightRequest="250" WidthRequest="250" Padding="5">
 
-                        <Label x:Name="AttackResults" Text="Attack results:" FontAttributes="Bold" FontSize="Micro" Padding="20, 5, 0, 5" HorizontalOptions="Start" Style="{StaticResource LabelStyle}"/>
+                        <Label x:Name="TurnResults" Text="Turn results:" FontAttributes="Bold" FontSize="Micro" Padding="20, 5, 0, 5" HorizontalOptions="Start" Style="{StaticResource LabelStyle}"/>
                         <Label x:Name="BattleMessageLabel"  Text="" Padding="20, 5, 0, 5" LineBreakMode="WordWrap"/>
                     </StackLayout>
                 </Frame>
