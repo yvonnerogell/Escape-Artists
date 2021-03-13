@@ -36,11 +36,8 @@ namespace Game.Views
         public bool UnitTestSetting;
         public BattlePageTwo(bool UnitTest) { UnitTestSetting = UnitTest; }
 
-        // selecting the character of that turn
-       // public List<PlayerInfoModel> selectedCharacters = new List<PlayerInfoModel>();
-
         // list of monsters found in the frame
-        public List<PlayerInfoModel> monstersFoundList = new List<PlayerInfoModel>();
+        //public List<PlayerInfoModel> monstersFoundList = new List<PlayerInfoModel>();
 
         // selecting the monster of that turn
         //   public List<PlayerInfoModel> selectedMonsters = new List<PlayerInfoModel>();
@@ -909,13 +906,13 @@ namespace Game.Views
             //BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.RoundOver;
             
             if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction == ActionEnum.Attack)
-            {
-                //BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FirstOrDefault());
-                
+            { 
                 await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
             }
            else
             {
+                // Use the ability for the current attacker
+                BattleEngineViewModel.Instance.Engine.Round.Turn.UseAbility(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker);
                 await Navigation.PushModalAsync(new NavigationPage(new RoundOverPage()));
             }
             
