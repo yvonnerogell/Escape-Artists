@@ -77,7 +77,9 @@ namespace Game.Views
 
             // Set the Battle Mode
             ShowBattleMode();
-            
+
+            StartBattleButton.IsVisible = true;
+
         }
 
         /// <summary>
@@ -562,7 +564,7 @@ namespace Game.Views
                 // This is important for ensuring that at least one character is selected before battling starts
                 if (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum !=BattleStateEnum.Battling)
                 {
-                    StartBattleButton.IsVisible = true;                   
+                    StartBattleButton.IsEnabled = true;
                 }
                 return true;
             }
@@ -678,6 +680,18 @@ namespace Game.Views
         }
 
         /// <summary>
+        /// Attack Action
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void AbilityButton_Clicked(object sender, EventArgs e)
+        {                
+
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.UseSpecialAbility();
+            NextAttackExample();
+        }
+
+        /// <summary>
         /// Settings Page
         /// </summary>
         /// <param name="sender"></param>
@@ -770,6 +784,7 @@ namespace Game.Views
 
                 MonsterActionButton.IsVisible = true;
                 CharacterActionButton.IsVisible = false;
+                AbilityButton.IsVisible = false;
             }
             // moves to chosen character as attacker
             else
@@ -798,6 +813,11 @@ namespace Game.Views
                 }
                 MonsterActionButton.IsVisible = false;
                 CharacterActionButton.IsVisible = true;
+                if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType == PlayerTypeEnum.Character &
+                   BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.IsSpecialAbilityAvailable())
+                {
+                        AbilityButton.IsVisible = true;
+                }
 
             }
             // Choosing the Attack Choice for the character
@@ -1003,9 +1023,9 @@ namespace Game.Views
             switch (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum)
             {
                 case BattleStateEnum.Starting:
-                    //GameUIDisplay.IsVisible = false;
                     AttackerAttack.Source = ActionEnum.Unknown.ToImageURI();
-                    StartBattleButton.IsVisible = false;
+                    StartBattleButton.IsVisible = true;
+                    StartBattleButton.IsEnabled = false;
                     break;
 
                 case BattleStateEnum.NewRound:
@@ -1060,5 +1080,6 @@ namespace Game.Views
                     break;
             }
         }
+
     }
 }
