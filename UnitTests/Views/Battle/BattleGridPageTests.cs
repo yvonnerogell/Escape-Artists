@@ -78,12 +78,40 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void BattlePage_ActionButton_Clicked_Default_Should_Pass()
+        public void BattlePage_CharacterActionButton_Clicked_Default_Should_Pass()
         {
             // Arrange
 
             // Act
-            page.ActionButton_Clicked(null, null);
+            page.CharacterActionButton_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void BattlePage_MonsterActionButton_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            page.MonsterActionButton_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void BattlePage_AbilityButton_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+
+            // Act
+            page.AbilityButton_Clicked(null, null);
 
             // Reset
 

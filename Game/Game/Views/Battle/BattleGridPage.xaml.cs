@@ -77,7 +77,9 @@ namespace Game.Views
 
             // Set the Battle Mode
             ShowBattleMode();
-            
+
+            StartBattleButton.IsVisible = true;
+
         }
 
         /// <summary>
@@ -562,7 +564,7 @@ namespace Game.Views
                 // This is important for ensuring that at least one character is selected before battling starts
                 if (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum !=BattleStateEnum.Battling)
                 {
-                    StartBattleButton.IsVisible = true;
+                    StartBattleButton.IsEnabled = true;
                 }
                 return true;
             }
@@ -662,9 +664,31 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void ActionButton_Clicked(object sender, EventArgs e)
+        public void MonsterActionButton_Clicked(object sender, EventArgs e)
         {       
             NextAttackExample();    
+        }
+
+        /// <summary>
+        /// Attack Action
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void CharacterActionButton_Clicked(object sender, EventArgs e)
+        {
+            NextAttackExample();
+        }
+
+        /// <summary>
+        /// Attack Action
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void AbilityButton_Clicked(object sender, EventArgs e)
+        {                
+
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.UseSpecialAbility();
+            NextAttackExample();
         }
 
         /// <summary>
@@ -758,6 +782,9 @@ namespace Game.Views
                 }
                 BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(BattleEngineViewModel.Instance.Engine.Round.Turn.AttackChoice(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker));
 
+                MonsterActionButton.IsVisible = true;
+                CharacterActionButton.IsVisible = false;
+                AbilityButton.IsVisible = false;
             }
             // moves to chosen character as attacker
             else
@@ -781,12 +808,21 @@ namespace Game.Views
                 // if no monster is chosen, the character can only move
                 else
                 {
-                   BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Move;             
+                    BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.FirstOrDefault());
+                    BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Move;             
                 }
-                // Choosing the Attack Choice for the character
-                BattleEngineViewModel.Instance.Engine.Round.Turn.AttackChoice(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker);
+                MonsterActionButton.IsVisible = false;
+                CharacterActionButton.IsVisible = true;
+                if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType == PlayerTypeEnum.Character &
+                   BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.IsSpecialAbilityAvailable())
+                {
+                        AbilityButton.IsVisible = true;
+                }
 
             }
+            // Choosing the Attack Choice for the character
+            BattleEngineViewModel.Instance.Engine.Round.Turn.AttackChoice(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker);
+
             // this flag ensures character is clicked once per turn
             characterIsSelected = false;
             count += 1;
@@ -892,8 +928,9 @@ namespace Game.Views
         public async void StartButton_Clicked(object sender, EventArgs e)
         {
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Battling;
-           
+
             ShowBattleMode();
+            MonsterActionButton.IsVisible = true;
         }
 
         /// <summary>
@@ -947,7 +984,8 @@ namespace Game.Views
         {
             NextRoundButton.IsVisible = false;
             StartBattleButton.IsVisible = false;
-            ActionButton.IsVisible = false;
+            MonsterActionButton.IsVisible = false;
+            CharacterActionButton.IsVisible = false;
             MessageDisplayBox.IsVisible = false;
             BattlePlayerInfomationBox.IsVisible = false;
         }
@@ -985,9 +1023,9 @@ namespace Game.Views
             switch (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum)
             {
                 case BattleStateEnum.Starting:
-                    //GameUIDisplay.IsVisible = false;
                     AttackerAttack.Source = ActionEnum.Unknown.ToImageURI();
-                    StartBattleButton.IsVisible = false;
+                    StartBattleButton.IsVisible = true;
+                    StartBattleButton.IsEnabled = false;
                     break;
 
                 case BattleStateEnum.NewRound:
@@ -1009,8 +1047,7 @@ namespace Game.Views
                 case BattleStateEnum.Battling:
                     GameUIDisplay.IsVisible = true;
                     BattlePlayerInfomationBox.IsVisible = true;
-                    MessageDisplayBox.IsVisible = true;
-                    ActionButton.IsVisible = true;
+                    MessageDisplayBox.IsVisible = true;                    
                     break;
 
                 // Based on the State disable buttons
@@ -1043,5 +1080,6 @@ namespace Game.Views
                     break;
             }
         }
+
     }
 }

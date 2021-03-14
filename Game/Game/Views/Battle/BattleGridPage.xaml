@@ -91,7 +91,9 @@
 
                     <StackLayout Style="{StaticResource HorizontalStack}" HorizontalOptions="CenterAndExpand">
 
-                        <Button x:Name="ActionButton" Clicked="ActionButton_Clicked" Text="Next Action" IsVisible="False"/>
+                        <Button x:Name="MonsterActionButton" Clicked="MonsterActionButton_Clicked" Text="Next Monster Action" IsVisible="False"/>
+                        <Button x:Name="CharacterActionButton" Clicked="CharacterActionButton_Clicked" Text="Move or Attack" IsVisible="False"/>
+                        <Button x:Name="AbilityButton" Clicked="AbilityButton_Clicked" Text="Apply Ability" IsVisible="False"/>
                         <Button x:Name="NextRoundButton" Clicked="NextRoundButton_Clicked" Text="Next Round" IsVisible="False"/>
                         <Button x:Name="StartBattleButton" Clicked="StartButton_Clicked" Text="Start Battle" IsVisible="False"/>
 

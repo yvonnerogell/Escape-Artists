@@ -941,18 +941,15 @@ namespace Game.Views
         {
             // TODO: make sure the AutoBattlePage is the right option here
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Battling;
-
+           
             // Applying the ability 
-            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction == ActionEnum.Ability)
-            {
-                if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker != null)
-                {
-                    // Use the ability for the current attacker
-                    BattleEngineViewModel.Instance.Engine.Round.Turn.UseAbility(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker);
-
-                }
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType == PlayerTypeEnum.Character &
+                BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.IsSpecialAbilityAvailable())
+            { 
+                // Use the ability for the current attacker
+                BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.UseSpecialAbility();
             }
-
+       
             BattleEngineViewModel.Instance.Engine.Round.RoundNextTurn();
             // Moving on to next turn, and navigating to BattlePageOne
             await Navigation.PushAsync(new BattlePageOne());
@@ -978,15 +975,31 @@ namespace Game.Views
                 DrawItems();    
                 // this is important to avoid going back and forth
                 ActionSelectedPicker.IsEnabled = false;
+                ContinueButton.IsEnabled = true;
+            }
+            // allows user to continue only if there is an ability
+            else if (action == ActionEnum.Ability)
+            {
+                if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType == PlayerTypeEnum.Character &
+               BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.IsSpecialAbilityAvailable())
+                {
+                    PopupAbilityApplied.IsVisible = true;
+                    // this is important to avoid going back and forth
+                    ActionSelectedPicker.IsEnabled = false;
+                    ContinueButton.IsEnabled = true;
+                }
+                else
+                {
+                    ContinueButton.IsEnabled = false;
+                }
+    
+            }
+            // if attack or action are not selected, then the user cannot continue
+            else
+            {
+                ContinueButton.IsEnabled = false;
             }
 
-            if (action == ActionEnum.Ability)
-            {
-                PopupAbilityApplied.IsVisible = true;
-                // this is important to avoid going back and forth
-                ActionSelectedPicker.IsEnabled = false;
-            }
-         
         }
 
 
