@@ -78,12 +78,12 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void BattlePage_AttackButton_Clicked_Default_Should_Pass()
+        public void BattlePage_ActionButton_Clicked_Default_Should_Pass()
         {
             // Arrange
 
             // Act
-            page.AttackButton_Clicked(null, null);
+            page.ActionButton_Clicked(null, null);
 
             // Reset
 
@@ -303,10 +303,8 @@ namespace UnitTests.Views
         {
             // Arrange
 
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(new CharacterModel()));
-
-            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
-
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(new CharacterModel { PlayerType = PlayerTypeEnum.Character }));
+            
             BattleEngineViewModel.Instance.Engine.Round.MakePlayerList();
 
             // Has no monster, so should show next round.
@@ -314,10 +312,12 @@ namespace UnitTests.Views
             // Act
             page.NextAttackExample();
 
-            // Reset
-
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
+
+            // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
         }
 
         [Test]
@@ -345,8 +345,49 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void BattlePage_SetAttackerAndDefender_Character_vs_Monster_Should_Pass()
+        public void BattlePage_NextAttackExample_NewRound_Should_Pass()
         {
+            // Arrange
+            page.count = 1;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Clear();
+
+            var CharacterPlayer = new PlayerInfoModel(
+                 new CharacterModel
+                 {
+                     Speed = -1,
+                     Level = 10,
+                     CurrentHealth = 11,
+                     ExperienceTotal = 1,
+                     ExperienceRemaining = 1,
+                     Name = "Mike",
+                     ListOrder = 1,
+                 });
+
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(CharacterPlayer);           
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(CharacterPlayer);
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList = BattleEngineViewModel.Instance.Engine.Round.MakePlayerList();
+
+
+            // Act
+            var result = BattleEngineViewModel.Instance.Engine.Round.RoundNextTurn();
+            page.NextAttackExample();
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+            Assert.AreEqual(result, RoundEnum.NewRound);
+            Assert.AreEqual(BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum, BattleStateEnum.NewRound);
+
+            // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Clear();
+        }
+
+        [Test]
+        public void BattlePage_SetAttackerAndDefender_Monsters_Should_Pass()
+        {
+            page.count = 0;
             // Arrange
             BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
             BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
@@ -365,6 +406,7 @@ namespace UnitTests.Views
                                 ExperienceRemaining = 1,
                                 Name = "Mike",
                                 ListOrder = 1,
+                                PlayerType = PlayerTypeEnum.Character,
                             });
 
             BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(CharacterPlayer);
@@ -383,22 +425,79 @@ namespace UnitTests.Views
                                 ExperienceRemaining = 1,
                                 Name = "Mike",
                                 ListOrder = 1,
+                                PlayerType = PlayerTypeEnum.Monster,
                             });
 
             BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Add(CharacterPlayer);
-            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Add(MonsterPlayer);
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Add(MonsterPlayer);
+  
+            // Act
+            page.SetAttackerAndDefender();
 
-            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(MonsterPlayer);
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
 
+            // Reset
             BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
+        }
+
+        [Test]
+        public void BattlePage_SetAttackerAndDefender_Characters_Should_Pass()
+        {
+            page.count = 1;
+            // Arrange
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Clear();
+
+            // Make Character
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MaxNumberPartyCharacters = 1;
+
+            var CharacterPlayer = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Speed = 100,
+                                Level = 10,
+                                CurrentHealth = 11,
+                                ExperienceTotal = 1,
+                                ExperienceRemaining = 1,
+                                Name = "Mike",
+                                ListOrder = 1,
+                                PlayerType = PlayerTypeEnum.Character,
+                            });
+
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(CharacterPlayer);
+
+            // Make Monster
+
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MaxNumberPartyMonsters = 1;
+
+            var MonsterPlayer = new PlayerInfoModel(
+                            new MonsterModel
+                            {
+                                Speed = -1,
+                                Level = 10,
+                                CurrentHealth = 11,
+                                ExperienceTotal = 1,
+                                ExperienceRemaining = 1,
+                                Name = "Mike",
+                                ListOrder = 1,
+                                PlayerType = PlayerTypeEnum.Monster,
+                            });
+
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Add(CharacterPlayer);
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Add(MonsterPlayer);
 
             // Act
             page.SetAttackerAndDefender();
 
-            // Reset
-
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
+
+            // Reset
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
         }
 
         [Test]
@@ -457,6 +556,45 @@ namespace UnitTests.Views
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void Battle_Page_SetAttackerAndDefender_SelectedCharacter_Should_Pass()
+        {
+            page.count = 1;
+            // Arrange
+            page.characterIsSelected = true;
+            page.selectedCharacter = new PlayerInfoModel(new CharacterModel { PlayerType = PlayerTypeEnum.Character });
+
+            // Act
+            page.SetAttackerAndDefender();
+
+            // Assert
+            Assert.IsTrue(true);
+            Assert.AreEqual(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker, page.selectedCharacter);
+
+            // Reset
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
+
+        }
+
+        [Test]
+        public void Battle_Page_SetAttackerAndDefender_SelectedMonster_Should_Pass()
+        {
+            page.count = 1;
+            // Arrange
+            page.monsterIsSelected = true;
+            page.selectedMonster = new PlayerInfoModel(new MonsterModel { PlayerType = PlayerTypeEnum.Monster });
+
+            // Act
+            page.SetAttackerAndDefender();
+
+            // Assert
+            Assert.IsTrue(true);
+            Assert.AreEqual(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender, page.selectedMonster);
+
+            // Reset
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(null);
         }
 
         [Test]
@@ -560,17 +698,40 @@ namespace UnitTests.Views
         }
 
         [Test]
+        public void BattlePage_SetSelectedMonster_Conditional_Should_Pass()
+        {
+            // Arrange
+            page.selectedCharacterRange = 5;
+            page.selectedCharacterLocation.Row = 0;
+            page.selectedCharacterLocation.Column = 0;
+            var monster = new PlayerInfoModel(new MonsterModel { PlayerType = PlayerTypeEnum.Monster });
+            var data = new MapModelLocation { Player = monster };
+            data.Row = 0;
+            data.Column = 1;
+            // Act
+            var result = page.SetSelectedMonster(data);
+
+            // Reset
+            
+            // Assert
+            Assert.AreEqual(true, result);      // Got to here, so it happened...
+        }
+
+        [Test]
         public void BattlePage_SetSelectedEmpty_Default_Should_Pass()
         {
             // Arrange
+           var emptyCell = new PlayerInfoModel { PlayerType = PlayerTypeEnum.Unknown};
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(new PlayerInfoModel(new CharacterModel { PlayerType = PlayerTypeEnum.Character }));
 
             // Act
-            var result = page.SetSelectedEmpty(new MapModelLocation());
-
-            // Reset
+            var result = page.SetSelectedEmpty(new MapModelLocation { Player = emptyCell });
 
             // Assert
             Assert.AreEqual(true, result); // Got to here, so it happened...
+
+            // Reset
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
         }
 
         [Test]
@@ -992,11 +1153,46 @@ namespace UnitTests.Views
         public void BattleSettingsPage_MapIcon_Clicked_Empty_Should_Pass()
         {
             // Arrange
-            var CharacterPlayer = new PlayerInfoModel(new CharacterModel());
-            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Add(CharacterPlayer);
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Clear();
 
-            var MonsterPlayer = new PlayerInfoModel(new MonsterModel());
+            // Make Character
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MaxNumberPartyCharacters = 1;
+
+            var CharacterPlayer = new PlayerInfoModel(
+                            new CharacterModel
+                            {
+                                Speed = 100,
+                                Level = 10,
+                                CurrentHealth = 11,
+                                ExperienceTotal = 1,
+                                ExperienceRemaining = 1,
+                                Name = "Mike",
+                                ListOrder = 1,
+                                PlayerType = PlayerTypeEnum.Character,
+                            });
+
+          
+            // Make Monster
+
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MaxNumberPartyMonsters = 1;
+
+            var MonsterPlayer = new PlayerInfoModel(
+                            new MonsterModel
+                            {
+                                Speed = -1,
+                                Level = 10,
+                                CurrentHealth = 11,
+                                ExperienceTotal = 1,
+                                ExperienceRemaining = 1,
+                                Name = "Mike",
+                                ListOrder = 1,
+                                PlayerType = PlayerTypeEnum.Monster,
+                            });
+
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Add(CharacterPlayer);
             BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Add(MonsterPlayer);
+
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = CharacterPlayer;
 
             BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.PopulateMapModel(BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList);
 
@@ -1011,10 +1207,13 @@ namespace UnitTests.Views
             // Force the click event to fire
             ((ImageButton)dataImage).PropagateUpClicked();
 
-            // Reset
 
             // Assert
             Assert.IsTrue(true); // Got Here
+
+            // Reset
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Clear();
         }
 
         [Test]

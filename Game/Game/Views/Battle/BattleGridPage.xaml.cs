@@ -496,10 +496,11 @@ namespace Game.Views
                         // setting the current action to move if the empty square is selected
                         BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Move;
                         BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.MovePlayerOnMap(selectedCharacterLocation, data);
-                    
-                }
-                }
-            UpdateMapGrid();
+
+                    }
+                UpdateMapGrid();
+                
+            }
             return true;
         }
 
@@ -792,14 +793,15 @@ namespace Game.Views
                 {
                     BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Attack;
                     BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(selectedMonster);
-                    BattleEngineViewModel.Instance.Engine.Round.Turn.AttackChoice(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker);
-                }
+                 }
                 // if no monster is chosen, the character can only move
                 else
                 {
                    BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Move;             
                 }
-                   
+                BattleEngineViewModel.Instance.Engine.Round.Turn.AttackChoice(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker);
+
+
             }
             // this flag ensures character is clicked once per turn
             characterIsSelected = false;
