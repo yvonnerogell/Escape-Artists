@@ -72,8 +72,6 @@ namespace Game.Views
             // BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
             // BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn());
             
-            // Have a first defender just in case
-            BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FirstOrDefault());
                // Add Players to Display
                DrawGameAttackerDefenderBoard();
 
@@ -766,7 +764,14 @@ namespace Game.Views
             // starts with the monster as attacker
             if (count % 2 == 0)
             {
-                BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn());
+                if (BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn().PlayerType == PlayerTypeEnum.Monster)
+                {
+                    BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn());
+                }
+                else
+                {
+                    BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.FirstOrDefault());
+                }
                 BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(BattleEngineViewModel.Instance.Engine.Round.Turn.AttackChoice(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker));
 
             }
@@ -792,8 +797,7 @@ namespace Game.Views
                 // if no monster is chosen, the character can only move
                 else
                 {
-                  BattleEngineViewModel.Instance.Engine.Round.Turn.AttackChoice(BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.FirstOrDefault());
-                  BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Move;             
+                   BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Move;             
                 }
                    
             }
