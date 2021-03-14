@@ -1354,17 +1354,48 @@ namespace UnitTests.Views
         public void BattlePageTwo_OnPickerSelectedActionChanged_Ability_Should_Pass()
         {
             // Arrange
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = null;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = new PlayerInfoModel(new CharacterModel { PlayerType = PlayerTypeEnum.Character });
+            
             var picker = (Picker)page.FindByName("ActionSelectedPicker");
             picker.SelectedIndex = 1;
             System.EventArgs e = new System.EventArgs();
-
-            
+    
             // Act
             page.OnPickerSelectedActionChanged(picker, e);
 
             // Assert
             // 1 is for Ability
             Assert.AreEqual(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction, ActionEnum.Ability);
+
+            // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = new PlayerInfoModel(new CharacterModel());
+            BattleEngineViewModel.Instance.Engine.Round.ClearLists();
+        }
+
+        [Test]
+        public void BattlePageTwo_OnPickerSelectedActionChanged_Unknown_Should_Pass()
+        {
+            // Arrange
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = null;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = new PlayerInfoModel(new CharacterModel { PlayerType = PlayerTypeEnum.Monster });
+
+            var picker = (Picker)page.FindByName("ActionSelectedPicker");
+            picker.SelectedIndex = 1;
+            var button = (Button)page.FindByName("ContinueButton");
+
+            System.EventArgs e = new System.EventArgs();
+
+            // Act
+            page.OnPickerSelectedActionChanged(picker, e);
+
+            // Assert
+            // 1 is for Ability
+            Assert.AreEqual(button.IsEnabled, false);
+
+            // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = new PlayerInfoModel(new CharacterModel());
+            BattleEngineViewModel.Instance.Engine.Round.ClearLists();
         }
 
         [Test]
@@ -1374,8 +1405,6 @@ namespace UnitTests.Views
             var picker = (Picker)page.FindByName("ActionSelectedPicker");
             picker.SelectedIndex = 2;
             System.EventArgs e = new System.EventArgs();
-
-
             // Act
             page.OnPickerSelectedActionChanged(picker, e);
 
@@ -1446,6 +1475,13 @@ namespace UnitTests.Views
         public void BattlePageTwo_ContinueButton_Clicked_Attack_Should_Pass()
         {
             // Arrange
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = new PlayerInfoModel(new CharacterModel
+            {
+                PlayerType = PlayerTypeEnum.Character,
+                SpecialAbility = AbilityEnum.Unknown,
+                SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.InternationalStudent
+            });
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = new PlayerInfoModel(new MonsterModel());
             BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Attack;
             // Act
             page.ContinueButton_Clicked(null, null);
@@ -1462,7 +1498,12 @@ namespace UnitTests.Views
         [Test]
         public void BattlePageTwo_ContinueButton_Clicked_Ability_Should_Pass()
         {
-            // Arrange
+            // Arrange        
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = new PlayerInfoModel(new CharacterModel { PlayerType = PlayerTypeEnum.Character, 
+                SpecialAbility = AbilityEnum.Unknown, 
+                SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.InternationalStudent });
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = new PlayerInfoModel(new MonsterModel { PlayerType = PlayerTypeEnum.Monster });
+
             BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Ability;
             // Act
             page.ContinueButton_Clicked(null, null);

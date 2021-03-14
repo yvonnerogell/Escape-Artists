@@ -941,7 +941,7 @@ namespace Game.Views
         {
             // TODO: make sure the AutoBattlePage is the right option here
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Battling;
-
+           
             // Applying the ability 
             if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType == PlayerTypeEnum.Character &
                 BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.IsSpecialAbilityAvailable())
