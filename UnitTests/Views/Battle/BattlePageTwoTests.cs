@@ -251,7 +251,6 @@ namespace UnitTests.Views
             var item = new ItemModel();
             // Act
             page.ShowPopupItem(item);
-
             
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
@@ -266,14 +265,15 @@ namespace UnitTests.Views
         {
             // Arrange
             var characters = new List<PlayerInfoModel>();
-            var item = new ItemModel();
+          
             // Act
-            page.GetCharacterWhoCanAcceptItem(characters, item);
+            var list_of_characters = page.GetCharacterWhoCanAcceptItem(characters, null);
 
             // Reset
 
-            // Asser
+            // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
+            Assert.IsEmpty(list_of_characters);
         }
 
         [Test]
@@ -712,6 +712,23 @@ namespace UnitTests.Views
             Assert.IsNull(button); // Got to here, so it happened...
         }
 
+        [Test]
+        public void BattlePageTwo_GetMonsterToDisplay_Click_Button_Valid_Should_Pass()
+        {
+            // Arrange
+            var monster = new PlayerInfoModel(new MonsterModel { SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AdjunctFaculty });
+            var StackItem = page.GetMonsterToDisplay(monster);
+            var dataImage = StackItem.Children[0];
+
+            // Act
+            ((ImageButton)dataImage).PropagateUpClicked();
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
 
         [Test]
         public void GetItemToDisplay_Clicked_Default_Should_Pass()
@@ -724,6 +741,25 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
+
+        [Test]
+        public void BattlePageTwo_GetItemToDisplay_Click_Button_Valid_Should_Pass()
+        {
+            // Arrange
+            var item = ItemIndexViewModel.Instance.GetDefaultItem(ItemLocationEnum.PrimaryHand);
+            var StackItem = page.GetItemToDisplay(item);
+            var dataImage = StackItem.Children[0];
+
+            // Act
+            ((ImageButton)dataImage).PropagateUpClicked();
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+
 
         [Test]
         public void GetItemToDisplay_Clicked_NotNull_Should_Pass()
@@ -1178,6 +1214,17 @@ namespace UnitTests.Views
                 ImageURI = Constants.SpecificCharacterTypeInternationalStudentImageURI,
                 Head = null,
                 SpecialAbility = AbilityEnum.FlashGenius
+            }));
+
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(new PlayerInfoModel(new MonsterModel
+            {
+                Speed = -1,
+                Level = 20,
+                CurrentHealth = 11,
+                ExperienceTotal = 1,
+                ExperienceRemaining = 1,
+                Name = "Mike",
+                ListOrder = 1,
             }));
 
             // Act

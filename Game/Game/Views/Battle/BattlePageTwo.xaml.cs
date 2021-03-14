@@ -800,8 +800,10 @@ namespace Game.Views
                 MonsterListSelectedFrame.Children.Remove(data);
             }
 
-            // Draw the selected current Defender for display
-            if (currentDefender.Level != 20)
+            if (currentDefender != null)
+            {
+                // Draw the selected current Defender for display
+                if (currentDefender.Level != 20)
                 {
                     // Set Monster it as defender
                     MonsterListSelectedFrame.Children.Add(GetMonsterToDisplay(currentDefender));
@@ -809,6 +811,8 @@ namespace Game.Views
                     PopupMonsterListSelected.IsEnabled = false;
                     MonsterFrame.IsVisible = false;
                 }
+            }
+
         }
 
 
@@ -860,9 +864,9 @@ namespace Game.Views
                             // set current defender
                             currentDefender = data;
                     //BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(currentDefender);
-                    BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = currentDefender;
-                    ContinueButton.IsEnabled = true;
-                    break;
+                            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = currentDefender;
+                            ContinueButton.IsEnabled = true;
+                            break;
                         }
                     }
                     //var monster = MonsterIndexViewModel.Instance.GetMonsterByName(monsterName);
