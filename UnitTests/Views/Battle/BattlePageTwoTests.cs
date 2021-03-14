@@ -920,6 +920,9 @@ namespace UnitTests.Views
         [Test]
         public void DrawItems_Default_Should_Pass()
         {
+            // Arrange
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = null;
+
             // Act
             page.DrawItems();
 
@@ -934,7 +937,8 @@ namespace UnitTests.Views
         {
             // Arrange
             FlexLayout itemlistfoundframe = (FlexLayout)page.Content.FindByName("ItemListFoundFrame");
-            
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = null;
+
             // add two elements to the list because when will be removed
             itemlistfoundframe.Children.Add(new FlexLayout());
             itemlistfoundframe.Children.Add(new FlexLayout());
@@ -949,7 +953,7 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void DrawItems_Add_Should_Pass()
+        public void DrawItems_Add_Head_Should_Pass()
         {
             // Arrange
             
@@ -957,7 +961,6 @@ namespace UnitTests.Views
             FlexLayout itemlistfoundframe = (FlexLayout)page.Content.FindByName("ItemListFoundFrame");
             
             // Populate ItemList and CharacterList
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Clear();
             BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = new PlayerInfoModel(new CharacterModel
             {
                 Name = "Nancy",
@@ -969,14 +972,10 @@ namespace UnitTests.Views
                 GPA = 80,
                 MaxHealth = 100,
                 ImageURI = Constants.SpecificCharacterTypeInternationalStudentImageURI,
-                Head = null,
+                Head = "Skateboard",
                 SpecialAbility = AbilityEnum.FlashGenius
             });
 
-           List<PlayerInfoModel> characterlist = new List<PlayerInfoModel>();
-           BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Add(new ItemModel {Location = ItemLocationEnum.RightFinger});
-            characterlist.Add(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker);
-            
             // Act
             page.DrawItems();
 
@@ -984,9 +983,213 @@ namespace UnitTests.Views
             Assert.AreEqual(1, itemlistfoundframe.Children.Count);
 
             // Reset
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Clear();
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = null;
         }
+
+        [Test]
+        public void DrawItems_Add_Necklace_Should_Pass()
+        {
+            // Arrange
+
+            // Items are added to this FlexLayout
+            FlexLayout itemlistfoundframe = (FlexLayout)page.Content.FindByName("ItemListFoundFrame");
+
+            // Populate ItemList and CharacterList
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = new PlayerInfoModel(new CharacterModel
+            {
+                Name = "Nancy",
+                Description = "I would have been a professor by now if it weren't for the stress of I-94 renewal",
+                CharacterTypeEnum = CharacterTypeEnum.Student,
+                SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.InternationalStudent,
+                Range = 2,
+                Level = 1,
+                GPA = 80,
+                MaxHealth = 100,
+                ImageURI = Constants.SpecificCharacterTypeInternationalStudentImageURI,
+                Necklace = "Skateboard",
+                SpecialAbility = AbilityEnum.FlashGenius
+            });
+
+            // Act
+            page.DrawItems();
+
+            // Assert
+            Assert.AreEqual(1, itemlistfoundframe.Children.Count);
+
+            // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = null;
+        }
+
+        [Test]
+        public void DrawItems_Add_OffHand_Should_Pass()
+        {
+            // Arrange
+
+            // Items are added to this FlexLayout
+            FlexLayout itemlistfoundframe = (FlexLayout)page.Content.FindByName("ItemListFoundFrame");
+
+            // Populate ItemList and CharacterList
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = new PlayerInfoModel(new CharacterModel
+            {
+                Name = "Nancy",
+                Description = "I would have been a professor by now if it weren't for the stress of I-94 renewal",
+                CharacterTypeEnum = CharacterTypeEnum.Student,
+                SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.InternationalStudent,
+                Range = 2,
+                Level = 1,
+                GPA = 80,
+                MaxHealth = 100,
+                ImageURI = Constants.SpecificCharacterTypeInternationalStudentImageURI,
+                OffHand = "Skateboard",
+                SpecialAbility = AbilityEnum.FlashGenius
+            });
+
+            // Act
+            page.DrawItems();
+
+            // Assert
+            Assert.AreEqual(1, itemlistfoundframe.Children.Count);
+
+            // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = null;
+        }
+
+        [Test]
+        public void DrawItems_Add_PrimaryHand_Should_Pass()
+        {
+            // Arrange
+
+            // Items are added to this FlexLayout
+            FlexLayout itemlistfoundframe = (FlexLayout)page.Content.FindByName("ItemListFoundFrame");
+
+            // Populate ItemList and CharacterList
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = new PlayerInfoModel(new CharacterModel
+            {
+                Name = "Nancy",
+                Description = "I would have been a professor by now if it weren't for the stress of I-94 renewal",
+                CharacterTypeEnum = CharacterTypeEnum.Student,
+                SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.InternationalStudent,
+                Range = 2,
+                Level = 1,
+                GPA = 80,
+                MaxHealth = 100,
+                ImageURI = Constants.SpecificCharacterTypeInternationalStudentImageURI,
+                PrimaryHand = "Skateboard",
+                SpecialAbility = AbilityEnum.FlashGenius
+            });
+
+            // Act
+            page.DrawItems();
+
+            // Assert
+            Assert.AreEqual(1, itemlistfoundframe.Children.Count);
+
+            // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = null;
+        }
+
+        [Test]
+        public void DrawItems_Add_RightFinger_Should_Pass()
+        {
+            // Arrange
+
+            // Items are added to this FlexLayout
+            FlexLayout itemlistfoundframe = (FlexLayout)page.Content.FindByName("ItemListFoundFrame");
+
+            // Populate ItemList and CharacterList
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = new PlayerInfoModel(new CharacterModel
+            {
+                Name = "Nancy",
+                Description = "I would have been a professor by now if it weren't for the stress of I-94 renewal",
+                CharacterTypeEnum = CharacterTypeEnum.Student,
+                SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.InternationalStudent,
+                Range = 2,
+                Level = 1,
+                GPA = 80,
+                MaxHealth = 100,
+                ImageURI = Constants.SpecificCharacterTypeInternationalStudentImageURI,
+                RightFinger = "Skateboard",
+                SpecialAbility = AbilityEnum.FlashGenius
+            });
+
+            // Act
+            page.DrawItems();
+
+            // Assert
+            Assert.AreEqual(1, itemlistfoundframe.Children.Count);
+
+            // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = null;
+        }
+
+        [Test]
+        public void DrawItems_Add_LeftFinger_Should_Pass()
+        {
+            // Arrange
+
+            // Items are added to this FlexLayout
+            FlexLayout itemlistfoundframe = (FlexLayout)page.Content.FindByName("ItemListFoundFrame");
+
+            // Populate ItemList and CharacterList
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = new PlayerInfoModel(new CharacterModel
+            {
+                Name = "Nancy",
+                Description = "I would have been a professor by now if it weren't for the stress of I-94 renewal",
+                CharacterTypeEnum = CharacterTypeEnum.Student,
+                SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.InternationalStudent,
+                Range = 2,
+                Level = 1,
+                GPA = 80,
+                MaxHealth = 100,
+                ImageURI = Constants.SpecificCharacterTypeInternationalStudentImageURI,
+                LeftFinger = "Skateboard",
+                SpecialAbility = AbilityEnum.FlashGenius
+            });
+
+            // Act
+            page.DrawItems();
+
+            // Assert
+            Assert.AreEqual(1, itemlistfoundframe.Children.Count);
+
+            // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = null;
+        }
+
+        [Test]
+        public void DrawItems_Add_Feet_Should_Pass()
+        {
+            // Arrange
+
+            // Items are added to this FlexLayout
+            FlexLayout itemlistfoundframe = (FlexLayout)page.Content.FindByName("ItemListFoundFrame");
+
+            // Populate ItemList and CharacterList
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = new PlayerInfoModel(new CharacterModel
+            {
+                Name = "Nancy",
+                Description = "I would have been a professor by now if it weren't for the stress of I-94 renewal",
+                CharacterTypeEnum = CharacterTypeEnum.Student,
+                SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.InternationalStudent,
+                Range = 2,
+                Level = 1,
+                GPA = 80,
+                MaxHealth = 100,
+                ImageURI = Constants.SpecificCharacterTypeInternationalStudentImageURI,
+                Feet = "Skateboard",
+                SpecialAbility = AbilityEnum.FlashGenius
+            });
+
+            // Act
+            page.DrawItems();
+
+            // Assert
+            Assert.AreEqual(1, itemlistfoundframe.Children.Count);
+
+            // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = null;
+        }
+
 
         [Test]
         public void DrawMonsterList_Default_Should_Pass()

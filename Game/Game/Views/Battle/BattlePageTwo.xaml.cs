@@ -411,41 +411,44 @@ namespace Game.Views
 
             // Adding all potential items from the current attacker
             List<ItemModel> allPotentialItems = new List<ItemModel>();
-            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PrimaryHand != null 
-                & BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PrimaryHand != "None")
-            {
-                allPotentialItems.Add(ItemIndexViewModel.Instance.GetItem(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PrimaryHand));
-            }
-            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Feet != null
-                & BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Feet != "None")
-            {
-                allPotentialItems.Add(ItemIndexViewModel.Instance.GetItem(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Feet));
-            }
-            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Head != null
-    & BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Head != "None")
-            {
-                allPotentialItems.Add(ItemIndexViewModel.Instance.GetItem(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Head));
-            }
-            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.OffHand != null
-    & BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.OffHand != "None")
-            {
-                allPotentialItems.Add(ItemIndexViewModel.Instance.GetItem(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.OffHand));
-            }
-            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Necklace != null
-    & BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Necklace != "None")
-            {
-                allPotentialItems.Add(ItemIndexViewModel.Instance.GetItem(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Necklace));
-            }
-            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.RightFinger != null
-    & BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.RightFinger != "None")
-            {
-                allPotentialItems.Add(ItemIndexViewModel.Instance.GetItem(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.RightFinger));
-            }
+           if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker != null)
+                {
+                if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PrimaryHand != null
+               & BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PrimaryHand != "None")
+                {
+                    allPotentialItems.Add(ItemIndexViewModel.Instance.GetItem(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PrimaryHand));
+                }
+                if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Feet != null
+                    & BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Feet != "None")
+                {
+                    allPotentialItems.Add(ItemIndexViewModel.Instance.GetItem(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Feet));
+                }
+                if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Head != null
+        & BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Head != "None")
+                {
+                    allPotentialItems.Add(ItemIndexViewModel.Instance.GetItem(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Head));
+                }
+                if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.OffHand != null
+        & BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.OffHand != "None")
+                {
+                    allPotentialItems.Add(ItemIndexViewModel.Instance.GetItem(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.OffHand));
+                }
+                if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Necklace != null
+        & BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Necklace != "None")
+                {
+                    allPotentialItems.Add(ItemIndexViewModel.Instance.GetItem(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Necklace));
+                }
+                if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.RightFinger != null
+        & BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.RightFinger != "None")
+                {
+                    allPotentialItems.Add(ItemIndexViewModel.Instance.GetItem(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.RightFinger));
+                }
 
-            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.LeftFinger != null
-                & BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.LeftFinger != "None")
-            {
-                allPotentialItems.Add(ItemIndexViewModel.Instance.GetItem(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.LeftFinger));
+                if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.LeftFinger != null
+                    & BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.LeftFinger != "None")
+                {
+                    allPotentialItems.Add(ItemIndexViewModel.Instance.GetItem(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.LeftFinger));
+                }
             }
 
             List<PlayerInfoModel> eligible_character_list = new List<PlayerInfoModel>();
