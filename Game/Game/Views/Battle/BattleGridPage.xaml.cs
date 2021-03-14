@@ -550,7 +550,7 @@ namespace Game.Views
                 {
                     // disable out-of-reach cells
                     object MapObject = GetMapGridObject(GetDictionaryImageButtonName(cell));
-                    if (MapObject != null)
+                    if (MapObject != null & cell.Player.PlayerType != PlayerTypeEnum.Character)
                     {
                         var imageObject = (ImageButton)MapObject;
                         imageObject.IsEnabled = true;
