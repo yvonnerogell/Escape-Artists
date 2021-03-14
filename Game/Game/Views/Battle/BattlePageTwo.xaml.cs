@@ -409,15 +409,52 @@ namespace Game.Views
                 ItemListFoundFrame.Children.Remove(data);
             }
 
+            // Adding all potential items from the current attacker
+            List<ItemModel> allPotentialItems = new List<ItemModel>();
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PrimaryHand != null 
+                & BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PrimaryHand != "None")
+            {
+                allPotentialItems.Add(ItemIndexViewModel.Instance.GetItem(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PrimaryHand));
+            }
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Feet != null
+                & BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Feet != "None")
+            {
+                allPotentialItems.Add(ItemIndexViewModel.Instance.GetItem(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Feet));
+            }
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Head != null
+    & BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Head != "None")
+            {
+                allPotentialItems.Add(ItemIndexViewModel.Instance.GetItem(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Head));
+            }
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.OffHand != null
+    & BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.OffHand != "None")
+            {
+                allPotentialItems.Add(ItemIndexViewModel.Instance.GetItem(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.OffHand));
+            }
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Necklace != null
+    & BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Necklace != "None")
+            {
+                allPotentialItems.Add(ItemIndexViewModel.Instance.GetItem(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Necklace));
+            }
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.RightFinger != null
+    & BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.RightFinger != "None")
+            {
+                allPotentialItems.Add(ItemIndexViewModel.Instance.GetItem(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.RightFinger));
+            }
+
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.LeftFinger != null
+                & BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.LeftFinger != "None")
+            {
+                allPotentialItems.Add(ItemIndexViewModel.Instance.GetItem(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.LeftFinger));
+            }
+
             List<PlayerInfoModel> eligible_character_list = new List<PlayerInfoModel>();
             eligible_character_list.Add(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker);
-            foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Distinct())
+
+            // Choosing among all the items a character has
+            foreach (var data in allPotentialItems)
             {
-                // if the selected character can use this item, add the item 
-                if (GetCharacterWhoCanAcceptItem(eligible_character_list, data).Count() > 0)
-                {
-                    ItemListFoundFrame.Children.Add(GetItemToDisplay(data));
-                }                       
+                    ItemListFoundFrame.Children.Add(GetItemToDisplay(data));        
             }
 
             // Item Frame is displayed only if there is something to display
@@ -642,7 +679,6 @@ namespace Game.Views
         {
             var itemId = "";   
                 itemId = ((Button)sender).CommandParameter.ToString();
-                          
                 var item = ItemIndexViewModel.Instance.GetItem(itemId);
                 var itemLocation = ItemTypeEnumHelper.GetLocationFromItemType(item.ItemType);
 
@@ -651,8 +687,8 @@ namespace Game.Views
                 player = AddItemToCharacter(player, itemLocation, item);
          
                  // Remove item from dropped list and add to selected item list. 
-                    var itemIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.FindIndex(i => i.Name == (string)item.Name);
-                    BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.RemoveAt(itemIndex);
+               //   var itemIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.FindIndex(i => i.Name == (string)item.Name);
+               //   BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.RemoveAt(itemIndex);
                     BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelSelectList.Add(item);
                     selectedItems.Add(item);
                     // Add updated player back to view model
