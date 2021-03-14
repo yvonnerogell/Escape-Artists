@@ -488,7 +488,9 @@ namespace Game.Views
         /// <param name="e"></param>
         public async void GameOverButton_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NavigationPage(new GameOverPage()));
+            //await Navigation.PushModalAsync(new NavigationPage(new GameOverPage()));
+            await Navigation.PushAsync(new GameOverPage());
+            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
         }
 
 
@@ -518,7 +520,8 @@ namespace Game.Views
         /// </summary>
         public async void ShowModalNewRoundPage()
         {
-            await Navigation.PopModalAsync();
+            //await Navigation.PopModalAsync();
+            await Navigation.PopAsync();
         }
     }
 }
