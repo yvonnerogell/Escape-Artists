@@ -477,16 +477,6 @@ namespace Game.Views
         /// <returns></returns>
         public bool SetSelectedEmpty(MapModelLocation data)
         {
-
-            // TODO: Info
-
-            /*
-             * This gets called when the characters is clicked on
-             * Usefull if you want to select the location to move to etc.
-             * 
-             * For Mike's simple battle grammar there is no selection of action so I just return true
-             */
-
                 // pick empty sells and move if within range
                 if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType == PlayerTypeEnum.Character
                     & data.Player.PlayerType == PlayerTypeEnum.Unknown)
@@ -498,8 +488,7 @@ namespace Game.Views
                         BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.MovePlayerOnMap(selectedCharacterLocation, data);
 
                     }
-                UpdateMapGrid();
-                
+                UpdateMapGrid();                
             }
             return true;
         }
@@ -512,28 +501,21 @@ namespace Game.Views
        
         public bool SetSelectedMonster (MapModelLocation data)
         {
-            // TODO: Info
-
-            /*
-             * This gets called when the Monster is clicked on
-             * Usefull if you want to select the monster to attack etc.
-             * 
-             * For Mike's simple battle grammar there is no selection of action so I just return true
-             */
-
+            // Click on a monster if within range
             if (data.Player.PlayerType == PlayerTypeEnum.Monster)
             {
+                // the ImageButton serves to disable Monsters out of reach
                 object MapObject = GetMapGridObject(GetDictionaryImageButtonName(data));
                 if (MapObject != null)
                 {
                     var imageObject = (ImageButton)MapObject;
                     imageObject.IsEnabled = false;
-
+                    // check range
                     if (Math.Abs(selectedCharacterLocation.Row - data.Row) + Math.Abs(selectedCharacterLocation.Column - data.Column) <= selectedCharacterRange)
                     {
                         selectedMonster = data.Player;
                         data.IsSelectedTarget = true;
-                        //    BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(data.Player);
+                        
                         // setting the current action to move if a monster is selected
                         monsterIsSelected = true;
 
@@ -544,8 +526,7 @@ namespace Game.Views
                 }
             }
             return false;
-            //data.IsSelectedTarget = true;
-            //return true;
+            
         }
 
         /// <summary>
@@ -554,35 +535,35 @@ namespace Game.Views
         /// <param name="data"></param>
         /// <returns></returns>
         public bool SetSelectedCharacter(MapModelLocation data)
-        {
-            // TODO: Info
-            /*
-             * This gets called when the characters is clicked on
-             * Usefull if you want to select the character and then set state or do something
-             * 
-             * For Mike's simple battle grammar there is no selection of action so I just return true
-             */
-            
+        {   
             // Only for characters, and the user should not click characters more than once per turn
              if (data.Player.PlayerType == PlayerTypeEnum.Character & characterIsSelected == false)
             {
+                // flags that help with turns in the SetAttackerAndDefender method
                 selectedCharacter = data.Player;
                 selectedCharacterRange = data.Player.Range;
                 selectedCharacterLocation = data;
                 characterIsSelected = true;
                 foreach (var cell in BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.MapGridLocation)
                 {
+                    // disable out-of-reach cells
                     object MapObject = GetMapGridObject(GetDictionaryImageButtonName(cell));
                     if (MapObject != null)
                     {
                         var imageObject = (ImageButton)MapObject;
                         imageObject.IsEnabled = true;
+                        // check range
                         if (Math.Abs(selectedCharacterLocation.Row - cell.Row) + Math.Abs(selectedCharacterLocation.Column - cell.Column) > selectedCharacterRange)
                         {
                             imageObject.IsEnabled = false;
                         }
                     }
-                }              
+                }     
+                // This is important for ensuring that at least one character is selected before battling starts
+                if (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum !=BattleStateEnum.Battling)
+                {
+                    StartBattleButton.IsVisible = true;
+                }
                 return true;
             }
             return false;
@@ -762,13 +743,15 @@ namespace Game.Views
         /// </summary>
         public void SetAttackerAndDefender()
         {
-            // starts with the monster as attacker
+            // starts with the monster as attacker, and moves to character
             if (count % 2 == 0)
             {
+                // This should strictly be a monster
                 if (BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn().PlayerType == PlayerTypeEnum.Monster)
                 {
                     BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn());
                 }
+                // If not, a monster from the monster list is selected
                 else
                 {
                     BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.FirstOrDefault());
@@ -779,6 +762,7 @@ namespace Game.Views
             // moves to chosen character as attacker
             else
             {
+                // if the user chooses a character
                 if (characterIsSelected == true)
                 {
                     BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(selectedCharacter);
@@ -788,7 +772,7 @@ namespace Game.Views
                 {
                     BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FirstOrDefault());
                 }
-
+                // The chosen monster is selected as the defender
                 if (monsterIsSelected == true)
                 {
                     BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Attack;
@@ -799,8 +783,8 @@ namespace Game.Views
                 {
                    BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Move;             
                 }
+                // Choosing the Attack Choice for the character
                 BattleEngineViewModel.Instance.Engine.Round.Turn.AttackChoice(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker);
-
 
             }
             // this flag ensures character is clicked once per turn
@@ -896,7 +880,6 @@ namespace Game.Views
         /// <param name="e"></param>
         public async void NextRoundButton_Clicked(object sender, EventArgs e)
         {
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Battling;
             ShowBattleMode();
             await Navigation.PushModalAsync(new NewRoundPage());
         }
@@ -911,7 +894,6 @@ namespace Game.Views
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Battling;
            
             ShowBattleMode();
-            //await Navigation.PushModalAsync(new NewRoundPage());
         }
 
         /// <summary>
@@ -1005,7 +987,7 @@ namespace Game.Views
                 case BattleStateEnum.Starting:
                     //GameUIDisplay.IsVisible = false;
                     AttackerAttack.Source = ActionEnum.Unknown.ToImageURI();
-                    StartBattleButton.IsVisible = true;
+                    StartBattleButton.IsVisible = false;
                     break;
 
                 case BattleStateEnum.NewRound:
