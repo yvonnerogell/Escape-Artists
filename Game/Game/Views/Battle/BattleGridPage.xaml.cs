@@ -781,12 +781,14 @@ namespace Game.Views
                 // if no monster is chosen, the character can only move
                 else
                 {
-                   BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Move;             
+                    BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.FirstOrDefault());
+                    BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Move;             
                 }
-                // Choosing the Attack Choice for the character
-                BattleEngineViewModel.Instance.Engine.Round.Turn.AttackChoice(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker);
-
+               
             }
+            // Choosing the Attack Choice for the character
+            BattleEngineViewModel.Instance.Engine.Round.Turn.AttackChoice(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker);
+
             // this flag ensures character is clicked once per turn
             characterIsSelected = false;
             count += 1;
