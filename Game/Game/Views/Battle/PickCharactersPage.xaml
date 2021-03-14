@@ -26,51 +26,51 @@
                         MaxLines="5" />
 
                         <Label Text="Choose your Characters" Style="{StaticResource CenterMessageStyle}"/>
-
-                        <FlexLayout
-                            BindableLayout.ItemsSource="{Binding Dataset}"
-                            Wrap="Wrap"
-                            Direction="Row"
-                            JustifyContent="SpaceEvenly">
-
-                            <BindableLayout.ItemTemplate>
-                                <DataTemplate>
-                                    <StackLayout Padding="10" WidthRequest="150" HeightRequest="250">
-                                        <ImageButton x:Name="CharacterImgButton" Source="{Binding ImageURI}" Clicked="OnCharacter_Clicked" CommandParameter="{Binding Id}" IsEnabled="True">
-                                            <VisualStateManager.VisualStateGroups>
-                                                <VisualStateGroup x:Name="ButtonStates">
-                                                    <VisualState x:Name="Normal"/>
-                                                        <VisualState x:Name="Pressed">
-                                                            <VisualState.Setters>
-                                                                <Setter TargetName="CharacterImgButton" Property="Scale" Value="0.75"/>
-                                                            </VisualState.Setters>
-                                                        </VisualState>
-                                                </VisualStateGroup>
-                                            </VisualStateManager.VisualStateGroups>
-                                        </ImageButton>
-                                        <StackLayout Orientation="Vertical" HorizontalOptions="Center">
-                                            <Label x:Name="NameLabel" Text="{Binding Name}" HorizontalTextAlignment="Center" LineBreakMode="WordWrap"/>
-                                            <Label Text="{Binding SpecificCharacterTypeEnum, Converter={StaticResource SpecificCharacterTypeEnumConverter}}"  
-                                                    HorizontalTextAlignment="Center"
-                                                    LineBreakMode="WordWrap"/>
-                                        </StackLayout>
-                                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                                            <Label Text="Level " HorizontalTextAlignment="Center"/>
-                                            <Label Text="{Binding Level}" HorizontalTextAlignment="Center" LineBreakMode="NoWrap"/>
-                                        </StackLayout>
-                                    </StackLayout>
-                                </DataTemplate>
-                            </BindableLayout.ItemTemplate>
-                        </FlexLayout>
                 <StackLayout HorizontalOptions="CenterAndExpand">
-                <Button 
+                    <Button 
                     x:Name="BeginBattleButton"
                     Clicked="BattleButton_Clicked" 
                     Text="Begin"
                     IsEnabled="True"/>
                 </StackLayout>
 
-                    </StackLayout>
+                <FlexLayout
+                            BindableLayout.ItemsSource="{Binding Dataset}"
+                            Wrap="Wrap"
+                            Direction="Row"
+                            JustifyContent="SpaceEvenly">
+
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Padding="10" WidthRequest="150" HeightRequest="250">
+                                <ImageButton x:Name="CharacterImgButton" Source="{Binding ImageURI}" Clicked="OnCharacter_Clicked" CommandParameter="{Binding Id}" IsEnabled="True">
+                                    <VisualStateManager.VisualStateGroups>
+                                        <VisualStateGroup x:Name="ButtonStates">
+                                            <VisualState x:Name="Normal"/>
+                                            <VisualState x:Name="Pressed">
+                                                <VisualState.Setters>
+                                                    <Setter TargetName="CharacterImgButton" Property="Scale" Value="0.75"/>
+                                                </VisualState.Setters>
+                                            </VisualState>
+                                        </VisualStateGroup>
+                                    </VisualStateManager.VisualStateGroups>
+                                </ImageButton>
+                                <StackLayout Orientation="Vertical" HorizontalOptions="Center">
+                                    <Label x:Name="NameLabel" Text="{Binding Name}" HorizontalTextAlignment="Center" LineBreakMode="WordWrap"/>
+                                    <Label Text="{Binding SpecificCharacterTypeEnum, Converter={StaticResource SpecificCharacterTypeEnumConverter}}"  
+                                                    HorizontalTextAlignment="Center"
+                                                    LineBreakMode="WordWrap"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                                    <Label Text="Level " HorizontalTextAlignment="Center"/>
+                                    <Label Text="{Binding Level}" HorizontalTextAlignment="Center" LineBreakMode="NoWrap"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </FlexLayout>
+
+            </StackLayout>
                 </ScrollView>
     </ContentPage.Content>
 </ContentPage>
