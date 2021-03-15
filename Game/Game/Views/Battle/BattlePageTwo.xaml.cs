@@ -952,7 +952,12 @@ namespace Game.Views
        
             BattleEngineViewModel.Instance.Engine.Round.RoundNextTurn();
             // Moving on to next turn, and navigating to BattlePageOne
-            await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
+            await Navigation.PushAsync(new BattlePageOne());
+            //await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
+            if (Navigation.NavigationStack.Count > 2)
+            {
+                Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            }
         }
 
         /// <summary>
@@ -1731,7 +1736,16 @@ namespace Game.Views
         /// <param name="e"></param>
         public async void ExitButton_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PopModalAsync();
+            /*
+            int removeModalCount = Navigation.ModalStack.Count;
+            for (int i=0; i<removeModalCount; i++)
+            {
+                await Navigation.PopModalAsync();
+            }
+            */
+            //Navigation.PopModalAsync();
+
+            Navigation.PopAsync();
         }
 
         /*
