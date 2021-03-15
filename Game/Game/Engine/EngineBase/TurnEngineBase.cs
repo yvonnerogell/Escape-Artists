@@ -317,6 +317,7 @@ namespace Game.Engine.EngineBase
         public virtual bool UseSpecialAbility(PlayerInfoModel Attacker)
         {
             bool result = Attacker.UseSpecialAbility();
+            EngineSettings.BattleMessagesModel.TurnMessage = Attacker.Name + " Uses Ability " + Attacker.EngineGameSpecialAbility.ToMessage();
             return result;
         }
 

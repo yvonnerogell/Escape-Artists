@@ -990,6 +990,7 @@ namespace Game.Views
             // TODO: make sure the AutoBattlePage is the right option here
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Battling;
             BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.SpecialAbility;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = null;
             BattleEngineViewModel.Instance.Engine.Round.RoundNextTurn();
 
             // Moving on to next turn, and navigating to BattlePageOne
