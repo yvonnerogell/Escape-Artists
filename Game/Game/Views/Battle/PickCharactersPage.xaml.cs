@@ -288,7 +288,10 @@ namespace Game.Views
 
             //await Navigation.PushModalAsync(new NavigationPage(new NewRoundPage()));
             await Navigation.PushAsync(new NewRoundPage());
-            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            if (Navigation.NavigationStack.Count > 2)
+            {
+                Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            }
         }
 
         /// <summary>

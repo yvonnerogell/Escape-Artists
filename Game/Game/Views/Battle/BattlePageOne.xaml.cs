@@ -358,8 +358,10 @@ namespace Game.Views
                 await Navigation.PushAsync(new GameOverPage());
                 //await Navigation.PushModalAsync(new NavigationPage(new GameOverPage()));
             }
-
-            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            if (Navigation.NavigationStack.Count > 2)
+            {
+                Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            }
         }
 
         /// <summary>
@@ -372,7 +374,10 @@ namespace Game.Views
         {
             //await Navigation.PushModalAsync(new NavigationPage(new RoundOverPage()));
             await Navigation.PushAsync(new RoundOverPage());
-            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            if (Navigation.NavigationStack.Count > 2)
+            {
+                Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            }
         }
 
 

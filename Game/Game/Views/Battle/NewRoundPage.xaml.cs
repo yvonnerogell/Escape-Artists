@@ -73,7 +73,10 @@ namespace Game.Views
                 await Navigation.PushAsync(new BattlePageOne());
                 //await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
             }
-            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            if (Navigation.NavigationStack.Count > 2)
+            {
+                Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            }
             //await Navigation.PopAsync();
         }
 
