@@ -287,8 +287,10 @@ namespace Game.Views
             BattleEngineViewModel.Instance.Engine.StartBattle(false);
 
             //await Navigation.PushModalAsync(new NavigationPage(new NewRoundPage()));
-            await Navigation.PushAsync(new NewRoundPage());
-            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            //await Navigation.PushAsync(new NewRoundPage());
+            //Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            await Navigation.PushAsync(new NavigationPage(new BattlePageOne()));
+            await Navigation.PopAsync();
         }
 
         /// <summary>

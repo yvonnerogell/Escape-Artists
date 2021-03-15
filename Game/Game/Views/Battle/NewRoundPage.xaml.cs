@@ -59,6 +59,9 @@ namespace Game.Views
             //await Navigation.PopModalAsync();
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.BattleModeEnum = BattleModeEnum.SimpleNext;
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Battling;
+
+            await Navigation.PopModalAsync();
+            /*
             if (nextPlayer.PlayerType == PlayerTypeEnum.Character)
 			{
                 //await Navigation.PushModalAsync(new BattlePageTwo());
@@ -75,6 +78,7 @@ namespace Game.Views
             }
             Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
             //await Navigation.PopAsync();
+            */
         }
 
         /// <summary>
