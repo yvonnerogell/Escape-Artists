@@ -51,7 +51,7 @@ namespace UnitTests.Views
         {
             Application.Current = null;
         }
-
+        /*
         [Test]
         public void BattlePageTwo_OnAppearing_Should_Pass()
         {
@@ -108,6 +108,7 @@ namespace UnitTests.Views
             // Assert
             Assert.IsNull(button); // Got to here, so it happened...
         }
+        */
 /*
         [Test]
         public void ShowPopupCharacter_Clicked_Default_Should_Pass()
@@ -151,6 +152,7 @@ namespace UnitTests.Views
             BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
         }
 */
+/*
         [Test]
         public void PopupSaveButtonItem_Clicked_Default_Should_Pass()
         {
@@ -785,6 +787,7 @@ namespace UnitTests.Views
             // Assert
             Assert.IsNotNull(result); // Got to here, so it happened...
         }
+*/
 /*
         [Test]
         public void PopupCloseButtonCharacter_Clicked_Default_Should_Pass()
@@ -798,7 +801,7 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
  */  
-
+/*
         [Test]
         public void PopupCloseButtonMonster_Clicked_Default_Should_Pass()
         {
@@ -858,7 +861,7 @@ namespace UnitTests.Views
                     Assert.IsTrue(true); // Got to here, so it happened...
                 }
         */
-
+/*
         [Test]
         public void DrawCharacterList_AddRemove_Should_Pass()
         {
@@ -875,7 +878,7 @@ namespace UnitTests.Views
 
             // Reset
         }
-
+*/
 /*
         [Test]
         public void DrawSelectedCharacters_AddRemove_Should_Pass()
@@ -917,6 +920,7 @@ namespace UnitTests.Views
             page.selectedCharacters.Clear();
         }
 */
+/*
         [Test]
         public void DrawItems_Default_Should_Pass()
         {
@@ -1289,7 +1293,7 @@ namespace UnitTests.Views
             // Reset
             BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
         }
-
+*/
 
         /*
                 [Test]
@@ -1304,7 +1308,7 @@ namespace UnitTests.Views
                     Assert.IsTrue(true); // Got to here, so it happened...
                 }
         */
-
+        /*
         [Test]
         public void DrawSelectedItems_Default_Should_Pass()
         {
@@ -1570,7 +1574,7 @@ namespace UnitTests.Views
             //Assert
             Assert.IsTrue(true);
         }
-
+        */
         /*
         [Test]
         public void BattlePage_ShowScoreButton_Clicked_Default_Should_Pass()
