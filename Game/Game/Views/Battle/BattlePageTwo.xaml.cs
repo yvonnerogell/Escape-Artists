@@ -73,6 +73,8 @@ namespace Game.Views
 
             // Start with the CharacterList only
             DrawCharacterList();
+
+            //DrawActionList();
            
             // Create and Draw the Map
             // InitializeMapGrid();
@@ -95,6 +97,9 @@ namespace Game.Views
             // Set the Battle Mode
             // ShowBattleMode();
         }
+
+
+
 
         /// <summary>
         /// Return a stack layout with the Player information inside
@@ -174,12 +179,12 @@ namespace Game.Views
             // Defualt Image is the Plus
             //var ClickableButton = true;
 
-            var data = CharacterIndexViewModel.Instance.GetCharacterByName(character.Name);
+            //var data = CharacterIndexViewModel.Instance.GetCharacterByName(character.Name);
 
-                  if (data == null)
+           if (character == null)
                 {
             // Show the Default Name & Image
-                  data = new CharacterModel { Name = "Unknown", ImageURI = "squid.jpg" };
+                  var data = new CharacterModel { Name = "Unknown", ImageURI = "squid.jpg" };
 
             // Turn off click action
             //    ClickableButton = false;
@@ -188,8 +193,8 @@ namespace Game.Views
             // Hookup the Image Button to show the Character picture
             var CharacterButton = new Image
             {
-               Style = (Style)Application.Current.Resources["ImageLargeStyle"],
-              Source = data.ImageURI
+                Style = (Style)Application.Current.Resources["ImageLargeStyle"],
+                Source = character.TileImageURI,
               
             // This sends the name to the popup
              //CommandParameter = character.Name
@@ -326,13 +331,26 @@ namespace Game.Views
                     CharacterSelectedFrame.IsVisible = false;
                     PopupCharacterListSelected.IsVisible = true;
                 }
-        */
+        
 
+        public void DrawActionList()
+        { 
+
+        }
+        */
         /// <summary>
         /// Clear and Add the Characters that survived
         /// </summary>
         public void DrawCharacterList()
         {
+            AttackerImage.Source = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.TileImageURI;
+            CharacterTextLabel.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.SpecificCharacterTypeEnum + " " +
+                                      BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Name;
+            
+            
+            
+            /*
+
             // Clear and Populate the Characters remaining
             var FlexList = CharacterListFrame.Children.ToList();
             foreach (var data in FlexList)
@@ -347,11 +365,13 @@ namespace Game.Views
             { 
                 if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Level != 20)
                     {
-                        CharacterListFrame.Children.Add(GetCharacterToDisplay(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker));            
+                        CharacterListFrame.Children.Add(GetCharacterToDisplay(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker));
+                    CharacterTextLabel.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Name;
                     }
             }
             // making sure that the character is not clickable
             CharacterListFrame.IsEnabled = false;
+            */
         }
 /*
         /// <summary>
