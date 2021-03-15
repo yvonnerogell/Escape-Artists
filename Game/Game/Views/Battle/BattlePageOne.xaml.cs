@@ -65,10 +65,14 @@ namespace Game.Views
                     currentCharacter = currentDefender;
                 }
 
+                if (currentCharacter != null)
+				{
+                    GPAValueLabel.Text = GetCharacterGPA(currentCharacter);
+                    HealthValueLabel.Text = GetCharacterHealth(currentCharacter);
+                    CharacterNameLabel.Text = GetCharacterName(currentCharacter) + " Stats";
+                }
+
                 AttackTextLabel.Text = GetAttackText(currentAttacker, currentDefender);
-                GPAValueLabel.Text = GetCharacterGPA(currentCharacter);
-                HealthValueLabel.Text = GetCharacterHealth(currentCharacter);
-                CharacterNameLabel.Text = GetCharacterName(currentCharacter) + " Stats";
             }
 
             SetBattleMessage(BattleEngineViewModel.Instance.Engine.EngineSettings.BattleMessagesModel.TurnMessage);
@@ -127,6 +131,12 @@ namespace Game.Views
 
             if (currentAttacker.PlayerType == PlayerTypeEnum.Monster)
             {
+
+                if (currentDefender == null)
+                {
+                    return currentAttacker.SpecificCharacterTypeEnum.ToMessage() + " " + currentAttacker.Name;
+                }
+
                 attackText += currentAttacker.SpecificMonsterTypeEnum.ToMessage();
                 attackText += " ";
                 attackText += currentAttacker.Name;
@@ -160,7 +170,6 @@ namespace Game.Views
         /// <returns></returns>
         public string GetCharacterGPA(PlayerInfoModel currentCharacter)
         {
-            // TODO change to pull data from BattleEngineViewModel. 
             return currentCharacter.GPA.ToString();
         }
 
@@ -171,7 +180,6 @@ namespace Game.Views
         /// <returns></returns>
         public string GetCharacterHealth(PlayerInfoModel currentCharacter)
         {
-            // TODO change to pull data from BattleEngineViewModel. 
             return currentCharacter.CurrentHealth.ToString();
         }
 
@@ -182,7 +190,6 @@ namespace Game.Views
         /// <returns></returns>
         public string GetCharacterName(PlayerInfoModel currentCharacter)
         {
-            // TODO change to pull data from BattleEngineViewModel. 
             return currentCharacter.Name;
         }
 
@@ -343,6 +350,7 @@ namespace Game.Views
             }
             if (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum == BattleStateEnum.Battling)
             {
+                BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = null;
                 nextPlayer = BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn();
                 BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = nextPlayer;
                 if (nextPlayer.PlayerType == PlayerTypeEnum.Character)
