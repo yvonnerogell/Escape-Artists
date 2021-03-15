@@ -45,7 +45,9 @@ namespace Game.Views
             BindingContext = BattleEngineViewModel.Instance;
 
             nextPlayer = BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn();
+
             BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = nextPlayer;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
 
             if (nextPlayer.PlayerType == PlayerTypeEnum.Character)
             {
@@ -54,11 +56,13 @@ namespace Game.Views
 
             if (nextPlayer.PlayerType == PlayerTypeEnum.Monster)
             {
-                BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
                 BattleEngineViewModel.Instance.Engine.Round.RoundNextTurn();
             }
 
-            ShowNewRoundPage();
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum == BattleStateEnum.Starting)
+            {
+                ShowNewRoundPage();
+            }
 
             DrawPage();
 
@@ -68,10 +72,7 @@ namespace Game.Views
 
         public async void ShowNewRoundPage()
         {
-            if (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum == BattleStateEnum.Starting)
-            {
-                await Navigation.PushModalAsync(new NavigationPage(new NewRoundPage()));
-            }
+            await Navigation.PushModalAsync(new NavigationPage(new NewRoundPage()));
         }
 
         public async void ShowBattlePageTwoPage()
@@ -81,8 +82,6 @@ namespace Game.Views
 
         public void DrawPage()
         {
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
-            BattleEngineViewModel.Instance.Engine.Round.RoundNextTurn();
             // TODO: Remoev this once we move to real battle engine
             List<ItemModel> droppedItems = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList;
 
@@ -120,23 +119,23 @@ namespace Game.Views
         /// </summary>
         /// <returns></returns>
         public bool SetAttackerDefenderImages(PlayerInfoModel currentAttacker, PlayerInfoModel currentDefender)
-		{
-            if (currentAttacker == null) 
-			{
+        {
+            if (currentAttacker == null)
+            {
                 return false;
-			}
+            }
 
             AttackerImage.Source = currentAttacker.TileImageURI;
 
             if (currentDefender == null)
-			{
+            {
                 return false;
-			}
+            }
 
             DefenderImage.Source = currentDefender.TileImageURI;
 
             return true;
-		}
+        }
 
         /// <summary>
         /// 
@@ -359,8 +358,6 @@ namespace Game.Views
         }
         */
 
-
-
         /// <summary>
         /// Navigates to Battle Page 2
         /// 
@@ -370,31 +367,37 @@ namespace Game.Views
         public async void NextAttackButton_Clicked(object sender, EventArgs e)
         {
             if (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum == BattleStateEnum.RoundOver)
-			{
+            {
                 //await Navigation.PushAsync(new RoundOverPage());
                 await Navigation.PushModalAsync(new NavigationPage(new RoundOverPage()));
-                ShowNewRoundPage();
-                DrawPage();
             }
+
             if (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum == BattleStateEnum.Battling)
             {
                 nextPlayer = BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn();
-                BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = nextPlayer;
-                if (nextPlayer.PlayerType == PlayerTypeEnum.Character)
+                if (nextPlayer != null)
                 {
-                    //await Navigation.PushAsync(new BattlePageTwo());
-                    await Navigation.PushModalAsync(new NavigationPage(new BattlePageTwo()));
-                    DrawPage();
-                }
-                if (nextPlayer.PlayerType == PlayerTypeEnum.Monster)
-                {
-                    BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
-                    BattleEngineViewModel.Instance.Engine.Round.RoundNextTurn();
-                    DrawPage();
-                    //await Navigation.PushAsync(new BattlePageOne());
-                    //await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
+
+                    BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = nextPlayer;
+
+                    if (nextPlayer.PlayerType == PlayerTypeEnum.Character)
+                    {
+                        //await Navigation.PushAsync(new BattlePageTwo());
+                        await Navigation.PushModalAsync(new NavigationPage(new BattlePageTwo()));
+                        DrawPage();
+                    }
+
+                    if (nextPlayer.PlayerType == PlayerTypeEnum.Monster)
+                    {
+                        BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
+                        BattleEngineViewModel.Instance.Engine.Round.RoundNextTurn();
+                        DrawPage();
+                        //await Navigation.PushAsync(new BattlePageOne());
+                        //await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
+                    }
                 }
             }
+
             if (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum == BattleStateEnum.GameOver)
             {
                 //await Navigation.PushAsync(new GameOverPage());
@@ -412,11 +415,12 @@ namespace Game.Views
         /// <returns></returns>
         public async void RoundOverButton_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushModalAsync(new NavigationPage(new RoundOverPage()));
-            ShowNewRoundPage();
-            DrawPage();
-            //await Navigation.PushAsync(new RoundOverPage());
-            //Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            //await Navigation.PushModalAsync(new NavigationPage(new RoundOverPage()));
+            await Navigation.PushAsync(new RoundOverPage());
+            if (Navigation.NavigationStack.Count() >= 2)
+            {
+                Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            }
         }
 
 
