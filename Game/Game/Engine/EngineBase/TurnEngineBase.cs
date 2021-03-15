@@ -316,6 +316,7 @@ namespace Game.Engine.EngineBase
         /// <returns>true if ability is used, false otherwise</returns>
         public virtual bool UseSpecialAbility(PlayerInfoModel Attacker)
         {
+            EngineSettings.BattleMessagesModel.TurnMessage = Attacker.Name + " Uses Special Ability " + EngineSettings.CurrentActionAbility.ToMessage();
             bool result = Attacker.UseSpecialAbility();
             return result;
         }
