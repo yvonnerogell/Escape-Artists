@@ -318,6 +318,7 @@ namespace Game.Engine.EngineBase
         {
             EngineSettings.BattleMessagesModel.TurnMessage = Attacker.Name + " Uses Special Ability " + EngineSettings.CurrentActionAbility.ToMessage();
             bool result = Attacker.UseSpecialAbility();
+            EngineSettings.BattleMessagesModel.TurnMessage = Attacker.Name + " Uses Ability " + Attacker.EngineGameSpecialAbility.ToMessage();
             return result;
         }
 

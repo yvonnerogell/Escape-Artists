@@ -137,6 +137,11 @@ namespace Game.Views
             }
             if (currentAttacker.PlayerType == PlayerTypeEnum.Character)
             {
+                if (currentDefender == null)
+				{
+                    return currentAttacker.SpecificCharacterTypeEnum.ToMessage() + " " + currentAttacker.Name;
+				}
+
                 attackText += currentAttacker.SpecificCharacterTypeEnum.ToMessage();
                 attackText += " ";
                 attackText += currentAttacker.Name;
