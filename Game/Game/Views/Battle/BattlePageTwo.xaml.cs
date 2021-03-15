@@ -952,9 +952,10 @@ namespace Game.Views
        
             BattleEngineViewModel.Instance.Engine.Round.RoundNextTurn();
             // Moving on to next turn, and navigating to BattlePageOne
-            await Navigation.PushAsync(new BattlePageOne());
+            //await Navigation.PushAsync(new BattlePageOne());
             //await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
-            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            //Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            await Navigation.PopModalAsync();
         }
 
         /// <summary>
