@@ -61,6 +61,7 @@ namespace UnitTests.Views
             Assert.IsNotNull(result);
         }
 
+        /*
         [Test]
         public void NewRoundPage_BeginGridButton_Clicked_Default_Should_Pass()
         {
@@ -73,7 +74,7 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-
+        */
         [Test]
         public void NewRoundPage_BeginSimpleButton_Clicked_NextPlayer_Character_Should_Pass()
         {
