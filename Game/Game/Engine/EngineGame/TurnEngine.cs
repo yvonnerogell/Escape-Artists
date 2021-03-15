@@ -247,7 +247,15 @@ namespace Game.Engine.EngineGame
         {
             //throw new System.NotImplementedException();
 
-            return base.AttackChoice(data);
+            switch (data.PlayerType)
+            {
+                case PlayerTypeEnum.Monster:
+                    return SelectCharacterToAttack();
+
+                case PlayerTypeEnum.Character:
+                default:
+                    return SelectMonsterToAttack();
+            }
         }
 
         /// <summary>
