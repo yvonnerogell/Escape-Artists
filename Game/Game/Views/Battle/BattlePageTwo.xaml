@@ -38,19 +38,14 @@
                 </Frame>
 
                 <!--Selecting an ActionEnum-->
-                <Picker VerticalOptions="StartAndExpand"
-                   x:Name="ActionSelectedPicker"
-                    Title="Select Action: "
-                    SelectedIndexChanged="OnPickerSelectedActionChanged">
+                <Picker VerticalOptions="Center"
+                        x:Name="ActionSelectedPicker"
+                        Title="Select Action: "
+                        SelectedIndexChanged="OnPickerSelectedActionChanged">
                     <Picker.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
-                            <x:String>      </x:String>
-                            <x:String>Ability</x:String>
-                            <x:String>Attack</x:String>
-                            
                         </x:Array>
                     </Picker.ItemsSource>
-
                 </Picker>
 
                 <!-- Item Found-->
@@ -195,15 +190,27 @@
                     </Grid>
 
 
-                    <StackLayout Margin="10">
-                        <Button Text="Continue!" x:Name="ContinueButton" Clicked="ContinueButton_Clicked" CornerRadius="15" FontAttributes="Bold"  
+                    <StackLayout Margin="2">
+                        <Button Text="Apply Attack!" x:Name="ApplyAttackButton" Clicked="Apply_Attack_Clicked" CornerRadius="15" FontAttributes="Bold"  
                                 TextColor="{StaticResource New_ButtonTextColor}"
-                                Margin="10"
+                                Margin="2"
                                 HorizontalOptions="Center"
                                 BackgroundColor="{StaticResource New_SecondaryBackgroundColor}"/>
 
                     </StackLayout>
 
+                    <StackLayout Margin="2">
+                        <Button Text="Apply Ability!" x:Name="ApplyAbilityButton" Clicked="Apply_Ability_Clicked" CornerRadius="15" FontAttributes="Bold"  
+                                TextColor="{StaticResource New_ButtonTextColor}"
+                                Margin="2"
+                                HorizontalOptions="Center"
+                                BackgroundColor="{StaticResource New_SecondaryBackgroundColor}"/>
+
+                    </StackLayout>
+                    
+                    
+                    
+                    <!--
                     <Frame x:Name="PopupAbilityApplied" BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
                         <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="250" WidthRequest="750">
                             <Label Text="Ability successfully applied!" Style="{StaticResource MessageStyle}" Padding="10" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
@@ -220,7 +227,7 @@
                             <StackLayout Orientation="Horizontal"/>
                         </StackLayout>
                     </Frame>
-
+                    -->
                 </StackLayout>
             </StackLayout>
         </ScrollView>

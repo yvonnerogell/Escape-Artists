@@ -66,15 +66,16 @@ namespace Game.Views
             MonsterFrame.IsVisible = false;          
             PopupMonsterListSelected.IsVisible = false;
             PopupItemListSelected.IsVisible = false;
-            PopupAbilityApplied.IsVisible = false;
+            //PopupAbilityApplied.IsVisible = false;
             ActionSelectedPicker.IsEnabled = true;
+            ApplyAbilityButton.IsVisible = false;
             //PopupCharacterListSelected.IsVisible = false;
             //PopupLoadingViewMonster.IsVisible = false;
 
             // Start with the CharacterList only
             DrawCharacterList();
 
-            //DrawActionList();
+            DrawActionList();
            
             // Create and Draw the Map
             // InitializeMapGrid();
@@ -331,13 +332,22 @@ namespace Game.Views
                     CharacterSelectedFrame.IsVisible = false;
                     PopupCharacterListSelected.IsVisible = true;
                 }
-        
+        */
 
         public void DrawActionList()
-        { 
+        {
+            var ActionList = new List<string>();
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.IsSpecialAbilityAvailable())
+            {
+                ActionList.Add("Special Ability");
+            }
 
+            ActionList.Add("Attack");
+            ActionSelectedPicker.HeightRequest = 75;
+            ActionSelectedPicker.ItemsSource = ActionList;
+            ActionSelectedPicker.SelectedIndex = 0;
         }
-        */
+        
         /// <summary>
         /// Clear and Add the Characters that survived
         /// </summary>
@@ -924,7 +934,7 @@ namespace Game.Views
                             currentDefender = data;
                     //BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(currentDefender);
                             BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = currentDefender;
-                            ContinueButton.IsEnabled = true;
+                            //ContinueButton.IsEnabled = true;
                             break;
                         }
                     }
@@ -947,6 +957,8 @@ namespace Game.Views
                     PopupMonsterListSelected.IsVisible = true;
                 }
 
+        /*
+
         /// <summary>
         /// Close the popup
         /// </summary>
@@ -956,20 +968,13 @@ namespace Game.Views
         {
            PopupAbilityApplied.IsVisible = false;
         }
-
-        public async void ContinueButton_Clicked(object sender, EventArgs e)
+        */
+        public async void Apply_Attack_Clicked(object sender, EventArgs e)
         {
             // TODO: make sure the AutoBattlePage is the right option here
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Battling;
-           
-            // Applying the ability 
-            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType == PlayerTypeEnum.Character &
-                BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.IsSpecialAbilityAvailable())
-            { 
-                // Use the ability for the current attacker
-                BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.UseSpecialAbility();
-            }
-       
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Attack;
+
             BattleEngineViewModel.Instance.Engine.Round.RoundNextTurn();
             // Moving on to next turn, and navigating to BattlePageOne
             await Navigation.PushAsync(new BattlePageOne());
@@ -980,6 +985,37 @@ namespace Game.Views
             }
         }
 
+        public async void Apply_Ability_Clicked(object sender, EventArgs e)
+        {
+            // TODO: make sure the AutoBattlePage is the right option here
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Battling;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.SpecialAbility;
+            BattleEngineViewModel.Instance.Engine.Round.RoundNextTurn();
+
+            // Moving on to next turn, and navigating to BattlePageOne
+            await Navigation.PushAsync(new BattlePageOne());
+            //await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
+            if (Navigation.NavigationStack.Count > 2)
+            {
+                Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            }
+
+
+
+            /*
+           
+
+            // Applying the ability 
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType == PlayerTypeEnum.Character &
+                BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.IsSpecialAbilityAvailable())
+            {
+                // Use the ability for the current attacker
+                BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.UseSpecialAbility();
+            }
+            */
+
+        }
+
         /// <summary>
         /// Any time picker changes, game status changes
         /// </summary>
@@ -988,7 +1024,32 @@ namespace Game.Views
         public void OnPickerSelectedActionChanged(object sender, EventArgs e)
         {
             var picker = (Picker)sender;
-            var action = (ActionEnum)picker.SelectedIndex;
+            var action = picker.SelectedItem.ToString();
+
+
+            //var action = (ActionEnum)picker.SelectedIndex;
+            if (action == "Special Ability")
+            {
+                ApplyAttackButton.IsVisible = false;
+                ApplyAbilityButton.IsVisible = true;
+                // this is important to avoid going back and forth
+                //ActionSelectedPicker.IsEnabled = false;
+                MonsterFrame.IsVisible = false;
+                MonsterListFrame.IsVisible = false;
+                ItemListFoundFrame.IsVisible = false;
+            }
+
+            if (action == "Attack")
+            {
+                ApplyAbilityButton.IsVisible = false;
+                DrawMonsterList();
+                DrawItems();
+                ApplyAttackButton.IsVisible = true;
+                // this is important to avoid going back and forth
+                //ActionSelectedPicker.IsEnabled = false;
+            }
+
+            /*
             BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = action;
 
             if (action == ActionEnum.Attack)
@@ -1022,7 +1083,7 @@ namespace Game.Views
             {
                 ContinueButton.IsEnabled = false;
             }
-
+            */
         }
 
 
