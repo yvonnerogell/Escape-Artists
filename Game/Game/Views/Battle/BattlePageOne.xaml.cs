@@ -1088,7 +1088,7 @@ namespace Game.Views
             }
             */
             //Navigation.PopModalAsync();
-            Navigation.PopAsync();
+            await Navigation.PopAsync();
         }
 
         /*
