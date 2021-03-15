@@ -476,6 +476,8 @@ namespace Game.Views
 		{
             // Reset to a new Round
             BattleEngineViewModel.Instance.Engine.Round.NewRound();
+            // Reset to Starting
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Starting;
 
             // Show the New Round Screen
             ShowModalNewRoundPage();
@@ -488,9 +490,9 @@ namespace Game.Views
         /// <param name="e"></param>
         public async void GameOverButton_Clicked(object sender, EventArgs e)
         {
-            //await Navigation.PushModalAsync(new NavigationPage(new GameOverPage()));
-            await Navigation.PushAsync(new GameOverPage());
-            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            await Navigation.PushModalAsync(new NavigationPage(new GameOverPage()));
+            //await Navigation.PushAsync(new GameOverPage());
+            //Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
         }
 
 
@@ -520,8 +522,9 @@ namespace Game.Views
         /// </summary>
         public async void ShowModalNewRoundPage()
         {
-            //await Navigation.PopModalAsync();
-            await Navigation.PopAsync();
+            await Navigation.PopModalAsync();
+            //await Navigation.PushModalAsync(new NavigationPage(new NewRoundPage()));
+            //await Navigation.PopAsync();
         }
     }
 }

@@ -46,7 +46,6 @@ namespace Game.Views
 
             nextPlayer = BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn();
             BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = nextPlayer;
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
 
             if (nextPlayer.PlayerType == PlayerTypeEnum.Character)
             {
@@ -55,13 +54,11 @@ namespace Game.Views
 
             if (nextPlayer.PlayerType == PlayerTypeEnum.Monster)
             {
+                BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
                 BattleEngineViewModel.Instance.Engine.Round.RoundNextTurn();
             }
 
-            if (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum == BattleStateEnum.Starting)
-            {
-                ShowNewRoundPage();
-            }
+            ShowNewRoundPage();
 
             DrawPage();
 
@@ -71,7 +68,10 @@ namespace Game.Views
 
         public async void ShowNewRoundPage()
         {
-            await Navigation.PushModalAsync(new NavigationPage(new NewRoundPage()));
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum == BattleStateEnum.Starting)
+            {
+                await Navigation.PushModalAsync(new NavigationPage(new NewRoundPage()));
+            }
         }
 
         public async void ShowBattlePageTwoPage()
@@ -81,6 +81,8 @@ namespace Game.Views
 
         public void DrawPage()
         {
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
+            BattleEngineViewModel.Instance.Engine.Round.RoundNextTurn();
             // TODO: Remoev this once we move to real battle engine
             List<ItemModel> droppedItems = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList;
 
@@ -357,6 +359,8 @@ namespace Game.Views
         }
         */
 
+
+
         /// <summary>
         /// Navigates to Battle Page 2
         /// 
@@ -369,6 +373,8 @@ namespace Game.Views
 			{
                 //await Navigation.PushAsync(new RoundOverPage());
                 await Navigation.PushModalAsync(new NavigationPage(new RoundOverPage()));
+                ShowNewRoundPage();
+                DrawPage();
             }
             if (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum == BattleStateEnum.Battling)
             {
@@ -406,9 +412,11 @@ namespace Game.Views
         /// <returns></returns>
         public async void RoundOverButton_Clicked(object sender, EventArgs e)
         {
-            //await Navigation.PushModalAsync(new NavigationPage(new RoundOverPage()));
-            await Navigation.PushAsync(new RoundOverPage());
-            Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            Navigation.PushModalAsync(new NavigationPage(new RoundOverPage()));
+            ShowNewRoundPage();
+            DrawPage();
+            //await Navigation.PushAsync(new RoundOverPage());
+            //Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
         }
 
 
