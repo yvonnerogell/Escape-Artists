@@ -44,7 +44,10 @@ namespace Game.Views
         // making sure that in each character move, one character and one monster is selected
         public bool characterIsSelected = false;
         public bool monsterIsSelected = false;
-
+        public bool emptyIsSelected = false;
+        // first mover
+        public PlayerInfoModel nextPlayer;
+        public PlayerInfoModel nextDefender;
 
         /// <summary>
         /// Constructor
@@ -80,6 +83,8 @@ namespace Game.Views
 
             StartBattleButton.IsVisible = true;
 
+            nextDefender  = BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.FirstOrDefault();
+            nextPlayer   = BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FirstOrDefault();
         }
 
         /// <summary>
@@ -434,7 +439,8 @@ namespace Game.Views
                     break;
                 case PlayerTypeEnum.Unknown:
                 default:
-                    data.Clicked += (sender, args) => SetSelectedEmpty(MapLocationModel);              
+                    data.Clicked += (sender, args) => SetSelectedEmpty(MapLocationModel);
+                   
                     // Use the blank cell
                     data.Source = BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.EmptySquare.ImageURI;                   
                     break;
@@ -479,18 +485,22 @@ namespace Game.Views
         /// <returns></returns>
         public bool SetSelectedEmpty(MapModelLocation data)
         {
-                // pick empty sells and move if within range
-                if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType == PlayerTypeEnum.Character
+            // pick empty sells and move if within range
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType == PlayerTypeEnum.Character
                     & data.Player.PlayerType == PlayerTypeEnum.Unknown)
                 {
-                    if (Math.Abs(selectedCharacterLocation.Row - data.Row) + Math.Abs(selectedCharacterLocation.Column - data.Column) <= selectedCharacterRange)
-                    {
-                        // setting the current action to move if the empty square is selected
-                        BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Move;
-                        BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.MovePlayerOnMap(selectedCharacterLocation, data);
+                BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Move;
 
-                    }
-                UpdateMapGrid();                
+                // if within range, pick empty cell and move the character on map
+                if (Math.Abs(selectedCharacterLocation.Row - data.Row) + Math.Abs(selectedCharacterLocation.Column - data.Column) <= selectedCharacterRange)
+                {
+                    emptyIsSelected = true;
+                    BattleEngineViewModel.Instance.Engine.EngineSettings.MapModel.MovePlayerOnMap(selectedCharacterLocation, data);
+                }
+
+                UpdateMapGrid();
+                // If the player moves, then ability cannot be applied
+                AbilityButton.IsEnabled = false; 
             }
             return true;
         }
@@ -515,14 +525,16 @@ namespace Game.Views
                     // check range
                     if (Math.Abs(selectedCharacterLocation.Row - data.Row) + Math.Abs(selectedCharacterLocation.Column - data.Column) <= selectedCharacterRange)
                     {
+                        // Choose the attack action and choose this monster as current defender
                         selectedMonster = data.Player;
-                        data.IsSelectedTarget = true;
+                        BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Attack;
+                      BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(selectedMonster);
+                        
+                      data.IsSelectedTarget = true;
                         
                         // setting the current action to move if a monster is selected
-                        monsterIsSelected = true;
-
+                      monsterIsSelected = true;                      
                         imageObject.IsEnabled = true;
-
                         return true;
                     }
                 }
@@ -538,8 +550,8 @@ namespace Game.Views
         /// <returns></returns>
         public bool SetSelectedCharacter(MapModelLocation data)
         {   
-            // Only for characters, and the user should not click characters more than once per turn
-             if (data.Player.PlayerType == PlayerTypeEnum.Character & characterIsSelected == false)
+            // Only for characters
+             if (data.Player.PlayerType == PlayerTypeEnum.Character )
             {
                 // flags that help with turns in the SetAttackerAndDefender method
                 selectedCharacter = data.Player;
@@ -561,11 +573,7 @@ namespace Game.Views
                         }
                     }
                 }     
-                // This is important for ensuring that at least one character is selected before battling starts
-                if (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum !=BattleStateEnum.Battling)
-                {
-                    StartBattleButton.IsEnabled = true;
-                }
+
                 return true;
             }
             return false;
@@ -665,7 +673,7 @@ namespace Game.Views
         /// <param name="sender"></param>
         /// <param name="e"></param>
         public void MonsterActionButton_Clicked(object sender, EventArgs e)
-        {       
+        {   
             NextAttackExample();    
         }
 
@@ -676,6 +684,16 @@ namespace Game.Views
         /// <param name="e"></param>
         public void CharacterActionButton_Clicked(object sender, EventArgs e)
         {
+           
+            // if the current attacker is a character
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType == PlayerTypeEnum.Character)
+            {     
+                // if the player has a special ability, this is where it is used
+                if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.IsSpecialAbilityAvailable())
+                {
+                    AbilityButton.IsVisible = true;
+                }
+            }
             NextAttackExample();
         }
 
@@ -685,8 +703,8 @@ namespace Game.Views
         /// <param name="sender"></param>
         /// <param name="e"></param>
         public void AbilityButton_Clicked(object sender, EventArgs e)
-        {                
-
+        {
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.SpecialAbility;
             BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.UseSpecialAbility();
             NextAttackExample();
         }
@@ -716,16 +734,30 @@ namespace Game.Views
         /// </summary>
         public void NextAttackExample()
         {
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Battling;
+          BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Battling;
 
             // Get the turn, set the current player and attacker to match
             SetAttackerAndDefender();
 
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType == PlayerTypeEnum.Monster)
+            {
+                MonsterActionButton.IsVisible = true;
+                CharacterActionButton.IsVisible = false;
+                AbilityButton.IsVisible = false;
+            }
+
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType == PlayerTypeEnum.Character)
+            {
+                MonsterActionButton.IsVisible = false;
+                CharacterActionButton.IsVisible = true;
+                AbilityButton.IsVisible = true;
+            }
+
             // Hold the current state
-            var RoundCondition = BattleEngineViewModel.Instance.Engine.Round.RoundNextTurn();
+         var RoundCondition = BattleEngineViewModel.Instance.Engine.Round.RoundNextTurn();
 
             // Output the Message of what happened.
-            GameMessage();
+          GameMessage();
 
             // Show the outcome on the Board
             DrawGameAttackerDefenderBoard();
@@ -758,6 +790,7 @@ namespace Game.Views
                 Debug.WriteLine("Game Over");
 
                 GameOver();
+
                 return;
             }
         }
@@ -766,67 +799,59 @@ namespace Game.Views
         /// Decide The Turn and who to Attack
         /// </summary>
         public void SetAttackerAndDefender()
-        {
-            // starts with the monster as attacker, and moves to character
-            if (count % 2 == 0)
+        {        
+            // default attacker and defender
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(nextPlayer);
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(nextDefender);
+           
+            // Checking the dead
+            if (nextDefender.Alive == false & nextDefender.PlayerType == PlayerTypeEnum.Monster)
             {
-                // This should strictly be a monster
-                if (BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn().PlayerType == PlayerTypeEnum.Monster)
-                {
-                    BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn());
-                }
-                // If not, a monster from the monster list is selected
-                else
-                {
-                    BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.FirstOrDefault());
-                }
-                BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(BattleEngineViewModel.Instance.Engine.Round.Turn.AttackChoice(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker));
-
-                MonsterActionButton.IsVisible = true;
-                CharacterActionButton.IsVisible = false;
-                AbilityButton.IsVisible = false;
+                BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.FirstOrDefault());
             }
-            // moves to chosen character as attacker
+            if (nextDefender.Alive == false & nextDefender.PlayerType == PlayerTypeEnum.Character)
+            {
+                BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FirstOrDefault());
+            }
+
+            // if the attacker is a character, the default action is unknown
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType == PlayerTypeEnum.Character)
+            {
+                BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
+            }
+
+            // Monster gets to choose attack this way
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType == PlayerTypeEnum.Monster)
+            {
+                // Choosing the Attack Choice for the attacker
+                BattleEngineViewModel.Instance.Engine.Round.Turn.AttackChoice(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker);
+            }
+
+             // this is the specific case of a user-picked attacker, then it's the next attacker
+             if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType == PlayerTypeEnum.Monster &
+                characterIsSelected == true)
+            {
+                nextPlayer = selectedCharacter;
+                characterIsSelected = false;
+            }
+
+            // in case the user fails to click on a character or if the next player is a monster
             else
             {
-                // if the user chooses a character
-                if (characterIsSelected == true)
-                {
-                    BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(selectedCharacter);
-                }
-                // in case the user fails to click on a character
-                else
-                {
-                    BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.FirstOrDefault());
-                }
-                // The chosen monster is selected as the defender
-                if (monsterIsSelected == true)
-                {
-                    BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Attack;
-                    BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(selectedMonster);
-                 }
-                // if no monster is chosen, the character can only move
-                else
-                {
-                    BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.FirstOrDefault());
-                    BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Move;             
-                }
-                MonsterActionButton.IsVisible = false;
-                CharacterActionButton.IsVisible = true;
-                if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType == PlayerTypeEnum.Character &
-                   BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.IsSpecialAbilityAvailable())
-                {
-                        AbilityButton.IsVisible = true;
-                }
-
+                // this way there is rotation
+                nextPlayer = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender;
             }
-            // Choosing the Attack Choice for the character
-            BattleEngineViewModel.Instance.Engine.Round.Turn.AttackChoice(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker);
 
-            // this flag ensures character is clicked once per turn
-            characterIsSelected = false;
-            count += 1;
-            
+            // this is the specific case of a user-picked monster, then it's the next attacker
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType == PlayerTypeEnum.Character &
+            monsterIsSelected == true)
+            {
+                nextPlayer = selectedMonster;
+                monsterIsSelected = false;
+            }
+
+            // make the current attacker the defender by default
+            nextDefender =BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker;
         }
 
         /// <summary>
@@ -1025,7 +1050,7 @@ namespace Game.Views
                 case BattleStateEnum.Starting:
                     AttackerAttack.Source = ActionEnum.Unknown.ToImageURI();
                     StartBattleButton.IsVisible = true;
-                    StartBattleButton.IsEnabled = false;
+                    StartBattleButton.IsEnabled = true;
                     break;
 
                 case BattleStateEnum.NewRound:
