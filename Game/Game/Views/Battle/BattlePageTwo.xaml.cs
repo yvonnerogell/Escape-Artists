@@ -344,6 +344,7 @@ namespace Game.Views
 
             ActionList.Add("Attack");
             ActionSelectedPicker.HeightRequest = 75;
+            ActionSelectedPicker.WidthRequest = 250;
             ActionSelectedPicker.ItemsSource = ActionList;
             ActionSelectedPicker.SelectedIndex = 0;
         }
@@ -462,6 +463,14 @@ namespace Game.Views
         /// </summary>
         public void DrawSelectedItem()
         {
+            /*
+            PopupLoadingItemListFoundFrame.IsVisible = false;
+            PopupLoadingViewItem.IsVisible = false;
+            ItemModel attackItem = ItemIndexViewModel.Instance.GetItem(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.AttackItem);
+            AttackItemImage.Source = attackItem.ImageURI;
+            AttackItemTextLabel.Text = attackItem.Name;
+            */
+            
             // Clear and Populate the Dropped Items
             var FlexList = ItemListSelectedFrame.Children.ToList();
             foreach (var data in FlexList)
@@ -480,7 +489,7 @@ namespace Game.Views
                 // selected item is not clickable
                 PopupItemListSelected.IsEnabled = false;                
                 break;
-            }            
+            }
         }
 
 
@@ -836,12 +845,13 @@ namespace Game.Views
         /// </summary>
         public void DrawSelectedMonsters()
         {
-            var FlexList = MonsterListSelectedFrame.Children.ToList();
-            foreach (var data in FlexList)
-            {
-                MonsterListSelectedFrame.Children.Remove(data);
-            }
+            PopupMonsterListSelected.IsEnabled = false;
+            MonsterFrame.IsVisible = false;
+            DefenderImage.Source = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender.TileImageURI;
+            DefenderTextLabel.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender.SpecificMonsterTypeEnum + " " +
+                                      BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender.Name;
 
+            /*
             if (currentDefender != null)
             {
                 // Draw the selected current Defender for display
@@ -854,7 +864,7 @@ namespace Game.Views
                     MonsterFrame.IsVisible = false;
                 }
             }
-
+            */
         }
 
 

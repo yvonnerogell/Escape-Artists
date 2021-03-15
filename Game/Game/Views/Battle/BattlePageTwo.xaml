@@ -36,21 +36,26 @@
                     </StackLayout>
 
                 </Frame>
-
+                
                 <!--Selecting an ActionEnum-->
-                <Picker VerticalOptions="Center"
+                <Frame BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
+                    <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" MinimumHeightRequest="350" WidthRequest="250">
+                        <Label Text="Select Action: " FontAttributes="Bold" HorizontalOptions="Center" Padding="10" HorizontalTextAlignment="Center"/>
+                        <Picker VerticalOptions="Center"
                         x:Name="ActionSelectedPicker"
-                        Title="Select Action: "
                         SelectedIndexChanged="OnPickerSelectedActionChanged">
-                    <Picker.ItemsSource>
-                        <x:Array Type="{x:Type x:String}">
-                        </x:Array>
-                    </Picker.ItemsSource>
-                </Picker>
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+                    </StackLayout>
+                </Frame>
+
 
                 <!-- Item Found-->
                 <Frame x:Name="PopupLoadingItemListFoundFrame" BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
-                    <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="250" WidthRequest="750">
+                    <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="250" WidthRequest="250">
                         <Label Text="Select one item" Style="{StaticResource MessageStyle}" Padding="10" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
                         <FlexLayout x:Name="ItemListFoundFrame"
                                     JustifyContent="Center"
@@ -62,7 +67,7 @@
                 </Frame>
 
                <!--The Item Popup-->
-            <StackLayout 
+                <StackLayout 
                     x:Name="PopupLoadingViewItem" 
                     BackgroundColor="{StaticResource PageBackgroundColor}" 
                     IsVisible="false" 
@@ -72,8 +77,8 @@
                     <StackLayout 
                         VerticalOptions="CenterAndExpand" 
                         HorizontalOptions="CenterAndExpand"
-                        WidthRequest="400"
-                        HeightRequest="400"
+                        MinimumHeightRequest="250"
+                        WidthRequest="300"
                         >
 
                         <Frame 
@@ -119,6 +124,10 @@
                         <Frame x:Name="PopupItemListSelected" BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10" HorizontalOptions="Center">
                             <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" MinimumHeightRequest="250" WidthRequest="250">
                                 <Label Text="Item Selected" Style="{StaticResource MessageStyle}" Padding="10" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+                                <!--
+                                <Image x:Name="AttackItemImage" Source="assistant_professor_monster.png" HeightRequest="120" WidthRequest="120"/>
+                                <Label x:Name="AttackItemTextLabel" HorizontalOptions="Center" Padding="15" HorizontalTextAlignment="Center"/>
+                                -->
                                 <FlexLayout x:Name="ItemListSelectedFrame"
                                     JustifyContent="Center"
                                     AlignContent="Center"
@@ -129,7 +138,7 @@
 
                     <!-- Monster Found-->
                     <Frame x:Name="MonsterFrame" BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
-                        <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="250" WidthRequest="750">
+                        <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" MinimumHeightRequest="250" WidthRequest="250">
                             <Label Text="Select one monster" Style="{StaticResource MessageStyle}" Padding="10" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
                             <FlexLayout x:Name="MonsterListFrame"
                                     JustifyContent="Center"
@@ -151,8 +160,8 @@
                         <StackLayout 
                         VerticalOptions="CenterAndExpand" 
                         HorizontalOptions="CenterAndExpand"
-                        WidthRequest="400"
-                        HeightRequest="400"
+                        MinimumHeightRequest="250"
+                        WidthRequest="300"
                         >
 
                             <Frame 
@@ -181,6 +190,10 @@
                         <Frame x:Name="PopupMonsterListSelected" BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10" HorizontalOptions="Center">
                             <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" MinimumHeightRequest="250" WidthRequest="250">
                                 <Label Text="Monster Selected" Style="{StaticResource MessageStyle}" Padding="10" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+
+                                <Image x:Name="DefenderImage" Source="assistant_professor_monster.png" HeightRequest="120" WidthRequest="120"/>
+                                <Label x:Name="DefenderTextLabel" HorizontalOptions="Center" Padding="15" HorizontalTextAlignment="Center"/>
+
                                 <FlexLayout x:Name="MonsterListSelectedFrame"
                                     JustifyContent="Center"
                                     AlignContent="Center"
