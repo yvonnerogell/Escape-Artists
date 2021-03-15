@@ -356,9 +356,9 @@ namespace Game.Views
             AttackerImage.Source = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.TileImageURI;
             CharacterTextLabel.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.SpecificCharacterTypeEnum + " " +
                                       BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Name;
-            
-            
-            
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.AttackItem = null;
+
+
             /*
 
             // Clear and Populate the Characters remaining
@@ -383,49 +383,6 @@ namespace Game.Views
             CharacterListFrame.IsEnabled = false;
             */
         }
-/*
-        /// <summary>
-        /// Add Characters to the Display
-        /// </summary>
-        public void DrawSelectedCharacters()
-        {
-            var FlexList = CharacterListSelectedFrame.Children.ToList();
-            foreach (var data in FlexList)
-            {
-                CharacterListSelectedFrame.Children.Remove(data);                
-            }
-            
-            // Draw the Characters
-            foreach (var data in selectedCharacters)
-            {
-                    if (data.Level != 20)
-                    {
-                        // select only one and then break
-                        CharacterListSelectedFrame.Children.Add(GetCharacterToDisplay(data));
-                        CharacterFoundFrame.IsVisible = false;
-                        break;
-                    }
-            }            
-        }
-*/
-/*
-        /// <summary>
-        /// Draw the List of Items
-        /// 
-        /// The Ones Dropped
-        /// 
-        /// The Ones Selected
-        /// 
-        /// </summary>
-        public void DrawItemLists()
-        {
-            DrawItems();
-            DrawSelectedItem();
-
-            // Only need to update the selected, the Dropped is set in the constructor
-            //TotalSelected.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelSelectList.Count().ToString();
-        }
-*/
 
         /// <summary>
         /// Add the Dropped Items to the Display
@@ -443,46 +400,46 @@ namespace Game.Views
             List<ItemModel> allPotentialItems = new List<ItemModel>();
            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker != null)
                 {
-                if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PrimaryHand != null
-               & BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PrimaryHand != "None")
+                if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PrimaryHand != null &&
+                    BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PrimaryHand != "None")
                 {
                     allPotentialItems.Add(ItemIndexViewModel.Instance.GetItem(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PrimaryHand));
                 }
-                if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Feet != null
-                    & BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Feet != "None")
+                if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Feet != null &&
+                    BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Feet != "None")
                 {
                     allPotentialItems.Add(ItemIndexViewModel.Instance.GetItem(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Feet));
                 }
-                if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Head != null
-        & BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Head != "None")
+                if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Head != null &&
+                    BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Head != "None")
                 {
                     allPotentialItems.Add(ItemIndexViewModel.Instance.GetItem(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Head));
                 }
-                if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.OffHand != null
-        & BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.OffHand != "None")
+                if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.OffHand != null &&
+                    BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.OffHand != "None")
                 {
                     allPotentialItems.Add(ItemIndexViewModel.Instance.GetItem(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.OffHand));
                 }
-                if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Necklace != null
-        & BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Necklace != "None")
+                if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Necklace != null &&
+                    BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Necklace != "None")
                 {
                     allPotentialItems.Add(ItemIndexViewModel.Instance.GetItem(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Necklace));
                 }
-                if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.RightFinger != null
-        & BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.RightFinger != "None")
+                if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.RightFinger != null &&
+                    BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.RightFinger != "None")
                 {
                     allPotentialItems.Add(ItemIndexViewModel.Instance.GetItem(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.RightFinger));
                 }
 
-                if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.LeftFinger != null
-                    & BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.LeftFinger != "None")
+                if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.LeftFinger != null &&
+                    BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.LeftFinger != "None")
                 {
                     allPotentialItems.Add(ItemIndexViewModel.Instance.GetItem(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.LeftFinger));
                 }
             }
 
-            List<PlayerInfoModel> eligible_character_list = new List<PlayerInfoModel>();
-            eligible_character_list.Add(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker);
+            //List<PlayerInfoModel> eligible_character_list = new List<PlayerInfoModel>();
+            //eligible_character_list.Add(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker);
 
             // Choosing among all the items a character has
             foreach (var data in allPotentialItems)
@@ -558,7 +515,7 @@ namespace Game.Views
             if (ClickableButton)
             {
                 // Add a event to the user can click the item and see more
-                ItemButton.Clicked += (sender, args) => ShowPopupItem(item);
+                ItemButton.Clicked += (sender, args) => ShowPopupItem(sender, args, item);
             }
 
             // Put the Image Button and Text inside a layout
@@ -580,8 +537,24 @@ namespace Game.Views
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public bool ShowPopupItem(ItemModel data)
+        public bool ShowPopupItem(object sender, EventArgs args, ItemModel data)
         {
+            /*
+            var button = sender as ImageButton;
+
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.AttackItem != null)
+            {
+                BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.AttackItem = null;
+                button.BackgroundColor = Color.Transparent;
+            }
+
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.AttackItem == null)
+            {
+                BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.AttackItem = data.Id;
+                button.BackgroundColor = Color.Green;
+            }
+            */
+            
             PopupLoadingViewItem.IsVisible = true;
             PopupItemImage.Source = data.ImageURI;
 
@@ -593,7 +566,7 @@ namespace Game.Views
 
             // Set command parameter so that popup knows which item it is displaying
             PopupSaveButtonItem.CommandParameter = data.Id;
-          
+            
             return true;
         }
 
@@ -990,6 +963,8 @@ namespace Game.Views
             // TODO: make sure the AutoBattlePage is the right option here
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Battling;
             BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.SpecialAbility;
+            // Action on myself for ability
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = null;
             BattleEngineViewModel.Instance.Engine.Round.RoundNextTurn();
 
             // Moving on to next turn, and navigating to BattlePageOne
@@ -1042,8 +1017,9 @@ namespace Game.Views
             if (action == "Attack")
             {
                 ApplyAbilityButton.IsVisible = false;
-                DrawMonsterList();
                 DrawItems();
+                DrawMonsterList();
+                
                 ApplyAttackButton.IsVisible = true;
                 // this is important to avoid going back and forth
                 //ActionSelectedPicker.IsEnabled = false;
