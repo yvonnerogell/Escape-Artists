@@ -51,34 +51,6 @@ namespace Game.Views
             var currentDefender = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender;
             PlayerInfoModel currentCharacter;
 
-            Debug.WriteLine("Starting up BattlePageOne");
-            Debug.WriteLine("Current attacker: " + currentAttacker);
-            if (currentAttacker != null)
-			{
-                Debug.WriteLine("Current attacker name: " + currentAttacker.Name);
-                Debug.WriteLine("Current attacker level: " + currentAttacker.Level);
-                Debug.WriteLine("Current attacker health: " + currentAttacker.CurrentHealth);
-                Debug.WriteLine("Current attacker alive: " + currentAttacker.Alive);
-                Debug.WriteLine("Current attacker player type: " + currentAttacker.PlayerType);
-            }
-            Debug.WriteLine("Current defender: " + currentDefender);
-            if (currentDefender != null)
-            {
-                Debug.WriteLine("Current defender name: " + currentDefender.Name);
-                Debug.WriteLine("Current defender level: " + currentDefender.Level);
-                Debug.WriteLine("Current defender health: " + currentDefender.CurrentHealth);
-                Debug.WriteLine("Current defender alive: " + currentDefender.Alive);
-                Debug.WriteLine("Current defender player type: " + currentDefender.PlayerType);
-            }
-            Debug.WriteLine("Battle state enum: " + BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum);
-            Debug.WriteLine("Current action: " + BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction);
-            Debug.WriteLine("Round count: " + BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.RoundCount);
-            Debug.WriteLine("Turn count: " + BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.TurnCount);
-            Debug.WriteLine("Character list count: " + BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Count);
-            Debug.WriteLine("Monster list count: " + BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Count);
-            Debug.WriteLine("player list count: " + BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Count);
-
-
             if (currentAttacker != null)
             {
                 if (currentAttacker.CharacterTypeEnum == CharacterTypeEnum.Parent || currentAttacker.CharacterTypeEnum == CharacterTypeEnum.Student)
