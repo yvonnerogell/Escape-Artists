@@ -97,6 +97,26 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
+        [Test]
+        public void NewRoundPage_BeginSimpleButton_Clicked_Navigation_Should_Pass()
+        {
+            // Arrange
+            NewRoundPage page1 = new NewRoundPage();
+
+            page1.Navigation.PushAsync(new HomePage());
+            page1.Navigation.PushAsync(new GamePage());
+            page1.Navigation.PushAsync(new PickCharactersPage());
+            page1.nextPlayer = new PlayerInfoModel { PlayerType = PlayerTypeEnum.Character };
+
+            // Act
+            page1.BeginSimpleButton_Clicked(null, null);
+
+            // Reset
+            page.nextPlayer = null;
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
 
         [Test]
         public void NewRoundPage_BeginSimpleButton_Clicked_NextPlayer_Monster_Should_Pass()
