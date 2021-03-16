@@ -207,26 +207,6 @@
 
                     </StackLayout>
                     
-                    
-                    
-                    <!--
-                    <Frame x:Name="PopupAbilityApplied" BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10">
-                        <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="250" WidthRequest="750">
-                            <Label Text="Ability successfully applied!" Style="{StaticResource MessageStyle}" Padding="10" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
-                            <FlexLayout x:Name="AbilityApplied"
-                                    JustifyContent="Center"
-                                    AlignContent="Center"
-                                    Wrap="Wrap"/>
-
-                            <Button x:Name="PopupCloseButtonAbility" 
-                                            Clicked="ClosePopupAbility_Clicked" 
-                                            Text="Close"
-                                            Margin="10"/>
-
-                            <StackLayout Orientation="Horizontal"/>
-                        </StackLayout>
-                    </Frame>
-                    -->
                 </StackLayout>
             </StackLayout>
         </ScrollView>
