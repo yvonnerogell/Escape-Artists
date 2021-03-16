@@ -24,15 +24,6 @@
                         <Label Text="Character" Style="{StaticResource MessageStyle}" Padding="10" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
                         <Image x:Name="AttackerImage" Source="assistant_professor_monster.png" HeightRequest="120" WidthRequest="120"/>
                         <Label x:Name="CharacterTextLabel" HorizontalOptions="Center" Padding="15" HorizontalTextAlignment="Center"/>
-                        <!--The Character Found
-                        <FlexLayout x:Name="CharacterListFrame"
-                                    JustifyContent="Center"
-                                    AlignContent="Center"
-                                    Wrap="Wrap"/>
-
-                        <StackLayout Orientation="Horizontal"/>
-                        
-                        -->
                     </StackLayout>
 
                 </Frame>
@@ -61,7 +52,6 @@
                                     JustifyContent="Center"
                                     AlignContent="Center"
                                     Wrap="Wrap"/>
-
                         <StackLayout Orientation="Horizontal"/>
                     </StackLayout>
                 </Frame>

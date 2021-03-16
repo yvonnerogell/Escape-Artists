@@ -41,10 +41,10 @@ namespace Game.Views
 
         // selecting the monster of that turn
         //   public List<PlayerInfoModel> selectedMonsters = new List<PlayerInfoModel>();
-        public PlayerInfoModel currentDefender = new PlayerInfoModel(new MonsterModel());
+        //public PlayerInfoModel currentDefender = new PlayerInfoModel(new MonsterModel());
 
         // selecting the item of that turn
-        public List<ItemModel> selectedItems = new List<ItemModel>();
+        //public List<ItemModel> selectedItems = new List<ItemModel>();
 
         /// <summary>
         /// Constructor
@@ -550,6 +550,7 @@ namespace Game.Views
             var ClickableButton = true;
             
             // translating a PlayerInfoModel to a MonsterModel
+            /*
             MonsterModel data = new MonsterModel { Name = monster.Name,
             ImageURI = monster.ImageURI, Alive = monster.Alive, Attack = monster.Attack,
             Defense = monster.Defense, Description = monster.Description, CurrentHealth = monster.CurrentHealth,
@@ -562,12 +563,12 @@ namespace Game.Views
             Speed = monster.Speed, Range = monster.Range, Necklace = monster.Necklace, MaxHealth = monster.MaxHealth,
             PlayerType = monster.PlayerType, UniqueDropItem = monster.UniqueDropItem, Order = monster.Order,
             ListOrder = monster.ListOrder, TileImageURI = monster.TileImageURI, Job = monster.Job};
-
+            */
             // Hookup the Image Button to show the Monster picture
             var MonsterButton = new ImageButton
             {
-                //Style = (Style)Application.Current.Resources["ImageBattleLargeStyle"],
-                Source = monster.ImageURI,
+                Style = (Style)Application.Current.Resources["VillageMenuImageButton"],
+                Source = monster.TileImageURI,
                 CommandParameter = monster.Name
             };
 
@@ -653,70 +654,72 @@ namespace Game.Views
         /// <returns></returns>
         
         public bool ShowPopupMonster(PlayerInfoModel data)
-                {
-                    PopupLoadingViewMonster.IsVisible = true;
-                    PopupMonsterImage.Source = data.ImageURI;
+        {
+            PopupLoadingViewMonster.IsVisible = true;
+            PopupMonsterImage.Source = data.TileImageURI;
 
-                    PopupMonsterName.Text = data.Name;
+            PopupMonsterName.Text = data.Name;
 
-                    // Set command parameter so that popup knows which item it is displaying
-                    PopupSaveButtonMonster.CommandParameter = data.Name;
+            // Set command parameter so that popup knows which item it is displaying
+            PopupSaveButtonMonster.CommandParameter = data.Id;
 
-                    return true;
-                }
+            return true;
+        }
         
           /// <summary>
-                /// Close the popup
-                /// </summary>
-                /// <param name="sender"></param>
-                /// <param name="e"></param>
-                public void ClosePopupMonster_Clicked(object sender, EventArgs e)
-                {
-                    PopupLoadingViewMonster.IsVisible = false;
-                }
+        /// Close the popup
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void ClosePopupMonster_Clicked(object sender, EventArgs e)
+        {
+            PopupLoadingViewMonster.IsVisible = false;
+        }
 
-                /// <summary>
-                /// Save the assigned item and close the popup
-                /// </summary>
-                /// <param name="sender"></param>
-                /// <param name="e"></param>
-                public void PopupSaveButtonMonster_Clicked(object sender, EventArgs e)
+        /// <summary>
+        /// Save the assigned item and close the popup
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void PopupSaveButtonMonster_Clicked(object sender, EventArgs e)
+        {
+            var monsterId = "";      
+            monsterId = ((Button)sender).CommandParameter.ToString();
+            PlayerInfoModel currentDefender = BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Find(m => m.Id.Equals(monsterId));
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = currentDefender;
+
+            /*
+                foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList)
                 {
-                    var monsterName = "";
-            //  if (sender != null)
-            // {              
-                    monsterName = ((Button)sender).CommandParameter.ToString();
-            
-                    foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList)
+                    if (data.Name.Equals(monsterName))
                     {
-                        if (data.Name.Equals(monsterName))
-                        {
-                            // set current defender
-                            currentDefender = data;
-                    //BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(currentDefender);
-                            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = currentDefender;
-                            //ContinueButton.IsEnabled = true;
-                            break;
-                        }
+                        // set current defender
+                        currentDefender = data;
+                //BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(currentDefender);
+                        BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = currentDefender;
+                        //ContinueButton.IsEnabled = true;
+                        break;
                     }
-                    //var monster = MonsterIndexViewModel.Instance.GetMonsterByName(monsterName);
-                    //PlayerInfoModel player = new PlayerInfoModel(monster);
-
-                 //   var MonsterFoundIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.FindIndex(c => c.Name == currentDefender.Name);
-                //    if (MonsterFoundIndex >= 0)
-                //    {
-                //        BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.RemoveAt(MonsterFoundIndex);
-                //    }
-
-                
-                 //   }
-                    //DrawMonsterList();
-                    DrawSelectedMonsters();
-
-                    // visibility after the click
-                    PopupLoadingViewMonster.IsVisible = false;
-                    PopupMonsterListSelected.IsVisible = true;
                 }
+            */
+            //var monster = MonsterIndexViewModel.Instance.GetMonsterByName(monsterName);
+            //PlayerInfoModel player = new PlayerInfoModel(monster);
+
+            //   var MonsterFoundIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.FindIndex(c => c.Name == currentDefender.Name);
+            //    if (MonsterFoundIndex >= 0)
+            //    {
+            //        BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.RemoveAt(MonsterFoundIndex);
+            //    }
+
+
+            //   }
+            //DrawMonsterList();
+            DrawSelectedMonsters();
+
+            // visibility after the click
+            PopupLoadingViewMonster.IsVisible = false;
+            PopupMonsterListSelected.IsVisible = true;
+        }
 
         public async void Apply_Attack_Clicked(object sender, EventArgs e)
         {
