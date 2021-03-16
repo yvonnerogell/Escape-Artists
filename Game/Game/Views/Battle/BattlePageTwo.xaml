@@ -124,14 +124,10 @@
                         <Frame x:Name="PopupItemListSelected" BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10" HorizontalOptions="Center">
                             <StackLayout Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" MinimumHeightRequest="250" WidthRequest="250">
                                 <Label Text="Item Selected" Style="{StaticResource MessageStyle}" Padding="10" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
-                                <!--
+                                
                                 <Image x:Name="AttackItemImage" Source="assistant_professor_monster.png" HeightRequest="120" WidthRequest="120"/>
                                 <Label x:Name="AttackItemTextLabel" HorizontalOptions="Center" Padding="15" HorizontalTextAlignment="Center"/>
-                                -->
-                                <FlexLayout x:Name="ItemListSelectedFrame"
-                                    JustifyContent="Center"
-                                    AlignContent="Center"
-                                    Wrap="Wrap"/>
+                                
                             </StackLayout>
                         </Frame>
                     </Grid>
