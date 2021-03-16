@@ -134,6 +134,49 @@ namespace UnitTests.Views
             Assert.IsTrue(!current); // Got to here, so it happened...
         }
 
+
+        [Test]
+        public void BattleSettingsPage_AllowAmazonSameBattleDelivery_Toggled_Default_Should_Pass()
+        {
+            // Arrange
+
+            var control = (Switch)page.FindByName("AllowAmazonSameBattleDeliverySwitch");
+            var current = control.IsToggled;
+
+            ToggledEventArgs args = new ToggledEventArgs(current);
+
+            // Act
+            page.AllowAmazonSameBattleDelivery_Toggled(null, args);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(!current); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void BattleSettingsPage_AllowAmazonSameBattleDelivery_True_Default_Should_Pass()
+        {
+            // Arrange
+
+            var control = (Switch)page.FindByName("AllowAmazonSameBattleDeliverySwitch");
+            var current = control.IsToggled;
+
+            ToggledEventArgs args = new ToggledEventArgs(current);
+            page.AllowAmazonSameBattleDelivery_Toggled(null, args);
+
+            control.IsToggled = true;
+
+            // Act
+            page.AllowAmazonSameBattleDelivery_Toggled(null, args);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(!current); // Got to here, so it happened...
+        }
+
+
         [Test]
         public void BattleSettingsPage_AllowCriticalMiss_Toggled_Default_Should_Pass()
         {
