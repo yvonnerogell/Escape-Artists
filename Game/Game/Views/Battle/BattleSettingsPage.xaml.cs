@@ -190,5 +190,21 @@ namespace Game.Views
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.AllowMonsterItems = false;
         }
 
+        /// <summary>
+        /// Toggle Amazon Same Battle Delivery
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public void AllowAmazonSameBattleDelivery_Toggled(object sender, EventArgs e)
+        {
+            // Flip the settings
+            if (AllowAmazonSameBattleDeliverySwitch.IsToggled == true)
+            {
+                BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.AmazonSameBattleDelivery = true;
+                return;
+            }
+
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.AmazonSameBattleDelivery = false;
+        }
     }
 }
