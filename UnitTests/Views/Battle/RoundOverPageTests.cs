@@ -82,11 +82,11 @@ namespace UnitTests.Views
 
 
         [Test]
-        public void RoundOverPage_CloseButton_Clicked_Default_Should_Pass()
+        public void RoundOverPage_NextRoundButton_Clicked_Default_Should_Pass()
         {
             // Arrange
             // Act
-            page.CloseButton_Clicked(null, null);
+            page.NextRoundButton_Clicked(null, null);
 
             // Reset monster list because closebutton calls new round, which adds monsters. 
             BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();

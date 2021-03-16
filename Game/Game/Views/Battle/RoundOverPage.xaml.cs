@@ -472,7 +472,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void CloseButton_Clicked(object sender, EventArgs e)
+        public void NextRoundButton_Clicked(object sender, EventArgs e)
 		{
             // Reset to a new Round
             BattleEngineViewModel.Instance.Engine.Round.NewRound();
