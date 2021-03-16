@@ -52,118 +52,6 @@ namespace Game.Views
             UpdateNextButtonState();
         }
 
-        /*
-        /// <summary>
-        /// Used to test page with fake data
-        /// </summary>
-        /// <returns></returns>
-        public bool SetUpStubData()
-        {
-            // Add characters to state machine
-            var characters = GetCharacterStubList();
-            AddStubCharactersToBattleEngineViewModel(characters);
-
-            // Add items to state machine
-            var itemsDropped = GetItemStubList();
-            AddStubItemsToBattleEngineViewModel(itemsDropped);
-
-            var monsters = GetMonsterStubList();
-            AddStubMonstersToBattleEngineViewModel(monsters);
-
-            return true;
-        }
-        */
-
-        /*
-        /// <summary>
-        /// Helper method to get a default character stub list.
-        /// </summary>
-        /// <returns></returns>
-        public List<ItemModel> GetItemStubList()
-        {
-            List<ItemModel> items = DefaultData.LoadData(new ItemModel());
-            List<ItemModel> result = new List<ItemModel>();
-
-            for (var i = 0; i < NUM_ITEMS; ++i)
-            {
-                result.Add(items.ElementAt(i));
-            }
-            return result;
-        }
-
-        /// <summary>
-        /// Helper method to get a default monster stub list.
-        /// </summary>
-        /// <returns></returns>
-        public List<MonsterModel> GetMonsterStubList()
-        {
-            List<MonsterModel> monsters = DefaultData.LoadData(new MonsterModel());
-            List<MonsterModel> result = new List<MonsterModel>();
-
-            for (var i = 0; i < NUM_MONSTERS; ++i)
-            {
-                result.Add(monsters.ElementAt(i));
-            }
-            return result;
-        }
-
-        /// <summary>
-        /// Add stub monsters to battle engine view model.
-        /// </summary>
-        /// <returns></returns>
-        public bool AddStubMonstersToBattleEngineViewModel(List<MonsterModel> monsters)
-        {
-            foreach (var monster in monsters)
-            {
-                BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Add(new PlayerInfoModel(monster));
-            }
-            return true;
-        }
-
-
-        /// <summary>
-        /// Add stub characters to battle engine view model.
-        /// </summary>
-        /// <returns></returns>
-        public bool AddStubItemsToBattleEngineViewModel(List<ItemModel> items)
-        {
-            foreach (var item in items)
-            {
-                BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Add(item);
-            }
-            return true;
-        }
-
-        /// <summary>
-        /// Add stub characters to battle engine view model.
-        /// </summary>
-        /// <returns></returns>
-        public bool AddStubCharactersToBattleEngineViewModel(List<CharacterModel> characters)
-        {
-            foreach (var character in characters)
-            {
-                BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(character));
-            }
-            return true;
-        }
-
-        /// <summary>
-        /// Helper method to get a default character stub list.
-        /// </summary>
-        /// <returns></returns>
-        public List<CharacterModel> GetCharacterStubList()
-        {
-            List<CharacterModel> characters = DefaultData.LoadData(new CharacterModel());
-            List<CharacterModel> result = new List<CharacterModel>();
-
-            for (var i = 0; i < NUM_CHARACTERS; ++i)
-            {
-                result.Add(characters.ElementAt(i));
-            }
-            return result;
-        }
-        */
-
         /// <summary>
         /// The row selected from the list
         /// </summary>
@@ -177,16 +65,11 @@ namespace Game.Views
                 return;
             }
 
-            // Manually deselect Character.
-            //CharactersListView.SelectedItem = null;
-
             // Don't add more than the party max
             if (BattleEngineViewModel.Instance.PartyCharacterList.Count() < BattleEngineViewModel.Instance.Engine.EngineSettings.MaxNumberPartyCharacters)
             {
                 BattleEngineViewModel.Instance.PartyCharacterList.Add(data);
             }
-
-            //UpdateNextButtonState();
         }
 
         /// <summary>
@@ -224,40 +107,12 @@ namespace Game.Views
         }
 
         /// <summary>
-        /// The row selected from the list
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="args"></param>
-        /*public void OnPartySelectionChanged(object sender, SelectionChangedEventArgs args)
-        {
-            var button = sender as ImageButton;
-            String characterId = button.CommandParameter as String;
-            CharacterModel data = ViewModel.Dataset.FirstOrDefault(itm => itm.Id == characterId);
-            if (is_added == false)
-            {
-                BattleEngineViewModel.Instance.PartyCharacterList.Add(data);
-                is_added = true;
-            } else if (is_added == true)
-            {
-                BattleEngineViewModel.Instance.PartyCharacterList.Remove(data);
-                is_added = false;
-            } else
-            {
-                return;
-            }
-
-            UpdateNextButtonState();
-        }*/
-
-        /// <summary>
         /// Next Button is based on the count
         /// If no selected characters, disable
         /// Show the Count of the party
         /// </summary>
         public void UpdateNextButtonState()
         {
-            
-
             var currentCount = BattleEngineViewModel.Instance.PartyCharacterList.Count();
             if (currentCount > 0)
             {
@@ -268,8 +123,6 @@ namespace Game.Views
                 //If no characters disable Next button
                 BeginBattleButton.IsEnabled = false;
             }
-
-            // PartyCountLabel.Text = currentCount.ToString();
         }
 
         /// <summary>
