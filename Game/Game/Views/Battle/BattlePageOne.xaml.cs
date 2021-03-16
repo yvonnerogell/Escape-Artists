@@ -230,37 +230,60 @@ namespace Game.Views
         {
             if (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum == BattleStateEnum.RoundOver)
 			{
+                Debug.WriteLine("Battle State on BattlePageOne: BattleStateEnum.RoundOver.");
                 await Navigation.PushAsync(new RoundOverPage());
-                //await Navigation.PushModalAsync(new NavigationPage(new RoundOverPage()));
             }
             if (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum == BattleStateEnum.Battling)
             {
+                Debug.WriteLine("Battle State on BattlePageOne: BattleStateEnum.Battling.");
                 BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = null;
                 nextPlayer = BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn();
                 BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = nextPlayer;
                 if (nextPlayer.PlayerType == PlayerTypeEnum.Character)
                 {
+                    Debug.WriteLine("Next player is character: " + nextPlayer.Name);
                     await Navigation.PushAsync(new BattlePageTwo());
-                    //await Navigation.PushModalAsync(new NavigationPage(new BattlePageTwo()));
                 }
                 if (nextPlayer.PlayerType == PlayerTypeEnum.Monster)
                 {
+                    Debug.WriteLine("Next player is monster: " + nextPlayer.Name);
                     BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
-                    BattleEngineViewModel.Instance.Engine.Round.RoundNextTurn();
+                    var RoundCondition = BattleEngineViewModel.Instance.Engine.Round.RoundNextTurn();
+                    var result = SetBattleStateEnum(RoundCondition);
                     await Navigation.PushAsync(new BattlePageOne());
-                    //await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
                 }
             }
             if (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum == BattleStateEnum.GameOver)
             {
+                Debug.WriteLine("Battle State on BattlePageOne: BattleStateEnum.GameOver.");
                 await Navigation.PushAsync(new GameOverPage());
-                //await Navigation.PushModalAsync(new NavigationPage(new GameOverPage()));
             }
             if (Navigation.NavigationStack.Count > 2)
             {
                 Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
             }
         }
+
+        public bool SetBattleStateEnum(RoundEnum RoundCondition)
+		{
+            switch (RoundCondition)
+			{
+                case RoundEnum.GameOver:
+                case RoundEnum.GraduationCeremony:
+                    BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.GameOver;
+                    break;
+                case RoundEnum.NewRound:
+                    BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.NewRound;
+                    break;
+                case RoundEnum.NextTurn:
+                    BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Battling;
+                    break;
+                default:
+                    BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Unknown;
+                    break;
+            }
+            return true;
+		}
 
         /// <summary>
         /// Navigates to Round Over Page. THis is a temporary button, will be removed once battle engine is implemented.
