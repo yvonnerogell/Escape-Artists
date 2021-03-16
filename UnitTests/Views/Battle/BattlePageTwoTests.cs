@@ -38,8 +38,29 @@ namespace UnitTests.Views
 
             // Put seed data into the system for all tests
             BattleEngineViewModel.Instance.Engine.Round.ClearLists();
-            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
+            CharacterModel TestCharacter = new CharacterModel
+            {
+                Name = "TestCharacterName",
+                TileImageURI = Constants.SpecificCharacterTypeDefaultTileImageURI,
+                SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.SmartyPants,
+                PrimaryHand = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.Notebook),
+            };
 
+            MonsterModel TestMonster = new MonsterModel
+            {
+                Id = "TestMonsterId",
+                Name = "TestMonsterName",
+                TileImageURI = Constants.SpecificMonsterTypeAssistantProfessorTileImageURI,
+                SpecificMonsterTypeEnum = SpecificMonsterTypeEnum.AssistantProfessor,
+            };
+
+            PlayerInfoModel TestPlayerMonster = new PlayerInfoModel(TestMonster);
+            TestPlayerMonster.Id = "TestMonsterPlayerId";
+            
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Add(TestPlayerMonster);
+
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(new PlayerInfoModel(TestCharacter));
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(TestPlayerMonster);
             //Start the Engine in AutoBattle Mode
             //BattleEngineViewModel.Instance.Engine.StartBattle(false);
 
@@ -51,7 +72,7 @@ namespace UnitTests.Views
         {
             Application.Current = null;
         }
-        /*
+        
         [Test]
         public void BattlePageTwo_OnAppearing_Should_Pass()
         {
@@ -67,97 +88,11 @@ namespace UnitTests.Views
         }
 
         [Test]
-
-        public void CreatePlayerDisplayBox_Null_Should_Pass()
-        {
-            // Get the current value
-           
-            // Act
-            page.CreatePlayerDisplayBox(null);
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-
-        [Test]
-        public void GetCharacterToDisplay_Clicked_Default_Should_Pass()
-        {
-            // Act
-            page.GetCharacterToDisplay(null);
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-
-        [Test]
-        public void GetCharacterToDisplay_Clicked_Null_Should_Pass()
-        {
-            // Arrange
-            var player = new PlayerInfoModel(new CharacterModel());
-            var button = page.Content.FindByName("CharacterButton");
-
-            // Act
-            page.GetCharacterToDisplay(player);
-
-            // Reset
-
-            // Assert
-            Assert.IsNull(button); // Got to here, so it happened...
-        }
-        */
-/*
-        [Test]
-        public void ShowPopupCharacter_Clicked_Default_Should_Pass()
-        {
-            // Arrange
-            var character = new CharacterModel();
-            // Act
-            page.ShowPopupCharacter(character);
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-*/
-
-/*
-        [Test]
-        public void PopupSaveButtonCharacter_Clicked_Default_Should_Pass()
-        {
-            // Arrange
-            var characters = DefaultData.LoadData(new CharacterModel());
-
-            //add characters to the Engine
-            foreach (var character in characters)
-            {
-                BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(character));
-            }
-
-            Button s = new Button();
-            // should be an existing name
-            s.CommandParameter = "Nancy";
-            System.EventArgs e = new System.EventArgs();
-            // Act
-            page.PopupSaveButtonCharacter_Clicked(s, e);
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-
-            //Reset
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
-        }
-*/
-/*
-        [Test]
         public void PopupSaveButtonItem_Clicked_Default_Should_Pass()
         {
 
             // Arrange
+            /*
             var items = DefaultData.LoadData(new ItemModel());
 
             //add characters to the Engine
@@ -165,28 +100,9 @@ namespace UnitTests.Views
             {
                 BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Add(new ItemModel(item));
             }
-
+            */
             Button s = new Button();
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(new CharacterModel
-            {
-                Name = "Nancy",
-                    Description = "I would have been a professor by now if it weren't for the stress of I-94 renewal",
-                    CharacterTypeEnum = CharacterTypeEnum.Student,
-                    SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.InternationalStudent,
-                    Range = 2,
-                    Level = 1,
-                    GPA = 80,
-                    MaxHealth = 100,
-                    ImageURI = Constants.SpecificCharacterTypeInternationalStudentImageURI,
-                    Head = "None",
-                    Necklace = "None",
-                    PrimaryHand = ItemIndexViewModel.Instance.GetDefaultItemTypeItemId(ItemTypeEnum.Notebook),
-            OffHand = "None",
-                    Feet = "None",
-                    RightFinger = "None",
-                    LeftFinger = "None",
-                    SpecialAbility = AbilityEnum.FlashGenius
-                }));
+
             // should be an existing name
             s.CommandParameter = "Notebooks1";
             System.EventArgs e = new System.EventArgs();
@@ -198,8 +114,8 @@ namespace UnitTests.Views
            Assert.IsTrue(true); // Got to here, so it happened...
 
             // Reset
-           BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
-           BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Clear();
+           //BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
+           //BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Clear();
 
         }
 
@@ -207,17 +123,10 @@ namespace UnitTests.Views
         public void PopupSaveButtonMonster_Clicked_Default_Should_Pass()
         {
             // Arrange
-            // create a list of monsters
-            var monsters = DefaultData.LoadData(new MonsterModel());
-            // add monsters to the Engine
-            foreach (var monster in monsters)
-            {
-                BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Add(new PlayerInfoModel(monster));
-            }
 
             Button s = new Button();
             // should be an existing name
-            s.CommandParameter = "Karen";
+            s.CommandParameter = "TestMonsterPlayerId";
             System.EventArgs e = new System.EventArgs();
             
             // Act
@@ -225,11 +134,11 @@ namespace UnitTests.Views
             
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
-            Assert.AreEqual("Karen", BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender.Name);
+            Assert.AreEqual("TestMonsterPlayerId", BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender.Id);
 
             // Reset
-            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = null;
+            //BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
+            //BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = null;
         }
 
         [Test]
@@ -258,10 +167,10 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
 
             // Reset
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Clear();
+            //BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Clear();
         }
 
-
+        /*
         [Test]
         public void CharacterWhoCanAcceptItem_Clicked_Default_Should_Pass()
         {
