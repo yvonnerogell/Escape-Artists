@@ -768,6 +768,30 @@ namespace UnitTests.Views
 
 
         [Test]
+        public void BattlePageTwo_Apply_Attack_Clicked_Navigation_Should_Pass()
+        {
+            // Arrange
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Attack;
+            BattlePageTwo page1 = new BattlePageTwo();
+
+            page1.Navigation.PushAsync(new HomePage());
+            page1.Navigation.PushAsync(new GamePage());
+            page1.Navigation.PushAsync(new PickCharactersPage());
+
+            // Act
+            page1.Apply_Attack_Clicked(null, null);
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+
+            // Reset
+            //BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
+            //BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(null);
+            //BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
+        }
+
+
+        [Test]
         public void BattlePageTwo_Apply_Ability_Clicked_Clicked_Default_Should_Pass()
         {
             // Arrange
@@ -775,6 +799,29 @@ namespace UnitTests.Views
 
             // Act
             page.Apply_Ability_Clicked(null, null);
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+
+            // Reset
+            //BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
+            //BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(null);
+            //BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
+        }
+
+        [Test]
+        public void BattlePageTwo_Apply_Ability_Clicked_Navigation_Should_Pass()
+        {
+            // Arrange
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.EngineGameSpecialAbility = AbilityEnum.Bribes;
+            BattlePageTwo page1 = new BattlePageTwo();
+
+            page1.Navigation.PushAsync(new HomePage());
+            page1.Navigation.PushAsync(new GamePage());
+            page1.Navigation.PushAsync(new PickCharactersPage());
+
+            // Act
+            page1.Apply_Ability_Clicked(null, null);
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
