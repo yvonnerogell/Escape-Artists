@@ -43,173 +43,7 @@ namespace Game.Engine.EngineBase
         // Hold the BaseEngine
         public EngineSettingsModel EngineSettings = EngineSettingsModel.Instance;
 
-        // Set the probability of Losing Items as a result of damage - default is 1% (Scenario 25)
-        public int LoseDamagedItem_Probability = 1;
 
-        /// <summary>
-        /// Losing a Damaged Item with some probability (Scenario 25)
-        /// </summary>
-        /// <param name="Attacker"></param>
-        /// <returns></returns>
-        public virtual bool LoseDamagedItem(PlayerInfoModel Defender)
-        {
-            if (Defender.LoseDamagedItem == true)
-            {
-                // Adding Scenario 25: damage causes item to be dropped with some probability
-                var Scenario25 = false;
-                var dice = DiceHelper.RollDice(1, 100);
-
-                if (dice > LoseDamagedItem_Probability)
-                {
-                    Scenario25 = true;
-                }
-
-                if (Scenario25 == true)
-                {
-                    var item = new ItemModel();
-                    if (Defender.Head != null)
-                    {
-                        item = ItemIndexViewModel.Instance.GetItem(Defender.Head);
-                        //EngineSettings.BattleScore.ItemModelDropList.Add(item);
-                        Defender.Head = null;
-                    }
-                    if (Defender.Feet != null)
-                    {
-                        item = ItemIndexViewModel.Instance.GetItem(Defender.Feet);
-                        EngineSettings.BattleScore.ItemModelDropList.Add(item);
-                        Defender.Feet = null;
-                    }
-                    if (Defender.OffHand != null)
-                    {
-                        item = ItemIndexViewModel.Instance.GetItem(Defender.OffHand);
-                        EngineSettings.BattleScore.ItemModelDropList.Add(item);
-                        Defender.OffHand = null;
-                    }
-                    if (Defender.PrimaryHand != null)
-                    {
-                        item = ItemIndexViewModel.Instance.GetItem(Defender.PrimaryHand);
-                        EngineSettings.BattleScore.ItemModelDropList.Add(item);
-                        Defender.PrimaryHand = null;
-                    }
-                    if (Defender.RightFinger != null)
-                    {
-                        item = ItemIndexViewModel.Instance.GetItem(Defender.RightFinger);
-                        EngineSettings.BattleScore.ItemModelDropList.Add(item);
-                        Defender.RightFinger = null;
-                    }
-                    if (Defender.LeftFinger != null)
-                    {
-                        item = ItemIndexViewModel.Instance.GetItem(Defender.LeftFinger);
-                        EngineSettings.BattleScore.ItemModelDropList.Add(item);
-                        Defender.LeftFinger = null;
-                    }
-                    if (Defender.Necklace != null)
-                    {
-                        item = ItemIndexViewModel.Instance.GetItem(Defender.Necklace);
-                        EngineSettings.BattleScore.ItemModelDropList.Add(item);
-                        Defender.Necklace = null;
-                    }
-
-                    EngineSettings.BattleMessagesModel.TurnMessageSpecial = "Rental insurance was a good idea!";
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        /// Losing a Damaged Item with some probability (Scenario 25)
-        /// </summary>
-        /// <param name="Attacker"></param>
-        /// <returns></returns>
-        public virtual bool PlayerItemCanBeBroken(PlayerInfoModel Defender)
-        {
-            if (Defender.ItemCanBeBroken == true)
-            {
-                if (Defender.Head != null)
-                {
-                    var item = ItemIndexViewModel.Instance.GetItem(Defender.Head);
-                    item.Durability -= 0.5;
-                    Defender.Head = item.Id;
-
-                    if (item.Durability < 0)
-                    {
-                        Defender.Head = null;
-                        EngineSettings.BattleMessagesModel.TurnMessageSpecial = "Your item is broken!";
-                    }
-                }
-
-                if (Defender.Feet != null)
-                {
-                    var item = ItemIndexViewModel.Instance.GetItem(Defender.Feet);
-                    item.Durability -= 0.5;
-                    Defender.Feet = item.Id;
-                    if (item.Durability < 0)
-                    {
-                        Defender.Feet = null;
-                        EngineSettings.BattleMessagesModel.TurnMessageSpecial = "Your item is broken!";
-                    }
-                }
-                if (Defender.PrimaryHand != null)
-                {
-                    var item = ItemIndexViewModel.Instance.GetItem(Defender.PrimaryHand);
-                    item.Durability -= 0.5;
-                    Defender.PrimaryHand = item.Id;
-                    if (item.Durability < 0)
-                    {
-                        Defender.PrimaryHand = null;
-                        EngineSettings.BattleMessagesModel.TurnMessageSpecial = "Your item is broken!";
-                    }
-                }
-                if (Defender.OffHand != null)
-                {
-                    var item = ItemIndexViewModel.Instance.GetItem(Defender.OffHand);
-                    item.Durability -= 0.5;
-                    Defender.OffHand = item.Id;
-                    if (item.Durability < 0)
-                    {
-                        Defender.OffHand = null;
-                        EngineSettings.BattleMessagesModel.TurnMessageSpecial = "Your item is broken!";
-                    }
-                }
-                if (Defender.RightFinger != null)
-                {
-                    var item = ItemIndexViewModel.Instance.GetItem(Defender.RightFinger);
-                    item.Durability -= 0.5;
-                    Defender.RightFinger = item.Id;
-                    if (item.Durability < 0)
-                    {
-                        Defender.RightFinger = null;
-                        EngineSettings.BattleMessagesModel.TurnMessageSpecial = "Your item is broken!";
-                    }
-                }
-                if (Defender.LeftFinger != null)
-                {
-                    var item = ItemIndexViewModel.Instance.GetItem(Defender.LeftFinger);
-                    item.Durability -= 0.5;
-                    Defender.LeftFinger = item.Id;
-                    if (item.Durability < 0)
-                    {
-                        Defender.LeftFinger = null;
-                        EngineSettings.BattleMessagesModel.TurnMessageSpecial = "Your item is broken!";
-                    }
-                }
-                if (Defender.Necklace != null)
-                {
-                    var item = ItemIndexViewModel.Instance.GetItem(Defender.Necklace);
-                    item.Durability -= 0.5;
-                    Defender.Necklace = item.Id;
-                    if (item.Durability < 0)
-                    {
-                        Defender.Necklace = null;
-                        EngineSettings.BattleMessagesModel.TurnMessageSpecial = "Your item is broken!";
-                    }
-                }
-
-                return true;
-            
-            }
-            return false;
-        }
         /// <summary>
         /// CharacterModel Attacks...
         /// </summary>
@@ -217,13 +51,6 @@ namespace Game.Engine.EngineBase
         /// <returns></returns>
         public virtual bool TakeTurn(PlayerInfoModel Attacker)
         {
-
-            // Scenario 29
-            if (BattleEngineViewModel.Instance.Engine.EngineSettings.HackathonDebug)
-            {
-                PlayerItemCanBeBroken(Attacker);
-            }
-
 
             // Choose Action.  Such as Move, Attack etc.
 
@@ -514,9 +341,6 @@ namespace Game.Engine.EngineBase
         /// <returns></returns>
         public virtual bool Attack(PlayerInfoModel Attacker)
         {
-            // Implement Scenario 25
-            LoseDamagedItem(Attacker);
-
             // INFO: Teams, AttackChoice will auto pick the target, good for auto battle
             if (EngineSettings.BattleScore.AutoBattle)
             {
