@@ -620,6 +620,20 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
+        [Test]
+        public void DrawMonsterList_Remove_Should_Pass()
+        {
+            // Arrange
+            FlexLayout monsterlistframe = (FlexLayout)page.Content.FindByName("MonsterListFrame");
+            // add two elements to the list because when will be removed
+            monsterlistframe.Children.Add(new FlexLayout());
+
+            // Act
+            page.DrawMonsterList();
+            // Reset
+            // Assert
+            Assert.AreEqual(1, monsterlistframe.Children.Count);
+        }
 
         [Test]
         public void DrawSelectedMonsters_Default_Should_Pass()
@@ -691,6 +705,47 @@ namespace UnitTests.Views
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+
+        [Test]
+        public void BattlePage_ShowBattleMode_Testing_Default_Should_Pass()
+        {
+            // Arrange
+            bool save = page.UnitTestSetting;
+            page.UnitTestSetting = true;
+
+            // Act
+            page.ShowBattleMode();
+
+            // Reset
+            page.UnitTestSetting = save;
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+
+        [Test]
+        public void BattlePage_Settings_Clicked_Default_Should_Pass()
+        {
+            //Arrange
+            //Act
+            page.Settings_Clicked(null, null);
+            //Reset
+            //Assert
+            Assert.IsTrue(true); //Got to her, so it happened...
+        }
+
+        [Test]
+        public async Task BattlePage_ShowBattleSettingsPage_Default_Should_Pass()
+        {
+            //Arrange
+            //Act
+            await page.ShowBattleSettingsPage();
+            //Reset
+            //Assert
+            Assert.IsTrue(true);
         }
 
         /*
@@ -785,46 +840,7 @@ namespace UnitTests.Views
         }
 
 
-        [Test]
-        public void BattlePage_ShowBattleMode_Testing_Default_Should_Pass()
-        {
-            // Arrange
-            bool save = page.UnitTestSetting;
-            page.UnitTestSetting = true;
-
-            // Act
-            page.ShowBattleMode();
-
-            // Reset
-            page.UnitTestSetting = save;
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-
-
-        [Test]
-        public void BattlePage_Settings_Clicked_Default_Should_Pass()
-        {
-            //Arrange
-            //Act
-            page.Settings_Clicked(null, null);
-            //Reset
-            //Assert
-            Assert.IsTrue(true); //Got to her, so it happened...
-        }
-
-        [Test]
-        public async Task BattlePage_ShowBattleSettingsPage_Default_Should_Pass()
-        {
-            //Arrange
-            //Act
-            await page.ShowBattleSettingsPage();
-            //Reset
-            //Assert
-            Assert.IsTrue(true);
-        }
-        */
+*/
         /*
         [Test]
         public void BattlePage_ShowScoreButton_Clicked_Default_Should_Pass()
