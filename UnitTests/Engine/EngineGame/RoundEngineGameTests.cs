@@ -6,6 +6,7 @@ using NUnit.Framework;
 using Game.Models;
 using Game.ViewModels;
 using Game.Engine.EngineGame;
+using System.Collections.Generic;
 
 namespace UnitTests.Engine.EngineGame
 {
@@ -277,5 +278,182 @@ namespace UnitTests.Engine.EngineGame
             Engine.EngineSettings.PlayerList.Clear();
             Engine.EngineSettings.PlayerList = save;
         }
+        #region AmazonSameBattleDeliverItems
+
+        [Test]
+        public void RoundEngine_DropedItemOutput_Valid_Default_Should_Pass()
+        {
+            // Arrange
+            List<ItemModel> items = new List<ItemModel>();
+            items.AddRange(ItemIndexViewModel.Instance.GetLocationItems(ItemLocationEnum.Head));
+            // Act
+            RoundEngine test = new RoundEngine();
+            //Engine.EngineSettings.ItemPool.Add()
+
+            test.DropedItemOutput("Head", items);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true);
+        }
+
+        [Test]
+        public void RoundEngine_GetWhatIsNeededForEmptyLocation_Valid_Head_Should_Pass()
+        {
+            // Arrange
+            RoundEngine test = new RoundEngine();
+            test.EngineSettings.CharacterList.Clear();
+            CharacterModel testCharacter = new CharacterModel
+            {
+                CharacterTypeEnum = CharacterTypeEnum.Student,
+                Head = null,
+            };
+            test.EngineSettings.CharacterList.Add(new PlayerInfoModel(testCharacter));
+
+            // Act
+            int result = test.GetWhatIsNeededForEmptyLocation(ItemLocationEnum.Head);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(1, result);
+        }
+
+        [Test]
+        public void RoundEngine_GetWhatIsNeededForEmptyLocation_Valid_Necklace_Should_Pass()
+        {
+            // Arrange
+            RoundEngine test = new RoundEngine();
+            test.EngineSettings.CharacterList.Clear();
+            CharacterModel testCharacter = new CharacterModel
+            {
+                CharacterTypeEnum = CharacterTypeEnum.Student,
+                Necklace = null,
+            };
+            test.EngineSettings.CharacterList.Add(new PlayerInfoModel(testCharacter));
+
+            // Act
+            int result = test.GetWhatIsNeededForEmptyLocation(ItemLocationEnum.Necklace);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(1, result);
+        }
+
+        [Test]
+        public void RoundEngine_GetWhatIsNeededForEmptyLocation_Valid_PrimaryHand_Should_Pass()
+        {
+            // Arrange
+            RoundEngine test = new RoundEngine();
+            test.EngineSettings.CharacterList.Clear();
+            CharacterModel testCharacter = new CharacterModel
+            {
+                CharacterTypeEnum = CharacterTypeEnum.Student,
+                PrimaryHand = null,
+            };
+            test.EngineSettings.CharacterList.Add(new PlayerInfoModel(testCharacter));
+
+            // Act
+            int result = test.GetWhatIsNeededForEmptyLocation(ItemLocationEnum.PrimaryHand);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(1, result);
+        }
+
+        [Test]
+        public void RoundEngine_GetWhatIsNeededForEmptyLocation_Valid_OffHand_Should_Pass()
+        {
+            // Arrange
+            RoundEngine test = new RoundEngine();
+            test.EngineSettings.CharacterList.Clear();
+            CharacterModel testCharacter = new CharacterModel
+            {
+                CharacterTypeEnum = CharacterTypeEnum.Student,
+                OffHand = null,
+            };
+            test.EngineSettings.CharacterList.Add(new PlayerInfoModel(testCharacter));
+
+            // Act
+            int result = test.GetWhatIsNeededForEmptyLocation(ItemLocationEnum.OffHand);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(1, result);
+        }
+
+        [Test]
+        public void RoundEngine_GetWhatIsNeededForEmptyLocation_Valid_RightFinger_Should_Pass()
+        {
+            // Arrange
+            RoundEngine test = new RoundEngine();
+            test.EngineSettings.CharacterList.Clear();
+            CharacterModel testCharacter = new CharacterModel
+            {
+                CharacterTypeEnum = CharacterTypeEnum.Student,
+                RightFinger = null,
+            };
+            test.EngineSettings.CharacterList.Add(new PlayerInfoModel(testCharacter));
+
+            // Act
+            int result = test.GetWhatIsNeededForEmptyLocation(ItemLocationEnum.RightFinger);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(1, result);
+        }
+
+        [Test]
+        public void RoundEngine_GetWhatIsNeededForEmptyLocation_Valid_LeftFinger_Should_Pass()
+        {
+            // Arrange
+            RoundEngine test = new RoundEngine();
+            test.EngineSettings.CharacterList.Clear();
+            CharacterModel testCharacter = new CharacterModel
+            {
+                CharacterTypeEnum = CharacterTypeEnum.Student,
+                LeftFinger = null,
+            };
+            test.EngineSettings.CharacterList.Add(new PlayerInfoModel(testCharacter));
+
+            // Act
+            int result = test.GetWhatIsNeededForEmptyLocation(ItemLocationEnum.LeftFinger);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(1, result);
+        }
+
+        [Test]
+        public void RoundEngine_GetWhatIsNeededForEmptyLocation_Valid_Feet_Should_Pass()
+        {
+            // Arrange
+            RoundEngine test = new RoundEngine();
+            test.EngineSettings.CharacterList.Clear();
+            CharacterModel testCharacter = new CharacterModel
+            {
+                CharacterTypeEnum = CharacterTypeEnum.Student,
+                Feet = null,
+            };
+            test.EngineSettings.CharacterList.Add(new PlayerInfoModel(testCharacter));
+
+            // Act
+            int result = test.GetWhatIsNeededForEmptyLocation(ItemLocationEnum.Feet);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual(1, result);
+        }
+
+
+
+        #endregion AmazonSameBattleDeliverItems
     }
 }
