@@ -85,9 +85,10 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void BeginGridButton_Clicked(object sender, EventArgs e)
+        public async void BeginGridButton_Clicked(object sender, EventArgs e)
         {
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.BattleModeEnum = BattleModeEnum.MapNext;
+            await Navigation.PushAsync(new BattleGridPage());
             if (Navigation.NavigationStack.Count > 2)
             {
                 Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
