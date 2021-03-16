@@ -45,7 +45,6 @@ namespace Game.Views
         /// <param name="e"></param>
         public async void CloseButton_Clicked(object sender, EventArgs e)
         {
-            //await Navigation.PopModalAsync();
             await Navigation.PopAsync();
         }
 
@@ -56,7 +55,6 @@ namespace Game.Views
         /// <param name="e"></param>
         public async void YourScoreButton_Clicked(object sender, EventArgs e)
         {
-            //await Navigation.PushModalAsync(new NavigationPage(new ScorePage()));
             await Navigation.PushAsync(new ScorePage());
         }
     }
