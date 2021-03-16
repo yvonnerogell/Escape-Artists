@@ -229,7 +229,6 @@ namespace Game.Views
             // Hookup the Image Button to show the Item picture
             var ItemButton = new ImageButton
             {
-                //Style = (Style)Application.Current.Resources["ImageLargeStyle"],
                 Source = item.ImageURI,
                 CommandParameter = item.Id,
             };
@@ -309,11 +308,6 @@ namespace Game.Views
                 return new StackLayout();
             }
 
-           // if (string.IsNullOrEmpty(monster.Id))
-           // {
-           //     return new StackLayout();
-           // }
-
             // Defualt Image is the Plus
             var ClickableButton = true;
 
@@ -364,7 +358,6 @@ namespace Game.Views
                 {
                     MonsterListFrame.Children.Add(GetMonsterToDisplay(data));
                 }
-
             }
 
             // Make Monsters visible

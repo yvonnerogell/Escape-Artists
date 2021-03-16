@@ -34,17 +34,19 @@ namespace Game.Views
         public BattleGridPage(bool UnitTest) { UnitTestSetting = UnitTest; }
 
         // if a character is selected
-        //public PlayerInfoModel selectedCharacter = new PlayerInfoModel(new CharacterModel());
         public MapModelLocation selectedCharacterLocation = new MapModelLocation();
         public PlayerInfoModel selectedCharacter;
         public PlayerInfoModel selectedMonster;
         public int selectedCharacterRange = 0;
+
         // to keep track of character and monster turns
         public int count = 0;
+
         // making sure that in each character move, one character and one monster is selected
         public bool characterIsSelected = false;
         public bool monsterIsSelected = false;
         public bool emptyIsSelected = false;
+
         // first mover
         public PlayerInfoModel nextPlayer;
         public PlayerInfoModel nextDefender;
@@ -71,12 +73,8 @@ namespace Game.Views
             // Populate the UI Map
             DrawMapGridInitialState();
 
-            // Ask the Game engine to select who goes first
-            // BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
-            // BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn());
-            
-               // Add Players to Display
-               DrawGameAttackerDefenderBoard();
+            // Add Players to Display
+            DrawGameAttackerDefenderBoard();
 
             // Set the Battle Mode
             ShowBattleMode();
@@ -337,8 +335,7 @@ namespace Game.Views
             var PlayerStack = new StackLayout
             {
                 Padding = 0,
-                //Style = (Style)Application.Current.Resources["BattleMapImageBox"],
-             Style = (Style)Application.Current.Resources["BattleMapBox"],
+                Style = (Style)Application.Current.Resources["BattleMapBox"],
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.Center,
                 BackgroundColor = DetermineMapBackgroundColor(mapLocationModel),
@@ -528,12 +525,12 @@ namespace Game.Views
                         // Choose the attack action and choose this monster as current defender
                         selectedMonster = data.Player;
                         BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Attack;
-                      BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(selectedMonster);
+                        BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(selectedMonster);
                         
-                      data.IsSelectedTarget = true;
+                        data.IsSelectedTarget = true;
                         
                         // setting the current action to move if a monster is selected
-                      monsterIsSelected = true;                      
+                        monsterIsSelected = true;                      
                         imageObject.IsEnabled = true;
                         return true;
                     }
@@ -573,12 +570,9 @@ namespace Game.Views
                         }
                     }
                 }     
-
                 return true;
             }
             return false;
-
-            //return true;
         }
         #endregion MapEvents
 
@@ -754,10 +748,10 @@ namespace Game.Views
             }
 
             // Hold the current state
-         var RoundCondition = BattleEngineViewModel.Instance.Engine.Round.RoundNextTurn();
+            var RoundCondition = BattleEngineViewModel.Instance.Engine.Round.RoundNextTurn();
 
             // Output the Message of what happened.
-          GameMessage();
+            GameMessage();
 
             // Show the outcome on the Board
             DrawGameAttackerDefenderBoard();
@@ -893,9 +887,6 @@ namespace Game.Views
             {
                 BattleMessages.Text = string.Format("{0} \n{1}", BattleEngineViewModel.Instance.Engine.EngineSettings.BattleMessagesModel.LevelUpMessage, BattleMessages.Text);
             }
-
-            //htmlSource.Html = BattleEngineViewModel.Instance.Engine.BattleMessagesModel.GetHTMLFormattedTurnMessage();
-            //HtmlBox.Source = HtmlBox.Source = htmlSource;
         }
 
         /// <summary>
@@ -1031,10 +1022,7 @@ namespace Game.Views
             ClearMessages();
 
             DrawPlayerBoxes();
-
-            // Update the Mode
-            //BattleModeValue.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.BattleModeEnum.ToMessage();
-
+    
             ShowBattleModeDisplay();
 
             ShowBattleModeUIElements();
