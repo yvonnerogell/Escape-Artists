@@ -766,6 +766,25 @@ namespace UnitTests.Views
             //BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
         }
 
+
+        [Test]
+        public void BattlePageTwo_Apply_Ability_Clicked_Clicked_Default_Should_Pass()
+        {
+            // Arrange
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.EngineGameSpecialAbility = AbilityEnum.Bribes;
+
+            // Act
+            page.Apply_Ability_Clicked(null, null);
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+
+            // Reset
+            //BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
+            //BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(null);
+            //BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
+        }
+
         /*
 
         [Test]
