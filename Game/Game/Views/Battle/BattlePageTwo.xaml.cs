@@ -762,7 +762,7 @@ namespace Game.Views
 
 
             //var action = (ActionEnum)picker.SelectedIndex;
-            if (action == "Special Ability")
+            if (action.Equals("Special Ability"))
             {
                 ApplyAttackButton.IsVisible = false;
                 ApplyAbilityButton.IsVisible = true;
@@ -773,7 +773,7 @@ namespace Game.Views
                 ItemListFoundFrame.IsVisible = false;
             }
 
-            if (action == "Attack")
+            if (action.Equals("Attack"))
             {
                 ApplyAbilityButton.IsVisible = false;
                 DrawItems();
