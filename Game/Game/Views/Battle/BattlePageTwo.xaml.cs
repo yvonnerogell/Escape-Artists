@@ -423,6 +423,7 @@ namespace Game.Views
             // visibility after the click
             PopupLoadingViewMonster.IsVisible = false;
             PopupMonsterListSelected.IsVisible = true;
+            ApplyAttackButton.IsVisible = true;
         }
 
         public async void Apply_Attack_Clicked(object sender, EventArgs e)
@@ -534,6 +535,12 @@ namespace Game.Views
                 MonsterFrame.IsVisible = false;
                 MonsterListFrame.IsVisible = false;
                 ItemListFoundFrame.IsVisible = false;
+                PopupLoadingItemListFoundFrame.IsVisible = false;
+                PopupLoadingViewItem.IsVisible = false;
+                PopupItemListSelected.IsVisible = false;
+                PopupLoadingViewMonster.IsVisible = false;
+                PopupMonsterListSelected.IsVisible = false;
+                BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.AttackItem = null;
             }
 
             if (action.Equals("Attack"))
@@ -542,7 +549,7 @@ namespace Game.Views
                 DrawItems();
                 DrawMonsterList();
                 
-                ApplyAttackButton.IsVisible = true;
+                //ApplyAttackButton.IsVisible = true;
             }
         }
 
