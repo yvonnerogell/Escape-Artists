@@ -21,7 +21,7 @@ namespace Game.Views
 		public BattleEngineViewModel EngineViewModel = BattleEngineViewModel.Instance;
 
         // Empty Constructor for UTs
-        bool UnitTestSetting;
+        public bool UnitTestSetting = false;
         public NewRoundPage(bool UnitTest) { UnitTestSetting = UnitTest; }
         /// <summary>
         /// Constructor
@@ -88,7 +88,10 @@ namespace Game.Views
         public async void BeginGridButton_Clicked(object sender, EventArgs e)
         {
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.BattleModeEnum = BattleModeEnum.MapNext;
-            await Navigation.PushAsync(new BattleGridPage());
+            if (!UnitTestSetting)
+            {
+                await Navigation.PushAsync(new BattleGridPage());
+            }
             if (Navigation.NavigationStack.Count > 2)
             {
                 Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
