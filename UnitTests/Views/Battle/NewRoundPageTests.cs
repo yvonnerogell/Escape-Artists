@@ -60,7 +60,24 @@ namespace UnitTests.Views
             // Assert
             Assert.IsNotNull(result);
         }
-        
+
+        [Test]
+        public void NewRoundPage_Constructor_RoundCount_Greater_Than_1_Should_Pass()
+        {
+            // Arrange
+            var save = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.RoundCount;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.RoundCount = 2;
+
+            // Act
+            var result = new NewRoundPage();
+
+            // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.RoundCount = save;
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
         [Test]
         public void NewRoundPage_BeginGridButton_Clicked_Navigation_Should_Pass()
         {

@@ -42,6 +42,12 @@ namespace Game.Views
 				MonsterListFrame.Children.Add(CreatePlayerDisplayBox(data));
 			}
 
+            // If this is the first round, no need to start a new round (was started on previous page by calling StartBattle)
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.RoundCount > 1)
+			{
+                BattleEngineViewModel.Instance.Engine.Round.NewRound();
+            }
+
             nextPlayer = EngineViewModel.Engine.Round.GetNextPlayerTurn();
 
             EngineViewModel.Engine.EngineSettings.CurrentAttacker = nextPlayer;
