@@ -704,6 +704,40 @@ namespace UnitTests.Engine.EngineGame
             //Assert.IsTrue(test.EngineSettings.ItemPool.FirstOrDefault().Value > 1);
         }
 
+        [Test]
+        public async Task RoundEngine_GetAmazonSameBattleDeliveryItems_Valid_Default_Should_Pass()
+        {
+            // Arrange
+            RoundEngine test = new RoundEngine();
+            test.EngineSettings.CharacterList.Clear();
+            //ItemModel item = ItemIndexViewModel.Instance.GetDefaultItem(ItemLocationEnum.Feet);
+            test.EngineSettings.ItemPool.Clear();
+            //item.Value = 1;
+            CharacterModel testCharacter = new CharacterModel
+            {
+                CharacterTypeEnum = CharacterTypeEnum.Student,
+                Head = null,
+                Necklace = null,
+                PrimaryHand = null,
+                RightFinger = null,
+                LeftFinger = null,
+                Feet = null,
+            };
+            test.EngineSettings.CharacterList.Add(new PlayerInfoModel(testCharacter));
+
+            // Act
+            await test.GetAmazonSameBattleDeliveryItems();
+
+            // Reset
+            ItemIndexViewModel.Instance.Dataset.Clear();
+            await ItemIndexViewModel.Instance.LoadDefaultDataAsync();
+
+            // Assert
+            Assert.IsTrue(true);
+            //Assert.IsTrue(test.EngineSettings.ItemPool.FirstOrDefault().Value > 1);
+        }
+
+
         #endregion AmazonSameBattleDeliverItems
     }
 }
