@@ -264,6 +264,11 @@ namespace Game.Views
             }
         }
 
+        /// <summary>
+        /// Sets the battle state enum depending on the RoundCOndition
+        /// </summary>
+        /// <param name="RoundCondition"></param>
+        /// <returns></returns>
         public bool SetBattleStateEnum(RoundEnum RoundCondition)
 		{
             switch (RoundCondition)
