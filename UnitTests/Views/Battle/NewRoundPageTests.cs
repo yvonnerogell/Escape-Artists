@@ -61,20 +61,26 @@ namespace UnitTests.Views
             Assert.IsNotNull(result);
         }
 
-        /*
+        
         [Test]
         public void NewRoundPage_BeginGridButton_Clicked_Default_Should_Pass()
         {
             // Arrange
+            NewRoundPage page1 = new NewRoundPage();
+
+            page1.Navigation.PushAsync(new HomePage());
+            page1.Navigation.PushAsync(new GamePage());
+            page1.Navigation.PushAsync(new PickCharactersPage());
+
             // Act
-            page.BeginGridButton_Clicked(null, null);
+            page1.BeginGridButton_Clicked(null, null);
 
             // Reset
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-        */
+        
         [Test]
         public void NewRoundPage_BeginSimpleButton_Clicked_NextPlayer_Character_Should_Pass()
         {
