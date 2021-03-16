@@ -93,6 +93,9 @@ namespace Game.Views
             }
         }
 
+        /// <summary>
+        /// Helper method to load the actions available for character
+        /// </summary>
         public void DrawActionList()
         {
             var ActionList = new List<string>();
@@ -272,105 +275,6 @@ namespace Game.Views
             
             return true;
         }
-
-        /*
-        /// <summary>
-        /// Find the characters who can accept the item
-        /// </summary>
-        /// <param name="characters"></param>
-        /// <param name="item"></param>
-        /// <returns></returns>
-        public List<string> GetCharacterWhoCanAcceptItem(List<PlayerInfoModel> characters, ItemModel item)
-        {
-            
-            List<string> result = new List<string>();
-
-            if (item == null) 
-            {
-                return result;
-            }
-
-            foreach (var character in characters)
-            {
-                if (character != null)
-                {
-                    // exclude any graduates
-                    if (character.Level == 20)
-                    {
-                        continue;
-                    }
-                    if (character.Feet == null || character.Feet == "None")
-                    {
-                        // Parents don't have feet
-                        if (character.CharacterTypeEnum == CharacterTypeEnum.Parent)
-                        {
-                            continue;
-                        }
-                        if (item.Location.ToString() == ItemLocationEnum.Feet.ToString())
-                        {
-                            result.Add(character.Name);
-                            continue;
-                        }
-                    }
-                    if (character.Head == null || character.Head == "None")
-                    {
-                        // Parents don't have heads in this game..
-                        //   if (character.CharacterTypeEnum == CharacterTypeEnum.Parent)
-                        //  {
-                        //      continue;
-                        //  }
-                        if (item.Location.ToString() == ItemLocationEnum.Head.ToString())
-                        {
-                            result.Add(character.Name);
-                            continue;
-                        }
-                    }
-                    if (character.LeftFinger == null || character.LeftFinger == "None")
-                    {
-                        if (item.Location.ToString() == ItemLocationEnum.LeftFinger.ToString())
-                        {
-                            result.Add(character.Name);
-                            continue;
-                        }
-                    }
-                    if (character.Necklace == null || character.Necklace == "None")
-                    {
-                        if (item.Location.ToString() == ItemLocationEnum.Necklace.ToString())
-                        {
-                            result.Add(character.Name);
-                            continue;
-                        }
-                    }
-                    if (character.OffHand == null || character.OffHand == "None")
-                    {
-                        if (item.Location.ToString() == ItemLocationEnum.OffHand.ToString())
-                        {
-                            result.Add(character.Name);
-                            continue;
-                        }
-                    }
-                    if (character.PrimaryHand == null || character.PrimaryHand == "None")
-                    {
-                        if (item.Location.ToString() == ItemLocationEnum.PrimaryHand.ToString())
-                        {
-                            result.Add(character.Name);
-                            continue;
-                        }
-                    }
-                    if (character.RightFinger == null || character.RightFinger == "None")
-                    {
-                        if (item.Location.ToString() == ItemLocationEnum.RightFinger.ToString())
-                        {
-                            result.Add(character.Name);
-                            continue;
-                        }
-                    }
-                }
-            }
-
-            return result;
-        }
-        */
 
         /// Close the popup
         /// </summary>
@@ -600,17 +504,8 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public async void ExitButton_Clicked(object sender, EventArgs e)
+        public void ExitButton_Clicked(object sender, EventArgs e)
         {
-            /*
-            int removeModalCount = Navigation.ModalStack.Count;
-            for (int i=0; i<removeModalCount; i++)
-            {
-                await Navigation.PopModalAsync();
-            }
-            */
-            //Navigation.PopModalAsync();
-
             Navigation.PopAsync();
         }
     }
