@@ -42,6 +42,12 @@ namespace Game.Views
 				MonsterListFrame.Children.Add(CreatePlayerDisplayBox(data));
 			}
 
+            // If this is the first round, no need to start a new round (was started on previous page by calling StartBattle)
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.RoundCount > 1)
+			{
+                BattleEngineViewModel.Instance.Engine.Round.NewRound();
+            }
+
             nextPlayer = EngineViewModel.Engine.Round.GetNextPlayerTurn();
 
             EngineViewModel.Engine.EngineSettings.CurrentAttacker = nextPlayer;
@@ -56,28 +62,49 @@ namespace Game.Views
         /// <param name="e"></param>
         public async void BeginSimpleButton_Clicked(object sender, EventArgs e)
 		{
-            //await Navigation.PopModalAsync();
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.BattleModeEnum = BattleModeEnum.SimpleNext;
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Battling;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.NewRound;
             if (nextPlayer.PlayerType == PlayerTypeEnum.Character)
 			{
-                //await Navigation.PushModalAsync(new BattlePageTwo());
                 await Navigation.PushAsync(new BattlePageTwo());
-                //await Navigation.PushModalAsync(new NavigationPage(new BattlePageTwo()));
             }
             if (nextPlayer.PlayerType == PlayerTypeEnum.Monster)
 			{
                 EngineViewModel.Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
-                EngineViewModel.Engine.Round.RoundNextTurn();
-                //await Navigation.PushModalAsync(new BattlePageOne());
+                var RoundCondition = EngineViewModel.Engine.Round.RoundNextTurn();
+                var result = SetBattleStateEnum(RoundCondition);
                 await Navigation.PushAsync(new BattlePageOne());
-                //await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
             }
             if (Navigation.NavigationStack.Count > 2)
             {
                 Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
             }
-            //await Navigation.PopAsync();
+        }
+
+        /// <summary>
+        /// Sets the battle state enum depending on the RoundCOndition
+        /// </summary>
+        /// <param name="RoundCondition"></param>
+        /// <returns></returns>
+        public bool SetBattleStateEnum(RoundEnum RoundCondition)
+        {
+            switch (RoundCondition)
+            {
+                case RoundEnum.GameOver:
+                case RoundEnum.GraduationCeremony:
+                    BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.GameOver;
+                    break;
+                case RoundEnum.NewRound:
+                    BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.NewRound;
+                    break;
+                case RoundEnum.NextTurn:
+                    BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Battling;
+                    break;
+                default:
+                    BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Unknown;
+                    break;
+            }
+            return true;
         }
 
         /// <summary>

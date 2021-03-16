@@ -438,10 +438,12 @@ namespace Game.Views
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Battling;
             BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Attack;
 
-            BattleEngineViewModel.Instance.Engine.Round.RoundNextTurn();
+            // Do the next turn and then set the new battle state
+            var RoundCondition = BattleEngineViewModel.Instance.Engine.Round.RoundNextTurn();
+            SetBattleStateEnum(RoundCondition);
+
             // Moving on to next turn, and navigating to BattlePageOne
             await Navigation.PushAsync(new BattlePageOne());
-            //await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
             if (Navigation.NavigationStack.Count > 2)
             {
                 Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
@@ -454,16 +456,43 @@ namespace Game.Views
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Battling;
             BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.SpecialAbility;
             BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = null;
-            BattleEngineViewModel.Instance.Engine.Round.RoundNextTurn();
+
+            // Do the next turn and then set the new battle state
+            var RoundCondition = BattleEngineViewModel.Instance.Engine.Round.RoundNextTurn();
+            SetBattleStateEnum(RoundCondition);
 
             // Moving on to next turn, and navigating to BattlePageOne
             await Navigation.PushAsync(new BattlePageOne());
-            //await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
             if (Navigation.NavigationStack.Count > 2)
             {
                 Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
             }
+        }
 
+        /// <summary>
+        /// Sets the battle state enum depending on the RoundCOndition
+        /// </summary>
+        /// <param name="RoundCondition"></param>
+        /// <returns></returns>
+        public bool SetBattleStateEnum(RoundEnum RoundCondition)
+        {
+            switch (RoundCondition)
+            {
+                case RoundEnum.GameOver:
+                case RoundEnum.GraduationCeremony:
+                    BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.GameOver;
+                    break;
+                case RoundEnum.NewRound:
+                    BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.NewRound;
+                    break;
+                case RoundEnum.NextTurn:
+                    BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Battling;
+                    break;
+                default:
+                    BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Unknown;
+                    break;
+            }
+            return true;
         }
 
         /// <summary>

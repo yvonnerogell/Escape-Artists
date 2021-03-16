@@ -60,7 +60,24 @@ namespace UnitTests.Views
             // Assert
             Assert.IsNotNull(result);
         }
-        
+
+        [Test]
+        public void NewRoundPage_Constructor_RoundCount_Greater_Than_1_Should_Pass()
+        {
+            // Arrange
+            var save = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.RoundCount;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.RoundCount = 2;
+
+            // Act
+            var result = new NewRoundPage();
+
+            // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.RoundCount = save;
+
+            // Assert
+            Assert.IsNotNull(result);
+        }
+
         [Test]
         public void NewRoundPage_BeginGridButton_Clicked_Navigation_Should_Pass()
         {
@@ -196,6 +213,96 @@ namespace UnitTests.Views
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
+        public void NewRoundPage_SetBattleStateEnum_RoundEnum_GameOver_Should_Pass()
+        {
+            // Arrange
+            RoundEnum roundCondition = RoundEnum.GameOver;
+            var save = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum;
+
+            //Act
+            page.SetBattleStateEnum(roundCondition);
+
+            //Assert
+            Assert.AreEqual(BattleStateEnum.GameOver, BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum);
+
+            //Reset - need to reset here to test the battlestateenum in engine view model. 
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = save;
+
+        }
+
+        [Test]
+        public void NewRoundPage_SetBattleStateEnum_RoundEnum_GraduationCeremony_Should_Pass()
+        {
+            // Arrange
+            RoundEnum roundCondition = RoundEnum.GraduationCeremony;
+            var save = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum;
+
+            //Act
+            page.SetBattleStateEnum(roundCondition);
+
+            //Assert
+            Assert.AreEqual(BattleStateEnum.GameOver, BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum);
+
+            //Reset - need to reset here to test the battlestateenum in engine view model. 
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = save;
+
+        }
+
+        [Test]
+        public void NewRoundPage_SetBattleStateEnum_RoundEnum_NextTurn_Should_Pass()
+        {
+            // Arrange
+            RoundEnum roundCondition = RoundEnum.NextTurn;
+            var save = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum;
+
+            //Act
+            page.SetBattleStateEnum(roundCondition);
+
+            //Assert
+            Assert.AreEqual(BattleStateEnum.Battling, BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum);
+
+            //Reset - need to reset here to test the battlestateenum in engine view model. 
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = save;
+
+        }
+
+        [Test]
+        public void NewRoundPage_SetBattleStateEnum_RoundEnum_NewRound_Should_Pass()
+        {
+            // Arrange
+            RoundEnum roundCondition = RoundEnum.NewRound;
+            var save = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum;
+
+            //Act
+            page.SetBattleStateEnum(roundCondition);
+
+            //Assert
+            Assert.AreEqual(BattleStateEnum.NewRound, BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum);
+
+            //Reset - need to reset here to test the battlestateenum in engine view model. 
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = save;
+
+        }
+
+        [Test]
+        public void NewRoundPage_SetBattleStateEnum_RoundEnum_Unknown_Should_Pass()
+        {
+            // Arrange
+            RoundEnum roundCondition = RoundEnum.Unknown;
+            var save = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum;
+
+            //Act
+            page.SetBattleStateEnum(roundCondition);
+
+            //Assert
+            Assert.AreEqual(BattleStateEnum.Unknown, BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum);
+
+            //Reset - need to reset here to test the battlestateenum in engine view model. 
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = save;
+
         }
     }
 }
