@@ -8,6 +8,7 @@ using Game.Helpers;
 using Game.Models;
 using Game.Engine;
 using Game.ViewModels;
+using System.Threading.Tasks;
 
 namespace UnitTests.Views
 {
@@ -32,6 +33,7 @@ namespace UnitTests.Views
             BattleEngineViewModel.Instance.SetBattleEngineToGame();
 
             page = new AutoBattlePage();
+            AutoBattlePage pageUT = new AutoBattlePage(true);
         }
 
         [TearDown]
@@ -52,6 +54,62 @@ namespace UnitTests.Views
 
             // Assert
             Assert.IsNotNull(result);
+        }
+
+        [Test]
+        public void AutoBattlePage_Settings_Clicked_Default_Should_Pass()
+        {
+            //Arrange
+            //Act
+            page.Settings_Clicked(null, null);
+            //Reset
+            //Assert
+            Assert.IsTrue(true); //Got to her, so it happened...
+        }
+
+        [Test]
+        public async Task AutoBattlePage_ShowBattleSettingsPage_Default_Should_Pass()
+        {
+            //Arrange
+            //Act
+            await page.ShowBattleSettingsPage();
+            //Reset
+            //Assert
+            Assert.IsTrue(true);
+        }
+
+        [Test]
+        public void AutoBattlePage_ShowBattleMode_Default_Should_Pass()
+        {
+            //Arrange
+            //Act
+            page.ShowBattleMode();
+            //Reset
+            //Assert
+            Assert.IsTrue(true);
+        }
+
+        [Test]
+        public void AutoBattlePage_ShowBattleMode_Default_True_Should_Pass()
+        {
+            //Arrange
+            page.UnitTestSetting = true;
+            //Act
+            page.ShowBattleMode();
+            //Reset
+            //Assert
+            Assert.IsTrue(true);
+        }
+
+        [Test]
+        public void AutoBattlePage_Exit_Button_Clicked_Default_Should_Pass()
+        {
+            //Arrange
+            //Act
+            page.ExitButton_Clicked(null, null);
+            //Reset
+            //Assert
+            Assert.IsTrue(true);
         }
 
         [Test]
