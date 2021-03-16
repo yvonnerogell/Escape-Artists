@@ -92,6 +92,26 @@ namespace UnitTests.Views
         }
 
         [Test]
+        public void PickCharactersPage_BattleButton_Clicked_Navigation_Should_Pass()
+        {
+            // Arrange
+            PickCharactersPage page1 = new PickCharactersPage();
+
+            page1.Navigation.PushAsync(new HomePage());
+            page1.Navigation.PushAsync(new GamePage());
+            page1.Navigation.PushAsync(new GamePage());
+
+
+            // Act
+            page1.BattleButton_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
         public void PickCharactersPage_CreateEngineCharacterList_Default_Should_Pass()
         {
             // Arrange
