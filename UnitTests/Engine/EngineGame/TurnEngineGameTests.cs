@@ -1098,5 +1098,64 @@ namespace UnitTests.Engine.EngineGame
             //Assert
             Assert.AreEqual(true, result);
         }
+
+        [Test]
+        public void TurnEngine_MoveAsTurn_Invalid_Monster_InValid_Attacker_Not_On_Map_Should_Fail()
+        {
+            // Arrange
+            Engine.EngineSettings.PlayerList.Clear();
+            var MonsterPlayer = new PlayerInfoModel(new MonsterModel());
+            Engine.EngineSettings.PlayerList.Add(MonsterPlayer);
+            Engine.EngineSettings.CurrentAttacker = MonsterPlayer;
+
+            Engine.EngineSettings.MapModel.PopulateMapModel(Engine.EngineSettings.PlayerList);
+
+            // Add player after map is made, so player is not on the map
+            var CharacterPlayer = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Cleric });
+            Engine.EngineSettings.CurrentDefender = CharacterPlayer;
+            Engine.EngineSettings.PlayerList.Add(CharacterPlayer);
+            Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
+
+            // Act
+            var result = Engine.Round.Turn.MoveAsTurn(MonsterPlayer);
+
+            // Reset
+            Engine.EngineSettings.CurrentDefender = null;
+            Engine.EngineSettings.CurrentAttacker = null;
+            Engine.EngineSettings.PlayerList.Clear();
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
+
+        [Test]
+        public void TurnEngine_MoveAsTurn_Invalid_Monster_InValid_Defender_Not_On_Map_Should_Fail()
+        {
+            // Arrange
+            Engine.EngineSettings.PlayerList.Clear();
+            var CharacterPlayer = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Cleric });
+            Engine.EngineSettings.PlayerList.Add(CharacterPlayer);
+            Engine.EngineSettings.CurrentDefender = CharacterPlayer;
+
+            // Not on map.... 
+            Engine.EngineSettings.MapModel.PopulateMapModel(Engine.EngineSettings.PlayerList);
+
+            var MonsterPlayer = new PlayerInfoModel(new MonsterModel());
+            Engine.EngineSettings.PlayerList.Add(MonsterPlayer);
+            Engine.EngineSettings.CurrentAttacker = MonsterPlayer;
+
+            Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
+            Engine.EngineSettings.BattleScore.AutoBattle = true;
+
+            // Act
+            var result = Engine.Round.Turn.MoveAsTurn(MonsterPlayer);
+
+            // Reset
+            Engine.EngineSettings.PlayerList.Clear();
+
+
+            // Assert
+            Assert.AreEqual(false, result);
+        }
     }
 }
