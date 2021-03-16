@@ -13,13 +13,15 @@ using Game.ViewModels;
 namespace Game.Views
 {
     /// <summary>
-    /// The Main Game Page
+    /// Battle Page One displays the results of a turn
     /// </summary>
     [XamlCompilation(XamlCompilationOptions.Compile)]
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "<Pending>")]
     public partial class BattlePageOne : ContentPage
     {
+        // Variable holding the next player of the game
         public PlayerInfoModel nextPlayer;
+
         // HTML Formatting for message output box
         public HtmlWebViewSource htmlSource = new HtmlWebViewSource();
 
@@ -29,9 +31,10 @@ namespace Game.Views
         // Hold the Map Objects, for easy access to update them
         public Dictionary<string, object> MapLocationObject = new Dictionary<string, object>();
 
+        // Variable for unit testing purposes
+        public bool UnitTestSetting;
 
         // Empty Constructor for UTs
-        public bool UnitTestSetting;
         public BattlePageOne(bool UnitTest) { UnitTestSetting = UnitTest; }
 
         /// <summary>
