@@ -237,7 +237,7 @@ namespace Game.Views
             if (ClickableButton)
             {
                 // Add a event to the user can click the item and see more
-                ItemButton.Clicked += (sender, args) => ShowPopupItem(sender, args, item);
+                ItemButton.Clicked += (sender, args) => ShowPopupItem(item);
             }
 
             // Put the Image Button and Text inside a layout
@@ -259,7 +259,7 @@ namespace Game.Views
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        public bool ShowPopupItem(object sender, EventArgs args, ItemModel data)
+        public bool ShowPopupItem(ItemModel data)
         {   
             PopupLoadingViewItem.IsVisible = true;
             PopupItemImage.Source = data.ImageURI;
