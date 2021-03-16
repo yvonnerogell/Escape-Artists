@@ -228,7 +228,7 @@ namespace UnitTests.Views
         {
             // Arrange
             ItemIndexViewModel.Instance.Dataset.Clear();
-            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Location = ItemLocationEnum.Finger });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Location = ItemLocationEnum.LeftFinger });
 
             var character = new CharacterModel();
             character.LeftFinger = ItemIndexViewModel.Instance.GetLocationItems(ItemLocationEnum.LeftFinger).First().Id;
@@ -312,7 +312,7 @@ namespace UnitTests.Views
         {
             // Arrange
             ItemIndexViewModel.Instance.Dataset.Clear();
-            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Location = ItemLocationEnum.Finger });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Location = ItemLocationEnum.RightFinger });
 
             var character = new CharacterModel();
             character.RightFinger = ItemIndexViewModel.Instance.GetLocationItems(ItemLocationEnum.RightFinger).First().Id;
@@ -449,7 +449,7 @@ namespace UnitTests.Views
         {
             // Arrange
             ItemIndexViewModel.Instance.Dataset.Clear();
-            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Location = ItemLocationEnum.Finger, Damage = 20 });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Location = ItemLocationEnum.LeftFinger, Damage = 20 });
 
             var character = new CharacterModel();
             character.LeftFinger = ItemIndexViewModel.Instance.GetLocationItems(ItemLocationEnum.LeftFinger).First().Id;
@@ -471,7 +471,7 @@ namespace UnitTests.Views
         {
             // Arrange
             ItemIndexViewModel.Instance.Dataset.Clear();
-            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Location = ItemLocationEnum.Finger, Damage = 10 });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Location = ItemLocationEnum.RightFinger, Damage = 10 });
 
             var character = new CharacterModel();
             character.RightFinger = ItemIndexViewModel.Instance.GetLocationItems(ItemLocationEnum.RightFinger).First().Id;
