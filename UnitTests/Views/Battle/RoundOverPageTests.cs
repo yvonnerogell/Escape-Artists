@@ -1158,5 +1158,24 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
         */
+
+        [Test]
+        public void RoundOverPage_NextRoundButton_Clicked_Navigation_Should_Pass()
+        {
+            // Arrange
+            RoundOverPage page1 = new RoundOverPage();
+
+            page1.Navigation.PushAsync(new HomePage());
+            page1.Navigation.PushAsync(new GamePage());
+            page1.Navigation.PushAsync(new PickCharactersPage());
+
+            // Act
+            page1.NextRoundButton_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
     }
 }
