@@ -26,5 +26,8 @@ namespace Game.Models
 
         // Can monsters have Items and weapons?
         public bool AllowMonsterItems = false;
+
+        // Variable used for debugging our Amazon Same Battle Delivery scenario for service call
+        public bool AmazonSameBattleDelivery = false;
     }
 }
