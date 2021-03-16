@@ -830,6 +830,8 @@ namespace UnitTests.Views
             Assert.AreEqual("Professor Honkey\n vs \nOverachiever Minnie", result); 
         }
 
+
+
         [Test]
         public void BattlePage_GetAttackerText_Monster_Administrator_Character_Student_Should_Pass()
         {
@@ -860,6 +862,21 @@ namespace UnitTests.Views
 
             // Assert
             Assert.AreEqual("Slacker Minnie\n vs \nAdjunct Faculty Honkey", result);
+        }
+
+        [Test]
+        public void BattlePage_GetAttackerText_Attacker_Student_Defender_Null_Should_Pass()
+        {
+            // Arrange
+            var currentAttacker = new PlayerInfoModel(new CharacterModel { Name = "Minnie", CurrentHealth = 15, GPA = 67, CharacterTypeEnum = CharacterTypeEnum.Student, PlayerType = PlayerTypeEnum.Character, SpecificCharacterTypeEnum = SpecificCharacterTypeEnum.Slacker });
+
+            // Act
+            var result = page.GetAttackText(currentAttacker, null);
+
+            // Reset
+
+            // Assert
+            Assert.AreEqual("Slacker Minnie", result);
         }
 
         [Test]
