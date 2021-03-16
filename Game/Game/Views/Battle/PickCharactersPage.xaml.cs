@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Collections.Generic;
 
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,6 +11,7 @@ using Game.ViewModels;
 
 using Game.GameRules;
 using System.Linq;
+using Xamarin.Essentials;
 
 namespace Game.Views
 {
@@ -216,7 +218,7 @@ namespace Game.Views
                 //Add character to the instance partcharacterlist
                 BattleEngineViewModel.Instance.PartyCharacterList.Add(data);
                 selectedCharacters.Add(data);
-                button.BackgroundColor = Color.Green;
+                button.BackgroundColor = (Color)ColorConverters.FromHex("25a46d");
             }
             UpdateNextButtonState();
         }
