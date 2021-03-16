@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 using Game.Engine.EngineBase;
 using Game.Engine.EngineInterfaces;
 using Game.Engine.EngineModels;
@@ -231,8 +232,9 @@ namespace Game.Engine.EngineGame
         /// 1. first checks if there's any items needed for empty locations
         /// 2. if no empty location then get better items
         /// </summary>
-        public async void GetAmazonSameBattleDeliveryItems()
+        public async Task<string> GetAmazonSameBattleDeliveryItems()
         {
+            var result = "";
             //Get items of character have open locations
             int NeedHeadItemCount = GetWhatIsNeededForEmptyLocation(ItemLocationEnum.Head);
             int NeedNecklaceItemCount = GetWhatIsNeededForEmptyLocation(ItemLocationEnum.Necklace);
@@ -254,42 +256,42 @@ namespace Game.Engine.EngineGame
                 location = ItemLocationEnum.Head;
                 dataList = await ItemService.GetItemsFromServerPostAsync(NeedHeadItemCount, level, attribute, location, category, random, updateDataBase);
                 EngineSettings.ItemPool.AddRange(dataList);
-                DropedItemOutput(location.ToMessage(), dataList);
+                result = DropedItemOutput(location.ToMessage(), dataList);
             }
             if (NeedNecklaceItemCount > 0)
             {
                 location = ItemLocationEnum.Necklace;
                 dataList = await ItemService.GetItemsFromServerPostAsync(NeedNecklaceItemCount, level, attribute, location, category, random, updateDataBase);
                 EngineSettings.ItemPool.AddRange(dataList);
-                DropedItemOutput(location.ToMessage(), dataList);
+                result = DropedItemOutput(location.ToMessage(), dataList);
             }
             if (NeedPrimaryHandItemCount > 0)
             {
                 location = ItemLocationEnum.PrimaryHand;
                 dataList = await ItemService.GetItemsFromServerPostAsync(NeedPrimaryHandItemCount, level, attribute, location, category, random, updateDataBase);
                 EngineSettings.ItemPool.AddRange(dataList);
-                DropedItemOutput(location.ToMessage(), dataList);
+                result = DropedItemOutput(location.ToMessage(), dataList);
             }
             if (NeedRightFingerItemCount > 0)
             {
                 location = ItemLocationEnum.RightFinger;
                 dataList = await ItemService.GetItemsFromServerPostAsync(NeedRightFingerItemCount, level, attribute, location, category, random, updateDataBase);
                 EngineSettings.ItemPool.AddRange(dataList);
-                DropedItemOutput(location.ToMessage(), dataList);
+                result = DropedItemOutput(location.ToMessage(), dataList);
             }
             if (NeedLeftFingerItemCount > 0)
             {
                 location = ItemLocationEnum.LeftFinger;
                 dataList = await ItemService.GetItemsFromServerPostAsync(NeedLeftFingerItemCount, level, attribute, location, category, random, updateDataBase);
                 EngineSettings.ItemPool.AddRange(dataList);
-                DropedItemOutput(location.ToMessage(), dataList);
+                result = DropedItemOutput(location.ToMessage(), dataList);
             }
             if (NeedFeetItemCount > 0)
             {
                 location = ItemLocationEnum.Feet;
                 dataList = await ItemService.GetItemsFromServerPostAsync(NeedFeetItemCount, level, attribute, location, category, random, updateDataBase);
                 EngineSettings.ItemPool.AddRange(dataList);
-                DropedItemOutput(location.ToMessage(), dataList);
+                result = DropedItemOutput(location.ToMessage(), dataList);
             }
 
             // all locations have item, now get better items
@@ -300,15 +302,17 @@ namespace Game.Engine.EngineGame
                 NeedLeftFingerItemCount == 0 &&
                 NeedFeetItemCount == 0)
             {
-                GetBetterItems();
+                result = GetBetterItems().ToString();
             }
+            return result;
         }
 
         /// <summary>
         /// helper method to get better items if all character's locations are full
         /// </summary>
-        public async void GetBetterItems()
+        public async Task<string> GetBetterItems()
         {
+            var result = "";
             var dataList = new List<ItemModel>();
             var level = 3;  // Max Value of 6
             var attribute = AttributeEnum.Unknown;  // Any Attribute
@@ -325,7 +329,7 @@ namespace Game.Engine.EngineGame
                     level = ItemIndexViewModel.Instance.GetItem(character.Head).Value + 1;
                     dataList = await ItemService.GetItemsFromServerPostAsync(1, level, attribute, location, category, random, updateDataBase);
                     EngineSettings.ItemPool.AddRange(dataList);
-                    DropedItemOutput(location.ToMessage(), dataList);
+                    result = DropedItemOutput(location.ToMessage(), dataList);
                 }
                 if (character.Necklace != null)
                 {
@@ -333,7 +337,7 @@ namespace Game.Engine.EngineGame
                     level = ItemIndexViewModel.Instance.GetItem(character.Necklace).Value + 1;
                     dataList = await ItemService.GetItemsFromServerPostAsync(1, level, attribute, location, category, random, updateDataBase);
                     EngineSettings.ItemPool.AddRange(dataList);
-                    DropedItemOutput(location.ToMessage(), dataList);
+                    result = DropedItemOutput(location.ToMessage(), dataList);
                 }
                 if (character.PrimaryHand != null)
                 {
@@ -349,7 +353,7 @@ namespace Game.Engine.EngineGame
                     level = ItemIndexViewModel.Instance.GetItem(character.OffHand).Value + 1;
                     dataList = await ItemService.GetItemsFromServerPostAsync(1, level, attribute, location, category, random, updateDataBase);
                     EngineSettings.ItemPool.AddRange(dataList);
-                    DropedItemOutput(location.ToMessage(), dataList);
+                    result = DropedItemOutput(location.ToMessage(), dataList);
                 }
                 if (character.RightFinger != null)
                 {
@@ -357,7 +361,7 @@ namespace Game.Engine.EngineGame
                     level = ItemIndexViewModel.Instance.GetItem(character.RightFinger).Value + 1;
                     dataList = await ItemService.GetItemsFromServerPostAsync(1, level, attribute, location, category, random, updateDataBase);
                     EngineSettings.ItemPool.AddRange(dataList);
-                    DropedItemOutput(location.ToMessage(), dataList);
+                    result = DropedItemOutput(location.ToMessage(), dataList);
                 }
                 if (character.LeftFinger != null)
                 {
@@ -365,7 +369,7 @@ namespace Game.Engine.EngineGame
                     level = ItemIndexViewModel.Instance.GetItem(character.LeftFinger).Value + 1;
                     dataList = await ItemService.GetItemsFromServerPostAsync(1, level, attribute, location, category, random, updateDataBase);
                     EngineSettings.ItemPool.AddRange(dataList);
-                    DropedItemOutput(location.ToMessage(), dataList);
+                    result = DropedItemOutput(location.ToMessage(), dataList);
                 }
                 // only check for students and feet because parents can't hold item on feet (business rule)
                 if (character.CharacterTypeEnum == CharacterTypeEnum.Student && character.Feet != null)
@@ -374,10 +378,11 @@ namespace Game.Engine.EngineGame
                     level = ItemIndexViewModel.Instance.GetItem(character.Feet).Value + 1;
                     dataList = await ItemService.GetItemsFromServerPostAsync(1, level, attribute, location, category, random, updateDataBase);
                     EngineSettings.ItemPool.AddRange(dataList);
-                    DropedItemOutput(location.ToMessage(), dataList);
+                    result = DropedItemOutput(location.ToMessage(), dataList);
                 }
 
             }
+            return result;
         }
 
         /// <summary>
@@ -385,7 +390,7 @@ namespace Game.Engine.EngineGame
         /// </summary>
         /// <param name="location"></param>
         /// <param name="dataList"></param>
-        public void DropedItemOutput(string location, List<ItemModel> dataList)
+        public string DropedItemOutput(string location, List<ItemModel> dataList)
         {
             // Reset the output
             var result = "Dropped items for " + location + " location: ";
@@ -398,6 +403,7 @@ namespace Game.Engine.EngineGame
 
             EngineSettings.BattleMessagesModel.DroppedMessage = result;
             Debug.WriteLine(result);
+            return result;
         }
 
         /// <summary>
