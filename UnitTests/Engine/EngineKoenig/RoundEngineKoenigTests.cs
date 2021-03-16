@@ -24,6 +24,8 @@ namespace UnitTests.Engine.EngineKoenig
 
             //Start the Engine in AutoBattle Mode
             Engine.StartBattle(true);
+
+            BattleEngineViewModel.Instance.SetBattleEngineToKoenig();
         }
 
         [TearDown]
