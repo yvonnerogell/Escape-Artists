@@ -3,7 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Game.Views.AutoBattlePage"
              >
-
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Settings" Clicked="Settings_Clicked" IconImageSource="icon_settings.png"/>
+        <ToolbarItem Text="Exit" Clicked="ExitButton_Clicked" IconImageSource="icon_cancel.png"/>
+    </ContentPage.ToolbarItems>
+    
     <ContentPage.Content>
         <StackLayout >
 

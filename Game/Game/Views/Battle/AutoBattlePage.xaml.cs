@@ -6,6 +6,7 @@ using Xamarin.Forms.Xaml;
 using Game.Models;
 using Game.ViewModels;
 using Game.Engine.EngineInterfaces;
+using System.Threading.Tasks;
 
 namespace Game.Views
 {
@@ -17,6 +18,13 @@ namespace Game.Views
 	{
 		// Hold the Engine, so it can be swapped out for unit testing
 		public IAutoBattleInterface AutoBattle = BattleEngineViewModel.Instance.AutoBattleEngine;
+
+
+		// Variable for unit testing purposes
+		public bool UnitTestSetting;
+
+		// Empty Constructor for UTs
+		public AutoBattlePage(bool UnitTest) { UnitTestSetting = UnitTest; }
 
 		/// <summary>
 		/// Constructor
@@ -81,6 +89,49 @@ namespace Game.Views
 			BattleMessageValue.Text = BattleMessage;
 
 			AutobattleImage.Source = "running.gif";
+		}
+
+		/// <summary>
+		/// Settings Page
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		public async void Settings_Clicked(object sender, EventArgs e)
+		{
+			await ShowBattleSettingsPage();
+		}
+
+		/// <summary>
+		/// Show Settings
+		/// </summary>
+		public async Task ShowBattleSettingsPage()
+		{
+			ShowBattleMode();
+			await Navigation.PushModalAsync(new BattleSettingsPage());
+		}
+
+		/// <summary>
+		/// Show the proper Battle Mode
+		/// </summary>
+		public void ShowBattleMode()
+		{
+			// If running in UT mode, 
+			if (UnitTestSetting)
+			{
+				return;
+			}
+		}
+
+		/// <summary>
+		/// Battle Over, so Exit Button
+		/// Need to show this for the user to click on.
+		/// The Quit does a prompt, exit just exits
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		public void ExitButton_Clicked(object sender, EventArgs e)
+		{
+			Navigation.PopAsync();
 		}
 	}
 }
