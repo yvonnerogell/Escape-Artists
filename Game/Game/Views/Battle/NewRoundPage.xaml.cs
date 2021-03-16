@@ -57,7 +57,7 @@ namespace Game.Views
         public async void BeginSimpleButton_Clicked(object sender, EventArgs e)
 		{
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.BattleModeEnum = BattleModeEnum.SimpleNext;
-            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Battling;
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.NewRound;
             if (nextPlayer.PlayerType == PlayerTypeEnum.Character)
 			{
                 await Navigation.PushAsync(new BattlePageTwo());
@@ -65,13 +65,40 @@ namespace Game.Views
             if (nextPlayer.PlayerType == PlayerTypeEnum.Monster)
 			{
                 EngineViewModel.Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
-                EngineViewModel.Engine.Round.RoundNextTurn();
+                var RoundCondition = EngineViewModel.Engine.Round.RoundNextTurn();
+                var result = SetBattleStateEnum(RoundCondition);
                 await Navigation.PushAsync(new BattlePageOne());
             }
             if (Navigation.NavigationStack.Count > 2)
             {
                 Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
             }
+        }
+
+        /// <summary>
+        /// Sets the battle state enum depending on the RoundCOndition
+        /// </summary>
+        /// <param name="RoundCondition"></param>
+        /// <returns></returns>
+        public bool SetBattleStateEnum(RoundEnum RoundCondition)
+        {
+            switch (RoundCondition)
+            {
+                case RoundEnum.GameOver:
+                case RoundEnum.GraduationCeremony:
+                    BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.GameOver;
+                    break;
+                case RoundEnum.NewRound:
+                    BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.NewRound;
+                    break;
+                case RoundEnum.NextTurn:
+                    BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Battling;
+                    break;
+                default:
+                    BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Unknown;
+                    break;
+            }
+            return true;
         }
 
         /// <summary>
