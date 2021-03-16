@@ -60,10 +60,9 @@ namespace UnitTests.Views
             // Assert
             Assert.IsNotNull(result);
         }
-
-        
+        /*
         [Test]
-        public void NewRoundPage_BeginGridButton_Clicked_Default_Should_Pass()
+        public void NewRoundPage_BeginGridButton_Clicked_Navigation_Should_Pass()
         {
             // Arrange
             NewRoundPage page1 = new NewRoundPage();
@@ -71,16 +70,20 @@ namespace UnitTests.Views
             page1.Navigation.PushAsync(new HomePage());
             page1.Navigation.PushAsync(new GamePage());
             page1.Navigation.PushAsync(new PickCharactersPage());
+            // Put seed data into the system for all tests
+            BattleEngineViewModel.Instance.Engine.Round.ClearLists();
 
             // Act
             page1.BeginGridButton_Clicked(null, null);
 
             // Reset
-
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
-        
+        */
         [Test]
         public void NewRoundPage_BeginSimpleButton_Clicked_NextPlayer_Character_Should_Pass()
         {
