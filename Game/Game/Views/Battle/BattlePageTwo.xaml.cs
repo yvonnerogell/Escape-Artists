@@ -36,16 +36,6 @@ namespace Game.Views
         public bool UnitTestSetting;
         public BattlePageTwo(bool UnitTest) { UnitTestSetting = UnitTest; }
 
-        // list of monsters found in the frame
-        //public List<PlayerInfoModel> monstersFoundList = new List<PlayerInfoModel>();
-
-        // selecting the monster of that turn
-        //   public List<PlayerInfoModel> selectedMonsters = new List<PlayerInfoModel>();
-        //public PlayerInfoModel currentDefender = new PlayerInfoModel(new MonsterModel());
-
-        // selecting the item of that turn
-        //public List<ItemModel> selectedItems = new List<ItemModel>();
-
         /// <summary>
         /// Constructor
         /// </summary>
@@ -59,44 +49,18 @@ namespace Game.Views
             // Set up the UI to Defaults
             BindingContext = BattleEngineViewModel.Instance;
 
-            // TODO for team: remove this once we are ready to use our own battle engine.
-            //BattleEngineViewModel.Instance.SetBattleEngineToKoenig();
-
             PopupLoadingItemListFoundFrame.IsVisible = false;
             MonsterFrame.IsVisible = false;          
             PopupMonsterListSelected.IsVisible = false;
             PopupItemListSelected.IsVisible = false;
-            //PopupAbilityApplied.IsVisible = false;
             ActionSelectedPicker.IsEnabled = true;
             ApplyAbilityButton.IsVisible = false;
-            //PopupCharacterListSelected.IsVisible = false;
-            //PopupLoadingViewMonster.IsVisible = false;
 
             // Start with the CharacterList only
             DrawCharacterList();
 
             DrawActionList();
            
-            // Create and Draw the Map
-            // InitializeMapGrid();
-
-            // Start the Battle Engine
-            // BattleEngineViewModel.Instance.Engine.StartBattle(false);
-
-            // Populate the UI Map
-            // DrawMapGridInitialState();
-
-            // Ask the Game engine to select who goes first
-            //BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
-
-            //var currentAttacker = ;
-            //var currentDefender = null;
-
-            // Add Players to DisplayViewModel.Data.PlayerType = PlayerTypeEnum.Character;
-            // DrawGameAttackerDefenderBoard();
-
-            // Set the Battle Mode
-            // ShowBattleMode();
         }
         /// <summary>
         /// Settings Page
@@ -127,19 +91,6 @@ namespace Game.Views
             {
                 return;
             }
-
-            //HideUIElements();
-
-            //ClearMessages();
-
-            //DrawPlayerBoxes();
-
-            // Update the Mode
-            //BattleModeValue.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.BattleModeEnum.ToMessage();
-
-            //            ShowBattleModeDisplay();
-
-            //          ShowBattleModeUIElements();
         }
 
         public void DrawActionList()
@@ -166,31 +117,6 @@ namespace Game.Views
             CharacterTextLabel.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.SpecificCharacterTypeEnum + " " +
                                       BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Name;
             BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.AttackItem = null;
-
-
-            /*
-
-            // Clear and Populate the Characters remaining
-            var FlexList = CharacterListFrame.Children.ToList();
-            foreach (var data in FlexList)
-            {
-                CharacterListFrame.Children.Remove(data);
-            }
-
-            // Draw the Characters
-            //foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList)
-            //{
-            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker!= null) 
-            { 
-                if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Level != 20)
-                    {
-                        CharacterListFrame.Children.Add(GetCharacterToDisplay(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker));
-                    CharacterTextLabel.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Name;
-                    }
-            }
-            // making sure that the character is not clickable
-            CharacterListFrame.IsEnabled = false;
-            */
         }
 
         /// <summary>
@@ -247,9 +173,6 @@ namespace Game.Views
                 }
             }
 
-            //List<PlayerInfoModel> eligible_character_list = new List<PlayerInfoModel>();
-            //eligible_character_list.Add(BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker);
-
             // Choosing among all the items a character has
             foreach (var data in allPotentialItems)
             {
@@ -277,29 +200,6 @@ namespace Game.Views
             AttackItemImage.Source = attackItem.ImageURI;
             AttackItemTextLabel.Text = attackItem.Name;
             PopupItemListSelected.IsVisible = true;
-
-            /*
-            
-            // Clear and Populate the Dropped Items
-            var FlexList = ItemListSelectedFrame.Children.ToList();
-            foreach (var data in FlexList)
-            {
-                ItemListSelectedFrame.Children.Remove(data);
-            }
-
-            foreach (var data in selectedItems)
-            {
-                ItemListSelectedFrame.Children.Add(GetItemToDisplay(data));
-                // selected item is visible
-                PopupLoadingItemListFoundFrame.IsVisible = false;
-                // other item frames are invisible
-                PopupLoadingViewItem.IsVisible = false;
-                PopupItemListSelected.IsVisible = true;
-                // selected item is not clickable
-                PopupItemListSelected.IsEnabled = false;                
-                break;
-            }
-            */
         }
 
 
@@ -357,23 +257,7 @@ namespace Game.Views
         /// <param name="data"></param>
         /// <returns></returns>
         public bool ShowPopupItem(object sender, EventArgs args, ItemModel data)
-        {
-            /*
-            var button = sender as ImageButton;
-
-            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.AttackItem != null)
-            {
-                BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.AttackItem = null;
-                button.BackgroundColor = Color.Transparent;
-            }
-
-            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.AttackItem == null)
-            {
-                BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.AttackItem = data.Id;
-                button.BackgroundColor = Color.Green;
-            }
-            */
-            
+        {   
             PopupLoadingViewItem.IsVisible = true;
             PopupItemImage.Source = data.ImageURI;
 
@@ -389,6 +273,7 @@ namespace Game.Views
             return true;
         }
 
+        /*
         /// <summary>
         /// Find the characters who can accept the item
         /// </summary>
@@ -485,6 +370,7 @@ namespace Game.Views
 
             return result;
         }
+        */
 
         /// Close the popup
         /// </summary>
@@ -502,31 +388,9 @@ namespace Game.Views
         /// <param name="e"></param>
         public void PopupSaveButtonItem_Clicked(object sender, EventArgs e)
         {
-            var itemId = "";   
-            itemId = ((Button)sender).CommandParameter.ToString();
-            //var item = ItemIndexViewModel.Instance.GetItem(itemId);
+            string itemId = ((Button)sender).CommandParameter.ToString();
             BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.AttackItem = itemId;
-
-                //var itemLocation = ItemTypeEnumHelper.GetLocationFromItemType(item.ItemType);
-
-            // Add item to the one selected character
-            //var player = BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList[0];
-            //    player = AddItemToCharacter(player, itemLocation, item);
-         
-                 // Remove item from dropped list and add to selected item list. 
-               //   var itemIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.FindIndex(i => i.Name == (string)item.Name);
-               //   BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.RemoveAt(itemIndex);
-                    //BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelSelectList.Add(item);
-                    //selectedItems.Add(item);
-                    // Add updated player back to view model
-                //    BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(player);
-                
-                           
-                DrawSelectedItem();
-
-                // visibility after the click
-               // PopupLoadingViewItem.IsVisible = false;
-               // PopupItemListSelected.IsVisible = true;
+            DrawSelectedItem();
         }
 
         /// <summary>
@@ -548,22 +412,7 @@ namespace Game.Views
 
             // Defualt Image is the Plus
             var ClickableButton = true;
-            
-            // translating a PlayerInfoModel to a MonsterModel
-            /*
-            MonsterModel data = new MonsterModel { Name = monster.Name,
-            ImageURI = monster.ImageURI, Alive = monster.Alive, Attack = monster.Attack,
-            Defense = monster.Defense, Description = monster.Description, CurrentHealth = monster.CurrentHealth,
-            Difficulty = monster.Difficulty, CharacterTypeEnum = monster.CharacterTypeEnum, ExperienceTotal = monster.ExperienceTotal,
-            ExperienceRemaining = monster.ExperienceRemaining, BuffAttackValue = monster.BuffAttackValue,
-            BuffDefenseValue = monster.BuffDefenseValue, BuffHealthValue = monster.BuffHealthValue, BuffSpeedValue = monster.BuffSpeedValue,
-            Head = monster.Head, Feet = monster.Feet, RightFinger = monster.RightFinger, LeftFinger = monster.LeftFinger,
-            OffHand = monster.OffHand, PrimaryHand = monster.PrimaryHand, Id = monster.Id, Guid = monster.Guid,
-            Level = monster.Level, MonsterTypeEnum = monster.MonsterTypeEnum, SpecificMonsterTypeEnum = monster.SpecificMonsterTypeEnum,
-            Speed = monster.Speed, Range = monster.Range, Necklace = monster.Necklace, MaxHealth = monster.MaxHealth,
-            PlayerType = monster.PlayerType, UniqueDropItem = monster.UniqueDropItem, Order = monster.Order,
-            ListOrder = monster.ListOrder, TileImageURI = monster.TileImageURI, Job = monster.Job};
-            */
+
             // Hookup the Image Button to show the Monster picture
             var MonsterButton = new ImageButton
             {
@@ -629,21 +478,6 @@ namespace Game.Views
             DefenderImage.Source = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender.TileImageURI;
             DefenderTextLabel.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender.SpecificMonsterTypeEnum + " " +
                                       BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender.Name;
-
-            /*
-            if (currentDefender != null)
-            {
-                // Draw the selected current Defender for display
-                if (currentDefender.Level != 20)
-                {
-                    // Set Monster it as defender
-                    MonsterListSelectedFrame.Children.Add(GetMonsterToDisplay(currentDefender));
-                    PopupMonsterListSelected.IsVisible = true;
-                    PopupMonsterListSelected.IsEnabled = false;
-                    MonsterFrame.IsVisible = false;
-                }
-            }
-            */
         }
 
 
@@ -687,33 +521,6 @@ namespace Game.Views
             monsterId = ((Button)sender).CommandParameter.ToString();
             PlayerInfoModel currentDefender = BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Find(m => m.Id.Equals(monsterId));
             BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = currentDefender;
-
-            /*
-                foreach (var data in BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList)
-                {
-                    if (data.Name.Equals(monsterName))
-                    {
-                        // set current defender
-                        currentDefender = data;
-                //BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(currentDefender);
-                        BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = currentDefender;
-                        //ContinueButton.IsEnabled = true;
-                        break;
-                    }
-                }
-            */
-            //var monster = MonsterIndexViewModel.Instance.GetMonsterByName(monsterName);
-            //PlayerInfoModel player = new PlayerInfoModel(monster);
-
-            //   var MonsterFoundIndex = BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.FindIndex(c => c.Name == currentDefender.Name);
-            //    if (MonsterFoundIndex >= 0)
-            //    {
-            //        BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.RemoveAt(MonsterFoundIndex);
-            //    }
-
-
-            //   }
-            //DrawMonsterList();
             DrawSelectedMonsters();
 
             // visibility after the click
@@ -771,8 +578,6 @@ namespace Game.Views
             {
                 ApplyAttackButton.IsVisible = false;
                 ApplyAbilityButton.IsVisible = true;
-                // this is important to avoid going back and forth
-                //ActionSelectedPicker.IsEnabled = false;
                 MonsterFrame.IsVisible = false;
                 MonsterListFrame.IsVisible = false;
                 ItemListFoundFrame.IsVisible = false;
@@ -785,47 +590,8 @@ namespace Game.Views
                 DrawMonsterList();
                 
                 ApplyAttackButton.IsVisible = true;
-                // this is important to avoid going back and forth
-                //ActionSelectedPicker.IsEnabled = false;
             }
-
-            /*
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = action;
-
-            if (action == ActionEnum.Attack)
-            {
-                ContinueButton.IsEnabled = false;
-                DrawMonsterList();
-                DrawItems();    
-                // this is important to avoid going back and forth
-                ActionSelectedPicker.IsEnabled = false;
-                ContinueButton.IsEnabled = true;
-            }
-            // allows user to continue only if there is an ability
-            else if (action == ActionEnum.Ability)
-            {
-                if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType == PlayerTypeEnum.Character &
-               BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.IsSpecialAbilityAvailable())
-                {
-                    PopupAbilityApplied.IsVisible = true;
-                    // this is important to avoid going back and forth
-                    ActionSelectedPicker.IsEnabled = false;
-                    ContinueButton.IsEnabled = true;
-                }
-                else
-                {
-                    ContinueButton.IsEnabled = false;
-                }
-    
-            }
-            // if attack or action are not selected, then the user cannot continue
-            else
-            {
-                ContinueButton.IsEnabled = false;
-            }
-            */
         }
-
 
         /// <summary>
         /// Battle Over, so Exit Button
