@@ -56,28 +56,22 @@ namespace Game.Views
         /// <param name="e"></param>
         public async void BeginSimpleButton_Clicked(object sender, EventArgs e)
 		{
-            //await Navigation.PopModalAsync();
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleSettingsModel.BattleModeEnum = BattleModeEnum.SimpleNext;
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.Battling;
             if (nextPlayer.PlayerType == PlayerTypeEnum.Character)
 			{
-                //await Navigation.PushModalAsync(new BattlePageTwo());
                 await Navigation.PushAsync(new BattlePageTwo());
-                //await Navigation.PushModalAsync(new NavigationPage(new BattlePageTwo()));
             }
             if (nextPlayer.PlayerType == PlayerTypeEnum.Monster)
 			{
                 EngineViewModel.Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
                 EngineViewModel.Engine.Round.RoundNextTurn();
-                //await Navigation.PushModalAsync(new BattlePageOne());
                 await Navigation.PushAsync(new BattlePageOne());
-                //await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
             }
             if (Navigation.NavigationStack.Count > 2)
             {
                 Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
             }
-            //await Navigation.PopAsync();
         }
 
         /// <summary>
