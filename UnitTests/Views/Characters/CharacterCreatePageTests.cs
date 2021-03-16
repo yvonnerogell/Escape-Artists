@@ -149,7 +149,7 @@ namespace UnitTests.Views
         {
             // Arrange
             ItemIndexViewModel.Instance.Dataset.Clear();
-            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Location = ItemLocationEnum.Finger });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Location = ItemLocationEnum.LeftFinger });
 
             var character = new CharacterModel();
             character.PrimaryHand = ItemIndexViewModel.Instance.GetLocationItems(ItemLocationEnum.LeftFinger).First().Id;
@@ -233,7 +233,7 @@ namespace UnitTests.Views
         {
             // Arrange
             ItemIndexViewModel.Instance.Dataset.Clear();
-            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Location = ItemLocationEnum.Finger });
+            await ItemIndexViewModel.Instance.CreateAsync(new ItemModel { Location = ItemLocationEnum.RightFinger });
 
             var character = new CharacterModel();
             character.PrimaryHand = ItemIndexViewModel.Instance.GetLocationItems(ItemLocationEnum.RightFinger).First().Id;
