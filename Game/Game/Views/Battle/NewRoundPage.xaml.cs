@@ -43,7 +43,7 @@ namespace Game.Views
 			}
 
             // If this is the first round, no need to start a new round (was started on previous page by calling StartBattle)
-            if (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.RoundCount > 1)
+            if (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum == BattleStateEnum.NewRound)
 			{
                 BattleEngineViewModel.Instance.Engine.Round.NewRound();
             }

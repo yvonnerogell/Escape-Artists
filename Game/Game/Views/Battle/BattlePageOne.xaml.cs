@@ -256,6 +256,8 @@ namespace Game.Views
             if (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum == BattleStateEnum.GameOver)
             {
                 Debug.WriteLine("Battle State on BattlePageOne: BattleStateEnum.GameOver.");
+                // End the battle here
+                BattleEngineViewModel.Instance.Engine.EndBattle();
                 await Navigation.PushAsync(new GameOverPage());
             }
             if (Navigation.NavigationStack.Count > 2)

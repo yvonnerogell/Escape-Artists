@@ -463,23 +463,20 @@ namespace Game.Views
 		}
 
         /// <summary>
-        /// Closes the Round Over Popup
-        /// 
-        /// Launches the Next Round Popup
-        /// 
-        /// Resets the Game Round
+        /// Goes to the new round page. 
         /// 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public void CloseButton_Clicked(object sender, EventArgs e)
+        public async void NextRoundButton_Clicked(object sender, EventArgs e)
 		{
-            // Reset to a new Round
-            BattleEngineViewModel.Instance.Engine.Round.NewRound();
-
-            // Show the New Round Screen
-            ShowModalNewRoundPage();
-		}
+            BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.NewRound;
+            await Navigation.PushAsync(new NewRoundPage());
+            if (Navigation.NavigationStack.Count > 2)
+            {
+                Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            }
+        }
 
         /// <summary>
         /// Navigates to the GameOverPage. This is a temporary button until the battle engine has been implemented.
@@ -514,17 +511,5 @@ namespace Game.Views
 			}
             return null;
 		}
-
-        /// <summary>
-        /// Show the Page for New Round
-        /// 
-        /// Upcomming Monsters
-        /// 
-        /// </summary>
-        public async void ShowModalNewRoundPage()
-        {
-            //await Navigation.PopModalAsync();
-            await Navigation.PopAsync();
-        }
     }
 }
