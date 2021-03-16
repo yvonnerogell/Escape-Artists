@@ -170,7 +170,7 @@ namespace UnitTests.Views
             //BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Clear();
         }
 
-        /*
+        
         [Test]
         public void PopupCloseButtonItem_Clicked_Default_Should_Pass()
         {
@@ -288,21 +288,7 @@ namespace UnitTests.Views
             // Assert
             Assert.IsNotNull(result); // Got to here, so it happened...
         }
-*/
-/*
-        [Test]
-        public void PopupCloseButtonCharacter_Clicked_Default_Should_Pass()
-        {
-            // Act
-            page.ClosePopupCharacter_Clicked(null, null);
 
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
- */  
-/*
         [Test]
         public void PopupCloseButtonMonster_Clicked_Default_Should_Pass()
         {
@@ -329,40 +315,8 @@ namespace UnitTests.Views
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
         }
+ 
 
-        [Test]
-        public void DrawCharacterList_Remove_Should_Pass()
-        {
-            BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = null;
-            FlexLayout characterlistframe = (FlexLayout)page.Content.FindByName("CharacterListFrame");
-
-            // add two elements to the list because when will be removed
-            characterlistframe.Children.Add(new FlexLayout());
-            characterlistframe.Children.Add(new FlexLayout());
-
-            // Act
-            page.DrawCharacterList();
-
-            // Reset
-            // Assert
-            Assert.IsTrue(true);
-            Assert.AreEqual(0, characterlistframe.Children.Count);
-        }
-
-        /*
-                [Test]
-                public void DrawSelectedCharacters_Default_Should_Pass()
-                {
-                    // Act
-                    page.DrawSelectedCharacters();
-
-                    // Reset
-
-                    // Assert
-                    Assert.IsTrue(true); // Got to here, so it happened...
-                }
-        */
-/*
         [Test]
         public void DrawCharacterList_AddRemove_Should_Pass()
         {
@@ -379,7 +333,6 @@ namespace UnitTests.Views
 
             // Reset
         }
-*/
 /*
         [Test]
         public void DrawSelectedCharacters_AddRemove_Should_Pass()
