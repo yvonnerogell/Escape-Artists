@@ -243,6 +243,8 @@ namespace UnitTests.Views
             page.DrawGameAttackerDefenderBoard();
 
             // Reset
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(null);
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
@@ -262,6 +264,8 @@ namespace UnitTests.Views
             page.DrawGameAttackerDefenderBoard();
 
             // Reset
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(null);
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
@@ -281,6 +285,8 @@ namespace UnitTests.Views
             page.DrawGameAttackerDefenderBoard();
 
             // Reset
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(null);
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
@@ -298,6 +304,8 @@ namespace UnitTests.Views
             page.DrawGameAttackerDefenderBoard();
 
             // Reset
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(null);
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
@@ -321,6 +329,8 @@ namespace UnitTests.Views
 
             // Reset
             BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PrimaryHand = oldItem;
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(null);
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
@@ -362,6 +372,7 @@ namespace UnitTests.Views
             // Reset
             BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
             BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Clear();
         }
 
         [Test]
@@ -401,6 +412,7 @@ namespace UnitTests.Views
             // Reset
             BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
             BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Clear();
         }
 
         [Test]
@@ -439,6 +451,7 @@ namespace UnitTests.Views
             // Reset
             BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
             BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Clear();
         }
 
         [Test]
@@ -460,6 +473,7 @@ namespace UnitTests.Views
             page.NextAttackExample();
 
             // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Clear();
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
@@ -563,6 +577,7 @@ namespace UnitTests.Views
             // Reset
             BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
             BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Clear();
         }
 
 
@@ -606,6 +621,7 @@ namespace UnitTests.Views
             // Reset
             BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(null);
             BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Clear();
         }
 
         [Test]
@@ -645,6 +661,7 @@ namespace UnitTests.Views
             // Reset
             BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(null);
             BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Clear();
         }
 
         [Test]
@@ -687,6 +704,7 @@ namespace UnitTests.Views
             // Reset
             BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(null);
             BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Clear();
         }
 
         [Test]
@@ -729,6 +747,7 @@ namespace UnitTests.Views
             // Reset
             BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(null);
             BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Clear();
         }
 
         [Test]
@@ -787,6 +806,7 @@ namespace UnitTests.Views
             // Reset
             BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(null);
             BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Clear();
         }
 
         [Test]
@@ -843,6 +863,7 @@ namespace UnitTests.Views
             page.SetAttackerAndDefender();
 
             // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Clear();
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
@@ -891,6 +912,7 @@ namespace UnitTests.Views
             BattleEngineViewModel.Instance.Engine.Round.SetCurrentDefender(null);
             BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
             BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Clear();
         }
 
         [Test]
@@ -946,6 +968,7 @@ namespace UnitTests.Views
             page.SetAttackerAndDefender();
 
             // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Clear();
 
             // Assert
             Assert.IsTrue(true); // Got to here, so it happened...
@@ -1008,7 +1031,9 @@ namespace UnitTests.Views
             var result = page.SetSelectedMonster(data);
 
             // Reset
-            
+
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Clear();
+
             // Assert
             Assert.AreEqual(true, result);      // Got to here, so it happened...
         }
@@ -1121,6 +1146,7 @@ namespace UnitTests.Views
             page.UpdateMapGrid();
 
             // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Clear();
 
             // Assert
             Assert.AreEqual(true, result); // Got to here, so it happened...
@@ -1411,6 +1437,7 @@ namespace UnitTests.Views
             ((ImageButton)dataImage).PropagateUpClicked();
 
             // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Clear();
 
             // Assert
             Assert.IsTrue(true); // Got Here
@@ -1440,6 +1467,7 @@ namespace UnitTests.Views
             ((ImageButton)dataImage).PropagateUpClicked();
 
             // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Clear();
 
             // Assert
             Assert.IsTrue(true); // Got Here
