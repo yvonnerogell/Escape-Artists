@@ -441,7 +441,6 @@ namespace Game.Views
             BattleEngineViewModel.Instance.Engine.Round.RoundNextTurn();
             // Moving on to next turn, and navigating to BattlePageOne
             await Navigation.PushAsync(new BattlePageOne());
-            //await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
             if (Navigation.NavigationStack.Count > 2)
             {
                 Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
@@ -458,7 +457,6 @@ namespace Game.Views
 
             // Moving on to next turn, and navigating to BattlePageOne
             await Navigation.PushAsync(new BattlePageOne());
-            //await Navigation.PushModalAsync(new NavigationPage(new BattlePageOne()));
             if (Navigation.NavigationStack.Count > 2)
             {
                 Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
