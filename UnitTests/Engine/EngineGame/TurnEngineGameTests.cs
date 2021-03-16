@@ -1157,5 +1157,30 @@ namespace UnitTests.Engine.EngineGame
             // Assert
             Assert.AreEqual(false, result);
         }
+
+        [Test]
+        public void TurnEngine_MoveAsTurn_Valid_Character_Should_Pass()
+        {
+            // Arrange
+            Engine.EngineSettings.PlayerList.Clear();
+
+            var CharacterPlayer = new PlayerInfoModel(new CharacterModel { Job = CharacterJobEnum.Cleric });
+
+            Engine.EngineSettings.PlayerList.Add(CharacterPlayer);
+
+            Engine.EngineSettings.MapModel.PopulateMapModel(Engine.EngineSettings.PlayerList);
+
+            Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
+            Engine.EngineSettings.BattleScore.AutoBattle = true;
+
+            // Act
+            var result = Engine.Round.Turn.MoveAsTurn(CharacterPlayer);
+
+            // Reset
+            Engine.EngineSettings.PlayerList.Clear();
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
     }
 }
