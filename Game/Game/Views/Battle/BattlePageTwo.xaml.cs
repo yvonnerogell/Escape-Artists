@@ -436,33 +436,6 @@ namespace Game.Views
             var RoundCondition = BattleEngineViewModel.Instance.Engine.Round.RoundNextTurn();
             SetBattleStateEnum(RoundCondition);
 
-            Debug.WriteLine("Apply attack clicked - BattlePage Two");
-            Debug.WriteLine("Current attacker: " + BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker);
-            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker != null)
-            {
-                Debug.WriteLine("Current attacker name: " + BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Name);
-                Debug.WriteLine("Current attacker level: " + BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Level);
-                Debug.WriteLine("Current attacker health: " + BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.CurrentHealth);
-                Debug.WriteLine("Current attacker alive: " + BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.Alive);
-                Debug.WriteLine("Current attacker player type: " + BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker.PlayerType);
-            }
-            Debug.WriteLine("Current defender: " + BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender);
-            if (BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender != null)
-            {
-                Debug.WriteLine("Current defender name: " + BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender.Name);
-                Debug.WriteLine("Current defender level: " + BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender.Level);
-                Debug.WriteLine("Current defender health: " + BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender.CurrentHealth);
-                Debug.WriteLine("Current defender alive: " + BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender.Alive);
-                Debug.WriteLine("Current defender player type: " + BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender.PlayerType);
-            }
-            Debug.WriteLine("Battle state enum: " + BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum);
-            Debug.WriteLine("Current action: " + BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction);
-            Debug.WriteLine("Round count: " + BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.RoundCount);
-            Debug.WriteLine("Turn count: " + BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.TurnCount);
-            Debug.WriteLine("Character list count: " + BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Count);
-            Debug.WriteLine("Monster list count: " + BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Count);
-            Debug.WriteLine("player list count: " + BattleEngineViewModel.Instance.Engine.EngineSettings.PlayerList.Count);
-
             // Moving on to next turn, and navigating to BattlePageOne
             await Navigation.PushAsync(new BattlePageOne());
             if (Navigation.NavigationStack.Count > 2)

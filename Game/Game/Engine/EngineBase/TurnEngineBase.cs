@@ -96,7 +96,6 @@ namespace Game.Engine.EngineBase
                 }
             }
 
-            Debug.WriteLine("Current action: " + EngineSettings.CurrentAction);
             switch (EngineSettings.CurrentAction)
             {
                 //case ActionEnum.Unknown:
@@ -387,24 +386,14 @@ namespace Game.Engine.EngineBase
         /// <returns></returns>
         public virtual PlayerInfoModel SelectCharacterToAttack()
         {
-            Debug.WriteLine("Selecting character to attack for " + EngineSettings.CurrentAttacker);
-            Debug.WriteLine("Player list count == " + EngineSettings.PlayerList.Count);
             if (EngineSettings.PlayerList == null)
             {
-                Debug.WriteLine("Player list was null.");
                 return null;
             }
 
             if (EngineSettings.PlayerList.Count < 1)
             {
-                Debug.WriteLine("Player list was is < 1.");
                 return null;
-            }
-
-            Debug.WriteLine("Player list content:");
-            foreach (var player in EngineSettings.PlayerList)
-			{
-                Debug.WriteLine(player.Name + " " + player.PlayerType + " Alive? " + player.Alive);
             }
 
             // TODO: Teams, You need to implement your own Logic can not use mine.
@@ -412,7 +401,6 @@ namespace Game.Engine.EngineBase
                 .Where(m => m.Alive && m.PlayerType == PlayerTypeEnum.Character)
                 .OrderBy(m => m.ListOrder).FirstOrDefault();
 
-            Debug.WriteLine("Player list count == " + EngineSettings.PlayerList.Count);
             
             return Defender;
         }
