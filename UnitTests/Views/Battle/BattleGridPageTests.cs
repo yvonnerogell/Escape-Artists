@@ -365,6 +365,45 @@ namespace UnitTests.Views
         }
 
         [Test]
+        public void BattlePage_NextAttackExample_NewRound_1_Should_Pass()
+        {
+            // Arrange
+
+            page.nextPlayer = new PlayerInfoModel(
+                new CharacterModel
+                {
+                    Speed = -1,
+                    Level = 10,
+                    CurrentHealth = 11,
+                    ExperienceTotal = 1,
+                    ExperienceRemaining = 1,
+                    Name = "Mike",
+                    ListOrder = 1,
+                    PlayerType = PlayerTypeEnum.Character
+                });
+
+            //  BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(CharacterPlayer);           
+            BattleEngineViewModel.Instance.Engine.Round.SetCurrentAttacker(page.nextPlayer);
+
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(new CharacterModel { PlayerType = PlayerTypeEnum.Character }));
+
+            BattleEngineViewModel.Instance.Engine.Round.MakePlayerList();
+
+            // Has no monster, so should show new round.
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
+
+            // Act
+            page.NextAttackExample();
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+
+            // Reset
+            BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Clear();
+            BattleEngineViewModel.Instance.Engine.EngineSettings.MonsterList.Clear();
+        }
+
+        [Test]
         public void BattlePage_NextAttackExample_NextRound_2_Should_Pass()
         {
             // Arrange
