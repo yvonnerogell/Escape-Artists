@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Game.Engine.EngineBase;
 using Game.Engine.EngineInterfaces;
@@ -7,6 +8,8 @@ using Game.Engine.EngineModels;
 using Game.GameRules;
 using Game.Helpers;
 using Game.Models;
+using Game.Services;
+using Game.ViewModels;
 
 namespace Game.Engine.EngineGame
 {
@@ -206,6 +209,11 @@ namespace Game.Engine.EngineGame
         /// </summary>
         public override bool EndRound()
         {
+            if (EngineSettings.BattleSettingsModel.AmazonSameBattleDelivery)
+            {
+                GetAmazonSameBattleDeliveryItems();
+            }
+
             // In Auto Battle this happens and the characters get their items, In manual mode need to do it manualy
             if (EngineSettings.BattleScore.AutoBattle)
             {
@@ -216,6 +224,222 @@ namespace Game.Engine.EngineGame
             ClearLists();
 
             return true;
+        }
+
+        /// <summary>
+        /// Method to make service call to get items for Amazon Same Battle Delivery
+        /// 1. first checks if there's any items needed for empty locations
+        /// 2. if no empty location then get better items
+        /// </summary>
+        public async void GetAmazonSameBattleDeliveryItems()
+        {
+            //Get items of character have open locations
+            int NeedHeadItemCount = GetWhatIsNeededForEmptyLocation(ItemLocationEnum.Head);
+            int NeedNecklaceItemCount = GetWhatIsNeededForEmptyLocation(ItemLocationEnum.Necklace);
+            int NeedPrimaryHandItemCount = GetWhatIsNeededForEmptyLocation(ItemLocationEnum.PrimaryHand);
+            int NeedRightFingerItemCount = GetWhatIsNeededForEmptyLocation(ItemLocationEnum.RightFinger);
+            int NeedLeftFingerItemCount = GetWhatIsNeededForEmptyLocation(ItemLocationEnum.LeftFinger);
+            int NeedFeetItemCount = GetWhatIsNeededForEmptyLocation(ItemLocationEnum.Feet);
+
+            var dataList = new List<ItemModel>();
+            var level = 3;  // Max Value of 6
+            var attribute = AttributeEnum.Unknown;  // Any Attribute
+            var location = ItemLocationEnum.Unknown;    // Any Location
+            var random = true;  // Random between 1 and Level
+            var updateDataBase = true;  // Add them to the DB
+            var category = 0;   // What category to filter down to, 0 is all
+
+            if (NeedHeadItemCount > 0)
+            {
+                location = ItemLocationEnum.Head;
+                dataList = await ItemService.GetItemsFromServerPostAsync(NeedHeadItemCount, level, attribute, location, category, random, updateDataBase);
+                EngineSettings.ItemPool.AddRange(dataList);
+                DropedItemOutput(location.ToMessage(), dataList);
+            }
+            if (NeedNecklaceItemCount > 0)
+            {
+                location = ItemLocationEnum.Necklace;
+                dataList = await ItemService.GetItemsFromServerPostAsync(NeedNecklaceItemCount, level, attribute, location, category, random, updateDataBase);
+                EngineSettings.ItemPool.AddRange(dataList);
+                DropedItemOutput(location.ToMessage(), dataList);
+            }
+            if (NeedPrimaryHandItemCount > 0)
+            {
+                location = ItemLocationEnum.PrimaryHand;
+                dataList = await ItemService.GetItemsFromServerPostAsync(NeedPrimaryHandItemCount, level, attribute, location, category, random, updateDataBase);
+                EngineSettings.ItemPool.AddRange(dataList);
+                DropedItemOutput(location.ToMessage(), dataList);
+            }
+            if (NeedRightFingerItemCount > 0)
+            {
+                location = ItemLocationEnum.RightFinger;
+                dataList = await ItemService.GetItemsFromServerPostAsync(NeedRightFingerItemCount, level, attribute, location, category, random, updateDataBase);
+                EngineSettings.ItemPool.AddRange(dataList);
+                DropedItemOutput(location.ToMessage(), dataList);
+            }
+            if (NeedLeftFingerItemCount > 0)
+            {
+                location = ItemLocationEnum.LeftFinger;
+                dataList = await ItemService.GetItemsFromServerPostAsync(NeedLeftFingerItemCount, level, attribute, location, category, random, updateDataBase);
+                EngineSettings.ItemPool.AddRange(dataList);
+                DropedItemOutput(location.ToMessage(), dataList);
+            }
+            if (NeedFeetItemCount > 0)
+            {
+                location = ItemLocationEnum.Feet;
+                dataList = await ItemService.GetItemsFromServerPostAsync(NeedFeetItemCount, level, attribute, location, category, random, updateDataBase);
+                EngineSettings.ItemPool.AddRange(dataList);
+                DropedItemOutput(location.ToMessage(), dataList);
+            }
+
+            // all locations have item, now get better items
+            if (NeedHeadItemCount == 0 &&
+                NeedNecklaceItemCount == 0 &&
+                NeedPrimaryHandItemCount == 0 &&
+                NeedRightFingerItemCount == 0 &&
+                NeedLeftFingerItemCount == 0 &&
+                NeedFeetItemCount == 0)
+            {
+                GetBetterItems();
+            }
+        }
+
+        /// <summary>
+        /// helper method to get better items if all character's locations are full
+        /// </summary>
+        public async void GetBetterItems()
+        {
+            var dataList = new List<ItemModel>();
+            var level = 3;  // Max Value of 6
+            var attribute = AttributeEnum.Unknown;  // Any Attribute
+            var location = ItemLocationEnum.Unknown;    // Any Location
+            var random = false;  // Random between 1 and Level
+            var updateDataBase = true;  // Add them to the DB
+            var category = 0;   // What category to filter down to, 0 is all
+
+            foreach (PlayerInfoModel character in EngineSettings.CharacterList)
+            {
+                if (character.CharacterTypeEnum == CharacterTypeEnum.Student && character.Head != null)
+                {
+                    location = ItemLocationEnum.Head;
+                    level = ItemIndexViewModel.Instance.GetItem(character.Head).Value + 1;
+                    dataList = await ItemService.GetItemsFromServerPostAsync(1, level, attribute, location, category, random, updateDataBase);
+                    EngineSettings.ItemPool.AddRange(dataList);
+                    DropedItemOutput(location.ToMessage(), dataList);
+                }
+                if (character.Necklace != null)
+                {
+                    location = ItemLocationEnum.Necklace;
+                    level = ItemIndexViewModel.Instance.GetItem(character.Necklace).Value + 1;
+                    dataList = await ItemService.GetItemsFromServerPostAsync(1, level, attribute, location, category, random, updateDataBase);
+                    EngineSettings.ItemPool.AddRange(dataList);
+                    DropedItemOutput(location.ToMessage(), dataList);
+                }
+                if (character.PrimaryHand != null)
+                {
+                    location = ItemLocationEnum.PrimaryHand;
+                    level = ItemIndexViewModel.Instance.GetItem(character.PrimaryHand).Value + 1;
+                    dataList = await ItemService.GetItemsFromServerPostAsync(1, level, attribute, location, category, random, updateDataBase);
+                    EngineSettings.ItemPool.AddRange(dataList);
+                    DropedItemOutput(location.ToMessage(), dataList);
+                }
+                if (character.OffHand != null)
+                {
+                    location = ItemLocationEnum.OffHand;
+                    level = ItemIndexViewModel.Instance.GetItem(character.OffHand).Value + 1;
+                    dataList = await ItemService.GetItemsFromServerPostAsync(1, level, attribute, location, category, random, updateDataBase);
+                    EngineSettings.ItemPool.AddRange(dataList);
+                    DropedItemOutput(location.ToMessage(), dataList);
+                }
+                if (character.RightFinger != null)
+                {
+                    location = ItemLocationEnum.RightFinger;
+                    level = ItemIndexViewModel.Instance.GetItem(character.RightFinger).Value + 1;
+                    dataList = await ItemService.GetItemsFromServerPostAsync(1, level, attribute, location, category, random, updateDataBase);
+                    EngineSettings.ItemPool.AddRange(dataList);
+                    DropedItemOutput(location.ToMessage(), dataList);
+                }
+                if (character.LeftFinger != null)
+                {
+                    location = ItemLocationEnum.LeftFinger;
+                    level = ItemIndexViewModel.Instance.GetItem(character.LeftFinger).Value + 1;
+                    dataList = await ItemService.GetItemsFromServerPostAsync(1, level, attribute, location, category, random, updateDataBase);
+                    EngineSettings.ItemPool.AddRange(dataList);
+                    DropedItemOutput(location.ToMessage(), dataList);
+                }
+                // only check for students and feet because parents can't hold item on feet (business rule)
+                if (character.CharacterTypeEnum == CharacterTypeEnum.Student && character.Feet != null)
+                {
+                    location = ItemLocationEnum.Feet;
+                    level = ItemIndexViewModel.Instance.GetItem(character.Feet).Value + 1;
+                    dataList = await ItemService.GetItemsFromServerPostAsync(1, level, attribute, location, category, random, updateDataBase);
+                    EngineSettings.ItemPool.AddRange(dataList);
+                    DropedItemOutput(location.ToMessage(), dataList);
+                }
+
+            }
+        }
+
+        /// <summary>
+        /// Helper method for debug output
+        /// </summary>
+        /// <param name="location"></param>
+        /// <param name="dataList"></param>
+        public void DropedItemOutput(string location, List<ItemModel> dataList)
+        {
+            // Reset the output
+            var result = "Dropped items for " + location + " location: ";
+
+            foreach (var ItemModel in dataList)
+            {
+                // Add them line by one, use \n to force new line for output display.
+                result += ItemModel.FormatOutput() + "\n";
+            }
+
+            EngineSettings.BattleMessagesModel.DroppedMessage = result;
+            Debug.WriteLine(result);
+        }
+
+        /// <summary>
+        /// Method to make service call to get items for Amazon Same Battle Delivery
+        /// </summary>
+        public int GetWhatIsNeededForEmptyLocation(ItemLocationEnum location)
+        {
+            int count = 0;
+            foreach (PlayerInfoModel character in EngineSettings.CharacterList)
+            {
+                // only check for student for head because parents can't hold item on head (business rule)
+                if (character.CharacterTypeEnum == CharacterTypeEnum.Student && location == ItemLocationEnum.Head && character.Head == null)
+                {
+                    count++;
+                }
+                if (location == ItemLocationEnum.Necklace && character.Necklace == null)
+                {
+                    count++;
+                }
+                if (location == ItemLocationEnum.PrimaryHand && character.PrimaryHand == null)
+                {
+                    count++;
+                }
+                if (location == ItemLocationEnum.OffHand && character.OffHand == null)
+                {
+                    count++;
+                }
+                if (location == ItemLocationEnum.RightFinger && character.RightFinger == null)
+                {
+                    count++;
+                }
+                if (location == ItemLocationEnum.LeftFinger && character.LeftFinger == null)
+                {
+                    count++;
+                }
+                // only check for students and feet because parents can't hold item on feet (business rule)
+                if (character.CharacterTypeEnum == CharacterTypeEnum.Student && location == ItemLocationEnum.Feet && character.Feet == null)
+                {
+                    count++;
+                }
+            }
+            return count;
         }
 
         /// <summary>
