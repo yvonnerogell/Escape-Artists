@@ -104,6 +104,9 @@ namespace Game.Engine.EngineModels
         // Variable used for debugging our hackathon scenerios
          public bool HackathonDebug { get; set; } = false;
 
+        // Variable used for debugging our Amazon Same Battle Delivery scenario for service call
+        public bool AmazonSameBattleDelivery { get; set; } = false;
+
         // Variable used to determine if game is in Seattle Winter mode (aka very slippery)
         public bool SeattleWinter { get; set; } = false;
 
