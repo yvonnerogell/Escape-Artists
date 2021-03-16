@@ -36,8 +36,6 @@ namespace UnitTests.Views
             app = new App();
             Application.Current = app;
 
-            // For now, set the engine to the Koenig Engine, change when ready 
-            //BattleEngineViewModel.Instance.SetBattleEngineToKoenig();
             BattleEngineViewModel.Instance.SetBattleEngineToGame();
 
             page = new PickCharactersPage();
@@ -96,11 +94,9 @@ namespace UnitTests.Views
         {
             // Arrange
             PickCharactersPage page1 = new PickCharactersPage();
-
             page1.Navigation.PushAsync(new HomePage());
             page1.Navigation.PushAsync(new GamePage());
             page1.Navigation.PushAsync(new GamePage());
-
 
             // Act
             page1.BattleButton_Clicked(null, null);
@@ -174,46 +170,10 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void PickCharactersPage_OnPartyCharacterItemSelected_Default_Should_Pass()
-        {
-            // Arrange
-
-            var selectedCharacter = new CharacterModel();
-
-            var selectedCharacterChangedEventArgs = new SelectedItemChangedEventArgs(selectedCharacter, 0);
-
-            // Act
-           // page.OnPartyCharacterItemSelected(null, selectedCharacterChangedEventArgs);
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-
-        [Test]
-        public void PickCharactersPage_OnPartyCharacterItemSelected_InValid_Should_Pass()
-        {
-            // Arrange
-
-            var selectedCharacterChangedEventArgs = new SelectedItemChangedEventArgs(null, 0);
-
-            // Act
-           // page.OnPartyCharacterItemSelected(null, selectedCharacterChangedEventArgs);
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-
-        [Test]
         public void PickCharactersPage_OnDatabaseCharacterItemSelected_Default_Should_Pass()
         {
             // Arrange
-
             var selectedCharacter = new CharacterModel();
-
             var selectedCharacterChangedEventArgs = new SelectedItemChangedEventArgs(selectedCharacter, 0);
 
             // Act
@@ -229,7 +189,6 @@ namespace UnitTests.Views
         public void PickCharactersPage_OnDatabaseCharacterItemSelected_InValid_Should_Pass()
         {
             // Arrange
-
             var selectedCharacterChangedEventArgs = new SelectedItemChangedEventArgs(null, 0);
 
             // Act
@@ -248,7 +207,7 @@ namespace UnitTests.Views
             // Arrange
             var characters = DefaultData.LoadData(new CharacterModel());
 
-            //add characters to the Engine
+            // Add characters to the Engine
             foreach (var character in characters)
             {
                 BattleEngineViewModel.Instance.Engine.EngineSettings.CharacterList.Add(new PlayerInfoModel(character));
