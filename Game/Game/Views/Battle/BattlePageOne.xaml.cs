@@ -230,23 +230,19 @@ namespace Game.Views
         {
             if (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum == BattleStateEnum.RoundOver)
 			{
-                Debug.WriteLine("Battle State on BattlePageOne: BattleStateEnum.RoundOver.");
                 await Navigation.PushAsync(new RoundOverPage());
             }
             if (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum == BattleStateEnum.Battling)
             {
-                Debug.WriteLine("Battle State on BattlePageOne: BattleStateEnum.Battling.");
                 BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentDefender = null;
                 nextPlayer = BattleEngineViewModel.Instance.Engine.Round.GetNextPlayerTurn();
                 BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAttacker = nextPlayer;
                 if (nextPlayer.PlayerType == PlayerTypeEnum.Character)
                 {
-                    Debug.WriteLine("Next player is character: " + nextPlayer.Name);
                     await Navigation.PushAsync(new BattlePageTwo());
                 }
                 if (nextPlayer.PlayerType == PlayerTypeEnum.Monster)
                 {
-                    Debug.WriteLine("Next player is monster: " + nextPlayer.Name);
                     BattleEngineViewModel.Instance.Engine.EngineSettings.CurrentAction = ActionEnum.Unknown;
                     var RoundCondition = BattleEngineViewModel.Instance.Engine.Round.RoundNextTurn();
                     var result = SetBattleStateEnum(RoundCondition);
@@ -255,15 +251,29 @@ namespace Game.Views
             }
             if (BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum == BattleStateEnum.GameOver)
             {
-                Debug.WriteLine("Battle State on BattlePageOne: BattleStateEnum.GameOver.");
                 // End the battle here
                 BattleEngineViewModel.Instance.Engine.EndBattle();
+                GameOver();
                 await Navigation.PushAsync(new GameOverPage());
             }
             if (Navigation.NavigationStack.Count > 2)
             {
                 Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
             }
+        }
+
+        /// <summary>
+        /// Sends the score to Scoreviewmodel when battle is over
+        /// </summary>
+        public void GameOver()
+        {
+            // Save the Score to the Score View Model, by sending a message to it.
+
+            var Score = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore;
+
+            MessagingCenter.Send(this, "CreateScore", Score);
+
+            ShowBattleMode();
         }
 
         /// <summary>
