@@ -34,7 +34,7 @@
                             <StackLayout Style="{StaticResource HorizontalStack}"
                                  HorizontalOptions="Center">
                                 <Label Text="Score : " Style="{StaticResource MessageStyle}"/>
-                                <Label Text="0" x:Name="TotalScore" Style="{StaticResource MessageStyle}"/>
+                                <Label x:Name="TotalScore" Style="{StaticResource MessageStyle}"/>
                             </StackLayout>
 
                             <StackLayout>
