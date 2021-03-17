@@ -860,13 +860,16 @@ namespace Game.Views
         /// Clear the Board
         /// 
         /// </summary>
-        public void GameOver()
+        public async void GameOver()
         {
             // Save the Score to the Score View Model, by sending a message to it.
             var Score = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore;
             MessagingCenter.Send(this, "AddData", Score);
 
             ShowBattleMode();
+
+            await Navigation.PushAsync(new GameOverPage());
+
         }
         #endregion BasicBattleMode
 
@@ -910,9 +913,10 @@ namespace Game.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        public async void ExitButton_Clicked(object sender, EventArgs e)
+        public void ExitButton_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PopModalAsync();
+            Navigation.PopAsync();
+           // await Navigation.PopModalAsync();
         }
 
         /// <summary>
