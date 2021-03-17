@@ -98,10 +98,6 @@ namespace Game.Engine.EngineBase
 
             switch (EngineSettings.CurrentAction)
             {
-                //case ActionEnum.Unknown:
-                //    // Action already happened
-                //    break;
-
                 case ActionEnum.Attack:
                     result = Attack(Attacker);
                     break;
@@ -347,12 +343,15 @@ namespace Game.Engine.EngineBase
                 // For Attack, Choose Who
                 EngineSettings.CurrentDefender = AttackChoice(Attacker);
 
-
-
                 if (EngineSettings.CurrentDefender == null)
                 {
                     return false;
                 }
+            }
+
+            if (Attacker.PlayerType == PlayerTypeEnum.Monster)
+			{
+                EngineSettings.CurrentDefender = AttackChoice(Attacker);
             }
 
             // Do Attack
@@ -401,7 +400,6 @@ namespace Game.Engine.EngineBase
                 .Where(m => m.Alive && m.PlayerType == PlayerTypeEnum.Character)
                 .OrderBy(m => m.ListOrder).FirstOrDefault();
 
-            
             return Defender;
         }
 
