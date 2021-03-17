@@ -64,8 +64,6 @@ namespace Game.Engine.EngineGame
 
             // Reset the Action to unknown for next time
 
-            //throw new System.NotImplementedException();
-
             return base.TakeTurn(Attacker);
         }
 
@@ -92,7 +90,6 @@ namespace Game.Engine.EngineGame
 
             // See if Desired Target is within Range, and if so attack away
 
-            //throw new System.NotImplementedException();
             return base.DetermineActionChoice(Attacker);
         }
 
@@ -194,7 +191,6 @@ namespace Game.Engine.EngineGame
 
             // Don't try
 
-            //throw new System.NotImplementedException();
             return base.ChooseToUseAbility(Attacker);
         }
 
@@ -204,7 +200,6 @@ namespace Game.Engine.EngineGame
         public override bool UseAbility(PlayerInfoModel Attacker)
         {
             return base.UseAbility(Attacker);
-            //throw new System.NotImplementedException();
         }
 
         /// <summary>
@@ -236,7 +231,6 @@ namespace Game.Engine.EngineGame
 
             // Do Attack
 
-            //throw new System.NotImplementedException();
             return base.Attack(Attacker);
         }
 
@@ -245,7 +239,6 @@ namespace Game.Engine.EngineGame
         /// </summary>
         public override PlayerInfoModel AttackChoice(PlayerInfoModel data)
         {
-            //throw new System.NotImplementedException();
 
             switch (data.PlayerType)
             {
@@ -308,8 +301,6 @@ namespace Game.Engine.EngineGame
             // Attack the Weakness (lowest HP) MonsterModel first 
 
             // Teams, You need to implement your own Logic can not use mine.
-            //return base.SelectMonsterToAttack();
-            //throw new System.NotImplementedException();
 
             /*
             Instead of taking the first available monster, we chose the weakest or strongest.
@@ -375,10 +366,6 @@ namespace Game.Engine.EngineGame
             // If it is a character apply the experience earned
 
             // Battle Message 
-
-            //throw new System.NotImplementedException();
-
-            //return base.TurnAsAttack(Attacker, Target);
 
             if (Attacker == null)
             {
@@ -479,7 +466,7 @@ namespace Game.Engine.EngineGame
                 return true;
             }
 
-                return false;
+            return false;
         }
 
         /// <summary>
@@ -539,7 +526,6 @@ namespace Game.Engine.EngineGame
         /// </summary>
         public override HitStatusEnum BattleSettingsOverride(PlayerInfoModel Attacker)
         {
-            //throw new System.NotImplementedException();
             return base.BattleSettingsOverride(Attacker);
         }
 
@@ -550,7 +536,6 @@ namespace Game.Engine.EngineGame
         {
             // Based on the Hit Status, establish a message
 
-            //throw new System.NotImplementedException();
             return base.BattleSettingsOverrideHitStatusEnum(myEnum);
         }
 
@@ -561,7 +546,6 @@ namespace Game.Engine.EngineGame
         public override int ApplyDamage(PlayerInfoModel Target)
         {
             //apply the damage to target, if target is less than 0, cause death
-            //throw new System.NotImplementedException();
             return base.ApplyDamage(Target);
         }
 
@@ -570,7 +554,6 @@ namespace Game.Engine.EngineGame
         /// </summary>
         public override HitStatusEnum CalculateAttackStatus(PlayerInfoModel Attacker, PlayerInfoModel Target)
         {
-            //throw new System.NotImplementedException();
             // Remember Current Player
             EngineSettings.BattleMessagesModel.PlayerType = PlayerTypeEnum.Monster;
 
@@ -599,8 +582,7 @@ namespace Game.Engine.EngineGame
         /// </summary>
         public override bool CalculateExperience(PlayerInfoModel Attacker, PlayerInfoModel Target)
         {
-            //throw new System.NotImplementedException();
-            //return base.CalculateExperience(Attacker, Target);
+
             if (Attacker.PlayerType == PlayerTypeEnum.Character)
             {
                 var points = " points";
@@ -636,7 +618,6 @@ namespace Game.Engine.EngineGame
         /// </summary>
         public override bool RemoveIfDead(PlayerInfoModel Target)
         {
-            //throw new System.NotImplementedException();
             return base.RemoveIfDead(Target);
         }
 
@@ -677,8 +658,6 @@ namespace Game.Engine.EngineGame
 
             EngineSettings.BattleScore.GraduateModelList.Add(Character);
 
-            //DropItems(Target);
-
             found = EngineSettings.CharacterList.Remove(EngineSettings.CharacterList.Find(m => m.Guid.Equals(Character.Guid)));
             found = EngineSettings.PlayerList.Remove(EngineSettings.PlayerList.Find(m => m.Guid.Equals(Character.Guid)));
 
@@ -707,7 +686,6 @@ namespace Game.Engine.EngineGame
 
             // Add the MonsterModel to the killed list
 
-            //throw new System.NotImplementedException();
             return base.TargetDied(Target);
         }
 
@@ -722,9 +700,6 @@ namespace Game.Engine.EngineGame
             // If Random drops are enabled, then add some....
 
             // Add to ScoreModel
-
-            //throw new System.NotImplementedException();
-            //return base.DropItems(Target);
             
             var DroppedMessage = "\nItems Dropped : \n";
 
@@ -752,8 +727,6 @@ namespace Game.Engine.EngineGame
                     myItemList.Add(item);
                 }
             }
-
-            //myItemList.AddRange(GetRandomMonsterItemDrops(EngineSettings.BattleScore.RoundCount));
 
             // Add to ScoreModel
             foreach (var ItemModel in myItemList)
@@ -784,7 +757,6 @@ namespace Game.Engine.EngineGame
         /// <param name="DefenseScore"></param>
         public override HitStatusEnum RollToHitTarget(int AttackScore, int DefenseScore)
         {
-            //throw new System.NotImplementedException();
             return base.RollToHitTarget(AttackScore, DefenseScore);
         }
 
@@ -800,30 +772,11 @@ namespace Game.Engine.EngineGame
             // The Number drop can be Up to the Round Count, but may be less.  
             // Negative results in nothing dropped
 
-            //return base.GetRandomMonsterItemDrops(round);
-            //throw new System.NotImplementedException();
-
             /*
             Once monster is killed for the round, they will drop their item. 
                 1. find which monsters were killed
                 2. see if they have drop item
                 3. move that item to the list. make a copy of it. 
-            
-            List<PlayerInfoModel> DeadMonster = EngineSettings.BattleScore.MonsterModelDeathList;
-            var result = new List<ItemModel>();
-
-            foreach (PlayerInfoModel monster in DeadMonster)
-            {
-                var data = ItemIndexViewModel.Instance.GetItem(monster.UniqueDropItem);
-                result.Add(data);
-            }
-
-            return result;
-            */
-
-
-            /*
-            TODO: call get monsterUniqueItem with our game flavor random items
             
             We added in another method for helper. 
 
@@ -847,7 +800,6 @@ namespace Game.Engine.EngineGame
         /// </summary>
         public override bool DetermineCriticalMissProblem(PlayerInfoModel attacker)
         {
-            //throw new System.NotImplementedException();
             return base.DetermineCriticalMissProblem(attacker);
         }
     }
