@@ -324,7 +324,7 @@ namespace Game.GameRules
                     Range = 3,
                     Level = 1,
                     GPA = 80,
-                    MaxHealth = 100,
+                    MaxHealth = 10,
                     ImageURI = Constants.SpecificCharacterTypeOverachieverImageURI,
                     Head = null,
                     Necklace = null,
