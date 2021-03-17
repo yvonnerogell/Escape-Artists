@@ -29,16 +29,8 @@ namespace Game.Views
         {
             InitializeComponent();
 
-            // SetUp();
-
             // Update the Round Count
             TotalRound.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.RoundCount.ToString();
-
-            // Update the Found Number
-            // TotalFound.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelDropList.Count().ToString();
-
-            // Update the Selected Number, this gets updated later when selected refresh happens
-            // TotalSelected.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelSelectList.Count().ToString();
 
             DrawCharacterList();
 
@@ -104,9 +96,6 @@ namespace Game.Views
         {
             DrawDroppedItems();
             DrawSelectedItems();
-
-            // Only need to update the selected, the Dropped is set in the constructor
-            //TotalSelected.Text = BattleEngineViewModel.Instance.Engine.EngineSettings.BattleScore.ItemModelSelectList.Count().ToString();
         }
 
         /// <summary>
@@ -472,21 +461,6 @@ namespace Game.Views
 		{
             BattleEngineViewModel.Instance.Engine.EngineSettings.BattleStateEnum = BattleStateEnum.NewRound;
             await Navigation.PushAsync(new NewRoundPage());
-            if (Navigation.NavigationStack.Count > 2)
-            {
-                Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
-            }
-        }
-
-        /// <summary>
-        /// Navigates to the GameOverPage. This is a temporary button until the battle engine has been implemented.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        public async void GameOverButton_Clicked(object sender, EventArgs e)
-        {
-            //await Navigation.PushModalAsync(new NavigationPage(new GameOverPage()));
-            await Navigation.PushAsync(new GameOverPage());
             if (Navigation.NavigationStack.Count > 2)
             {
                 Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);

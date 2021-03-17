@@ -252,41 +252,6 @@ namespace UnitTests.Views
         }
 
         [Test]
-        public void RoundOverPage_GameOverButton_Clicked_Default_Should_Pass()
-        {
-            // Arrange
-
-            // Act
-            page.GameOverButton_Clicked(null, null);
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-
-        [Test]
-        public void RoundOverPage_GameOverButton_Clicked_NavigationStack_Should_Pass()
-        {
-            // Arrange
-            RoundOverPage page1 = new RoundOverPage();
-
-            page1.Navigation.PushAsync(new HomePage());
-            page1.Navigation.PushAsync(new GamePage());
-            page1.Navigation.PushAsync(new PickCharactersPage());
-            page1.Navigation.PushAsync(new NewRoundPage());
-            page1.Navigation.PushAsync(new BattlePageOne());
-
-            // Act
-            page1.GameOverButton_Clicked(null, null);
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-
-        [Test]
         public void RoundOverPage_CreatePlayerDisplayBox_Null_Should_Pass()
         {
             // Arrange

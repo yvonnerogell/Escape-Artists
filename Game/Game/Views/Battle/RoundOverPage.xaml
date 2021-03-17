@@ -67,17 +67,11 @@
                                 </StackLayout>
                             </Frame>
                         </Grid>
-                        
+
 
                         <Frame  BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10" HorizontalOptions="Center">
                             <StackLayout  Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" MinimumHeightRequest="250" WidthRequest="250">
                                 <Button Clicked="NextRoundButton_Clicked" Text="Next Round" Padding="2" Margin="2"/>
-                            </StackLayout>
-                        </Frame>
-
-                        <Frame  BackgroundColor="{StaticResource New_PageBackgroundColor}" CornerRadius="15" BorderColor="{StaticResource New_ButtonColor}" Margin="10" HorizontalOptions="Center">
-                            <StackLayout  Style="{StaticResource VerticalCenterStack}" VerticalOptions="Center" HorizontalOptions="Center" MinimumHeightRequest="250" WidthRequest="250">
-                                <Button Clicked="GameOverButton_Clicked" Text="Game Over! (temp)" Padding="2" Margin="2"/>
                             </StackLayout>
                         </Frame>
 
