@@ -45,6 +45,10 @@ namespace Game.Views
         /// <param name="e"></param>
         public async void CloseButton_Clicked(object sender, EventArgs e)
         {
+            if (Navigation.NavigationStack.Count > 2)
+            {
+                Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
+            }
             await Navigation.PopAsync();
         }
 
