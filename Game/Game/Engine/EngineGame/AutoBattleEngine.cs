@@ -32,22 +32,6 @@ namespace Game.Engine.EngineGame
         // Output Score
         #endregion Algrorithm
 
-        /// <summary>
-        /// Define the Battle variable 
-        /// </summary>
-        //public new IBattleEngineInterface Battle
-        //{
-        //    get
-        //    {
-        //        if (base.Battle == null)
-        //        {
-        //            base.Battle = new BattleEngine();
-        //        }
-        //        return base.Battle;
-        //    }
-        //    set { base.Battle = Battle; }
-        //}
-
         public AutoBattleEngine()
         {
             Battle = new BattleEngine();
@@ -123,7 +107,6 @@ namespace Game.Engine.EngineGame
         /// <returns></returns>
         public override bool CreateCharacterParty()
         {
-            //throw new System.NotImplementedException();
             return base.CreateCharacterParty();
         }
 
@@ -133,8 +116,6 @@ namespace Game.Engine.EngineGame
         /// <returns></returns>
         public override bool DetectInfinateLoop()
         {
-            //throw new System.NotImplementedException();
-
             return base.DetectInfinateLoop();
         }
     }
