@@ -263,12 +263,6 @@ namespace Game.Engine.EngineGame
         /// </summary>
         public override PlayerInfoModel SelectCharacterToAttack()
         {
-            // Select first in the list
-
-            // Teams, You need to implement your own Logic can not use mine.
-            //return base.SelectCharacterToAttack();
-
-            //throw new System.NotImplementedException();
 
             /*
             Instead of taking the first available character, we chose the weakest or strongest.
@@ -302,7 +296,6 @@ namespace Game.Engine.EngineGame
             Defender = EngineSettings.PlayerList
                 .Where(m => m.Alive && m.PlayerType == PlayerTypeEnum.Character)
                 .OrderBy(m => m.Level).LastOrDefault();
-
             return Defender;
         }
 
