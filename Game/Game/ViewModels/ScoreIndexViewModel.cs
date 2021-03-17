@@ -93,6 +93,12 @@ namespace Game.ViewModels
                 await WipeDataListAsync();
             });
 
+            // Register the Create Message
+            MessagingCenter.Subscribe<BattlePageOne, ScoreModel>(this, "CreateScore", async (obj, data) =>
+            {
+                await CreateAsync(data as ScoreModel);
+            });
+
             #endregion Messages
         }
 
