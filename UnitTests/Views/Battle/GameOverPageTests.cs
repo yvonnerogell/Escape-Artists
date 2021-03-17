@@ -71,6 +71,26 @@ namespace UnitTests.Views
         }
 
         [Test]
+        public void GameOverPage_CloseButton_Clicked_Default_Navigation_Should_Pass()
+        {
+            // Arrange
+            // Arrange
+            GameOverPage page1 = new GameOverPage();
+
+            page1.Navigation.PushAsync(new HomePage());
+            page1.Navigation.PushAsync(new GamePage());
+            page1.Navigation.PushAsync(new PickCharactersPage());
+
+            // Act
+            page1.CloseButton_Clicked(null, null);
+
+            // Reset
+
+            // Assert
+            Assert.IsTrue(true); // Got to here, so it happened...
+        }
+
+        [Test]
         public void GameOverPage_YourScoreButton_Clicked_Default_Should_Pass()
         {
             // Arrange
