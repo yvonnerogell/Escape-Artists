@@ -438,7 +438,6 @@ namespace Game.Engine.EngineGame
             // In Auto Battle this happens and the characters get their items
             // When called manualy, make sure to do the character pickup before calling EndRound
 
-            //throw new System.NotImplementedException();
             return base.PickupItemsForAllCharacters();
         }
 
@@ -460,8 +459,6 @@ namespace Game.Engine.EngineGame
             // If in Auto Battle pick the next attacker
 
             // Do the turn..
-
-            //throw new System.NotImplementedException();
 
             // No characters, game is over...
 
@@ -538,8 +535,6 @@ namespace Game.Engine.EngineGame
 
             // Get Next Player
 
-            //throw new System.NotImplementedException();
-
             return base.GetNextPlayerTurn();
         }
 
@@ -548,7 +543,6 @@ namespace Game.Engine.EngineGame
         /// </summary>
         public override List<PlayerInfoModel> RemoveDeadPlayersFromList()
         {
-            //throw new System.NotImplementedException();
             return base.RemoveDeadPlayersFromList();
         }
 
@@ -568,11 +562,6 @@ namespace Game.Engine.EngineGame
         /// </summary>
         public override List<PlayerInfoModel> OrderPlayerListByTurnOrder()
         {
-            // TODO Teams: Implement the order
-
-            //throw new System.NotImplementedException();
-
-            // TODO: remove use of base!!
             return base.OrderPlayerListByTurnOrder();
         }
 
@@ -589,7 +578,6 @@ namespace Game.Engine.EngineGame
 
             // Add the Monsters
 
-            //throw new System.NotImplementedException();
             return base.MakePlayerList();
         }
 
@@ -611,8 +599,6 @@ namespace Game.Engine.EngineGame
             // If at the end of the list, return the first element
 
             // Return the next element
-
-            //throw new System.NotImplementedException();
             
             return base.GetNextPlayerInList();
         }
@@ -627,9 +613,6 @@ namespace Game.Engine.EngineGame
 
             // I use the same logic for Auto Battle as I do for Manual Battle
 
-            //throw new System.NotImplementedException();
-
-            // TODO: remove use of base!! 
             /*
             We will be implementing different logic depending on Auto Battle and Manual Battle. 
             Auto Battle:
@@ -662,8 +645,6 @@ namespace Game.Engine.EngineGame
                 GetItemFromPoolIfBetter(character, ItemLocationEnum.RightFinger);
                 GetItemFromPoolIfBetter(character, ItemLocationEnum.LeftFinger);
 
-
-
                 // Have the character, walk the items in the pool, and decide if any are better than current one.
                 if (character.CharacterTypeEnum == CharacterTypeEnum.Student)
                 {
@@ -685,7 +666,6 @@ namespace Game.Engine.EngineGame
         /// </summary>
         public override bool GetItemFromPoolIfBetter(PlayerInfoModel character, ItemLocationEnum setLocation)
         {
-            //throw new System.NotImplementedException();
             return base.GetItemFromPoolIfBetter(character, setLocation);
         }
 
@@ -696,7 +676,6 @@ namespace Game.Engine.EngineGame
         /// </summary>
         public override ItemModel SwapCharacterItem(PlayerInfoModel character, ItemLocationEnum setLocation, ItemModel PoolItem)
         {
-            //throw new System.NotImplementedException();
             return base.SwapCharacterItem(character, setLocation, PoolItem);
         }
 
@@ -705,7 +684,6 @@ namespace Game.Engine.EngineGame
         /// </summary>
         public override bool RemoveCharacterBuffs()
         {
-            //throw new System.NotImplementedException();
             return base.RemoveCharacterBuffs();
         }
     }
