@@ -72,12 +72,6 @@
 
                 </StackLayout>
 
-                <StackLayout>
-                    <Label Text="" MinimumHeightRequest="300"/>
-
-                    <Button Text="Round Over (temp)!" Clicked="RoundOverButton_Clicked"/>
-                </StackLayout>
-
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

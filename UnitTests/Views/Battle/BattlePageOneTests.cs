@@ -394,42 +394,6 @@ namespace UnitTests.Views
             Assert.IsTrue(true); // Got to here, so it happened...
         }
 
-
-        [Test]
-        public void BattlePage_RoundOverButton_Clicked_Default_Should_Pass()
-        {
-            // Arrange
-
-            // Act
-            page.RoundOverButton_Clicked(null, null);
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-
-        [Test]
-        public void BattlePage_RoundOverButton_Clicked_NavigationStack_Should_Pass()
-        {
-            // Arrange
-            BattlePageOne page1 = new BattlePageOne();
-
-            page1.Navigation.PushAsync(new HomePage());
-            page1.Navigation.PushAsync(new GamePage());
-            page1.Navigation.PushAsync(new PickCharactersPage());
-            page1.Navigation.PushAsync(new NewRoundPage());
-
-            // Act
-            page1.RoundOverButton_Clicked(null, null);
-
-            // Reset
-
-            // Assert
-            Assert.IsTrue(true); // Got to here, so it happened...
-        }
-
-
         [Test]
         public void BattlePage_ExitButton_Clicked_Default_Should_Pass()
         {

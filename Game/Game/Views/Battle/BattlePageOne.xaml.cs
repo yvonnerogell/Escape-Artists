@@ -301,22 +301,6 @@ namespace Game.Views
             }
             return true;
 		}
-
-        /// <summary>
-        /// Navigates to Round Over Page. THis is a temporary button, will be removed once battle engine is implemented.
-        /// 
-        /// All lcoations are empty
-        /// </summary>
-        /// <returns></returns>
-        public async void RoundOverButton_Clicked(object sender, EventArgs e)
-        {
-            //await Navigation.PushModalAsync(new NavigationPage(new RoundOverPage()));
-            await Navigation.PushAsync(new RoundOverPage());
-            if (Navigation.NavigationStack.Count > 2)
-            {
-                Navigation.RemovePage(Navigation.NavigationStack[Navigation.NavigationStack.Count - 2]);
-            }
-        }
        
         #region PageHandelers
 
